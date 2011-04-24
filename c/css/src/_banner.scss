@@ -5,8 +5,7 @@
 		
 		h2
 		{
-			background-image: url(/images/title_compact.png);
-			padding-top: 8%;
+			top: 2px;
 		}
 		
 		h1
@@ -30,7 +29,7 @@ header[role="banner"]
 	{
 		font-weight: bold;
 		margin: 0 auto;
-		max-width: 738px;
+		max-width: 763px;
 		text-align: center;
 		text-transform: uppercase;
 	}
@@ -40,9 +39,11 @@ header[role="banner"]
 		background: transparent url(/images/title.png) no-repeat center top;
 		@include background-size('100%');
 		font-size: 0px;
-		opacity: 0.93;
+		padding-top: 7.5%;
+		position: relative;
 		text-indent: -3000em;
-		padding-top: 7%;
+		top: 7px;
+		z-index: 2;
 	}
 	
 	h1
@@ -55,7 +56,9 @@ header[role="banner"]
 			font-size: 0px;
 			opacity: 0.93;
 			overflow: hidden;
-			padding-top: 18%;
+			padding-top: 19%;
+			position: relative;
+			z-index: 1;
 			text-decoration: none;
 			text-indent: -3000em;
 			&:hover
