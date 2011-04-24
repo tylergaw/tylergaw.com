@@ -1,49 +1,65 @@
 @mixin sharedSmallScreen
 {
 	nav
-	{
-		ul
-		{
-			padding-right: 3.2%;
-		}
-		
+	{		
 		li
 		{
-			padding-left: 7px;
-			padding-right: 30px;
+			@include background-size('17px 14px');
+			margin-left: 2px;
+			padding-right: 22px;
 		}	
+		
+		a
+		{
+			font-size: 31px;
+		}
 	}
 }
 
 nav
 {
-	margin: 0 auto;
-	max-width: 738px;
+	background-color: fade-out(#000, 0.85);
+	border-top: 1px solid fade-out(#000, 0.9);
+	margin: 6px auto 0 auto;
+	max-width: 760px;
+	padding: 8px 0 4px 0;
 	text-align: center;
+	@include rotate(-0.3deg);
 	
 	ul
 	{
-		padding-right: 3%;
 		display: inline-block;
+		@include rotate(0.3deg);
 	}
 	
 	li
 	{		
+		background: transparent url(/images/nav_divider.png) no-repeat right 40%;
 		display: inline-block;
-		@include transition(padding, 0.2s);
+		margin-left: 25px;
+		padding-right: 60px;
+		@include transition(padding margin font-size background-size, 0.1s);
+		width: auto;
+		
+		&:first-child
+		{
+			margin-left: 0;
+		}
 		
 		&:last-child
 		{
+			background-image: none;
+			padding-right: 0;
 		}
 	}
 	
 	a
 	{
-		color: #c6ab4e;
+		color: #ddfbf9;
 		display: inline-block;
-		@include bebasNeue(30px);
+		@include bebasNeue(37px);
 		text-decoration: none;
-		@include text-shadow(fade-out(#000, 0.7), 1px, 1px, 1px);
+		@include text-shadow(#000, 0px, 2px, 0px);
 		text-transform: uppercase;
 		border-bottom: 3px solid transparent;
 		
@@ -51,13 +67,31 @@ nav
 		
 		&:hover, &.active
 		{
-			border-bottom-color: #663324;
-			color: lighten(#c6ab4e, 15%);
+			border-bottom-color: #fde906;
+			color: #fff;
 		}
 	}
 }
 
-@media all and (max-width: 480px)
+@media screen and (max-width: 560px)
+{
+	nav
+	{		
+		li
+		{
+			@include background-size('22px 17px');
+			margin-left: 15px;
+			padding-right: 38px;
+		}	
+		
+		a
+		{
+			font-size: 36px;
+		}
+	}
+}
+
+@media screen and (max-width: 480px)
 {
 	@include sharedSmallScreen;
 }
@@ -65,18 +99,4 @@ nav
 @media only screen and (max-device-width: 480px) and (orientation:portrait)
 {
 	@include sharedSmallScreen;
-	
-	nav
-	{
-		li
-		{
-			@include background-size('16px 16px');
-			padding-right: 32px;
-		}
-		
-		a
-		{
-			font-size: 26px;	
-		}
-	}
 }
