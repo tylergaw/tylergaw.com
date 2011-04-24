@@ -1,0 +1,95 @@
+@mixin sharedSmallScreen
+{
+	header[role="banner"]
+	{
+		background-image: url(/images/header_line_tile_compact.png), url(/images/header_bg_tile.png);
+		
+		h2
+		{
+			background-image: url(/images/title_compact.png), url(/images/header_bg_tile.png);
+			padding-top: 8%;
+		}
+		
+		h1
+		{		
+			a
+			{
+				padding-top: 18.5%;
+			}
+		}
+	}
+}
+
+header[role="banner"]
+{
+	background-color: #8e5536;
+	background-image: url(/images/header_line_tile.png), url(/images/header_bg_tile.png);
+	background-repeat: repeat-x, repeat;
+	background-position: left 6%, 90%;
+	border-bottom: 2px solid fade-out(#650b00, 0.8);
+	@include border-top-right-radius(6px);
+	@include border-bottom-right-radius(4px);
+	@include border-top-left-radius(3px);
+	color: #f0e9d7;
+	font-family: helvetica, arial, sans-serif;
+	
+	padding: 0 30px;
+	
+	hgroup
+	{
+		font-weight: bold;
+		margin: 0 auto;
+		max-width: 738px;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	
+	h2
+	{
+		background-image: url(/images/title.png), url(/images/header_bg_tile.png);
+		background-repeat: no-repeat, repeat;
+		background-position: center top, left top;
+		@include background-size('100%');
+		font-size: 0px;
+		opacity: 0.93;
+		text-indent: -3000em;
+		padding-top: 7%;
+	}
+	
+	h1
+	{		
+		a
+		{
+			background: transparent url(/images/tylergaw.png) no-repeat center top;
+			@include background-size('100%');
+			color: #f0e9d7;
+			display: block;
+			font-size: 0px;
+			opacity: 0.93;
+			overflow: hidden;
+			padding-top: 18%;
+			text-decoration: none;
+			text-indent: -3000em;
+			@include rotate(-0.3deg);
+			&:hover
+			{
+				opacity: 1;
+			}
+		}
+	}
+}
+
+@media all and (max-width: 480px)
+{
+	@include sharedSmallScreen;
+}
+
+@media only screen and (max-device-width: 480px) and (orientation:portrait)
+{
+	@include sharedSmallScreen;
+	
+	header[role="banner"]
+	{
+		padding: 0 15px;
+	}
+}

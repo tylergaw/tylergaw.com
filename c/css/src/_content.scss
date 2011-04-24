@@ -1,0 +1,29 @@
+#content
+{
+	background-color: fade-out(#cda92b, 0.8);
+	border-top: 4px solid fade-out(#a76c07, 0.6);
+	font-family: 'Chaparral Pro';
+	
+	a
+	{
+		color: #3c4f95;
+		
+		&:hover
+		{
+			text-decoration: none;
+		}
+	}
+	
+	h1
+	{
+		background-color: transparent;
+		background-image: url(/images/heading_border_tile.png), url(/images/heading_border_tile.png);
+		background-repeat: repeat-x, repeat-x;
+		background-position: left top, left bottom;
+		color: #502f1d;
+		@include bebasNeue(46px);
+		margin-bottom: 12px;
+		padding: 12px 0 6px 0;
+		text-transform: uppercase;
+	}
+}

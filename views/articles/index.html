@@ -1,0 +1,8 @@
+<h1>Here's some shit I've written. It probably sucks</h1>
+<ul>
+	<% for(var i=0; i < articles.length; i++) { %>
+		<li>
+			<a href="/articles/<%= articles[i].slug %>"><%= articles[i].title %></a>
+		</li>
+	<% } %>
+</ul>

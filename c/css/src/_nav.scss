@@ -1,0 +1,93 @@
+@mixin sharedSmallScreen
+{
+	nav
+	{
+		ul
+		{
+			padding-right: 3.2%;
+		}
+		
+		li
+		{
+			padding-left: 7px;
+			padding-right: 30px;
+		}	
+	}
+}
+
+nav
+{
+	background: transparent url(/images/nav_bg.png) no-repeat 6% 9px;
+	background-size: 50% 30%;
+	margin: 0 auto;
+	max-width: 738px;
+	text-align: right;
+	
+	ul
+	{
+		padding-right: 3%;
+		display: inline-block;
+	}
+	
+	li
+	{		
+		background-color: transparent;
+		background-image: url(/images/nav_star_divider.png), url(/images/header_bg_tile.png);
+		background-repeat: no-repeat, repeat;
+		background-position: 97% 4px, 90%;
+		display: block;
+		float: left;
+		padding-left: 15px;
+		padding-right: 39px;
+		@include transition(padding, 0.2s);
+		
+		&:last-child
+		{
+			background-image: none;
+			padding-right: 0px;
+		}
+	}
+	
+	a
+	{
+		color: #c6ab4e;
+		display: inline-block;
+		@include bebasNeue(30px);
+		text-decoration: none;
+		@include text-shadow(fade-out(#000, 0.7), 1px, 1px, 1px);
+		text-transform: uppercase;
+		border-bottom: 3px solid transparent;
+		
+		@include transition(color border-bottom-color, 0.1s);
+		
+		&:hover, &.active
+		{
+			border-bottom-color: #663324;
+			color: lighten(#c6ab4e, 15%);
+		}
+	}
+}
+
+@media all and (max-width: 480px)
+{
+	@include sharedSmallScreen;
+}
+
+@media only screen and (max-device-width: 480px) and (orientation:portrait)
+{
+	@include sharedSmallScreen;
+	
+	nav
+	{
+		li
+		{
+			@include background-size('16px 16px');
+			padding-right: 32px;
+		}
+		
+		a
+		{
+			font-size: 26px;	
+		}
+	}
+}

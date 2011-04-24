@@ -1,0 +1,90 @@
+@mixin sharedSmallScreen 
+{
+	#info
+	{
+		padding: 0px 0 15px 0;
+	}
+	
+	#portrait
+	{
+		opacity: 0;
+		width: 0;
+	}
+	
+	#portrait-compact
+	{
+		opacity: 1;
+		width: 45%;
+	}
+	
+	#bio
+	{
+		float: none;
+		margin: 0 auto;
+		max-width: 480px;
+		width: 90%;
+	}
+}
+
+#info
+{
+	margin: 0 auto;
+	max-width: 760px;
+	overflow: hidden;
+	padding: 20px 0;
+	width: 95%;
+	
+	p
+	{
+		line-height: 1.4em;
+		font-size: 19px;
+		margin-bottom: 15px;
+	}
+}
+
+#portrait
+{
+	float: left;
+	max-width: 434px;
+	position: relative;
+	width: 54%;
+	
+	img
+	{
+		width: 100%;
+	}
+	
+	@include transition(width opacity, 0.2s);
+	z-index: 0;
+}
+
+#bio
+{
+	float: right;
+	max-width: 345px;
+	padding-top: 20px;
+	position: relative;
+	width: 46%;
+	@include transition(width, 0.2s);
+	z-index: 1;
+}
+
+#portrait-compact
+{
+	display: inline-block;
+	float: left;
+	margin-right: 8px;
+	opacity: 0;
+	width: 0;
+	@include transition(width opacity, 0.2s);
+}
+
+@media all and (max-width: 480px)
+{
+	@include sharedSmallScreen;
+}
+
+@media only screen and (max-device-width: 480px) and (orientation:portrait)
+{
+	@include sharedSmallScreen;
+}

@@ -1,0 +1,75 @@
+footer
+{
+	background: #3f4447 url(/images/footer_bg_tile.png) repeat 90%;
+	@include border-top-right-radius(4px);
+	@include border-bottom-right-radius(6px);
+	border-top: 2px solid fade-out(#f6c548, 0.4);
+	border-left: 1px solid #000;
+	padding: 18px 15px;
+	text-align: center;
+	
+	h1
+	{
+		background: transparent url(/images/footer_border_tile.png) repeat-x left center;
+		color: #d6bf72;
+		font-size: 18px;
+		font-style: italic;
+		margin: 0 auto;
+		max-width: 760px;
+		@include text-shadow(fade-out(#000, 0.2), 0px, -1px, 0px);
+		
+		span
+		{
+			background: #3f4447 url(/images/footer_bg_tile.png) repeat left top;
+			padding: 0 8px;
+		}
+	}
+	
+	ul
+	{
+		background: transparent url(/images/footer_border_tile.png) repeat-x left bottom;
+		margin: 0 auto;
+		max-width: 760px;
+		padding: 8px 0 10px 0;
+	}
+	
+	li
+	{
+		display: inline-block;
+		margin-right: 20px;
+	}
+	
+	a
+	{
+		background: -moz-radial-gradient(center 45deg, circle closest-side, fade-out(#ede0c6, 0.8) 16px, transparent 17px);
+		background: -webkit-gradient(radial, center center, 16, center center, 17, from(fade-out(#ede0c6, 0.8)), to(transparent));
+		color: #ede0c6;
+		display: inline-block;
+		@include bebasNeue(28px);
+		letter-spacing: 0.05em;
+		opacity: 0.85;
+		padding: 8px;
+		text-align: center;
+		text-decoration: none;
+		text-transform: uppercase;
+		@include text-shadow(fade-out(#000, 0.3), 0px, 1px, 0px);
+		
+		&:hover
+		{
+			opacity: 1;
+		}
+	}
+}
+
+@media only screen and (max-device-width: 480px) and (orientation:portrait)
+{
+	footer
+	{
+		padding: 18px 5px;
+		
+		a
+		{
+			font-size: 26px;
+		}
+	}
+}

@@ -1,0 +1,10 @@
+$debug: false !default;
+
+@mixin debug-topo($opacity: .25){
+    @if $debug {
+        address, blockquote, dir, div, dl, fieldset, form, h1, h2,
+        h3, h4, h5, h6, ol, p, pre, table, ul {
+          background: rgba(0,0,0,$opacity) !important;
+        }
+    }
+}
