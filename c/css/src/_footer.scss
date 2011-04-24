@@ -1,16 +1,9 @@
 footer
 {
-	background: #3f4447 url(/images/footer_bg_tile.png) repeat 90%;
-	@include border-top-right-radius(4px);
-	@include border-bottom-right-radius(6px);
-	border-top: 2px solid fade-out(#f6c548, 0.4);
-	border-left: 1px solid #000;
-	padding: 18px 15px;
 	text-align: center;
 	
 	h1
 	{
-		background: transparent url(/images/footer_border_tile.png) repeat-x left center;
 		color: #d6bf72;
 		font-size: 18px;
 		font-style: italic;
@@ -20,14 +13,12 @@ footer
 		
 		span
 		{
-			background: #3f4447 url(/images/footer_bg_tile.png) repeat left top;
 			padding: 0 8px;
 		}
 	}
 	
 	ul
 	{
-		background: transparent url(/images/footer_border_tile.png) repeat-x left bottom;
 		margin: 0 auto;
 		max-width: 760px;
 		padding: 8px 0 10px 0;

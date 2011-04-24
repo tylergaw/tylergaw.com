@@ -17,11 +17,9 @@
 
 nav
 {
-	background: transparent url(/images/nav_bg.png) no-repeat 6% 9px;
-	background-size: 50% 30%;
 	margin: 0 auto;
 	max-width: 738px;
-	text-align: right;
+	text-align: center;
 	
 	ul
 	{
@@ -31,20 +29,11 @@ nav
 	
 	li
 	{		
-		background-color: transparent;
-		background-image: url(/images/nav_star_divider.png), url(/images/header_bg_tile.png);
-		background-repeat: no-repeat, repeat;
-		background-position: 97% 4px, 90%;
-		display: block;
-		float: left;
-		padding-left: 15px;
-		padding-right: 39px;
+		display: inline-block;
 		@include transition(padding, 0.2s);
 		
 		&:last-child
 		{
-			background-image: none;
-			padding-right: 0px;
 		}
 	}
 	
