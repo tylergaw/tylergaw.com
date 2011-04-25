@@ -14,14 +14,18 @@
 	
 	h1
 	{
-		background-color: transparent;
-		background-image: url(/images/heading_border_tile.png), url(/images/heading_border_tile.png);
-		background-repeat: repeat-x, repeat-x;
-		background-position: left top, left bottom;
-		color: #502f1d;
-		@include bebasNeue(46px);
+		//background-color: transparent;
+		//background-image: url(/images/heading_border_tile.png), url(/images/heading_border_tile.png);
+		//background-repeat: repeat-x, repeat-x;
+		//background-position: left top, left bottom;
+		background: transparent url(/images/header_text_bg_01.jpg) repeat center bottom;
+		-webkit-text-fill-color: transparent;
+		@include background-clip(text);
+		color: #fdec33;
+		@include bebasNeue(48px);
 		margin-bottom: 12px;
 		padding: 12px 0 6px 0;
+		//@include text-shadow(#000, 0px, 2px, 0px);
 		text-transform: uppercase;
 	}
 }
