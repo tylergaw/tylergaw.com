@@ -104,7 +104,7 @@ function bootController(app, file)
 		prefix = '/';
 	}
 	
-	// THE FUCK IS ALL THIS?
+	// For each of the controllers, do some shit
   	Object.keys(actions).map(function (action)
 	{
     	var fn = controllerAction(name, plural, action, actions[action]);

@@ -18,23 +18,18 @@
 
 nav
 {
-	background-color: fade-out(#000, 0.85);
-	border-top: 1px solid fade-out(#000, 0.9);
 	margin: 6px auto 0 auto;
 	max-width: 760px;
 	padding: 8px 0 4px 0;
 	text-align: center;
-	@include rotate(-0.3deg);
 	
 	ul
 	{
 		display: inline-block;
-		@include rotate(0.3deg);
 	}
 	
 	li
 	{		
-		background: transparent url(/images/nav_divider.png) no-repeat right 40%;
 		display: inline-block;
 		margin-left: 25px;
 		padding-right: 60px;

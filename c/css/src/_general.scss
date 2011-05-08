@@ -13,22 +13,19 @@
 
 html
 {
-	background-color: #f1e3d2;
-	background-image: url(/images/html_bg_tile_01.png);
-	background-repeat: repeat;
-	background-position: 95%;
-	padding: 1.5% 2% 2% 2%;
+	background: #fefefe url(/images/html_bg_tile.gif) repeat 95%;
+	padding: 8px;
 }
 
 body
 {
-	background-color: #252423;
-	background-image: url(/images/html_bg_tile_01.png), url(/images/body_bg_tile_01.png);
+	background-color: #2b2a29;
+	background-image: url(/images/body_bg_tile_03.png), url(/images/body_bg_tile_02.png), url(/images/body_bg_tile_01.png);
 	background-repeat: repeat;
-	background-position: 90%, 90%;
-	border: 7px solid transparent;
-	-moz-border-image: url(/images/body_border.png) 15 11 20 18 repeat repeat;
-	-webkit-border-image: url(/images/body_border.png) 15 11 20 18 repeat repeat;
-	border-image: url(/images/body_border.png) 15 11 20 18 repeat repeat;
+	background-position: 95% -50%, 120%, 80%;
+	border-width: 6px;
+	-moz-border-image: url(/images/body_border.png) 10 10 10 10 repeat repeat;
+	-webkit-border-image: url(/images/body_border.png) 10 10 10 10 repeat repeat;
+	border-image: url(/images/body_border.png) 10 10 10 10 repeat repeat;
 	color: #f1e3d2;
 }
