@@ -2,69 +2,7 @@
 {
 	nav
 	{		
-		li
-		{
-			@include background-size('17px 14px');
-			margin-left: 2px;
-			padding-right: 22px;
-		}	
-		
-		a
-		{
-			font-size: 31px;
-		}
-	}
-}
 
-nav
-{
-	margin: 6px auto 0 auto;
-	max-width: 760px;
-	padding: 8px 0 4px 0;
-	text-align: center;
-	
-	ul
-	{
-		display: inline-block;
-	}
-	
-	li
-	{		
-		display: inline-block;
-		margin-left: 25px;
-		padding-right: 60px;
-		@include transition(padding margin font-size background-size, 0.1s);
-		width: auto;
-		
-		&:first-child
-		{
-			margin-left: 0;
-		}
-		
-		&:last-child
-		{
-			background-image: none;
-			padding-right: 0;
-		}
-	}
-	
-	a
-	{
-		color: #ddfbf9;
-		display: inline-block;
-		@include bebasNeue(37px);
-		text-decoration: none;
-		@include text-shadow(#000, 0px, 2px, 0px);
-		text-transform: uppercase;
-		border-bottom: 3px solid transparent;
-		
-		@include transition(color border-bottom-color, 0.1s);
-		
-		&:hover, &.active
-		{
-			border-bottom-color: #fde906;
-			color: #fff;
-		}
 	}
 }
 
@@ -72,17 +10,7 @@ nav
 {
 	nav
 	{		
-		li
-		{
-			@include background-size('22px 17px');
-			margin-left: 15px;
-			padding-right: 38px;
-		}	
-		
-		a
-		{
-			font-size: 36px;
-		}
+
 	}
 }
 
@@ -94,4 +22,51 @@ nav
 @media only screen and (max-device-width: 480px) and (orientation:portrait)
 {
 	@include sharedSmallScreen;
+}
+
+nav
+{
+	font-family: 'atrament-web-1', 'atrament-web-2', sans-serif;
+	margin: 0 auto;
+	max-width: 900px;
+	padding-right: 12px;
+
+	ul
+	{
+		background: #efe62f url(/images/header_text_bg_01.jpg) repeat left bottom;
+		border-bottom: 1px solid fade-out(#1d1d1d, 0.5);
+		display: inline-block;
+		float: right;
+		margin-bottom: -20px;
+		padding: 0 6px 2px 6px;
+		position: relative;
+		top: -21px;
+		@include rotate(-0.4deg);
+	}
+	
+	li
+	{
+		display: inline-block;
+		margin-right: 16px;
+		
+		&:last-child
+		{
+			margin-right: 0;
+		}
+		
+		@include rotate(0.4deg);
+	}
+	
+	a
+	{
+		color: #2e2e2e;
+		font-size: 2.3em;
+		text-decoration: none;
+		text-transform: uppercase;
+		
+		&:hover
+		{
+			color: #000;
+		}
+	}
 }

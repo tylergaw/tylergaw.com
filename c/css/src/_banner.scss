@@ -3,69 +3,7 @@
 	header[role="banner"]
 	{
 		
-		h2
-		{
-			top: 2px;
-		}
 		
-		h1
-		{		
-			a
-			{
-				padding-top: 18.5%;
-			}
-		}
-	}
-}
-
-header[role="banner"]
-{	
-	color: #f0e9d7;
-	font-family: helvetica, arial, sans-serif;
-	
-	padding: 0 30px;
-	
-	hgroup
-	{
-		font-weight: bold;
-		margin: 0 auto;
-		max-width: 763px;
-		text-align: center;
-		text-transform: uppercase;
-	}
-	
-	h2
-	{
-		background: transparent url(/images/title.png) no-repeat center top;
-		@include background-size('100%');
-		font-size: 0px;
-		padding-top: 7.5%;
-		position: relative;
-		text-indent: -3000em;
-		top: 7px;
-		z-index: 2;
-	}
-	
-	h1
-	{		
-		a
-		{
-			background: transparent url(/images/tylergaw.png) no-repeat center top;
-			@include background-size('100%');
-			display: block;
-			font-size: 0px;
-			opacity: 0.93;
-			overflow: hidden;
-			padding-top: 19%;
-			position: relative;
-			z-index: 1;
-			text-decoration: none;
-			text-indent: -3000em;
-			&:hover
-			{
-				opacity: 1;
-			}
-		}
 	}
 }
 
@@ -80,6 +18,43 @@ header[role="banner"]
 	
 	header[role="banner"]
 	{
-		padding: 0 15px;
+		
+	}
+}
+
+header[role="banner"]
+{	
+	background-color: transparent;
+	background-image: url(/images/banner_btm_border.png), url(/images/body_bg_tile_02.png), url(/images/banner_bg_tile.png);
+	background-repeat: repeat-x, repeat, repeat;
+	background-position: 90% 105%, 70%, 90%;
+	color: #f0e9d7;
+	font-family: helvetica, arial, sans-serif;
+	
+	& > a
+	{
+		display: block;
+		margin: 0 auto;
+		max-width: 900px;
+		opacity: 0.9;
+		padding: 10px;
+		text-align: center;
+		
+		&:hover
+		{
+			opacity: 1;
+		}
+	}
+	
+	hgroup
+	{
+		background: transparent url(/images/banner.png) no-repeat center top;
+		@include background-size('100%');
+		padding-top: 8.9%;
+	}
+	
+	h1, h2
+	{
+		text-indent: -3000em;
 	}
 }
