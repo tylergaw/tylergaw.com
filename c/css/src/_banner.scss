@@ -28,6 +28,7 @@ header[role="banner"]
 	background-image: url(/images/banner_btm_border.png), url(/images/body_bg_tile_02.png), url(/images/banner_bg_tile.png);
 	background-repeat: repeat-x, repeat, repeat;
 	background-position: 90% 105%, 70%, 90%;
+	@include border-top-radius(6px);
 	color: #f0e9d7;
 	font-family: helvetica, arial, sans-serif;
 	

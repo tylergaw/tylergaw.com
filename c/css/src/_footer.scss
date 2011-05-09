@@ -1,55 +1,7 @@
-footer
+@mixin linkBg ($color)
 {
-	text-align: center;
-	
-	h1
-	{
-		color: #d6bf72;
-		font-size: 18px;
-		font-style: italic;
-		margin: 0 auto;
-		max-width: 760px;
-		@include text-shadow(fade-out(#000, 0.2), 0px, -1px, 0px);
-		
-		span
-		{
-			padding: 0 8px;
-		}
-	}
-	
-	ul
-	{
-		margin: 0 auto;
-		max-width: 760px;
-		padding: 8px 0 10px 0;
-	}
-	
-	li
-	{
-		display: inline-block;
-		margin-right: 20px;
-	}
-	
-	a
-	{
-		background: -moz-radial-gradient(center 45deg, circle closest-side, fade-out(#ede0c6, 0.8) 16px, transparent 17px);
-		background: -webkit-gradient(radial, center center, 16, center center, 17, from(fade-out(#ede0c6, 0.8)), to(transparent));
-		color: #ede0c6;
-		display: inline-block;
-		@include bebasNeue(28px);
-		letter-spacing: 0.05em;
-		opacity: 0.85;
-		padding: 8px;
-		text-align: center;
-		text-decoration: none;
-		text-transform: uppercase;
-		@include text-shadow(fade-out(#000, 0.3), 0px, 1px, 0px);
-		
-		&:hover
-		{
-			opacity: 1;
-		}
-	}
+	background: -moz-radial-gradient(center 45deg, circle closest-side, $color 16px, transparent 17px);
+	background: -webkit-gradient(radial, center center, 20, center center, 21, from($color), to(transparent));
 }
 
 @media only screen and (max-device-width: 480px) and (orientation:portrait)
@@ -61,6 +13,69 @@ footer
 		a
 		{
 			font-size: 26px;
+		}
+	}
+}
+
+footer
+{
+	background: fade-out(#0e0e0d, 0.9) url(/images/footer_top_border.png) repeat-x 90% top;
+	@include border-bottom-radius(6px);
+	padding: 15px 0;
+	text-align: center;
+	
+	ul
+	{
+		margin: 0 auto;
+		max-width: 900px;
+	}
+	
+	li
+	{
+		background: transparent url(/images/footer_item_divider.png) no-repeat right center;
+		display: inline-block;
+		padding-right: 55px;
+		
+		&:last-child
+		{
+			background-image: none;
+			padding-right: 0;
+		}
+	}
+	
+	a
+	{
+		@include linkBg(fade-out(#ede0c6, 0.8));
+		color: #f0f1f2;
+		display: inline-block;
+		font-family: 'atrament-web-1', 'atrament-web-2', sans-serif;
+		font-size: 2em;
+		letter-spacing: 0.06em;
+		opacity: 0.85;
+		padding: 6px 0px 9px 0px;
+		text-align: center;
+		text-decoration: none;
+		text-transform: uppercase;
+		text-shadow: fade-out(#000, 0.8) 0px 1px 1px;
+		
+		&:hover
+		{
+			opacity: 1;
+		}
+		
+		&[href*='twitter']
+		{
+			@include linkBg(fade-out(#5aa9db, 0.8));
+		}
+		
+		&[href*='dribbble']
+		{
+			@include linkBg(fade-out(#f64dc0, 0.8));
+		}
+		
+		&[href*='rss']
+		{
+			@include linkBg(fade-out(#ff8227, 0.8));
 		}
 	}
 }
