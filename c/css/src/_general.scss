@@ -2,6 +2,7 @@
 {
 	background-color: #fce704;
 	color: #201f1e;
+	text-shadow: none;
 }
 
 ::selection
@@ -9,6 +10,7 @@
 	background-color: #fce704;
 	color: #201f1e;
 	-webkit-text-fill-color: #201f1e;
+	text-shadow: none;
 }
 
 html
@@ -27,5 +29,5 @@ body
 	-moz-border-image: url(/images/body_border.png) 10 10 10 10 repeat repeat;
 	-webkit-border-image: url(/images/body_border.png) 10 10 10 10 repeat repeat;
 	border-image: url(/images/body_border.png) 10 10 10 10 repeat repeat;
-	color: #f1e3d2;
+	color: #efecda;
 }

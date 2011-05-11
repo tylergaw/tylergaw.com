@@ -26,7 +26,6 @@
 
 nav
 {
-	font-family: 'atrament-web-1', 'atrament-web-2', sans-serif;
 	margin: 0 auto;
 	max-width: 900px;
 	padding-right: 12px;
@@ -60,7 +59,7 @@ nav
 	a
 	{
 		color: #2e2e2e;
-		font-size: 2.3em;
+		@include atrament(2.3em);
 		text-decoration: none;
 		text-transform: uppercase;
 		

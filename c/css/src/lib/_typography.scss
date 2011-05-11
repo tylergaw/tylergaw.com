@@ -18,3 +18,13 @@ $font-path: '/fonts/' !default;
 {
 	font: #{$font-size}/#{$line-height} 'BebasNeueRegular', helvetica, arial , sans-serif;
 }
+
+@mixin atrament ($font-size, $line-height: 1em)
+{
+	font: #{$font-size}/#{$line-height} 'atrament-web-1', 'atrament-web-2', helvetica, sans-serif;
+}
+
+@mixin chaparral ($font-size, $line-height: 1em)
+{
+	font: #{$font-size}/#{$line-height} 'chaparral-pro-1', 'chaparral-pro-2', georgia, serif;
+}

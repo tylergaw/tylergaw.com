@@ -1,82 +1,92 @@
 @mixin sharedSmallScreen 
 {
-	#info
-	{
-		padding: 0px 0 15px 0;
-	}
-	
-	#portrait
-	{
-		opacity: 0;
-		width: 0;
-	}
-	
-	#portrait-compact
-	{
-		opacity: 1;
-		width: 45%;
-	}
-	
-	#bio
-	{
-		float: none;
-		margin: 0 auto;
-		max-width: 480px;
-		width: 90%;
-	}
+
 }
 
 #info
 {
-	margin: 0 auto;
-	max-width: 760px;
+	background: transparent url(/images/tylergaw_portrait.png) no-repeat 34% top;
+	clear: both;
+	margin: 26px auto 0 auto;
+	max-width: 900px;
 	overflow: hidden;
-	padding: 20px 0;
-	width: 95%;
+	width: 90%;
+	
+	h1
+	{
+		background-color: #ff0368;
+		clear: both;
+		color: #1d1d1d;
+		display: inline-block;
+		float: left;
+		line-height: 0.82em;
+		margin-bottom: 14px;
+	}
+	
+	.column-one
+	{
+		clear: left;
+		float: left;
+		width: 35%;
+	}
+	
+	.column-two
+	{
+		clear: right;
+		float: right;
+		width: 46%;
+		
+		p
+		{
+			clear: both;
+			float: right;
+			width: 75%;
+		}
+		
+		h3
+		{
+			background-color: #f2e517;
+			clear: both;
+			color: #2b2a29;
+			font-size: 1.1em;
+			font-weight: 600;
+			padding: 6px 4px 7px 4px;
+			text-align: right;
+			
+			a
+			{
+				color: #e82573;
+				text-decoration: none;
+				
+				&:hover
+				{
+					color: black;
+				}
+			}
+		}
+	}
 	
 	p
 	{
-		line-height: 1.4em;
-		font-size: 19px;
-		margin-bottom: 15px;
+		line-height: 1.3em;
+		padding-bottom: 16px;
+		text-shadow: #000 0px 1px 1px;
 	}
 }
 
 #portrait
 {
-	float: left;
-	max-width: 434px;
-	position: relative;
-	width: 54%;
-	
-	img
-	{
-		width: 100%;
-	}
-	
-	@include transition(width opacity, 0.2s);
-	z-index: 0;
+
 }
 
 #bio
 {
-	float: right;
-	max-width: 345px;
-	padding-top: 20px;
-	position: relative;
-	width: 46%;
-	@include transition(width, 0.2s);
-	z-index: 1;
+
 }
 
 #portrait-compact
 {
-	display: inline-block;
-	float: left;
-	margin-right: 8px;
-	opacity: 0;
-	width: 0;
-	@include transition(width opacity, 0.2s);
+
 }
 
 @media all and (max-width: 480px)

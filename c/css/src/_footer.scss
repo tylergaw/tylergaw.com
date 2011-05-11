@@ -1,6 +1,6 @@
 @mixin linkBg ($color)
 {
-	background: -moz-radial-gradient(center 45deg, circle closest-side, $color 16px, transparent 17px);
+	background: -moz-radial-gradient(center 45deg, circle closest-side, $color 20px, transparent 21px);
 	background: -webkit-gradient(radial, center center, 20, center center, 21, from($color), to(transparent));
 }
 
@@ -8,12 +8,7 @@
 {
 	footer
 	{
-		padding: 18px 5px;
 		
-		a
-		{
-			font-size: 26px;
-		}
 	}
 }
 
@@ -45,12 +40,10 @@ footer
 	
 	a
 	{
-		@include linkBg(fade-out(#ede0c6, 0.8));
+		@include linkBg(fade-out(#5aa9db, 0.8));
 		color: #f0f1f2;
 		display: inline-block;
-		font-family: 'atrament-web-1', 'atrament-web-2', sans-serif;
-		font-size: 2em;
-		letter-spacing: 0.06em;
+		@include atrament(2.1em);
 		opacity: 0.85;
 		padding: 6px 0px 9px 0px;
 		text-align: center;
@@ -65,17 +58,17 @@ footer
 		
 		&[href*='twitter']
 		{
-			@include linkBg(fade-out(#5aa9db, 0.8));
+			@include linkBg(fade-out(#5aa9db, 0.7));
 		}
 		
 		&[href*='dribbble']
 		{
-			@include linkBg(fade-out(#f64dc0, 0.8));
+			@include linkBg(fade-out(#f64dc0, 0.7));
 		}
 		
 		&[href*='rss']
 		{
-			@include linkBg(fade-out(#ff8227, 0.8));
+			@include linkBg(fade-out(#ff8227, 0.7));
 		}
 	}
 }
