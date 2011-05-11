@@ -3,6 +3,16 @@
 
 }
 
+@media all and (max-width: 480px)
+{
+	@include sharedSmallScreen;
+}
+
+@media only screen and (max-device-width: 480px) and (orientation:portrait)
+{
+	@include sharedSmallScreen;
+}
+
 #info
 {
 	background: transparent url(/images/tylergaw_portrait.png) no-repeat 34% top;
@@ -10,7 +20,9 @@
 	margin: 26px auto 0 auto;
 	max-width: 900px;
 	overflow: hidden;
-	width: 90%;
+	padding: 0 10px;
+	@include transition-property(background-position);
+	@include transition-duration(0.2s);
 	
 	h1
 	{
@@ -74,27 +86,60 @@
 	}
 }
 
-#portrait
+@media all and (max-width: 810px)
 {
-
+	#info
+	{
+		background-position: 35% 4%;
+		@include background-size('78%');
+	}
 }
 
-#bio
+@media all and (max-width: 615px)
 {
-
-}
-
-#portrait-compact
-{
-
+	#info
+	{	
+		background-position: 180% 4%;
+		
+		h1
+		{
+			font-size: 2.5em;
+		}
+		
+		.column-one
+		{
+			
+		}
+		
+		.column-one p:first-child
+		{
+			width: 65%;
+		}
+		
+		.column-one, 
+		.column-two,
+		.column-two p
+		{
+			clear: both;
+			float: none;
+			width: 100%;
+		}
+		
+		.column-two h3
+		{
+			text-align: center;
+		}
+	}
 }
 
 @media all and (max-width: 480px)
 {
-	@include sharedSmallScreen;
-}
-
-@media only screen and (max-device-width: 480px) and (orientation:portrait)
-{
-	@include sharedSmallScreen;
+	#info
+	{
+		h1
+		{
+			font-size: 2.1em;
+			margin-bottom: 8px;
+		}
+	}
 }
