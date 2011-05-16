@@ -4,15 +4,7 @@
 	background: -webkit-gradient(radial, center center, 20, center center, 21, from($color), to(transparent));
 }
 
-@media only screen and (max-device-width: 480px) and (orientation:portrait)
-{
-	footer
-	{
-		
-	}
-}
-
-footer
+footer[role="authorinfo"]
 {
 	background: fade-out(#0e0e0d, 0.9) url(/images/footer_top_border.png) repeat-x 90% top;
 	@include border-bottom-radius(6px);

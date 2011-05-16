@@ -1,18 +1,3 @@
-@mixin sharedSmallScreen 
-{
-
-}
-
-@media all and (max-width: 480px)
-{
-	@include sharedSmallScreen;
-}
-
-@media only screen and (max-device-width: 480px) and (orientation:portrait)
-{
-	@include sharedSmallScreen;
-}
-
 #info
 {
 	background: transparent url(/images/tylergaw_portrait.png) no-repeat 34% top;
@@ -20,7 +5,7 @@
 	margin: 26px auto 0 auto;
 	max-width: 900px;
 	overflow: hidden;
-	padding: 0 10px;
+	padding: 0 10px 15px 10px;
 	@include transition-property(background-position);
 	@include transition-duration(0.2s);
 	
@@ -73,6 +58,7 @@
 				&:hover
 				{
 					color: black;
+					background-color: transparent;
 				}
 			}
 		}
@@ -82,7 +68,7 @@
 	{
 		line-height: 1.3em;
 		padding-bottom: 16px;
-		text-shadow: #000 0px 1px 1px;
+		text-shadow: #080808 0px 0px 2px;
 	}
 }
 
@@ -90,7 +76,7 @@
 {
 	#info
 	{
-		background-position: 35% 4%;
+		background-position: 35% 6px;
 		@include background-size('78%');
 	}
 }
@@ -99,21 +85,16 @@
 {
 	#info
 	{	
-		background-position: 180% 4%;
+		background-position: 200% 20px;
 		
 		h1
 		{
 			font-size: 2.5em;
 		}
 		
-		.column-one
+		.column-one p
 		{
-			
-		}
-		
-		.column-one p:first-child
-		{
-			width: 65%;
+			width: 70%;
 		}
 		
 		.column-one, 
