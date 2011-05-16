@@ -115,6 +115,7 @@
 	{
 		background: transparent url(/images/horizontal_divider.png) repeat-x left top;
 		margin-top: 4px;
+		min-width: 160px;
 		padding-top: 15px;
 		width: 65%;
 	}
@@ -139,6 +140,14 @@
 			margin: 0 auto;
 			width: 95%;
 		}
+	}
+}
+
+@media all and (max-width: 650px)
+{
+	.entry-meta
+	{
+		
 	}
 }
 
