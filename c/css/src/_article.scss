@@ -46,12 +46,6 @@
 	padding: 14px 0 10px 30%;
 }
 
-.entry-meta
-{
-	float: left;
-	width: 30%;
-}
-
 .entry-content
 {
 	
@@ -93,8 +87,10 @@
 
 .entry-meta
 {
+	float: left;
 	font-size: 0.75em;
 	margin-top: 10px;
+	width: 30%;
 	
 	i
 	{
@@ -123,6 +119,32 @@
 
 @media all and (max-width: 690px)
 {
+	.entry-meta
+	{
+		background-image: url(/images/horizontal_divider.png), url(/images/horizontal_divider.png);
+		background-repeat: repeat-x;
+		background-position: left top, left bottom;
+		float: none;
+		margin-bottom: 20px;
+		overflow: hidden;
+		padding: 15px 0 8px 0;
+		width: 95%;
+		
+		li
+		{
+			padding: 0 0 0 15px;
+		}
+		
+		#rdbWrapper
+		{
+			background: none;
+			margin-top: 6px;
+			min-width: auto;
+			padding-top: 0;
+			width: auto;
+		}
+	}
+	
 	.entry-content
 	{
 
@@ -143,11 +165,19 @@
 	}
 }
 
-@media all and (max-width: 650px)
+@media all and (max-width: 480px)
 {
-	.entry-meta
+	.hentry
 	{
-		
+		footer 
+		{
+			strong
+			{
+				@include background-size('100%');
+				top: -8px;
+				width: 200px;
+			}
+		}
 	}
 }
 
