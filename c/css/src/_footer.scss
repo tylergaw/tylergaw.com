@@ -21,7 +21,7 @@ footer[role="authorinfo"]
 	{
 		background: transparent url(/images/footer_item_divider.png) no-repeat right center;
 		display: inline-block;
-		padding-right: 55px;
+		padding-right: 65px;
 		
 		&:last-child
 		{
@@ -61,6 +61,24 @@ footer[role="authorinfo"]
 		&[href*='rss']
 		{
 			@include linkBg(fade-out(#ff8227, 0.7));
+		}
+		
+		&[href*='readability']
+		{
+			@include linkBg(fade-out(#b81c28, 0.7));
+		}
+	}
+	
+	@media all and (max-width: 615px)
+	{
+		a
+		{
+			font-size: 1.7em
+		}
+		
+		li
+		{
+			padding-right: 40px;
 		}
 	}
 }
