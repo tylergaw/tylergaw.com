@@ -1,0 +1,133 @@
+#articles
+{
+	clear: both;
+	margin: 0 auto;
+	max-width: 900px;
+	overflow: hidden;
+	padding: 0 10px 15px 10px;
+	
+	li
+	{
+		background-color: transparent;
+		background-repeat: no-repeat;
+		background-position: 4% center;
+		@include background-size('18%');
+		margin: 10px auto;
+	}
+	
+	a
+	{
+		display: block;
+		padding: 36px 0 40px 26%;
+		@include transition-property('padding');
+		@include transition-duration(0.2s);
+		
+		&:hover
+		{
+			background-color: transparent;
+			
+			h2
+			{
+				color: #fdec33;
+			}
+
+			b
+			{
+				border-bottom-color: #f1f1f1;
+			}
+		}
+	}
+	
+	time
+	{
+		background: transparent url(/images/horizontal_divider.png) repeat-x 20% center;
+		color: #2d2d2d;
+		display: block;
+		font-size: 0.75em;
+		font-style: italic;
+		font-weight: 600;
+		
+		span
+		{
+			background-color: desaturate(#fdec33, 15%);
+			padding: 0 4px;
+		}
+	}
+	
+	h2
+	{
+		color: #f1f1f1;
+		@include atrament(2.5em);
+		margin-top: 4px;
+		text-transform: uppercase;
+	}
+	
+	p
+	{
+		color: #f1f1f1;
+		clear: right;
+		font-size: 0.95em;
+		font-style: italic;
+		line-height: 1.3em;
+	}
+	
+	b
+	{
+		border-bottom: 1px solid fade-out(#fdec33, 0.8);
+		display: inline-block;
+		font-size: 0.75em;
+		font-style: italic;
+		margin-top: 8px;
+		float: right;
+	}
+	
+// Article specific
+	
+	.i-less-than-three-ie6
+	{
+		background-image: url(/images/entryAssets/i-less-than-three-ie6/listingGraphic.png);
+		
+		a:hover 
+		{
+		 	h2, b
+			{
+				color: #528eb7;
+			}
+			
+		}
+	}
+	
+	.you-did-what-with-what
+	{
+		a:hover
+		{
+			h2, b
+			{
+				color: #b01a45;
+			}
+		}
+	}
+	
+
+// Responsive
+	
+	@media all and (max-width: 615px)
+	{
+		h2
+		{
+			font-size: 1.8em;
+		}
+		
+		li,
+		.i-less-than-three-ie6
+		{
+			background-image: none;
+			width: 95%;
+		}
+		
+		a
+		{
+			padding: 18px 0 24px 0;
+		}
+	}
+}
