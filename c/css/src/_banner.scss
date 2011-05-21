@@ -1,27 +1,3 @@
-@mixin sharedSmallScreen
-{
-	header[role="banner"]
-	{
-		
-		
-	}
-}
-
-@media all and (max-width: 480px)
-{
-	@include sharedSmallScreen;
-}
-
-@media only screen and (max-device-width: 480px) and (orientation:portrait)
-{
-	@include sharedSmallScreen;
-	
-	header[role="banner"]
-	{
-		
-	}
-}
-
 header[role="banner"]
 {	
 	background-color: transparent;
@@ -58,5 +34,21 @@ header[role="banner"]
 	{
 		font-size: 1em;
 		text-indent: -3000em;
+	}
+	
+	
+	@media all and (max-width: 500px)
+	{
+		
+		& > a
+		{
+			padding-top: 4px;
+		}
+		
+		hgroup
+		{
+			background-image: url(/images/banner_narrow.png);
+			padding-top: 18%;
+		}
 	}
 }
