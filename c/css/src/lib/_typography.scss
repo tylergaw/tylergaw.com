@@ -21,10 +21,10 @@ $font-path: '/fonts/' !default;
 
 @mixin atrament ($font-size, $line-height: 1em)
 {
-	font: #{$font-size}/#{$line-height} 'atrament-web-1', 'atrament-web-2', helvetica, sans-serif;
+	font: #{$font-size}/#{$line-height} 'atrament-web-1', 'atrament-web-2', 'BebasNeueRegular', helvetica, sans-serif;
 }
 
 @mixin chaparral ($font-size, $line-height: 1em)
 {
-	font: #{$font-size}/#{$line-height} 'chaparral-pro-1', 'chaparral-pro-2', georgia, serif;
+	font: #{$font-size}/#{$line-height} 'chaparral-pro-1', 'chaparral-pro-2', 'Chaparral Pro', georgia, serif;
 }
