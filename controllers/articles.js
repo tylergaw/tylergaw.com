@@ -29,7 +29,7 @@ new mongodb.Db('tylergaw', server, {}).open(function (err, client)
 module.exports = {
 	index: function (req, res)
 	{
-		res.render('articles', {articles: articles});
+		res.render('articles', {articles: articles, activeId: 'articles'});
 	},
 	
 	show: function (req, res, next)

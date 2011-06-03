@@ -5,6 +5,6 @@
 module.exports = {
 	index: function (req, res)
 	{
-		res.render();
+		res.render('info', {activeId: 'info'});
 	}
 };

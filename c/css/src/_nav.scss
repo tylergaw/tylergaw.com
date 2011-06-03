@@ -37,7 +37,7 @@ nav
 		display: inline-block;
 		float: right;
 		margin-bottom: -20px;
-		padding: 0 6px 2px 6px;
+		padding: 1px 8px 1px 8px;
 		position: relative;
 		top: -21px;
 		@include rotate(-0.4deg);
@@ -56,14 +56,26 @@ nav
 	
 	a
 	{
+		border-bottom: 4px solid transparent;
 		color: #2e2e2e;
+		display: inline-block;
 		@include atrament(2.3em);
 		text-decoration: none;
 		text-transform: uppercase;
 		
 		&:hover
 		{
+			border-bottom-color: #d45415;
 			color: #000;
 		}
 	}
+}
+
+#page-projects nav a[href*='projects'],
+#page-articles nav a[href*='articles'],
+#page-info nav a[href*='info']
+{
+	border-bottom-color: #d45415;
+	color: #000;
+	cursor: default;
 }

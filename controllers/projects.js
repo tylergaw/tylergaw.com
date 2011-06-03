@@ -5,7 +5,7 @@
 module.exports = {
 	index: function (req, res)
 	{
-		res.render('projects');
+		res.render('projects', {activeId: 'projects'});
 	},
 	
 	show: function (req, res, next)
