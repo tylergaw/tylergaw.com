@@ -3,16 +3,20 @@
 	margin: 0 auto;
 	max-width: 900px;
 	overflow: hidden;
+	padding: 40px 0;
 	width: 95%;
 	
 	li
 	{
+		margin-bottom: 30px;
 		overflow: hidden;
 	}
 	
 	h1
 	{
 		background: transparent url(/images/fuzzy_grain.png) repeat 90%;
+		color: #000;
+		display: inline-block;
 		font-size: 4em;
 	}
 	
@@ -72,11 +76,36 @@
 	{
 		background-color: desaturate(#f78104, 10%);
 		clear: both;
-		color: #000;
-		display: inline-block;
 		float: right;
 		font-size: 5.8em;
 		line-height: 0.8;
 		margin-bottom: 18px;
+	}
+}
+
+#themanfromhollywood
+{
+	background: transparent url(/images/project_mfh_bg_full.png) no-repeat center 5%;
+	@include background-size('96%');
+	padding: 125px 0 0px 0;
+	
+	h1
+	{
+		background-image: none;
+		clear: both;
+		font-size: 5.8em;
+		line-height: 0.85;
+		margin-bottom: 14px;
+		
+		span
+		{
+			background: #a8194b url(/images/fuzzy_grain.png) repeat 90%;
+			display: inline-block;
+			
+			&:first-child
+			{
+				font-size: 0.85em;
+			}
+		}
 	}
 }
