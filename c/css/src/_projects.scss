@@ -63,23 +63,10 @@
 
 #fullcourtshots
 {
-	$imgPrefix: '/images/project_fcs_bg_';
 	@extend .alternate-layout;
-	
-	
-	background-image: url('#{$imgPrefix}tl.png'), 
-					  url('#{$imgPrefix}tr.png'),
-					  url('#{$imgPrefix}bl.png'),
-					  url('#{$imgPrefix}br.png');
-	background-repeat: no-repeat;
-	background-position: 2% 1%, 
-						 95% 1%,
-						 5% 72%,
-						 25% 95%;
-	@include background-size('60%', '20%');
+	background: transparent url(/images/project_fcs_bg_full.png) no-repeat 40% 18%;
+	@include background-size('94%');
 	padding: 125px 0 80px 0;
-	
-	//background: transparent url('#{$imgPrefix}full.png') no-repeat center top;
 	
 	h1
 	{
@@ -90,6 +77,6 @@
 		float: right;
 		font-size: 5.8em;
 		line-height: 0.8;
-		margin-bottom: 22px;
+		margin-bottom: 18px;
 	}
 }
