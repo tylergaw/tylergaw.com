@@ -38,7 +38,7 @@ module.exports = {
 		{
 			cursor.toArray(function (err, article)
 			{
-				res.render('articles/show', {article: article[0]});
+				res.render('articles/show', {article: article[0], activeId: 'general'});
 			});
 		});
  	}

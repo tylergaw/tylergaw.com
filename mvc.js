@@ -128,35 +128,35 @@ function controllerAction (name, plural, action, fn)
     	  , format = req.params.format
     	  , path = __dirname + '/views/' + name + '/' + action + '.html';
 
-    res.render = function(obj, options, fn){
-      res.render = render;
+    	res.render = function (obj, options, fn) {
+			res.render = render;
       
-	// Template path
-      if (typeof obj === 'string') {
-        return res.render(obj, options, fn);
-      }
+			// Template path
+      		if (typeof obj === 'string') {
+        		return res.render(obj, options, fn);
+      		}
 
-      // Format support
-      if (action == 'show' && format) {
-        if (format === 'json') {
-          return res.send(obj);
-        } else {
-          throw new Error('unsupported format "' + format + '"');
-        }
-      }
+			// Format support
+			if (action == 'show' && format) {
+				if (format === 'json') {
+					return res.send(obj);
+			  	} else {
+					throw new Error('unsupported format "' + format + '"');
+			  	}
+			}
 
-      // Render template
-      res.render = render;
-      options = options || {};
+      		// Render template
+      		res.render = render;
+      		options = options || {};
 
-      // Expose obj as the "users" or "user" local
-      if (action == 'index') {
-        options[plural] = obj;
-      } else {
-        options[name] = obj;
-      }
-      return res.render(path, options, fn);
-    };
-    fn.apply(this, arguments);
-  };
+      		// Expose obj as the "users" or "user" local
+      		if (action == 'index') {
+        		options[plural] = obj;
+      		} else {
+        		options[name] = obj;
+      		}
+      		return res.render(path, options, fn);
+    	};
+    	fn.apply(this, arguments);
+  	};
 }

@@ -10,6 +10,6 @@ module.exports = {
 	
 	show: function (req, res, next)
 	{
-		res.render('projects/show', {project: req.params.id});
+		res.render('projects/show', {project: req.params.id, activeId: 'general'});
  	}
 };
