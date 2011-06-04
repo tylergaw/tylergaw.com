@@ -7,13 +7,12 @@
 	width: 95%;
 	
 	li
-	{
-		//border-top: 1px solid red;
-		//border-bottom: 1px solid red;
-		
+	{		
 		margin: 0 auto 40px auto;
 		overflow: hidden;
-		width: 100%;		
+		width: 100%;	
+		@include transition-duration(0.2s);
+		@include transition-property('background-position, padding');	
 	}
 	
 	h1
@@ -22,6 +21,8 @@
 		color: #1d1d1d;
 		display: inline-block;
 		font-size: 4em;
+		@include transition-duration(0.2s);
+		@include transition-property('font-size');
 	}
 	
 	p
@@ -96,8 +97,6 @@
 	background: transparent url(/images/project_fcs_bg_full.png) no-repeat 39% 30%;
 	@include background-size('94%');
 	padding: 15% 0 8% 0;
-	@include transition-duration(0.2s);
-	@include transition-property('background-position, padding');
 	
 	h1
 	{
@@ -108,8 +107,6 @@
 		line-height: 0.8;
 		margin-bottom: 18px;
 		text-align: right;
-		@include transition-duration(0.2s);
-		@include transition-property('font-size');
 	}
 	
 	@media all and (max-width: 750px)
@@ -142,7 +139,7 @@
 {
 	background: transparent url(/images/project_mfh_bg_full.png) no-repeat right 45%;
 	@include background-size('98%');
-	padding: 100px 0 25px 0;
+	padding: 11% 0 2% 0;
 	
 	h1
 	{
@@ -161,6 +158,30 @@
 			{
 				font-size: 0.85em;
 			}
+		}
+	}
+	
+	@media all and (max-width: 720px)
+	{
+		background-position: right top;
+		padding: 8% 0 0 0;
+		
+		h1
+		{
+			font-size: 4.9em;
+		}
+	}
+	
+	@media all and (max-width: 600px)
+	{
+		background-image: none;
+		padding: 0;
+		
+		h1
+		{
+			font-size: 3em;
+			text-align: left;
+			float: none;
 		}
 	}
 }
