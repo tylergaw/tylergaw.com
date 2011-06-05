@@ -71,12 +71,15 @@
 		
 		p
 		{
-			float: none;
-			width: 100%;
+			float: right;
+			font-size: 0.85em;
+			width: 65%;
 		}
 		
 		footer
 		{
+			clear: both;
+			float: right;
 			width: 100%;
 		}
 	}
@@ -123,7 +126,8 @@
 	
 	@media all and (max-width: 600px)
 	{
-		background-image: none;
+		background: transparent url(/images/project_fcs_bg_small.png) no-repeat left 25%;
+		@include background-size('34%');
 		padding: 0;
 		
 		h1
@@ -174,7 +178,8 @@
 	
 	@media all and (max-width: 600px)
 	{
-		background-image: none;
+		background: transparent url(/images/project_mfh_bg_small.png) no-repeat left 120px;
+		@include background-size('34%');
 		padding: 0;
 		
 		h1
