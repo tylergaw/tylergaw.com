@@ -99,6 +99,9 @@
 	
 	.you-did-what-with-what
 	{
+		background-image: url(/images/entryAssets/you-did-what-with-what/listingGraphic.png);
+		@include background-size('20%');
+		
 		a:hover
 		{
 			h2, b
@@ -119,7 +122,8 @@
 		}
 		
 		li,
-		.i-less-than-three-ie6
+		.i-less-than-three-ie6,
+		.you-did-what-with-what
 		{
 			background-image: none;
 			width: 95%;
