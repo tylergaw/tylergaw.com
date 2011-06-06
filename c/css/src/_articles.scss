@@ -83,6 +83,21 @@
 	
 // Article specific
 	
+	.all-talkie-talkie
+	{
+		background-image: url(/images/entryAssets/all-talkie-talkie/listingGraphic.png);
+		@include background-size('22%');
+		
+		a:hover 
+		{
+		 	h2, b
+			{
+				color: #4eae8b;
+			}
+			
+		}
+	}
+	
 	.i-less-than-three-ie6
 	{
 		background-image: url(/images/entryAssets/i-less-than-three-ie6/listingGraphic.png);
@@ -123,7 +138,8 @@
 		
 		li,
 		.i-less-than-three-ie6,
-		.you-did-what-with-what
+		.you-did-what-with-what,
+		.all-talkie-talkie
 		{
 			background-image: none;
 			width: 95%;
