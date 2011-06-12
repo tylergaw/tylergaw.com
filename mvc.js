@@ -28,7 +28,7 @@ function bootApplication (app)
 	// Find out what this is
 	app.use(express.session({ secret: 'keyboard cat' }));
 	app.use(app.router);
-	app.use(express.static(__dirname + '/c'));
+	//app.use(express.static(__dirname + '/c'));
 
 	// Example 500 page
 	app.error(function (err, req, res)
