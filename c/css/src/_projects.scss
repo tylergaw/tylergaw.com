@@ -8,7 +8,6 @@
 	
 	li
 	{		
-		margin: 0 auto 40px auto;
 		overflow: hidden;
 		width: 100%;	
 		@include transition-duration(0.2s);
@@ -44,8 +43,13 @@
 		
 		a:first-child
 		{
+			display: inline-block;
 			font-size: 1.12em;
 			font-weight: 600;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			width: 100%;
 		}
 		
 		a:last-child
@@ -99,8 +103,9 @@
 	@extend .alternate-layout;
 	background: transparent url(/images/project_fcs_bg_full.png) no-repeat 39% 30%;
 	@include background-size('94%');
+	margin-bottom: 0px;
 	padding: 15% 0 8% 0;
-	
+		
 	h1
 	{
 		background-color: desaturate(#f78104, 10%);
@@ -139,12 +144,32 @@
 	}
 }
 
+#jribbble
+{
+	background: transparent url(/images/project_jribbble_bg_full.png) no-repeat right 4%;
+	@include background-size('65%');
+	margin-bottom: -40px;
+	padding: 26% 0 8% 0;
+	position: relative;
+	top: -70px;
+		
+	h1
+	{
+		background-color: #fb389d;
+		clear: both;
+		font-size: 7.4em;
+		line-height: 0.8;
+		margin-bottom: 10px;
+	}
+}
+
 #themanfromhollywood
 {
 	background: transparent url(/images/project_mfh_bg_full.png) no-repeat right 45%;
 	@include background-size('98%');
+	margin: 10px 0 95px 0;
 	padding: 11% 0 2% 0;
-	
+		
 	h1
 	{
 		background-image: none;
