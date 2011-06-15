@@ -3,7 +3,7 @@
 	margin: 0 auto;
 	max-width: 900px;
 	overflow: hidden;
-	padding: 20px 0;
+	padding-top: 20px;
 	width: 95%;
 	
 	li
@@ -201,7 +201,7 @@
 {
 	background: transparent url(/images/project_jribbble_bg_full.png) no-repeat right 4%;
 	@include background-size('65%');
-	margin-bottom: -40px;
+	margin-bottom: -70px;
 	padding: 26% 0 8% 0;
 	position: relative;
 	top: -70px;
