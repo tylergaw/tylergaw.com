@@ -13,25 +13,9 @@
 		background-position: 4% center;
 		@include background-size('18%');
 		margin: 10px auto;
-	}
-	
-	a
-	{
-		display: block;
 		padding: 36px 0 40px 26%;
 		@include transition-property('padding');
 		@include transition-duration(0.2s);
-		
-		&:hover
-		{
-			background-color: transparent;
-
-			b
-			{
-				background-color: fade-out(#ff0368, 0.9);
-				border-bottom-color: fade-out(#fdec33, 0);
-			}
-		}
 	}
 	
 	time
@@ -52,10 +36,19 @@
 	
 	h2
 	{
-		color: #f1f1f1;
 		@include atrament(2.5em);
 		margin-top: 4px;
 		text-transform: uppercase;
+		
+		a
+		{
+			color: #f1f1f1;
+			
+			&:hover
+			{
+				background-color: transparent;
+			}
+		}
 	}
 	
 	p
@@ -82,18 +75,33 @@
 	.all-talkie-talkie
 	{
 		background-image: url(/images/entryAssets/all-talkie-talkie/listingGraphic.png);
-		@include background-size('22%');
+		@include background-size('21%');
+		
+		a:hover
+		{
+			color: #4eae8b;
+		}
 	}
 	
 	.i-less-than-three-ie6
 	{
 		background-image: url(/images/entryAssets/i-less-than-three-ie6/listingGraphic.png);
+		
+		a:hover
+		{
+			color: #528eb7;
+		}
 	}
 	
 	.you-did-what-with-what
 	{
 		background-image: url(/images/entryAssets/you-did-what-with-what/listingGraphic.png);
 		@include background-size('20%');
+		
+		a:hover
+		{
+			color: #b01a45;
+		}
 	}
 	
 
@@ -112,12 +120,8 @@
 		.all-talkie-talkie
 		{
 			background-image: none;
-			width: 95%;
-		}
-		
-		a
-		{
 			padding: 18px 0 24px 0;
+			width: 95%;
 		}
 	}
 }
