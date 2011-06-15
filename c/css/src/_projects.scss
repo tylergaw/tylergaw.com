@@ -75,9 +75,9 @@
 		
 		p
 		{
-			float: right;
+			float: none;
 			font-size: 0.85em;
-			width: 65%;
+			width: 100%;
 		}
 		
 		footer
@@ -95,71 +95,6 @@
 	{
 		clear: right;
 		float: right;
-	}
-}
-
-#fullcourtshots
-{
-	@extend .alternate-layout;
-	background: transparent url(/images/project_fcs_bg_full.png) no-repeat 39% 30%;
-	@include background-size('94%');
-	margin-bottom: 0px;
-	padding: 15% 0 8% 0;
-		
-	h1
-	{
-		background-color: desaturate(#f78104, 10%);
-		clear: both;
-		float: right;
-		font-size: 5.8em;
-		line-height: 0.8;
-		margin-bottom: 18px;
-		text-align: right;
-	}
-	
-	@media all and (max-width: 750px)
-	{
-		background-position: 39% 14%;
-		padding: 15% 0 0 0;
-		
-		h1
-		{
-			font-size: 4.6em;
-			margin-bottom: 8px;
-		}
-	}
-	
-	@media all and (max-width: 600px)
-	{
-		background: transparent url(/images/project_fcs_bg_small.png) no-repeat left 25%;
-		@include background-size('34%');
-		padding: 0;
-		
-		h1
-		{
-			font-size: 2.6em;
-			text-align: left;
-			float: none;
-		}
-	}
-}
-
-#jribbble
-{
-	background: transparent url(/images/project_jribbble_bg_full.png) no-repeat right 4%;
-	@include background-size('65%');
-	margin-bottom: -40px;
-	padding: 26% 0 8% 0;
-	position: relative;
-	top: -70px;
-		
-	h1
-	{
-		background-color: #fb389d;
-		clear: both;
-		font-size: 7.4em;
-		line-height: 0.8;
-		margin-bottom: 10px;
 	}
 }
 
@@ -203,8 +138,8 @@
 	
 	@media all and (max-width: 600px)
 	{
-		background: transparent url(/images/project_mfh_bg_small.png) no-repeat left 120px;
-		@include background-size('34%');
+		background-image: none;
+		margin: 10px 0 40px 0;
 		padding: 0;
 		
 		h1
@@ -212,6 +147,97 @@
 			font-size: 3em;
 			text-align: left;
 			float: none;
+		}
+	}
+}
+
+#fullcourtshots
+{
+	@extend .alternate-layout;
+	background: transparent url(/images/project_fcs_bg_full.png) no-repeat 39% 30%;
+	@include background-size('94%');
+	margin-bottom: 0px;
+	padding: 15% 0 8% 0;
+		
+	h1
+	{
+		background-color: desaturate(#f78104, 10%);
+		clear: both;
+		float: right;
+		font-size: 5.8em;
+		line-height: 0.8;
+		margin-bottom: 18px;
+		text-align: right;
+	}
+	
+	@media all and (max-width: 750px)
+	{
+		background-position: 39% 14%;
+		padding: 15% 0 0 0;
+		
+		h1
+		{
+			font-size: 4.6em;
+			margin-bottom: 8px;
+		}
+	}
+	
+	@media all and (max-width: 600px)
+	{
+		background-image: none;	
+		margin: 0 0 40px 0;
+		padding: 0;
+		
+		h1
+		{
+			font-size: 2.6em;
+			text-align: left;
+			float: none;
+		}
+	}
+}
+
+#jribbble
+{
+	background: transparent url(/images/project_jribbble_bg_full.png) no-repeat right 4%;
+	@include background-size('65%');
+	margin-bottom: -40px;
+	padding: 26% 0 8% 0;
+	position: relative;
+	top: -70px;
+		
+	h1
+	{
+		background-color: #fb389d;
+		clear: both;
+		font-size: 7.4em;
+		line-height: 0.8;
+		margin-bottom: 10px;
+	}
+	
+	@media all and (max-width: 750px)
+	{
+		background-position: right 10%;
+		margin-bottom: 0;
+		padding: 15% 0 8% 0;
+		top: 0;
+		
+		h1
+		{
+			font-size: 6em;
+			margin-bottom: 6px;
+		}
+	}
+	
+	@media all and (max-width: 600px)
+	{
+		background-image: none;
+		margin: 0 0 20px 0;	
+		padding: 0;
+		
+		h1
+		{
+			font-size: 3em;
 		}
 	}
 }

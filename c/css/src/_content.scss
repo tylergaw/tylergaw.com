@@ -16,8 +16,7 @@
 		
 		&:hover
 		{
-			background-color: fade-out(#ff0368, 0.9);
-			text-decoration: none;
+			text-decoration: underline;
 			text-shadow: none;
 		}
 		
@@ -35,16 +34,7 @@
 }
 
 h1
-{
-	//background-color: transparent;
-	//background-image: url(/images/heading_border_tile.png), url(/images/heading_border_tile.png);
-	//background-repeat: repeat-x, repeat-x;
-	//background-position: left top, left bottom;
-	//background: transparent url(/images/header_text_bg_01.jpg) repeat center bottom;
-	//-webkit-text-fill-color: transparent;
-	//@include background-clip(text);
-	//@include text-shadow(#000, 0px, 2px, 0px);
-	
+{	
 	color: #fdec33;
 	@include atrament(3.2em);
 	text-transform: uppercase;
