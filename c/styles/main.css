@@ -1,0 +1,1403 @@
+/*---------------------------------------------- Reset -----------------------------------------------*/
+
+*
+{
+	margin:0px;
+	padding:0px;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	font-size:100%;
+}
+
+a, :focus
+{
+	outline:none;
+}
+
+li
+{
+	list-style:none;	
+}
+
+hr, .hidden
+{
+	display:none;
+}
+
+img 
+{
+	border:none;
+}
+
+sup
+{
+	font-size:50%;
+}
+
+/*----------------------------------------- Global Layout --------------------------------------------*/
+
+body
+{
+	font-size:medium;
+	font-family:georgia, times, serif;
+	color:#000;
+	height: 100%;
+	background:#ccaa18 url(/c/images/body_bg_tile.jpg) fixed repeat top center;
+	min-width:984px;
+}
+
+#layout-header
+{
+	height:350px;
+	background:transparent url(/c/images/header_tile.gif) repeat-x top center;
+	position:relative;
+}
+
+	h1
+	{
+		width:960px;
+		margin:0 auto;
+		padding-top:40px;
+		position:relative;
+		z-index:100;
+	}
+	h1 a
+	{
+		display:block;
+		width:760px;
+		height:264px;
+		text-indent:-3000em;
+		background:transparent url(/c/images/branding.png) no-repeat top left;
+		text-decoration:none;
+		z-index:90;
+		position:relative;
+	}
+	
+	h2
+	{
+		width:960px;
+		height:39px;
+		margin:0 auto;
+		position:relative;
+		top:-8px;
+		left:-35px;
+		background:transparent url(/c/images/title.gif) no-repeat top left;
+		overflow:hidden;
+		text-indent:-3000em;
+	}
+	
+#layout-content
+{
+	background:#131313 url(/c/images/layout_content_tile.jpg) repeat top center;
+	overflow:hidden;
+}
+
+#container-content
+{
+	width:984px;
+	margin:0 auto;
+	background:transparent url(/c/images/content_tile.png) repeat-y top left;
+}
+
+	#extramarkupbecauseineeditforthingstolookright_sorry
+	{
+		clear:both;
+	}
+	
+
+/*-------------------------------------------- content-main ------------------------------------------*/
+
+#content-main
+{
+	width:718px;
+	float:left;
+}
+
+/*------------------------------------------- Blog Posts ---------------------------------------------*/
+
+#tumblr-posts li
+{
+	position:relative;
+	padding-bottom:10px;
+}
+
+#tumblr-posts h4
+{
+	width:65px;
+	height:47px;
+	padding-top:3px;
+	font-family:arial, helvetica, sans-serif;
+	font-weight:bold;
+	text-align:center;
+	color:#fff;
+	background:transparent url(/c/images/blog_date_bg.png) no-repeat top center;
+	position:relative;
+	top:60px;
+	left:3px;
+	font-size:73%;
+	line-height:1.55em;
+}
+
+	#tumblr-posts h4 span
+	{
+		color:#363636;
+		font-size:140%;
+	}
+
+#tumblr-posts h3
+{
+	width:718px;
+	height:72px;
+	background:transparent url(/c/images/blog_title_bg.png) no-repeat top left;
+}
+	#tumblr-posts h3 a
+	{
+		color:#741818;
+		text-decoration:none;
+		font-size:155%;
+		display:block;
+		padding:15px 20px 0 70px;
+	}
+	
+		#tumblr-posts h3 a:hover
+		{
+			text-decoration:underline;
+			background:transparent url(/c/images/blog_title_hover.gif) no-repeat 660px 10px;
+		}
+
+#tumblr-posts .tumblr-post-content
+{
+	padding:0 55px 35px 65px;
+	background:transparent url(/c/images/blog_content_border.gif) no-repeat 50px 0px;
+	color:#2d2820;
+	line-height:1.7em;
+	overflow:hidden;
+}
+	
+	#tumblr-posts .tumblr-post-content strong.dropCap
+	{
+		color:#741818;
+		font-size:150%;
+	}
+
+	#tumblr-posts .tumblr-post-content p
+	{
+		padding-top:5px;
+		padding-bottom:20px;
+		text-indent:1em;
+	}
+	#tumblr-posts .tumblr-post-content a
+	{
+		color:#5c4837;
+		background-color:#f4e36d;
+		text-decoration:underline;
+	}
+		#tumblr-posts .tumblr-post-content a:hover
+		{
+			color:#2d2820;
+			background-color:#fff600;
+			text-decoration:none;
+		}
+#tumblr-posts .tumblr-post-comments
+{
+	width:576px;
+	background:transparent url(/c/images/blog_comments_bg.gif) no-repeat top center;
+	margin:0 auto;
+	clear:both;
+}
+	
+	#tumblr-posts .tumblr-post-comments a
+	{
+		color:#453826;
+		font-style:italic;
+		font-weight:bold;
+		font-size:70%;
+		text-align:right;
+		display:block;
+		height:30px;
+		padding:7px 10px 0 0;
+		background:transparent url(/c/images/blog_comments_cloud.png) no-repeat center right;
+		text-decoration:none;
+	}
+		#tumblr-posts .tumblr-post-comments a:hover
+		{
+			color:#7C613C;
+		}
+		#tumblr-posts .tumblr-post-comments a:hover strong
+		{
+			text-decoration:underline;
+		}
+	
+	#tumblr-posts .tumblr-post-comments a strong
+	{
+		font-size:110%;
+		color:#741818;
+		padding-left:15px;
+	}
+		
+#tumblr-link
+{
+	display:block;
+	width:102px;
+	height:45px;
+	text-decoration:none;
+	background:transparent url(/c/images/blog_logo_tumblr.png) no-repeat center left;
+	position:relative;
+	float:right;
+	right:60px;
+}
+	#tumblr-link span
+	{
+		display:none;
+	}
+
+	#tumblr-link:hover
+	{
+		background-position:center right;
+	}
+
+#rss-link
+{
+	display:block;
+	width:0px;
+	height:43px;
+	padding-left:54px;
+	overflow:hidden;
+	text-decoration:none;
+	background:transparent url(/c/images/icon_rss.png) no-repeat bottom left;
+	float:right;
+	position:relative;
+	right:80px;
+}
+
+/*------------------------------------------- blog post elements -------------------------------------*/
+
+#tumblr-posts .tumblr-post-content .container-swf
+{
+	padding:6px 5px 0 5px;
+	border:1px solid #575243;
+	background-color:#f7f0e5;
+	float:left;
+	margin-right:10px;
+}
+
+#tumblr-posts .tumblr-post-content p.tumblr-post-image-section
+{
+	padding-top:10px;
+}
+#tumblr-posts .tumblr-post-content p.tumblr-post-image-section a
+{
+	background-color:transparent;
+	text-decoration:none;
+	margin-left:5px;
+	padding:1px;
+}
+	#tumblr-posts .tumblr-post-content p.tumblr-post-image-section a img
+	{
+		border:1px solid #fff600;
+	}
+	#tumblr-posts .tumblr-post-content p.tumblr-post-image-section a:hover img
+	{
+		border:1px solid #741818;
+	}
+	
+#tumblr-posts p.tumblr-post-code-block
+{
+	text-indent:0px;
+	line-height:1em;
+	background-color:#FAF8F3;
+	border:1px solid #ccc;
+	padding:5px 5px 5px 5px;
+}
+
+#tumblr-posts p em.post-sidenote
+{
+	font-size: 80%;
+}
+/*------------------------------------------- blog post comments -------------------------------------*/
+
+h3#comments-title
+{
+	color:#741818;
+	font-style:italic;
+	font-weight:bold;
+	font-size:140%;
+	background:transparent url(/c/images/content_heading_border.png) no-repeat top center;
+	padding:18px 64px 26px 64px;
+	width:auto;
+	height:auto;
+}
+
+#comments
+{
+	padding:0 64px;
+	overflow:hidden;
+}
+
+	#comments a
+	{
+		color:#5c4837;
+		background-color:#f4e36d;
+		text-decoration:underline;
+	}
+		#comments a:hover
+		{
+			color:#2d2820;
+			background-color:#fff600;
+			text-decoration:none;
+		}
+		
+	#content-main #comments li
+	{
+		overflow:hidden;
+		border-bottom:1px solid #DBBE95;
+		padding:15px 0;
+	}
+	
+	#content-main #comments li .comment-metadata
+	{
+		float:left;
+		width:30%;
+		overflow:hidden;
+	}
+	
+		#content-main #comments li .comment-metadata strong
+		{
+			display:block;
+			float:left;
+			font-size:160%;
+			padding:0px 12px 6px 0;
+			color:#473E2F;
+		}
+		
+		#content-main #comments li .comment-metadata h4
+		{
+			width:auto;
+			height:auto;
+			padding-top:0;
+			padding-right:4px;
+			font-family:inherit;
+			font-weight:bold;
+			text-align:left;
+			color:#5e2e15;
+			background-image:none;
+			position:static;
+			top:0px;
+			left:0px;
+			font-size:90%;
+			line-height:1em;
+			font-style:italic;
+		}
+		
+		#content-main #comments li .comment-metadata em
+		{
+			font-size:75%;
+			font-style:normal;
+			color:#2d2820;
+		}
+		
+	
+	#content-main #comments li p.comment-content
+	{
+		width:70%;
+		float:left;
+		font-size:90%;
+		color:#2d2820;
+		line-height:1.1em
+	}
+
+/*--------------------------------------- general content elements -----------------------------------*/
+
+div.section-content
+{
+	width:580px;
+	margin:0 auto;
+	position:relative;
+}
+	div.section-content h3
+	{
+		color:#741818;
+		font-style:italic;
+		font-weight:bold;
+		font-size:200%;
+		background:transparent url(/c/images/content_heading_border.png) no-repeat bottom left;
+		padding:0 0 4px 0;
+	}
+
+	div.section-content p
+	{
+		color:#2d2820;
+		line-height:1.7em;
+		padding-bottom:22px;
+	}
+
+	div.section-content p strong.dropCap
+	{
+		color:#741818;
+		font-size:150%;
+	}
+
+/*-------------------------------------------- about content -----------------------------------------*/
+
+#content-about-me
+{
+	padding-top:40px;
+}
+
+	#content-about-me h3
+	{
+		margin-bottom:18px;
+		background-position:180px bottom;
+	}
+	
+	#content-about-me p
+	{
+		font-size:90%;
+		line-height:1.8em;
+	}
+	
+	#content-about-me p.para-intro
+	{
+		font-size:100%;
+		padding-left:180px;
+	}
+	
+	#content-about-me p a
+	{
+		position:relative;
+		top:8px;
+		margin-top:-8px;
+	}
+	
+#portrait-frame	
+{
+	display:block;
+	width:234px;
+	height:241px;
+	padding-top:8px;
+	background:transparent url(/c/images/about_pictureframe.png) no-repeat top left;
+	text-align:center;
+	float:left;
+	position:relative;
+	left:-68px;
+	margin:0 -55px 10px 0;
+}
+
+#resume-link
+{
+	display:block;
+	float:left;
+	background:transparent url(/c/images/icon_resume.png) no-repeat bottom left;
+	font-size:110%;
+	padding:0 0 4px 36px;
+	position:relative;
+	left:-185px;
+	top:200px;
+	margin:0 -185px 0 0;
+	color:#741818;
+	text-decoration:underline;
+	font-weight:bold;
+	font-style:italic;	
+}		
+		#resume-link:hover
+		{
+			text-decoration:none;
+		}
+	
+	#resume-link em
+	{
+		display:block;
+		font-weight:normal;
+		font-style:normal;
+		color:#2c2c2c;
+		font-size:70%;
+	}
+
+#content-about-site h3
+{
+	padding-top:30px;
+	margin-bottom:18px;
+}
+	#content-about-site p
+	{
+		padding-bottom:30px;
+	}
+	
+	#content-about-site a
+	{
+		color:#5c4837;
+		background-color:#f4e36d;
+		text-decoration:underline;
+	}
+		#content-about-site a:hover
+		{
+			color:#2d2820;
+			background-color:#fff600;
+			text-decoration:none;
+		}
+		
+	#content-about-site #para-zend
+	{
+		padding-right:160px;
+		background:transparent url(/c/images/about_logo_zend.png) no-repeat top right;
+	}
+		
+		#content-about-site #para-zend span,
+		#content-about-site #para-twitter span
+		{
+			text-decoration: line-through;
+		}
+		
+		#para-zend em,
+		#para-twitter em
+		{
+			font-size: 90%;
+			font-weight: bold;
+		}
+		
+		#para-zend strong
+		{
+			color:#6f6f6f;
+		}
+		
+	#content-about-site #para-twitter
+	{
+		padding-left:85px;
+		background:transparent url(/c/images/about_logo_twitter.png) no-repeat top left;
+	}
+	
+		#content-about-site #para-jquery
+		{
+			padding-right:160px;
+			background:transparent url(/c/images/about_logo_jquery.png) no-repeat top right;
+		}
+
+/*-------------------------------------------- work content ------------------------------------------*/
+
+#section-work #content-main
+{
+	padding:40px 0 0 14px;
+}
+	
+	#section-work #content-main h3
+	{
+		width:640px;
+		margin:0 auto;
+		color:#741818;
+		font-style:italic;
+		font-weight:bold;
+		font-size:200%;
+		background:transparent url(/c/images/content_heading_border.png) no-repeat bottom left;
+		padding:0 0 4px 0;
+	}
+
+a.work-sample
+{
+	display:block;
+	width:672px;
+	height:345px;
+	background:transparent url(/c/images/work_pictureframe.png) no-repeat bottom center;
+	text-decoration:none;
+	position:relative;
+	padding:0px 0 19px 13px;
+	margin-top:50px;
+}
+	a.work-subitem
+	{
+		display:none;
+	}
+
+	a.work-sample strong
+	{
+		color:#5e2e15;
+		font-style:italic;
+		font-size:120%;
+		position:relative;
+		top:-12px;
+		left:23px;
+	}
+		a.work-sample:hover strong
+		{
+			background-color:#5e2e15;
+			color:#f0e6d9;
+		}
+		
+		#mypinkplanner strong
+		{
+			color:#ff3794;
+		}
+		
+			#mypinkplanner:hover strong
+			{
+				background-color:#ff3794;
+				color:#ffffff;
+			}
+	
+	a.work-sample span
+	{
+		display:block;
+		width:111px;
+		height:96px;
+		overflow:hidden;
+		text-indent:-500em;
+		position:absolute;
+		right:7px;
+		bottom:10px;
+		background:transparent url(/c/images/work_sample_over.png) no-repeat 500px;
+	}
+	
+	
+	a.work-sample:hover span
+	{
+		background-position:center center;
+	}
+	
+	.work-details
+	{
+		padding:25px 75px 50px 50px;
+		background:transparent url(/c/images/content_heading_border.png) no-repeat 50px 100%;
+		overflow:hidden;
+	}
+	
+		.work-details:last-child
+		{
+			background-image:none;
+		}
+	
+		.work-details .work-role span
+		{
+			background-color:#424242;
+			color:#dcdcdc;
+			font-size:100%;
+			font-weight:bold;
+			font-style:italic;
+			border-right:6px solid #896b30;
+			padding:6px;
+			float:left;
+		}
+		
+			#mypinkplanner-details .work-role span
+			{
+				border-right:6px solid #ff3794;
+			}
+		
+		.work-details .work-link
+		{
+			width:30%;
+			float:right;
+			background:transparent url(/c/images/work_link_icon.png) no-repeat top right;
+			text-align:right;
+			font-size:90%;
+			padding:4px 24px 3px 0;
+			font-weight:bold;
+			font-style:italic;
+			line-height:1.6em;
+		}
+			.work-details .work-link a
+			{
+				color:#5c4837;
+				background-color:#f4e36d;
+				text-decoration:underline;
+			}
+				.work-details .work-link a:hover
+				{
+					color:#2d2820;
+					background-color:#fff600;
+					text-decoration:none;
+				}
+		
+		.work-details .work-accolades
+		{
+			clear:both;
+			font-family:"Lucida Grande", arial, helvetica, sans-serif;
+			font-size:80%;
+			padding-top:15px;
+		}
+			.work-details .work-accolades strong
+			{
+				font-family:Georgia, Times, serif;
+				font-weight:bold;
+				font-style:italic;
+				color:#424242;
+			}
+			
+			.work-details .work-accolades a
+			{
+				color:#424242;
+				font-size:90%;
+			}
+				.work-details .work-accolades a:hover
+				{
+					text-decoration:none;
+				}
+
+/*---------------------------------------------- contact ---------------------------------------------*/
+
+#contact-email-para
+{
+	font-weight:bold;
+	font-style:italic;
+	font-size:135%;
+	color:#2d2820;
+	width:590px;
+	margin:0 auto;
+	padding:40px 0 30px 0;
+	line-height:1.8em;
+}
+	#contact-email-para a
+	{
+		color:#5c4837;
+		background-color:#f4e36d;
+		text-decoration:underline;
+	}
+		#contact-email-para a:hover
+		{
+			color:#2d2820;
+			background-color:#fff600;
+			text-decoration:none;
+		}
+		
+#fieldset-contact, #fieldset-comment
+{
+	border:none;
+	width:610px;
+	margin:0 auto;
+	background:transparent url(/c/images/content_heading_border.png) no-repeat 20px 15px;
+	padding-top:20px;
+}
+	
+	#fieldset-contact legend, #fieldset-comment legend
+	{
+		color:#741818;
+		font-style:italic;
+		font-weight:bold;
+		font-size:180%;
+		padding:0 0 4px 0px;
+	}
+	
+	#fieldset-contact p, #fieldset-comment p
+	{
+		overflow:hidden;
+		clear:both;
+		padding-bottom:30px;
+	}
+	
+	#fieldset-contact label, #fieldset-comment label
+	{
+		font-weight:bold;
+		font-style:italic;
+		font-size:125%;
+		color:#363636;
+		display:block;
+		float:left;
+		width:180px;
+		padding:8px 7px 0 0;
+		text-align:right;
+		position:relative;
+	}
+	
+		#fieldset-contact label em, #fieldset-comment label em
+		{
+			display:block;
+			font-weight:normal;
+			font-size:53%;
+			color:#535352;
+		}
+		
+		#fieldset-contact label .form-error,
+		#fieldset-comment label .form-error
+		{
+			display:block;
+			width:32px;
+			height:0px;
+			padding-top:50px;
+			background:transparent url(/c/images/contact_icon_warning.gif) no-repeat top left;
+			overflow:hidden;
+			position:relative;
+			left:560px;
+			top:-35px;
+			margin-bottom:-54px;
+		}
+		
+		#fieldset-contact #contact-message-parent label .form-error,
+		#fieldset-comment #comment-message-parent label .form-error
+		{
+			top:15px;
+			left:538px;
+		}
+		
+	
+	#fieldset-contact input, #fieldset-contact textarea,
+	#fieldset-comment input, #fieldset-comment textarea
+	{
+		width:391px;
+		height:48px;
+		padding:12px 8px 0 15px;
+		background:transparent url(/c/images/contact_input_bg.gif) no-repeat top left;
+		border:none;
+		color:#741818;
+		font-style:italic;
+		font-weight:bold;
+		font-size:150%;
+		font-family:georgia, times, serif;
+	}
+	
+	#fieldset-contact #contact-message-parent, #fieldset-comment #comment-message-parent
+	{
+		padding-left:20px;
+		padding-bottom:15px;
+	}
+	
+	#fieldset-contact #contact-message-parent label
+	{
+		width:330px;
+		padding:0 0 8px 0px;
+		float:none;
+		text-align:left;
+	}
+	
+	#fieldset-contact textarea, #fieldset-comment textarea
+	{
+		width:558px;
+		height:234px;
+		padding:14px 8px 9px 12px;
+		font-size:105%;
+		line-height:1.3em;
+		background-image: url(/c/images/contact_textarea_bg.gif);
+	}
+	
+	#fieldset-contact #contact-submit-parent input,
+	#fieldset-comment #comment-submit-parent input
+	{
+		background-image: url(/c/images/contact_send_icon.png);
+		background-position: center right;
+		text-align:left;
+		width:100px;
+		height:39px;
+		cursor:pointer;
+		padding:0 0 0 0;
+		position:relative;
+		left:480px;
+	}
+	
+		#fieldset-comment #comment-submit-parent input
+		{
+			width:130px;
+			left:460px;
+		}
+		
+		#fieldset-comment #comment-submit-parent input:hover
+		{
+			width:135px;
+		}
+	
+		#fieldset-contact #contact-submit-parent input:hover
+		{
+			width:105px;
+		}
+	
+	#fieldset-contact #form-status,
+	#fieldset-comment #form-status
+	{
+		width:526px;
+		height:45px;
+		padding:20px 0 0 52px;
+		font-style:italic;
+		font-weight:bold;
+		font-size:110%;
+		margin-bottom:25px;
+		left:20px;
+		position:relative;
+	}
+	
+		#fieldset-contact #form-status.error,
+		#fieldset-comment #form-status.error
+		{
+			background:transparent url(/c/images/contact_status_bg.gif) no-repeat top left;
+		}
+		
+		#fieldset-contact #form-status.confirm,
+		#fieldset-comment #form-status.confirm
+		{
+			background:transparent url(/c/images/contact_status_bg.gif) no-repeat top right;
+			color:#0d4811;
+		}
+
+/*----------------------------------------- content-secondary ----------------------------------------*/
+
+#content-secondary
+{
+	width:250px;
+	float:right;
+	position:relative;
+	top:-130px;
+	margin-bottom:-130px;
+}
+
+#content-secondary .loading
+{
+	color: #D6D6D6;
+	font-style: italic;
+	padding: 12px 0;
+	text-align: center;
+}
+
+/*----------------------------------------- twitter widget -------------------------------------------*/
+
+#content-twitter
+{
+	padding:50px 0 30px 0;
+	font-size:81%;
+	color:#d5d5d5;
+	background:transparent url(/c/images/logo_twitter.png) no-repeat 180px bottom;
+	overflow:hidden;
+	width:250px;
+}	
+	
+	#content-twitter:hover
+	{
+		background-position:-102px bottom;
+	}
+	
+	#title-twitter
+	{
+		display:none;
+	}
+
+	#content-twitter p
+	{
+		text-align:center;
+	}
+	
+	#content-twitter blockquote p
+	{
+		font-style:italic;
+		line-height:1.4em;
+		text-align:left;
+	}
+	
+	#content-twitter blockquote a 
+	{
+		color:#f1e282;
+	}
+		
+		#content-twitter blockquote a:hover
+		{
+			color:#181818;
+			background-color:#f1e282;
+		}
+		
+		.twitter-reply-link
+		{
+			text-decoration:none;
+		}
+	
+	#content-twitter em
+	{
+		display:block;
+		font-size:80%;
+		font-style:normal;
+		color:#a2a2a2;
+		padding:12px 0 18px 0;
+	}
+
+	#content-twitter a, #content-twitter p em a
+	{
+		color:#1d6099;
+	}
+	
+	#content-twitter a.third-party-link
+	{
+		background:transparent url(/c/images/twitter_sm_icon.png) no-repeat left;
+		padding-left:16px;
+	}
+	
+		#content-twitter a:hover, #content-twitter p em a:hover
+		{
+			background-color:#1d6099;
+			color:#d5d5d5;
+		}
+
+/*----------------------------------------- lastfm widget --------------------------------------------*/
+
+#title-lastfm
+{
+	background:transparent url(/c/images/lastfm_logo.png) no-repeat bottom left;
+	height:39px;
+	overflow:hidden;
+	text-indent:-500em;
+	padding-top:30px;
+}
+
+#content-lastfm
+{
+	padding:0px 0 35px 0;
+	background:transparent url(/c/images/sidebar_widget_divider.png) no-repeat bottom center;
+}
+
+	#content-lastfm p
+	{
+		text-align:center;
+	}
+
+		#content-lastfm p a
+		{
+			font-size:80%;
+			color:#c53937;
+		}
+
+		#content-lastfm p a:hover
+		{
+			color:#f0f0f0;
+			background-color:#c53937;
+		}
+
+	#content-lastfm ul li
+	{
+		padding:15px 0;
+		font-size:73%;
+		background:transparent url(/c/images/lastfm_track_divider.png) no-repeat bottom center;
+	}
+	
+	#content-lastfm ul li:last-child
+	{
+		background-image:none;
+		padding-bottom:25px;
+	}
+
+	#content-lastfm ul li a
+	{
+		text-decoration:none;
+		display:block;
+		color:#f0f0f0;
+		overflow:hidden;
+	}
+
+		#content-lastfm ul li a strong
+		{
+			font-weight:normal;
+			text-decoration:none;
+		}
+
+		#content-lastfm ul li a span
+		{
+			color:#b2b2b2;
+			display:block;
+			font-style:italic;
+			padding-top:5px;
+			font-size:90%;
+		}
+
+		#content-lastfm ul li a img
+		{
+			border:1px solid #9e9e9e;
+			display:block;
+			width:35px;
+			height:35px;
+			float:left;
+			margin-right:8px;
+		}
+
+		#content-lastfm ul li a:hover strong
+		{
+			background-color:#c53937;
+		}
+
+		#content-lastfm ul li a:hover img
+		{
+			border-color:#fff;
+		}
+		
+		#content-lastfm a.third-party-link
+		{
+			background:transparent url(/c/images/lastfm_sm_icon.png) no-repeat left;
+			padding-left:19px;
+		}
+
+
+/*----------------------------------------- flickr widget --------------------------------------------*/	
+
+#title-flickr
+{
+	background:transparent url(/c/images/flickr_logo.png) no-repeat bottom left;
+	height:42px;
+	overflow:hidden;
+	text-indent:-500em;
+	padding-top:25px;
+}
+
+#content-flickr
+{
+	padding:10px 0 25px 0;
+}
+	
+	#content-flickr ul
+	{
+		padding-bottom:25px;
+		overflow:hidden;
+	}
+	
+	#content-flickr ul li
+	{
+		float:left;
+		margin:8px 0px 8px 17px;
+	}
+	
+	#content-flickr ul li a
+	{
+		display:block;
+		background:transparent url(/c/images/flickr_photo_border.png) no-repeat center center;
+		width:82px;
+		height:79px;
+		padding:5px 0 0 9px;
+	}
+	
+		#content-flickr ul li a:hover
+		{
+			background-image: url(/c/images/flickr_photo_border_hover.png);
+		}
+	
+	#content-flickr p
+	{
+		text-align:center;
+	}
+	
+		#content-flickr p a
+		{
+			font-size:80%;
+			color:#d22578;
+		}
+		
+			#content-flickr p a:hover
+			{
+				color:#f0f0f0;
+				background-color:#d22578;
+			}
+		
+			#content-flickr a.third-party-link
+			{
+				background:transparent url(/c/images/flickr_sm_icon.png) no-repeat left;
+				padding-left:19px;
+			}
+		
+
+/*----------------------------------------- navigation-main ------------------------------------------*/
+
+#navigation-main
+{
+	padding:30px 0 0 31px;
+	width:953px;
+	margin:0 auto;
+	overflow:hidden;
+}
+
+	#navigation-main li
+	{
+		float:left;
+		padding-right:11px;
+	}
+	
+	#navigation-main li a
+	{
+		display:block;
+		float:left;
+		overflow:hidden;
+		text-decoration:none;
+		text-indent:-3000em;
+		height:95px;
+		background-color:transparent;
+		background-repeat:no-repeat;
+		background-position:bottom left;
+	}
+		#navigation-main li a:hover
+		{
+			background-position:bottom right;
+		}
+		
+		#section-index #nav-btn-home a,
+		#section-blog #nav-btn-home a,
+		#section-about #nav-btn-about a,
+		#section-work #nav-btn-work a,
+		#section-contact #nav-btn-contact a
+		{
+			background-position:bottom right;
+		}
+		
+		#navigation-main #nav-btn-home a
+		{
+			width:130px;
+			background-image:url(/c/images/nav_sprite_home.gif);
+		}
+			
+		#navigation-main #nav-btn-about a
+		{
+			width:139px;
+			background-image:url(/c/images/nav_sprite_about.gif);
+		}
+		
+		#navigation-main #nav-btn-work a
+		{
+			width:148px;
+			background-image:url(/c/images/nav_sprite_work.gif);
+		}
+		
+		#navigation-main #nav-btn-contact a
+		{
+			width:203px;
+			background-image:url(/c/images/nav_sprite_contact.gif);
+		}
+		
+/*----------------------------------------- layout-footer --------------------------------------------*/
+
+#layout-footer
+{
+	background:transparent url(/c/images/layout_footer_tile.gif) repeat-x top center;
+	padding-bottom:40px;
+	clear:both;
+}		
+
+	#content-bookend
+	{
+		width:984px;
+		margin:0 auto;
+		position:relative;
+		background:transparent url(/c/images/content_footer.png) no-repeat top left;
+		overflow:hidden;
+		padding-top:25px;
+	}
+	
+		#to-summit-link
+		{
+			position:relative;
+			display:block;
+			text-decoration:none;
+			text-indent:-300em;
+			width:620px;
+			height:30px;
+			left:50px;
+			background-color:transparent;
+			background-repeat:no-repeat;
+			background-position:top left;
+		}
+		
+		.bookend-index #to-summit-link, .bookend-blog #to-summit-link
+		{
+			background-image: url(/c/images/footer_detail_home.png);
+		}
+		
+		.bookend-about #to-summit-link
+		{
+			background-image: url(/c/images/footer_detail_about.png);
+		}
+		
+		.bookend-work #to-summit-link
+		{
+			background-image: url(/c/images/footer_detail_work.png);
+		}
+		
+		.bookend-contact #to-summit-link
+		{
+			background-image: url(/c/images/footer_detail_contact.png);
+		}
+		
+			#to-summit-link span
+			{
+				height:100%;
+				display:block;
+				background:transparent url(/c/images/arrow_to_top.png) no-repeat center right;
+			}
+		
+		#layout-footer ul
+		{
+			position:relative;
+			padding-top:100px;
+			color:#eddcc5;
+			font-style:italic;
+			font-weight:bold;
+			font-size:82%;
+		}
+		
+			#layout-footer ul li
+			{
+				width:675px;
+				padding:12px 0 12px 35px;
+			}
+			
+			#layout-footer ul li span
+			{
+				background-color:#2c2c2c;
+				padding:8px 8px 8px 6px;
+			}
+			
+			#layout-footer ul #site-validation span
+			{
+				border-right:6px solid #973760;
+			}
+			
+			#layout-footer ul #site-copyright span
+			{
+				border-right:6px solid #373bca;
+			}
+			
+			#layout-footer ul a
+			{
+				color:#fff;
+				font-size:108%;
+				background:url(/c/images/icon_check.png) no-repeat center right;
+				padding:0 25px 0 5px;
+			}
+			
+				#layout-footer ul a:hover
+				{
+					background-color:#f4e36d;
+					color:#2c2c2c;
+				}
+/*------------------------------ Extra elements added for funzees ------------------------------------*/
+
+#funbag-monitor
+{
+	display: block;
+	height: 200px;
+	width: 100%;
+	background: transparent url(/c/images/funbag_monitor.png) no-repeat top center;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+}
+
+#funbag-birds
+{
+	display: block;
+	height: 144px;
+	width: 191px;
+	background: transparent url(/c/images/funbag_birds.png) no-repeat top center;
+	position: absolute;
+	top: 0;
+	right: 60px;
+}
+
+#funbag-fish, #funbag-boat
+{
+	display:block;
+	background:transparent url(/c/images/funbag_stickersheet.png) no-repeat top left;
+	position:absolute;
+}
+
+	#funbag-fish
+	{
+		height:42px;
+		width:88px;
+		top:230px;
+		left:600px;
+	}
+	
+	#funbag-boat
+	{
+		height:68px;
+		width:54px;
+		top:200px;
+		right:200px;
+		background-position:top center;
+	}

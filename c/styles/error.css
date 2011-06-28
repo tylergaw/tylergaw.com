@@ -1,0 +1,52 @@
+*
+{
+	margin:0;
+	padding:0;
+}
+
+html
+{
+	background-color:#f8f8f8;
+}
+
+body#error_page
+{
+	width:900px;
+	height:600px;
+	margin:0 auto;
+	background:#f8f8f8 url(/c/images/error_page_bg.jpg) no-repeat top center;
+}
+
+	div#error_page_message
+	{
+		width:416px;
+		height:179px;
+		padding:45px 15px 10px 25px;
+		background:transparent url(/c/images/error_page_balloon.gif) no-repeat top center;
+		font-weight:bold;
+		font-style:italic;
+		font-family:georgia, times, serif;
+		color:#741818;
+		position:relative;
+		top:80px;
+		left:449px;
+	}
+	
+	div#error_page_message p
+	{
+		padding-bottom:15px;
+	}
+	
+	div#error_page_message a
+	{
+		color:#5c4837;
+		background-color:#f4e36d;
+		text-decoration:underline;
+	}
+		
+		div#error_page_message a:hover
+		{
+			color:#2d2820;
+			background-color:#fff600;
+			text-decoration:none;
+		}

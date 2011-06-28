@@ -1,0 +1,6 @@
+/*------------- One thing, one damned thing I couldn't get right without a special case -------------------*/
+#fieldset-contact label .form-error,
+#fieldset-comment label .form-error
+{
+	left:410px;
+}

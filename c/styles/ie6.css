@@ -1,0 +1,442 @@
+/*----------------------------------------- Global Layout --------------------------------------------*/
+
+body
+{
+	color:#f1f1f1;
+	background-image:none;
+	background-color:#000;
+}
+
+#ie6message
+{
+	width: 100%;
+	position: absolute;
+	top: 0;
+	text-align: center;
+	color: #000;
+	background-color: #FFF700;
+	font-weight: bold;
+	font-style: italic;
+	padding: 4px 0;
+}
+
+#layout-header
+{
+	height:auto;
+	background-image:none;
+}
+
+	h1
+	{
+		padding-top:30px;
+		padding-bottom:20px;
+	}
+	
+	h1 a
+	{
+		width:960px;
+		height:auto;
+		text-indent:0;
+		background-image:none;
+		text-decoration:underline;
+		font-size:900%;
+		color:#f1f1f1;
+		text-align:center;
+	}
+	
+		h1 a:hover
+		{
+			text-decoration:none;
+			color:#000;
+			background-color:#f1f1f1;
+		}
+	
+	h2
+	{
+		height:auto;
+		top:0;
+		left:0;
+		background-image:none;
+		text-indent:0;
+		text-align:center;
+		font-size:250%;
+		padding-bottom:15px;
+	}
+	
+#layout-content
+{
+	background-image:none;
+	background-color:#000;
+	border-top:1px solid #f1f1f1;
+}
+
+#container-content
+{
+	background-image:none;
+}
+	
+/*------------------------------------------- Blog Posts ---------------------------------------------*/
+
+#tumblr-posts h4
+{	
+	background-image:none;
+}
+
+#tumblr-posts h3
+{
+	background-image:none;
+}
+	#tumblr-posts h3 a
+	{
+		color:#ffffff;
+	}
+		#tumblr-posts h3 a:hover
+		{
+			background-image:none;
+		}
+		
+#tumblr-posts .tumblr-post-content
+{
+	background-image:none;
+	color:#f1f1f1;
+}
+	
+#tumblr-posts .tumblr-post-comments
+{
+	background-image:none;
+}
+	
+	#tumblr-posts .tumblr-post-comments a
+	{
+		background-image:none;
+	}
+	
+	#tumblr-posts .tumblr-post-comments a strong
+	{
+		color:#ffffff;
+	}
+	
+#tumblr-link
+{
+	height:auto;
+	padding-top:0px;
+	background-image:none;
+	color:#f1f1f1;
+	text-decoration:underline;
+	padding-bottom:20px;
+}
+
+	#tumblr-link:hover
+	{
+		text-decoration:none;
+	}
+	
+#rss-link
+{
+	display:none;
+}
+
+#tumblr-posts p.tumblr-post-code-block
+{
+	color:#000;
+}
+/*--------------------------------------- general content elements -----------------------------------*/
+	div.section-content h3
+	{
+		background-image:none;
+		color:#fff;
+	}
+
+	div.section-content p
+	{
+		color:#f2f2f2;
+	}
+	
+	div.section-content p strong.dropCap
+	{
+		color:#ffffff;
+	}
+
+/*-------------------------------------------- about content -----------------------------------------*/
+
+	#content-about-me h3
+	{
+		background-image:none;
+	}
+	
+	#content-about-me p
+	{
+		color:#f2f2f2;
+	}
+	
+#portrait-frame	
+{
+	background-image:none;
+}
+
+#resume-link
+{
+	background-image:none;
+	color:#fff;
+}
+
+#content-about-site h3
+{
+	background-image:none;
+}
+	
+		
+	#content-about-site #para-zend,
+	#content-about-site #para-twitter,
+	#content-about-site #para-jquery
+	{
+		background-image:none;
+		padding-right:0px;
+		padding-left:0px;
+		color:#f2f2f2;
+	}
+
+/*-------------------------------------------- work content ------------------------------------------*/
+	
+	#section-work #content-main h3
+	{
+		background-image:none;
+		color:#fff;
+	}
+
+a.work-sample
+{
+	background-image:none;
+}
+	
+	a.work-sample:hover span
+	{
+		background-image:none
+	}
+	
+	.work-details
+	{
+		background-image:none;
+	}
+		
+		.work-details .work-link
+		{
+			background-image:none;
+		}
+		
+		.work-details .work-accolades
+		{
+			color:#E6E6E6;
+		}
+			
+			.work-details .work-accolades a
+			{
+				color:#E6E6E6;
+			}
+
+/*---------------------------------------------- contact ---------------------------------------------*/
+
+#contact-email-para
+{
+	color:#f1f1f1;
+}
+		
+#fieldset-contact
+{
+	background-image:none;
+}
+
+#fieldset-contact legend, #fieldset-comment legend
+{
+	color:#fff;
+}
+	
+	#fieldset-contact label
+	{
+		color:#f3f3f3;
+	}
+	
+		#fieldset-contact label em
+		{
+			color:#e6e6e6;
+		}
+		
+		#fieldset-contact label .form-error,
+		#fieldset-comment label .form-error
+		{
+			left:410px;
+		}
+		
+	
+	#fieldset-contact input, #fieldset-contact textarea
+	{
+		background-image:none;
+		background-color:#fff;
+		color:#000;
+	}
+	
+	
+	#fieldset-contact textarea
+	{
+		background-image: none;
+	}
+	
+	#fieldset-contact #contact-submit-parent input
+	{
+		background-image: none;
+		background-color:#000;
+	}
+	
+		#fieldset-contact #form-status.error
+		{
+			background-image:none;
+			background-color:#FFD500;
+			color:#000;
+		}
+		
+		#fieldset-contact #form-status.confirm
+		{
+			background-image:none;
+			background-color:#27C400;
+			color:#000;
+		}
+
+
+/*----------------------------------------- twitter widget -------------------------------------------*/
+
+#content-twitter
+{	
+	background-image:none;
+}	
+
+#content-twitter a.third-party-link
+{
+	background-image:none;
+}
+
+/*----------------------------------------- lastfm widget --------------------------------------------*/
+
+#title-lastfm
+{
+	background-image:none;
+	text-indent:0em;
+	font-weight:bold;
+	font-size:120%;
+}
+
+#content-lastfm
+{
+	background-image:none;
+}
+
+	#content-lastfm ul li
+	{
+		background-image:none;
+	}
+	
+	#content-lastfm a.third-party-link
+	{
+		background-image:none;
+	}
+
+/*----------------------------------------- flickr widget --------------------------------------------*/	
+
+#title-flickr
+{
+	background-image:none;
+	text-indent:0em;
+	font-weight:bold;
+	font-size:120%;
+}
+
+	
+	#content-flickr ul li a
+	{
+		background-image:none;
+	}
+	
+		#content-flickr ul li a:hover
+		{
+			background-image: none;
+		}
+		
+		#content-flickr a.third-party-link
+		{
+			background-image:none;
+		}
+
+/*----------------------------------------- navigation-main ------------------------------------------*/
+
+	#navigation-main li a
+	{
+		text-decoration:underline;
+		text-indent:0em;
+		text-align:center;
+		font-size:140%;
+		font-weight:bold;
+		color:#f1f1f1;
+	}
+		
+		#navigation-main li a:hover,
+		#section-index #nav-btn-home a,
+		#section-blog #nav-btn-home a,
+		#section-about #nav-btn-about a,
+		#section-work #nav-btn-work a,
+		#section-contact #nav-btn-contact a
+		{
+			background-color:#f1f1f1;
+			color:#000;
+		}
+		
+		
+		#navigation-main #nav-btn-home a,
+		#navigation-main #nav-btn-about a,
+		#navigation-main #nav-btn-work a,
+		#navigation-main #nav-btn-contact a
+		{
+			background-image:none;
+			width:120px;
+		}
+		
+/*----------------------------------------- layout-footer --------------------------------------------*/
+
+#layout-footer
+{
+	background-image:none;
+	border-top:1px solid #f1f1f1;
+}		
+
+	#content-bookend
+	{
+		background-image:none;
+	}
+	
+		.bookend-index #to-summit-link, .bookend-blog #to-summit-link,
+		.bookend-about #to-summit-link, .bookend-work #to-summit-link,
+		.bookend-contact #to-summit-link,
+		{
+			background-image: none;
+		}
+
+			#to-summit-link span
+			{
+				background-image:none;
+			}
+		
+		#layout-footer ul
+		{
+			padding-top:0px;
+		}
+			
+			#layout-footer ul #site-validation span,
+			#layout-footer ul #site-copyright span
+			{
+				border-right:none;
+				background-color:#000;
+			}
+			
+			#layout-footer ul a
+			{
+				padding:0;
+				background-image:none;
+			}

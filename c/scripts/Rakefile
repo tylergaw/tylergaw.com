@@ -1,0 +1,55 @@
+require 'find'
+
+prefix   = File.dirname(__FILE__)
+src_dir = File.join(prefix, '')
+dist_dir = File.join(prefix, '')
+
+filename      = "tgaw.com.js"
+filename_ugly = "tgaw.com.ugly.js"
+
+base_files = %w{
+  jquery-1.3.2.min
+  jquery.easing
+  jquery.scrollTo-min
+  jquery.thickbox
+  jquery.tweet
+  jquery.lastfm
+  jflickrfeed
+  tgaw.core
+}.map { |js| File.join(src_dir, "#{js}.js")}
+
+# Distribution files
+tgaw      = File.join(dist_dir, filename)
+tgaw_ugly = File.join(dist_dir, filename_ugly)
+
+# Tasks
+task :default => "all"
+
+desc "Builds JS; Uglifies"
+task :all => [tgaw, tgaw_ugly] do
+  puts "JS build complete"
+end
+
+# File and Directory Dependencies
+directory dist_dir
+
+# Create the uncompressed, single file of all the base library files
+file tgaw => [dist_dir, base_files].flatten do
+  puts "Building #{filename}..."
+
+  File.open(tgaw, 'w') do |f|
+    f.write cat(base_files)
+  end
+end
+
+# Create a compressed version of the library using uglifyJS
+file tgaw_ugly => tgaw do
+  puts "Building #{filename_ugly}..."
+  system "uglifyjs -o #{filename_ugly} #{filename}"
+end
+
+def cat(files)
+  files.map do |file|
+    File.read(file)
+  end.join('')
+end
