@@ -1,0 +1,25 @@
+body{
+	background-attachment:scroll;
+}
+#container{
+	background-image:url(../images/layout/containerTile.jpg);
+}
+#branding{
+	background-image:url(../images/layout/branding.jpg);
+}
+/* this is some wacky shit*/
+/* only way to get nested elements in an a tag to react to psuedo class*/
+.mainProject a:hover{
+	border:none;
+}
+/*---------------------*/
+.mainProject a img{
+	border:5px solid #eae0ce;
+}
+.mainProject a:hover img{
+	border:5px solid #594d3d;
+}
+/*this is because ie can't display sweet html entities... butthead*/
+#footer li a span, .feedback span{
+	display:none;
+}

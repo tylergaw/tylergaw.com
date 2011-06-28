@@ -1,0 +1,13 @@
+.mainProject a img{
+	border:5px solid #eae0ce;
+}
+.mainProject a:hover img{
+	border:5px solid #594d3d;
+}
+#footer li a span{
+	display:none;
+}
+/*this is because ie can't display sweet html entities... butthead*/
+#footer li a span, .feedback span{
+	display:none;
+}
