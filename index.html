@@ -16,6 +16,20 @@
 	<script type="text/javascript" src="scripts/hijax.js"></script>
 	<script type="text/javascript" src="scripts/global.js"></script>
 </head>
+	<style type="text/css">
+	/* These styles were not a part of the original site. */
+		#archivedMsg {
+		background-color: #1f1f1f; color: #f1f1f1;
+		opacity: 0.8; position: fixed; top: 0;
+		text-align: center; width: 100%; z-index: 999;}
+		#archivedMsg p { padding: 3px; }
+		#archivedMsg a { color: yellow; }
+	</style>
+	<div id="archivedMsg">
+		<p>
+			You're looking at a previous version of <a href="http://tylergaw.com">tylergaw.com</a>. It's very likely that there are dead links and designs that are no longer current.
+		</p>
+	</div>
 	<body>
 		<h1 id="branding">
 	 		Tyler Gaw - Web Developer
@@ -54,7 +68,6 @@
 						</ul>
 						<a id="emurse_link" href="http://www.emurse.com" rel="external"><img src="http://www.emurse.com/images/badge_powered.gif" alt="powered by emurse" /></a>
 					</li>
-					<li id="link_fowd"><a href="http://futureofwebdesign.com/2008/newyork/"><img src="images/fowd_badge.gif" alt="Future of Web Design" /></a></li>
 				</ul>
 			</div>
 			<hr />
@@ -253,6 +266,7 @@
 					</ul>
 				</div>
 			</div>
+			<!--
 			<div class="mainProject">
 				<h4><a href="http://www.salonratay.com" rel="external">Salon Ratay</a></h4>
 				<a href="http://www.salonratay.com" rel="external"><img src="images/sample_ratay.jpg" alt="www.salonratay.com screenshot" /></a>
@@ -270,6 +284,7 @@
 					</ul>
 				</div>
 			</div>
+			-->
 			<div class="mainProject">
 				<h4><a href="http://www.galiano.edu" rel="external">Galiano Career Academy</a></h4>
 				<a href="http://www.galiano.edu" rel="external"><img src="images/sample_galiano.jpg" alt="www.galiano.edu screenshot" /></a>
@@ -386,10 +401,9 @@
 			</h3>
 			<ul id="contactInfo">
 				<li id="emailAddy"><a title="This link will open an external program" href="mailto:me@tylergaw.com">me@tylergaw.com</a></li>
-				<li id="phoneNum"><p>646-469-7887</p></li>
 			</ul>
 			<div id="formHolder">
-				<?php require 'contactForm.php'; echo "\n"; ?>
+				
 			</div>
 		</div>
 		<hr />
