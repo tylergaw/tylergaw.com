@@ -41,7 +41,7 @@ sup
 body
 {
 	font-size:medium;
-	font-family:georgia, times, serif;
+	font-family: georgia, times, serif;
 	color:#000;
 	height: 100%;
 	background:#ccaa18 url(/c/images/body_bg_tile.jpg) fixed repeat top center;
@@ -145,18 +145,24 @@ body
 		color:#363636;
 		font-size:140%;
 	}
+	
+#tumblr-posts h5
+{
+	font-size: 115%;
+}
 
 #tumblr-posts h3
 {
-	width:718px;
-	height:72px;
+	font-style: italic;
+	width: 718px;
+	height: 72px;
 	background:transparent url(/c/images/blog_title_bg.png) no-repeat top left;
 }
 	#tumblr-posts h3 a
 	{
 		color:#741818;
 		text-decoration:none;
-		font-size:155%;
+		font-size:165%;
 		display:block;
 		padding:15px 20px 0 70px;
 	}
@@ -170,7 +176,6 @@ body
 #tumblr-posts .tumblr-post-content
 {
 	padding:0 55px 35px 65px;
-	background:transparent url(/c/images/blog_content_border.gif) no-repeat 50px 0px;
 	color:#2d2820;
 	line-height:1.7em;
 	overflow:hidden;
@@ -181,7 +186,15 @@ body
 		color:#741818;
 		font-size:150%;
 	}
-
+	
+	#tumblr-posts .tumblr-post-content .post-intro
+	{
+		border-bottom: 1px solid #c2a575;
+		margin-bottom: 15px;
+		padding-bottom: 8px;
+		text-indent: 0;
+	}
+	
 	#tumblr-posts .tumblr-post-content p
 	{
 		padding-top:5px;
@@ -312,10 +325,52 @@ body
 	padding:5px 5px 5px 5px;
 }
 
-#tumblr-posts p em.post-sidenote
+#tumblr-posts pre
+{
+	background-color: #f2f2f2;
+	border: 1px solid #ccc;
+	line-height: 1.2em;
+	margin-bottom: 6px;
+	padding: 6px 8px;
+}
+
+#tumblr-posts em.post-sidenote
 {
 	font-size: 80%;
 }
+
+#tumblr-posts .tumblr-post-content ul
+{
+	padding: 0 8px;
+}
+
+	#tumblr-posts .tumblr-post-content ul li
+	{
+		
+		font-size: 95%;
+		font-style: italic;
+		line-height: 1.2em;
+		list-style: inside disc;
+	}
+	
+	.post-image-presentational
+	{
+		border: 2px solid #debf93;
+		clear: both;
+		display: block;
+		margin: 10px 0 0 0;
+		width: 95%;
+	}
+	
+.rdbWrapper
+{
+	height: 25px !important;
+	margin-bottom: 0 !important;
+	padding-top: 10px;
+	float: left;
+	width: 150px !important;
+}
+
 /*------------------------------------------- blog post comments -------------------------------------*/
 
 h3#comments-title
