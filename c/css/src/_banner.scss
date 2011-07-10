@@ -1,7 +1,7 @@
 header[role="banner"]
 {	
 	background-color: transparent;
-	background-image: url(/images/banner_btm_border.png), url(/images/body_bg_tile_02.png), url(/images/banner_bg_tile.png);
+	background-image: url(/c/images/banner_btm_border.png), url(/c/images/body_bg_tile_02.png), url(/c/images/banner_bg_tile.png);
 	background-repeat: repeat-x, repeat, repeat;
 	background-position: 90% 105%, 70%, 90%;
 	@include border-top-radius(6px);
@@ -25,7 +25,7 @@ header[role="banner"]
 	
 	hgroup
 	{
-		background: transparent url(/images/banner.png) no-repeat center top;
+		background: transparent url(/c/images/banner.png) no-repeat center top;
 		@include background-size('100%');
 		padding-top: 8.9%;
 	}
@@ -47,7 +47,7 @@ header[role="banner"]
 		
 		hgroup
 		{
-			background-image: url(/images/banner_narrow.png);
+			background-image: url(/c/images/banner_narrow.png);
 			padding-top: 18%;
 		}
 	}

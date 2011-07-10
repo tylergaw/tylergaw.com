@@ -16,7 +16,7 @@
 	
 	h1
 	{
-		background: transparent url(/images/fuzzy_grain.png) repeat 90%;
+		background: transparent url(/c/images/fuzzy_grain.png) repeat 90%;
 		color: #1d1d1d;
 		display: inline-block;
 		font-size: 4em;
@@ -34,7 +34,7 @@
 	
 	footer
 	{
-		background: transparent url(/images/horizontal_divider.png) repeat-x left top;
+		background: transparent url(/c/images/horizontal_divider.png) repeat-x left top;
 		line-height: 1.3;
 		margin-top: 12px;
 		padding-top: 12px;
@@ -100,7 +100,7 @@
 
 #themanfromhollywood
 {
-	background: transparent url(/images/project_mfh_bg_full.png) no-repeat right 45%;
+	background: transparent url(/c/images/project_mfh_bg_full.png) no-repeat right 45%;
 	@include background-size('98%');
 	margin: 10px 0 95px 0;
 	padding: 11% 0 2% 0;
@@ -115,7 +115,7 @@
 		
 		span
 		{
-			background: #a8194b url(/images/fuzzy_grain.png) repeat 90%;
+			background: #a8194b url(/c/images/fuzzy_grain.png) repeat 90%;
 			display: inline-block;
 			
 			&:first-child
@@ -154,7 +154,7 @@
 #fullcourtshots
 {
 	@extend .alternate-layout;
-	background: transparent url(/images/project_fcs_bg_full.png) no-repeat 39% 30%;
+	background: transparent url(/c/images/project_fcs_bg_full.png) no-repeat 39% 30%;
 	@include background-size('94%');
 	margin-bottom: 0px;
 	padding: 15% 0 8% 0;
@@ -199,7 +199,7 @@
 
 #jribbble
 {
-	background: transparent url(/images/project_jribbble_bg_full.png) no-repeat right 4%;
+	background: transparent url(/c/images/project_jribbble_bg_full.png) no-repeat right 4%;
 	@include background-size('65%');
 	margin-bottom: -70px;
 	padding: 26% 0 8% 0;

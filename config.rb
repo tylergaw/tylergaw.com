@@ -5,7 +5,7 @@
 http_path = "/"
 css_dir = "c/css/dist"
 sass_dir = "c/css/src"
-images_dir = "c/images"
+images_dir = "c/c/images"
 javascripts_dir = "c/js"
 output_style = :compressed
 # To enable relative paths to assets via compass helper functions. Uncomment:

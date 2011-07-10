@@ -6,7 +6,7 @@
 
 footer[role="authorinfo"]
 {
-	background: fade-out(#0e0e0d, 0.9) url(/images/footer_top_border.png) repeat-x 90% top;
+	background: fade-out(#0e0e0d, 0.9) url(/c/images/footer_top_border.png) repeat-x 90% top;
 	@include border-bottom-radius(6px);
 	padding: 15px 0;
 	text-align: center;
@@ -19,7 +19,7 @@ footer[role="authorinfo"]
 	
 	li
 	{
-		background: transparent url(/images/footer_item_divider.png) no-repeat right center;
+		background: transparent url(/c/images/footer_item_divider.png) no-repeat right center;
 		display: inline-block;
 		padding-right: 65px;
 		

@@ -15,19 +15,19 @@
 
 html
 {
-	background: #fefefe url(/images/html_bg_tile.gif) repeat 95%;
+	background: #fefefe url(/c/images/html_bg_tile.gif) repeat 95%;
 	padding: 5px;
 }
 
 body
 {
 	background-color: #2b2a29;
-	background-image: url(/images/body_bg_tile_03.png), url(/images/body_bg_tile_02.png), url(/images/body_bg_tile_01.png);
+	background-image: url(/c/images/body_bg_tile_03.png), url(/c/images/body_bg_tile_02.png), url(/c/images/body_bg_tile_01.png);
 	background-repeat: repeat;
 	background-position: 95% -50%, 120%, 80%;
 	border-width: 6px;
-	-moz-border-image: url(/images/body_border.png) 10 10 10 10 repeat repeat;
-	-webkit-border-image: url(/images/body_border.png) 10 10 10 10 repeat repeat;
-	border-image: url(/images/body_border.png) 10 10 10 10 repeat repeat;
+	-moz-border-image: url(/c/images/body_border.png) 10 10 10 10 repeat repeat;
+	-webkit-border-image: url(/c/images/body_border.png) 10 10 10 10 repeat repeat;
+	border-image: url(/c/images/body_border.png) 10 10 10 10 repeat repeat;
 	color: #f4efd3;
 }

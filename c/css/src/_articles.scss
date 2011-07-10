@@ -20,7 +20,7 @@
 	
 	time
 	{
-		background: transparent url(/images/horizontal_divider.png) repeat-x 20% center;
+		background: transparent url(/c/images/horizontal_divider.png) repeat-x 20% center;
 		color: #2d2d2d;
 		display: block;
 		font-size: 0.75em;
@@ -74,7 +74,7 @@
 	
 	.all-talkie-talkie
 	{
-		background-image: url(/images/entryAssets/all-talkie-talkie/listingGraphic.png);
+		background-image: url(/c/images/entryAssets/all-talkie-talkie/listingGraphic.png);
 		@include background-size('21%');
 		
 		a:hover
@@ -85,7 +85,7 @@
 	
 	.i-less-than-three-ie6
 	{
-		background-image: url(/images/entryAssets/i-less-than-three-ie6/listingGraphic.png);
+		background-image: url(/c/images/entryAssets/i-less-than-three-ie6/listingGraphic.png);
 		
 		a:hover
 		{
@@ -95,7 +95,7 @@
 	
 	.you-did-what-with-what
 	{
-		background-image: url(/images/entryAssets/you-did-what-with-what/listingGraphic.png);
+		background-image: url(/c/images/entryAssets/you-did-what-with-what/listingGraphic.png);
 		@include background-size('20%');
 		
 		a:hover
