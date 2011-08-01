@@ -2,6 +2,39 @@
 				<div id="content-main">
 					<ul id="tumblr-posts">
 						<li>
+							<h4>August 1 <span>2011</span></h4>
+							<h3>
+								<a href="/articles/fun-with-html-form-validation-styles">Fun with HTML Form Validation Styles</a>
+							</h3>
+							<div class="tumblr-post-content">
+								<p class="post-intro">
+									<strong>Brass tacks:</strong> <em class="post-sidenote">Demos; <a href="">Style 01</a>, <a href="">Style 02</a>, <a href="">Style 03</a> and <a href="https://github.com/tylergaw/html5forms/tree/master/errorStyles">the code</a>.</em>
+								</p>
+								<p>
+									<strong class="dropCap">I</strong>f you haven't heard already, the current HTML Living Standard or HTML5 spec has in it some super cool form validation. This is client-side form validation that is meant to remove some of the burden of writing validation with Javascript. If you've ever written form validation with Javascript I think you'll agree that this is a very good thing. 
+								</p>
+<p>
+	Using this new feature of html can be as easy as creating a form and within it creating an input with a <code>required</code> attribute. When the form is submitted, browsers that support validation will take the reigns and make sure that the required input has a value. If it does not, the browser will then display a validation error message.
+</p>
+<p>
+	In addition to validating required fields, the form validation will also check to make sure inputted values match given input types. New in the Living Standard are quite a few new input types such as; "email", "url", "number" and so on. Check out the full list located at <a href="http://developers.whatwg.org/the-input-element.html#the-input-element">http://developers.whatwg.org/the-input-element.html#the-input-element</a>. 
+</p>
+<h5>Validation error messages</h5>
+<p>
+	As of this writing, there are three browsers that both support html form validation and display a error messages when needed. Browser support includes; Chrome 10+, Firefox 3.6+, and Opera 11+. Each of these browsers handles the styling of validation messages differently.
+	<img class="post-image-presentational" src='/storage/post_image_htmlFormErrors_defaultChrome.jpg' alt='Chrome 12 default error messages' />
+	<em class="figcaption">Chrome 12 default error message</em>
+	<img class="post-image-presentational" src='/storage/post_image_htmlFormErrors_defaultFirefox.jpg' alt='Firefox 5.0 default error messages' />
+	<em class="figcaption">Firefox 5.0 default error message</em>
+	<img class="post-image-presentational" src='/storage/post_image_htmlFormErrors_defaultOpera.jpg' alt='Opera 11.5 default error messages' />
+	<em class="figcaption">Opera 11.5 default error message</em>
+</p>
+<p>
+	Now, of those three browsers, only Chrome currently offers a way to apply custom styles to the message. Through non-standard, Webkit specific selectors you are able to style the messages in any way that floats your boat.
+</p>
+							</div>
+						</li>
+						<li>
 							<h4>July 9 <span>2011</span></h4>
 							<h3>
 								<a href="/articles/a-small-redesign-with-a-little-sugar">A Small Redesign with a Little Sugar</a>

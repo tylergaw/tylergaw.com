@@ -204,7 +204,7 @@ body
 	#tumblr-posts .tumblr-post-content a
 	{
 		color:#5c4837;
-		background-color:#f4e36d;
+		background-color:#f7eda6;
 		text-decoration:underline;
 	}
 		#tumblr-posts .tumblr-post-content a:hover
@@ -334,7 +334,8 @@ body
 	padding: 6px 8px;
 }
 
-#tumblr-posts em.post-sidenote
+#tumblr-posts em.post-sidenote,
+.figcaption
 {
 	font-size: 80%;
 }
