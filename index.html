@@ -2,7 +2,7 @@
 				<div id="content-main">
 					<ul id="tumblr-posts">
 						<li>
-							<h4>August 1 <span>2011</span></h4>
+							<h4>August 9 <span>2011</span></h4>
 							<h3>
 								<a href="/articles/fun-with-html-form-validation-styles">Fun with HTML Form Validation Styles</a>
 							</h3>
@@ -14,25 +14,113 @@
 									<strong class="dropCap">I</strong>f you haven't heard already, the current HTML Living Standard or HTML5 spec has in it some super cool form validation. This is client-side form validation that is meant to remove some of the burden of writing validation with Javascript. If you've ever written form validation with Javascript I think you'll agree that this is a very good thing. 
 								</p>
 <p>
-	Using this new feature of html can be as easy as creating a form and within it creating an input with a <code>required</code> attribute. When the form is submitted, browsers that support validation will take the reigns and make sure that the required input has a value. If it does not, the browser will then display a validation error message.
+	Using this new feature of html can be as easy as creating a form and within it creating an input with a <code>required</code> attribute. When the form is submitted, browsers that support validation will take the reigns and make sure that the required input has a value. If it does not, the browser will display a validation error message.
 </p>
 <p>
 	In addition to validating required fields, the form validation will also check to make sure inputted values match given input types. New in the Living Standard are quite a few new input types such as; "email", "url", "number" and so on. Check out the full list located at <a href="http://developers.whatwg.org/the-input-element.html#the-input-element">http://developers.whatwg.org/the-input-element.html#the-input-element</a>. 
 </p>
 <h5>Validation error messages</h5>
 <p>
-	As of this writing, there are three browsers that both support html form validation and display a error messages when needed. Browser support includes; Chrome 10+, Firefox 3.6+, and Opera 11+. Each of these browsers handles the styling of validation messages differently.
-	<img class="post-image-presentational" src='/storage/post_image_htmlFormErrors_defaultChrome.jpg' alt='Chrome 12 default error messages' />
+	As of this writing, there are three browsers that both support html form validation and display a error messages when needed. Browser support includes; Chrome 10+, Firefox 3.6+, and Opera 11+. Safari doesn't care about validating your forms. Each browser handles the styling of validation messages differently.
+	<img class="figure" src='/storage/post_image_htmlFormErrors_defaultChrome.jpg' alt='Chrome 12 default error messages' />
 	<em class="figcaption">Chrome 12 default error message</em>
-	<img class="post-image-presentational" src='/storage/post_image_htmlFormErrors_defaultFirefox.jpg' alt='Firefox 5.0 default error messages' />
+	<img class="figure" src='/storage/post_image_htmlFormErrors_defaultFirefox.jpg' alt='Firefox 5.0 default error messages' />
 	<em class="figcaption">Firefox 5.0 default error message</em>
-	<img class="post-image-presentational" src='/storage/post_image_htmlFormErrors_defaultOpera.jpg' alt='Opera 11.5 default error messages' />
+	<img class="figure" src='/storage/post_image_htmlFormErrors_defaultOpera.jpg' alt='Opera 11.5 default error messages' />
 	<em class="figcaption">Opera 11.5 default error message</em>
 </p>
 <p>
-	Now, of those three browsers, only Chrome currently offers a way to apply custom styles to the message. Through non-standard, Webkit specific selectors you are able to style the messages in any way that floats your boat.
+	Of the three, only Chrome currently offers a way to apply custom styles to the message. Through non-standard, Webkit-specific pseudo classes you are able to style the messages in any way that floats your boat. That's what I'm focusing on with this article.
 </p>
-							</div>
+<h5>What about the other browsers?</h5>
+<p>
+	That's a good question. I haven't heard anything about Opera, but it seems that the style and even handling of the error messages is an open discussion with Firefox. I did quite a bit of digging around in <a href="http://www.bugzilla.org/">Bugzilla</a> and in the FF 5 source code, but couldn't find any solid information on what the plan is. My hope is that a standard will emerge for styling the messages, but that could be far off.
+</p>
+<h5>The pseudo classes and markup</h5>
+<p>
+	When I first started looking into if/how the error messages could be styled I quickly came across a "Rosetta Stone" in an article by Peter Gasston, <a href="http://www.broken-links.com/2011/06/16/styling-html5-form-validation-errors/">http://www.broken-links.com/2011/06/16/styling-html5-form-validation-errors</a>. In the post Peter explains the pseudo classes that webkit makes available to target the error message elements. He's done the leg work of digging through the Webkit source code to find this stuff, thanks Peter! To reiterate some of what is in Peter's article, the following are the classes that are available to hook into:
+</p>
+<pre><code>::-webkit-validation-bubble {}
+::-webkit-validation-bubble-message {}
+::-webkit-validation-bubble-arrow {}
+::-webkit-validation-bubble-arrow-clipper {}</code></pre>
+<p>
+	Each of those target a <code>&lt;div&gt;</code> element that is inserted into the DOM when a validation error is triggered. The markup looks like this:
+</p>
+<pre><code>&lt;div -webkit-validation-bubble&gt;
+    &lt;div -webkit-validation-bubble-arrow&gt;&lt;/div&gt;
+    &lt;div -webkit-validation-bubble-arrow-clipper&gt;&lt;/div&gt;
+    &lt;div -webkit-validation-bubble-message&gt;Error Message&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<h5>Default styles</h5>
+<p>
+	A huge help when styling the messages is knowing the default styles that Chrome applies. Luckily the default Webkit CSS is available to peruse so you can see the exact properties that need to be modified. The default styles live here; <a href="http://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css?rev=82180#L588">http://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css?rev=82180#L588</a>
+</p>
+<h5>Demos</h5>
+<p>
+	I set up three different demos using markup for a simple login form containing two fields. The first field is an email input that is required:
+</p>
+<pre><code>&lt;input type="email" name="email" required&gt;</pre></code>
+<p>
+	The second field is a password input that is required:
+</p>
+<pre><code>&lt;input type="password" name="password" required&gt;</pre></code>
+<p>
+	The rest of the markup for each demo is nearly identical, differences include; using <code>&lt;label&gt;</code> elements for the first demo and some different structural elements for each.
+</p>
+<p>
+	To really work with the message styles, I wanted each demo to have a distinct style from the others. Demo 1 has a kind of standard-looking style with error messages that are big, bright and bubbly. Demo 2 has a sleeker, higher-tech, control panel-y look with a slimmed down error icon with no text. Demo 3 has an artsy, Draplin-inspired, Futura-filled look that carries over into big-ole, text only error messages.
+	<a href="http://lab.tylergaw.com/html5forms/errorStyles/01"><img class="figure" src='/storage/post_image_htmlFormErrors_demo01.jpg' alt='Demo 01 style showing an error' /></a>
+	<em class="figcaption">Style 01; 37 Signals called, they want their form back</em>
+	<a href="http://lab.tylergaw.com/html5forms/errorStyles/02"><img class="figure" src='/storage/post_image_htmlFormErrors_demo02.jpg' alt='Demo 02 style showing an error' /></a>
+	<em class="figcaption">Style 02; this is the login form for your Starcraft forum</em>
+	<a href="http://lab.tylergaw.com/html5forms/errorStyles/03"><img class="figure" src='/storage/post_image_htmlFormErrors_demo03.jpg' alt='Demo 03 style showing an error' /></a>
+	<em class="figcaption">Style 03; hard to go wrong with fire engine-red Futura</em>
+</p>
+<h5>More fun stuff</h5>
+<p>
+	Something to remember when styling the messages is that most any styles that are available in Chrome can be applied to the message bubbles, this includes animations. With demos 1 and 2 I created created CSS animations to bring the messages into view. Since the message elements do not exist in the DOM until an error is triggered, the animations will not run until that time. So, in demo 1, to get that little shimmy and shake I'm using the following:
+</p>
+<pre><code>@-webkit-keyframes bounce {
+    0% {
+        opacity: 0.5;
+        margin-left: 85px;
+    }
+	
+    25% {
+        margin-left: -35px;
+    }
+	
+    50% {
+        margin-left: 50px;
+    }
+	
+    75% {
+        margin-left: -22px;
+    }
+	
+    100% {
+        margin-left: -15px;
+        opacity: 0.9;
+    }
+}</pre></code>
+<p>
+	The named animation is applied to the main message container;
+</p>
+<pre><code>::-webkit-validation-bubble {
+    -webkit-animation-timing-function: ease;
+    -webkit-animation: bounce 0.45s 1;
+    ...
+}</code></pre>
+<p>
+	Demo 2 uses a similar, but less complex animation to slide the serious looking icon in from the left.
+</p>
+
+<p>
+	<i>Thanks for reading</i>
+</p>
+</div>
+<p class="tumblr-post-comments">&nbsp;</p>
 						</li>
 						<li>
 							<h4>July 9 <span>2011</span></h4>
@@ -62,11 +150,11 @@
 								</p>
 								<p>
 									The first graphic I envisioned for the design was the name, Jribbble. I saw the "J" and the "b"s in a large, swooping style. A style that I would not be able to accomplish with a computer. I would need to use my hands. The vision I had for it was too large for a pencil or pen or marker. I grabbed my box of acrylic paints, brushes, my 14" x 17" drawing pad and spread them out on my definitely-not-for-painting-on Ikea coffee table. With a medium sized brush and Primary Magenta I scrawled out a couple of "Jribbble"s as well as some random strokes. The toothbrush you see in the photo I used for making paint spatters and for getting paint all over the damned place.
-									<img class="post-image-presentational" src='http://tylergaw.com/storage/post_image_jribbble_painting.jpg' alt='Jribbble painting' />
+									<img class="figure" src='http://tylergaw.com/storage/post_image_jribbble_painting.jpg' alt='Jribbble painting' />
 								</p>
 								<p>
 									After the painting I took the "Jribbble" I liked most into Photoshop and fiddled with it a bit. I isolated the color from the background, applied the Twirl filter a few times to give it more character and added some of the random strokes and splatters around it for a more haphazard look. In Photoshop I set up a 958px, 12 column grid to work off of. For the banner and assorted page headers I selected <a href="http://typekit.com/fonts/botanika-mono-web">Botanika Mono Web from Typekit</a>. I don't own that font so I have to use a very advanced and elegant method for playing around with initial type layout. I input the text I need into Typekit's Type Tester and take screenshots of the text from there. See, fancy ain't it?
-									<img class="post-image-presentational" src='http://tylergaw.com/storage/post_image_jribbble_design.jpg' alt='Jribbble design' />
+									<img class="figure" src='http://tylergaw.com/storage/post_image_jribbble_design.jpg' alt='Jribbble design' />
 								</p>
 								<p>
 									The image above is the extent of the design accomplished with Photoshop. From that point on the rest of the design was created with good ole' CSS. Just like I have always done in Photoshop I went through quite a few style iterations; colors, type sizes, positioning, but instead of spending that time in Photoshop and only moving to the browser when it was "final" I used the medium that would be delivered to create the design. Designing in the browser, it feels good man.
@@ -114,7 +202,7 @@
 								<h5>The Good Stuff, The Sweetness, <i>The Sugar</i></h5>
 								<p>
 									How does a die-cut, scaleable background image sound? I thought it sounded pretty rad. I'll explain. I had the idea that I wanted the "Jribbble" graphic to be different colors at different times. One way to accomplish that would have been to make a number of different images in the various colors that I wanted. That would work, but I thought I could do it a more efficient way. What I did was create an image that had a set background color of <code>#ececec</code> with the text itself transparent allowing for a background color to show through.
-									<img class="post-image-presentational" src='http://tylergaw.com/storage/post_image_jribbble_transparent.jpg' alt='Jribbble background image' />
+									<img class="figure" src='http://tylergaw.com/storage/post_image_jribbble_transparent.jpg' alt='Jribbble background image' />
 								</p>
 								<p>
 									With die-cut taken care of, let's look at scaleable. At its base size of 1149px by 663px the logo graphic is pretty large. At medium to large browser widths, this works fine, as the browser width decreases or increases the graphic starts to lose its intended effect and also starts to cause readability issues for other page elements. <code>background-size</code> to the rescue!

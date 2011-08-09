@@ -151,6 +151,10 @@ body
 	font-size: 115%;
 }
 
+	pre + h5 {
+		margin-top: 1.2em;
+	}
+
 #tumblr-posts h3
 {
 	font-style: italic;
@@ -354,13 +358,17 @@ body
 		list-style: inside disc;
 	}
 	
-	.post-image-presentational
+	.figure
 	{
 		border: 2px solid #debf93;
 		clear: both;
 		display: block;
 		margin: 10px 0 0 0;
 		width: 95%;
+	}
+	
+	a:hover .figure {
+		border-color: #E2AE65;
 	}
 	
 .rdbWrapper
