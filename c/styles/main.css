@@ -380,6 +380,10 @@ body
 	width: 150px !important;
 }
 
+code {
+	background-color: #f2f2f2;
+}
+
 /*------------------------------------------- blog post comments -------------------------------------*/
 
 h3#comments-title
