@@ -3,11 +3,11 @@
 # Require any additional compass plugins here.
 # Set this to the root of your project when deployed:
 http_path = "/"
-css_dir = "c/css/dist"
-sass_dir = "c/css/src"
-images_dir = "c/c/images"
-javascripts_dir = "c/js"
+css_dir = "scss"
+sass_dir = "."
+images_dir = "./images"
+javascripts_dir = "./js"
 output_style = :compressed
-# To enable relative paths to assets via compass helper functions. Uncomment:
+line_comments = false
 relative_assets = true
-preferred_syntax = :sass
+preferred_syntax = :scss
