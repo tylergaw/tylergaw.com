@@ -1,0 +1,29 @@
+[role='navigation'] {
+  @extend .inconsolata;
+  
+  font-size: 1.2em;
+  text-align: center;
+    
+  li {
+    display: inline-block;
+  }
+  
+  a {
+    color: #c9c9c9;
+    letter-spacing: 0.3em;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+#page-articles [role='navigation'] {
+  a {
+    color: #3d3d3d;
+  }
+}
+
+#page-about [role='navigation'] {
+  a {
+    color: #3d3d3d;
+  }
+}

@@ -1,0 +1,32 @@
+[role='banner'] {
+    
+  & > a {
+    background: transparent url(/images/logo-white-red.png) no-repeat center;
+    display: block;
+    height: 110px;
+    margin: 0 auto;
+    width: 142px;
+  }
+  
+  h1, h2 {
+    display: none;
+  }
+}
+
+#page-articles [role='banner'] {
+  & > a {
+    background-image: url(/images/logo-grey-purple.png);
+  }
+}
+
+#page-projects [role='banner'] {
+  & > a {
+    background-image: url(/images/logo-white.png);
+  }
+}
+
+#page-about [role='banner'] {
+  & > a {
+    background-image: url(/images/logo-navy-red.png);
+  }
+}
