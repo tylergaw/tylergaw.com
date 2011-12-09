@@ -1,5 +1,11 @@
 [role='banner'] {
-    
+  
+  margin: 0 auto;
+  overflow: hidden;
+  padding-top: 1em;
+  position: relative;
+  width: 95%;
+  
   & > a {
     background: transparent url(/images/logo-white-red.png) no-repeat center;
     display: block;
@@ -10,6 +16,12 @@
   
   h1, h2 {
     display: none;
+  }
+  
+  @media screen and (min-width: 575px) {
+    & > a {
+      float: left;
+    }
   }
 }
 
