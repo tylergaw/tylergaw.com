@@ -8,8 +8,6 @@
     font-size: 0.8em;
     letter-spacing: 0.1em;
     margin-bottom: 0.6em;
-    //display: inline-block;
-    //width: 31.6687422%;
   }
   
   section {
@@ -17,15 +15,8 @@
     width: 90%;
   }
   
-  ul {
-    //display: inline-block;
-    //width: 66.3387298%;
-  }
-  
   li {
     display: inline-block;
-    // Wide-screen width
-    //width: 25.4716981%;
     margin-bottom: 0.6em;
     width: 45.4245283%;
   }
@@ -68,6 +59,56 @@
     &[href*='mailto'] {
       background-image: none;
       text-indent: 0;
+    }
+  }
+  
+  @media screen and (min-width: 481px) {
+    font-size: 1.2em;
+    
+    li {
+      width: 26.4716981%;
+    }
+    
+    a {
+      background-position: left 0.32em;
+      
+      &[href*='dribbble'] {
+        background-position: left -1.8em;
+      }
+
+      &[href*='github'] {
+        background-position: left -3.9em;
+      }
+
+      &[href*='readability'] {
+        background-position: left -5.9em;
+      }
+
+      &[href*='arc90'] {
+        background-position: left -8.1em;
+      }
+
+      &[href*='rss'] {
+        background-position: left -10.3em;
+      }
+    }
+  }
+  
+  @media screen and (min-width: 600px) {
+    h1 {
+      display: inline-block;
+      margin: 0.3em 0 0 0;
+      vertical-align: top;
+      width: 25.6687422%;
+    }
+    
+    ul {
+      display: inline-block;
+      width: 73.8019925%;
+    }
+    
+    li {
+      width: 28.4716981%;
     }
   }
 }
