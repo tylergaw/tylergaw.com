@@ -55,27 +55,26 @@
     }
   }
   
-  @media screen and (min-width: 575px) {
+  @media screen and (min-width: 600px) {
     border-top-width: 6px;
     bottom: 0;
     display: inline-block;
+    font-size: 1.4em;
     margin-top: 0;
+    padding-bottom: 1.8em;
     position: absolute;
     right: 0;
     width: 75%;
     
     li {
       background-position: right 80%;
+      padding-right: 0.4em;
     }
     
     a {
       padding: 0.4em 0 0 0;
+      text-indent: 0.4em;
     }
-  }
-  
-  @media screen and (min-width: 600px) {
-    font-size: 1.4em;
-    padding-bottom: 1.8em;
   }
 }
 
