@@ -77,7 +77,7 @@
 }
 
 #page-home [role='navigation'] {
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) and (min-height: 500px) {
     background-position: left top;
     float: right;
     margin-right: 5.8530511%;
