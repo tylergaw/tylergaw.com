@@ -15,7 +15,6 @@
     letter-spacing: 0.3em;
     padding: 0.5em 0;
     text-decoration: none;
-    -webkit-font-smoothing: antialiased;
     
     &:hover, &:focus {
       border-bottom-color: #d7c31e;
@@ -37,6 +36,7 @@
     li {
       background: transparent url(/images/nav-divider-white.png) no-repeat right 55%;
       display: table-cell;
+      padding-right: 0.6em;
       
       &:last-child {
         background-image: none;
@@ -55,7 +55,7 @@
     }
   }
   
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 620px) {
     border-top-width: 6px;
     bottom: 0;
     display: inline-block;
@@ -68,7 +68,6 @@
     
     li {
       background-position: right 80%;
-      padding-right: 0.4em;
     }
     
     a {
