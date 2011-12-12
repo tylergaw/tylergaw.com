@@ -5,4 +5,24 @@
     background: #fcf1d3 url(/images/content-bg-tan.png) repeat 20% top;
     color: #433f1e;
   }
+  
+  time {
+    color: #84784b;
+  }
+  
+  [role='main'] {    
+    h2, a {
+      color: #8e46d1;
+    }
+    
+    p {
+      a {
+        color: #1e86d7;
+
+        &:hover {
+          border-bottom-color: #1e86d7;
+        }
+      }
+    }
+  }
 }
