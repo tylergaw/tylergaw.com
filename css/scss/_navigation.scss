@@ -56,7 +56,6 @@
   }
   
   @media screen and (min-width: 620px) {
-    border-top-width: 6px;
     bottom: 0;
     display: inline-block;
     font-size: 1.4em;
@@ -73,6 +72,34 @@
     a {
       padding: 0.4em 0 0 0;
       text-indent: 0.4em;
+    }
+  }
+}
+
+#page-home [role='navigation'] {
+  @media screen and (min-width: 768px) {
+    background-position: left top;
+    float: right;
+    margin-right: 5.8530511%;
+    padding-bottom: 0;
+    padding-top: 1.2em;
+    position: relative;
+    width: 78.4557908%;
+    
+    li {
+      background-position: right 48%;
+    }
+    
+    a {
+      border-bottom: 3px solid transparent;
+      border-top: none;
+      padding: 0.4em 0 0.4em 0;
+      
+      &:hover, &:focus {
+        border-top: none;
+        border-bottom-color: #d7c31e;
+        outline: none;
+      }
     }
   }
 }

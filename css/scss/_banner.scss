@@ -25,6 +25,18 @@
   }
 }
 
+#page-home [role="banner"] {
+  @media screen and (min-width: 768px) {
+    & > a {
+      background: transparent url(/images/logo-large.png) no-repeat right top;
+      @include background-size(100%);
+      height: auto;
+      padding-top: 57%;
+      width: 100%;
+    }
+  }  
+}
+
 #page-articles [role='banner'] {
   & > a {
     background-image: url(/images/logo-grey-purple.png);
