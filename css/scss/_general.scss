@@ -1,3 +1,5 @@
+$max-width: 900px;
+
 body {
   font-family: 'chaparral-pro', times, serif;
   -webkit-font-smoothing: antialiased;
@@ -17,6 +19,7 @@ h1, h2, h3 {
   font-size: 1em;
   line-height: 1.3;
   margin: 0 auto;
+  max-width: $max-width;
   width: 90%;
   
   img {

@@ -8,10 +8,12 @@
     font-size: 0.8em;
     letter-spacing: 0.1em;
     margin-bottom: 0.6em;
+    max-width: 11em;
   }
   
   section {
     margin: 1.2em auto;
+    max-width: $max-width;
     width: 90%;
   }
   
