@@ -8,7 +8,7 @@
   
   [role='main'] {    
     font-size: 1.1em;
-    padding-top: 1em;
+    padding-top: 1.8em;
     
     section {
       overflow: hidden;
@@ -54,7 +54,7 @@
       
       h1 {
         font-size: 2.6em;
-        margin-bottom: 88%;
+        margin-bottom: 90%;
         position: relative;
       }
       
@@ -68,9 +68,11 @@
       }
       
       img {
+        left: -0.8em;
         position: absolute;
         top: 1.2em;
         z-index: 1;
+        width: 105%;
       }
       
       ul {
