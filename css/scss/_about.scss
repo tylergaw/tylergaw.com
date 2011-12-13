@@ -74,5 +74,35 @@
         width: 50%;
       }
     }
+    
+    section:last-child {
+      ul {
+        padding-top: 0.4em;
+      }
+      
+      li {
+        margin-bottom: 1em;
+        
+        a {
+          color: #ea3829;
+          display: block;
+          font-size: 0.875em;
+          font-weight: 600;
+          
+          i {
+            color: #2d2923;
+            float: right;
+            font-style: italic;
+            font-weight: 400;
+          }
+        }
+        
+        img {
+          clear: both;
+          display: block;
+          margin-bottom: 0.3em;
+        }
+      }
+    }
   }
 }
