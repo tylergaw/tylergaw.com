@@ -5,4 +5,74 @@
     background: #ffef69 url(/images/content-bg-yellow.png) repeat 20% top;
     color: #514a3e;
   }
+  
+  [role='main'] {
+    font-size: 1.1em;
+    
+    section {
+      overflow: hidden;
+      position: relative;
+    }
+    
+    h1 {
+      color: #f37267;
+      font-size: 1.6em;
+      letter-spacing: 0.25em;
+      line-height: 1;
+      margin: 1em 0 0.2em 0;
+    }
+    
+    h3 {
+      font-size: 0.9em;
+      letter-spacing: 0.2em;
+    }
+    
+    p {
+      line-height: 1.5;
+      margin-bottom: 1.1em;
+    }
+    
+    a {
+      color: #2675ce;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    
+    a[href='http://arc90.com'] {
+      i {
+        color: #8b8b8b;
+      }
+    }
+    
+    section:first-child {
+      background: transparent url(/images/about-section-divider.png) repeat-x left bottom;
+      padding-bottom: 1.2em;
+      
+      h1 {
+        font-size: 2.6em;
+      }
+      
+      p:first-of-type {
+        color: #2d2923;
+        font-size: 1.2em;
+      }
+      
+      ul {
+        line-height: 1.6;
+        padding-top: 0.4em;
+      }
+      
+      li {
+        background: transparent url(/images/about-bullet.png) no-repeat left center;
+        display: block;
+        float: left;
+        font-style: italic;
+        text-indent: 0.7em;
+        width: 50%;
+      }
+    }
+  }
 }
