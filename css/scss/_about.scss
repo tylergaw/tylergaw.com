@@ -8,6 +8,7 @@
   
   [role='main'] {
     font-size: 1.1em;
+    padding-top: 1.5em;
     
     section {
       overflow: hidden;
@@ -19,7 +20,7 @@
       font-size: 1.6em;
       letter-spacing: 0.25em;
       line-height: 1;
-      margin: 1em 0 0.2em 0;
+      margin-bottom: 0.2em;
     }
     
     h3 {
@@ -76,12 +77,14 @@
     }
     
     section:last-child {
+      padding-top: 1em;
+      
       ul {
         padding-top: 0.4em;
       }
       
       li {
-        margin-bottom: 1em;
+        margin-bottom: 1.4em;
         
         a {
           color: #ea3829;
