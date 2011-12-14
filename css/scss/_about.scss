@@ -20,7 +20,7 @@
       font-size: 1.6em;
       letter-spacing: 0.25em;
       line-height: 1;
-      margin-bottom: 0.2em;
+      margin-bottom: 0.4em;
     }
     
     h3 {
@@ -102,7 +102,6 @@
         
         p:first-of-type {
           background: none;
-          font-size: 1.1em;
           padding-top: 0.6em;
         }
         
@@ -150,6 +149,32 @@
           clear: both;
           display: block;
           margin-bottom: 0.3em;
+        }
+      }
+      
+      @media screen and (min-width: 470px) {
+        p {
+          float: left;
+          margin-right: 4.117061%;
+          width: 66.6176837%;
+        }
+        
+        div {
+          display: inline-block;
+          width: 29.2652553%;
+        }
+        
+        li a {        
+          font-size: 0.775em;
+          overflow: hidden;
+        }
+        
+        img {
+          width: auto;
+        }
+        
+        a[href*='v2'] img {
+          margin-left: -7.2em;
         }
       }
     }
