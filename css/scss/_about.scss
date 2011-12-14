@@ -88,6 +88,38 @@
         text-indent: 0.7em;
         width: 50%;
       }
+      
+      @media screen and (min-width: 470px) {
+        h1 {
+          font-size: 3em;
+          margin-bottom: 0;
+        }
+        
+        p {
+          float: right;
+          width: 52.8019925%;
+        }
+        
+        p:first-of-type {
+          background: none;
+          font-size: 1.1em;
+          padding-top: 0.6em;
+        }
+        
+        img {
+          position: static;
+          width: 100%;
+        }
+        
+        div {
+          display: inline-block;
+          width: 46.2017435%;
+        }
+        
+        li {
+          width: 100%;
+        }
+      }
     }
     
     section:last-child {
