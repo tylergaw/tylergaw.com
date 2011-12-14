@@ -76,7 +76,7 @@
       }
       
       ul {
-        line-height: 1.6;
+        line-height: 1.1;
         padding-top: 0.4em;
       }
       
@@ -85,8 +85,8 @@
         display: block;
         float: left;
         font-style: italic;
-        text-indent: 0.7em;
-        width: 50%;
+        padding: 0.25em 0 0.25em 0.7em;
+        width: 45%;
       }
       
       @media screen and (min-width: 470px) {
@@ -115,8 +115,28 @@
           width: 46.2017435%;
         }
         
+        h3, ul {
+          margin-left: 3%;
+        }
+        
         li {
           width: 100%;
+        }
+      }
+      
+      @media screen and (min-width: 570px) {
+        li {
+          float: left;
+          width: 45%;
+        }
+      }
+      
+      @media screen and (min-width: 620px) {
+        h1 {
+          float: right;
+          font-size: 4em;
+          margin-top: 0.3em;
+          width: 52.8019925%;
         }
       }
     }
@@ -170,11 +190,22 @@
         }
         
         img {
+          height: 10%;
           width: auto;
         }
         
         a[href*='v2'] img {
-          margin-left: -7.2em;
+          margin-left: -1.9em;
+        }
+      }
+      
+      @media screen and (min-width: 620px) {
+        h1 {
+          font-size: 2.2em;
+        }
+        
+        li a {
+          font-size: 0.9em;
         }
       }
     }
