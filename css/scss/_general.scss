@@ -3,6 +3,11 @@ $max-width: 900px;
 body {
   font-family: 'chaparral-pro', times, serif;
   -webkit-font-smoothing: antialiased;
+  
+  & > div {
+    padding-bottom: 10em;
+    position: relative;
+  }
 }
 
 .inconsolata {

@@ -1,11 +1,18 @@
 [role='navigation'] {
+  
+  border-top: 1px dashed #54514c;
+  bottom: 0.2em;
   @extend .inconsolata;
-  font-size: 1.3em;
+  font-size: 1.5em;
+  left: 5%;
   margin-top: 1em;
-  text-align: center;
+  padding-top: 0.3em;
+  position: absolute;
+  text-align: right;
   @include transition-property(width);
   @include transition-duration(0.1s);
-    
+  width: 90%;
+  
   li {
     display: block;
   }
