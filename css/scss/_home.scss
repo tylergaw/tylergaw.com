@@ -11,6 +11,11 @@
   }
   
   [role='main'] {
+    
+    @media screen and (min-width: 768px) and (min-height: 500px) {
+      padding-top: 2.5em;
+    }
+    
     h2, a {
       color: #fff;
     }

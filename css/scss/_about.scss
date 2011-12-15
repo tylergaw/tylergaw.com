@@ -10,6 +10,10 @@
     font-size: 1.1em;
     padding-top: 1.8em;
     
+    @media screen and (min-width: 620px) {
+      padding-top: 6.5em;
+    }
+    
     section {
       overflow: hidden;
       position: relative;

@@ -6,12 +6,16 @@
   font-size: 1.5em;
   left: 5%;
   margin: 1em auto 0 auto;
+  max-width: $max-width;
   padding-top: 0.3em;
   position: absolute;
   text-align: right;
-  @include transition-property(width);
-  @include transition-duration(0.1s);
   width: 90%;
+  
+  ul {
+    @include transition-property(width);
+    @include transition-duration(0.1s);
+  }
   
   li {
     display: block;
@@ -32,18 +36,17 @@
   }
   
   @media screen and (min-width: 420px) {
-    
-    background: transparent url(/images/nav-border-yellow.png) repeat-x left bottom;
     border-top: none;
     font-size: 1.2em;
     left: auto;
-    padding-bottom: 1.6em;
     padding-top: 0;
-    position: static;
+    position: relative;
     text-align: center;
     
     ul {
+      background: transparent url(/images/nav-border-yellow.png) repeat-x left bottom;
       display: table;
+      padding-bottom: 1.4em;
       width: 100%;
     }
     
@@ -70,14 +73,14 @@
   }
   
   @media screen and (min-width: 620px) {
-    bottom: 0;
-    display: inline-block;
     font-size: 1.4em;
     margin-top: 0;
-    padding-bottom: 1.8em;
-    position: absolute;
-    right: 0;
-    width: 73%;
+    
+    ul {
+      float: right;
+      padding-bottom: 2em;
+      width: 73.3387298%;
+    }
     
     li {
       background-position: right 80%;
@@ -90,20 +93,23 @@
   }
   
   @media screen and (min-width: 768px) {
-    width: 80%;
+    ul {
+      width: 79.3387298%;
+    }
   }
 }
 
 #page-home [role='navigation'] {
+  
   @media screen and (min-width: 768px) and (min-height: 500px) {
-    background-position: left top;
-    float: right;
-    margin-right: 5.8530511%;
-    padding-bottom: 0;
-    padding-top: 1.2em;
-    position: relative;
-    width: 78.4557908%;
-    
+    ul {
+      background-position: left top;
+      margin-right: 5.5530511%;
+      padding-bottom: 0;
+      padding-top: 1.2em;
+      width: 78.4557908%;
+    }
+        
     li {
       background-position: right 48%;
     }
@@ -129,7 +135,10 @@
   }
   
   @media screen and (min-width: 420px) {
-    background-image: url(/images/nav-border-green.png);
+    
+    ul {
+      background-image: url(/images/nav-border-green.png);
+    }
     
     li {
       background-image: url(/images/nav-divider-green.png);
@@ -156,7 +165,10 @@
   }
   
   @media screen and (min-width: 420px) {
-    background-image: url(/images/nav-border-white.png);
+    
+    ul {
+      background-image: url(/images/nav-border-white.png);
+    }
     
     a:hover, a:focus, a[href='/projects'] {
       border-top-color: #d3d3d3;
@@ -171,7 +183,10 @@
   }
   
   @media screen and (min-width: 420px) {
-    background-image: url(/images/nav-border-navy.png);
+    
+    ul {
+      background-image: url(/images/nav-border-navy.png);
+    }
     
     li {
       background-image: url(/images/nav-divider-navy.png);

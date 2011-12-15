@@ -3,7 +3,7 @@
   margin: 0 auto;
   max-width: $max-width;
   overflow: hidden;
-  padding-top: 1em;
+  padding: 1em 0 0.5em 0;
   position: relative;
   width: 90%;
   
@@ -14,6 +14,7 @@
     margin: 0 auto;
     padding-top: 17%;
     width: 100%;
+    z-index: 999;
     
     @media screen and (min-width: 420px) {
       background-image: url(/images/logo-white-red.png);
@@ -29,6 +30,10 @@
   }
   
   @media screen and (min-width: 620px) {
+    left: auto;
+    margin-bottom: -5em;
+    width: 90%;
+    
     & > a {
       float: left;
     }
@@ -37,6 +42,8 @@
 
 #page-home [role="banner"] {
   @media screen and (min-width: 768px) and (min-height: 500px) {
+    margin-bottom: 0;
+    
     & > a {
       background: transparent url(/images/logo-large.png) no-repeat right top;
       @include background-size(100%);
