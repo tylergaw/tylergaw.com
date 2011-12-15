@@ -5,4 +5,65 @@
     background: #191919 url(/images/content-bg-charcoal.png) repeat 20% top;
     color: #bfbfbf;
   }
+  
+  [role='main'] {
+    
+    font-size: 1.1em;
+    
+    li {
+      padding: 1.6em 0;
+    }
+    
+    h3 {
+      color: #fefefe;
+      font-size: 1.6em;
+      letter-spacing: 0.25em;
+      line-height: 1;
+    }
+    
+    p {
+      padding: 0.6em 0 0.8em 0;
+    }
+    
+    div {
+      font-size: 1.1em;
+      text-align: right;
+      
+      &:after {
+        clear: both;
+        content: " ";
+        display: block;
+      }
+    }
+    
+    a {
+      clear: right;
+      color: #fefefe;
+      display: inline-block;
+      float: right;
+      margin-bottom: 0.3em;
+      text-decoration: none;
+      
+      &[href*='github'] {
+        color: #9a9a9a;
+        font-size: 0.9em;
+        font-style: italic;
+        
+        b {
+          color: #d4d4d4;
+          font-style: italic;
+        }
+      }
+      
+      &:hover {
+        color: #fff;
+      }
+    }
+    
+    section:first-child {
+     h1 {
+       display: none;
+     }
+    }
+  }
 }
