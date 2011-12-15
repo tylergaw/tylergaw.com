@@ -5,7 +5,7 @@
   @extend .inconsolata;
   font-size: 1.5em;
   left: 5%;
-  margin-top: 1em;
+  margin: 1em auto 0 auto;
   padding-top: 0.3em;
   position: absolute;
   text-align: right;
@@ -34,8 +34,13 @@
   @media screen and (min-width: 420px) {
     
     background: transparent url(/images/nav-border-yellow.png) repeat-x left bottom;
+    border-top: none;
     font-size: 1.2em;
+    left: auto;
     padding-bottom: 1.6em;
+    padding-top: 0;
+    position: static;
+    text-align: center;
     
     ul {
       display: table;

@@ -8,11 +8,20 @@
   width: 90%;
   
   & > a {
-    background: transparent url(/images/logo-white-red.png) no-repeat center;
+    background: transparent url(/images/logo-small-white-red.png) no-repeat center top;
+    @include background-size(100%);
     display: block;
-    height: 110px;
     margin: 0 auto;
-    width: 142px;
+    padding-top: 17%;
+    width: 100%;
+    
+    @media screen and (min-width: 420px) {
+      background-image: url(/images/logo-white-red.png);
+      @include background-size('auto');
+      height: 109px;
+      padding-top: 0;
+      width: 142px;
+    }
   }
   
   h1, h2 {
@@ -40,18 +49,30 @@
 
 #page-articles [role='banner'] {
   & > a {
-    background-image: url(/images/logo-grey-purple.png);
+    background-image: url(/images/logo-small-grey-purple.png);
+    
+    @media screen and (min-width: 420px) {
+      background-image: url(/images/logo-grey-purple.png);
+    }
   }
 }
 
 #page-projects [role='banner'] {
   & > a {
-    background-image: url(/images/logo-white.png);
+    background-image: url(/images/logo-small-white.png);
+    
+    @media screen and (min-width: 420px) {
+      background-image: url(/images/logo-white.png);
+    }
   }
 }
 
 #page-about [role='banner'] {
   & > a {
-    background-image: url(/images/logo-navy-red.png);
+    background-image: url(/images/logo-small-navy-red.png);
+    
+    @media screen and (min-width: 420px) {
+      background-image: url(/images/logo-navy-red.png);
+    }
   }
 }
