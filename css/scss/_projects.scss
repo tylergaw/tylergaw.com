@@ -11,6 +11,7 @@
     font-size: 1.1em;
     
     li {
+      @include background-size(100%);
       padding: 1.6em 0;
     }
     
@@ -19,6 +20,7 @@
       font-size: 1.6em;
       letter-spacing: 0.25em;
       line-height: 1;
+      margin-bottom: 26%;
     }
     
     p {
@@ -66,4 +68,16 @@
      }
     }
   }
+}
+
+#project-mfh {
+  background: transparent url(/images/project-mfh-small.png) no-repeat center 29%;
+}
+
+#project-jribbble {
+  background: transparent url(/images/project-jribbble-small.png) no-repeat center 19%;
+}
+
+#project-fcs {
+  background: transparent url(/images/project-fcs-small.png) no-repeat center 19%;
 }
