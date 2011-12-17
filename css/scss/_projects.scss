@@ -48,8 +48,32 @@
       }
       
       li {
+        background-repeat: no-repeat;
         @include background-size(100%);
         padding: 1.8em 0;
+        @include transition-property(background-size background-position);
+        @include transition-duration(0.15s);
+        @include transition-timing-function(ease);
+        
+        &:after {
+          content: " ";
+          display: table;
+        }
+      }
+      
+      #project-mfh {
+        background-image: url(/images/project-mfh-small.png);
+        background-position: center 29%;
+      }
+
+      #project-jribbble {
+        background-image: url(/images/project-jribbble-small.png);
+        background-position: center 19%;
+      }
+
+      #project-fcs {
+        background-image: url(/images/project-fcs-small.png);
+        background-position: center 21%;
       }
       
       a {
@@ -75,6 +99,89 @@
 
         &:hover {
           color: #c4c4c4;
+        }
+      }
+      
+      @media screen and (min-width: 420px) {
+        h3, p, div {
+          width: 52.9265255%;
+        }
+        
+        h3 {
+          font-size: 2em;
+          margin-bottom: 0;
+        }
+        
+        p {
+          padding: 0.8em 0 1.4em 0;
+        }
+        
+        #project-mfh {
+          background-image: url(/images/project-mfh.png);
+          background-position: 170% 5%;
+          @include background-size(70%);
+          padding-bottom: 20%;
+        }
+
+        #project-jribbble {
+          background-image: url(/images/project-jribbble.png);
+          background-position: 270% 5%;
+          @include background-size(80%);
+          padding-bottom: 20%;
+        }
+
+        #project-fcs {
+          background-image: url(/images/project-fcs.png);
+          background-position: 265% 12%;
+          @include background-size(80%);
+        }
+      }
+      
+      @media screen and (min-width: 560px) {
+        #project-mfh {
+          background-position: 125% 10%;
+          @include background-size(60%);
+        }
+
+        #project-jribbble {
+          background-position: 140% top;
+          @include background-size(60%);
+          padding-bottom: 10%;
+        }
+
+        #project-fcs {
+          background-position: 130% 40%;
+          @include background-size(60%);
+        }
+      }
+      
+      @media screen and (min-width: 620px) {
+        h3 {
+          font-size: 3em;
+          padding-top: 0.6em;
+        }
+      }
+      
+      @media screen and (min-width: 760px) {
+        #project-mfh {
+          background-position: 95% 0;
+          @include background-size(45%);
+          padding-bottom: 14%;
+        }
+
+        #project-jribbble {
+          background-position: 100% top;
+          @include background-size(44%);
+          
+          h3 {
+            padding-top: 1.5em;
+          }
+        }
+
+        #project-fcs {
+          background-position: 100% 30%;
+          @include background-size(46%);
+          padding-bottom: 15%;
         }
       }
     }
@@ -175,16 +282,4 @@
       }
     }
   }
-}
-
-#project-mfh {
-  background: transparent url(/images/project-mfh-small.png) no-repeat center 29%;
-}
-
-#project-jribbble {
-  background: transparent url(/images/project-jribbble-small.png) no-repeat center 21%;
-}
-
-#project-fcs {
-  background: transparent url(/images/project-fcs-small.png) no-repeat center 21%;
 }
