@@ -68,6 +68,15 @@
     padding-bottom: 0.8em;
   }
   
+  p:last-child i {
+    background: transparent url(/images/articles-thanks.png) no-repeat left top;
+    display: inline-block;
+    height: 51px;
+    margin-top: 0.5em;
+    text-indent: -300em;
+    width: 219px;
+  }
+  
   figure {
     margin: 0.2em 0 0.9em 0;
   }
@@ -114,6 +123,10 @@
       float: right;
       margin-right: 7.9701121%;
       width: 68.4931507%
+    }
+    
+    p:last-child {
+      margin-right: 10.701121%;
     }
     
     .entry-intro, figure, pre {
