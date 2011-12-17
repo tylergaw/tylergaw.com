@@ -2,6 +2,10 @@
   
   time {
     @extend .inconsolata;
+    
+    b {
+      font-weight: 400;
+    }
   }
   
   [role='main'] {
