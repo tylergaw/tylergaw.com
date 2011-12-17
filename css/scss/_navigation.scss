@@ -129,7 +129,7 @@
   }
 }
 
-#page-articles, #page-article [role='navigation'] {
+#page-articles [role='navigation'], #page-article [role='navigation'] {
   background-image: url(/images/articles-section-divider.png);
   
   a:hover, a:focus, a[href='/articles'] {

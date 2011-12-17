@@ -12,6 +12,24 @@
   header {
     margin: 1em 0;
   }
+  
+  time {
+    font-size: 1.1em;
+    @extend .inconsolata;
+  }
+  
+  @media screen and (min-width: 620px) {
+    h1 {
+      font-size: 3.3em;
+      line-height: 1.1;
+    }
+    
+    time {
+      display: inline-block;
+      font-size: 1.25em;
+      margin-top: 1.1em;
+    }
+  }
 }
 
 .entry-author {
@@ -79,6 +97,28 @@
     code {
       display: inline-block;
       padding: 0.4em 0.6em;
+    }
+  }
+  
+  @media screen and (min-width: 620px) {
+    
+    font-size: 1.3em;
+    margin-top: -2em;
+    
+    h2, p, ul, figure, pre {
+      clear: right;
+      float: right;
+      margin-right: 7.9701121%;
+      width: 68.4931507%
+    }
+    
+    .entry-intro, figure, pre {
+      margin-right: 0;
+      width: 76.3387298%;
+    }
+    
+    .entry-intro {
+      line-height: 1.5;
     }
   }
 }
