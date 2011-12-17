@@ -1,6 +1,11 @@
 #page-about {
   background: #091d2a url(/images/body-bg-navy.png) fixed repeat 20% top;
   
+  ::selection {
+    background-color: #d83717;
+    color: #ffef69;
+  }
+  
   & > div {
     background: #ffef69 url(/images/content-bg-yellow.png) repeat 20% top;
     @include border-image('about');

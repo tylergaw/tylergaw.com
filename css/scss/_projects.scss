@@ -1,6 +1,11 @@
 #page-projects {
   background: #ededed url(/images/body-bg-white.png) fixed repeat 20% top;
   
+  ::selection {
+    background-color: #fff;
+    color: #191919;
+  }
+  
   & > div {
     background: #191919 url(/images/content-bg-charcoal.png) repeat 20% top;
     @include border-image('projects');
