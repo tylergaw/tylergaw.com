@@ -3,6 +3,7 @@
   
   & > div {
     background: #ffef69 url(/images/content-bg-yellow.png) repeat 20% top;
+    @include border-image('about');
     color: #514a3e;
   }
   
@@ -196,10 +197,6 @@
         img {
           height: 10%;
           width: auto;
-        }
-        
-        a[href*='v2'] img {
-          margin-left: -1.9em;
         }
       }
       

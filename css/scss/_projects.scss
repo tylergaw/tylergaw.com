@@ -3,6 +3,7 @@
   
   & > div {
     background: #191919 url(/images/content-bg-charcoal.png) repeat 20% top;
+    @include border-image('projects');
     color: #bfbfbf;
   }
   
@@ -167,6 +168,10 @@
           background-position: 95% 0;
           @include background-size(45%);
           padding-bottom: 14%;
+          
+          h3 {
+            padding-top: 1em;
+          }
         }
 
         #project-jribbble {
