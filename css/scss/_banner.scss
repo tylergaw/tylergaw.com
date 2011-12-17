@@ -54,7 +54,7 @@
   }  
 }
 
-#page-articles [role='banner'] {
+#page-articles, #page-article [role='banner'] {
   & > a {
     background-image: url(/images/logo-small-grey-purple.png);
     

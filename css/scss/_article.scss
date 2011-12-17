@@ -1,0 +1,73 @@
+.hentry {
+  margin-bottom: 1em;
+  overflow: hidden;
+  
+  h1 {
+    color: #8e46d1;
+    font-size: 2.2em;
+    letter-spacing: 0.25em;
+    line-height: 1;
+  }
+  
+  header {
+    margin: 1em 0;
+  }
+}
+
+.entry-author {
+  display: none;
+}
+
+// Extra specificity needed here due to styles in _articles.scss
+#page-article .entry-content h2 {
+  color: #514820;
+  font-family: 'chaparral-pro', times, serif;
+  font-size: 1.2em;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.8em 0 0.2em 0;
+  text-transform: none;
+}
+
+.entry-content {
+  color: #716738;
+  font-size: 1.2em;
+  line-height: 1.4;
+  
+  a {
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  p {
+    padding-bottom: 0.8em;
+  }
+  
+  figure {
+    margin: 0.2em 0 0.9em 0;
+  }
+  
+  figcaption {
+    color: #433f1e;
+    font-size: 0.8em;
+    font-style: italic;
+  }
+  
+  ul {
+    padding: 0 0.2em 1em 0.2em;
+  }
+  
+  li {
+    font-size: 0.95em;
+    list-style: square inside;
+  }
+}
+
+.entry-intro {
+  color: #433f1e;
+  font-size: 1.1em;
+  line-height: 1.3;
+}
