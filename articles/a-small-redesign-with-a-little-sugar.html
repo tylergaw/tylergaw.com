@@ -51,7 +51,7 @@
             <p>
             	The image above is the extent of the design accomplished with Photoshop. From that point on the rest of the design was created with good ole' CSS. Just like I have always done in Photoshop I went through quite a few style iterations; colors, type sizes, positioning, but instead of spending that time in Photoshop and only moving to the browser when it was "final" I used the medium that would be delivered to create the design. Designing in the browser, it feels good man.
             </p>
-            <h2>The Flexibility</h2>
+            <h2>The flexibility</h2>
             <p>
             	To accomplish my flexible grid, I started with a overall width of 80% on the content area. That number was somewhat arbitrary, I started with 100% and decreased the number until I felt there was a comfortable amount of room between the edge of the browser and the beginning of the content. I am setting a <code>max-width</code> of 1280px on the content area. Any wider than that and things started to get a little unwieldy; line-lengths were too long and in general things just didn't look good. At browser widths of 768px or narrower I wanted to gain back some of the margin so I used a media query to increase the width to 95%.
             </p>
@@ -61,7 +61,7 @@
   width: 80%;
   
   @media screen and (max-width: 768px) {
-      width: 95%;
+    width: 95%;
   }
 }</code></pre>
             <p>
@@ -76,22 +76,22 @@
             </p>
             <pre><code>.method-description {
   h3 {
-      float: left;
-      width: 40.1878914%; /* 385 &divide; 958 = .401878914 */
-      ...
+    float: left;
+    width: 40.1878914%; /* 385 &divide; 958 = .401878914 */
+    ...
   }
   
   p {
-      float: right;
-      ...
-      width: 56.4718163%; /* 541 &divide; 958 = .564718163 */
+    float: right;
+    ...
+    width: 56.4718163%; /* 541 &divide; 958 = .564718163 */
   }
 }</code></pre>
             <h2>More on media queries</h2>
             <p>
             	Throughout the design I used media queries to add more fine tuning of styles that I couldn't accomplish with percentages alone. I decrease font sizes, switch to single column layouts and make other miscellaneous tweaks as the browser width decreases or increases to specified break points. For cross browser media query support I used the <a href="https://github.com/scottjehl/Respond">Respond.js</a> poly fill. It works great, media queries in IE7, you can't beat that with a stick! I needed to make some specific enhancements based on features as well so I used <a href="http://www.modernizr.com/">Modernizer</a> for feature detection. I included Respond.js in my Modernizer build.
             </p>
-            <h2>The Good Stuff, the sweetness, The Sugar</h2>
+            <h2>The good stuff, the sweetness, the sugar</h2>
             <p>
             	How does a die-cut, scaleable background image sound? I thought it sounded pretty rad. I'll explain. I had the idea that I wanted the "Jribbble" graphic to be different colors at different times. One way to accomplish that would have been to make a number of different images in the various colors that I wanted. That would work, but I thought I could do it a more efficient way. What I did was create an image that had a set background color of <code>#ececec</code> with the text itself transparent allowing for a background color to show through.
             </p>
@@ -126,16 +126,16 @@
             	Something that's not accounted for in the above CSS is the background color, the color that should show through the die-cut image. This is where I started having a lot of fun. I set up 11 media queries at different pixel max-widths from 320px to 2360px, at each of those I set a different background color for the logo as well as a number of different elements on the page. As the browser width increases or decreases the background color changes. Another little extra I use is a CSS transition to smoothly change from one color to another on each of the chameleon-like elements. An example element with a media query colorway:
             </p>
             <pre><code>#bigAssJribbble {
-    -moz-transition: background-color 0.2s;	
-    -webkit-transition: background-color 0.2s;
-    -o-transition: background-color 0.2s;
-    transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;	
+  -webkit-transition: background-color 0.2s;
+  -o-transition: background-color 0.2s;
+  transition: background-color 0.2s;
 }
 
 @media screen and (max-width: 480px) {
-    #bigAssJribbble {
-        background-color: #4400ff;
-    }
+  #bigAssJribbble {
+    background-color: #4400ff;
+  }
 }</code></pre>
             <p>
             	I didn't get incredibly specific with what colors I chose. I started with a base of <code>#ff0066</code> and then apply cooler colors as the width decreases and warmer as it increases.
