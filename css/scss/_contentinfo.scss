@@ -122,9 +122,17 @@
 #page-projects [role='contentinfo'] {
   background-image: url(/images/footer-border-charcoal-white.png);
   
+  h1 {
+    color: #575757;
+  }
+  
   a {
     background-image: url(/images/footer-icons-grayscale.png);
     color: #575757;
+    
+    &:hover {
+      color: #191919;
+    }
     
     &[href*='mailto'] {
       background-image: none;
