@@ -106,6 +106,8 @@
 #page-home [role='navigation'] {
   
   @media screen and (min-width: 768px) and (min-height: 500px) {
+    top: auto;
+    
     ul {
       background-position: left top;
       margin-right: 5.5530511%;
