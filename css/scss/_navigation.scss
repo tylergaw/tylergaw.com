@@ -46,15 +46,16 @@
     
     ul {
       background: transparent url(/images/nav-border-yellow.png) repeat-x left bottom;
+      border-collapse: collapse;
       display: table;
-      padding-bottom: 1.4em;
-      width: 95%;
+      width: 100%;
     }
     
     li {
-      background: transparent url(/images/nav-divider-white.png) no-repeat right 55%;
+      background: transparent url(/images/nav-divider-white.png) no-repeat right 30%;
       display: table-cell;
       padding-right: 0.6em;
+      padding-bottom: 1.4em;
       
       &:last-child {
         background-image: none;
@@ -80,12 +81,12 @@
     
     ul {
       float: right;
-      padding-bottom: 2em;
-      width: 66.3387298%;
+      width: 74.3387298%;
     }
     
     li {
-      background-position: right 80%;
+      background-position: right 22%;
+      padding-bottom: 2em;
     }
     
     a {
@@ -96,7 +97,7 @@
   
   @media screen and (min-width: 768px) {
     ul {
-      width: 74.3387298%;
+      width: 80.3387298%;
     }
   }
 }
@@ -107,19 +108,18 @@
     ul {
       background-position: left top;
       margin-right: 5.5530511%;
-      padding-bottom: 0;
-      padding-top: 1.2em;
-      width: 74.4557908%;
+      width: 78.4557908%;
     }
         
     li {
-      background-position: right 48%;
+      background-position: right 38%;
+      padding-top: 1.2em;
     }
     
     a {
       border-bottom: 3px solid transparent;
       border-top: none;
-      padding: 0.4em 0 0.4em 0;
+      padding: 0.4em 0 0.6em 0;
       
       &:hover, &:focus {
         border-top: none;
