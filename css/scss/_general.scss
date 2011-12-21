@@ -41,9 +41,7 @@ h1, h2, h3 {
     max-width: 70%;
   }
   
-  @media screen and (min-width: 620px) {
-    padding-top: 6em;
-    
+  @media screen and (min-width: 620px) {    
     img.image-vertical {
       max-width: 50%;
     }
