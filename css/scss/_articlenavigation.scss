@@ -1,0 +1,30 @@
+#article-navigation {
+  background: transparent url(/images/articles-section-divider.png) repeat-x left top;
+  @extend .inconsolata;
+  font-size: 1.3em;
+  margin-bottom: 0.7em;
+  padding-top: 0.6em;
+  
+  a {
+    border-bottom: 2px solid transparent;
+    color: #1e86d7;
+    display: inline-block;
+    letter-spacing: 0.25em;
+    text-decoration: none;
+    
+    &:last-child {
+      float: right;
+    }
+    
+    &:hover {
+      border-bottom-color: #1e86d7;
+    }
+  }
+  
+  @media screen and (min-width: 730px) {    
+    clear: right;
+    float: right;
+    margin-right: 7.9701121%;
+    width: 68.4931507%
+  }
+}

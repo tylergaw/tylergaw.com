@@ -17,7 +17,13 @@
   }
   
   [role='main'] {
-    h2, a {
+    &:after {
+      content: " ";
+      clear: both;
+      display: block;
+    }
+    
+    h2 a {
       color: #8e46d1;
     }
     
