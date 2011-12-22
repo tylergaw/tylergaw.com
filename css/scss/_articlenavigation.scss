@@ -6,18 +6,28 @@
   padding-top: 0.6em;
   
   a {
-    border-bottom: 2px solid transparent;
     color: #1e86d7;
     display: inline-block;
     letter-spacing: 0.25em;
     text-decoration: none;
     
+    &:first-child {
+      &:before {
+        content: "↜";
+      }
+    }
+    
     &:last-child {
       float: right;
+      text-align: left;
+      
+      &:after {
+        content:"↝";
+      }
     }
     
     &:hover {
-      border-bottom-color: #1e86d7;
+      color: #1872B6;
     }
   }
   
