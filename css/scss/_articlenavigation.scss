@@ -31,6 +31,10 @@
     }
   }
   
+  a.disabled {
+    color: #b4b6ba;
+  }
+  
   @media screen and (min-width: 730px) {    
     clear: right;
     float: right;
