@@ -169,12 +169,18 @@
             font-style: italic;
             font-weight: 400;
           }
+          
+          &:hover img {
+            opacity: 1;
+          }
         }
         
         img {
           clear: both;
           display: block;
           margin-bottom: 0.3em;
+          opacity: 0.9;
+          position: relative;
         }
       }
       
@@ -195,8 +201,13 @@
           overflow: hidden;
         }
         
+        li:nth-child(2n) {
+          img {
+            left: -3.5em;
+          }
+        }
+        
         img {
-          height: 10%;
           width: auto;
         }
       }
