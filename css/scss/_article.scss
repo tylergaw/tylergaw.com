@@ -4,7 +4,7 @@
   
   h1 {
     color: #8e46d1;
-    font-size: 2.2em;
+    font-size: 1.8em;
     letter-spacing: 0.25em;
     line-height: 1;
     margin-bottom: 0.3em;
@@ -19,6 +19,12 @@
     @extend .inconsolata;
     margin-bottom: 0.2em;
     padding-left: 0.35em;
+  }
+  
+  @media screen and (min-width: 420px) {
+    h1 {
+      font-size: 2.2em;
+    }
   }
   
   @media screen and (min-width: 730px) {
