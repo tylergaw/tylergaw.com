@@ -1,0 +1,16 @@
+#disqus_thread {
+  background: transparent url(/images/articles-section-divider.png) repeat-x left top;
+  overflow: hidden;
+  
+  a {
+    color: #1e86d7;
+    text-decoration: none;
+  }
+  
+  @media screen and (min-width: 730px) {    
+    clear: right;
+    float: right;
+    margin-right: 7.9701121%;
+    width: 68.4931507%
+  }
+}
