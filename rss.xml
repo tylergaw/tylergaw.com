@@ -9,12 +9,11 @@
   <language>en</language>
   <generator>Elbow grease</generator>
   <image>
-    <url>http://tylergaw.com/images/rss-icon.png</url>
+    <url>http://tylergaw.com/images/rss-graphic.png</url>
     <title>Tyler Gaw Occasionally Writes About Web Design and Life</title>
     <link>http://tylergaw.com/</link>
-    
-    <width>max of 144</width>
-    <height>max of 400</height>
+    <width>144</width>
+    <height>180</height>
   </image>
   <atom:link href="http://tylergaw.com/rss.xml" rel="self" type="application/rss+xml"/>
   <item>
