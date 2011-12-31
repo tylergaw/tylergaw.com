@@ -1,0 +1,41 @@
+.new {
+  background: #081516 url(/images/content-bg-navy.png) repeat 20% top;
+  
+  div {
+    font-size: 1.2em;
+    margin: 0 auto;
+    padding: 2em 0 2em 0;
+    max-width: 460px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  h1 {
+    background: transparent url(/images/new.png) no-repeat center top;
+    @include background-size(100%);
+    margin: 0 auto;
+    padding-top: 91%;
+    text-indent: -300em;
+    width: 95%;
+  }
+  
+  h2 {
+    color: #da2942;
+    font-size: 1.2em;
+    letter-spacing: 0.45em;
+    margin: 0 auto 2.5em 0;
+    text-indent: -0.8em;
+    width: 95%;
+  }
+  
+  a {
+    color: #615f51;
+    font-size: 0.9em;
+    font-style: italic;
+    text-decoration: none;
+    
+    &:hover {
+      color: #1c5d94;
+    }
+  } 
+}
