@@ -1,0 +1,83 @@
+.error-page {
+  background: #ececec url(/images/content-bg-white.png) repeat 20% top;
+  
+  div {
+    background: transparent url(/images/error-food.png) no-repeat center top;
+    @include background-size(100%);
+    font-size: 1.2em;
+    margin: 0 auto;
+    padding: 2em 0 2em 0;
+    max-width: 800px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  h1 {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center top;
+    @include background-size(100%);
+    margin: 0 auto;
+    padding-top: 51%;
+    text-indent: -300em;
+    width: 49.5491905%;
+  }
+  
+  h2 {
+    font-size: 1.4em;
+    letter-spacing: 0.25em;
+    margin: 0 auto;
+    width: 95%;
+  }
+  
+  p {
+    color: #6e6e6e;
+    font-style: italic;
+    margin: 2em auto 0 auto;
+    width: 95%;
+  }
+  
+  ul {
+    margin-top: 0.5em;
+  }
+  
+  li {
+    display: inline;
+    font-size: 1.1em;
+    line-height: 1.2;
+    padding: 0 0.7em;
+  }
+  
+  a {
+    color: #1a84de;
+    @extend .inconsolata;
+    letter-spacing: 0.2em;
+    text-decoration: none;
+    
+    &:hover {
+      color: #1c5d94;
+    }
+  }
+  
+  @media screen and (min-width: 700px) {
+    div {
+      width: 65%;
+    }
+  }  
+}
+
+.error-page.not-found {
+  h1 {
+    background-image: url(/images/error-404.png);
+  }
+}
+
+.error-page.server-error {
+  h1 {
+    background-image: url(/images/error-500.png);
+  }
+  
+  p {
+    margin-top: 0.5em;
+  }
+}
