@@ -56,7 +56,7 @@
 					noart: '/c/images/lastfm_defaultCover.jpg',
 					onComplete: function(){}
 				});
-			},
+			},h
 			
 			getFlickrPhotos: function ()
 			{
