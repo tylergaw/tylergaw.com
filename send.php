@@ -7,7 +7,7 @@ $service=$_POST['service'];
 $clean=$_POST['clean'];
 $experience=$_POST['experience'];
 
-$to = "lemagicbullet@gmail.com";
+$to = "me@tylergaw.com";
 $subject = "Message from online portfolio";
 $message = "Name: " . $name;
 $message .= "\nEmail: " . $email;
