@@ -463,6 +463,16 @@ $max-width: 900px;
           padding: 0.8em 0 1.4em 0;
         }
 
+        #project-alpha {
+          background-image: url(/images/project-alpha.png);
+          background-position: 95% 10%;
+          padding-bottom: 10%;
+          
+          h3 {
+            padding-top: 1em;
+          }
+        }
+        
         #project-mfh {
           background-image: url(/images/project-mfh.png);
           background-position: 95% 0;

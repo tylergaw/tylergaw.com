@@ -67,6 +67,11 @@
         }
       }
       
+      #project-alpha {
+        background-image: url(/images/project-alpha-small.png);
+        background-position: center 17%;
+      }
+      
       #project-mfh {
         background-image: url(/images/project-mfh-small.png);
         background-position: center 25%;
@@ -108,6 +113,13 @@
         }
       }
       
+      p a {
+        clear: none;
+        display: inline;
+        float: none;
+        margin-bottom: 0;
+      }
+      
       @media screen and (min-width: 420px) {
         h3, p, div {
           width: 52.9265255%;
@@ -120,6 +132,13 @@
         
         p {
           padding: 0.8em 0 1.4em 0;
+        }
+        
+        #project-alpha {
+          background-image: url(/images/project-alpha.png);
+          background-position: 170% 14%;
+          @include background-size(70%);
+          padding-bottom: 20%;
         }
         
         #project-mfh {
@@ -144,6 +163,11 @@
       }
       
       @media screen and (min-width: 560px) {
+        #project-alpha {
+          background-position: 125% 15%;
+          @include background-size(60%);
+        }
+        
         #project-mfh {
           background-position: 125% 10%;
           @include background-size(60%);
@@ -169,6 +193,16 @@
       }
       
       @media screen and (min-width: 760px) {
+        #project-alpha {
+          background-position: 95% 5%;
+          @include background-size(44%);
+          padding-bottom: 14%;
+          
+          h3 {
+            padding-top: 1em;
+          }
+        }
+        
         #project-mfh {
           background-position: 95% 0;
           @include background-size(45%);
