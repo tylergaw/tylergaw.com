@@ -381,7 +381,7 @@
     <description>
       <![CDATA[<p class="entry-intro">
         <a href='http://lab.tylergaw.com/themanfromhollywood'>
-          <img src='http://www.tylergaw.com/articles/assets/post_image_hollywood.jpg' alt='View the demo'>
+          <img src='http://tylergaw.com/articles/assets/post_image_hollywood.jpg' alt='View the demo'>
         </a>
       </p>
       <h2>Stuff You'll Most Likely Do Before Reading Any of This Post</h2>
@@ -432,7 +432,7 @@
     	  So what if IE6 doesn't support transparent pngs. Find a way to make that image a transparent gif or a jpg. Doesn't look as crisp as the png? So what, this is where progressive enhancement steps in, this is why we have conditional comments. Set up an IE6 stylesheet and dump all of the not so desirable CSS in there. Chances are most of your users are not on IE6 anyway, and if they are this can be a friendly little jab at them for using it. I took this route when building my site. I wanted to let anyone viewing my site with The 6 know that they are missing out so I created a completely stripped down version just for IE6, plus a nice reminder of why. It still works, you can access all the same content, it's just not pretty.
     	</p>
     	<figure>
-    	  <img src='http://www.tylergaw.com/articles/assets/post_image_tgawie6_thumb.jpg' alt='tylergaw.com IE6 Screenshot'>
+    	  <img src='http://tylergaw.com/articles/assets/post_image_tgawie6_thumb.jpg' alt='tylergaw.com IE6 Screenshot'>
     	  <figcaption>Users of IE6 receive a version of tylergaw.com that contains all the same content, but has a very pared-down aesthetic.</figcaption>
     	</figure>
     	<p>
