@@ -72,6 +72,13 @@
   
   p {
     padding-bottom: 1em;
+
+    code {
+        background-color: #f9f6f0;
+        color: #191919;
+        font-family: 'inconsolata', courier, monospace;
+        font-size: 0.85em;
+    }
   }
   
   p:last-child {
@@ -91,7 +98,8 @@
     margin: 0.2em 0 0.9em 0;
   }
   
-  figcaption {
+  figcaption,
+  .note {
     color: #433f1e;
     font-size: 0.8em;
     font-style: italic;

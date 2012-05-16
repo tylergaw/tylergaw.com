@@ -1,0 +1,129 @@
+<!--# set var="title" value="Reacting to Media Queries in Javascript by Tyler Gaw"-->
+<!--# set var="page" value="article"-->
+<!--# include file="/header.include.html"-->
+        <article class="hentry">
+          <header>
+            <h1 class="entry-title">Reacting to Media Queries in Javascript</h1>
+            <time class="updated" datetime="2012-05-16" pubdate>16 May 2012</time>
+            <p class="entry-author">
+              By <span class="fn">Tyler Gaw</span>
+            </p>
+            <div class="rdbWrapper" data-show-read="1" data-show-send-to-kindle="0" data-show-print="0" data-show-email="0" data-orientation="0" data-version="1" data-bg-color="f4eed9"></div><script type="text/javascript">(function() {var s = document.getElementsByTagName("script")[0],rdb = document.createElement("script"); rdb.type = "text/javascript"; rdb.async = true; rdb.src = document.location.protocol + "//www.readability.com/embed.js"; s.parentNode.insertBefore(rdb, s); })();</script>
+          </header>
+          <div class="entry-content">
+            <p>
+                <b>Brass tacks:</b> <em><a href="http://tylergaw.github.com/media-query-events/">The demo</a> and <a href="https://github.com/tylergaw/media-query-events">the code</a>.</em>
+            </p>
+            <p class="entry-intro">
+                <code>window.matchMedia</code> provides a way for Javascript to react when a media query condition is met or unmet. While the functionality it allows is great, the necessary code duplication required to use it leaves a bit to be desired. I'm going to walk through a quick approach to getting around that duplication.
+            </p>
+            <h2>window.matchMedia</h2>
+            <p>
+                The method is simple enough to use and works the way you'd expect it. You give it a media query string it gives you back a <a href="https://developer.mozilla.org/en/DOM/MediaQueryList">MediaQueryList</a> object.
+            </p>
+            <pre><code>var mql = window.matchMedia("(min-width: 480px)");</code></pre>
+            <p>
+                Running that will set the value of <code>mql</code> to a MediaQueryList object with two members, something like:
+            </p>
+            <pre><code>MediaQueryList: {
+  matches: true,
+  media: "(min-width: 480px)"
+}</code></pre>
+            <p>
+                The boolean value of the <code>matches</code> member will be determined by the width of your browser's window at the time.
+            </p>
+            <p>
+                You can add event listeners to MediaQueryList objects. An event will fire each time the condition is triggered. This allows you to be updated on the status of the media query without needed to do any polling. Using <code>mql</code> from above we can set up the listener and handler like so:
+            </p>
+            <pre><code>mql.addListener(handleMediaChange);
+handleMediaChange(mql);
+
+var handleMediaChange = function (mediaQueryList) {
+  if (mediaQueryList.matches) {
+    // The browser window is at least 480px wide
+  }
+  else {
+    // The browser window is less than 480px wide
+  }
+}</code></pre>
+            <p class="note">
+                You can find similar code examples and further explanation of MatchMedia on the <a href="https://developer.mozilla.org/en/DOM/window.matchMedia">Mozilla Developer Network</a>
+            </p>
+            <p>
+                MatchMedia works great. The issue is with needed to specify the media query when you create the MediaQueryList. If you wanted an event to fire for every media query you might have, you'd have manually move each from your stylesheets to you JS. Every time you udpate a media query in CSS, you'd have to do the same in JS. What we need is a script to look at a page's stylesheets, pick out all the media queries and create a MediaQueryList for each one.
+            </p>
+            <h2>
+                Getting Media Queries from CSS to JS
+            </h2>
+            <p>
+                When I first started looking into this I thought I was in for some really hairy stuff. I imagined myself having to make ajax requests to fetch stylesheets, weird regexs to find the <code>@media</code> rules, and other types of not-so-fun things. Luckily, this did not turn out to be the case.
+            </p>
+            <p>
+                I've written small script that accomplishes these tasks. <a href="https://github.com/tylergaw/media-query-events/blob/master/js/mq-events.js">mqEvents.js is on Github</a> and a working example is at <a href="http://tylergaw.github.com/media-query-events/">tylergaw.github.com/media-query-events/</a> I'm going to go through the code here and explain what's happening each step of the way.
+            </p>
+            <pre><code>(function () {
+  var mqEvents = function (mediaChangeHandler) {
+    var sheets = document.styleSheets,
+        numSheets = sheets.length,
+        mqls = {},
+        mediaChange = function (mql) {
+            console.log(mql);
+        }
+
+    if (mediaChangeHandler) {
+      mediaChange = mediaChangeHandler;
+    }
+
+    for (var i = 0; i < numSheets; i += 1) {
+      var rules = sheets[i].cssRules,
+          numRules = rules.length;
+
+      for (var j = 0; j < numRules; j += 1) {
+        if (rules[j].constructor === CSSMediaRule) {
+          mqls['mql' + j] = window.matchMedia(rules[j].media.mediaText);
+          mqls['mql' + j].addListener(mediaChange);
+          mediaChange(mqls['mql' + j]);
+        }
+      }
+    }
+  }
+
+  window.mqEvents = mqEvents;
+}());</code></pre>
+            <pre><code>var mqEvents = function (mediaChangeHandler)</code></pre>
+            <p>
+                The <code>mqEvents</code> function takes a single parameter, a function that will be called each time a media query change happens. The function will be passed to each MediaQueryList event listener.
+            </p>
+            <pre><code>var sheets = document.styleSheets,
+    numSheets = sheets.length</code></pre>
+            <p>
+                The document contains an object of all loaded stylesheets. Our <code>sheets</code> variable becomes is a list of <a href="https://developer.mozilla.org/en/DOM/stylesheet">StyleSheet</a> objects. We're storing the number of StyleSheets in <code>numSheets</code> as a convenience for later when we'll loop over the list.
+            </p>
+            <pre><code>mediaChange = function (mql) {
+  console.log(mql);
+}
+
+if (mediaChangeHandler) {
+  mediaChange = mediaChangeHandler;
+}
+</code></pre>
+            <p>
+                If the <code>mediaChangeHandler</code> argument is not passed to <code>mqEvents</code> <code>mediaChange</code> is a default function that will be run when media query events fire. As you can see, the default doesn't do much. For the purpose of this script we just want to have something there.
+            </p>
+            <pre><code>for (var i = 0; i < numSheets; i += 1) {
+  var rules = sheets[i].cssRules</code></pre>
+            <p>
+                Here we're looping over our <code>sheets</code> variable to look at each loaded stylesheet. The <code>rules</code> variable becomes a list of all the rules of the stylesheet represented as <a href="https://developer.mozilla.org/en/DOM/cssRule">CSSRule</a> objects. <em>This is where things take a turn for the awesome.</em>
+            </p>
+            <p>
+              <i>Thanks for reading</i>
+            </p>
+          </div>
+        </article>
+        <nav id="article-navigation">
+          <a href="/articles/fun-with-html-form-validation-styles">Older</a> <a class="disabled">Newer</a>
+        </nav>
+<!--# set var="disqus_identifier" value="reacting-to-media-queries-in-javascript"-->
+<!--# set var="disqus_title" value="Reacting to Media Queries in Javascript"-->
+<!--# include file="comments.include.html"-->
+<!--# include file="/footer.include.html"-->
