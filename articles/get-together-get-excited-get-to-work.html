@@ -1,0 +1,46 @@
+<!--# set var="title" value="Get Together. Get Excited. Get to Work. by Tyler Gaw"-->
+<!--# set var="page" value="article"-->
+<!--# include file="/header.include.html"-->
+        <article class="hentry">
+          <header>
+            <h1 class="entry-title">Get Together. Get Excited. Get to Work.</h1>
+            <time class="updated" datetime="2012-09-21" pubdate>21 Sep 2012</time>
+            <p class="entry-author">
+              By <span class="fn">Tyler Gaw</span>
+            </p>
+            <div class="rdbWrapper" data-show-read="1" data-show-send-to-kindle="0" data-show-print="0" data-show-email="0" data-orientation="0" data-version="1" data-bg-color="f4eed9"></div><script type="text/javascript">(function() {var s = document.getElementsByTagName("script")[0],rdb = document.createElement("script"); rdb.type = "text/javascript"; rdb.async = true; rdb.src = document.location.protocol + "//www.readability.com/embed.js"; s.parentNode.insertBefore(rdb, s); })();</script>
+          </header>
+          <div class="entry-content">
+            <p>
+                <b>Brass tacks:</b> <em>
+                    <a href="http://brooklynalpha.org/2012">
+                        Come to my build-a-thon, make cool shit!
+                    </a>.
+                </em>
+            </p>
+            <p class="entry-intro">
+                <code>window.matchMedia</code> provides a way for Javascript to react when a media query condition is met or unmet. While the functionality it allows is great, the necessary code duplication required to use it leaves a bit to be desired. I'm going to walk through a work-in-progress approach to getting around that duplication.
+            </p>
+            <h2>heading</h2>
+            <p>
+                Notice the big comment about Firefox there, I still don't know what that is. Like I said, work-in-progress here.
+            </p>
+            <p>
+                What this does is update a the DOM element, represented by <code>msg</code>, each time a media query is triggered. <code>mqEvents</code> doesn't try to react differently to specific media queries. It calls the same handler each time one is triggered. The handler function, however, does receive information about the media query. It knows what the media query is–which I'm placing in the DOM with <code>mql.media</code>–and if the condition was met by the window–which I'm checking with <code>mql.matches</code>.
+            </p>
+            <h2>What Else Can This Be Used For?</h2>
+            <p>
+                Maybe parts of the page layout are done with Javascript and need to be updated each time a media query is triggered. Maybe it could be used to do conditional loading of images, scripts, fonts, or the like. This type of conditional loading of assets could be used to help reduce the bandwidth usage on mobile devices.
+            </p>
+            <p>
+              <i>Thanks for reading</i>
+            </p>
+          </div>
+        </article>
+        <nav id="article-navigation">
+          <a href="/articles/reacting-to-media-queries-in-javascript">Older</a> <a class="disabled">Newer</a>
+        </nav>
+<!--# set var="disqus_identifier" value="get-together-get-excited-get-to-work"-->
+<!--# set var="disqus_title" value="Get Together. Get Excited. Get to Work."-->
+<!--# include file="comments.include.html"-->
+<!--# include file="/footer.include.html"-->
