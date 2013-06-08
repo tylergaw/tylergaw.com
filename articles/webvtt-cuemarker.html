@@ -12,15 +12,54 @@
     </header>
     <div class="entry-content">
         <p class="entry-intro">
-            Fishcakes!
+            <a href="http://dev.w3.org/html5/webvtt/">WebVTT</a> is a text format
+            that can be used to provide captions and subtitles for HTML video.
+            While working on a project that uses it I found myself needing a
+            way to find and mark precise cue in/out times.
+            <a href="https://github.com/tylergaw/webvtt-cuemarker">webvtt-cuemarker</a>
+            is a small tool I whipped up in JavaScript to do just that.
         </p>
-        <h2>Heading</h2>
-        <figure>
+        <h2>A WebVTT Primer</h2>
+        <p>
+            The format is still fairly new and not yet widely supported, so I'll give
+            a quick example of how it's used.
+        </p>
+        <pre><code>WEBVTT FILE
+
+00:00:01.265 --> 00:00:06.210
+This is text that will appear over the video at during the in/out points.
+
+00:00:05.500 --> 00:00:10.250
+You can use <b>HTML</b> within WebVTT, pretty cool.
+</code></pre>
+        <p>
+            That's an example of a very simple WebVTT file with two cues. We'll
+            refer to it as <code>captions.vtt</code>
+        </p>
+        <p>
+            The next thing to do is to let your HTML video about the WebVTT file.
+            That's done using the <code>track</code> element.
+        </p>
+        <pre><code>&lt;video controls&gt;
+    &lt;source src="/path/to/video.mp4" type="video/mp4"&gt;
+    &lt;source src="/path/to/video.webm" type="video/webm"&gt;
+    &lt;track kind="captions" label="English captions"
+        src="/path/to/captions.vtt" srclang="en" default>&lt;/track&gt;
+&lt;/video&gt;
+</code></pre>
+        <p>
+            That's all there is to it. If we played the fictional video above
+            we would see the two captions at the times provided in <code>captions.vtt</code>.
+            For a more in-depth look at the <code>track</code> element I suggest
+            <a href="http://www.html5rocks.com/en/tutorials/track/basics/">Getting Started With the Track Element</a>
+            on HTML5 Rocks. That's where I first learned about all this goodness.
+        </p>
+        <!-- <figure>
         <a href="http://www.flickr.com/photos/brooklynalpha/6251904083/in/photostream">
             <img src='http://farm7.staticflickr.com/6042/6251904083_1347d7870f_b.jpg' alt='Brooklyn Alpha 2011'>
         </a>
         <figcaption>Brooklyn Alpha 2011 Group Photo</figcaption>
-        </figure>
+        </figure> -->
         <p>
             <i>Thanks for reading</i>
         </p>
