@@ -37,7 +37,7 @@ You can use <b>HTML</b> within WebVTT, pretty cool.
             refer to it as <code>captions.vtt</code>
         </p>
         <p>
-            The next thing to do is to let your HTML video about the WebVTT file.
+            The next thing to do is to let your HTML video know about the WebVTT file.
             That's done using the <code>track</code> element.
         </p>
         <pre><code>&lt;video controls&gt;
@@ -49,17 +49,31 @@ You can use <b>HTML</b> within WebVTT, pretty cool.
 </code></pre>
         <p>
             That's all there is to it. If we played the fictional video above
-            we would see the two captions at the times provided in <code>captions.vtt</code>.
+            we would see the two captions appear at the times provided in <code>captions.vtt</code>.
             For a more in-depth look at the <code>track</code> element I suggest
             <a href="http://www.html5rocks.com/en/tutorials/track/basics/">Getting Started With the Track Element</a>
             on HTML5 Rocks. That's where I first learned about all this goodness.
         </p>
-        <!-- <figure>
-        <a href="http://www.flickr.com/photos/brooklynalpha/6251904083/in/photostream">
-            <img src='http://farm7.staticflickr.com/6042/6251904083_1347d7870f_b.jpg' alt='Brooklyn Alpha 2011'>
-        </a>
-        <figcaption>Brooklyn Alpha 2011 Group Photo</figcaption>
-        </figure> -->
+        <h2>Why Is Cuemarker Needed?</h2>
+        <p>
+            WebVTT is very specific about the time format for cues. Cue times must
+            be represented exactly as shown in <code>captions.vtt</code>. It's
+            easy to type out the times in that way, but how to you find
+            precise times using HTML video? HTML video controls display the time
+            of the video, but only down to the second. And not in the format needed
+            for WebVTT. This is why I wrote Cuemarker.
+        </p>
+        <p>
+            Cuemarker provides a keyboard shortcut–the period key–for setting in/out
+            points and outputing the cue time in the required format.
+        </p>
+        <p>
+            Cuemarker also provides shortcuts to interact with HTML
+            video. You can play/pause using the space bar and
+            seek forward/backward using the right/left arrow keys. Those controls
+            allow you to arrive at more precise moments in video than you can
+            using the default video scrubber provided by the browser.
+        </p>
         <p>
             <i>Thanks for reading</i>
         </p>
