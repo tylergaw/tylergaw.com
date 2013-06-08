@@ -1,9 +1,8 @@
 @import "compass/css3";
 
 @mixin border-image ($pageName) {
-  -moz-border-image: url('/images/content-border-#{$pageName}.png') 3 3 3 3 repeat;
-  -webkit-border-image: url('/images/content-border-#{$pageName}.png') 3 3 3 3 repeat;
-  -o-border-image: url('/images/content-border-#{$pageName}.png') 3 3 3 3 repeat;
+    -o-border-image: url('/images/content-border-#{$pageName}.png') 3 3 3 3 repeat;
+    border-image: url('/images/content-border-#{$pageName}.png') 3 3 3 3 repeat;
 }
 
 @import "reset", "general", "banner", "navigation", "contentinfo";
