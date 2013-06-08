@@ -12,7 +12,7 @@ Lara Flynn Boyle light [Nginx](http://nginx.org) web server.
 for my body copy and [Inconsolata](https://typekit.com/fonts/inconsolata) for headings and such.
 
 ### Hosting
-Everything will live <strike>on a fantastic 256 MB Slice at [Slicehost](http://www.slicehost.com)</strike>
+Everything will live <del>on a fantastic 256 MB Slice at [Slicehost](http://www.slicehost.com)</del>
 on one of them Rackspace things that hold websites.
 Which I am acting as sys admin for, so most likely things are going to totally
 shit the bed at some point in the near future.
