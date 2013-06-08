@@ -4,123 +4,117 @@
   line-height: 1.4;
   overflow: hidden;
   padding-top: 2.5em;
-  
+
   img {
     width: auto;
   }
-  
-  @media screen and (min-width: 730px) {    
+
+  @media screen and (min-width: 730px) {
     clear: right;
     float: right;
     margin-right: 7.9701121%;
     width: 68.4931507%
   }
-  
+
   a {
     color: #1e86d7;
     text-decoration: none;
-    
+
     &:hover {
       color: #1872B6;
     }
   }
-  
+
   h3 {
     color: #8e46d1;
     font-size: 1.4em;
     font-weight: 400;
     letter-spacing: 0.25em;
-    
+
     // The negative indent cuts off the word "Showing" which doesn't seem necessary.
     text-indent: -6em;
   }
-  
+
   // This removes the strange disqus toolbar with links to go to your dashboard and shit.
   #dsq-global-toolbar,
-  
+
   // Might not be the best idea to hide the pagination in the long-run, but if I get over
   // 250 comments (the max disqus allows on a single page)... I don't know.
   #dsq-pagination {
     display: none;
   }
-  
+
   .dsq-reply {
     h3 {
       margin-bottom: 0.3em;
       text-indent: 0;
     }
   }
-  
+
   .dsq-comment {
     padding-top: 1em;
-    
+
     &:first-child {
       padding-top: 0;
     }
   }
-  
+
   // The comment header contains the commenter name and some other crud.
-  .dsq-comment-header { 
+  .dsq-comment-header {
     background: transparent url(/images/articles-section-divider.png) repeat-x left top;
     border: none;
-    padding: 1em 0 0.4em 0; 
-    
+    padding: 1em 0 0.4em 0;
+
     a, span {
       @extend .inconsolata;
       font-size: 1.4em;
       letter-spacing: 0.25em;
     }
   }
-  
+
   .dsq-commenter-bio {
     display: none;
   }
-  
+
   #dsq-reply {
     padding-top: 1.8em;
   }
-  
+
   .dsq-textarea-background {
     background: #f9f6f0;
     border: 1px solid #e8dbc1;
     border-right-color: #fbf0d9;
     border-bottom-color: #fbf0d9;
     border-radius: 2px;
-    -moz-box-shadow: none;
-    -o-box-shadow: none;
-    -webkit-box-shadow: none;
     box-shadow: none;
   }
-  
+
   .dsq-textarea-wrapper {
     font-size: 2em;
   }
-  
+
   .dsq-comment-footer {
     a {
       color: #353535;
     }
-    
+
     &:hover a {
       color: #1e86d7;
       opacity: 1;
     }
   }
-  
+
   .dsq-post-tools {
     background: transparent;
     border-top: none;
-    -moz-box-shadow: none;
-    -o-box-shadow: none;
-    -webkit-box-shadow: none;
     box-shadow: none;
   }
-  
-  .dsq-button {   
-    background: #8e46d1; 
+
+  .dsq-button {
+    background: #8e46d1;
     border: none;
     border-radius: 0;
-    @include box-shadow(none);
+    box-shadow: 0 0 0;
     color: #fcf1d3;
     @extend .inconsolata;
     font-size: 1.3em;
@@ -128,7 +122,7 @@
     margin: 0 0.2em 0.2em 0;
     opacity: 0.6;
     text-shadow: none;
-    
+
     &:hover {
       opacity: 1;
     }
