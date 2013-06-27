@@ -8,7 +8,7 @@
             <p class="entry-author">
               By <span class="fn">Tyler Gaw</span>
             </p>
-            <div class="rdbWrapper" data-show-read="1" data-show-send-to-kindle="0" data-show-print="0" data-show-email="0" data-orientation="0" data-version="1" data-bg-color="f4eed9"></div><script type="text/javascript">(function() {var s = document.getElementsByTagName("script")[0],rdb = document.createElement("script"); rdb.type = "text/javascript"; rdb.async = true; rdb.src = document.location.protocol + "//www.readability.com/embed.js"; s.parentNode.insertBefore(rdb, s); })();</script>
+            <!--# include file="/articles/rdb-buttons.include.html"-->
           </header>
           <div class="entry-content">
             <p>
@@ -56,7 +56,7 @@
   margin: 0 auto;
   max-width: 1280px;
   width: 80%;
-  
+
   @media screen and (max-width: 768px) {
     width: 95%;
   }
@@ -77,7 +77,7 @@
     width: 40.1878914%; /* 385 &divide; 958 = .401878914 */
     ...
   }
-  
+
   p {
     float: right;
     ...
@@ -114,7 +114,7 @@
   width: 100%;
 }</code></pre>
             <p>
-            	A couple things are going on here. It's important to note that the branding-die-cut.png image is much wider than it needs to be. The graphic is flush left and the right side extends ~1049px and is filled with our background color <code>#ececec</code>. I do this so I am able to position the background image off the left side of the browser and not leave a gap on the right side. If there was a gap that the image didn't cover, any background color would show through where I didn't want. The width of the element is set to 100% so it is always the size of the browser. The <code>background-size</code> property does exactly what it says, it scales the background image to the percentages that I used. There isn't a science to those numbers, I just tweaked them until they looked right. 
+            	A couple things are going on here. It's important to note that the branding-die-cut.png image is much wider than it needs to be. The graphic is flush left and the right side extends ~1049px and is filled with our background color <code>#ececec</code>. I do this so I am able to position the background image off the left side of the browser and not leave a gap on the right side. If there was a gap that the image didn't cover, any background color would show through where I didn't want. The width of the element is set to 100% so it is always the size of the browser. The <code>background-size</code> property does exactly what it says, it scales the background image to the percentages that I used. There isn't a science to those numbers, I just tweaked them until they looked right.
             </p>
             <p>
             	Another cool thing in that block of CSS is the <code>padding-top</code>. Since an element has to be taller than 0px for a background image to show and I didn't want to set an explicit height due to the changing graphic size I used the percentage padding to give the element a height. Again, no science with that number, just changed it until it worked.
@@ -123,7 +123,7 @@
             	Something that's not accounted for in the above CSS is the background color, the color that should show through the die-cut image. This is where I started having a lot of fun. I set up 11 media queries at different pixel max-widths from 320px to 2360px, at each of those I set a different background color for the logo as well as a number of different elements on the page. As the browser width increases or decreases the background color changes. Another little extra I use is a CSS transition to smoothly change from one color to another on each of the chameleon-like elements. An example element with a media query colorway:
             </p>
             <pre><code>#bigAssJribbble {
-  -moz-transition: background-color 0.2s;	
+  -moz-transition: background-color 0.2s;
   -webkit-transition: background-color 0.2s;
   -o-transition: background-color 0.2s;
   transition: background-color 0.2s;
