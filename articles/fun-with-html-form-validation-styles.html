@@ -8,20 +8,20 @@
             <p class="entry-author">
               By <span class="fn">Tyler Gaw</span>
             </p>
-            <div class="rdbWrapper" data-show-read="1" data-show-send-to-kindle="0" data-show-print="0" data-show-email="0" data-orientation="0" data-version="1" data-bg-color="f4eed9"></div><script type="text/javascript">(function() {var s = document.getElementsByTagName("script")[0],rdb = document.createElement("script"); rdb.type = "text/javascript"; rdb.async = true; rdb.src = document.location.protocol + "//www.readability.com/embed.js"; s.parentNode.insertBefore(rdb, s); })();</script>
+            <!--# include file="/articles/rdb-buttons.include.html"-->
           </header>
           <div class="entry-content">
             <p>
             	<b>Brass tacks:</b> <em>Demos; <a href="http://lab.tylergaw.com/html5forms/errorStyles/01/">Style 01</a>, <a href="http://lab.tylergaw.com/html5forms/errorStyles/02/">Style 02</a>, <a href="http://lab.tylergaw.com/html5forms/errorStyles/03/">Style 03</a> and <a href="https://github.com/tylergaw/html5forms/tree/master/errorStyles">the code</a>.</em>
             </p>
             <p class="entry-intro">
-            	If you haven't heard already, the current HTML Living Standard or HTML5 spec has in it some super cool form validation. This is client-side form validation that is meant to remove some of the burden of writing validation with Javascript. If you've ever written form validation with Javascript I think you'll agree that this is a very good thing. 
+            	If you haven't heard already, the current HTML Living Standard or HTML5 spec has in it some super cool form validation. This is client-side form validation that is meant to remove some of the burden of writing validation with Javascript. If you've ever written form validation with Javascript I think you'll agree that this is a very good thing.
             </p>
             <p>
               Using this new feature of html can be as easy as creating a form and within it creating an input with a <code>required</code> attribute. When the form is submitted, browsers that support validation will take the reigns and make sure that the required input has a value. If it does not, the browser will display a validation error message.
             </p>
             <p>
-              In addition to validating required fields, the form validation will also check to make sure inputted values match given input types. New in the Living Standard are quite a few new input types such as; "email", "url", "number" and so on. Check out the full list located at <a href="http://developers.whatwg.org/the-input-element.html#the-input-element">http://developers.whatwg.org/the-input-element.html#the-input-element</a>. 
+              In addition to validating required fields, the form validation will also check to make sure inputted values match given input types. New in the Living Standard are quite a few new input types such as; "email", "url", "number" and so on. Check out the full list located at <a href="http://developers.whatwg.org/the-input-element.html#the-input-element">http://developers.whatwg.org/the-input-element.html#the-input-element</a>.
             </p>
             <h2>Validation error messages</h2>
             <p>
@@ -156,20 +156,20 @@
   i      = 0,
   cur    = null,
   errMsg = '!';
-	
+
 for (i; i &lt; len; i += 1) {
-	
+
   cur = inputs[i];
-	
+
   if (cur.getAttribute('type') !== 'submit') {
     cur.setCustomValidity(errMsg);
-		
+
     cur.oninput = function () {
       if (!this.value || this.validity.typeMismatch) {
         this.setCustomValidity(errMsg);
       } else {
         this.setCustomValidity('');
-      }			
+      }
     }
   }
 }</code></pre>
