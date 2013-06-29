@@ -2,14 +2,6 @@
     margin-bottom: 1em;
     overflow: hidden;
 
-    .entry-title {
-        color: #8e46d1;
-        font-size: 1.8em;
-        letter-spacing: 0.25em;
-        line-height: 1;
-        // margin-bottom: 0.3em;
-    }
-
     header {
         margin: 1.4em 0 3.2em 0;
         text-align: center;
@@ -20,9 +12,29 @@
         @extend .inconsolata;
     }
 
+    .entry-title {
+        color: #8e46d1;
+        font-size: 1.8em;
+        letter-spacing: 0.25em;
+        line-height: 1;
+    }
+
+    .short-title,
+    .med-title {
+        font-size: 2.1em;
+    }
+
     @media screen and (min-width: 420px) {
         .entry-title {
             font-size: 2.2em;
+        }
+
+        .short-title {
+            font-size: 3.2em;
+        }
+
+        .med-title {
+            font-size: 2.8em;
         }
     }
 
@@ -76,7 +88,7 @@
 
 .entry-content {
     color: #564e26;
-    font-size: 1.2em;
+    font-size: 1.3em;
     line-height: 1.5;
     margin: 0 auto;
     max-width: 710px;
