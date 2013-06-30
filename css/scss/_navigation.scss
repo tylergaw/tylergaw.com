@@ -54,7 +54,7 @@
         }
 
         li {
-            background: transparent url(/images/nav-divider-white.png) no-repeat right 38%;
+            background: transparent url(/images/nav-divider-white.png) no-repeat right 0.8em;
             display: table-cell;
             padding-right: 0.6em;
             padding-bottom: 0.6em;
@@ -88,7 +88,7 @@
         }
 
         li {
-            background-position: right 41%;
+            background-position: right 0.9em;
             padding-bottom: 1.4em;
         }
 
@@ -105,19 +105,20 @@
     }
 }
 
-#page-home [role='navigation'] {
-
+#page-home [role="navigation"] {
     @media screen and (min-width: 768px) and (min-height: 500px) {
+        font-size: 1.45em;
         top: auto;
 
         ul {
             background-position: left top;
+            background-size: auto auto;
             margin-right: 5.5530511%;
             width: 78.4557908%;
         }
 
         li {
-            background-position: right 38%;
+            background-position: right 42%;
             padding-top: 1.2em;
         }
 

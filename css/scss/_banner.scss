@@ -42,6 +42,10 @@
 }
 
 #page-home [role="banner"] {
+    @media screen and (min-width: 420px) {
+        padding-top: 1em;
+    }
+
     @media screen and (min-width: 768px) and (min-height: 500px) {
         margin-bottom: 0;
 
