@@ -127,7 +127,15 @@
     }
 
     figure {
-        margin: 0.2em 0 0.9em 0;
+        margin: 0.2em 0 1.8em 0;
+
+        img {
+            box-shadow: 0 1px 1px rgba(#000, 0.4);
+        }
+    }
+
+    figcaption {
+        text-align: center;
     }
 
     figcaption,
