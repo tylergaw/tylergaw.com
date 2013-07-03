@@ -1,329 +1,332 @@
 #page-projects {
-  background: #ededed url(/images/body-bg-white.png) fixed repeat 20% top;
-  
-  ::selection {
-    background-color: #fff;
-    color: #191919;
-  }
-  
-  & > div {
-    background: #191919 url(/images/content-bg-charcoal.png) repeat 20% top;
-    @include border-image('projects');
-    color: #bfbfbf;
-  }
-  
-  [role='main'] {
-    
-    font-size: 1.1em;
-    
-    h3 {
-      color: #fefefe;
-      font-size: 1.2em;
-      letter-spacing: 0.25em;
-      line-height: 1;
+    background: #ededed url(/images/body-bg-white.png) fixed repeat 20% top;
+
+    ::selection {
+        background-color: #fff;
+        color: #191919;
     }
-    
-    p {
-      padding: 0.6em 0 0.8em 0;
-    }
-    
-    div {
-      font-size: 1.1em;
-      text-align: left;
-      
-      &:after {
-        clear: both;
-        content: " ";
-        display: block;
-      }
-    }
-    
-    a {
-      text-decoration: none;
-    }
-    
-    section:first-child {
-      background: transparent url(/images/projects-section-divider.png) repeat-x left bottom;
-      
-      h1 {
-        display: none;
-      }
-      
-      h3 {
-        margin-bottom: 26%;
-      }
-      
-      li {
-        background-repeat: no-repeat;
-        @include background-size(100%);
-        padding: 1.8em 0;
-        @include transition-property(background-size background-position);
-        @include transition-duration(0.15s);
-        @include transition-timing-function(ease);
-        
-        &:after {
-          content: " ";
-          display: table;
-        }
-      }
-      
-      #project-alpha {
-        background-image: url(/images/project-alpha-small.png);
-        background-position: center 17%;
-      }
-      
-      #project-mfh {
-        background-image: url(/images/project-mfh-small.png);
-        background-position: center 25%;
-      }
 
-      #project-jribbble {
-        background-image: url(/images/project-jribbble-small.png);
-        background-position: center 16%;
-      }
-
-      #project-fcs {
-        background-image: url(/images/project-fcs-small.png);
-        background-position: center 17%;
-      }
-      
-      a {
-        clear: right;
-        color: #fefefe;
-        display: inline-block;
-        float: right;
-        margin-bottom: 0.3em;
-        max-width: 100%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-
-        &[href*='github'] {
-          color: #9a9a9a;
-          font-size: 0.9em;
-          font-style: italic;
-
-          b {
-            color: #d4d4d4;
-            font-style: italic;
-          }
-        }
-
-        &:hover {
-          color: #c4c4c4;
-        }
-      }
-      
-      p a {
-        clear: none;
-        display: inline;
-        float: none;
-        margin-bottom: 0;
-      }
-      
-      @media screen and (min-width: 420px) {
-        h3, p, div {
-          width: 52.9265255%;
-        }
-        
-        h3 {
-          font-size: 2em;
-          margin-bottom: 0;
-        }
-        
-        p {
-          padding: 0.8em 0 1.4em 0;
-        }
-        
-        #project-alpha {
-          background-image: url(/images/project-alpha.png);
-          background-position: 170% 14%;
-          @include background-size(70%);
-          padding-bottom: 20%;
-        }
-        
-        #project-mfh {
-          background-image: url(/images/project-mfh.png);
-          background-position: 170% 5%;
-          @include background-size(70%);
-          padding-bottom: 20%;
-        }
-
-        #project-jribbble {
-          background-image: url(/images/project-jribbble.png);
-          background-position: 270% 5%;
-          @include background-size(80%);
-          padding-bottom: 20%;
-        }
-
-        #project-fcs {
-          background-image: url(/images/project-fcs.png);
-          background-position: 265% 12%;
-          @include background-size(80%);
-        }
-      }
-      
-      @media screen and (min-width: 560px) {
-        #project-alpha {
-          background-position: 125% 15%;
-          @include background-size(60%);
-        }
-        
-        #project-mfh {
-          background-position: 125% 10%;
-          @include background-size(60%);
-        }
-
-        #project-jribbble {
-          background-position: 140% top;
-          @include background-size(60%);
-          padding-bottom: 10%;
-        }
-
-        #project-fcs {
-          background-position: 130% 40%;
-          @include background-size(60%);
-        }
-      }
-      
-      @media screen and (min-width: 620px) {
-        h3 {
-          font-size: 3em;
-          padding-top: 0.6em;
-        }
-      }
-      
-      @media screen and (min-width: 760px) {
-        #project-alpha {
-          background-position: 95% 5%;
-          @include background-size(44%);
-          padding-bottom: 14%;
-          
-          h3 {
-            padding-top: 1em;
-          }
-        }
-        
-        #project-mfh {
-          background-position: 95% 0;
-          @include background-size(45%);
-          padding-bottom: 14%;
-          
-          h3 {
-            padding-top: 1em;
-          }
-        }
-
-        #project-jribbble {
-          background-position: 100% top;
-          @include background-size(44%);
-          
-          h3 {
-            padding-top: 1.5em;
-          }
-        }
-
-        #project-fcs {
-          background-position: 100% 30%;
-          @include background-size(46%);
-          padding-bottom: 15%;
-        }
-      }
-    }
-    
-    section:last-child {
-      padding-top: 1.2em;
-      
-      h1 {
-        color: #fff;
-        font-size: 1.1em;
-        letter-spacing: 0.8em;
-        text-align: center;
-        text-indent: 0.8em;
-      }
-      
-      h2 {
+    & > div {
+        background: #191919 url(/images/content-bg-charcoal.png) repeat 20% top;
+        @include border-image('projects');
         color: #bfbfbf;
-        font-family: 'chaparral-pro', times, serif;
-        font-size: 0.95em;
-        font-style: italic;
-        margin: 0 auto;
-        text-align: center;
-        text-transform: none;
-      }
-      
-      h3 {
-        font-size: 1.2em;
-      }
-      
-      li {
-        margin: 1.8em 0 2.2em 0;
-      }
-      
-      p {
-        padding: 0.4em 0 0 0;
-      }
-      
-      a {
-        display: block;
-        
-        &:hover h3 {
-          color: #c4c4c4;
-        }
-      }
-      
-      @media screen and (min-width: 420px) {
-        h1 {
-          font-size: 1.5em;
-          text-indent: 0.2em;
-        }
-        
-        h2 {
-          width: 80%;
-        }
-        
-        ul {
-          overflow: hidden;
-        }
-        
-        li {
-          clear: left;
-          display: block;
-          float: left;
-          vertical-align: top;
-          width: 44.9564134%;
-          
-          &:nth-child(2n) {
-            clear: right;
-            float: right;
-          }
-        }
-        
-        a {
-          overflow: hidden;
-        }
-        
-        img {
-          width: auto;
-        }
-      }
-    
-      @media screen and (min-width: 640px) {
-        h1 {
-          font-size: 2em;
-          letter-spacing: 1em;
-          text-indent: 0.7em;
-        }
-        
-        ul {
-          margin-top: 1em;
-        }
-      }
-      
-      @media screen and (min-width: 887px) {
-        img {
-          width: 100%;
-        }
-      }
     }
-  }
+
+    [role='main'] {
+        font-size: 1.1em;
+
+        @media screen and (min-width: 420px) {
+            padding-top: 1.4em;
+        }
+
+        h3 {
+            color: #fefefe;
+            font-size: 1.2em;
+            letter-spacing: 0.25em;
+            line-height: 1;
+        }
+
+        p {
+            padding: 0.6em 0 0.8em 0;
+        }
+
+        div {
+            font-size: 1.1em;
+            text-align: left;
+
+            &:after {
+                clear: both;
+                content: " ";
+                display: block;
+            }
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        section:first-child {
+            background: transparent url(/images/projects-section-divider.png) repeat-x left bottom;
+
+            h1 {
+                display: none;
+            }
+
+            h3 {
+                margin-bottom: 26%;
+            }
+
+            li {
+                background-repeat: no-repeat;
+                @include background-size(100%);
+                padding: 1.8em 0;
+                @include transition-property(background-size background-position);
+                @include transition-duration(0.15s);
+                @include transition-timing-function(ease);
+
+                &:after {
+                    content: " ";
+                    display: table;
+                }
+            }
+
+            #project-alpha {
+                background-image: url(/images/project-alpha-small.png);
+                background-position: center 17%;
+            }
+
+            #project-mfh {
+                background-image: url(/images/project-mfh-small.png);
+                background-position: center 25%;
+            }
+
+            #project-jribbble {
+                background-image: url(/images/project-jribbble-small.png);
+                background-position: center 16%;
+            }
+
+            #project-fcs {
+                background-image: url(/images/project-fcs-small.png);
+                background-position: center 17%;
+            }
+
+            a {
+                clear: right;
+                color: #fefefe;
+                display: inline-block;
+                float: right;
+                margin-bottom: 0.3em;
+                max-width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                &[href*='github'] {
+                    color: #9a9a9a;
+                    font-size: 0.9em;
+                    font-style: italic;
+
+                    b {
+                        color: #d4d4d4;
+                        font-style: italic;
+                    }
+                }
+
+                &:hover {
+                    color: #c4c4c4;
+                }
+            }
+
+            p a {
+                clear: none;
+                display: inline;
+                float: none;
+                margin-bottom: 0;
+            }
+
+            @media screen and (min-width: 420px) {
+                h3, p, div {
+                    width: 52.9265255%;
+                }
+
+                h3 {
+                    font-size: 2em;
+                    margin-bottom: 0;
+                }
+
+                p {
+                    padding: 0.8em 0 1.4em 0;
+                }
+
+                #project-alpha {
+                    background-image: url(/images/project-alpha.png);
+                    background-position: 170% 14%;
+                    @include background-size(70%);
+                    padding-bottom: 20%;
+                }
+
+                #project-mfh {
+                    background-image: url(/images/project-mfh.png);
+                    background-position: 170% 5%;
+                    @include background-size(70%);
+                    padding-bottom: 20%;
+                }
+
+                #project-jribbble {
+                    background-image: url(/images/project-jribbble.png);
+                    background-position: 270% 5%;
+                    @include background-size(80%);
+                    padding-bottom: 20%;
+                }
+
+                #project-fcs {
+                    background-image: url(/images/project-fcs.png);
+                    background-position: 265% 12%;
+                    @include background-size(80%);
+                }
+            }
+
+            @media screen and (min-width: 560px) {
+                #project-alpha {
+                    background-position: 125% 15%;
+                    @include background-size(60%);
+                }
+
+                #project-mfh {
+                    background-position: 125% 10%;
+                    @include background-size(60%);
+                }
+
+                #project-jribbble {
+                    background-position: 140% top;
+                    @include background-size(60%);
+                    padding-bottom: 10%;
+                }
+
+                #project-fcs {
+                    background-position: 130% 40%;
+                    @include background-size(60%);
+                }
+            }
+
+            @media screen and (min-width: 620px) {
+                h3 {
+                    font-size: 3em;
+                    padding-top: 0.6em;
+                }
+            }
+
+            @media screen and (min-width: 760px) {
+                #project-alpha {
+                    background-position: 95% 5%;
+                    @include background-size(44%);
+                    padding-bottom: 14%;
+
+                    h3 {
+                        padding-top: 1em;
+                    }
+                }
+
+                #project-mfh {
+                    background-position: 95% 0;
+                    @include background-size(45%);
+                    padding-bottom: 14%;
+
+                    h3 {
+                        padding-top: 1em;
+                    }
+                }
+
+                #project-jribbble {
+                    background-position: 100% top;
+                    @include background-size(44%);
+
+                    h3 {
+                        padding-top: 1.5em;
+                    }
+                }
+
+                #project-fcs {
+                    background-position: 100% 30%;
+                    @include background-size(46%);
+                    padding-bottom: 15%;
+                }
+            }
+        }
+
+        section:last-child {
+            padding-top: 1.2em;
+
+            h1 {
+                color: #fff;
+                font-size: 1.1em;
+                letter-spacing: 0.8em;
+                text-align: center;
+                text-indent: 0.8em;
+            }
+
+            h2 {
+                color: #bfbfbf;
+                font-family: 'chaparral-pro', times, serif;
+                font-size: 0.95em;
+                font-style: italic;
+                margin: 0 auto;
+                text-align: center;
+                text-transform: none;
+            }
+
+            h3 {
+                font-size: 1.2em;
+            }
+
+            li {
+                margin: 1.8em 0 2.2em 0;
+            }
+
+            p {
+                padding: 0.4em 0 0 0;
+            }
+
+            a {
+                display: block;
+
+                &:hover h3 {
+                    color: #c4c4c4;
+                }
+            }
+
+            @media screen and (min-width: 420px) {
+                h1 {
+                    font-size: 1.5em;
+                    text-indent: 0.2em;
+                }
+
+                h2 {
+                    width: 80%;
+                }
+
+                ul {
+                    overflow: hidden;
+                }
+
+                li {
+                    clear: left;
+                    display: block;
+                    float: left;
+                    vertical-align: top;
+                    width: 44.9564134%;
+
+                    &:nth-child(2n) {
+                        clear: right;
+                        float: right;
+                    }
+                }
+
+                a {
+                    overflow: hidden;
+                }
+
+                img {
+                    width: auto;
+                }
+            }
+
+            @media screen and (min-width: 640px) {
+                h1 {
+                    font-size: 2em;
+                    letter-spacing: 1em;
+                    text-indent: 0.7em;
+                }
+
+                ul {
+                    margin-top: 1em;
+                }
+            }
+
+            @media screen and (min-width: 887px) {
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
 }

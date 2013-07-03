@@ -1,83 +1,91 @@
 [role='banner'] {
-  margin: 0 auto;
-  max-width: $max-width;
-  overflow: hidden;
-  padding: 1em 0 0.5em 0;
-  position: relative;
-  width: 90%;
-
-  & > a {
-    background: transparent url(/images/logo-small-white-red.png) no-repeat center top;
-    @include background-size(100%);
-    display: block;
     margin: 0 auto;
-    padding-top: 17%;
-    width: 100%;
-    z-index: 999;
-
-    @media screen and (min-width: 420px) {
-      background-image: url(/images/logo-white-red.png);
-      @include background-size('auto');
-      height: 109px;
-      padding-top: 0;
-      width: 142px;
-    }
-  }
-
-  h1, h2 {
-    display: none;
-  }
-
-  @media screen and (min-width: 620px) {
-    margin-bottom: -3.5em;
+    max-width: $max-width;
+    overflow: hidden;
+    padding: 1em 0 0.5em 0;
+    position: relative;
     width: 90%;
 
-    & > a {
-      float: left;
+    h1, h2 {
+        display: none;
     }
-  }
+
+    & > a {
+        background: transparent url(/images/logo-small-white-red.png) no-repeat center top;
+        background-size: 100%;
+        display: block;
+        margin: 0 auto;
+        padding-top: 17%;
+        width: 100%;
+        z-index: 999;
+
+        @media screen and (min-width: 420px) {
+            background-image: url(/images/logo-white-red.png);
+            height: 90px;
+            padding-top: 0;
+            width: 105px;
+        }
+    }
+
+    @media screen and (min-width: 420px) {
+        padding: 0.6em 0 0 0;
+    }
+
+    @media screen and (min-width: 620px) {
+        margin-bottom: -3.5em;
+        padding-top: 0.3em;
+
+        & > a {
+            float: left;
+        }
+    }
 }
 
 #page-home [role="banner"] {
-  @media screen and (min-width: 768px) and (min-height: 500px) {
-    margin-bottom: 0;
-
-    & > a {
-      background: transparent url(/images/logo-large.png) no-repeat right top;
-      @include background-size(100%);
-      height: auto;
-      padding-top: 57%;
-      width: 100%;
+    @media screen and (min-width: 420px) {
+        padding-top: 1em;
     }
-  }
+
+    @media screen and (min-width: 768px) and (min-height: 500px) {
+        margin-bottom: 0;
+
+        & > a {
+            background: transparent url(/images/logo-large.png) no-repeat right top;
+            background-size: 100%;
+            height: auto;
+            padding-top: 57%;
+            width: 100%;
+        }
+    }
 }
 
-#page-articles [role='banner'], #page-article [role='banner'] {
-  & > a {
-    background-image: url(/images/logo-small-grey-purple.png);
+#page-articles [role='banner'],
+#page-article [role='banner'] {
+    & > a {
+        background-image: url(/images/logo-small-grey-purple.png);
 
-    @media screen and (min-width: 420px) {
-      background-image: url(/images/logo-grey-purple.png);
+        @media screen and (min-width: 420px) {
+            background-image: url(/images/logo-grey-purple.png);
+        }
     }
-  }
 }
 
 #page-projects [role='banner'] {
-  & > a {
-    background-image: url(/images/logo-small-white.png);
+    & > a {
+        background-image: url(/images/logo-small-white.png);
 
-    @media screen and (min-width: 420px) {
-      background-image: url(/images/logo-white.png);
+        @media screen and (min-width: 420px) {
+            background-image: url(/images/logo-white.png);
+        }
     }
-  }
 }
 
 #page-about [role='banner'] {
-  & > a {
-    background-image: url(/images/logo-small-navy-red.png);
+    & > a {
+        background-image: url(/images/logo-small-navy-red.png);
 
-    @media screen and (min-width: 420px) {
-      background-image: url(/images/logo-navy-red.png);
+        @media screen and (min-width: 420px) {
+            background-image: url(/images/logo-navy-red.png);
+        }
     }
-  }
 }
