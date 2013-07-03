@@ -58,7 +58,6 @@
             Live Trace to convert them to vectors. The cursive lowercase letters didn't
             convert well. They lost a lot of detail, and just kind of turned
             into muck. It was clear they weren't going to work out so I ditched them.
-
         </p>
         <p>
             I went back to the pen and paper and drew a new set of lowercase
@@ -123,26 +122,69 @@
             I wanted to get a better feel for how they were working. I would export
             the font, install it and then open up a test Photoshop document. Seeing
             full sentences and different combinations of letters, numbers, and symbols
-            is really key to determining if things are working. You can better
-            see any issues with spacing and sizing. You can pick out pairs of
-            characters that could use attention to kerning.
+            is really key to determining if things are working. I could better
+            see any issues with spacing and sizing and pick out pairs of
+            characters that could use attention to kerning. Also, it's really
+            great feeling to be able to use a font after spending so much time
+            with working on it.
         </p>
         <figure>
             <img src="/articles/assets/post-image-slenderman-tester-psd.jpg" alt="">
             <figcaption>Testing Slenderman in Photoshop</figcaption>
         </figure>
 
-        <h2>Detail of a “Gotcha”</h2>
+        <h2>Detail of a Gotcha</h2>
         <p>
-            This is very specific to users of Glyphs Mini, but I spent the better
-            part of a day banging my head against my desk before I figured it out
-            so I'm going to write about it here in the hopes that I'll save some
+            This is very specific to users of Glyphs Mini, but I spent a few hours
+            banging my head against the desk before I figured it out
+            so I'm going to write about it in the hopes that I'll save some
             other poor soul's forehead.
         </p>
-
-        <h2>Converting to Web formats</h2>
+        <p>
+            Glyphs has components. A component is a Glyph that is made
+            up of a base glyph. Example components are right and left double quotes
+            and the ellipsis; made up of right and left single quotes and the period,
+            respectively. When you open a component to edit, the base
+            glyph is grayed out, it seems like it is uneditable. It also only shows
+            the base glyph. In the case of double quotes only a single right
+            or left quote is shown. For the ellipsis only a single period. For some reason
+            Glyphs places all of the base glyphs on top of each other. The base
+            glyph can be clicked and dragged to reveal the other base glyph(s)
+            under it. I found this answer on the
+            <a href="http://glyphsapp.com/forums/index.php?action=vthread&forum=1&topic=282">Glyphs forum</a>.
+        </p>
+        <p>
+            Part two of the gotcha took longer to figure out. After I'd separated
+            the base glyphs of the compenents, I spaced the glyphs, tested them with
+            other characters to check kerning, and exported like normal.
+            I then tried to use right and left double quotes and the ellipsis. Nothing
+            would show up. I could tell the glyph exported because I didn't get
+            the usual missing glyph charachter and neither Photoshop nor Textedit
+            tried to replace it with another font. What. The. Hell?
+        </p>
+        <p>
+            <b>Cmd + Shift + D</b> was the magic key combo that ended my confusion.
+            Components need to be Decomposed before they can be exported properly.
+            The option is available under the Glyph menu > Decompose Components.
+            Once a component id decomposed it is no longer tied to a base glyph
+            so it can be edited like any other glyph, and it exports normally.
+        </p>
 
         <h2>Slenderman is Open Source</h2>
+        <p>
+            I've always felt like when I download a font that's that. The font is
+            done and nothing can be added or modified. This might not be the
+            relality, but without a knowledge of how fonts are
+            made, that's how I've seen things. With Slenderman, I'm not aiming for
+            it being “done”. I want to keep iterating and improving on it.
+            All of the source files are available on
+            <a href="https://github.com/tylergaw/slenderman">GitHub</a>. That means
+            anybody can fork the repo and make any changes or additions needed.
+            They can make new versions of it that fit their needs, or open Pull
+            Requests to have their changes added into the main fork of Slenderman.
+            I haven't seen that before and I'm interested in seeing if anyone
+            is interested in working on it.
+        </p>
 
         <h2>What Did I Learn?</h2>
         <p>
