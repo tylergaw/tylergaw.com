@@ -64,7 +64,7 @@
             down for Papersaver:
         </p>
 
-        <h3>Project Goals</h3>
+        <h3>Project goals</h3>
         <ul>
             <li>Publish images from Paper to my personal Web site</li>
             <li>Do not rely on third-party platforms for storage</li>
@@ -98,7 +98,7 @@
   // template: paper.html
   // image_path: tylergaw-paper-{date}.jpg
   // save img: image_path.jpg</code></pre>
-        <h2>Getting Rolling</h2>
+        <h2>Getting rolling</h2>
         <p>
             After a few hours of writing down goals and researching similar
             projects I had a good idea of what I would build and the tools I
@@ -111,7 +111,7 @@
             I’d be going the route of publishing via email.
         </p>
 
-        <h2>How I Use Papersaver</h2>
+        <h2>How I use Papersaver</h2>
         <ul>
             <li>
                 Draw in Paper
@@ -143,7 +143,36 @@
                 The drawings live at <a href="http://lab.tylergaw.com/papers">http://lab.tylergaw.com/papers</a>
             </li>
         </ul>
-        <h2>Shut up fuck</h2>
+        <h2>The pieces</h2>
+        <p>
+            Papersaver is a fairly simple hack, but there are a handful of interesting
+            parts worth mentioning.
+        </p>
+        <h3>Good enough email security</h3>
+        <p>
+            I'm using a <a href="https://github.com/chirag04/mail-listener2">node package</a>
+            to access Papersaver emails over IMAP. I didn't want to leave the
+            security of my primary email address in the hands of my programming
+            skills so I use a dedicated email address
+            –tylergaw.papersaver@gmail.com–for Papersaver.
+        </p>
+        <p>
+            Now, I just gave you the email address. So what's to keep you from
+            flooding my Papersaver with any image you please? (aside from your trustworthy nature)
+            I use a settings file with to and from whitelists to only allow emails
+            to/from certain addresses. Nothing good would come from me adding
+            my actual settings to the public Github repo, but I do include a
+            <a href="https://github.com/tylergaw/papersaver/blob/master/mail-settings.sample.json">sample settings file</a>.
+            The from address is really easy to fake, but the to address is a pretty
+            decent way to lock things down.
+        </p>
+        <p>
+            I use a "+slug" on the email address that I don't publish anywhere.
+            Fake example; tylergaw.papersaver+71ksk27817@gmail.com. I put that address
+            in my <code>toWhitelist</code> settings. The <a href="https://github.com/tylergaw/papersaver/blob/master/papersaver-mail-listener.js#L69">mail listener script</a>
+            checks to make sure any emails received are to an address in the whitelist,
+            if not, it bails.
+        </p>
         <p>
             <i>Thanks for reading</i>
         </p>
