@@ -30,7 +30,7 @@
         <h2>In Dependence</h2>
         <p>
             <a href="http://madewithpaper.fiftythree.com/">Made with Paper</a>
-            is a cool showcase of what people are drawing with Paper. I went to
+            is a showcase of what people are drawing with Paper. I went to
             submit one of my silly sketches to it and saw that they ask for an
             attribution link. They suggest–and most submissions are hosted
             on–Tumblr. Twitter and Facebook are also mentioned as hosting choices.
@@ -121,11 +121,11 @@
             </li>
             <li>
                 A Node.js <a href="https://github.com/tylergaw/papersaver/blob/master/papersaver-mail-listener.js">script</a>
-                listens for new email at the address
+                listens for new email at the dedicated email address
             </li>
             <li>
                 When a new email arrives, the script grabs the attached
-                image and hand it off to
+                image and hands it off to
                 <a href="https://github.com/tylergaw/papersaver/blob/master/papersaver.js">Papersaver.js</a>
             </li>
             <li>
@@ -145,20 +145,20 @@
         </ul>
         <h2>The pieces</h2>
         <p>
-            Papersaver is a fairly simple hack, but there are a handful of interesting
-            parts worth mentioning.
+            Papersaver is a fairly simple hack, but there are a few interesting
+            parts worth talking about in more detail.
         </p>
         <h3>Good enough email security</h3>
         <p>
             I'm using a <a href="https://github.com/chirag04/mail-listener2">node package</a>
-            to access Papersaver emails over IMAP. I didn't want to leave the
+            to access Papersaver emails over IMAP. I don't want to leave the
             security of my primary email address in the hands of my programming
-            skills so I use a dedicated email address
-            –tylergaw.papersaver@gmail.com–for Papersaver.
+            skills so I use a dedicated email address–tylergaw.papersaver@gmail.com–for
+            Papersaver.
         </p>
         <p>
-            Now, I just gave you the email address. So what's to keep you from
-            flooding my Papersaver with any image you please? (aside from your trustworthy nature)
+            I just gave you the email address. So what's to keep you from
+            flooding my Papersaver with all the images you please? (aside from your trustworthy nature)
             I use a settings file with to and from whitelists to only allow emails
             to/from certain addresses. Nothing good would come from me adding
             my actual settings to the public Github repo, but I do include a
@@ -171,7 +171,40 @@
             Fake example; tylergaw.papersaver+71ksk27817@gmail.com. I put that address
             in my <code>toWhitelist</code> settings. The <a href="https://github.com/tylergaw/papersaver/blob/master/papersaver-mail-listener.js#L69">mail listener script</a>
             checks to make sure any emails received are to an address in the whitelist,
-            if not, it bails.
+            if not, it bails. Fort Knox an email slug don't make, but for this
+            little project it gets the job done.
+        </p>
+        <h3>Papersaver Command-line interface</h3>
+        <p>
+            While I was working on Papersaver, I didn't want to have to send an
+            email each time I needed to test that the saving code was working.
+            To make things faster I wrote a <a href="https://github.com/tylergaw/papersaver/blob/master/papersaver-cli.js">simple CLI</a>
+            that allows me to create new Papers from images on my machine. I used
+            the super-cool node package <a href="https://github.com/substack/node-optimist">Optimist</a>
+            to handle the arguments I wanted to provide. The Papersaver CLI isn't
+            any type of technological achievement, but it was the first time I've
+            written something like it, so it gets a mention here.
+        </p>
+        <h3>Static site generator</h3>
+        <p>
+            Since I decided to go the Node.js route for this project, I wanted
+            all the pieces to be written in Node.js. <a href="http://wintersmith.io/">Wintersmith</a>
+            is a static site generator written in Node.js. These types of static generators
+            have been <a href="http://davidtucker.net/articles/introduction-to-wintersmith/">written about at length</a>
+            so I don't have anything more to add.
+            I'll just say that Wintersmith gets the job done and if I need a
+            generator written in Node.js, it will be my go-to.
+        </p>
+        <h2>Steal this project!</h2>
+        <p>
+            I didn't build this project just for me. My hope is that other folks
+            that use Paper will find it interesting and start self-hosting the
+            notes, drawings, and sketches they create. Papersaver isn't yet a
+            turnkey project. I had that in mind from the start, but it will require
+            more work to get it there. In the meantime, I'd love to see forks of
+            it that remedy some of the issues that are currently making it not
+            ready for quick re-use. I'm also 100% open to pull requests, so
+            <a href="https://github.com/tylergaw/papersaver">fork it!</a>
         </p>
         <p>
             <i>Thanks for reading</i>
