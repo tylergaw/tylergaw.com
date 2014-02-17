@@ -24,6 +24,13 @@
         font-size: 2.1em;
     }
 
+    blockquote {
+        border-left: 4px solid #564e26;
+        padding: 0.4em 0.3em 0 1em;
+        margin-bottom: 1em;
+        font-size: 0.9em;
+    }
+
     @media screen and (min-width: 420px) {
         .entry-title {
             font-size: 2.2em;
