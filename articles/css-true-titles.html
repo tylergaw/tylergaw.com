@@ -1,0 +1,80 @@
+<!--# set var="title" value="CSS True Titles by Tyler Gaw"-->
+<!--# set var="page" value="article"-->
+<!--# include file="/header.include.html"-->
+<article class="hentry">
+    <header>
+        <time class="published" datetime="2014-02-22">22 Feb 2014</time>
+        <h1 class="entry-title">CSS True Titles</h1>
+        <p class="entry-author author vcard">
+            By <span class="fn">Tyler Gaw</span>
+        </p>
+        <!--# include file="/articles/rdb-buttons.include.html"-->
+    </header>
+    <div class="entry-content">
+        <figure>
+            <a href="http://lab.tylergaw.com/css-true-titles/">
+                <img src="/articles/assets/post-image-true-titles-intro.jpg"
+                    alt="Image of the title cards from the True Titles demo">
+            </a>
+        </figure>
+        <p class="entry-intro">
+            The <a href="http://youtu.be/ZRPpCqXYoos">opening titles</a> to the
+            show True Detective are incredible. CSS contains most of the building
+            blocks necessary to recreate a similar title sequence. So I tried my
+            hand it and came up with interesting results. Here's the
+            <a href="http://lab.tylergaw.com/css-true-titles/">demo</a> and the
+            <a href="https://github.com/tylergaw/css-true-titles">source code</a>.
+            Read on for details about how it came together.
+        </p>
+        <p>
+            The first thing I should do is issue the disclaimer. This is an
+            experimental project. Things will most likely go wrong when you view
+            it. Also, due to limited suppport of <a href="http://www.w3.org/TR/css-masking-1">CSS masking</a>
+            you'll only see the full effect in Chrome and possibly Mobile Safari.
+            The animations will work in other browsers, but things will look strange.
+        </p>
+        <p>
+            There are a lot of things going on in each shot of the TD titles.
+            The main effect that I wanted to recreate was the use of a person
+            to mask another shot. They use video, but I stuck with still images.
+        </p>
+        <figure>
+            <img src="/articles/assets/post-image-true-titles-mask-example.jpg"
+                alt="">
+            <figcaption>
+                An example of using a person to mask footage in the True Detective titles
+            </figcaption>
+        </figure>
+        <p>
+            In the demo I'm accomplishing masking using the CSS <code>mask</code>
+            property. As I mentioned above, it has limited support. Here's an
+            example of masking in use. This the CSS to mask the big face image
+            on the photograpy title card.
+        </p>
+        <pre><code>.photography .composition {
+  -webkit-mask: url("../img/photography-mask.png") top left/cover no-repeat;
+  mask: url("../img/photography-mask.png") top left/cover no-repeat;
+}</code></pre>
+        <p>
+            And the mostly transparent image used to mask the content. The transparent
+            portions will not be visible, the opaque portions will be.
+        </p>
+        <figure>
+            <img src="http://lab.tylergaw.com/css-true-titles/img/photography-mask.png"
+                alt="">
+            <figcaption>
+                The mask image for the photography title card
+            </figcaption>
+        </figure>
+        <p>
+            <i>Thanks for reading</i>
+        </p>
+    </div>
+</article>
+<nav id="article-navigation">
+    <a href="/articles/2000-days">Older</a> <a class="disabled">Newer</a>
+</nav>
+<!--# set var="disqus_identifier" value="css-true-titles"-->
+<!--# set var="disqus_title" value="CSS True Titles"-->
+<!--# include file="comments.include.html"-->
+<!--# include file="/footer.include.html"-->
