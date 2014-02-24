@@ -98,9 +98,11 @@
             I want to be able to move the "town" element. If I applied the mask
             to that element it would move with it and would not line up properly
             with the human image. I needed to apply the mask to an element above it.
-            Since CSS mask are only concerned with the opaque and transparent
+            Since CSS masks are only concerned with the opaque and transparent
             portions of an image, I can reuse the human image as the mask for the
-            "composition" element using the CSS below.
+            "composition" element using the CSS below. Areas appearing under
+            opaque portions will be visible, those under transparent portions will
+            be invisible.
         </p>
         <pre><code>.opener .composition {
   ...
@@ -113,6 +115,12 @@
             had the same <code>background-size</code> setting. In this case they
             are all set <code>cover</code>. That prevents the images from becoming
             too short or too narrow that you see the edges of them.
+        </p>
+        <p>
+            The rest of the title cards follow a similar pattern with adjustments
+            based on the the number of images that were needed and the animations
+            that were put into place. You can see the source scss for each
+            card <a href="https://github.com/tylergaw/css-true-titles/tree/master/css/scss/partials">here</a>.
         </p>
         <h2>The Animations</h2>
         <p>
