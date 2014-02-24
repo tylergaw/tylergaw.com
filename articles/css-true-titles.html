@@ -33,10 +33,13 @@
             you'll only see the full effect in Chrome and possibly Mobile Safari.
             The animations will work in other browsers, but things will look strange.
         </p>
+        <h2>The Masking</h2>
         <p>
-            There's a lot going on in each shot of the TD titles.
+            There's a whole lot going on in each shot of the TD titles. You should
+            read the write up about it on <a href="http://www.artofthetitle.com/title/true-detective/">Art of the Title</a>.
             The main effect that I wanted to recreate was the use of human silhouettes
-            to mask shots. They use video, but in my demo I stuck with still images.
+            to mask shots. They use video clips for the masks and the content being
+            masked, but I stuck with still images to keep things a little easier.
         </p>
         <figure>
             <img src="/articles/assets/post-image-true-titles-mask-example.jpg"
@@ -47,25 +50,65 @@
         </figure>
         <p>
             I'm accomplishing masking using the CSS <code>mask</code>
-            property. As I mentioned above, it has limited support. This the CSS
-            to mask the big face image on the photograpy title card.
-        </p>
-        <pre><code>.photography .composition {
-  -webkit-mask: url("../img/photography-mask.png") top left/cover no-repeat;
-  mask: url("../img/photography-mask.png") top left/cover no-repeat;
-}</code></pre>
-        <p>
-            And the mostly transparent image used to mask the content. The transparent
-            portions will not be visible, the opaque portions will be.
+            property. As I mentioned above, it has limited support. I'm going
+            to break down the first title card to explain how the masking is
+            implemented.
         </p>
         <figure>
-            <img src="http://lab.tylergaw.com/css-true-titles/img/photography-mask.png"
+            <img src="/articles/assets/post-image-true-titles-opener-card.jpg"
                 alt="">
             <figcaption>
-                The mask image for the photography title card
+                A still of the first title card.
             </figcaption>
         </figure>
-        <h2>Movement</h2>
+        <p>
+            Each title card is an <code>li</code> element. They contain some base
+            styles like width, height, positioning, etc. Within each <code>li</code>
+            is markup specific to that card. Below is the markup for images of the
+            opening card.
+        </p>
+        <pre><code>&lt;div class="composition animated"&gt;
+  &lt;div class="town animated">&lt;/div&gt;
+  &lt;div class="human">&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <p>
+            The containing <code>div</code> element with the class of "composition"
+            houses all the images. I'm using a containing element here so I can move
+            and scale the "human" and the "town" together, while still being able
+            to move and scale each independently. I'm also applying the mask
+            to the composition element. The "human" and "town" elements have background
+            images applied to them.
+        </p>
+        <figure>
+            <img src="http://lab.tylergaw.com/css-true-titles/img/opener-human.png"
+                alt="">
+            <figcaption>
+                The partially transparent human image, which doubles as the mask
+                for the opening card.
+            </figcaption>
+        </figure>
+        <figure>
+            <img src="http://lab.tylergaw.com/css-true-titles/img/opener-town.png"
+                alt="">
+            <figcaption>
+                The background image for the town element.
+            </figcaption>
+        </figure>
+        <p>
+            I want to be able to move the "town" element. If I applied the mask
+            to that element it would move with it and would not line up properly
+            with the human image. I needed to apply the mask to an element above it.
+            Since CSS mask are only concerned with the opaque and transparent
+            portions of an image, I can reuse the human image as the mask for the
+            "composition" element using the CSS below.
+        </p>
+        <pre><code>.opener .composition {
+  ...
+  -webkit-mask: url("opener-human.png") top left/cover no-repeat;
+  mask: url("opener-human.png") top left/cover no-repeat;
+}</code></pre>
+
+        <h2>The Animations</h2>
         <p>
             I wanted constant motion in each shot. The motion is mostly sublte,
             slow change.
