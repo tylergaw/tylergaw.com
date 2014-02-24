@@ -107,7 +107,13 @@
   -webkit-mask: url("opener-human.png") top left/cover no-repeat;
   mask: url("opener-human.png") top left/cover no-repeat;
 }</code></pre>
-
+        <p>
+            <code>mask</code> has similar properties as <code>background-image</code>.
+            URL, position, size, repeat. It was important that all of the images and mask
+            had the same <code>background-size</code> setting. In this case they
+            are all set <code>cover</code>. That prevents the images from becoming
+            too short or too narrow that you see the edges of them.
+        </p>
         <h2>The Animations</h2>
         <p>
             I wanted constant motion in each shot. The motion is mostly sublte,
