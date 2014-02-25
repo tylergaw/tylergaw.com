@@ -19,9 +19,9 @@
         </figure>
         <p class="entry-intro">
             The <a href="http://youtu.be/ZRPpCqXYoos">opening titles</a> to the
-            show True Detective are beautiful. CSS has most of the building
-            blocks necessary to create a similar title sequence. I tried my
-            hand it and came up with interesting results. Here's the
+            show True Detective are beautiful. CSS contains the building
+            blocks necessary to create a similar style title sequence. I tried my
+            hand it and came up with fun results. Here's the
             <a href="http://lab.tylergaw.com/css-true-titles/">demo</a> and the
             <a href="https://github.com/tylergaw/css-true-titles">source code</a>.
         </p>
@@ -30,7 +30,7 @@
             experimental project. Things will most likely go wrong when you view
             it. I'm trying to make the browser do things that it really doesn't
             want to. Also, due to limited suppport of <a href="http://www.w3.org/TR/css-masking-1">CSS masking</a>
-            you'll only see the full effect in Chrome and possibly Mobile Safari.
+            you'll only see the full effect in Chrome, Opera, and possibly Mobile Safari.
             The animations will work in other browsers, but things will look strange.
         </p>
         <h2>The Masking</h2>
@@ -45,13 +45,14 @@
             <img src="/articles/assets/post-image-true-titles-mask-example.jpg"
                 alt="">
             <figcaption>
-                An example of using a person to mask footage in the True Detective titles
+                An example of using a human to mask footage in the True Detective titles
             </figcaption>
         </figure>
         <p>
             I'm accomplishing masking using the CSS <code>mask</code>
-            property. As I mentioned above, it has limited support. I'm going
-            to break down the first title card to explain how the masking is
+            property. As I mentioned above, browser suppport for it is currently
+            limited. I'm going to break down the first title
+            card to explain how the masking is
             implemented.
         </p>
         <figure>
@@ -62,10 +63,10 @@
             </figcaption>
         </figure>
         <p>
-            Each title card is an <code>li</code> element. They contain some base
+            Each title card is an <code>li</code> element. They contain base
             styles like width, height, positioning, etc. Within each <code>li</code>
-            is markup specific to that card. Below is the markup for images of the
-            opening card.
+            is markup specific to that card. Below is the markup for the elements
+            that make up the opening card.
         </p>
         <pre><code>&lt;div class="composition animated"&gt;
   &lt;div class="town animated">&lt;/div&gt;
@@ -95,9 +96,10 @@
             </figcaption>
         </figure>
         <p>
-            I want to be able to move the "town" element. If I applied the mask
-            to that element it would move with it and would not line up properly
-            with the human image. I needed to apply the mask to an element above it.
+            I want to be able to move the "town" element from right to left and
+            left to right. If I applied the mask to that element, the mask would
+            move with the town causing it to not line up properly with the human image.
+            The mask needs to be applied to an element above it, the composition element.
             Since CSS masks are only concerned with the opaque and transparent
             portions of an image, I can reuse the human image as the mask for the
             "composition" element using the CSS below. Areas appearing under
@@ -110,10 +112,10 @@
   mask: url("opener-human.png") top left/cover no-repeat;
 }</code></pre>
         <p>
-            <code>mask</code> has similar properties as <code>background-image</code>.
+            <code>mask</code> has similar properties as <code>background</code>.
             URL, position, size, repeat. It was important that all of the images and mask
             had the same <code>background-size</code> setting. In this case they
-            are all set <code>cover</code>. That prevents the images from becoming
+            are all set to <code>cover</code>. That prevents the images from becoming
             too short or too narrow that you see the edges of them.
         </p>
         <p>
@@ -124,8 +126,72 @@
         </p>
         <h2>The Animations</h2>
         <p>
-            I wanted constant motion in each shot. The motion is mostly sublte,
-            slow change.
+            There are a few different animations happening during the sequence.
+            The main animation–or timeline–is responsible for cutting to each card
+            and looping back to the first after the last. Within each card there
+            are one or more animations that control composition elements or individual
+            elements.
+        </p>
+        <figure>
+            <img src="/articles/assets/post-image-true-titles-ani-diagram.jpg"
+                alt="Sketch showing the length of the main timelime is seconds and the length of each sub timeline as a percentage.">
+            <figcaption>
+                A diagram showing the main and sub timelines of the sequence.
+            </figcaption>
+        </figure>
+        <p>
+            The total length of 36.54 seconds is an eyeball. Once I came up with
+            all the cards I wanted I tweaked the length util if felt right. Added the
+            .54 seconds to make the length the same as the autio track.
+        </p>
+        <p>
+            As the diagram shows, the length of each title card is a percentage
+            of the total sequence length. That length is how long that card will
+            be visible. Figuring out the length for each card took quite a bit
+            of trial and error to get right. There are four title cards and one "bump" card.
+            The bump card contains no text, it's there as a break and a bit of
+            extra visiual information. Because of that the bump needed to be shorter.
+            The photography card doesn't contain as much motion as the
+            other cards and that was making it feel too long, so I stole from it
+            to give to the last card. I wanted the last card with my Twitter info
+            to be longer than the others. If each card was the same length, coming
+            up with a percentage for each would be easy, 100% / number of cards = %.
+            That was not the case with this.
+        </p>
+        <p>
+            Each card needs keyframes at multiple positions. I'm going to show
+            the second title card as an example, because they get a little strange.
+        </p>
+        <pre><code>@keyframes director {
+  0%, 22.9%, 46%, 100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  23%, 45.9% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}</code></pre>
+        <p>
+            I'll start at the second set of frames. Starting at 23% of the main
+            timeline length I want the card to be displayed. It should stay
+            visible until 45.9% of the main timeline length.
+        </p>
+        <p>
+            The first set of frames says that the card should be invisible and
+            off screen from 0% until 22.9% and again from 46% to 100%.
+        </p>
+        <p>
+            I'm using the 0.1% intervals to make sure there is no visible interpolation
+            of the opacity or tranform. I want the transition from one card to
+            the next to be a quick cut. The opacity is still transitioning from
+            0 to 1, but it's just too fast to be seen.
+        </p>
+        <p>
+            I'm using the <code>translateX</code> to move the invisible cards
+            out of the viewport so they don't obsure any elements of the current
+            visible card. That was happening when I was only using <code>opacity</code>.
         </p>
         <p>
             <i>Thanks for reading</i>
