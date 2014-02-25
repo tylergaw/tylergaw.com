@@ -28,7 +28,8 @@
         <p>
             The first thing I have to do is issue the disclaimer. This is an
             experimental project. Things will most likely go wrong when you view
-            it. I'm pushing on the browser pretty hard. Also, due to limited suppport
+            it. I'm pushing on the browser pretty hard to get it to do things it
+            maybe wasn't intended to. Also, due to limited suppport
             of <a href="http://www.w3.org/TR/css-masking-1">CSS masking</a>
             you'll only see the full effect in Chrome, Opera, and possibly Mobile Safari.
             The animations will work in other browsers, but things will look strange.
@@ -50,7 +51,7 @@
         </figure>
         <p>
             I'm accomplishing masking using the CSS <code>mask</code>
-            property. As I mentioned above, browser suppport for it is currently
+            property. As I mentioned, browser support for it is currently
             limited. I'm going to break down the first title
             card to explain how the masking is
             implemented.
@@ -93,6 +94,10 @@
         </figure>
         <p>
             All of the images are from the <a href="http://flickr.com/commons">Flickr Commons</a>.
+            I cropped, clipped, and pushed their pixels around in Photoshop until
+            they felt right. Some of them have kind of ratty clipping paths, but
+            you can't really seen them with everything moving. I was able to bring
+            the file size down some because of that.
         </p>
         <figure>
             <img src="http://lab.tylergaw.com/css-true-titles/img/opener-town.png"
@@ -118,14 +123,14 @@
   mask: url("opener-human.png") top left/cover no-repeat;
 }</code></pre>
         <p>
-            <code>mask</code> has similar properties as <code>background</code>.
+            The shorthand <code>mask</code> has similar properties as <code>background</code>.
             URL, position, size, repeat. It was important that all of the images and mask
             had the same <code>background-size</code> setting. In this case they
             are all set to <code>cover</code>. That prevents the images from becoming
-            too short or too narrow at that you see the edges of them. I could
-            have set a fixed width and height on the title cards to avoid this
-            altogether, but it was more fun to try and embrace the unstable
-            environment that is a Web browser.
+            too short or too narrow so that you see the edges of them. I could
+            have set a fixed width and height on the cards to avoid this
+            altogether, however it was more fun to embrace the unstable
+            environment that is a Web browser by letting everything remain fluid.
         </p>
         <p>
             The rest of the title cards follow a similar pattern with adjustments
