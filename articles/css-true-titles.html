@@ -19,7 +19,7 @@
         </figure>
         <p class="entry-intro">
             The <a href="http://youtu.be/ZRPpCqXYoos">opening titles</a> to the
-            show True Detective are beautiful. CSS contains the building
+            show True Detective are incredible. CSS contains the building
             blocks necessary to create a similar style title sequence. I tried my
             hand it and came up with fun results. Here's the
             <a href="http://lab.tylergaw.com/css-true-titles/">demo</a> and the
@@ -28,8 +28,8 @@
         <p>
             The first thing I have to do is issue the disclaimer. This is an
             experimental project. Things will most likely go wrong when you view
-            it. I'm trying to make the browser do things that it really doesn't
-            want to. Also, due to limited suppport of <a href="http://www.w3.org/TR/css-masking-1">CSS masking</a>
+            it. I'm pushing on the browser pretty hard. Also, due to limited suppport
+            of <a href="http://www.w3.org/TR/css-masking-1">CSS masking</a>
             you'll only see the full effect in Chrome, Opera, and possibly Mobile Safari.
             The animations will work in other browsers, but things will look strange.
         </p>
@@ -64,7 +64,7 @@
         </figure>
         <p>
             Each title card is an <code>li</code> element. They contain base
-            styles like width, height, positioning, etc. Within each <code>li</code>
+            styles like width, height, position, etc. Within each <code>li</code>
             is markup specific to that card. Below is the markup for the elements
             that make up the opening card.
         </p>
@@ -88,6 +88,9 @@
                 for the opening card.
             </figcaption>
         </figure>
+        <p>
+            All of the images are from the <a href="http://flickr.com/commons">Flickr Commons</a>.
+        </p>
         <figure>
             <img src="http://lab.tylergaw.com/css-true-titles/img/opener-town.png"
                 alt="">
@@ -116,7 +119,10 @@
             URL, position, size, repeat. It was important that all of the images and mask
             had the same <code>background-size</code> setting. In this case they
             are all set to <code>cover</code>. That prevents the images from becoming
-            too short or too narrow that you see the edges of them.
+            too short or too narrow at that you see the edges of them. I could
+            have set a fixed width and height on the title cards to avoid this
+            altogether, but it was more fun to try and embrace the unstable
+            environment that is a Web browser.
         </p>
         <p>
             The rest of the title cards follow a similar pattern with adjustments
