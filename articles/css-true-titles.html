@@ -139,24 +139,26 @@
                 A diagram showing the main and sub timelines of the sequence.
             </figcaption>
         </figure>
+        <h3>The main timeline</h3>
         <p>
-            The total length of 36.54 seconds is an eyeball. Once I came up with
-            all the cards I wanted I tweaked the length util if felt right. Added the
-            .54 seconds to make the length the same as the autio track.
+            Once I came up with all the cards I wanted, I tweaked
+            the total length until the pacing felt about right. The .54 seconds was
+            added the to make the sequence length the same as the audio track.
         </p>
         <p>
             As the diagram shows, the length of each title card is a percentage
             of the total sequence length. That length is how long that card will
             be visible. Figuring out the length for each card took quite a bit
-            of trial and error to get right. There are four title cards and one "bump" card.
-            The bump card contains no text, it's there as a break and a bit of
-            extra visiual information. Because of that the bump needed to be shorter.
-            The photography card doesn't contain as much motion as the
-            other cards and that was making it feel too long, so I stole from it
-            to give to the last card. I wanted the last card with my Twitter info
-            to be longer than the others. If each card was the same length, coming
-            up with a percentage for each would be easy, 100% / number of cards = %.
-            That was not the case with this.
+            of trial and error to get right. If each card was the same length, coming
+            up with a percentage for each would be easy, <code>100% / number of cards = length%</code>.
+            That was not the case with this sequence.
+            There are four title cards and one "bump" card.
+            The bump card contains no text, it's there as a break and
+            extra visual information (AKA, it looks cool). Because of that, the
+            bump needed to be shorter than the title cards. The photography card
+            doesn't contain as much motion as the other cards and that was making it feel too long.
+            I stole time from it to give to the last card. I wanted the last card with my Twitter info
+            to be longer than the others.
         </p>
         <p>
             Each card needs keyframes at multiple positions. I'm going to show
@@ -186,12 +188,18 @@
             I'm using the 0.1% intervals to make sure there is no visible interpolation
             of the opacity or tranform. I want the transition from one card to
             the next to be a quick cut. The opacity is still transitioning from
-            0 to 1, but it's just too fast to be seen.
+            0 to 1 and translateX from -100% to 0, but it's just too fast to be seen.
         </p>
         <p>
-            I'm using the <code>translateX</code> to move the invisible cards
+            I'm using <code>translateX</code> to move the invisible cards
             out of the viewport so they don't obsure any elements of the current
             visible card. That was happening when I was only using <code>opacity</code>.
+        </p>
+        <p>
+            Again, getting the timing correct on each card was just a lot of trial
+            and error, and changing things a percentage at a time. You can see
+            the full scss for the main timeline animation
+            <a href="https://github.com/tylergaw/css-true-titles/blob/master/css/scss/partials/_general.scss#L115">here</a>.
         </p>
         <p>
             <i>Thanks for reading</i>
