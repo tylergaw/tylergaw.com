@@ -99,7 +99,7 @@
     line-height: 1.5;
     margin: 0 auto;
     max-width: 710px;
-    width: 92%;
+    width: 96%;
 
     a {
         text-decoration: none;
@@ -117,13 +117,13 @@
 
     p {
         padding-bottom: 1.4em;
+    }
 
-        code {
-            background-color: #f9f6f0;
-            color: #191919;
-            font-family: 'inconsolata', courier, monospace;
-            font-size: 0.85em;
-        }
+    code {
+        background-color: #f9f6f0;
+        color: #191919;
+        font-family: 'inconsolata', courier, monospace;
+        font-size: 0.85em;
     }
 
     p:last-child {
@@ -195,7 +195,7 @@
 
 .entry-intro {
     color: #433f1e;
-    font-size: 1.1em;
+    font-size: 1.2em;
     line-height: 1.4;
 
     &::after {
