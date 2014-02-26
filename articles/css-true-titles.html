@@ -143,7 +143,7 @@
             There are a few different animations happening during the sequence.
             The main animation–or timeline–is responsible for cutting from one card to the next
             and looping back to the first after the last. Within each card there
-            are one or more animations that control composition elements or individual
+            are one or more animations that control composition elements and individual
             elements.
         </p>
         <figure>
@@ -158,6 +158,8 @@
             Once I came up with all the cards I wanted, I tweaked
             the total length until the pacing felt about right at 36 seconds. The .54 seconds was
             added the to make the sequence length match the length of the audio track.
+            The track ended up an odd length because I edited it with <a href="http://audacity.sourceforge.net/">Audacity</a>
+            and I've never been able to tame that beast. Has anyone?
         </p>
         <p>
             As the diagram shows, the length of each title card is a percentage
@@ -190,7 +192,7 @@
   }
 }</code></pre>
         <p>
-            I'll start at the second set of frames. Starting at 23% of the main
+            I'm going to explain this backwards. Starting at 23% of the main
             timeline length I want the card to be visible and on the screen. It should stay
             visible until 45.9% of the main timeline length.
         </p>
@@ -200,7 +202,7 @@
         </p>
         <p>
             I'm using the 0.1% intervals to make sure there is no visible interpolation
-            of the opacity or tranform. I want the transition from one card to
+            of the opacity or transform. I want the transition from one card to
             the next to be a quick cut. The opacity is still interpolating from
             0 to 1 and transform from -100% to 0, but it's too fast to be seen.
         </p>
@@ -210,8 +212,8 @@
             visible card. That was happening when I was only using <code>opacity</code>.
         </p>
         <p>
-            Again, getting the timing correct on each card was just a lot of trial
-            and error, and changing things a percentage at a time. You can see
+            Again, getting the timing correct on each card was a lot of trial
+            and error. Making changes a percentage at a time. You can see
             the full scss for the main timeline animation
             <a href="https://github.com/tylergaw/css-true-titles/blob/master/css/scss/partials/_general.scss#L115">here</a>.
         </p>
@@ -239,7 +241,7 @@
         <p>
             Anything with the class of "animated"–you guessed it–has an animation
             applied to it. The fifth animation is on a pseudo-element. Below is
-            list of each animation.
+            list of each animated element and description of what is animated.
         </p>
         <ul>
             <li>
@@ -248,38 +250,46 @@
             </li>
             <li>
                 <b>street</b>: A <a href="http://lab.tylergaw.com/css-true-titles/img/director-street.png">masked image</a>.
-                Its x and y position is changed over 18 seconds using <code>translate</code>.
+                Its X and Y positions are changed over 18 seconds using <code>translate</code>.
             </li>
             <li><b>trees</b>: A <a href="http://lab.tylergaw.com/css-true-titles/img/director-trees.png">masked image</a>.
-                Its x and y position is changed over 18 seconds using <code>translate</code>.
+                Its X and Y positions are changed over 18 seconds using <code>translate</code>.
             </li>
             <li>
-                <b>copy</b>: The card info is slightly scaled and <code>translated</code>
-                on the x and y axis over 17 seconds. The copy moves partially in
+                <b>copy</b>: The card info is slightly scaled and translated
+                on the X and Y axes over 17 seconds. The copy moves somewhat in
                 tandem with the composition.
             </li>
             <li>
                 <b>pseudo-element</b>: I'm using the <code>::before</code> selector
-                to add an additional subtle detail I called a "blip". It is a
+                on the trees element to add an additional subtle detail I called a "blip". It is a
                 <a href="http://lab.tylergaw.com/css-true-titles/img/director-blip.png">image of fire</a>
                 that is displayed shortly to give a little more detail to animation.
             </li>
         </ul>
         <p>
-            You can see the full source scss for the director card
-            <a href="https://github.com/tylergaw/css-true-titles/blob/master/css/scss/partials/_card-director.scss">here</a>.
+            A quick note on using <code>translate</code>. Always use it to animate
+            elements on X and Y axes instead of using positioning properties like
+            left, right, top, bottom. Also try to use it instead of animating
+            the <code>background-position</code> property. Using <code>translate</code>
+            gives much smoother animations and uses less CPU. <a href="http://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/">Paul</a>
+            explains it better than I can.
         </p>
         <p>
             All of the animations have their <code>animation-direction</code> set
-            to <code>alternate</code>. I did this so there would be visible jumps
+            to <code>alternate</code>. I did this so there would be no visible jumps
             back to the starting position of the properties. If you watch the
             sequence multiple times, you're likely to see the animations running
             in different directions.
         </p>
+        <p>
+            You can see the full source scss for the director card
+            <a href="https://github.com/tylergaw/css-true-titles/blob/master/css/scss/partials/_card-director.scss">here</a>.
+        </p>
         <h3>Pausing the animations</h3>
         <p>
             In the markup there is a class of "animated" applied to any animated
-            elements. I'm using that as way to pause and unpause all of the
+            element. I'm using that as way to pause and unpause all of the
             animations using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-play-state"><code>animation-play-state</code></a>.
         </p>
         <pre><code>.paused .animated,
@@ -288,15 +298,16 @@
   animation-play-state: paused;
 }</code></pre>
         <p>
-            The pause/play button adds or removes the class of "paused" from the
+            There is some <a href="https://github.com/tylergaw/css-true-titles/blob/master/js/controls.js">light JavaScript</a> to allow the pause/play
+            button to add and remove the class of "paused" from the
             body element, the CSS above takes care of the rest.
         </p>
         <h2>This was tough!</h2>
         <p>
             When I was working on this project, I realized there was a lot going
             on to make it happen, however I didn't realize how much I was on
-            autopilot during the process. Sitting down and trying to explain in
-            words what I did was difficult. If you read this far I hope there's a
+            autopilot during the process. Sitting down and trying to explain—in
+            words—what I did was difficult. If you read this far I hope there's a
             useful technique or trick that you picked up along the way. If not,
             I hope it was an interesting look into what goes on in my brain when
             building this type of thing.
