@@ -5,9 +5,8 @@ topics related to the work I do on the web. Shit, I might even write a post or
 two about getting drunk and starting fights.
 
 ### Technologies
-* The whole kit and kaboodle is running on the demon-fast,
-Lara Flynn Boyle light [Nginx](http://nginx.org) web server.
-* [Compass](http://compass-style.org) for super sexy, super organized CSS.
+* I run this hog on [Nginx](http://nginx.org)
+* [Sass](http://sass-lang.com/)
 * [Typekit](http://typekit.com). I'm using [Chaparral Pro](http://typekit.com/fonts/chaparral-pro)
 for my body copy and [Inconsolata](https://typekit.com/fonts/inconsolata) for headings and such.
 

@@ -1,9 +1,8 @@
 // Internet Explorer versions 8 and below will have a class attribute of "ie"
 // applied to the <html> element. These rules will remove bits of style that
 // would require extra time, effort and Javascript to accomplish and is not worth it.
-// 
+//
 // This is pretty inefficient.
-@import "compass/css3";
 $max-width: 900px;
 
 // general
@@ -11,7 +10,7 @@ $max-width: 900px;
   body > div {
     padding-bottom: 0;
   }
-  
+
   [role='main'] {
     margin: 0 auto;
     width: $max-width;
@@ -20,32 +19,32 @@ $max-width: 900px;
 
 // banner
 .ie {
-  [role='banner'] {    
+  [role='banner'] {
     margin-bottom: -3.5em;
     width: 90%;
-    
+
     & > a {
       background-image: url(/images/logo-white-red.png);
-      @include background-size('auto');
+      background-size: auto;
       float: left;
       height: 109px;
       padding-top: 0;
       width: 142px;
     }
   }
-  
+
   #page-home [role="banner"] {
     margin-bottom: 0;
-    
+
     & > a {
       background: transparent url(/images/logo-large.png) no-repeat right top;
-      @include background-size(100%);
+      background-size: 100%;
       height: auto;
       padding-top: 50%;
       width: 100%;
     }
   }
-  
+
   #page-articles [role='banner'], #page-article [role='banner'] {
     & > a {
       background-image: url(/images/logo-grey-purple.png);
@@ -77,7 +76,7 @@ $max-width: 900px;
     position: relative;
     text-align: center;
     top: -1.1em;
-    
+
     ul {
       background: transparent url(/images/nav-border-yellow.png) repeat-x left bottom;
       border-collapse: collapse;
@@ -85,25 +84,25 @@ $max-width: 900px;
       float: right;
       width: 80.3387298%;
     }
-    
+
     li {
       background: transparent url(/images/nav-divider-white.png) no-repeat left 22%;
       display: table-cell;
       padding-left: 0.6em;
       padding-bottom: 2em;
-      
+
       &:first-child {
         background-image: none;
         padding-right: 0;
       }
     }
-    
+
     a {
       border-bottom: none;
       border-top: 3px solid transparent;
       padding: 0.4em 0 0 0;
       text-indent: 0.4em;
-      
+
       &:hover, &:focus {
         border-bottom: none;
         border-top-color: #d7c31e;
@@ -114,23 +113,23 @@ $max-width: 900px;
 
   #page-home [role='navigation'] {
     top: auto;
-    
+
     ul {
       background-position: left top;
       margin-right: 5.5530511%;
       width: 78.4557908%;
     }
-    
+
     li {
       background-position: left 38%;
       padding-top: 1.2em;
     }
-    
+
     a {
       border-bottom: 3px solid transparent;
       border-top: none;
       padding: 0.4em 0 0.6em 0;
-    
+
       &:hover, &:focus {
         border-top: none;
         border-bottom-color: #d7c31e;
@@ -138,26 +137,26 @@ $max-width: 900px;
       }
     }
   }
-  
+
   #page-articles [role='navigation'], #page-article [role='navigation'] {
     background-image: none;
 
     a:hover, a:focus, a[href='/articles'] {
       border-bottom-color: #8e46d1;
     }
-      
+
     ul {
       background-image: url(/images/nav-border-green.png);
     }
-    
+
     li {
       background-image: url(/images/nav-divider-green.png);
-    
+
       &:first-child {
         background-image: none;
       }
     }
-    
+
     a:hover, a:focus, a[href='/articles'] {
       border-top-color: #8e46d1;
     }
@@ -177,7 +176,7 @@ $max-width: 900px;
     ul {
       background-image: url(/images/nav-border-white.png);
     }
-    
+
     a:hover, a:focus, a[href='/projects'] {
       border-top-color: #d3d3d3;
     }
@@ -193,15 +192,15 @@ $max-width: 900px;
     ul {
       background-image: url(/images/nav-border-navy.png);
     }
-    
+
     li {
       background-image: url(/images/nav-divider-navy.png);
-    
+
       &:first-child {
         background-image: none;
       }
     }
-    
+
     a:hover, a:focus, a[href='/about'] {
       border-top-color: #f37467;
     }
@@ -223,19 +222,19 @@ $max-width: 900px;
 .ie {
   [role='contentinfo'] {
     font-size: 1.2em;
-    
+
     h1 {
       display: inline-block;
       margin: 0.3em 0 0 0;
       vertical-align: top;
       width: 25.6687422%;
     }
-    
+
     ul {
       display: inline-block;
       width: 73.8019925%;
     }
-    
+
     li {
       width: 28.4716981%;
     }
@@ -277,12 +276,12 @@ $max-width: 900px;
         overflow: hidden;
         position: relative;
         width: 51.2544379%;
-      
+
         img {
           width: 100%;
         }
       }
-      
+
       p {
         display: inline-block;
         font-size: 1.1em;
@@ -290,23 +289,23 @@ $max-width: 900px;
         vertical-align: top;
         width: 44.0828402%;
       }
-      
+
       li.no-graphic p {
         padding-left: 0;
         width: 72.0414201%;
       }
-      
+
       li.project time {
         background-image: url(/images/latest-project-time-border.png);
       }
-      
+
       li {
         div {
           float: right;
           width: 84.1843088%;
         }
       }
-      
+
       time {
         background: transparent url(/images/latest-article-time-border.png) no-repeat left top;
         float: left;
@@ -331,7 +330,7 @@ $max-width: 900px;
 
       section:first-child {
         padding-top: 0;
-        
+
         h1 {
           float: right;
           font-size: 4em;
@@ -339,7 +338,7 @@ $max-width: 900px;
           margin-top: 0.3em;
           width: 52.8019925%;
         }
-        
+
         p {
           float: right;
           margin-right: 0;
@@ -403,11 +402,11 @@ $max-width: 900px;
             position: relative;
           }
         }
-        
+
         h1 {
           font-size: 2.2em;
         }
-        
+
         p {
           float: left;
           margin-right: 4.117061%;
@@ -419,7 +418,7 @@ $max-width: 900px;
           width: 29.2652553%;
         }
 
-        li a {        
+        li a {
           font-size: 0.9em;
           overflow: hidden;
         }
@@ -436,19 +435,19 @@ $max-width: 900px;
 .ie {
   #page-projects {
     [role='main'] {
-      section:first-child {        
+      section:first-child {
         padding-top: 0;
-        
+
         li {
           float: none;
           margin: 0;
           width: 100%;
-          
+
           &:first-child {
             margin-right: 0;
           }
         }
-        
+
         h3, p, div {
           width: 52.9265255%;
         }
@@ -467,17 +466,17 @@ $max-width: 900px;
           background-image: url(/images/project-alpha.png);
           background-position: 95% 10%;
           padding-bottom: 10%;
-          
+
           h3 {
             padding-top: 1em;
           }
         }
-        
+
         #project-mfh {
           background-image: url(/images/project-mfh.png);
           background-position: 95% 0;
           padding-bottom: 10%;
-          
+
           h3 {
             padding-top: 1em;
           }
@@ -487,7 +486,7 @@ $max-width: 900px;
           background-image: url(/images/project-jribbble.png);
           background-position: 100% top;
           padding-bottom: 10%;
-          
+
           h3 {
             padding-top: 1.5em;
           }
@@ -514,7 +513,7 @@ $max-width: 900px;
         h2 {
           font-size: 0.95em;
           width: 80%;
-          
+
           color: #bfbfbf;
           font-family: 'chaparral-pro', times, serif;
           font-size: 0.95em;
@@ -527,19 +526,19 @@ $max-width: 900px;
         h3 {
           font-size: 1.2em;
         }
-        
+
         ul {
           margin-top: 1em;
           overflow: hidden;
         }
-        
+
         li {
           display: block;
           float: left;
           margin: 1.8em 0 2.2em 0;
           vertical-align: top;
           width: 44.9564134%;
-          
+
           &:first-child {
             margin-right: 9%;
           }
@@ -557,7 +556,7 @@ $max-width: 900px;
             color: #c4c4c4;
           }
         }
-        
+
         img {
           width: 100%;
         }
@@ -615,10 +614,10 @@ $max-width: 900px;
     float: right;
     margin-right: 7.9701121%;
     width: 68.4931507%;
-    
+
     a {
       float: right;
-      
+
       &:first-child {
         float: none;
       }
