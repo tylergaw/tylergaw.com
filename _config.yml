@@ -3,7 +3,7 @@ title: Tyler Gaw
 source: ./src
 destination: ./public
 permalink: none
-exclude: [scss]
+exclude: [css/scss]
 future: false
 
 # Site settings
