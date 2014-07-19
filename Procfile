@@ -1,1 +1,2 @@
-sass: sass --watch css/scss:css --style compressed
+jekyll: jekyll build --watch
+sass: sass --watch src/css/scss:src/css --style compressed
