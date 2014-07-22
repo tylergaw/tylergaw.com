@@ -1,38 +1,44 @@
-#page-home {
-    background: #ffb900 url(/images/body-bg-yellow.png) fixed repeat 20% top;
+.the-color-of {
+    color: #65e12e;
+}
 
-    ::selection {
-        background-color: #ffe400;
-        color: #081516;
-    }
+.bold-statements {
+    @extend %futura;
+    font-size: 3.8vw;
+    font-weight: 700;
+    padding-top: 0.8em;
+    text-align: center;
+    text-transform: uppercase;
 
-    & > div {
-        background: #081516 url(/images/content-bg-navy.png) repeat 20% top;
-        @include border-image("home");
-        color: #b3b3b3;
-    }
+    a {
+        display: inline-block;
+        border-bottom: 8px solid $yellow;
+        position: relative;
+        text-decoration: none;
+        @include transition(color 0.2s);
 
-    time {
-        color: #cfbfa6;
-    }
-
-    [role="main"] {
-        @media screen and (min-width: 768px) and (min-height: 500px) {
-            padding-top: 1.5em;
+        &::after {
+            background-color: $offwhite;
+            bottom: -8px;
+            content: "";
+            display: inline-block;
+            left: 0;
+            position: absolute;
+            height: 8px;
+            @include transition(width 0.2s);
+            width: 0;
         }
 
-        h2, a {
-            color: #fff;
-        }
+        &:hover {
+            color: $offwhite;
 
-        p {
-            a {
-                color: #d7c31e;
-
-                &:hover {
-                    border-bottom-color: #d7c31e;
-                }
+            &::after {
+                width: 100%;
             }
         }
+    }
+
+    p {
+        margin-bottom: 0.7em;
     }
 }

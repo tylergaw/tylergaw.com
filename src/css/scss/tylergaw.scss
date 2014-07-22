@@ -1,3 +1,8 @@
-// @import "reset", "modules/css3", "general", "banner", "navigation", "contentinfo";
-// @import "home", "articles", "article", "articlenavigation", "comments";
-// @import "projects", "about", "listings", "errorpage";
+@import "modules/setup";
+@import "modules/reset";
+@import "modules/fonts";
+@import "modules/css3";
+@import "partials/general";
+@import "partials/banner";
+@import "partials/navigation";
+@import "partials/home";
