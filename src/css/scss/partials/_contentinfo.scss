@@ -1,3 +1,11 @@
 [role="contentinfo"] {
+    border-top: 8px solid $yellow;
+    margin: 4em auto 2em auto;
+    max-width: 720px;
+    padding: 1.2em 0 1em 0;
+    text-align: center;
 
+    li {
+        display: inline-block;
+    }
 }

@@ -29,7 +29,8 @@
             width: 0;
         }
 
-        &:hover {
+        &:hover,
+        &:focus {
             color: $offwhite;
 
             &::after {
@@ -39,6 +40,6 @@
     }
 
     p {
-        margin-bottom: 0.7em;
+        margin-bottom: 0.5em;
     }
 }

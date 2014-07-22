@@ -22,7 +22,8 @@
         text-decoration: none;
         text-transform: uppercase;
 
-        &:hover {
+        &:hover,
+        &:focus {
             color: $offwhite;
         }
     }

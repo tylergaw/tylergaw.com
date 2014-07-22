@@ -1,7 +1,7 @@
 .article-list {
     margin: 0 auto;
-    max-width: 720px;
-    padding-top: 2em;
+    max-width: 850px;
+    padding-top: 2.2em;
 
     li {
         margin-bottom: 2.1em;
@@ -18,9 +18,10 @@
         @extend %futura;
         color: $offwhite;
         display: inline-block;
-        font-size: 2.9em;
+        font-size: 3.1em;
         text-decoration: none;
         text-transform: uppercase;
+        @include transition(color 0.2s);
 
         &:hover,
         &:focus {
@@ -29,8 +30,8 @@
     }
 
     p {
-        color: darken($offwhite, 20);
-        font-size: 1.2em;
+        color: darken($offwhite, 12);
+        font-size: 1.25em;
         line-height: 1.4;
         margin-top: 0.3em;
     }
