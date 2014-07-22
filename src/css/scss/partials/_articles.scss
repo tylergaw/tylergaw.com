@@ -1,0 +1,37 @@
+.article-list {
+    margin: 0 auto;
+    max-width: 720px;
+    padding-top: 2em;
+
+    li {
+        margin-bottom: 2.1em;
+    }
+
+    time {
+        color: $yellow;
+        display: block;
+        font-variant: small-caps;
+        margin-bottom: 0.2em;
+    }
+
+    a {
+        @extend %futura;
+        color: $offwhite;
+        display: inline-block;
+        font-size: 2.9em;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        &:hover,
+        &:focus {
+            color: $yellow;
+        }
+    }
+
+    p {
+        color: darken($offwhite, 20);
+        font-size: 1.2em;
+        line-height: 1.4;
+        margin-top: 0.3em;
+    }
+}

@@ -1,5 +1,7 @@
 body {
     background-color: $grey;
+    background: $grey url("../images/bg-crud.png") no-repeat center top;
+    // background-size: 70%;
     color: $offwhite;
     font-family: georgia, times, serif;
 }

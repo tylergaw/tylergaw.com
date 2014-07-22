@@ -49,12 +49,13 @@ table {
   border-spacing: 0;
 }
 
-[role="navigation"], .bold-statements {
+[role="navigation"], .bold-statements, .article-list a {
   font-family: "futura-pt", helvetica, sans-serif;
 }
 
 body {
   background-color: #1e1e1d;
+  background: #1e1e1d url("../images/bg-crud.png") no-repeat center top;
   color: #f8f8f8;
   font-family: georgia, times, serif;
 }
@@ -81,7 +82,7 @@ a {
 
 [role="navigation"] {
   border-top: 1px solid rgba(248, 248, 248, 0.1);
-  border-bottom: 10px solid #ffad15;
+  border-bottom: 8px solid #ffad15;
   font-size: 1.4em;
   margin: 0 auto;
   max-width: 720px;
@@ -96,7 +97,7 @@ a {
 }
 [role="navigation"] a {
   display: inline-block;
-  padding: 0.5em 0.2em;
+  padding: 0.7em 0.2em;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -143,4 +144,35 @@ a {
 }
 .bold-statements p {
   margin-bottom: 0.7em;
+}
+
+.article-list {
+  margin: 0 auto;
+  max-width: 720px;
+  padding-top: 2em;
+}
+.article-list li {
+  margin-bottom: 2.1em;
+}
+.article-list time {
+  color: #ffad15;
+  display: block;
+  font-variant: small-caps;
+  margin-bottom: 0.2em;
+}
+.article-list a {
+  color: #f8f8f8;
+  display: inline-block;
+  font-size: 2.9em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.article-list a:hover, .article-list a:focus {
+  color: #ffad15;
+}
+.article-list p {
+  color: #c5c5c5;
+  font-size: 1.2em;
+  line-height: 1.4;
+  margin-top: 0.3em;
 }
