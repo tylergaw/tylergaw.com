@@ -1,6 +1,6 @@
 $contentWidth: 93%;
-$maxContentWidth: 920px;
-$maxTextWidth: 860px;
+$maxContentWidth: 850px;
+$maxTextWidth: 790px;
 
 %maxedText {
     margin: 0 auto;
@@ -8,35 +8,41 @@ $maxTextWidth: 860px;
 }
 
 .hentry {
-    // margin-bottom: 1em;
     overflow: hidden;
 
     header {
-        // margin: 1.8em 0 3em 0;
+        margin: 1.8em 0 2.3em 0;
         text-align: center;
-    }
-
-    .published {
-        color: $yellow;
-        font-size: 1.2em;
-        font-variant: small-caps;
     }
 
     .entry-title {
         @extend %futura;
         color: $offwhite;
-        // font-size: 6vw;
+        font-size: 2.5em;
         line-height: 1.1;
         margin: 0 auto;
         text-transform: uppercase;
-        // max-width: 80%;
+        max-width: 95%;
     }
 
-    blockquote {
-        border-left: 4px solid $yellow;
-        padding: 0.4em 0.3em 0 1em;
-        margin-bottom: 1em;
-        font-size: 0.9em;
+    .published {
+        color: $yellow;
+        display: block;
+        font-size: 1.2em;
+        font-variant: small-caps;
+        margin-top: 0.4em;
+
+        &::before,
+        &::after {
+            color: rgba($offwhite, 0.3);
+            content: "–";
+        }
+    }
+
+    @media screen and (min-width: 620px) {
+        .entry-title {
+            font-size: 6.5vw;
+        }
     }
 }
 
@@ -54,22 +60,21 @@ $maxTextWidth: 860px;
 
     h2, h3, h4, h5, h6 {
         color: $offwhite;
-        @extend %futura;
-        font-weight: 700;
-        text-transform: uppercase;
-
         @extend %maxedText;
+        font-weight: 600;
     }
 
     h2 {
+        @extend %futura;
+        font-weight: 700;
         font-size: 1.2em;
-        padding: 0.8em 0 0.1em 0;
+        padding: 0.6em 0 0.1em 0;
+        text-transform: uppercase;
     }
 
     p:not(.entry-intro) {
         padding-bottom: 1.4em;
-        margin: 0 auto;
-        max-width: 860px;
+        @extend %maxedText;
     }
 
     p:last-child {
@@ -107,13 +112,13 @@ $maxTextWidth: 860px;
     }
 
     ul {
-        padding: 0 0.2em 1em 0.2em;
+        padding: 0 0.2em 1.4em 0.2em;
         @extend %maxedText;
     }
 
     li {
         font-size: 0.95em;
-        list-style: square inside;
+        list-style: disc inside;
     }
 
     code, pre {
@@ -124,9 +129,6 @@ $maxTextWidth: 860px;
     }
 
     pre {
-        // border: 1px solid #e8dbc1;
-        // border-right-color: #fbf0d9;
-        // border-bottom-color: #fbf0d9;
         margin-bottom: 1em;
         white-space: pre-wrap;
 
@@ -136,12 +138,11 @@ $maxTextWidth: 860px;
         }
     }
 
-    @media screen and (min-width: 730px) {
-        // font-size: 1.5em;
-
-        .entry-intro {
-            // line-height: 1.5;
-        }
+    blockquote {
+        border-left: 4px solid $yellow;
+        padding: 0.4em 0.3em 0 1em;
+        margin-bottom: 1em;
+        font-size: 0.9em;
     }
 }
 
@@ -156,10 +157,16 @@ $maxTextWidth: 860px;
         background-color: $yellow;
         content: "";
         display: block;
-        margin: 1.4em auto;
+        margin: 1.5em auto 1em auto;
         text-align: center;
         width: 25%;
         height: 0.4em;
+    }
+}
+
+@media screen and (min-width: 620px) {
+    .entry-content {
+        font-size: 1.4em;
     }
 }
 
@@ -170,5 +177,6 @@ $maxTextWidth: 860px;
 
 #disqus_thread {
     @extend %maxedText;
+    margin-top: 3.5em;
     width: $contentWidth;
 }
