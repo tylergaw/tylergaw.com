@@ -49,7 +49,7 @@ table {
   border-spacing: 0;
 }
 
-[role="navigation"], .bold-statements, .article-list a, .hentry .entry-title, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6 {
+[role="navigation"], .bold-statements, .article-list .potential, .article-list .section-title h2, .article-list a, .hentry .entry-title, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6 {
   font-family: "futura-pt", helvetica, sans-serif;
 }
 
@@ -147,22 +147,47 @@ a {
 
 .article-list {
   margin: 0 auto;
-  max-width: 850px;
-  padding-top: 2.2em;
+  padding-top: 1em;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 95%;
 }
 .article-list li {
-  margin-bottom: 2.1em;
+  box-sizing: border-box;
+  margin: 0.6em 1.2%;
+  padding: 1em;
+  width: 30.33%;
+}
+.article-list .potential {
+  background-color: #ffad15;
+  color: #1e1e1d;
+  text-transform: uppercase;
+  vertical-align: bottom;
+}
+.article-list .section-title {
+  background-color: #ffad15;
+  color: #1e1e1d;
+}
+.article-list .section-title p {
+  color: #1e1e1d;
+}
+.article-list .section-title h2 {
+  display: inline;
+  font-size: 2.2em;
+  text-transform: uppercase;
 }
 .article-list time {
   color: #ffad15;
   display: block;
   font-variant: small-caps;
-  margin-bottom: 0.2em;
+  margin-bottom: 0.4em;
 }
 .article-list a {
   color: #f8f8f8;
   display: inline-block;
-  font-size: 3.1em;
+  font-size: 2.2em;
   text-decoration: none;
   text-transform: uppercase;
   -webkit-transition: color 0.2s;
@@ -172,10 +197,10 @@ a {
   color: #ffad15;
 }
 .article-list p {
-  color: #d9d9d9;
-  font-size: 1.25em;
+  color: #d2d2d2;
+  font-size: 1.1em;
   line-height: 1.4;
-  margin-top: 0.3em;
+  margin-top: 0.5em;
 }
 
 .hentry {
