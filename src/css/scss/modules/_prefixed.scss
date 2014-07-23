@@ -57,3 +57,8 @@
     -webkit-align-items: $val;
     align-items: $val;
 }
+
+@mixin flex-direction ($val) {
+    -webkit-flex-direction: $val;
+    flex-direction: $val;
+}

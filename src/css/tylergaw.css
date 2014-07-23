@@ -165,18 +165,13 @@ a {
 
 .article-list {
   margin: 0 auto;
-  padding-top: 1em;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 95%;
+  padding-top: 0.5em;
 }
 .article-list li {
+  border-bottom: 1px solid rgba(248, 248, 248, 0.1);
   box-sizing: border-box;
-  margin: 0.6em 1.2%;
-  padding: 1em;
-  width: 30.33%;
+  margin: 0.5em 0;
+  padding: 1.2em 1em;
 }
 .article-list .section-title,
 .article-list .potential {
@@ -195,6 +190,7 @@ a {
   text-transform: uppercase;
 }
 .article-list .potential {
+  min-height: 12em;
   text-transform: uppercase;
 }
 .article-list time {
@@ -220,6 +216,32 @@ a {
   font-size: 1.1em;
   line-height: 1.4;
   margin-top: 0.5em;
+}
+@media screen and (min-width: 680px) {
+  .article-list {
+    align-self: center;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 95%;
+  }
+  .article-list li {
+    border-bottom: 0;
+    margin: 0.5em 1%;
+    padding: 1em;
+    width: 48%;
+  }
+}
+@media screen and (min-width: 1080px) {
+  .article-list li {
+    width: 31.33%;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .article-list li {
+    width: 23%;
+  }
 }
 
 .hentry {
@@ -376,7 +398,7 @@ a {
 
 [role="contentinfo"] {
   border-top: 8px solid #ffad15;
-  margin: 4em auto 2em auto;
+  margin: 1em auto 2em auto;
   max-width: 720px;
   padding: 1.2em 0 1em 0;
   text-align: center;
