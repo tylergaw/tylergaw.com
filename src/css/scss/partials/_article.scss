@@ -1,9 +1,18 @@
+$contentWidth: 93%;
+$maxContentWidth: 920px;
+$maxTextWidth: 860px;
+
+%maxedText {
+    margin: 0 auto;
+    max-width: $maxTextWidth;
+}
+
 .hentry {
-    margin-bottom: 1em;
+    // margin-bottom: 1em;
     overflow: hidden;
 
     header {
-        margin: 1.8em 0 3em 0;
+        // margin: 1.8em 0 3em 0;
         text-align: center;
     }
 
@@ -16,10 +25,11 @@
     .entry-title {
         @extend %futura;
         color: $offwhite;
-        font-size: 6vw;
+        // font-size: 6vw;
+        line-height: 1.1;
         margin: 0 auto;
         text-transform: uppercase;
-        max-width: 80%;
+        // max-width: 80%;
     }
 
     blockquote {
@@ -28,72 +38,19 @@
         margin-bottom: 1em;
         font-size: 0.9em;
     }
-
-    @media screen and (min-width: 420px) {
-        .entry-title {
-            // font-size: 2.2em;
-        }
-
-        // .short-title {
-        //     font-size: 3.2em;
-        // }
-        //
-        // .med-title {
-        //     font-size: 2.8em;
-        // }
-    }
-
-    @media screen and (min-width: 730px) {
-        .entry-title {
-            // font-size: 3.8em;
-            line-height: 1.1;
-        }
-
-        // .short-title {
-        //     font-size: 5.6em;
-        // }
-        //
-        // .med-title {
-        //     font-size: 4.4em;
-        // }
-        //
-        // .long-title {
-        //     font-size: 3.2em;
-        // }
-
-        .published {
-            // display: inline-block;
-            // font-size: 1.2em;
-        }
-    }
 }
 
 .entry-author {
     display: none;
 }
 
-.entry-content h2 {
-    font-size: 1.2em;
-    font-weight: 700;
-    line-height: 1;
-    padding: 0.8em 0 0.2em 0;
-    text-transform: none;
-}
-
 .entry-content {
-    color: darken($offwhite, 12);
-    font-size: 1.3em;
+    color: darken($offwhite, 15);
+    font-size: 1.2em;
     line-height: 1.5;
     margin: 0 auto;
-    max-width: 920px;
-
-    // a {
-    //     text-decoration: none;
-    //
-    //     &:hover {
-    //         text-decoration: underline;
-    //     }
-    // }
+    max-width: $maxContentWidth;
+    width: $contentWidth;
 
     h2, h3, h4, h5, h6 {
         color: $offwhite;
@@ -101,20 +58,18 @@
         font-weight: 700;
         text-transform: uppercase;
 
-        margin: 0 auto;
-        max-width: 860px;
+        @extend %maxedText;
+    }
+
+    h2 {
+        font-size: 1.2em;
+        padding: 0.8em 0 0.1em 0;
     }
 
     p:not(.entry-intro) {
         padding-bottom: 1.4em;
         margin: 0 auto;
         max-width: 860px;
-    }
-
-    code {
-        background-color: #f9f6f0;
-        color: #191919;
-        font-size: 0.85em;
     }
 
     p:last-child {
@@ -134,7 +89,6 @@
         margin: 0.2em 0 1.8em 0;
 
         img {
-            // box-shadow: 0 1px 1px rgba(#000, 0.4);
             display: block;
             margin: 0 auto;
             width: 100%;
@@ -142,6 +96,7 @@
     }
 
     figcaption {
+        margin-top: 0.4em;
         text-align: center;
     }
 
@@ -153,6 +108,7 @@
 
     ul {
         padding: 0 0.2em 1em 0.2em;
+        @extend %maxedText;
     }
 
     li {
@@ -160,15 +116,18 @@
         list-style: square inside;
     }
 
+    code, pre {
+        background-color: lighten($grey, 3);
+        color: $offwhite;
+        font-family: monospace;
+        font-size: 1em;
+    }
+
     pre {
-        background-color: #f9f6f0;
-        border: 1px solid #e8dbc1;
-        border-right-color: #fbf0d9;
-        border-bottom-color: #fbf0d9;
-        color: #191919;
-        // font-family: 'inconsolata', courier, monospace;
-        font-size: 0.85em;
-        margin-bottom: 0.8em;
+        // border: 1px solid #e8dbc1;
+        // border-right-color: #fbf0d9;
+        // border-bottom-color: #fbf0d9;
+        margin-bottom: 1em;
         white-space: pre-wrap;
 
         code {
@@ -178,10 +137,10 @@
     }
 
     @media screen and (min-width: 730px) {
-        font-size: 1.5em;
+        // font-size: 1.5em;
 
         .entry-intro {
-            line-height: 1.5;
+            // line-height: 1.5;
         }
     }
 }
@@ -199,8 +158,8 @@
         display: block;
         margin: 1.4em auto;
         text-align: center;
-        width: 15%;
-        height: 8px;
+        width: 25%;
+        height: 0.4em;
     }
 }
 
@@ -210,6 +169,6 @@
 }
 
 #disqus_thread {
-    margin: 0 auto;
-    max-width: 860px;
+    @extend %maxedText;
+    width: $contentWidth;
 }
