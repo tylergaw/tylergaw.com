@@ -49,7 +49,7 @@ table {
   border-spacing: 0;
 }
 
-[role="navigation"], .bold-statements, .article-list .potential, .article-list .section-title h2, .article-list a, .hentry .entry-title, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6 {
+[role="navigation"], .bold-statements, .article-list .section-title h2, .article-list .potential, .article-list a, .hentry .entry-title, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6 {
   font-family: "futura-pt", helvetica, sans-serif;
 }
 
@@ -160,22 +160,23 @@ a {
   padding: 1em;
   width: 30.33%;
 }
+.article-list .section-title,
 .article-list .potential {
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
   background-color: #ffad15;
   color: #1e1e1d;
-  text-transform: uppercase;
-  vertical-align: bottom;
-}
-.article-list .section-title {
-  background-color: #ffad15;
-  color: #1e1e1d;
+  display: -webkit-flex;
+  display: flex;
 }
 .article-list .section-title p {
   color: #1e1e1d;
 }
 .article-list .section-title h2 {
-  display: inline;
   font-size: 2.2em;
+  text-transform: uppercase;
+}
+.article-list .potential {
   text-transform: uppercase;
 }
 .article-list time {
@@ -333,6 +334,7 @@ a {
   font-size: 1.1em;
   font-style: italic;
   line-height: 1.4;
+  text-indent: 1em;
 }
 .entry-intro::after {
   background-color: #ffad15;

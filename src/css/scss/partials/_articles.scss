@@ -1,44 +1,41 @@
 .article-list {
     margin: 0 auto;
-    // max-width: 850px;
     padding-top: 1em;
 
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
+    @include flex;
+    @include flex-wrap(wrap);
     width: 95%;
 
     li {
         box-sizing: border-box;
-        // margin-bottom: 2.1em;
         margin: 0.6em 1.2%;
         padding: 1em;
         width: 30.33%;
     }
 
+    .section-title,
     .potential {
+        @include align-items(flex-end);
         background-color: $yellow;
-        @extend %futura;
         color: $grey;
-        text-transform: uppercase;
-        vertical-align: bottom;
+        @include flex;
     }
 
     .section-title {
-        background-color: $yellow;
-        color: $grey;
-
         p {
             color: $grey;
         }
 
         h2 {
-            display: inline;
             @extend %futura;
             font-size: 2.2em;
             text-transform: uppercase;
         }
+    }
+
+    .potential {
+        @extend %futura;
+        text-transform: uppercase;
     }
 
     time {

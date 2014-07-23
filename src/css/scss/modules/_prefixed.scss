@@ -42,3 +42,18 @@
     -o-border-image: url('/images/content-border-#{$pageName}.png') 3 3 3 3 repeat;
     border-image: url('/images/content-border-#{$pageName}.png') 3 3 3 3 repeat;
 }
+
+@mixin flex {
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin flex-wrap ($val) {
+    -webkit-flex-wrap: $val;
+    flex-wrap: $val;
+}
+
+@mixin align-items ($val) {
+    -webkit-align-items: $val;
+    align-items: $val;
+}
