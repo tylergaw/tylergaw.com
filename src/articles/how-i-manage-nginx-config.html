@@ -1,0 +1,98 @@
+---
+layout: article
+title: "How I Manage Nginx Config"
+title_size: med
+date: 2014-07-24
+disqus_id: how-i-manage-nginx-config
+---
+
+        <p class="entry-intro">
+            I host my personal sites on a
+            Rackspace <a href="http://en.wikipedia.org/wiki/Virtual_private_server">VPS</a>.
+            <a href="http://nginx.com">NGINX</a> is my server of choice. Each site
+            has its own configuration file. I’m not definitely not Mr. Server Admin,
+            but I have an easy way of organizing those config files to help me make fast
+            updates and additions.
+        </p>
+
+        <p>
+            I’m assuming some knowledge with this post.
+            Folks who have middle ground knowledge of NGINX will get the most out of this post. It’s not a how-to NGINX post.
+            It also may not be helpful if you have advanced NGINX knowledge.
+        </p>
+
+        <figure>
+            <img src="/articles/assets/post-image-nginx-conf-editor.jpg" alt="The server-conf repo opened in a text editor">
+            <figcaption>
+                My current preferred text editor, Atom. Being able to use it instead of something
+                like Vim is much more comfortable for me.
+            </figcation>
+        </figure>
+
+        <p>
+            Private Github repo - server-conf
+
+            For developement: cloned to my home folder <code>~/server-conf</code>
+
+            Directory structure
+
+            server-conf/local/nginx/
+
+            I included the “nginx” directory in case I want to use this of other
+            server types like Apache vhosts.
+
+            server-conf/prod/
+
+            I didn't indclude the “nginx” directory in prod because I don’t imagine
+            I'll run any other server types there.
+
+            In prod I also clone the repo to my home directory.
+
+
+            In the default nginx configuration <code>nginx.conf</code> I include
+            the site confs using the following.
+        </p>
+            <pre><code># development
+http {
+  ...
+  include /path/to/home/server-conf/local/nginx/*;
+}
+</code></pre>
+
+            <pre><code># production
+http {
+  ...
+  include /path/to/home/server-conf/prod/*;
+}
+</code></pre>
+        <p>
+            I prefer having the server conf in my home directory because I can
+            never remember the default location of NGINX config files. Especially
+            on my server since I access it infrequently. Having it in the home
+            directory allows me to just stumble on it since it’s the first thing
+            I see when I SSH into the VPS.
+        </p>
+        <p>
+            Can use a text editor locally to add and update prod confs
+
+            ssh into my vps, Git fetch and merge any changes. Restart nginx
+            <code>nginx -s reload</code>
+
+            Quickly roll back if there are problems
+
+            Don’t have to use Vim or another editor while SSH’d. Which is helpful
+            for me because I’m not comfortable with Vim and it’s slow on my server.
+
+            This is less helpful for me because it’s only my sites, but the commit
+            log gives me a record of all changes I’ve made.
+        </p>
+        <figure>
+            <img src="/articles/assets/post-image-nginx-conf-log.jpg" alt="Github commit log for the server-conf repo">
+            <figcaption>
+                The server-conf git log provides a history for configuration changes
+            </figcation>
+        </figure>
+
+        <p>
+            <i>Thanks for reading</i>
+        </p>
