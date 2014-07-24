@@ -153,15 +153,32 @@ $maxTextWidth: 790px;
     line-height: 1.4;
     text-indent: 1em;
 
+    // Yellow divider
     &::after {
         background-color: $yellow;
         content: "";
         display: block;
-        margin: 1.5em auto 1em auto;
+        margin: 1.5em auto 1.5em auto;
         text-align: center;
         width: 25%;
         height: 0.4em;
     }
+}
+
+.entry-intro + h2 {
+    padding-top: 0;
+}
+
+// Drop cap
+.entry-intro + p:first-letter,
+.entry-intro + h2 + p:first-letter {
+    @extend %futura;
+    color: $yellow;
+    font-size: 350%;
+    font-weight: 700;
+    float: left;
+    line-height: 0.85;
+    padding-right: 0.1em;
 }
 
 @media screen and (min-width: 620px) {

@@ -50,7 +50,8 @@ table {
   border-spacing: 0;
 }
 
-[role="navigation"], .bold-statements, .article-list .section-title h2, .article-list .potential, .article-list a, .hentry .entry-title, .entry-content h2 {
+[role="navigation"], .bold-statements, .article-list .section-title h2, .article-list .potential, .article-list a, .hentry .entry-title, .entry-content h2, .entry-intro + p:first-letter,
+.entry-intro + h2 + p:first-letter {
   font-family: "futura-pt", helvetica, sans-serif;
 }
 
@@ -374,10 +375,24 @@ a {
   background-color: #ffad15;
   content: "";
   display: block;
-  margin: 1.5em auto 1em auto;
+  margin: 1.5em auto 1.5em auto;
   text-align: center;
   width: 25%;
   height: 0.4em;
+}
+
+.entry-intro + h2 {
+  padding-top: 0;
+}
+
+.entry-intro + p:first-letter,
+.entry-intro + h2 + p:first-letter {
+  color: #ffad15;
+  font-size: 350%;
+  font-weight: 700;
+  float: left;
+  line-height: 0.85;
+  padding-right: 0.1em;
 }
 
 @media screen and (min-width: 620px) {
