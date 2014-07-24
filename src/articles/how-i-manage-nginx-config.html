@@ -79,7 +79,7 @@ http {
             production configs.
         </p>
         <p>
-            When I need to make a addition or change to production config I can make the changes
+            When I need to make an addition or change to production config I can make the changes
             on my machine. I then commit and push the changes to Github. Then SSH into
             my VPS, and navigate to the <code>server-conf</code> directory. There
             I <code>git pull</code> and after an <code>nginx -s reload</code> my
@@ -103,7 +103,7 @@ http {
             easier.
         </p>
         <p>
-            Configuration backup. If I get a new computer or if mine is damanged,
+            Config backup via Github. If I get a new computer or if mine is damaged,
             I won’t have to recreate my configs for local development. I can just clone the repo and
             make the quick update the <code>nginx.conf</code> to get back up and running.
         </p>
@@ -117,7 +117,7 @@ http {
         <figure>
             <img src="http://tylergaw.com/articles/assets/post-image-nginx-conf-log.jpg" alt="Github commit log for the server-conf repo">
             <figcaption>
-                The server-conf git log provides a history for configuration changes
+                The server-conf git log provides a history of config changes
             </figcation>
         </figure>
         <p>
