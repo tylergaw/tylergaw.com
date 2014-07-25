@@ -77,16 +77,19 @@ $maxTextWidth: 790px;
         @extend %maxedText;
     }
 
+    // Thanks for reading
     p:last-child {
         padding-bottom: 0.4em;
 
         i {
-            background: transparent url(/images/articles-thanks.png) no-repeat left top;
+            background: transparent url(/images/article-thanks.svg) no-repeat left top;
+            background-size: 100%;
             display: inline-block;
-            height: 51px;
-            margin-top: 0.5em;
+            height: 70px;
+            margin-top: 0.1em;
             text-indent: -300em;
-            width: 219px;
+            max-width: 250px;
+            width: 95%;
         }
     }
 
