@@ -25,3 +25,15 @@
         }
     }
 }
+
+.logo:hover,
+.logo:focus {
+    .logo-title {
+        fill: #F9F9F9;
+    }
+}
+
+.logo-title {
+    fill: #FFB400;
+    @include transition(fill 0.2s);
+}

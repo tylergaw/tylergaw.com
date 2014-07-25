@@ -94,6 +94,17 @@ a {
   }
 }
 
+.logo:hover .logo-title,
+.logo:focus .logo-title {
+  fill: #F9F9F9;
+}
+
+.logo-title {
+  fill: #FFB400;
+  -webkit-transition: fill 0.2s;
+  transition: fill 0.2s;
+}
+
 [role="navigation"] {
   border-top: 1px solid rgba(248, 248, 248, 0.1);
   border-bottom: 8px solid #ffad15;
