@@ -2,18 +2,17 @@
     @extend %futura;
     border-top: 1px solid rgba($offwhite, 0.1);
     border-bottom: 8px solid $yellow;
-    font-size: 1.4em;
+    // font-size: 1.4em;
+    font-size: 1.1em;
     margin: 0 auto;
     max-width: 720px;
-    text-align: center;
 
     ul {
-        display: table;
-        width: 100%;
+        @include flex;
     }
 
     li {
-        display: table-cell;
+        width: 33.33%;
     }
 
     a {
@@ -26,5 +25,9 @@
         &:focus {
             color: $offwhite;
         }
+    }
+
+    @media screen and (min-width: 450px) {
+        font-size: 1.4em;
     }
 }

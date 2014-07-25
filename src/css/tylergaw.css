@@ -67,15 +67,15 @@ a {
 
 [role="banner"] {
   text-align: center;
-  padding: 0.8em 0;
+  overflow: hidden;
 }
 [role="banner"] h1, [role="banner"] h2 {
   display: none;
 }
-[role="banner"] a {
+[role="banner"] .logo {
   display: block;
   margin: 0 auto;
-  max-width: 320px;
+  max-width: 200px;
 }
 [role="banner"] svg {
   width: 100%;
@@ -84,17 +84,16 @@ a {
 [role="navigation"] {
   border-top: 1px solid rgba(248, 248, 248, 0.1);
   border-bottom: 8px solid #ffad15;
-  font-size: 1.4em;
+  font-size: 1.1em;
   margin: 0 auto;
   max-width: 720px;
-  text-align: center;
 }
 [role="navigation"] ul {
-  display: table;
-  width: 100%;
+  display: -webkit-flex;
+  display: flex;
 }
 [role="navigation"] li {
-  display: table-cell;
+  width: 33.33%;
 }
 [role="navigation"] a {
   display: inline-block;
@@ -104,6 +103,11 @@ a {
 }
 [role="navigation"] a:hover, [role="navigation"] a:focus {
   color: #f8f8f8;
+}
+@media screen and (min-width: 450px) {
+  [role="navigation"] {
+    font-size: 1.4em;
+  }
 }
 
 .the-color-of {

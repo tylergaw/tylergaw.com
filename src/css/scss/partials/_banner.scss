@@ -1,15 +1,18 @@
 [role="banner"] {
     text-align: center;
-    padding: 0.8em 0;
+    overflow: hidden;
+    // padding: 0.8em 0;
 
     h1, h2 {
         display: none;
     }
 
-    a {
+    .logo {
         display: block;
         margin: 0 auto;
-        max-width: 320px;
+        // max-width: 320px;
+
+        max-width: 200px;
     }
 
     svg {
