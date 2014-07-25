@@ -17,7 +17,6 @@ time, mark, audio, video {
   border: 0;
   font: inherit;
   font-size: 100%;
-  font-style: normal;
   vertical-align: baseline;
 }
 
@@ -55,7 +54,7 @@ b, strong {
 }
 
 [role="navigation"], .bold-statements, .article-list .section-title h2, .article-list .potential, .article-list a, .hentry .entry-title, .entry-content h2, .entry-intro + p:first-letter,
-.entry-intro + h2 + p:first-letter {
+.entry-intro + h2 + p:first-letter, [data-page="purpose"] [role="main"] h1 {
   font-family: "futura-pt", helvetica, sans-serif;
 }
 
@@ -448,6 +447,46 @@ a {
 #disqus_thread {
   margin-top: 3.5em;
   width: 93%;
+}
+
+[data-page="purpose"] [role="main"] {
+  padding-top: 1em;
+}
+[data-page="purpose"] [role="main"] h1 {
+  font-size: 4em;
+  text-align: center;
+  text-transform: uppercase;
+}
+[data-page="purpose"] [role="main"] h1 + p {
+  margin-top: 1.2em;
+}
+[data-page="purpose"] [role="main"] p {
+  color: #d2d2d2;
+  font-size: 1.2em;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 720px;
+  padding-bottom: 1.4em;
+  width: 93%;
+}
+[data-page="purpose"] [role="main"] .linkback {
+  font-size: 0.9em;
+  font-style: italic;
+}
+@media screen and (min-width: 480px) {
+  [data-page="purpose"] [role="main"] h1 {
+    font-size: 13.5vw;
+  }
+}
+@media screen and (min-width: 620px) {
+  [data-page="purpose"] [role="main"] p {
+    font-size: 1.4em;
+  }
+}
+@media screen and (min-width: 1260px) {
+  [data-page="purpose"] [role="main"] h1 {
+    font-size: 10.7em;
+  }
 }
 
 [role="contentinfo"] {
