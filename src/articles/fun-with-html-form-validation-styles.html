@@ -44,14 +44,14 @@ disqus_id: fun-with-html-form-validation-styles
             <p>
               When I first started looking into if/how the error messages could be styled I quickly came across a "Rosetta Stone" in an article by Peter Gasston, <a href="http://www.broken-links.com/2011/06/16/styling-html5-form-validation-errors/">http://www.broken-links.com/2011/06/16/styling-html5-form-validation-errors</a>. In the post Peter explains the pseudo classes that webkit makes available to target the error message elements. He's done the leg work of digging through the Webkit source code to find this stuff, thanks Peter! To reiterate some of what is in Peter's article, the following are the classes that are available to hook into:
             </p>
-            <pre><code>::-webkit-validation-bubble {}
+            <pre><code class="language-css">::-webkit-validation-bubble {}
 ::-webkit-validation-bubble-message {}
 ::-webkit-validation-bubble-arrow {}
 ::-webkit-validation-bubble-arrow-clipper {}</code></pre>
             <p>
               Each of those target a <code>&lt;div&gt;</code> element that is inserted into the DOM when a validation error is triggered. The markup looks like this:
             </p>
-            <pre><code>&lt;div -webkit-validation-bubble&gt;
+            <pre><code class="language-markup">&lt;div -webkit-validation-bubble&gt;
   &lt;div -webkit-validation-bubble-arrow&gt;&lt;/div&gt;
   &lt;div -webkit-validation-bubble-arrow-clipper&gt;&lt;/div&gt;
   &lt;div -webkit-validation-bubble-message&gt;Error Message&lt;/div&gt;
@@ -59,7 +59,7 @@ disqus_id: fun-with-html-form-validation-styles
             <p>
               There are four more pseudo classes that were added as I was writing this article. These are currently only in the nightly builds of Chrome/Webkit and seem to just allow further control of the styling.
             </p>
-            <pre><code>::-webkit-validation-bubble-icon {}
+            <pre><code class="language-css">::-webkit-validation-bubble-icon {}
 ::-webkit-validation-bubble-body {}
 ::-webkit-validation-bubble-text-block {}
 ::-webkit-validation-bubble-arrow-heading {}</code></pre>
@@ -74,11 +74,11 @@ disqus_id: fun-with-html-form-validation-styles
             <p>
               I set up three different demos using markup for a simple login form containing two fields. The first field is an email input that is required:
             </p>
-            <pre><code>&lt;input type="email" name="email" required&gt;</pre></code>
+            <pre><code class="language-markup">&lt;input type="email" name="email" required&gt;</pre></code>
             <p>
               The second field is a password input that is required:
             </p>
-            <pre><code>&lt;input type="password" name="password" required&gt;</pre></code>
+            <pre><code class="language-markup">&lt;input type="password" name="password" required&gt;</pre></code>
             <p>
               The rest of the markup for each demo is nearly identical, differences include; using <code>&lt;label&gt;</code> elements for the first demo and some different structural elements for each.
             </p>
@@ -107,7 +107,7 @@ disqus_id: fun-with-html-form-validation-styles
             <p>
               Something to keep in mind when styling the messages is that most any styles that are available in Chrome can be applied to the message bubbles, this includes animations. With demos 1 and 2 I created CSS animations to bring the messages into view. Since the message elements do not exist in the DOM until an error is triggered, the animations will not run until that time. So, in demo 1, to get that little shimmy and shake I'm using the following:
             </p>
-            <pre><code>@-webkit-keyframes bounce {
+            <pre><code class="language-css">@-webkit-keyframes bounce {
   0% {
     opacity: 0.5;
     margin-left: 85px;
@@ -133,7 +133,7 @@ disqus_id: fun-with-html-form-validation-styles
             <p>
               The named animation is applied to the main message container;
             </p>
-            <pre><code>::-webkit-validation-bubble {
+            <pre><code class="language-css">::-webkit-validation-bubble {
   -webkit-animation-timing-function: ease;
   -webkit-animation: bounce 0.45s 1;
   ...
@@ -145,7 +145,7 @@ disqus_id: fun-with-html-form-validation-styles
             <p>
               The Constraint API is a new one in the HTML Living Standard, it allows you to further customize form validation using Javascript. The API is large enough for a full article to explain its features and how to use it, here I'll just point out the code used to set a custom error message.
             </p>
-            <pre><code>var inputs = document.getElementsByTagName('input'),
+            <pre><code class="language-javascript">var inputs = document.getElementsByTagName('input'),
   len    = inputs.length,
   i      = 0,
   cur    = null,

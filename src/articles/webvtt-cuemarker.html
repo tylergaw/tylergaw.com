@@ -19,7 +19,7 @@ disqus_id: webvtt-cuemarker
             The format is still fairly new and not yet widely supported, so I'll give
             a quick example of how it's used.
         </p>
-        <pre><code>WEBVTT FILE
+        <pre><code class="language-clike">WEBVTT FILE
 
 00:00:01.265 --> 00:00:06.210
 This is text that will appear over the video at during the in/out points.
@@ -35,7 +35,7 @@ You can use <b>HTML</b> within WebVTT, pretty cool.
             The next thing to do is to let your HTML video know about the WebVTT file.
             That's done using the <code>track</code> element.
         </p>
-        <pre><code>&lt;video controls&gt;
+        <pre><code class="language-markup">&lt;video controls&gt;
     &lt;source src="/path/to/video.mp4" type="video/mp4"&gt;
     &lt;source src="/path/to/video.webm" type="video/webm"&gt;
     &lt;track kind="captions" label="English captions"
@@ -75,7 +75,7 @@ You can use <b>HTML</b> within WebVTT, pretty cool.
             remove the <code>track</code> element. For marking cue times you only
             need an HTML video.
         </p>
-        <pre><code>&lt;video controls&gt;
+        <pre><code class="language-markup">&lt;video controls&gt;
     &lt;source src="/path/to/video.mp4" type="video/mp4"&gt;
     &lt;source src="/path/to/video.webm" type="video/webm"&gt;
 &lt;/video&gt;
@@ -87,7 +87,7 @@ You can use <b>HTML</b> within WebVTT, pretty cool.
             the video element. It also takes a second, optional parameter to
             specify a seek interval and output function.
         </p>
-        <pre><code>cuemarker(document.querySelector('video'));
+        <pre><code class="language-javascript">cuemarker(document.querySelector('video'));
 </code></pre>
         <p>
             That's a bare-bones example and may be all that you'll need. The cue
@@ -96,7 +96,7 @@ You can use <b>HTML</b> within WebVTT, pretty cool.
         <p>
             Here's another example using both the available options.
         </p>
-        <pre><code>cuemarker(document.querySelector('video'), {
+        <pre><code class="language-javascript">cuemarker(document.querySelector('video'), {
   seekInterval: 0.5 //default is 0.03,
   output: function (cuetime) {
     var times = document.getElementById('cuetimes'),

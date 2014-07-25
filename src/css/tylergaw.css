@@ -382,20 +382,6 @@ a {
   font-size: 0.95em;
   list-style: disc inside;
 }
-.entry-content code, .entry-content pre {
-  background-color: #262625;
-  color: #f8f8f8;
-  font-family: monospace;
-  font-size: 1em;
-}
-.entry-content pre {
-  margin-bottom: 1em;
-  white-space: pre-wrap;
-}
-.entry-content pre code {
-  display: inline-block;
-  padding: 0.4em 0.6em;
-}
 .entry-content blockquote {
   border-left: 4px solid #ffad15;
   padding: 0.4em 0.3em 0 1em;
@@ -498,4 +484,106 @@ a {
 }
 [role="contentinfo"] li {
   display: inline-block;
+}
+
+code[class*="language-"],
+pre[class*="language-"],
+.entry-content p code {
+  color: #f8f8f2;
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  font-size: 0.9em;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre[class*="language-"] {
+  padding: 0.7em;
+  margin-bottom: 1em;
+  overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"],
+.entry-content p code {
+  background: #272826;
+}
+
+:not(pre) > code[class*="language-"],
+.entry-content p code {
+  padding: .1em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: slategray;
+}
+
+.token.punctuation {
+  color: #f8f8f2;
+}
+
+.namespace {
+  opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol {
+  color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+  color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.builtin {
+  color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value {
+  color: #e6db74;
+}
+
+.token.keyword {
+  color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+  color: #fd971f;
+}
+
+.token.important {
+  font-weight: bold;
+}
+
+.token.entity {
+  cursor: help;
 }

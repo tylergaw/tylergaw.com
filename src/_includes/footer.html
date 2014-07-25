@@ -13,6 +13,10 @@
         <script src="/js/viewport-units-buggyfill.js"></script>
         <script src="//use.typekit.net/ysz1fkg.js"></script>
 
+        {% if page.type == 'article' %}
+        <script src="/js/prism.js"></script>
+        {% endif %}
+
         <script>
             try{Typekit.load();}catch(e){}
             window.viewportUnitsBuggyfill.init();

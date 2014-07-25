@@ -64,7 +64,7 @@ disqus_id: css-true-titles
             is markup specific to that card. Below is the markup for the elements
             that make up the opening card.
         </p>
-        <pre><code>&lt;div class="composition animated"&gt;
+        <pre><code class="language-markup">&lt;div class="composition animated"&gt;
   &lt;div class="town animated">&lt;/div&gt;
   &lt;div class="human">&lt;/div&gt;
 &lt;/div&gt;
@@ -112,7 +112,7 @@ disqus_id: css-true-titles
             opaque portions will be visible, those under transparent portions will
             be invisible.
         </p>
-        <pre><code>.opener .composition {
+        <pre><code class="language-css">.opener .composition {
   ...
   -webkit-mask: url("opener-human.png") top left/cover no-repeat;
   mask: url("opener-human.png") top left/cover no-repeat;
@@ -175,7 +175,7 @@ disqus_id: css-true-titles
             Each card needs keyframes at multiple positions. I'm going to show
             the second title card–the director card–as an example, because they get a little strange.
         </p>
-        <pre><code>@keyframes director {
+        <pre><code class="language-css">@keyframes director {
   0%, 22.9%, 46%, 100% {
     opacity: 0;
     transform: translateX(-100%);
@@ -224,7 +224,7 @@ disqus_id: css-true-titles
             The director card is the most complex card with five separate animations happening
             simultaneously. Here's the markup for the card.
         </p>
-        <pre><code>&lt;div class="composition animated"&gt;
+        <pre><code class="language-markup">&lt;div class="composition animated"&gt;
   &lt;div class="street animated">&lt;/div&gt;
   &lt;div class="trees animated">&lt;/div&gt;
   &lt;div class="human">&lt;/div&gt;
@@ -287,7 +287,7 @@ disqus_id: css-true-titles
             element. I'm using that as way to pause and unpause all of the
             animations using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-play-state"><code>animation-play-state</code></a>.
         </p>
-        <pre><code>.paused .animated,
+        <pre><code class="language-css">.paused .animated,
 .paused .title-card .animated {
   -webkit-animation-play-state: paused;
   animation-play-state: paused;

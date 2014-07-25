@@ -17,11 +17,11 @@ disqus_id: reacting-to-media-queries-in-javascript
                         <p>
                                 The method is simple enough to use and works the way you'd expect it. You give it a media query string it gives you back a <a href="https://developer.mozilla.org/en/DOM/MediaQueryList">MediaQueryList</a> object.
                         </p>
-                        <pre><code>var mql = window.matchMedia("(min-width: 480px)");</code></pre>
+                        <pre><code class="language-javascript">var mql = window.matchMedia("(min-width: 480px)");</code></pre>
                         <p>
                                 That sets the value of <code>mql</code> to a MediaQueryList object with two members, something like:
                         </p>
-                        <pre><code>MediaQueryList: {
+                        <pre><code class="language-javascript">MediaQueryList: {
     matches: true,
     media: "(min-width: 480px)"
 }</code></pre>
@@ -31,7 +31,7 @@ disqus_id: reacting-to-media-queries-in-javascript
                         <p>
                                 You can add event listeners to MediaQueryList objects. An event will fire each time the condition is triggered. This allows you to be updated on the status of the media query without having to resort to polling or a <code>window.resize</code> event. Using <code>mql</code> from above we can set up a listener and handler like so:
                         </p>
-                        <pre><code>mql.addListener(handleMediaChange);
+                        <pre><code class="language-javascript">mql.addListener(handleMediaChange);
 handleMediaChange(mql);
 
 var handleMediaChange = function (mediaQueryList) {
@@ -57,7 +57,7 @@ var handleMediaChange = function (mediaQueryList) {
                         <p>
                                 I've written small script that accomplishes the tasks I'm after, <a href="https://github.com/tylergaw/media-query-events/blob/master/js/mq-events.js">mqEvents.js is on Github</a> and a working example is at <a href="http://tylergaw.github.com/media-query-events/">tylergaw.github.com/media-query-events</a>.
                         </p>
-                        <pre><code>(function () {
+                        <pre><code class="language-javascript">(function () {
     var mqEvents = function (mediaChangeHandler) {
         var sheets = document.styleSheets,
                 numSheets = sheets.length,
@@ -89,16 +89,16 @@ var handleMediaChange = function (mediaQueryList) {
                         <p>
                                 I'm going to go through the code here and explain what's happening each step of the way.
                         </p>
-                        <pre><code>var mqEvents = function (mediaChangeHandler)</code></pre>
+                        <pre><code class="language-javascript">var mqEvents = function (mediaChangeHandler)</code></pre>
                         <p>
                                 The <code>mqEvents</code> function takes a single parameter, a function that will be called each time a media query is triggered.
                         </p>
-                        <pre><code>var sheets = document.styleSheets,
+                        <pre><code class="language-javascript">var sheets = document.styleSheets,
         numSheets = sheets.length</code></pre>
                         <p>
                                 The document contains an object of all loaded stylesheets. Our <code>sheets</code> variable is a list of <a href="https://developer.mozilla.org/en/DOM/stylesheet">StyleSheet</a> objects. <code>numSheets</code> is stored for convenience for when we loop over the list of stylesheets.
                         </p>
-                        <pre><code>mediaChange = function (mql) {
+                        <pre><code class="language-javascript">mediaChange = function (mql) {
     console.log(mql);
 }
 
@@ -109,7 +109,7 @@ if (mediaChangeHandler) {
                         <p>
                                 If the <code>mediaChangeHandler</code> argument is not passed to <code>mqEvents</code>, a default function, <code>mediaChange</code> will handle each media query event. The default doesn't do much of anything. For the purpose of this script we just want to have something there.
                         </p>
-                        <pre><code>for (var i = 0; i < numSheets; i += 1) {
+                        <pre><code class="language-javascript">for (var i = 0; i < numSheets; i += 1) {
     var rules = sheets[i].cssRules,
             numRules = rules.length;</code></pre>
                         <p>
@@ -128,12 +128,12 @@ if (mediaChangeHandler) {
                         <p class="note">
                                 (It looks like other types of rules like font-face and keyframes have <a href="https://developer.mozilla.org/en/DOM/cssRule#section_2">unique names too</a>.)
                         </p>
-                        <pre><code>for (var j = 0; j < numRules; j += 1) {
+                        <pre><code class="language-javascript">for (var j = 0; j < numRules; j += 1) {
     if (rules[j].constructor === CSSMediaRule)</code></pre>
                         <p>
                                 We can now loop over each rule in the stylesheet and check to see if it is a media query. The condition here, checking to see if the constructor matches the name "CSSMediaRule", was also new to me. I found that approach in a thorough <a href="http://stackoverflow.com/a/332429/368634">Stack Overflow answer</a> on the topic.
                         </p>
-                        <pre><code>mqls['mql' + j] = window.matchMedia(rules[j].media.mediaText);
+                        <pre><code class="language-javascript">mqls['mql' + j] = window.matchMedia(rules[j].media.mediaText);
 mqls['mql' + j].addListener(mediaChange);
 mediaChange(mqls['mql' + j]);</code></pre>
                         <p>
@@ -143,7 +143,7 @@ mediaChange(mqls['mql' + j]);</code></pre>
                         <p>
                                 So why would you use this and what happens when you do? In the demo I linked to, this is the implementation:
                         </p>
-                        <pre><code>var msg = document.getElementById('condition'),
+                        <pre><code class="language-javascript">var msg = document.getElementById('condition'),
         handleMediaChange = function (mql) {
 
     // For some reason Firefox has trouble always running this code.

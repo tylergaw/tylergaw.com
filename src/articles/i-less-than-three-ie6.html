@@ -26,7 +26,7 @@ disqus_id: i-less-than-three-ie6
           <strong>3. It forces you to clean up sloppy code that other browsers ignore: </strong>
           I've seen this a number of times when writing Javascript. Take a look at this bit of JS:
         </p>
-			    	<pre><code>var someCrud = ['item01', 'item02', 'item03',];
+			    	<pre><code class="language-javascript">var someCrud = ['item01', 'item02', 'item03',];
 alert(someCrud.length);</code></pre>
             <p>
               What's the length of the array? Firefox and Safari say 3. IE6 says 4. I'm siding with The 6 on this one, the comma at the end of the array is erroneous, it should not be there. IE6 sends the message that you should clean up your code by recognizing the extra item while the more advanced browsers ignore it and let you go on your sloppy way. This is just one example, I've come across a number of similar examples over the years, I'm sure others have too.

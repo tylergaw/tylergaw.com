@@ -121,23 +121,6 @@ $maxTextWidth: 790px;
         list-style: disc inside;
     }
 
-    code, pre {
-        background-color: lighten($grey, 3);
-        color: $offwhite;
-        font-family: monospace;
-        font-size: 1em;
-    }
-
-    pre {
-        margin-bottom: 1em;
-        white-space: pre-wrap;
-
-        code {
-            display: inline-block;
-            padding: 0.4em 0.6em;
-        }
-    }
-
     blockquote {
         border-left: 4px solid $yellow;
         padding: 0.4em 0.3em 0 1em;
