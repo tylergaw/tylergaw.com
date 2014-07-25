@@ -50,6 +50,10 @@ table {
   border-spacing: 0;
 }
 
+b, strong {
+  font-weight: 600;
+}
+
 [role="navigation"], .bold-statements, .article-list .section-title h2, .article-list .potential, .article-list a, .hentry .entry-title, .entry-content h2, .entry-intro + p:first-letter,
 .entry-intro + h2 + p:first-letter {
   font-family: "futura-pt", helvetica, sans-serif;
@@ -109,6 +113,8 @@ a {
   padding: 0.7em 0.2em;
   text-decoration: none;
   text-transform: uppercase;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
 }
 [role="navigation"] a:hover, [role="navigation"] a:focus {
   color: #f8f8f8;
@@ -117,6 +123,14 @@ a {
   [role="navigation"] {
     font-size: 1.4em;
   }
+}
+
+[data-page="article"] .nav-articles,
+[data-page="articles"] .nav-articles,
+[data-page="project"] .nav-projects,
+[data-page="projects"] .nav-projects,
+[data-page="about"] .nav-about {
+  color: #f8f8f8;
 }
 
 .the-color-of {

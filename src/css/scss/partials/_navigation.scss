@@ -19,6 +19,7 @@
         padding: 0.7em 0.2em;
         text-decoration: none;
         text-transform: uppercase;
+        @include transition(color 0.2s);
 
         &:hover,
         &:focus {
@@ -29,4 +30,12 @@
     @media screen and (min-width: 450px) {
         font-size: 1.4em;
     }
+}
+
+[data-page="article"] .nav-articles,
+[data-page="articles"] .nav-articles,
+[data-page="project"] .nav-projects,
+[data-page="projects"] .nav-projects,
+[data-page="about"] .nav-about {
+    color: $offwhite;
 }
