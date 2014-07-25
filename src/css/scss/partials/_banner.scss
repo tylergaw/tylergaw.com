@@ -1,7 +1,7 @@
 [role="banner"] {
     text-align: center;
     overflow: hidden;
-    // padding: 0.8em 0;
+    padding-top: 0.6em;
 
     h1, h2 {
         display: none;
@@ -10,12 +10,18 @@
     .logo {
         display: block;
         margin: 0 auto;
-        // max-width: 320px;
-
-        max-width: 200px;
+        max-width: 250px;
+        @include transition(max-width 0.1s);
     }
 
     svg {
-        width: 100%;
+        height: 100%;
+        width: 95%;
+    }
+
+    @media screen and (min-width: 450px) {
+        .logo {
+            max-width: 320px;
+        }
     }
 }
