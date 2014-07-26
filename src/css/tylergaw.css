@@ -467,7 +467,6 @@ a {
 .projects-list li {
   -webkit-align-items: center;
   align-items: center;
-  border-right: 2px solid #1e1e1d;
   border-bottom: 2px solid #1e1e1d;
   box-sizing: border-box;
   display: -webkit-flex;
@@ -482,6 +481,7 @@ a {
 }
 .projects-list li a {
   background-color: #f8f8f8;
+  border: 1px solid #f8f8f8;
   border-radius: 2px;
   display: inline-block;
   font-size: 1.2em;
@@ -491,14 +491,17 @@ a {
   padding: 0.4em 0.6em 0.35em 0.6em;
   text-decoration: none;
   text-transform: uppercase;
-  -webkit-transition: background-color 0.15s;
-  transition: background-color 0.15s;
+  -webkit-transition: background-color 0.15s, color 0.15s;
+  transition: background-color 0.15s, color 0.15s;
+}
+.projects-list .section-desc {
+  background-color: #ffad15;
+  color: #1e1e1d;
 }
 .projects-list .potential {
   -webkit-align-items: flex-end;
   align-items: flex-end;
   background-color: #ffad15;
-  background-image: none;
   color: #1e1e1d;
   display: none;
 }
@@ -520,14 +523,11 @@ a {
 }
 @media screen and (min-width: 620px) {
   .projects-list li {
+    border-right: 2px solid #1e1e1d;
     width: 50%;
   }
   .projects-list li a {
     font-size: 1em;
-  }
-  .projects-list .p-readablity,
-  .projects-list .p-readlists {
-    width: 100%;
   }
 }
 @media screen and (min-width: 1050px) {
@@ -540,7 +540,7 @@ a {
   }
   .projects-list .p-readablity,
   .projects-list .p-readlists {
-    width: 50%;
+    width: 66.66%;
   }
 }
 @media screen and (min-width: 1460px) {
@@ -560,7 +560,7 @@ a {
   color: #ac1603;
 }
 .p-readablity a:hover {
-  background-color: #1e1e1d;
+  background-color: #ac1603;
   color: #f8f8f8;
 }
 
@@ -571,147 +571,117 @@ a {
   color: #6e2911;
 }
 .p-readlists a:hover {
-  background-color: #1e1e1d;
+  background-color: #6e2911;
   color: #f8f8f8;
 }
 
-.p-jribbble,
-.p-jribbble::after {
+.p-jribbble {
   background-color: #ff0066;
 }
-.p-jribbble a,
-.p-jribbble::after a {
+.p-jribbble a {
   color: #ff0066;
 }
-.p-jribbble a:hover,
-.p-jribbble::after a:hover {
-  background-color: #1e1e1d;
+.p-jribbble a:hover {
+  background-color: #ff0066;
   color: #f8f8f8;
 }
 
-.p-true-titles,
-.p-true-titles::after {
+.p-true-titles {
   background-color: #008ea2;
 }
-.p-true-titles a,
-.p-true-titles::after a {
+.p-true-titles a {
   color: #008ea2;
 }
-.p-true-titles a:hover,
-.p-true-titles::after a:hover {
-  background-color: #1e1e1d;
+.p-true-titles a:hover {
+  background-color: #008ea2;
   color: #f8f8f8;
 }
 
-.p-tmfh,
-.p-tmfh::after {
+.p-tmfh {
   background-color: #8c132b;
 }
-.p-tmfh a,
-.p-tmfh::after a {
+.p-tmfh a {
   color: #8c132b;
 }
-.p-tmfh a:hover,
-.p-tmfh::after a:hover {
-  background-color: #1e1e1d;
+.p-tmfh a:hover {
+  background-color: #8c132b;
   color: #f8f8f8;
 }
 
-.p-css-shaky,
-.p-css-shaky::after {
+.p-css-shaky {
   background-color: #3ca335;
 }
-.p-css-shaky a,
-.p-css-shaky::after a {
+.p-css-shaky a {
   color: #3ca335;
 }
-.p-css-shaky a:hover,
-.p-css-shaky::after a:hover {
-  background-color: #1e1e1d;
+.p-css-shaky a:hover {
+  background-color: #3ca335;
   color: #f8f8f8;
 }
 
-.p-css-write-on,
-.p-css-write-on::after {
+.p-css-write-on {
   background-color: #ff00ae;
 }
-.p-css-write-on a,
-.p-css-write-on::after a {
+.p-css-write-on a {
   color: #ff00ae;
 }
-.p-css-write-on a:hover,
-.p-css-write-on::after a:hover {
-  background-color: #1e1e1d;
+.p-css-write-on a:hover {
+  background-color: #ff00ae;
   color: #f8f8f8;
 }
 
-.p-papersaver,
-.p-papersaver::after {
+.p-papersaver {
   background-color: #6b4ba0;
 }
-.p-papersaver a,
-.p-papersaver::after a {
+.p-papersaver a {
   color: #6b4ba0;
 }
-.p-papersaver a:hover,
-.p-papersaver::after a:hover {
-  background-color: #1e1e1d;
+.p-papersaver a:hover {
+  background-color: #6b4ba0;
   color: #f8f8f8;
 }
 
-.p-slenderman,
-.p-slenderman::after {
+.p-slenderman {
   background-color: #0b7daa;
 }
-.p-slenderman a,
-.p-slenderman::after a {
+.p-slenderman a {
   color: #0b7daa;
 }
-.p-slenderman a:hover,
-.p-slenderman::after a:hover {
-  background-color: #1e1e1d;
+.p-slenderman a:hover {
+  background-color: #0b7daa;
   color: #f8f8f8;
 }
 
-.p-fcs,
-.p-fcs::after {
+.p-fcs {
   background-color: #f77200;
 }
-.p-fcs a,
-.p-fcs::after a {
+.p-fcs a {
   color: #f77200;
 }
-.p-fcs a:hover,
-.p-fcs::after a:hover {
-  background-color: #1e1e1d;
+.p-fcs a:hover {
+  background-color: #f77200;
   color: #f8f8f8;
 }
 
-.p-css-slideshows,
-.p-css-slideshows::after {
+.p-css-slideshows {
   background-color: #346f6e;
 }
-.p-css-slideshows a,
-.p-css-slideshows::after a {
+.p-css-slideshows a {
   color: #346f6e;
 }
-.p-css-slideshows a:hover,
-.p-css-slideshows::after a:hover {
-  background-color: #1e1e1d;
+.p-css-slideshows a:hover {
+  background-color: #346f6e;
   color: #f8f8f8;
 }
 
-.p-css-sprites,
-.p-css-sprites::after {
+.p-css-sprites {
   background-color: #dd6364;
 }
-.p-css-sprites a,
-.p-css-sprites::after a {
+.p-css-sprites a {
   color: #dd6364;
 }
-.p-css-sprites a:hover,
-.p-css-sprites::after a:hover {
-  background-color: #1e1e1d;
+.p-css-sprites a:hover {
+  background-color: #dd6364;
   color: #f8f8f8;
 }
 

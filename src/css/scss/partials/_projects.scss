@@ -6,7 +6,6 @@
 
     li {
         @include align-items(center);
-        border-right: 2px solid $grey;
         border-bottom: 2px solid $grey;
         box-sizing: border-box;
         @include flex;
@@ -43,6 +42,7 @@
 
         a {
             background-color: $offwhite;
+            border: 1px solid $offwhite;
             border-radius: 2px;
             display: inline-block;
             @extend %futura;
@@ -53,14 +53,18 @@
             padding: 0.4em 0.6em 0.35em 0.6em;
             text-decoration: none;
             text-transform: uppercase;
-            @include transition(background-color 0.15s);
+            @include transition(background-color 0.15s, color 0.15s);
         }
+    }
+
+    .section-desc {
+        background-color: $yellow;
+        color: $grey;
     }
 
     .potential {
         @include align-items(flex-end);
         background-color: $yellow;
-        background-image: none;
         color: $grey;
         display: none;
 
@@ -88,16 +92,12 @@
 
     @media screen and (min-width: 620px) {
         li {
+            border-right: 2px solid $grey;
             width: 50%;
 
             a {
                 font-size: 1em;
             }
-        }
-
-        .p-readablity,
-        .p-readlists {
-            width: 100%;
         }
     }
 
@@ -112,7 +112,7 @@
 
         .p-readablity,
         .p-readlists {
-            width: 50%;
+            width: 66.66%;
         }
     }
 
@@ -135,7 +135,7 @@
         color: $c;
 
         &:hover {
-            background-color: $grey;
+            background-color: $c;
             color: $offwhite;
         }
     }
@@ -143,66 +143,48 @@
 
 .p-readablity {
     @include project-block(#ac1603);
-
-    h2 {
-        // font-size: 4.5em;
-    }
 }
 
 .p-readlists {
     @include project-block(#6e2911);
-
-    h2 {
-        // font-size: 4.5em;
-    }
 }
 
-.p-jribbble,
-.p-jribbble::after {
+.p-jribbble {
     @include project-block(#ff0066);
 }
 
-.p-true-titles,
-.p-true-titles::after {
+.p-true-titles {
     @include project-block(#008ea2);
 }
 
-.p-tmfh,
-.p-tmfh::after {
+.p-tmfh {
     @include project-block(#8c132b);
 }
 
-.p-css-shaky,
-.p-css-shaky::after {
+.p-css-shaky {
     @include project-block(#3ca335);
 }
 
-.p-css-write-on,
-.p-css-write-on::after {
+.p-css-write-on {
     @include project-block(#ff00ae);
 }
 
-.p-papersaver,
-.p-papersaver::after {
+.p-papersaver {
     @include project-block(#6b4ba0);
 }
 
-.p-slenderman,
-.p-slenderman::after {
+.p-slenderman {
     @include project-block(#0b7daa);
 }
 
-.p-fcs,
-.p-fcs::after {
+.p-fcs {
     @include project-block(#f77200);
 }
 
-.p-css-slideshows,
-.p-css-slideshows::after {
+.p-css-slideshows {
     @include project-block(#346f6e);
 }
 
-.p-css-sprites,
-.p-css-sprites::after {
+.p-css-sprites {
     @include project-block(#dd6364);
 }
