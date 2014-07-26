@@ -24,18 +24,14 @@
         }
 
         h2 {
-            @extend %futura;
+            @extend %futura-heading;
             font-size: 2.2em;
-            font-weight: 700;
-            text-transform: uppercase;
         }
     }
 
     .potential {
+        @extend %futura-heading;
         display: none;
-        @extend %futura;
-        text-transform: uppercase;
-        font-weight: 700;
     }
 
     time {
@@ -46,14 +42,12 @@
     }
 
     a {
-        @extend %futura;
+        @extend %futura-heading;
         color: $offwhite;
         display: inline-block;
         font-size: 2.2em;
-        font-weight: 700;
         max-width: 100%;
         text-decoration: none;
-        text-transform: uppercase;
         @include transition(color 0.2s);
         word-wrap: break-word;
 

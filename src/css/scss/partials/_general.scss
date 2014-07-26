@@ -16,3 +16,10 @@ body {
 a {
     color: $yellow;
 }
+
+%futura-heading {
+    @extend %futura;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+}

@@ -53,9 +53,9 @@ b, strong {
   font-weight: 600;
 }
 
-[role="navigation"], .bold-statements, .article-list .section-title h2, .article-list .potential, .article-list a, .hentry .entry-title, .entry-content h2, .entry-intro + p:first-letter,
-.entry-intro + h2 + p:first-letter, .projects-list li a, .projects-list .potential,
-.projects-list h2, [data-page="purpose"] [role="main"] h1 {
+[role="navigation"] a, .bold-statements, .article-list .section-title h2, .article-list .potential, .article-list a, .hentry .entry-title, .entry-content h2, .projects-list li a, .projects-list .potential,
+.projects-list h2, .entry-intro + p:first-letter,
+.entry-intro + h2 + p:first-letter, [data-page="purpose"] [role="main"] h1 {
   font-family: "futura-pt", helvetica, sans-serif;
 }
 
@@ -80,13 +80,17 @@ a {
   color: #ffad15;
 }
 
+[role="navigation"] a, .bold-statements, .article-list .section-title h2, .article-list .potential, .article-list a, .hentry .entry-title, .entry-content h2, .projects-list li a, .projects-list .potential,
+.projects-list h2 {
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
 [role="banner"] {
   text-align: center;
   overflow: hidden;
   padding-top: 0.6em;
-}
-[role="banner"] h1, [role="banner"] h2 {
-  display: none;
 }
 [role="banner"] .logo {
   display: block;
@@ -127,10 +131,8 @@ a {
 }
 [role="navigation"] a {
   display: inline-block;
-  font-weight: 700;
   padding: 0.7em 0.2em;
   text-decoration: none;
-  text-transform: uppercase;
   -webkit-transition: color 0.2s;
   transition: color 0.2s;
 }
@@ -157,12 +159,9 @@ a {
 
 .bold-statements {
   font-size: 2em;
-  font-weight: 700;
-  line-height: 1.1;
   margin: 0 auto;
   padding-top: 0.6em;
   text-align: left;
-  text-transform: uppercase;
   width: 93%;
 }
 .bold-statements a {
@@ -239,13 +238,9 @@ a {
 }
 .article-list .section-title h2 {
   font-size: 2.2em;
-  font-weight: 700;
-  text-transform: uppercase;
 }
 .article-list .potential {
   display: none;
-  text-transform: uppercase;
-  font-weight: 700;
 }
 .article-list time {
   color: #ffad15;
@@ -257,10 +252,8 @@ a {
   color: #f8f8f8;
   display: inline-block;
   font-size: 2.2em;
-  font-weight: 700;
   max-width: 100%;
   text-decoration: none;
-  text-transform: uppercase;
   -webkit-transition: color 0.2s;
   transition: color 0.2s;
   word-wrap: break-word;
@@ -323,10 +316,7 @@ a {
 .hentry .entry-title {
   color: #f8f8f8;
   font-size: 2.5em;
-  font-weight: 700;
-  line-height: 1.1;
   margin: 0 auto;
-  text-transform: uppercase;
   max-width: 95%;
 }
 .hentry .published {
@@ -363,11 +353,8 @@ a {
   font-weight: 700;
 }
 .entry-content h2 {
-  font-weight: 700;
   font-size: 1.2em;
-  line-height: 1.1;
   padding: 0.6em 0 0.1em 0;
-  text-transform: uppercase;
 }
 .entry-content p:not(.entry-intro) {
   padding-bottom: 1.4em;
@@ -491,12 +478,9 @@ a {
   border-radius: 2px;
   display: inline-block;
   font-size: 1.2em;
-  font-weight: 700;
-  line-height: 1.1;
   margin-bottom: 0.2em;
   padding: 0.4em 0.6em 0.35em 0.6em;
   text-decoration: none;
-  text-transform: uppercase;
   -webkit-transition: background-color 0.15s, color 0.15s;
   transition: background-color 0.15s, color 0.15s;
 }
@@ -513,11 +497,6 @@ a {
 }
 .projects-list .potential::after {
   display: none;
-}
-.projects-list .potential,
-.projects-list h2 {
-  font-weight: 700;
-  text-transform: uppercase;
 }
 .projects-list h2 {
   font-size: 2.4em;
@@ -696,9 +675,7 @@ a {
 }
 [data-page="purpose"] [role="main"] h1 {
   font-size: 4.3em;
-  font-weight: 700;
   text-align: center;
-  text-transform: uppercase;
   word-wrap: break-word;
 }
 [data-page="purpose"] [role="main"] h1 + p {

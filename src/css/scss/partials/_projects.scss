@@ -41,18 +41,15 @@
         }
 
         a {
+            @extend %futura-heading;
             background-color: $offwhite;
             border: 1px solid $offwhite;
             border-radius: 2px;
             display: inline-block;
-            @extend %futura;
             font-size: 1.2em;
-            font-weight: 700;
-            line-height: 1.1;
             margin-bottom: 0.2em;
             padding: 0.4em 0.6em 0.35em 0.6em;
             text-decoration: none;
-            text-transform: uppercase;
             @include transition(background-color 0.15s, color 0.15s);
         }
     }
@@ -75,9 +72,7 @@
 
     .potential,
     h2 {
-        @extend %futura;
-        font-weight: 700;
-        text-transform: uppercase;
+        @extend %futura-heading;
     }
 
     h2 {

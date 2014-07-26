@@ -16,13 +16,10 @@ $maxTextWidth: 790px;
     }
 
     .entry-title {
-        @extend %futura;
+        @extend %futura-heading;
         color: $offwhite;
         font-size: 2.5em;
-        font-weight: 700;
-        line-height: 1.1;
         margin: 0 auto;
-        text-transform: uppercase;
         max-width: 95%;
     }
 
@@ -66,12 +63,9 @@ $maxTextWidth: 790px;
     }
 
     h2 {
-        @extend %futura;
-        font-weight: 700;
+        @extend %futura-heading;
         font-size: 1.2em;
-        line-height: 1.1;
         padding: 0.6em 0 0.1em 0;
-        text-transform: uppercase;
     }
 
     p:not(.entry-intro) {
