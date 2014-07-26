@@ -14,10 +14,15 @@
         @include align-items(flex-end);
         background-color: $yellow;
         color: $grey;
-        @include flex;
+    }
+
+    .potential {
+        display: none;
     }
 
     .section-title {
+        @include flex;
+
         p {
             color: $grey;
         }
@@ -76,6 +81,10 @@
             padding: 1em;
             width: 48%;
         }
+
+        .potential.first-block {
+            @include flex;
+        }
     }
 
     @media screen and (min-width: 1080px) {
@@ -87,6 +96,10 @@
     @media screen and (min-width: 1600px) {
         li {
             width: 23%
+        }
+
+        .potential {
+            @include flex;
         }
     }
 }

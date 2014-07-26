@@ -1,0 +1,115 @@
+.projects-list {
+    align-self: center;
+    @include flex;
+    @include flex-wrap(wrap);
+    padding-top: 1em;
+    // width: 95%;
+
+
+    li {
+        @include align-items(center);
+        border-right: 2px solid $grey;
+        border-bottom: 2px solid $grey;
+        // border-bottom: 0;
+        box-sizing: border-box;
+        @include flex;
+        // margin: 0.5em 1%;
+        padding: 1.8em 3%;
+
+        text-align: center;
+
+        a {
+            background-color: $grey;
+            color: $offwhite;
+            display: inline-block;
+            @extend %futura;
+            text-decoration: none;
+        }
+    }
+
+    .potential {
+        @include align-items(flex-end);
+        background-color: $yellow;
+        color: $grey;
+        display: none;
+    }
+
+    .potential,
+    h2 {
+        @extend %futura;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    h2 {
+        font-size: 2.4em;
+    }
+
+    p {
+        font-size: 1.1em;
+        line-height: 1.4;
+        margin-top: 0.5em;
+    }
+
+    @media screen and (min-width: 620px) {
+        li {
+            width: 50%;
+        }
+    }
+
+    @media screen and (min-width: 1050px) {
+        li {
+            width: 33.33%
+        }
+
+        .potential {
+            @include flex;
+        }
+    }
+
+    @media screen and (min-width: 1460px) {
+        li {
+            width: 25%
+        }
+    }
+}
+
+.p-jribbble {
+    background-color: #ff0066;
+}
+
+.p-true-titles {
+    background-color: #008ea2;
+}
+
+.p-tmfh {
+    background-color: #750f23;
+}
+
+.p-css-shaky {
+    background-color: #3ca335;
+}
+
+.p-css-write-on {
+    background-color: #ff00ae;
+}
+
+.p-papersaver {
+    background-color: #6b4ba0;
+}
+
+.p-slenderman {
+    background-color: #0b7daa;
+}
+
+.p-fcs {
+    background-color: #f77200;
+}
+
+.p-css-slideshows {
+    background-color: #364f4a;
+}
+
+.p-css-sprites {
+    background-color: #dd6364;
+}
