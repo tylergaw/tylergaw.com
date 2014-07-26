@@ -61,8 +61,19 @@ b, strong {
 
 body {
   background: #1e1e1d url("../images/bg-crud.png") repeat-y center top;
+  background-size: 100%;
   color: #f8f8f8;
   font-family: georgia, times, serif;
+}
+@media screen and (min-width: 480px) {
+  body {
+    background-size: 55%;
+  }
+}
+@media screen and (min-width: 1600px) {
+  body {
+    background-size: 25%;
+  }
 }
 
 a {
@@ -767,7 +778,7 @@ pre[class*="language-"] {
 :not(pre) > code[class*="language-"],
 pre[class*="language-"],
 .entry-content p code {
-  background: #272826;
+  background: rgba(39, 40, 38, 0.7);
 }
 
 :not(pre) > code[class*="language-"],

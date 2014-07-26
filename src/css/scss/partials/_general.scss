@@ -1,7 +1,16 @@
 body {
     background: $grey url("../images/bg-crud.png") repeat-y center top;
+    background-size: 100%;
     color: $offwhite;
     font-family: georgia, times, serif;
+
+    @media screen and (min-width: 480px) {
+        background-size: 55%;
+    }
+
+    @media screen and (min-width: 1600px) {
+        background-size: 25%;
+    }
 }
 
 a {
