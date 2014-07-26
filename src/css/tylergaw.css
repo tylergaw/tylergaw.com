@@ -54,8 +54,10 @@ b, strong {
 }
 
 [role="navigation"] a, .bold-statements, .article-list .section-title h2, .article-list .potential, .article-list a, .hentry .entry-title, .entry-content h2, .projects-list li a, .projects-list .potential,
-.projects-list h2, .entry-intro + p:first-letter,
-.entry-intro + h2 + p:first-letter, [data-page="purpose"] [role="main"] h1 {
+.projects-list h2, [data-page="about"] h2,
+[data-page="about"] h3,
+[data-page="about"] .design-to-me, .number-one strong, [data-page="purpose"] [role="main"] h1, .entry-intro + p:first-letter,
+.entry-intro + h2 + p:first-letter {
   font-family: "futura-pt", helvetica, sans-serif;
 }
 
@@ -81,7 +83,9 @@ a {
 }
 
 [role="navigation"] a, .bold-statements, .article-list .section-title h2, .article-list .potential, .article-list a, .hentry .entry-title, .entry-content h2, .projects-list li a, .projects-list .potential,
-.projects-list h2 {
+.projects-list h2, [data-page="about"] h2,
+[data-page="about"] h3,
+[data-page="about"] .design-to-me, .number-one strong, [data-page="purpose"] [role="main"] h1 {
   font-weight: 700;
   line-height: 1.1;
   text-transform: uppercase;
@@ -668,6 +672,71 @@ a {
 .p-css-sprites a:hover {
   background-color: #dd6364;
   color: #f8f8f8;
+}
+
+.big-talker {
+  align-self: center;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  overflow: hidden;
+  padding-top: 1em;
+  position: relative;
+}
+.big-talker h2 {
+  font-size: 5.1vw;
+  padding: 0 8% 0 8%;
+}
+.big-talker h3 {
+  font-size: 1.3em;
+  padding: 0 8% 0.4em 8%;
+}
+.big-talker p {
+  color: #d2d2d2;
+  font-size: 1.3em;
+  line-height: 1.5;
+  padding: 0 8% 1.1em 8%;
+}
+.big-talker::after {
+  background-color: #d2d2d2;
+  content: "";
+  display: block;
+  position: absolute;
+  height: 60%;
+  top: 1.8em;
+  left: 49%;
+  width: 0.5em;
+}
+
+.number-one {
+  color: #f8f8f8 !important;
+  font-size: 1.5em;
+  font-style: italic;
+}
+.number-one strong {
+  background-color: yellow;
+  color: #1e1e1d;
+  display: inline-block;
+  padding: 0 0.3em 0 0.2em;
+}
+
+.i-designer,
+.i-developer {
+  box-sizing: border-box;
+  width: 50%;
+}
+
+.design-to-me {
+  background-color: #f8f8f8;
+  box-sizing: border-box;
+  color: #1e1e1d;
+  font-size: 4.5vw;
+  line-height: 1.3 !important;
+  padding: 0.7em 3%;
+  position: relative;
+  text-align: center;
+  z-index: 2;
 }
 
 [data-page="purpose"] [role="main"] {

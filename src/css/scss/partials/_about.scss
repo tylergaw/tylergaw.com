@@ -1,0 +1,77 @@
+[data-page="about"] {
+    h2,
+    h3,
+    .design-to-me {
+        @extend %futura-heading;
+    }
+}
+
+.big-talker {
+    align-self: center;
+    @include flex;
+    @include flex-wrap(wrap);
+    overflow: hidden;
+    padding-top: 1em;
+    position: relative;
+
+    h2 {
+        font-size: 5.1vw;
+        padding: 0 8% 0 8%;
+        // text-align: center;
+    }
+
+    h3 {
+        font-size: 1.3em;
+        padding: 0 8% 0.4em 8%;
+    }
+
+    p {
+        color: $darkerwhite;
+        font-size: 1.3em;
+        line-height: 1.5;
+        padding: 0 8% 1.1em 8%;
+    }
+
+    &::after {
+        background-color: $darkerwhite;
+        content: "";
+        display: block;
+        position: absolute;
+        height: 60%;
+        top: 1.8em;
+        left: 49%;
+        width: 0.5em;
+    }
+}
+
+.number-one {
+    color: $offwhite !important;
+    font-size: 1.5em;
+    font-style: italic;
+
+    strong {
+        background-color: yellow;
+        color: $grey;
+        display: inline-block;
+        @extend %futura-heading;
+        padding: 0 0.3em 0 0.2em;
+    }
+}
+
+.i-designer,
+.i-developer {
+    box-sizing: border-box;
+    width: 50%;
+}
+
+.design-to-me {
+    background-color: $offwhite;
+    box-sizing: border-box;
+    color: $grey;
+    font-size: 4.5vw;
+    line-height: 1.3 !important;
+    padding: 0.7em 3%;
+    position: relative;
+    text-align: center;
+    z-index: 2;
+}

@@ -2,7 +2,7 @@
     padding-top: 1em;
 
     h1 {
-        @extend %futura;
+        @extend %futura-heading;
         font-size: 4.3em;
         text-align: center;
         word-wrap: break-word;
