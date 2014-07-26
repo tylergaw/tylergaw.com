@@ -19,7 +19,7 @@ $maxTextWidth: 790px;
         @extend %futura;
         color: $offwhite;
         font-size: 2.5em;
-        font-weight: 600;
+        font-weight: 700;
         line-height: 1.1;
         margin: 0 auto;
         text-transform: uppercase;
@@ -62,7 +62,7 @@ $maxTextWidth: 790px;
     h2, h3, h4, h5, h6 {
         color: $offwhite;
         @extend %maxedText;
-        font-weight: 600;
+        font-weight: 700;
     }
 
     h2 {

@@ -26,7 +26,7 @@
         h2 {
             @extend %futura;
             font-size: 2.2em;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
         }
     }
@@ -35,7 +35,7 @@
         display: none;
         @extend %futura;
         text-transform: uppercase;
-        font-weight: 600;
+        font-weight: 700;
     }
 
     time {
@@ -50,7 +50,7 @@
         color: $offwhite;
         display: inline-block;
         font-size: 2.2em;
-        font-weight: 600;
+        font-weight: 700;
         max-width: 100%;
         text-decoration: none;
         text-transform: uppercase;

@@ -44,8 +44,8 @@
             border-radius: 2px;
             display: inline-block;
             @extend %futura;
-            font-size: 1em;
-            font-weight: 600;
+            font-size: 1.2em;
+            font-weight: 700;
             line-height: 1.1;
             margin-bottom: 0.2em;
             padding: 0.4em 0.6em 0.35em 0.6em;
@@ -87,6 +87,10 @@
     @media screen and (min-width: 620px) {
         li {
             width: 50%;
+
+            a {
+                font-size: 1em;
+            }
         }
     }
 

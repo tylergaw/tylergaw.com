@@ -121,7 +121,7 @@ a {
 }
 [role="navigation"] a {
   display: inline-block;
-  font-weight: 600;
+  font-weight: 700;
   padding: 0.7em 0.2em;
   text-decoration: none;
   text-transform: uppercase;
@@ -233,13 +233,13 @@ a {
 }
 .article-list .section-title h2 {
   font-size: 2.2em;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
 }
 .article-list .potential {
   display: none;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
 }
 .article-list time {
   color: #ffad15;
@@ -251,7 +251,7 @@ a {
   color: #f8f8f8;
   display: inline-block;
   font-size: 2.2em;
-  font-weight: 600;
+  font-weight: 700;
   max-width: 100%;
   text-decoration: none;
   text-transform: uppercase;
@@ -317,7 +317,7 @@ a {
 .hentry .entry-title {
   color: #f8f8f8;
   font-size: 2.5em;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.1;
   margin: 0 auto;
   text-transform: uppercase;
@@ -354,7 +354,7 @@ a {
 }
 .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6 {
   color: #f8f8f8;
-  font-weight: 600;
+  font-weight: 700;
 }
 .entry-content h2 {
   font-weight: 700;
@@ -487,8 +487,8 @@ a {
   background-color: #f8f8f8;
   border-radius: 2px;
   display: inline-block;
-  font-size: 1em;
-  font-weight: 600;
+  font-size: 1.2em;
+  font-weight: 700;
   line-height: 1.1;
   margin-bottom: 0.2em;
   padding: 0.4em 0.6em 0.35em 0.6em;
@@ -524,6 +524,9 @@ a {
 @media screen and (min-width: 620px) {
   .projects-list li {
     width: 50%;
+  }
+  .projects-list li a {
+    font-size: 1em;
   }
 }
 @media screen and (min-width: 1050px) {
@@ -686,7 +689,7 @@ a {
 }
 [data-page="purpose"] [role="main"] h1 {
   font-size: 4.3em;
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
   text-transform: uppercase;
   word-wrap: break-word;
