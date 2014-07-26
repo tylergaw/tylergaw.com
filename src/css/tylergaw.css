@@ -99,11 +99,6 @@ a {
   height: 100%;
   width: 95%;
 }
-@media screen and (min-width: 450px) {
-  [role="banner"] .logo {
-    max-width: 320px;
-  }
-}
 
 .logo:hover .logo-title,
 .logo:focus .logo-title {
