@@ -3,13 +3,14 @@
 
     h1 {
         @extend %futura;
-        font-size: 4em;
+        font-size: 4.3em;
         text-align: center;
         text-transform: uppercase;
+        word-wrap: break-word;
     }
 
     h1 + p {
-        margin-top: 1.2em;
+        margin-top: 1.1em;
     }
 
     p {

@@ -51,9 +51,11 @@
         color: $offwhite;
         display: inline-block;
         font-size: 2.2em;
+        max-width: 100%;
         text-decoration: none;
         text-transform: uppercase;
         @include transition(color 0.2s);
+        word-wrap: break-word;
 
         &:hover,
         &:focus {
