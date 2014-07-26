@@ -16,10 +16,6 @@
         color: $grey;
     }
 
-    .potential {
-        display: none;
-    }
-
     .section-title {
         @include flex;
 
@@ -30,13 +26,16 @@
         h2 {
             @extend %futura;
             font-size: 2.2em;
+            font-weight: 600;
             text-transform: uppercase;
         }
     }
 
     .potential {
+        display: none;
         @extend %futura;
         text-transform: uppercase;
+        font-weight: 600;
     }
 
     time {
@@ -51,6 +50,7 @@
         color: $offwhite;
         display: inline-block;
         font-size: 2.2em;
+        font-weight: 600;
         max-width: 100%;
         text-decoration: none;
         text-transform: uppercase;

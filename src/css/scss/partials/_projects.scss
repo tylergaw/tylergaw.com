@@ -11,11 +11,28 @@
         box-sizing: border-box;
         @include flex;
         padding: 1.8em 3%;
+        position: relative;
         text-align: center;
 
-        // background-image: url("../images/temp-project-bg.jpg");
-        // background-size: 100%;
-        // background-blend-mode: multiply;
+        // fuuuckkkk youuuu
+        // &::after {
+        //     content: "";
+        //     display: block;
+        //     left: 0;
+        //     position: absolute;
+        //     height: 100%;
+        //     top: 0;
+        //     @include transition(opacity 0.1s);
+        //     width: 100%;
+        // }
+        //
+        // &:hover::after {
+        //     opacity: 0;
+        // }
+
+        background-image: url("../images/bg-crud.png");
+        background-size: 100%;
+        background-blend-mode: screen;
 
         div {
             position: relative;
@@ -23,19 +40,31 @@
         }
 
         a {
-            background-color: $grey;
-            color: $offwhite;
+            background-color: $offwhite;
+            border-radius: 2px;
             display: inline-block;
             @extend %futura;
+            font-size: 1em;
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 0.2em;
+            padding: 0.4em 0.6em 0.35em 0.6em;
             text-decoration: none;
+            text-transform: uppercase;
+            @include transition(background-color 0.15s);
         }
     }
 
     .potential {
         @include align-items(flex-end);
         background-color: $yellow;
+        background-image: none;
         color: $grey;
         display: none;
+
+        &::after {
+            display: none;
+        }
     }
 
     .potential,
@@ -52,7 +81,7 @@
     p {
         font-size: 1.1em;
         line-height: 1.4;
-        margin-top: 0.5em;
+        margin: 0.5em 0 0.9em 0;
     }
 
     @media screen and (min-width: 620px) {
@@ -78,61 +107,65 @@
     }
 }
 
-.p-jribbble {
-    background-color: #ff0066;
-    position: relative;
+@mixin project-block ($c) {
+    background-color: $c;
 
-    // &::after {
-    //     background-color: #ff0066;
-    //     content: "";
-    //     display: block;
-    //     position: absolute;
-    //     height: 100%;
-    //     width: 100%;
-    //
-    //     opacity: 1;
-    //     left: 0;
-    //     top: 0;
-    // }
+    a {
+        color: $c;
 
-    // &:hover::after {
-    //     opacity: 0.7;
-    //     // mix-blend-mode: multiply;
-    // }
+        &:hover {
+            background-color: $grey;
+            color: $offwhite;
+        }
+    }
 }
 
-.p-true-titles {
-    background-color: #008ea2;
+.p-jribbble,
+.p-jribbble::after {
+    @include project-block(#ff0066);
 }
 
-.p-tmfh {
-    background-color: #750f23;
+.p-true-titles,
+.p-true-titles::after {
+    @include project-block(#008ea2);
 }
 
-.p-css-shaky {
-    background-color: #3ca335;
+.p-tmfh,
+.p-tmfh::after {
+    @include project-block(#8c132b);
 }
 
-.p-css-write-on {
-    background-color: #ff00ae;
+.p-css-shaky,
+.p-css-shaky::after {
+    @include project-block(#3ca335);
 }
 
-.p-papersaver {
-    background-color: #6b4ba0;
+.p-css-write-on,
+.p-css-write-on::after {
+    @include project-block(#ff00ae);
 }
 
-.p-slenderman {
-    background-color: #0b7daa;
+.p-papersaver,
+.p-papersaver::after {
+    @include project-block(#6b4ba0);
 }
 
-.p-fcs {
-    background-color: #f77200;
+.p-slenderman,
+.p-slenderman::after {
+    @include project-block(#0b7daa);
 }
 
-.p-css-slideshows {
-    background-color: #364f4a;
+.p-fcs,
+.p-fcs::after {
+    @include project-block(#f77200);
 }
 
-.p-css-sprites {
-    background-color: #dd6364;
+.p-css-slideshows,
+.p-css-slideshows::after {
+    @include project-block(#346f6e);
+}
+
+.p-css-sprites,
+.p-css-sprites::after {
+    @include project-block(#dd6364);
 }
