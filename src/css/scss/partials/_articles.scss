@@ -36,7 +36,6 @@
 
     .potential {
         @extend %futura;
-        min-height: 12em;
         text-transform: uppercase;
     }
 
@@ -69,11 +68,10 @@
         margin-top: 0.5em;
     }
 
-    @media screen and (min-width: 680px) {
+    @media screen and (min-width: 650px) {
         align-self: center;
         @include flex;
         @include flex-wrap(wrap);
-        width: 95%;
 
         li {
             border-bottom: 0;

@@ -237,7 +237,6 @@ a {
   text-transform: uppercase;
 }
 .article-list .potential {
-  min-height: 12em;
   text-transform: uppercase;
 }
 .article-list time {
@@ -264,14 +263,13 @@ a {
   line-height: 1.4;
   margin-top: 0.5em;
 }
-@media screen and (min-width: 680px) {
+@media screen and (min-width: 650px) {
   .article-list {
     align-self: center;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
-    width: 95%;
   }
   .article-list li {
     border-bottom: 0;
@@ -470,6 +468,10 @@ a {
   padding: 1.8em 3%;
   text-align: center;
 }
+.projects-list li div {
+  position: relative;
+  z-index: 2;
+}
 .projects-list li a {
   background-color: #1e1e1d;
   color: #f8f8f8;
@@ -518,6 +520,7 @@ a {
 
 .p-jribbble {
   background-color: #ff0066;
+  position: relative;
 }
 
 .p-true-titles {

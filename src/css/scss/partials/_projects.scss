@@ -3,20 +3,24 @@
     @include flex;
     @include flex-wrap(wrap);
     padding-top: 1em;
-    // width: 95%;
-
 
     li {
         @include align-items(center);
         border-right: 2px solid $grey;
         border-bottom: 2px solid $grey;
-        // border-bottom: 0;
         box-sizing: border-box;
         @include flex;
-        // margin: 0.5em 1%;
         padding: 1.8em 3%;
-
         text-align: center;
+
+        // background-image: url("../images/temp-project-bg.jpg");
+        // background-size: 100%;
+        // background-blend-mode: multiply;
+
+        div {
+            position: relative;
+            z-index: 2;
+        }
 
         a {
             background-color: $grey;
@@ -76,6 +80,25 @@
 
 .p-jribbble {
     background-color: #ff0066;
+    position: relative;
+
+    // &::after {
+    //     background-color: #ff0066;
+    //     content: "";
+    //     display: block;
+    //     position: absolute;
+    //     height: 100%;
+    //     width: 100%;
+    //
+    //     opacity: 1;
+    //     left: 0;
+    //     top: 0;
+    // }
+
+    // &:hover::after {
+    //     opacity: 0.7;
+    //     // mix-blend-mode: multiply;
+    // }
 }
 
 .p-true-titles {
