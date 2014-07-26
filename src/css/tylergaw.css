@@ -475,13 +475,10 @@ a {
   padding: 2.4em 3.6%;
   position: relative;
   text-align: center;
-  background-image: url("../images/bg-crud.png");
-  background-size: 100%;
-  background-blend-mode: screen;
+  width: 100%;
 }
 .projects-list li div {
-  position: relative;
-  z-index: 2;
+  width: 100%;
 }
 .projects-list li a {
   background-color: #f8f8f8;
@@ -528,6 +525,10 @@ a {
   .projects-list li a {
     font-size: 1em;
   }
+  .projects-list .p-readablity,
+  .projects-list .p-readlists {
+    width: 100%;
+  }
 }
 @media screen and (min-width: 1050px) {
   .projects-list li {
@@ -537,11 +538,41 @@ a {
     display: -webkit-flex;
     display: flex;
   }
+  .projects-list .p-readablity,
+  .projects-list .p-readlists {
+    width: 50%;
+  }
 }
 @media screen and (min-width: 1460px) {
   .projects-list li {
     width: 25%;
   }
+  .projects-list .p-readablity,
+  .projects-list .p-readlists {
+    width: 37.5%;
+  }
+}
+
+.p-readablity {
+  background-color: #ac1603;
+}
+.p-readablity a {
+  color: #ac1603;
+}
+.p-readablity a:hover {
+  background-color: #1e1e1d;
+  color: #f8f8f8;
+}
+
+.p-readlists {
+  background-color: #6e2911;
+}
+.p-readlists a {
+  color: #6e2911;
+}
+.p-readlists a:hover {
+  background-color: #1e1e1d;
+  color: #f8f8f8;
 }
 
 .p-jribbble,

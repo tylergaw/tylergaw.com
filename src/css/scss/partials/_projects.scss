@@ -13,6 +13,7 @@
         padding: 2.4em 3.6%;
         position: relative;
         text-align: center;
+        width: 100%;
 
         // fuuuckkkk youuuu
         // &::after {
@@ -30,13 +31,14 @@
         //     opacity: 0;
         // }
 
-        background-image: url("../images/bg-crud.png");
-        background-size: 100%;
-        background-blend-mode: screen;
+        // background-image: url("../images/bg-crud.png");
+        // background-size: 100%;
+        // background-blend-mode: screen;
 
         div {
-            position: relative;
-            z-index: 2;
+            // position: relative;
+            // z-index: 2;
+            width: 100%;
         }
 
         a {
@@ -92,6 +94,11 @@
                 font-size: 1em;
             }
         }
+
+        .p-readablity,
+        .p-readlists {
+            width: 100%;
+        }
     }
 
     @media screen and (min-width: 1050px) {
@@ -102,11 +109,21 @@
         .potential {
             @include flex;
         }
+
+        .p-readablity,
+        .p-readlists {
+            width: 50%;
+        }
     }
 
     @media screen and (min-width: 1460px) {
         li {
             width: 25%
+        }
+
+        .p-readablity,
+        .p-readlists {
+            width: 37.5%;
         }
     }
 }
@@ -121,6 +138,22 @@
             background-color: $grey;
             color: $offwhite;
         }
+    }
+}
+
+.p-readablity {
+    @include project-block(#ac1603);
+
+    h2 {
+        // font-size: 4.5em;
+    }
+}
+
+.p-readlists {
+    @include project-block(#6e2911);
+
+    h2 {
+        // font-size: 4.5em;
     }
 }
 
