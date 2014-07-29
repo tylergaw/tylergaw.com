@@ -18,8 +18,8 @@ $rightPadding: 4%;
     position: relative;
 
     h2 {
-        font-size: 8vw;
-        margin-bottom: 0.1em;
+        font-size: 8.2vw;
+        margin-bottom: 0.2em;
         text-align: center;
         width: 100%;
     }
@@ -96,15 +96,15 @@ $rightPadding: 4%;
 
 .all-about-me {
     box-sizing: border-box;
-    padding-top: 1em;
+    padding-top: 0.8em;
     width: 60%;
 }
 
 .my-big-dumb-faces {
-    background: transparent url(../images/tmp-portraits.png) no-repeat right top;
-    background-size: 97%;
+    background: transparent url(../images/tmp-portraits.png) no-repeat center top;
+    background-size: 95%;
     box-sizing: border-box;
-    padding-left: 1%;
+    padding: 0 1.5%;
     width: 40%;
 }
 
