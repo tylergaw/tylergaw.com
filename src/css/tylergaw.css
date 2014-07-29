@@ -56,7 +56,7 @@ b, strong {
 [role="navigation"] a, .bold-statements, .article-list .section-title h2, .article-list .potential, .article-list a, .hentry .entry-title, .entry-content h2, .projects-list li a, .projects-list .potential,
 .projects-list h2, [data-page="about"] h2,
 [data-page="about"] h3,
-[data-page="about"] .design-to-me, .big-talker .number-one strong, [data-page="purpose"] [role="main"] h1, .entry-intro + p:first-letter,
+[data-page="about"] .design-to-me, .big-talker .number-one strong, .skill-type li strong, [data-page="purpose"] [role="main"] h1, .entry-intro + p:first-letter,
 .entry-intro + h2 + p:first-letter, .number-one + p:first-letter, .services {
   font-family: "futura-pt", helvetica, sans-serif;
 }
@@ -85,7 +85,7 @@ a {
 [role="navigation"] a, .bold-statements, .article-list .section-title h2, .article-list .potential, .article-list a, .hentry .entry-title, .entry-content h2, .projects-list li a, .projects-list .potential,
 .projects-list h2, [data-page="about"] h2,
 [data-page="about"] h3,
-[data-page="about"] .design-to-me, .big-talker .number-one strong, [data-page="purpose"] [role="main"] h1 {
+[data-page="about"] .design-to-me, .big-talker .number-one strong, .skill-type li strong, [data-page="purpose"] [role="main"] h1 {
   font-weight: 700;
   line-height: 1.1;
   text-transform: uppercase;
@@ -799,18 +799,19 @@ a {
   width: 45%;
 }
 .services .big-bad-words {
-  font-size: 2.7vw;
-  padding: 0.5em 0;
+  font-size: 2.6vw;
+  padding: 0.8em 0;
 }
 .services .big-bad-words h2 {
-  font-size: 4vw;
+  font-size: 4.3vw;
   font-weight: 700;
 }
 .services .boastin {
   border-bottom: 4px solid #1e1e1d;
+  font-size: 1.1em;
   margin: 0 auto;
   padding: 0.3em 0 0.6em 0;
-  width: 85%;
+  width: 88%;
 }
 .services .boastin p {
   display: inline-block;
@@ -821,21 +822,53 @@ a {
   border-bottom: 4px solid #1e1e1d;
   border-top: 4px solid #1e1e1d;
   box-sizing: border-box;
-  font-size: 1.3em;
+  font-size: 1.5em;
   line-height: 1.3;
   margin: 0 auto;
-  padding: 0.6em 8%;
+  padding: 0.6em 6%;
   text-align: center;
-  width: 85%;
+  width: 88%;
 }
 .services .no-bullshit {
-  font-size: 1.3em;
+  font-size: 1.6em;
   padding: 0.6em 0;
 }
 
 .skills {
-  font-size: 1.1em;
+  box-sizing: border-box;
+  color: #d2d2d2;
+  font-size: 1.2em;
+  line-height: 1.4;
+  padding: 0 0 0 3%;
   width: 55%;
+}
+.skills h3 {
+  color: #f8f8f8;
+  font-size: 1.2em;
+  padding: 0 0 0.4em 0;
+}
+
+.skill-type {
+  padding: 0.5em 0;
+}
+.skill-type + .skill-type {
+  margin-top: 0.5em;
+}
+.skill-type li {
+  display: -webkit-flex;
+  display: flex;
+  padding: 0.4em 4% 0 0;
+}
+.skill-type li strong {
+  color: #ffad15;
+  display: inline-block;
+  font-size: 0.85em;
+  font-weight: normal;
+  padding-top: 0.5em;
+  width: 20%;
+}
+.skill-type li p {
+  width: 80%;
 }
 
 .the-site {

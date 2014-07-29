@@ -131,7 +131,7 @@ $rightPadding: 4%;
 }
 
 .services {
-    $width: 85%;
+    $width: 88%;
     @include align-items(center);
     background-color: $yellow;
     color: $grey;
@@ -143,17 +143,18 @@ $rightPadding: 4%;
     width: 45%;
 
     .big-bad-words {
-        font-size: 2.7vw;
-        padding: 0.5em 0;
+        font-size: 2.6vw;
+        padding: 0.8em 0;
 
         h2 {
-            font-size: 4vw;
+            font-size: 4.3vw;
             font-weight: 700;
         }
     }
 
     .boastin {
         border-bottom: 4px solid $grey;
+        font-size: 1.1em;
         margin: 0 auto;
         padding: 0.3em 0 0.6em 0;
         width: $width;
@@ -169,23 +170,60 @@ $rightPadding: 4%;
         border-bottom: 4px solid $grey;
         border-top: 4px solid $grey;
         box-sizing: border-box;
-        font-size: 1.3em;
+        font-size: 1.5em;
         line-height: 1.3;
         margin: 0 auto;
-        padding: 0.6em 8%;
+        padding: 0.6em 6%;
         text-align: center;
         width: $width;
     }
 
     .no-bullshit {
-        font-size: 1.3em;
+        font-size: 1.6em;
         padding: 0.6em 0;
     }
 }
 
 .skills {
-    font-size: 1.1em;
+    box-sizing: border-box;
+    color: $darkerwhite;
+    font-size: 1.2em;
+    line-height: 1.4;
+    padding: 0 0 0 3%;
     width: 55%;
+
+    h3 {
+        color: $offwhite;
+        font-size: 1.2em;
+        padding: 0 0 0.4em 0;
+    }
+}
+
+.skill-type  {
+    padding: 0.5em 0;
+
+    & + .skill-type {
+        margin-top: 0.5em;
+    }
+
+    li {
+        @include flex;
+        padding: 0.4em 4% 0 0;
+
+        strong {
+            color: $yellow;
+            display: inline-block;
+            font-size: 0.85em;
+            font-weight: normal;
+            @extend %futura-heading;
+            padding-top: 0.5em;
+            width: 20%;
+        }
+
+        p {
+            width: 80%;
+        }
+    }
 }
 
 .the-site {
