@@ -57,7 +57,7 @@ b, strong {
 .projects-list h2, [data-page="about"] h2,
 [data-page="about"] h3,
 [data-page="about"] .design-to-me, .big-talker .number-one strong, [data-page="purpose"] [role="main"] h1, .entry-intro + p:first-letter,
-.entry-intro + h2 + p:first-letter, .number-one + p:first-letter {
+.entry-intro + h2 + p:first-letter, .number-one + p:first-letter, .services {
   font-family: "futura-pt", helvetica, sans-serif;
 }
 
@@ -773,8 +773,73 @@ a {
   padding: 0.3em 0;
   position: relative;
   text-align: center;
-  z-index: 2;
   width: 98%;
+}
+
+.things-i-do {
+  align-self: center;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: 1.5em auto 0 auto;
+  width: 98%;
+}
+
+.services {
+  -webkit-align-items: center;
+  align-items: center;
+  background-color: #ffad15;
+  color: #1e1e1d;
+  display: -webkit-flex;
+  display: flex;
+  padding: 1em 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 45%;
+}
+.services .big-bad-words {
+  font-size: 2.7vw;
+  padding: 0.5em 0;
+}
+.services .big-bad-words h2 {
+  font-size: 4vw;
+  font-weight: 700;
+}
+.services .boastin {
+  border-bottom: 4px solid #1e1e1d;
+  margin: 0 auto;
+  padding: 0.3em 0 0.6em 0;
+  width: 85%;
+}
+.services .boastin p {
+  display: inline-block;
+  text-align: center;
+  width: 48%;
+}
+.services .listed {
+  border-bottom: 4px solid #1e1e1d;
+  border-top: 4px solid #1e1e1d;
+  box-sizing: border-box;
+  font-size: 1.3em;
+  line-height: 1.3;
+  margin: 0 auto;
+  padding: 0.6em 8%;
+  text-align: center;
+  width: 85%;
+}
+.services .no-bullshit {
+  font-size: 1.3em;
+  padding: 0.6em 0;
+}
+
+.skills {
+  font-size: 1.1em;
+  width: 55%;
+}
+
+.the-site {
+  display: none;
 }
 
 [data-page="purpose"] [role="main"] {
