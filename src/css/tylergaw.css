@@ -685,26 +685,27 @@ a {
   position: relative;
 }
 .big-talker h2 {
-  font-size: 8.2vw;
+  font-size: 2.9em;
   margin-bottom: 0.2em;
   text-align: center;
-  width: 100%;
+  width: 98%;
 }
 .big-talker h3 {
-  font-size: 1.4em;
-  padding: 0 4% 0.4em 4%;
+  font-size: 1.2em;
+  padding-bottom: 0.4em;
 }
 .big-talker p {
   color: #d2d2d2;
-  font-size: 1.4em;
+  font-size: 1.2em;
   line-height: 1.5;
-  padding: 0 4% 1.1em 2%;
+  padding-bottom: 1.3em;
 }
 .big-talker .number-one {
   color: #f8f8f8 !important;
-  font-size: 1.7em;
+  font-size: 1.3em;
   font-style: italic;
   margin-top: 0.3em;
+  text-align: center;
 }
 .big-talker .number-one strong {
   display: inline-block;
@@ -720,46 +721,19 @@ a {
   height: 0.4em;
 }
 
-.more-on {
-  align-self: center;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-  padding: 1.1em 4% 2em 2%;
-}
-.more-on div {
-  box-sizing: border-box;
-  width: 50%;
-}
-.more-on h3 {
-  padding: 0 0 0.4em 0;
-}
-.more-on p {
-  font-size: 1.2em;
-  padding: 0 0 1em 0;
-}
-
-.on-design {
-  padding-right: 3%;
-}
-
-.on-development {
-  padding-left: 3%;
-}
-
 .all-about-me {
   box-sizing: border-box;
+  margin: 0 auto;
   padding-top: 0.8em;
-  width: 60%;
+  width: 93%;
 }
 
 .my-big-dumb-faces {
   background: transparent url(../images/tmp-portraits.png) no-repeat center top;
-  background-size: 95%;
+  background-size: 100%;
   box-sizing: border-box;
-  padding: 0 1.5%;
-  width: 40%;
+  padding-top: 48%;
+  width: 100%;
 }
 
 .design-to-me {
@@ -767,13 +741,12 @@ a {
   border-bottom: 8px solid #f8f8f8;
   box-sizing: border-box;
   color: #f8f8f8;
-  font-size: 5.2vw;
+  font-size: 1.5em;
   line-height: 1.3 !important;
   margin: 0 auto;
   padding: 0.3em 0;
   position: relative;
   text-align: center;
-  width: 98%;
 }
 
 .things-i-do {
@@ -782,8 +755,7 @@ a {
   display: flex;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin: 1.5em auto 0 auto;
-  width: 98%;
+  margin: 1em auto 0 auto;
 }
 
 .services {
@@ -793,22 +765,21 @@ a {
   color: #1e1e1d;
   display: -webkit-flex;
   display: flex;
-  padding: 1em 0;
+  padding: 0.8em 0 0.5em 0;
   text-align: center;
   text-transform: uppercase;
-  width: 45%;
 }
 .services .big-bad-words {
-  font-size: 2.6vw;
-  padding: 0.8em 0;
+  font-size: 1.2em;
+  padding: 0.8em 0 0.4em 0;
 }
 .services .big-bad-words h2 {
-  font-size: 4.3vw;
+  font-size: 1.6em;
   font-weight: 700;
 }
 .services .boastin {
   border-bottom: 4px solid #1e1e1d;
-  font-size: 1.1em;
+  font-size: 1em;
   margin: 0 auto;
   padding: 0.3em 0 0.6em 0;
   width: 88%;
@@ -822,15 +793,15 @@ a {
   border-bottom: 4px solid #1e1e1d;
   border-top: 4px solid #1e1e1d;
   box-sizing: border-box;
-  font-size: 1.5em;
+  font-size: 1em;
   line-height: 1.3;
   margin: 0 auto;
-  padding: 0.6em 6%;
+  padding: 0.3em 3%;
   text-align: center;
   width: 88%;
 }
 .services .no-bullshit {
-  font-size: 1.6em;
+  font-size: 1.3em;
   padding: 0.6em 0;
 }
 
@@ -839,13 +810,9 @@ a {
   color: #d2d2d2;
   font-size: 1.2em;
   line-height: 1.4;
-  padding: 0 0 0 3%;
-  width: 55%;
-}
-.skills h3 {
-  color: #f8f8f8;
-  font-size: 1.2em;
-  padding: 0 0 0.4em 0;
+  margin: 0 auto;
+  padding: 0.6em 0 0 3%;
+  width: 97%;
 }
 
 .skill-type {
@@ -854,23 +821,125 @@ a {
 .skill-type + .skill-type {
   margin-top: 0.5em;
 }
+.skill-type h3 {
+  color: #f8f8f8;
+  font-size: 1em;
+  padding: 0 0 0.2em 0;
+}
 .skill-type li {
-  display: -webkit-flex;
-  display: flex;
-  padding: 0.4em 4% 0 0;
+  padding: 0.5em 4% 0 0;
 }
 .skill-type li strong {
   color: #ffad15;
   display: inline-block;
   font-size: 0.85em;
   font-weight: normal;
-  padding-top: 0.5em;
-  width: 20%;
-}
-.skill-type li p {
-  width: 80%;
 }
 
+@media screen and (min-width: 570px) {
+  .big-talker h2 {
+    font-size: 8.2vw;
+    width: 100%;
+  }
+  .big-talker h3 {
+    padding: 0 4% 0.4em 4%;
+  }
+  .big-talker p {
+    font-size: 1.4em;
+    padding: 0 4% 1.1em 2%;
+  }
+  .big-talker .number-one {
+    font-size: 1.7em;
+    text-align: left;
+  }
+
+  .all-about-me {
+    width: 60%;
+  }
+
+  .more-on {
+    align-self: center;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 1.1em 4% 2em 2%;
+  }
+  .more-on div {
+    box-sizing: border-box;
+    width: 50%;
+  }
+  .more-on h3 {
+    padding: 0 0 0.4em 0;
+  }
+  .more-on p {
+    font-size: 1.2em;
+    padding: 0 0 1em 0;
+  }
+
+  .on-design {
+    padding-right: 3%;
+  }
+
+  .on-development {
+    padding-left: 3%;
+  }
+
+  .my-big-dumb-faces {
+    background-size: 95%;
+    padding: 0 1.5%;
+    width: 40%;
+  }
+
+  .things-i-do {
+    margin-top: 1.5em;
+    width: 98%;
+  }
+
+  .design-to-me {
+    font-size: 5.2vw;
+    width: 98%;
+  }
+
+  .services {
+    padding: 1em 0;
+    width: 45%;
+  }
+  .services .big-bad-words {
+    padding: 0.8em 0;
+    font-size: 2.6vw;
+  }
+  .services .big-bad-words h2 {
+    font-size: 4.3vw;
+  }
+  .services .boastin {
+    font-size: 1.1em;
+  }
+  .services .listed {
+    font-size: 1.5em;
+    padding: 0.6em 6%;
+  }
+  .services .no-bullshit {
+    font-size: 1.6em;
+  }
+
+  .skills {
+    padding-top: 0;
+    width: 55%;
+  }
+
+  .skill-type li {
+    display: -webkit-flex;
+    display: flex;
+  }
+  .skill-type li strong {
+    padding-top: 0.5em;
+    width: 20%;
+  }
+  .skill-type li p {
+    width: 80%;
+  }
+}
 .the-site {
   display: none;
 }
