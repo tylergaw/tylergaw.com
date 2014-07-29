@@ -681,7 +681,7 @@ a {
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
   overflow: hidden;
-  padding-top: 1.5em;
+  padding-top: 1.6em;
   position: relative;
 }
 .big-talker h2 {
@@ -726,7 +726,7 @@ a {
   display: flex;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding: 1.1em 4% 0 2%;
+  padding: 1.1em 4% 2em 2%;
 }
 .more-on div {
   box-sizing: border-box;
@@ -737,7 +737,7 @@ a {
 }
 .more-on p {
   font-size: 1.2em;
-  padding: 0;
+  padding: 0 0 1em 0;
 }
 
 .on-design {
@@ -750,6 +750,7 @@ a {
 
 .all-about-me {
   box-sizing: border-box;
+  padding-top: 1em;
   width: 60%;
 }
 
@@ -762,14 +763,18 @@ a {
 }
 
 .design-to-me {
+  border-top: 8px solid #f8f8f8;
+  border-bottom: 8px solid #f8f8f8;
   box-sizing: border-box;
   color: #f8f8f8;
-  font-size: 5.3vw;
+  font-size: 5.2vw;
   line-height: 1.3 !important;
-  padding: 0.2em 1%;
+  margin: 0 auto;
+  padding: 0.3em 0;
   position: relative;
   text-align: center;
   z-index: 2;
+  width: 98%;
 }
 
 [data-page="purpose"] [role="main"] {
