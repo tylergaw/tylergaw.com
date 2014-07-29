@@ -56,8 +56,8 @@ b, strong {
 [role="navigation"] a, .bold-statements, .article-list .section-title h2, .article-list .potential, .article-list a, .hentry .entry-title, .entry-content h2, .projects-list li a, .projects-list .potential,
 .projects-list h2, [data-page="about"] h2,
 [data-page="about"] h3,
-[data-page="about"] .design-to-me, .number-one strong, [data-page="purpose"] [role="main"] h1, .entry-intro + p:first-letter,
-.entry-intro + h2 + p:first-letter {
+[data-page="about"] .design-to-me, .big-talker .number-one strong, [data-page="purpose"] [role="main"] h1, .entry-intro + p:first-letter,
+.entry-intro + h2 + p:first-letter, .number-one + p:first-letter {
   font-family: "futura-pt", helvetica, sans-serif;
 }
 
@@ -85,10 +85,20 @@ a {
 [role="navigation"] a, .bold-statements, .article-list .section-title h2, .article-list .potential, .article-list a, .hentry .entry-title, .entry-content h2, .projects-list li a, .projects-list .potential,
 .projects-list h2, [data-page="about"] h2,
 [data-page="about"] h3,
-[data-page="about"] .design-to-me, .number-one strong, [data-page="purpose"] [role="main"] h1 {
+[data-page="about"] .design-to-me, .big-talker .number-one strong, [data-page="purpose"] [role="main"] h1 {
   font-weight: 700;
   line-height: 1.1;
   text-transform: uppercase;
+}
+
+.entry-intro + p:first-letter,
+.entry-intro + h2 + p:first-letter, .number-one + p:first-letter {
+  color: #ffad15;
+  font-size: 350%;
+  font-weight: 700;
+  float: left;
+  line-height: 0.85;
+  padding-right: 0.08em;
 }
 
 [role="banner"] {
@@ -428,16 +438,6 @@ a {
   padding-top: 0;
 }
 
-.entry-intro + p:first-letter,
-.entry-intro + h2 + p:first-letter {
-  color: #ffad15;
-  font-size: 350%;
-  font-weight: 700;
-  float: left;
-  line-height: 0.85;
-  padding-right: 0.08em;
-}
-
 @media screen and (min-width: 620px) {
   .entry-content {
     font-size: 1.4em;
@@ -681,59 +681,94 @@ a {
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
   overflow: hidden;
-  padding-top: 1em;
+  padding-top: 1.3em;
   position: relative;
 }
 .big-talker h2 {
-  font-size: 5.1vw;
-  padding: 0 8% 0 8%;
+  font-size: 8vw;
+  margin-bottom: 0.1em;
+  text-align: center;
+  width: 100%;
 }
 .big-talker h3 {
-  font-size: 1.3em;
-  padding: 0 8% 0.4em 8%;
+  font-size: 1.4em;
+  padding: 0 8% 0.4em 4%;
 }
 .big-talker p {
   color: #d2d2d2;
-  font-size: 1.3em;
+  font-size: 1.4em;
   line-height: 1.5;
-  padding: 0 8% 1.1em 8%;
+  padding: 0 8% 1.1em 2%;
 }
-.big-talker::after {
-  background-color: #d2d2d2;
+.big-talker .number-one {
+  color: #f8f8f8 !important;
+  font-size: 1.7em;
+  font-style: italic;
+  margin-top: 0.3em;
+}
+.big-talker .number-one strong {
+  display: inline-block;
+  font-style: normal;
+}
+.big-talker .number-one::after {
+  background-color: #ffad15;
   content: "";
   display: block;
-  position: absolute;
-  height: 60%;
-  top: 1.8em;
-  left: 49%;
-  width: 0.5em;
+  margin: 1em auto 0 auto;
+  text-align: center;
+  width: 25%;
+  height: 0.4em;
 }
 
-.number-one {
-  color: #f8f8f8 !important;
-  font-size: 1.5em;
-  font-style: italic;
+.more-on {
+  align-self: center;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 1.1em 8% 0 2%;
 }
-.number-one strong {
-  background-color: yellow;
-  color: #1e1e1d;
-  display: inline-block;
-  padding: 0 0.3em 0 0.2em;
-}
-
-.i-designer,
-.i-developer {
+.more-on div {
   box-sizing: border-box;
   width: 50%;
 }
+.more-on h3 {
+  padding: 0 0 0.4em 0;
+}
+.more-on p {
+  font-size: 1.2em;
+  padding: 0;
+}
+
+.on-design {
+  padding-right: 2%;
+}
+
+.on-development {
+  padding-left: 3%;
+}
+
+.all-about-me {
+  box-sizing: border-box;
+  width: 60%;
+}
+
+.my-big-dumb-faces {
+  box-sizing: border-box;
+  padding-left: 1%;
+  width: 40%;
+}
+.my-big-dumb-faces img {
+  display: block;
+  width: 100%;
+}
 
 .design-to-me {
-  background-color: #f8f8f8;
   box-sizing: border-box;
-  color: #1e1e1d;
-  font-size: 4.5vw;
+  color: #f8f8f8;
+  font-size: 5.3vw;
   line-height: 1.3 !important;
-  padding: 0.7em 3%;
+  padding: 0.2em 1%;
   position: relative;
   text-align: center;
   z-index: 2;

@@ -23,3 +23,13 @@ a {
     line-height: 1.1;
     text-transform: uppercase;
 }
+
+%drop-cap {
+    @extend %futura;
+    color: $yellow;
+    font-size: 350%;
+    font-weight: 700;
+    float: left;
+    line-height: 0.85;
+    padding-right: 0.08em;
+}

@@ -6,71 +6,115 @@
     }
 }
 
+$leftPadding: 2%;
+
 .big-talker {
     align-self: center;
     @include flex;
     @include flex-wrap(wrap);
     overflow: hidden;
-    padding-top: 1em;
+    padding-top: 1.3em;
     position: relative;
 
     h2 {
-        font-size: 5.1vw;
-        padding: 0 8% 0 8%;
-        // text-align: center;
+        font-size: 8vw;
+        margin-bottom: 0.1em;
+        text-align: center;
+        width: 100%;
     }
 
     h3 {
-        font-size: 1.3em;
-        padding: 0 8% 0.4em 8%;
+        font-size: 1.4em;
+        padding: 0 8% 0.4em 4%;
     }
 
     p {
         color: $darkerwhite;
-        font-size: 1.3em;
+        font-size: 1.4em;
         line-height: 1.5;
-        padding: 0 8% 1.1em 8%;
+        padding: 0 8% 1.1em $leftPadding;
     }
 
-    &::after {
-        background-color: $darkerwhite;
-        content: "";
-        display: block;
-        position: absolute;
-        height: 60%;
-        top: 1.8em;
-        left: 49%;
-        width: 0.5em;
+    .number-one {
+        color: $offwhite !important;
+        font-size: 1.7em;
+        font-style: italic;
+        margin-top: 0.3em;
+
+        strong {
+            display: inline-block;
+            @extend %futura-heading;
+            font-style: normal;
+        }
+
+        // Yellow divider
+        &::after {
+            background-color: $yellow;
+            content: "";
+            display: block;
+            margin: 1em auto 0 auto;
+            text-align: center;
+            width: 25%;
+            height: 0.4em;
+        }
     }
 }
 
-.number-one {
-    color: $offwhite !important;
-    font-size: 1.5em;
-    font-style: italic;
+.number-one + p:first-letter {
+    @extend %drop-cap;
+}
 
-    strong {
-        background-color: yellow;
-        color: $grey;
-        display: inline-block;
-        @extend %futura-heading;
-        padding: 0 0.3em 0 0.2em;
+.more-on {
+    align-self: center;
+    @include flex;
+    @include flex-wrap(wrap);
+    padding: 1.1em 8% 0 $leftPadding;
+
+    div {
+        box-sizing: border-box;
+        width: 50%;
+    }
+
+    h3 {
+        padding: 0 0 0.4em 0;
+    }
+
+    p {
+        font-size: 1.2em;
+        padding: 0;
     }
 }
 
-.i-designer,
-.i-developer {
+.on-design {
+    padding-right: 2%;
+}
+
+.on-development {
+    padding-left: 3%;
+}
+
+.all-about-me {
     box-sizing: border-box;
-    width: 50%;
+    width: 60%;
+}
+
+.my-big-dumb-faces {
+    box-sizing: border-box;
+    padding-left: 1%;
+    width: 40%;
+
+    img {
+        display: block;
+        width: 100%;
+    }
 }
 
 .design-to-me {
-    background-color: $offwhite;
     box-sizing: border-box;
-    color: $grey;
-    font-size: 4.5vw;
+    color: $offwhite;
+    font-size: 5.3vw;
     line-height: 1.3 !important;
-    padding: 0.7em 3%;
+    padding: 0.2em 1%;
     position: relative;
     text-align: center;
     z-index: 2;

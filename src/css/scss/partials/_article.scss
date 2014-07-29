@@ -151,16 +151,9 @@ $maxTextWidth: 790px;
     padding-top: 0;
 }
 
-// Drop cap
 .entry-intro + p:first-letter,
 .entry-intro + h2 + p:first-letter {
-    @extend %futura;
-    color: $yellow;
-    font-size: 350%;
-    font-weight: 700;
-    float: left;
-    line-height: 0.85;
-    padding-right: 0.08em;
+    @extend %drop-cap;
 }
 
 @media screen and (min-width: 620px) {
