@@ -681,7 +681,7 @@ a {
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
   overflow: hidden;
-  padding-top: 1.3em;
+  padding-top: 1.5em;
   position: relative;
 }
 .big-talker h2 {
@@ -692,13 +692,13 @@ a {
 }
 .big-talker h3 {
   font-size: 1.4em;
-  padding: 0 8% 0.4em 4%;
+  padding: 0 4% 0.4em 4%;
 }
 .big-talker p {
   color: #d2d2d2;
   font-size: 1.4em;
   line-height: 1.5;
-  padding: 0 8% 1.1em 2%;
+  padding: 0 4% 1.1em 2%;
 }
 .big-talker .number-one {
   color: #f8f8f8 !important;
@@ -726,7 +726,7 @@ a {
   display: flex;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding: 1.1em 8% 0 2%;
+  padding: 1.1em 4% 0 2%;
 }
 .more-on div {
   box-sizing: border-box;
@@ -741,7 +741,7 @@ a {
 }
 
 .on-design {
-  padding-right: 2%;
+  padding-right: 3%;
 }
 
 .on-development {
