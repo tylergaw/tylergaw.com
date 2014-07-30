@@ -723,10 +723,10 @@ a {
 }
 
 .my-big-dumb-faces {
-  background: transparent url(../images/tmp-portraits.png) repeat-y center top;
-  background-size: 100%;
+  background: transparent url(../images/tyler-gaw-portraits-horizontal.jpg) no-repeat center top;
+  background-size: 97%;
   box-sizing: border-box;
-  padding-top: 48%;
+  padding-top: 66%;
   width: 100%;
 }
 
@@ -807,10 +807,13 @@ a {
   color: #d2d2d2;
   font-size: 1.2em;
   line-height: 1.5;
-  margin: 0 auto;
+  margin: 0.5em auto 0 auto;
   width: 93%;
 }
 
+.skill-type + li {
+  margin-top: 1em;
+}
 .skill-type h3 {
   color: #f8f8f8;
   font-size: 1.2em;
@@ -860,6 +863,19 @@ a {
     font-size: 9vw;
   }
 }
+@media screen and (min-width: 555px) {
+  .skill-type li {
+    display: -webkit-flex;
+    display: flex;
+  }
+  .skill-type h4 {
+    padding-top: 0.25em;
+    width: 20%;
+  }
+  .skill-type p {
+    width: 80%;
+  }
+}
 @media screen and (min-width: 570px) {
   .gaw-gives-a-shit {
     font-size: 8.3vw;
@@ -900,6 +916,7 @@ a {
 @media screen and (min-width: 820px) {
   .my-big-dumb-faces {
     background-size: 95%;
+    background-image: url(../images/tyler-gaw-portraits.jpg);
     width: 40%;
   }
 
@@ -921,6 +938,10 @@ a {
 
   .on-design, .on-development {
     padding: 0;
+  }
+
+  .skills {
+    font-size: 1.4em;
   }
 }
 @media screen and (min-width: 910px) {

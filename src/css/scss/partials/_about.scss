@@ -67,10 +67,10 @@ $rightPadding: 4%;
 }
 
 .my-big-dumb-faces {
-    background: transparent url(../images/tmp-portraits.png) repeat-y center top;
-    background-size: 100%;
+    background: transparent url(../images/tyler-gaw-portraits-horizontal.jpg) no-repeat center top;
+    background-size: 97%;
     box-sizing: border-box;
-    padding-top: 48%;
+    padding-top: 66%;
     width: 100%;
 }
 
@@ -156,12 +156,15 @@ $rightPadding: 4%;
     color: $darkerwhite;
     font-size: 1.2em;
     line-height: 1.5;
-    margin: 0 auto;
-    // padding: 0.6em 0 0 3%;
+    margin: 0.5em auto 0 auto;
     width: 93%;
 }
 
 .skill-type  {
+    & + li {
+        margin-top: 1em;
+    }
+
     h3 {
         color: $offwhite;
         font-size: 1.2em;
@@ -220,6 +223,23 @@ $rightPadding: 4%;
     }
 }
 
+@media screen and (min-width: 555px) {
+    .skill-type {
+        li {
+            @include flex;
+        }
+
+        h4 {
+            padding-top: 0.25em;
+            width: 20%;
+        }
+
+        p {
+            width: 80%;
+        }
+    }
+}
+
 @media screen and (min-width: 570px) {
     .gaw-gives-a-shit {
         font-size: 8.3vw;
@@ -235,33 +255,6 @@ $rightPadding: 4%;
     // .things-i-do {
     //     margin-top: 1.5em;
     //     width: 98%;
-    // }
-
-    // .services {
-    //     padding: 1em 0;
-    //     width: 45%;
-    //
-    //     .big-bad-words {
-    //         padding: 0.8em 0;
-    //         font-size: 2.6vw;
-    //
-    //         h2 {
-    //             font-size: 4.3vw;
-    //         }
-    //     }
-    //
-    //     .boastin {
-    //         font-size: 1.1em;
-    //     }
-    //
-    //     .listed {
-    //         font-size: 1.5em;
-    //         padding: 0.6em 6%;
-    //     }
-    //
-    //     .no-bullshit {
-    //         font-size: 1.6em;
-    //     }
     // }
 
     // .skills {
@@ -316,6 +309,7 @@ $rightPadding: 4%;
 @media screen and (min-width: 820px) {
     .my-big-dumb-faces {
         background-size: 95%;
+        background-image: url(../images/tyler-gaw-portraits.jpg);
         width: 40%;
     }
 
@@ -337,6 +331,10 @@ $rightPadding: 4%;
 
     .on-design, .on-development {
         padding: 0;
+    }
+
+    .skills {
+        font-size: 1.4em;
     }
 }
 
