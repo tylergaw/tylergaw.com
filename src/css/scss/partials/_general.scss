@@ -33,3 +33,12 @@ a {
     line-height: 0.85;
     padding-right: 0.08em;
 }
+
+%yellow-divider {
+    background-color: $yellow;
+    content: "";
+    display: block;
+    text-align: center;
+    width: 25%;
+    height: 0.4em;
+}

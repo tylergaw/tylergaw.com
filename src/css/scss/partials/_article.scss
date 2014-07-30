@@ -135,15 +135,9 @@ $maxTextWidth: 790px;
     line-height: 1.4;
     text-indent: 1em;
 
-    // Yellow divider
     &::after {
-        background-color: $yellow;
-        content: "";
-        display: block;
+        @extend %yellow-divider;
         margin: 1.5em auto 1.5em auto;
-        text-align: center;
-        width: 25%;
-        height: 0.4em;
     }
 }
 

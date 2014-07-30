@@ -17,6 +17,7 @@ $rightPadding: 4%;
     padding-top: 1.6em;
     position: relative;
 
+    // Tyler Gives A Shit
     h2 {
         font-size: 2.9em;
         margin-bottom: 0.2em;
@@ -26,42 +27,40 @@ $rightPadding: 4%;
 
     h3 {
         font-size: 1.2em;
+        padding: 0.6em 0 0.1em 0;
+
+        // Large screen
         // font-size: 1.4em;
-        padding-bottom: 0.4em;
         // padding: 0 $rightPadding 0.4em 4%;
     }
 
     p {
         color: $darkerwhite;
-        font-size: 1.2em;
+        padding-bottom: 1.4em;
+
+
+        // Large Screen
         // font-size: 1.4em;
-        line-height: 1.5;
-        padding-bottom: 1.3em;
         // padding: 0 $rightPadding 1.1em $leftPadding;
     }
 
+    // Intro
     .number-one {
         color: $offwhite !important;
-        font-size: 1.3em;
+        font-size: 1.2em;
         font-style: italic;
+        line-height: 1.4;
         margin-top: 0.3em;
         text-align: center;
 
         strong {
-            display: inline-block;
             @extend %futura-heading;
             font-style: normal;
         }
 
-        // Yellow divider
         &::after {
-            background-color: $yellow;
-            content: "";
-            display: block;
+            @extend %yellow-divider;
             margin: 1em auto 0 auto;
-            text-align: center;
-            width: 25%;
-            height: 0.4em;
         }
     }
 }
@@ -93,7 +92,9 @@ $rightPadding: 4%;
 
 .all-about-me {
     box-sizing: border-box;
+    font-size: 1.2em;
     margin: 0 auto;
+    line-height: 1.5;
     padding-top: 0.8em;
     width: 93%;
 }
@@ -111,7 +112,7 @@ $rightPadding: 4%;
     border-bottom: 8px solid $offwhite;
     box-sizing: border-box;
     color: $offwhite;
-    font-size: 1.5em;
+    font-size: 1.55em;
     line-height: 1.3 !important;
     margin: 0 auto;
     padding: 0.3em 0;
@@ -124,6 +125,8 @@ $rightPadding: 4%;
     @include flex;
     @include flex-wrap(wrap);
     margin: 1em auto 0 auto;
+
+    // text-align: center;
 }
 
 .services {
@@ -183,35 +186,33 @@ $rightPadding: 4%;
     box-sizing: border-box;
     color: $darkerwhite;
     font-size: 1.2em;
-    line-height: 1.4;
+    line-height: 1.5;
     margin: 0 auto;
-    padding: 0.6em 0 0 3%;
-    width: 97%;
+    // padding: 0.6em 0 0 3%;
+    width: 93%;
 }
 
 .skill-type  {
-    padding: 0.5em 0;
-
-    & + .skill-type {
-        margin-top: 0.5em;
-    }
-
     h3 {
         color: $offwhite;
-        font-size: 1em;
-        padding: 0 0 0.2em 0;
+        font-size: 1.2em;
+        padding: 0.6em 0 0.1em 0;
+    }
+
+    h4 {
+        @extend %futura-heading;
+        color: $yellow;
+        font-size: 0.9em;
+        padding-bottom: 0.1em;
+    }
+
+    p {
+        font-size: 0.9em;
+        line-height: 1.4;
     }
 
     li {
-        padding: 0.5em 4% 0 0;
-
-        strong {
-            color: $yellow;
-            display: inline-block;
-            font-size: 0.85em;
-            font-weight: normal;
-            @extend %futura-heading;
-        }
+        padding: 0.6em 0;
     }
 }
 
