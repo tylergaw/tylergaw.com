@@ -917,6 +917,7 @@ a {
   .my-big-dumb-faces {
     background-size: 95%;
     background-image: url(../images/tyler-gaw-portraits.jpg);
+    padding-top: 0;
     width: 40%;
   }
 
