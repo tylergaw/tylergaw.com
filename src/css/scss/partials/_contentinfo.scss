@@ -8,4 +8,24 @@
     li {
         display: inline-block;
     }
+
+    .contact {
+        line-height: 2;
+        margin-top: 1em;
+
+        a {
+            @extend %futura-heading;
+            font-size: 1.2em;
+            text-decoration: none;
+
+            &:hover {
+                color: $offwhite;
+            }
+
+            &:first-child::after {
+                content: "";
+                display: block;
+            }
+        }
+    }
 }

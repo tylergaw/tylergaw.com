@@ -54,7 +54,7 @@ b, strong {
 }
 
 [role="navigation"] a, .bold-statements, .article-list .section-title h2, .article-list .potential, .article-list a, .hentry .entry-title, .entry-content h2, .projects-list li a, .projects-list .potential,
-.projects-list h2, [data-page="about"] h2, [data-page="about"] h3, [data-page="about"] h4, [data-page="about"] .design-to-me, .big-talker .number-one strong, [data-page="purpose"] [role="main"] h1, .entry-intro + p:first-letter,
+.projects-list h2, [data-page="about"] h2, [data-page="about"] h3, [data-page="about"] h4, [data-page="about"] .design-to-me, .big-talker .number-one strong, [data-page="purpose"] [role="main"] h1, [role="contentinfo"] .contact a, .entry-intro + p:first-letter,
 .entry-intro + h2 + p:first-letter, .number-one + p:first-letter, .services {
   font-family: "futura-pt", helvetica, sans-serif;
 }
@@ -81,7 +81,7 @@ a {
 }
 
 [role="navigation"] a, .bold-statements, .article-list .section-title h2, .article-list .potential, .article-list a, .hentry .entry-title, .entry-content h2, .projects-list li a, .projects-list .potential,
-.projects-list h2, [data-page="about"] h2, [data-page="about"] h3, [data-page="about"] h4, [data-page="about"] .design-to-me, .big-talker .number-one strong, [data-page="purpose"] [role="main"] h1 {
+.projects-list h2, [data-page="about"] h2, [data-page="about"] h3, [data-page="about"] h4, [data-page="about"] .design-to-me, .big-talker .number-one strong, [data-page="purpose"] [role="main"] h1, [role="contentinfo"] .contact a {
   font-weight: 700;
   line-height: 1.1;
   text-transform: uppercase;
@@ -1057,6 +1057,21 @@ a {
 }
 [role="contentinfo"] li {
   display: inline-block;
+}
+[role="contentinfo"] .contact {
+  line-height: 2;
+  margin-top: 1em;
+}
+[role="contentinfo"] .contact a {
+  font-size: 1.2em;
+  text-decoration: none;
+}
+[role="contentinfo"] .contact a:hover {
+  color: #f8f8f8;
+}
+[role="contentinfo"] .contact a:first-child::after {
+  content: "";
+  display: block;
 }
 
 code[class*="language-"],
