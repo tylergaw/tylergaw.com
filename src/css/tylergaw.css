@@ -867,6 +867,8 @@ a {
   .skill-type li {
     display: -webkit-flex;
     display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
   }
   .skill-type h4 {
     padding-top: 0.25em;
@@ -912,6 +914,10 @@ a {
   .big-talker .number-one {
     font-size: 1.4em;
   }
+
+  .skills {
+    font-size: 1.4em;
+  }
 }
 @media screen and (min-width: 820px) {
   .my-big-dumb-faces {
@@ -940,10 +946,6 @@ a {
   .on-design, .on-development {
     padding: 0;
   }
-
-  .skills {
-    font-size: 1.4em;
-  }
 }
 @media screen and (min-width: 910px) {
   .more-on div {
@@ -957,6 +959,37 @@ a {
   .on-development {
     padding-left: 3%;
   }
+
+  .things-i-do {
+    width: 98%;
+  }
+
+  .services {
+    width: 45%;
+  }
+
+  .big-bad-words h2 {
+    font-size: 7vw;
+  }
+
+  .skills {
+    padding-right: 2%;
+    padding-left: 2%;
+    font-size: 1.2em;
+    width: 55%;
+  }
+
+  .skill-type h4, .skill-type p {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1130px) {
+  .skill-type h4 {
+    width: 20%;
+  }
+  .skill-type p {
+    width: 80%;
+  }
 }
 @media screen and (min-width: 1500px) {
   .all-about-me {
@@ -965,6 +998,10 @@ a {
 
   .more-on {
     font-size: 0.9em;
+  }
+
+  .skills {
+    font-size: 1.4em;
   }
 }
 .the-site {

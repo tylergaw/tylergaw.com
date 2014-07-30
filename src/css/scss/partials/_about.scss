@@ -227,6 +227,7 @@ $rightPadding: 4%;
     .skill-type {
         li {
             @include flex;
+            @include flex-wrap(wrap);
         }
 
         h4 {
@@ -249,33 +250,6 @@ $rightPadding: 4%;
     .all-about-me {
         font-size: 1.4em;
     }
-
-//////////////////////////////
-
-    // .things-i-do {
-    //     margin-top: 1.5em;
-    //     width: 98%;
-    // }
-
-    // .skills {
-    //     padding-top: 0;
-    //     width: 55%;
-    // }
-
-    // .skill-type {
-    //     li {
-    //         @include flex;
-    //
-    //         strong {
-    //             padding-top: 0.5em;
-    //             width: 20%;
-    //         }
-    //
-    //         p {
-    //             width: 80%;
-    //         }
-    //     }
-    // }
 }
 
 @media screen and (min-width: 650px) {
@@ -302,6 +276,10 @@ $rightPadding: 4%;
 
 @media screen and (min-width: 720px) {
     .big-talker .number-one {
+        font-size: 1.4em;
+    }
+
+    .skills {
         font-size: 1.4em;
     }
 }
@@ -333,10 +311,6 @@ $rightPadding: 4%;
     .on-design, .on-development {
         padding: 0;
     }
-
-    .skills {
-        font-size: 1.4em;
-    }
 }
 
 @media screen and (min-width: 910px) {
@@ -351,6 +325,43 @@ $rightPadding: 4%;
     .on-development {
         padding-left: 3%;
     }
+
+    .things-i-do {
+        width: 98%;
+    }
+
+    .services {
+        width: 45%;
+    }
+
+    .big-bad-words h2 {
+        font-size: 7vw;
+    }
+
+    .skills {
+        padding-right: 2%;
+        padding-left: 2%;
+        font-size: 1.2em;
+        width: 55%;
+    }
+
+    .skill-type {
+        h4, p {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (min-width: 1130px) {
+    .skill-type {
+        h4 {
+            width: 20%;
+        }
+
+        p {
+            width: 80%;
+        }
+    }
 }
 
 @media screen and (min-width: 1500px) {
@@ -360,6 +371,10 @@ $rightPadding: 4%;
 
     .more-on {
         font-size: 0.9em;
+    }
+
+    .skills {
+        font-size: 1.4em;
     }
 }
 
