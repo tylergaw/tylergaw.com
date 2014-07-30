@@ -91,7 +91,7 @@ $rightPadding: 4%;
     align-self: center;
     @include flex;
     @include flex-wrap(wrap);
-    margin: 1em auto 0 auto;
+    margin: 1.2em auto 0 auto;
 }
 
 .services {
@@ -101,18 +101,13 @@ $rightPadding: 4%;
     color: $grey;
     @extend %futura;
     @include flex;
-    padding: 0.8em 0 0.5em 0;
+    padding: 0.8em 0 0.4em 0;
     text-align: center;
     text-transform: uppercase;
 
-    .big-bad-words {
-        font-size: 1.2em;
-        padding: 0.8em 0 0.4em 0;
-
-        h2 {
-            font-size: 1.6em;
-            font-weight: 700;
-        }
+    // Extra containing element
+    & > div {
+        width: 100%;
     }
 
     .boastin {
@@ -137,13 +132,22 @@ $rightPadding: 4%;
         line-height: 1.3;
         margin: 0 auto;
         padding: 0.3em 3%;
-        text-align: center;
         width: $width;
     }
 
     .no-bullshit {
         font-size: 1.3em;
         padding: 0.6em 0;
+    }
+}
+
+.big-bad-words {
+    font-size: 1.2em;
+    padding: 0.8em 0 0.4em 0;
+
+    h2 {
+        font-size: 1.6em;
+        font-weight: 700;
     }
 }
 
@@ -186,10 +190,33 @@ $rightPadding: 4%;
     }
 }
 
+@media screen and (min-width: 440px) {
+    .big-bad-words {
+        font-size: 1.7em;
+    }
+}
+
 @media screen and (min-width: 500px) {
     .design-to-me {
         font-size: 5.2vw;
         width: 98%;
+    }
+
+    .services {
+        margin: 0 auto;
+        width: 98%;
+
+        .listed {
+            font-size: 1.2em;
+        }
+
+        .no-bullshit {
+            font-size: 1.6em;
+        }
+    }
+
+    .big-bad-words h2 {
+        font-size: 9vw;
     }
 }
 
@@ -205,57 +232,57 @@ $rightPadding: 4%;
 
 //////////////////////////////
 
-    .things-i-do {
-        margin-top: 1.5em;
-        width: 98%;
-    }
+    // .things-i-do {
+    //     margin-top: 1.5em;
+    //     width: 98%;
+    // }
 
-    .services {
-        padding: 1em 0;
-        width: 45%;
+    // .services {
+    //     padding: 1em 0;
+    //     width: 45%;
+    //
+    //     .big-bad-words {
+    //         padding: 0.8em 0;
+    //         font-size: 2.6vw;
+    //
+    //         h2 {
+    //             font-size: 4.3vw;
+    //         }
+    //     }
+    //
+    //     .boastin {
+    //         font-size: 1.1em;
+    //     }
+    //
+    //     .listed {
+    //         font-size: 1.5em;
+    //         padding: 0.6em 6%;
+    //     }
+    //
+    //     .no-bullshit {
+    //         font-size: 1.6em;
+    //     }
+    // }
 
-        .big-bad-words {
-            padding: 0.8em 0;
-            font-size: 2.6vw;
+    // .skills {
+    //     padding-top: 0;
+    //     width: 55%;
+    // }
 
-            h2 {
-                font-size: 4.3vw;
-            }
-        }
-
-        .boastin {
-            font-size: 1.1em;
-        }
-
-        .listed {
-            font-size: 1.5em;
-            padding: 0.6em 6%;
-        }
-
-        .no-bullshit {
-            font-size: 1.6em;
-        }
-    }
-
-    .skills {
-        padding-top: 0;
-        width: 55%;
-    }
-
-    .skill-type {
-        li {
-            @include flex;
-
-            strong {
-                padding-top: 0.5em;
-                width: 20%;
-            }
-
-            p {
-                width: 80%;
-            }
-        }
-    }
+    // .skill-type {
+    //     li {
+    //         @include flex;
+    //
+    //         strong {
+    //             padding-top: 0.5em;
+    //             width: 20%;
+    //         }
+    //
+    //         p {
+    //             width: 80%;
+    //         }
+    //     }
+    // }
 }
 
 @media screen and (min-width: 650px) {
@@ -289,13 +316,13 @@ $rightPadding: 4%;
 @media screen and (min-width: 820px) {
     .my-big-dumb-faces {
         background-size: 95%;
-        // padding: 0 12%;
         width: 40%;
     }
 
     .all-about-me {
         padding-right: $rightPadding;
         padding-left: $leftPadding;
+        padding-bottom: 1.2em;
         width: 60%;
     }
 
@@ -336,12 +363,6 @@ $rightPadding: 4%;
         font-size: 0.9em;
     }
 }
-
-// @media screen and (min-width: 1500px) {
-//     .more-on {
-//         font-size: 1em;
-//     }
-// }
 
 .the-site {
     display: none;
