@@ -1,13 +1,18 @@
 [data-page="about"] {
-    h2,
-    h3,
-    .design-to-me {
+    h2, h3, h4, .design-to-me {
         @extend %futura-heading;
     }
 }
 
 $leftPadding: 2%;
 $rightPadding: 4%;
+
+.gaw-gives-a-shit {
+    font-size: 2.9em;
+    margin-bottom: 0.2em;
+    text-align: center;
+    width: 98%;
+}
 
 .big-talker {
     align-self: center;
@@ -17,31 +22,14 @@ $rightPadding: 4%;
     padding-top: 1.6em;
     position: relative;
 
-    // Tyler Gives A Shit
-    h2 {
-        font-size: 2.9em;
-        margin-bottom: 0.2em;
-        text-align: center;
-        width: 98%;
-    }
-
     h3 {
         font-size: 1.2em;
         padding: 0.6em 0 0.1em 0;
-
-        // Large screen
-        // font-size: 1.4em;
-        // padding: 0 $rightPadding 0.4em 4%;
     }
 
     p {
         color: $darkerwhite;
         padding-bottom: 1.4em;
-
-
-        // Large Screen
-        // font-size: 1.4em;
-        // padding: 0 $rightPadding 1.1em $leftPadding;
     }
 
     // Intro
@@ -65,31 +53,6 @@ $rightPadding: 4%;
     }
 }
 
-.number-one + p:first-letter {
-    @extend %drop-cap;
-}
-
-.more-on {
-    // align-self: center;
-    // @include flex;
-    // @include flex-wrap(wrap);
-    // padding: 1.1em $rightPadding 2em $leftPadding;
-    //
-    // div {
-    //     box-sizing: border-box;
-    //     width: 50%;
-    // }
-    //
-    // h3 {
-    //     padding: 0 0 0.4em 0;
-    // }
-    //
-    // p {
-    //     font-size: 1.2em;
-    //     padding: 0 0 1em 0;
-    // }
-}
-
 .all-about-me {
     box-sizing: border-box;
     font-size: 1.2em;
@@ -99,8 +62,12 @@ $rightPadding: 4%;
     width: 93%;
 }
 
+.number-one + p:first-letter {
+    @extend %drop-cap;
+}
+
 .my-big-dumb-faces {
-    background: transparent url(../images/tmp-portraits.png) no-repeat center top;
+    background: transparent url(../images/tmp-portraits.png) repeat-y center top;
     background-size: 100%;
     box-sizing: border-box;
     padding-top: 48%;
@@ -125,8 +92,6 @@ $rightPadding: 4%;
     @include flex;
     @include flex-wrap(wrap);
     margin: 1em auto 0 auto;
-
-    // text-align: center;
 }
 
 .services {
@@ -200,7 +165,6 @@ $rightPadding: 4%;
     }
 
     h4 {
-        @extend %futura-heading;
         color: $yellow;
         font-size: 0.9em;
         padding-bottom: 0.1em;
@@ -216,74 +180,33 @@ $rightPadding: 4%;
     }
 }
 
+@media screen and (min-width: 390px) {
+    .gaw-gives-a-shit {
+        font-size: 12vw;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .design-to-me {
+        font-size: 5.2vw;
+        width: 98%;
+    }
+}
+
 @media screen and (min-width: 570px) {
-    .big-talker {
-        h2 {
-            font-size: 8.2vw;
-            width: 100%;
-        }
-
-        h3 {
-            padding: 0 $rightPadding 0.4em 4%;
-        }
-
-        p {
-            font-size: 1.4em;
-            padding: 0 $rightPadding 1.1em $leftPadding;
-        }
-
-        .number-one {
-            font-size: 1.7em;
-            text-align: left;
-        }
+    .gaw-gives-a-shit {
+        font-size: 8.3vw;
+        width: 100%;
     }
 
     .all-about-me {
-        width: 60%;
+        font-size: 1.4em;
     }
 
-    .more-on {
-        align-self: center;
-        @include flex;
-        @include flex-wrap(wrap);
-        padding: 1.1em $rightPadding 2em $leftPadding;
-
-        div {
-            box-sizing: border-box;
-            width: 50%;
-        }
-
-        h3 {
-            padding: 0 0 0.4em 0;
-        }
-
-        p {
-            font-size: 1.2em;
-            padding: 0 0 1em 0;
-        }
-    }
-
-    .on-design {
-        padding-right: 3%;
-    }
-
-    .on-development {
-        padding-left: 3%;
-    }
-
-    .my-big-dumb-faces {
-        background-size: 95%;
-        padding: 0 1.5%;
-        width: 40%;
-    }
+//////////////////////////////
 
     .things-i-do {
         margin-top: 1.5em;
-        width: 98%;
-    }
-
-    .design-to-me {
-        font-size: 5.2vw;
         width: 98%;
     }
 
@@ -334,6 +257,91 @@ $rightPadding: 4%;
         }
     }
 }
+
+@media screen and (min-width: 650px) {
+    .more-on {
+        align-self: center;
+        @include flex;
+        @include flex-wrap(wrap);
+        font-size: 0.8em;
+
+        div {
+            box-sizing: border-box;
+            width: 50%;
+        }
+    }
+
+    .on-design {
+        padding-right: 3%;
+    }
+
+    .on-development {
+        padding-left: 3%;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    .big-talker .number-one {
+        font-size: 1.4em;
+    }
+}
+
+@media screen and (min-width: 820px) {
+    .my-big-dumb-faces {
+        background-size: 95%;
+        // padding: 0 12%;
+        width: 40%;
+    }
+
+    .all-about-me {
+        padding-right: $rightPadding;
+        padding-left: $leftPadding;
+        width: 60%;
+    }
+
+    .big-talker .number-one {
+        font-size: 1.3em;
+        text-align: left;
+    }
+
+    .more-on div {
+        width: 100%;
+    }
+
+    .on-design, .on-development {
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 910px) {
+    .more-on div {
+        width: 50%;
+    }
+
+    .on-design {
+        padding-right: 3%;
+    }
+
+    .on-development {
+        padding-left: 3%;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .all-about-me {
+        font-size: 1.6em;
+    }
+
+    .more-on {
+        font-size: 0.9em;
+    }
+}
+
+// @media screen and (min-width: 1500px) {
+//     .more-on {
+//         font-size: 1em;
+//     }
+// }
 
 .the-site {
     display: none;

@@ -54,9 +54,7 @@ b, strong {
 }
 
 [role="navigation"] a, .bold-statements, .article-list .section-title h2, .article-list .potential, .article-list a, .hentry .entry-title, .entry-content h2, .projects-list li a, .projects-list .potential,
-.projects-list h2, [data-page="about"] h2,
-[data-page="about"] h3,
-[data-page="about"] .design-to-me, .big-talker .number-one strong, .skill-type h4, [data-page="purpose"] [role="main"] h1, .entry-intro + p:first-letter,
+.projects-list h2, [data-page="about"] h2, [data-page="about"] h3, [data-page="about"] h4, [data-page="about"] .design-to-me, .big-talker .number-one strong, [data-page="purpose"] [role="main"] h1, .entry-intro + p:first-letter,
 .entry-intro + h2 + p:first-letter, .number-one + p:first-letter, .services {
   font-family: "futura-pt", helvetica, sans-serif;
 }
@@ -83,9 +81,7 @@ a {
 }
 
 [role="navigation"] a, .bold-statements, .article-list .section-title h2, .article-list .potential, .article-list a, .hentry .entry-title, .entry-content h2, .projects-list li a, .projects-list .potential,
-.projects-list h2, [data-page="about"] h2,
-[data-page="about"] h3,
-[data-page="about"] .design-to-me, .big-talker .number-one strong, .skill-type h4, [data-page="purpose"] [role="main"] h1 {
+.projects-list h2, [data-page="about"] h2, [data-page="about"] h3, [data-page="about"] h4, [data-page="about"] .design-to-me, .big-talker .number-one strong, [data-page="purpose"] [role="main"] h1 {
   font-weight: 700;
   line-height: 1.1;
   text-transform: uppercase;
@@ -677,6 +673,13 @@ a {
   color: #f8f8f8;
 }
 
+.gaw-gives-a-shit {
+  font-size: 2.9em;
+  margin-bottom: 0.2em;
+  text-align: center;
+  width: 98%;
+}
+
 .big-talker {
   align-self: center;
   display: -webkit-flex;
@@ -686,12 +689,6 @@ a {
   overflow: hidden;
   padding-top: 1.6em;
   position: relative;
-}
-.big-talker h2 {
-  font-size: 2.9em;
-  margin-bottom: 0.2em;
-  text-align: center;
-  width: 98%;
 }
 .big-talker h3 {
   font-size: 1.2em;
@@ -726,7 +723,7 @@ a {
 }
 
 .my-big-dumb-faces {
-  background: transparent url(../images/tmp-portraits.png) no-repeat center top;
+  background: transparent url(../images/tmp-portraits.png) repeat-y center top;
   background-size: 100%;
   box-sizing: border-box;
   padding-top: 48%;
@@ -829,68 +826,29 @@ a {
   padding: 0.6em 0;
 }
 
+@media screen and (min-width: 390px) {
+  .gaw-gives-a-shit {
+    font-size: 12vw;
+  }
+}
+@media screen and (min-width: 500px) {
+  .design-to-me {
+    font-size: 5.2vw;
+    width: 98%;
+  }
+}
 @media screen and (min-width: 570px) {
-  .big-talker h2 {
-    font-size: 8.2vw;
+  .gaw-gives-a-shit {
+    font-size: 8.3vw;
     width: 100%;
-  }
-  .big-talker h3 {
-    padding: 0 4% 0.4em 4%;
-  }
-  .big-talker p {
-    font-size: 1.4em;
-    padding: 0 4% 1.1em 2%;
-  }
-  .big-talker .number-one {
-    font-size: 1.7em;
-    text-align: left;
   }
 
   .all-about-me {
-    width: 60%;
-  }
-
-  .more-on {
-    align-self: center;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-    padding: 1.1em 4% 2em 2%;
-  }
-  .more-on div {
-    box-sizing: border-box;
-    width: 50%;
-  }
-  .more-on h3 {
-    padding: 0 0 0.4em 0;
-  }
-  .more-on p {
-    font-size: 1.2em;
-    padding: 0 0 1em 0;
-  }
-
-  .on-design {
-    padding-right: 3%;
-  }
-
-  .on-development {
-    padding-left: 3%;
-  }
-
-  .my-big-dumb-faces {
-    background-size: 95%;
-    padding: 0 1.5%;
-    width: 40%;
+    font-size: 1.4em;
   }
 
   .things-i-do {
     margin-top: 1.5em;
-    width: 98%;
-  }
-
-  .design-to-me {
-    font-size: 5.2vw;
     width: 98%;
   }
 
@@ -931,6 +889,80 @@ a {
   }
   .skill-type li p {
     width: 80%;
+  }
+}
+@media screen and (min-width: 650px) {
+  .more-on {
+    align-self: center;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    font-size: 0.8em;
+  }
+  .more-on div {
+    box-sizing: border-box;
+    width: 50%;
+  }
+
+  .on-design {
+    padding-right: 3%;
+  }
+
+  .on-development {
+    padding-left: 3%;
+  }
+}
+@media screen and (min-width: 720px) {
+  .big-talker .number-one {
+    font-size: 1.4em;
+  }
+}
+@media screen and (min-width: 820px) {
+  .my-big-dumb-faces {
+    background-size: 95%;
+    width: 40%;
+  }
+
+  .all-about-me {
+    padding-right: 4%;
+    padding-left: 2%;
+    width: 60%;
+  }
+
+  .big-talker .number-one {
+    font-size: 1.3em;
+    text-align: left;
+  }
+
+  .more-on div {
+    width: 100%;
+  }
+
+  .on-design, .on-development {
+    padding: 0;
+  }
+}
+@media screen and (min-width: 910px) {
+  .more-on div {
+    width: 50%;
+  }
+
+  .on-design {
+    padding-right: 3%;
+  }
+
+  .on-development {
+    padding-left: 3%;
+  }
+}
+@media screen and (min-width: 1500px) {
+  .all-about-me {
+    font-size: 1.6em;
+  }
+
+  .more-on {
+    font-size: 0.9em;
   }
 }
 .the-site {
