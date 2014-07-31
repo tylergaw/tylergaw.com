@@ -143,11 +143,11 @@ a {
   max-width: 720px;
 }
 [role="navigation"] ul {
-  display: -webkit-flex;
-  display: flex;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
 }
 [role="navigation"] li {
   width: 33.33%;
@@ -181,7 +181,7 @@ a {
 }
 
 .bold-statements {
-  font-size: 2em;
+  font-size: 2.2em;
   margin: 0 auto;
   padding-top: 0.6em;
   text-align: left;

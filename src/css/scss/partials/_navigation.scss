@@ -6,10 +6,10 @@
     max-width: 720px;
 
     ul {
-        @include flex;
         display: -webkit-box;
         display: -moz-box;
         display: -ms-flexbox;
+        @include flex;
     }
 
     li {
