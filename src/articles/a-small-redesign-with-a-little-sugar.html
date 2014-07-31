@@ -48,7 +48,7 @@ disqus_id: a-small-redesign-with-a-little-sugar
             <p>
             	To accomplish my flexible grid, I started with a overall width of 80% on the content area. That number was somewhat arbitrary, I started with 100% and decreased the number until I felt there was a comfortable amount of room between the edge of the browser and the beginning of the content. I am setting a <code>max-width</code> of 1280px on the content area. Any wider than that and things started to get a little unwieldy; line-lengths were too long and in general things just didn't look good. At browser widths of 768px or narrower I wanted to gain back some of the margin so I used a media query to increase the width to 95%.
             </p>
-            <pre><code>#content {
+            <pre><code class="language-scss">#content {
   margin: 0 auto;
   max-width: 1280px;
   width: 80%;
@@ -63,11 +63,11 @@ disqus_id: a-small-redesign-with-a-little-sugar
             <p>
             	In a number of areas of the design I use a two-column layout. To determine the widths of each column I used the oh-so-helpful formula that Ethan describes in <abbr title="Responsive Web Design">RWD</abbr>: <br>
             </p>
-            <pre><code>target &divide; context = result</code></pre>
+            <pre><code class="language-clike">target &divide; context = result</code></pre>
             <p>
             	For the columns I use the starting width of 958px as a context then determine a pixel value based off the width of each of my grid columns, 69px, to come up with widths like:
             </p>
-            <pre><code>.method-description {
+            <pre><code class="language-scss">.method-description {
   h3 {
     float: left;
     width: 40.1878914%; /* 385 &divide; 958 = .401878914 */
@@ -97,7 +97,7 @@ disqus_id: a-small-redesign-with-a-little-sugar
             <p>
             	With die-cut taken care of, let's look at scaleable. At its base size of 1149px by 663px the logo graphic is pretty large. At medium to large browser widths, this works fine, as the browser width decreases or increases the graphic starts to lose its intended effect and also starts to cause readability issues for other page elements. <code>background-size</code> to the rescue!
             </p>
-            <pre><code>#bigAssJribbble {
+            <pre><code class="language-scss">#bigAssJribbble {
   background-image: url(../images/branding-die-cut.png);
   background-repeat: no-repeat;
   background-position: 15% 100%;
@@ -118,7 +118,7 @@ disqus_id: a-small-redesign-with-a-little-sugar
             <p>
             	Something that's not accounted for in the above CSS is the background color, the color that should show through the die-cut image. This is where I started having a lot of fun. I set up 11 media queries at different pixel max-widths from 320px to 2360px, at each of those I set a different background color for the logo as well as a number of different elements on the page. As the browser width increases or decreases the background color changes. Another little extra I use is a CSS transition to smoothly change from one color to another on each of the chameleon-like elements. An example element with a media query colorway:
             </p>
-            <pre><code>#bigAssJribbble {
+            <pre><code class="language-scss">#bigAssJribbble {
   -moz-transition: background-color 0.2s;
   -webkit-transition: background-color 0.2s;
   -o-transition: background-color 0.2s;

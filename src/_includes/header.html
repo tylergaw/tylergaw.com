@@ -11,21 +11,13 @@
                 {% endif %}
 
             {% else %}
-            Tyler Gaw - Web Design & Development - Brooklyn, New York USA
+            Tyler Gaw - Freelance Web Design & Development - Brooklyn, New York USA
             {% endif %}
         </title>
         <meta name="description" content="Tyler Gaw is a Freelance Web Designer &amp; Developer in Brooklyn, New York">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="alternate" href="http://tylergaw.com/rss.xml" type="application/rss+xml" title="Tyler Gaw Occasionally Writes About Web Design and Life">
-
-        <link rel="icon" href="/images/favicon-{{ page.type }}.ico" type="image/x-icon">
-        <link rel="shortcut icon" href="/images/favicon-{{ page.type }}.ico" type="image/x-icon">
-
-        <!--[if lt IE 9]>
-        <script src="/js/iehelper.js"></script>
-        <link rel="stylesheet" href="/css/iehelper.css">
-        <![endif]-->
-
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="/css/tylergaw.css">
 
         <script>
@@ -40,39 +32,18 @@
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
             })();
         </script>
-
-        <style>
-      	/* These styles were not a part of the original site. */
-      		#archivedMsg {
-      		          background-color: #1f1f1f;
-                        background-image: none;
-                        color: #f1f1f1;
-      		           opacity: 0.9;
-                         text-align: center; width: 100%; z-index: 999;}
-      		#archivedMsg p { padding: 4px; }
-      		#archivedMsg a { color: yellow; }
-      	</style>
     </head>
-
-    <body id="page-{{ page.type }}">
-        <div id="archivedMsg" style="background-color: #000;">
-          <p>
-              You’re looking at a previous version of <a href="http://tylergaw.com">tylergaw.com</a>.
-            It’s very likely that there are dead links and designs that are no longer current.
-          </p>
-        </div>
-        <div class="containing-element">
-            <header role="banner">
-                <a href="/">
-                    <h1>Tyler Gaw</h1>
-                    <h2>Web Designer</h2>
-                </a>
-            </header>
+    <body data-page="{{ page.type }}">
+        <header role="banner">
+            <a href="/" class="logo">
+                {% include logo-svg.html %}
+            </a>
             <nav role="navigation">
                 <ul>
-                    <li><a href="/articles">articles</a></li>
-                    <li><a href="/projects">projects</a></li>
-                    <li><a href="/about">about</a></li>
+                    <li><a href="/articles" class="nav-articles">Articles</a></li>
+                    <li><a href="/projects" class="nav-projects">Projects</a></li>
+                    <li><a href="/about" class="nav-about">About</a></li>
                 </ul>
             </nav>
-            <div role="main">
+        </header>
+        <div role="main">

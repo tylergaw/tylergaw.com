@@ -47,14 +47,14 @@ disqus_id: how-i-manage-nginx-config
             on my VPS, I just have to peck around until I find it. Here are
             the relevant snippets from my local and prod <code>nginx.conf</code>.
         </p>
-        <pre><code># local
+        <pre><code class="language-clike"># local
 http {
   ...
   include /path/to/home/server-conf/local/*;
 }
 </code></pre>
 
-        <pre><code># production
+        <pre><code class="language-clike"># production
 http {
   ...
   include /path/to/home/server-conf/prod/*;

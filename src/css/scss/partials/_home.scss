@@ -1,0 +1,64 @@
+.the-color-of {
+    color: #65e12e;
+}
+
+.bold-statements {
+    @extend %futura-heading;
+    font-size: 2.2em;
+    margin: 0 auto;
+    padding-top: 0.6em;
+    text-align: left;
+    width: 93%;
+
+    $borderSize: 0.2em;
+
+    a {
+        display: inline-block;
+        border-bottom: $borderSize solid $yellow;
+        position: relative;
+        text-decoration: none;
+        @include transition(color 0.2s);
+
+        &::after {
+            background-color: $offwhite;
+            bottom: -$borderSize;
+            content: "";
+            display: inline-block;
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            height: $borderSize;
+            @include transition(width 0.2s);
+            width: 1px;
+        }
+
+        &:hover,
+        &:focus {
+            color: $offwhite;
+
+            &::after {
+                opacity: 1;
+                width: 100%;
+            }
+        }
+    }
+
+    p {
+        margin-bottom: 0.8em;
+        word-wrap: break-word;
+    }
+
+    @media screen and (min-width: 650px) {
+        font-size: 4.2vw;
+        text-align: center;
+        width: 100%;
+
+        p {
+            margin-bottom: 0.5em;
+        }
+    }
+
+    @media screen and (min-width: 1100px) {
+        padding-top: 0.7em;
+    }
+}

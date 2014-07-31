@@ -1,0 +1,42 @@
+[role="navigation"] {
+    border-top: 1px solid rgba($offwhite, 0.1);
+    border-bottom: 8px solid $yellow;
+    font-size: 1.1em;
+    margin: 0 auto;
+    max-width: 720px;
+
+    ul {
+        display: -webkit-box;
+        display: -moz-box;
+        @include flex;
+    }
+
+    li {
+        width: 33.33%;
+    }
+
+    a {
+        @extend %futura-heading;
+        display: inline-block;
+        padding: 0.7em 0.2em;
+        text-decoration: none;
+        @include transition(color 0.2s);
+
+        &:hover,
+        &:focus {
+            color: $offwhite;
+        }
+    }
+
+    @media screen and (min-width: 450px) {
+        font-size: 1.4em;
+    }
+}
+
+[data-page="article"] .nav-articles,
+[data-page="articles"] .nav-articles,
+[data-page="project"] .nav-projects,
+[data-page="projects"] .nav-projects,
+[data-page="about"] .nav-about {
+    color: $offwhite;
+}

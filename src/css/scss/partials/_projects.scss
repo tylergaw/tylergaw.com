@@ -1,0 +1,168 @@
+.projects-list {
+    align-self: center;
+    @include flex;
+    @include flex-wrap(wrap);
+    padding-top: 1em;
+    max-width: 100%;
+
+    li {
+        @include align-items(center);
+        border-bottom: 2px solid $grey;
+        @include border-box;
+        @include flex;
+        padding: 2.4em 3.6%;
+        position: relative;
+        text-align: center;
+        width: 100%;
+
+        div {
+            width: 100%;
+        }
+
+        a {
+            @extend %futura-heading;
+            background-color: $offwhite;
+            border: 1px solid $offwhite;
+            border-radius: 2px;
+            display: inline-block;
+            font-size: 1.2em;
+            margin-bottom: 0.2em;
+            padding: 0.4em 0.6em 0.35em 0.6em;
+            text-decoration: none;
+            @include transition(background-color 0.15s, color 0.15s);
+        }
+    }
+
+    .section-desc {
+        background-color: $yellow;
+        color: $grey;
+    }
+
+    .potential {
+        @include align-items(flex-end);
+        background-color: $yellow;
+        color: $grey;
+        display: none;
+    }
+
+    .potential,
+    h2 {
+        @extend %futura-heading;
+    }
+
+    h2 {
+        font-size: 2.4em;
+    }
+
+    p {
+        font-size: 1.1em;
+        line-height: 1.4;
+        margin: 0.5em 0 0.9em 0;
+    }
+
+    @media screen and (min-width: 620px) {
+        li {
+            border-right: 2px solid $grey;
+            width: 50%;
+
+            a {
+                font-size: 1em;
+            }
+        }
+
+        .first-block {
+            @include flex;
+        }
+    }
+
+    @media screen and (min-width: 1050px) {
+        li {
+            width: 33.33%
+        }
+
+        .p-readablity,
+        .p-readlists {
+            width: 66.66%;
+        }
+
+        .first-block {
+            display: none;
+        }
+    }
+
+    @media screen and (min-width: 1460px) {
+        li {
+            width: 25%
+        }
+
+        .p-readablity,
+        .p-readlists {
+            width: 37.5%;
+        }
+
+        .potential {
+            @include flex;
+        }
+    }
+}
+
+@mixin project-block ($c) {
+    background-color: $c;
+
+    a {
+        color: $c;
+
+        &:hover {
+            background-color: $c;
+            color: $offwhite;
+        }
+    }
+}
+
+.p-readablity {
+    @include project-block(#ac1603);
+}
+
+.p-readlists {
+    @include project-block(#6e2911);
+}
+
+.p-jribbble {
+    @include project-block(#ff0066);
+}
+
+.p-true-titles {
+    @include project-block(#008ea2);
+}
+
+.p-tmfh {
+    @include project-block(#8c132b);
+}
+
+.p-css-shaky {
+    @include project-block(#3ca335);
+}
+
+.p-css-write-on {
+    @include project-block(#ff00ae);
+}
+
+.p-papersaver {
+    @include project-block(#6b4ba0);
+}
+
+.p-slenderman {
+    @include project-block(#0b7daa);
+}
+
+.p-fcs {
+    @include project-block(#f77200);
+}
+
+.p-css-slideshows {
+    @include project-block(#346f6e);
+}
+
+.p-css-sprites {
+    @include project-block(#dd6364);
+}

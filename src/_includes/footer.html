@@ -1,23 +1,38 @@
-            </div>
         </div>
         <footer role="contentinfo">
-            <section>
-                <h1>Elsewhere:</h1>
-                <ul>
-                    <li><a href="http://twitter.com/thegaw" rel="me">Twitter</a></li>
-                    <li><a href="http://github.com/tylergaw" rel="me">Github</a></li>
-                    <li><a href="http://dribbble.com/tylergaw" rel="me">Dribbble</a></li>
-                    <li><a href="http://readability.com/tylergaw">Readability</a></li>
-                    <li><a href="/rss.xml">RSS</a></li>
-                </ul>
-            </section>
-            <section>
-                <h1>Spam goes here:</h1>
-                <a href="mailto:me@tylergaw.com" rel="me">me@tylergaw.com</a>
-            </section>
+            <ul class="the-others">
+                <li>
+                    <a class="icon" href="http://twitter.com/thegaw" rel="me">
+                        {% include icon-twitter.html %}
+                    </a>
+                </li>
+                <li>
+                    <a class="icon" href="http://github.com/tylergaw" rel="me">
+                        {% include icon-github.html %}
+                    </a>
+                </li>
+                <li>
+                    <a class="icon" href="/rss.xml">
+                        {% include icon-rss.html %}
+                    </a>
+                </li>
+            </ul>
+            <div class="contact">
+                <a href="mailto:me@tylergaw.com" rel="me">For hire: me@tylergaw.com</a>
+                <a href="/purpose">Purpose</a>
+            </div>
         </footer>
 
-        <script src="http://use.typekit.com/bnl6gqj.js"></script>
-        <script>try{Typekit.load();}catch(e){}</script>
+        <script src="/js/viewport-units-buggyfill.js"></script>
+        <script src="//use.typekit.net/ysz1fkg.js"></script>
+
+        {% if page.type == 'article' %}
+        <script src="/js/prism.js"></script>
+        {% endif %}
+
+        <script>
+            try{Typekit.load();}catch(e){}
+            window.viewportUnitsBuggyfill.init();
+        </script>
     </body>
 </html>
