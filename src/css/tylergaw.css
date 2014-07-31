@@ -143,6 +143,9 @@ a {
   max-width: 720px;
 }
 [role="navigation"] ul {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
 }
@@ -254,6 +257,9 @@ a {
   color: #1e1e1d;
 }
 .article-list .section-title {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
 }
@@ -294,6 +300,9 @@ a {
 @media screen and (min-width: 650px) {
   .article-list {
     align-self: center;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-wrap: wrap;
@@ -306,6 +315,9 @@ a {
     width: 48%;
   }
   .article-list .potential.first-block {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
   }
@@ -320,6 +332,9 @@ a {
     width: 23%;
   }
   .article-list .potential {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
   }
@@ -459,6 +474,9 @@ a {
 
 .projects-list {
   align-self: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-wrap: wrap;
@@ -471,6 +489,9 @@ a {
   border-bottom: 2px solid #1e1e1d;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
   padding: 2.4em 3.6%;
@@ -529,6 +550,9 @@ a {
     width: 33.33%;
   }
   .projects-list .potential {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
   }
@@ -688,6 +712,9 @@ a {
 
 .big-talker {
   align-self: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-wrap: wrap;
@@ -754,6 +781,9 @@ a {
 
 .things-i-do {
   align-self: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-wrap: wrap;
@@ -766,6 +796,9 @@ a {
   align-items: center;
   background-color: #ffad15;
   color: #1e1e1d;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
   padding: 0.8em 0 0.4em 0;
@@ -849,6 +882,9 @@ a {
   align-self: center;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-wrap: wrap;
@@ -875,6 +911,9 @@ a {
 .previous-versions {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-wrap: wrap;
@@ -883,6 +922,9 @@ a {
   width: 100%;
 }
 .previous-versions li {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
   -moz-box-sizing: border-box;
@@ -960,6 +1002,9 @@ a {
 }
 @media screen and (min-width: 555px) {
   .skill-type li {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-wrap: wrap;
@@ -986,6 +1031,9 @@ a {
 @media screen and (min-width: 650px) {
   .more-on {
     align-self: center;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-wrap: wrap;

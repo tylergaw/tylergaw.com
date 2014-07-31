@@ -38,12 +38,10 @@
     }
 }
 
-@mixin border-image ($pageName) {
-    -o-border-image: url('/images/content-border-#{$pageName}.png') 3 3 3 3 repeat;
-    border-image: url('/images/content-border-#{$pageName}.png') 3 3 3 3 repeat;
-}
-
 @mixin flex {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
 }
