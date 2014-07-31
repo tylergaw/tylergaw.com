@@ -54,7 +54,7 @@ b, strong {
 }
 
 [role="navigation"] a, .bold-statements, .article-list .section-title h2, .article-list .potential, .article-list a, .hentry .entry-title, .entry-content h2, .projects-list li a, .projects-list .potential,
-.projects-list h2, [data-page="about"] h2, [data-page="about"] h3, [data-page="about"] h4, [data-page="about"] .design-to-me, .big-talker .number-one strong, [data-page="purpose"] [role="main"] h1, [role="contentinfo"] .contact a, .entry-intro + p:first-letter,
+.projects-list h2, [data-page="about"] h2, [data-page="about"] h3, [data-page="about"] h4, [data-page="about"] .design-to-me, .big-talker .number-one strong, .previous-versions a, [data-page="purpose"] [role="main"] h1, [role="contentinfo"] .contact a, .entry-intro + p:first-letter,
 .entry-intro + h2 + p:first-letter, .number-one + p:first-letter, .services {
   font-family: "futura-pt", helvetica, sans-serif;
 }
@@ -81,7 +81,7 @@ a {
 }
 
 [role="navigation"] a, .bold-statements, .article-list .section-title h2, .article-list .potential, .article-list a, .hentry .entry-title, .entry-content h2, .projects-list li a, .projects-list .potential,
-.projects-list h2, [data-page="about"] h2, [data-page="about"] h3, [data-page="about"] h4, [data-page="about"] .design-to-me, .big-talker .number-one strong, [data-page="purpose"] [role="main"] h1, [role="contentinfo"] .contact a {
+.projects-list h2, [data-page="about"] h2, [data-page="about"] h3, [data-page="about"] h4, [data-page="about"] .design-to-me, .big-talker .number-one strong, .previous-versions a, [data-page="purpose"] [role="main"] h1, [role="contentinfo"] .contact a {
   font-weight: 700;
   line-height: 1.1;
   text-transform: uppercase;
@@ -835,6 +835,80 @@ a {
   padding: 0.6em 0;
 }
 
+.the-site {
+  background-color: rgba(153, 153, 153, 0.1);
+  border: 1px solid rgba(153, 153, 153, 0.1);
+  align-self: center;
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: 1.2em auto 0 auto;
+  padding: 1em 1.2em 1em 1.6em;
+  width: 95%;
+}
+
+.site-description {
+  font-size: 1em;
+  line-height: 1.5;
+  width: 100%;
+}
+.site-description h2 {
+  font-size: 1.2em;
+  padding: 0.6em 0 0.1em 0;
+}
+.site-description p {
+  color: #d2d2d2;
+  padding-bottom: 1.4em;
+}
+
+.previous-versions {
+  box-sizing: border-box;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  overflow: hidden;
+  width: 100%;
+}
+.previous-versions li {
+  display: -webkit-flex;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+}
+.previous-versions a {
+  background-color: #1e1e1d;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  display: block;
+  font-size: 1.2em;
+  position: relative;
+  text-decoration: none;
+  width: 100%;
+}
+.previous-versions a b {
+  background-color: #ffad15;
+  color: #1e1e1d;
+  bottom: 0.3em;
+  left: 0.6em;
+  position: absolute;
+}
+.previous-versions .version-1 a {
+  background-image: url("../images/about-versions-1.jpg");
+  background-size: 120%;
+}
+.previous-versions .version-2 a {
+  background-image: url("../images/about-versions-2.jpg");
+  background-position: right top;
+}
+.previous-versions .version-3 a {
+  background-image: url("../images/about-versions-3.jpg");
+}
+.previous-versions .version-4 a {
+  background-image: url("../images/about-versions-4.jpg");
+}
+
 @media screen and (min-width: 390px) {
   .gaw-gives-a-shit {
     font-size: 12vw;
@@ -1007,10 +1081,6 @@ a {
     font-size: 1.4em;
   }
 }
-.the-site {
-  display: none;
-}
-
 [data-page="purpose"] [role="main"] {
   padding-top: 1em;
 }

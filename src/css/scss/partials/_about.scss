@@ -187,6 +187,93 @@ $rightPadding: 4%;
     }
 }
 
+.the-site {
+    background-color: rgba(darken(#fff, 40), 0.1);
+    border: 1px solid rgba(darken(#fff, 40), 0.1);
+    align-self: center;
+    box-sizing: border-box;
+    @include flex;
+    @include flex-wrap(wrap);
+    margin: 1.2em auto 0 auto;
+    padding: 1em 1.2em 1em 1.6em;
+    width: 95%;
+}
+
+.site-description {
+    font-size: 1em;
+    line-height: 1.5;
+    width: 100%;
+    // width: 45%;
+
+    h2 {
+        font-size: 1.2em;
+        padding: 0.6em 0 0.1em 0;
+    }
+
+    p {
+        color: $darkerwhite;
+        padding-bottom: 1.4em;
+        // padding-right: 0.8em;
+    }
+}
+
+.previous-versions {
+    box-sizing: border-box;
+    // @include flex;
+    @include flex-wrap(wrap);
+    overflow: hidden;
+    // padding-left: 1em;
+    width: 100%;
+    // width: 55%;
+
+    li {
+        @include flex;
+        box-sizing: border-box;
+        // padding: 0.6em;
+        // width: 50%;
+        width: 100%;
+    }
+
+    a {
+        background-color: $grey;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        box-sizing: border-box;
+        @extend %futura-heading;
+        display: block;
+        font-size: 1.2em;
+        position: relative;
+        text-decoration: none;
+        width: 100%;
+
+        b {
+            background-color: $yellow;
+            color: $grey;
+            bottom: 0.3em;
+            left: 0.6em;
+            position: absolute;
+        }
+    }
+
+    .version-1 a {
+        background-image: url("../images/about-versions-1.jpg");
+        background-size: 120%;
+    }
+
+    .version-2 a {
+        background-image: url("../images/about-versions-2.jpg");
+        background-position: right top;
+    }
+
+    .version-3 a {
+        background-image: url("../images/about-versions-3.jpg");
+    }
+
+    .version-4 a {
+        background-image: url("../images/about-versions-4.jpg");
+    }
+}
+
 @media screen and (min-width: 390px) {
     .gaw-gives-a-shit {
         font-size: 12vw;
@@ -376,8 +463,4 @@ $rightPadding: 4%;
     .skills {
         font-size: 1.4em;
     }
-}
-
-.the-site {
-    display: none;
 }
