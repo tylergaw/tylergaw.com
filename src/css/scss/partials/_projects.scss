@@ -43,10 +43,6 @@
         background-color: $yellow;
         color: $grey;
         display: none;
-
-        &::after {
-            display: none;
-        }
     }
 
     .potential,
@@ -73,6 +69,10 @@
                 font-size: 1em;
             }
         }
+
+        .first-block {
+            @include flex;
+        }
     }
 
     @media screen and (min-width: 1050px) {
@@ -80,13 +80,13 @@
             width: 33.33%
         }
 
-        .potential {
-            @include flex;
-        }
-
         .p-readablity,
         .p-readlists {
             width: 66.66%;
+        }
+
+        .first-block {
+            display: none;
         }
     }
 
@@ -98,6 +98,10 @@
         .p-readablity,
         .p-readlists {
             width: 37.5%;
+        }
+
+        .potential {
+            @include flex;
         }
     }
 }
