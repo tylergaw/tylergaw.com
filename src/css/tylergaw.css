@@ -241,6 +241,9 @@ a {
   margin: 0.5em 0;
   padding: 1.2em 1em;
 }
+.article-list .oldest-article {
+  border-bottom: 0;
+}
 .article-list .section-title,
 .article-list .potential {
   -webkit-align-items: flex-end;

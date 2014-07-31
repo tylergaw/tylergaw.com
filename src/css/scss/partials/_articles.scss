@@ -9,6 +9,10 @@
         padding: 1.2em 1em;
     }
 
+    .oldest-article {
+        border-bottom: 0;
+    }
+
     .section-title,
     .potential {
         @include align-items(flex-end);
