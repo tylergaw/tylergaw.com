@@ -1052,11 +1052,33 @@ a {
   border-top: 8px solid #ffad15;
   margin: 1em auto 2em auto;
   max-width: 720px;
-  padding: 1.2em 0 1em 0;
+  overflow: hidden;
+  padding: 1.2em 0 0.8em 0;
   text-align: center;
 }
 [role="contentinfo"] li {
   display: inline-block;
+  max-width: 90px;
+  width: 25%;
+}
+[role="contentinfo"] .icon {
+  display: inline-block;
+  overflow: hidden;
+  text-decoration: none;
+  height: 2.2em;
+  width: 2.2em;
+}
+[role="contentinfo"] .icon svg {
+  height: 100%;
+  width: 100%;
+}
+[role="contentinfo"] .icon .filled-shape {
+  fill: #f8f8f8;
+  -webkit-transition: fill 0.2s;
+  transition: fill 0.2s;
+}
+[role="contentinfo"] .icon:hover .filled-shape, [role="contentinfo"] .icon:focus .filled-shape {
+  fill: #ffad15;
 }
 [role="contentinfo"] .contact {
   line-height: 2;

@@ -2,11 +2,41 @@
     border-top: 8px solid $yellow;
     margin: 1em auto 2em auto;
     max-width: 720px;
-    padding: 1.2em 0 1em 0;
+    overflow: hidden;
+    padding: 1.2em 0 0.8em 0;
     text-align: center;
 
     li {
         display: inline-block;
+        max-width: 90px;
+        width: 25%;
+    }
+
+    .icon {
+        display: inline-block;
+        overflow: hidden;
+        text-decoration: none;
+
+        $size: 2.2em;
+        height: $size;
+        width: $size;
+
+        svg {
+            height: 100%;
+            width: 100%;
+        }
+
+        .filled-shape {
+            fill: #f8f8f8;
+            @include transition(fill 0.2s);
+        }
+
+        &:hover,
+        &:focus {
+            .filled-shape {
+                fill: $yellow;
+            }
+        }
     }
 
     .contact {
