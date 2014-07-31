@@ -188,14 +188,15 @@ $rightPadding: 4%;
 }
 
 .the-site {
-    background-color: rgba(darken(#fff, 40), 0.1);
-    border: 1px solid rgba(darken(#fff, 40), 0.1);
+    $color: rgba(darken(#fff, 40), 0.1);
+    background-color: $color;
+    border: 1px solid $color;
     align-self: center;
     box-sizing: border-box;
     @include flex;
     @include flex-wrap(wrap);
     margin: 1.2em auto 0 auto;
-    padding: 1em 1.2em 1em 1.6em;
+    padding: 1em 1.2em;
     width: 95%;
 }
 
@@ -203,7 +204,6 @@ $rightPadding: 4%;
     font-size: 1em;
     line-height: 1.5;
     width: 100%;
-    // width: 45%;
 
     h2 {
         font-size: 1.2em;
@@ -213,24 +213,20 @@ $rightPadding: 4%;
     p {
         color: $darkerwhite;
         padding-bottom: 1.4em;
-        // padding-right: 0.8em;
     }
 }
 
 .previous-versions {
     box-sizing: border-box;
-    // @include flex;
+    @include flex;
     @include flex-wrap(wrap);
     overflow: hidden;
-    // padding-left: 1em;
     width: 100%;
-    // width: 55%;
 
     li {
         @include flex;
         box-sizing: border-box;
-        // padding: 0.6em;
-        // width: 50%;
+        padding: 0.6em 0;
         width: 100%;
     }
 
@@ -242,6 +238,7 @@ $rightPadding: 4%;
         @extend %futura-heading;
         display: block;
         font-size: 1.2em;
+        min-height: 5em;
         position: relative;
         text-decoration: none;
         width: 100%;
@@ -249,9 +246,6 @@ $rightPadding: 4%;
         b {
             background-color: $yellow;
             color: $grey;
-            bottom: 0.3em;
-            left: 0.6em;
-            position: absolute;
         }
     }
 
@@ -307,6 +301,13 @@ $rightPadding: 4%;
 
     .big-bad-words h2 {
         font-size: 9vw;
+    }
+
+    .previous-versions {
+        li {
+            padding: 0.6em;
+            width: 50%;
+        }
     }
 }
 
@@ -400,6 +401,24 @@ $rightPadding: 4%;
     }
 }
 
+@media screen and (min-width: 880px) {
+    .the-site {
+        padding: 1em 1.2em 1em 1.6em;
+    }
+
+    .site-description {
+        width: 45%;
+
+        p {
+            padding-right: 0.8em;
+        }
+    }
+
+    .previous-versions {
+        width: 55%;
+    }
+}
+
 @media screen and (min-width: 910px) {
     .more-on div {
         width: 50%;
@@ -437,6 +456,10 @@ $rightPadding: 4%;
             width: 100%;
         }
     }
+
+    .the-site {
+        width: 98%;
+    }
 }
 
 @media screen and (min-width: 1130px) {
@@ -462,5 +485,21 @@ $rightPadding: 4%;
 
     .skills {
         font-size: 1.4em;
+    }
+
+    .site-description {
+        width: 35%;
+    }
+
+    .previous-versions {
+        width: 65%;
+
+        li {
+            width: 25%;
+        }
+
+        a {
+            background-size: 165% !important;
+        }
     }
 }
