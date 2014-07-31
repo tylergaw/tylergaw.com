@@ -145,6 +145,9 @@ a {
 [role="navigation"] ul {
   display: -webkit-flex;
   display: flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
 }
 [role="navigation"] li {
   width: 33.33%;
