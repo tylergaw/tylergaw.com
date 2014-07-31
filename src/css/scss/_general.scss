@@ -1,0 +1,57 @@
+$max-width: 900px;
+
+body {
+    font-family: 'chaparral-pro', georgia, times, serif;
+    -webkit-font-smoothing: antialiased;
+
+    .containing-element {
+        border-width: 3px;
+        padding-bottom: 10em;
+        position: relative;
+
+        @media screen and (min-width: 420px) {
+            padding-bottom: 1em;
+        }
+    }
+}
+
+.inconsolata {
+    font-family: 'inconsolata', courier, monospace;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+h1, h2, h3 {
+    @extend .inconsolata;
+}
+
+[role='main'] {
+    clear: both;
+    font-size: 1em;
+    line-height: 1.3;
+    margin: 0 auto;
+    max-width: $max-width;
+    width: 90%;
+
+    img {
+        width: 100%;
+    }
+
+    img.image-vertical {
+        max-width: 70%;
+    }
+
+    @media screen and (min-width: 620px) {
+        img.image-vertical {
+            max-width: 50%;
+        }
+    }
+}
+
+strong, b {
+    font-weight: 600;
+}
+
+em, i {
+    font-style: italic;
+}

@@ -1,0 +1,232 @@
+#page-about {
+    background: #091d2a url(/images/body-bg-navy.png) fixed repeat 20% top;
+
+    ::selection {
+        background-color: #d83717;
+        color: #ffef69;
+    }
+
+    .containing-element {
+        background: #ffef69 url(/images/content-bg-yellow.png) repeat 20% top;
+        @include border-image('about');
+        color: #514a3e;
+    }
+
+    [role="main"] {
+        font-size: 1.2em;
+        padding-top: 1.2em;
+
+        section {
+            overflow: hidden;
+            position: relative;
+        }
+
+        h1 {
+            color: #f37267;
+            font-size: 1.6em;
+            letter-spacing: 0.25em;
+            line-height: 1;
+            margin-bottom: 0.4em;
+        }
+
+        h3 {
+            font-size: 0.9em;
+            letter-spacing: 0.2em;
+        }
+
+        p {
+            line-height: 1.5;
+            margin-bottom: 1.1em;
+        }
+
+        a {
+            color: #2675ce;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        a[href='http://arc90.com'] {
+            i {
+                color: #8b8b8b;
+            }
+        }
+
+        a[href="http://readability.com"] {
+            color: #9c0000;
+        }
+
+        section:first-child {
+            background: transparent url(/images/about-section-divider.png) repeat-x left bottom;
+            padding-bottom: 1.2em;
+
+            h1 {
+                font-size: 2.9em;
+                margin-bottom: 36%;
+                position: relative;
+                text-align: center;
+            }
+
+            p:first-of-type {
+                background: #ffef69 url(/images/content-bg-yellow.png) repeat 50% top;
+                color: #2d2923;
+                font-size: 1.2em;
+                padding-top: 0.6em;
+                position: relative;
+                z-index: 3;
+            }
+
+            img {
+                left: -0.8em;
+                position: absolute;
+                top: 1.2em;
+                z-index: 1;
+                width: 105%;
+            }
+
+            ul {
+                line-height: 1.1;
+                padding-top: 0.4em;
+            }
+
+            li {
+                background: transparent url(/images/about-bullet.png) no-repeat left center;
+                display: block;
+                float: left;
+                font-style: italic;
+                padding: 0.25em 0 0.25em 0.7em;
+                width: 45%;
+            }
+
+            @media screen and (min-width: 470px) {
+                h1 {
+                    font-size: 3.6em;
+                    margin-bottom: 0;
+                }
+
+                p {
+                    float: right;
+                    width: 52.8019925%;
+                }
+
+                p:first-of-type {
+                    background: none;
+                    padding-top: 0.6em;
+                }
+
+                img {
+                    position: static;
+                    width: 100%;
+                }
+
+                div {
+                    display: inline-block;
+                    width: 46.2017435%;
+                }
+
+                h3, ul {
+                    margin-left: 3%;
+                }
+
+                li {
+                    width: 100%;
+                }
+            }
+
+            @media screen and (min-width: 570px) {
+                li {
+                    float: left;
+                    width: 45%;
+                }
+            }
+
+            @media screen and (min-width: 620px) {
+                h1 {
+                    float: right;
+                    font-size: 4em;
+                    margin-top: 0.3em;
+                    text-align: left;
+                    width: 52.8019925%;
+                }
+            }
+        }
+
+        section:last-child {
+            padding-top: 1em;
+
+            ul {
+                padding-top: 0.4em;
+            }
+
+            li {
+                margin-bottom: 1.4em;
+
+                a {
+                    color: #ea3829;
+                    display: block;
+                    font-size: 0.875em;
+                    font-weight: 600;
+
+                    i {
+                        color: #2d2923;
+                        float: right;
+                        font-style: italic;
+                        font-weight: 400;
+                    }
+
+                    &:hover img {
+                        opacity: 1;
+                    }
+                }
+
+                img {
+                    clear: both;
+                    display: block;
+                    margin-bottom: 0.3em;
+                    opacity: 0.9;
+                    position: relative;
+                }
+            }
+
+            @media screen and (min-width: 470px) {
+                p {
+                    float: left;
+                    margin-right: 4.117061%;
+                    width: 66.6176837%;
+                }
+
+                div {
+                    display: inline-block;
+                    width: 29.2652553%;
+                }
+
+                li a {
+                    font-size: 0.775em;
+                    overflow: hidden;
+                }
+
+                li:nth-child(2n) {
+                    img {
+                        left: -3.5em;
+                    }
+                }
+
+                img {
+                    width: auto;
+                }
+            }
+
+            @media screen and (min-width: 620px) {
+                h1 {
+                    font-size: 2.2em;
+                }
+
+                li a {
+                    font-size: 0.9em;
+                }
+            }
+        }
+    }
+}

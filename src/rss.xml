@@ -1,0 +1,2600 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+<channel>
+  <title>Tyler Gaw: Articles</title>
+  <link>http://tylergaw.com/</link>
+  <managingEditor>me@tylergaw.com.com (Tyler Gaw)</managingEditor>
+  <webMaster>me@tylergaw.com.com (Tyler Gaw)</webMaster>
+  <description>An account of the work I do as a Web Designer</description>
+  <lastBuildDate>Thur, 24 July 2014 14:30:00 EST</lastBuildDate>
+  <language>en</language>
+  <generator>Elbow grease</generator>
+  <image>
+    <url>http://tylergaw.com/images/rss-graphic.png</url>
+    <title>Tyler Gaw Occasionally Writes About Web Design and Life</title>
+    <link>http://tylergaw.com/</link>
+    <width>144</width>
+    <height>180</height>
+  </image>
+  <atom:link href="http://tylergaw.com/rss.xml" rel="self" type="application/rss+xml"/>
+      <item>
+          <title>How I Manage NGINX Config</title>
+          <dc:creator>Tyler Gaw</dc:creator>
+          <description>
+              <![CDATA[
+              <p class="entry-intro">
+                  I host my personal sites–this one, <a href="http://lab.tylergaw.com/">my lab</a>, <a href="http://againwiththis.com/">my quips</a>,
+                  <a href="http://listentoslayer.com/">nonsense</a>, and others–on a
+                  Rackspace <a href="http://en.wikipedia.org/wiki/Virtual_private_server">VPS</a>.
+                  <a href="http://nginx.com">NGINX</a> is my web server of choice. Each site
+                  has its own configuration file. I’m definitely not Mr. Sys Admin,
+                  but I have an easy way of organizing those config files to help me make quick
+                  updates and additions.
+              </p>
+
+              <p>
+                  I’m assuming some knowledge with this post. Folks who have middle ground knowledge
+                  of NGINX will get the most out of this. It’s not a how-to NGINX post, so beginners may not find it useful.
+                  It also may not be helpful if you have advanced NGINX knowledge as you likely
+                  have a better way to handle these things.
+              </p>
+
+              <h2>What I Do</h2>
+              <p>
+                  I keep my config files in a private Github repo called “server-conf”. In it
+                  I have two directories; “local” and “prod”. Local for the NGINX install
+                  on my developement machine and prod for my VPS. I have different sites
+                  locally than I do production. Each site whether local or prod has its
+                  own config file.
+              </p>
+              <figure>
+                  <img src="http://tylergaw.com/articles/assets/post-image-nginx-conf-editor.jpg" alt="The server-conf repo opened in a text editor">
+                  <figcaption>
+                      server-conf in my current preferred text editor, Atom. Being able to use it instead of something
+                      like Vim is much more comfortable for me
+                  </figcation>
+              </figure>
+              <p>
+                  Both locally and in production, I clone the server-conf repo to my home directory.
+                  To tell NGINX where the config files are, I use <code>include</code>
+                  in the <code>http</code> block of the main NGINX config file, <code>nginx.conf</code>.
+                  The location of this file is different for each install. Locally, mine is at
+                  <code>/usr/local/etc/nginx</code>. I can never remeber where it is
+                  on my VPS, I just have to peck around until I find it. Here are
+                  the relevant snippets from my local and prod <code>nginx.conf</code>.
+              </p>
+              <pre><code># local
+http {
+  ...
+  include /path/to/home/server-conf/local/*;
+}</code></pre>
+
+              <pre><code># production
+http {
+  ...
+  include /path/to/home/server-conf/prod/*;
+}</code></pre>
+              <h2>Why the Home Directory?</h2>
+              <p>
+                  Mainly because I can never remember the default location of NGINX config
+                  files. This is especially true on my VPS since I access it infrequently. Having it in the home
+                  directory allows me to stumble on it since it’s the first directory
+                  I see when I SSH into the VPS.
+              </p>
+              <h2>How is this helpful?</h2>
+              <p>
+                  This helps me in a number of ways. First, like I mentioned above, it
+                  makes locating the config files much easier.
+              </p>
+              <h4>Comfort</h4>
+              <p>
+                  Doing this allows me
+                  to use a text editor I’m most comfortable with to make updates to
+                  production configs.
+              </p>
+              <p>
+                  When I need to make an addition or change to production config I can make the changes
+                  on my machine. I then commit and push the changes to Github. Then SSH into
+                  my VPS, and navigate to the <code>server-conf</code> directory. There
+                  I <code>git pull</code> and after an <code>nginx -s reload</code> my
+                  changes are live.
+              </p>
+              <p>
+                  Before this, to make production changes I would have to SSH into the VPS,
+                  navigate to the default NGINX config location
+                  and use Vim to make changes. This was a slow and error-prone
+                  process for me because I’m not comfortable with Vim and I get a bit
+                  lost sometimes navigating with the command line. Also, my server
+                  isn’t the fastest so editing there is much slower than it is on my
+                  laptop.
+              </p>
+              <h4>Git</h4>
+              <p>
+                  The ability to quickly roll back breaking changes is huge.
+                  If I pull down changes that cause the prod server to stop working, I
+                  can use git to check out the previous version of the offending file(s) while I fix the problem.
+                  If I’m making larger changes I can create a different branch to make it even
+                  easier.
+              </p>
+              <p>
+                  Config backup via Github. If I get a new computer or if mine is damaged,
+                  I won’t have to recreate my configs for local development. I can just clone the repo and
+                  make the quick update the <code>nginx.conf</code> to get back up and running.
+              </p>
+              <p>
+                  Another cool thing is having a config revision history. Since everything
+                  is in git and on Github, I can see when and what changes I’ve made.
+                  This isn’t that helpful for me since I’m the only one making changes
+                  and they tend to be small, but it could be a huge plus if you have
+                  multiple people making updates.
+              </p>
+              <figure>
+                  <img src="http://tylergaw.com/articles/assets/post-image-nginx-conf-log.jpg" alt="Github commit log for the server-conf repo">
+                  <figcaption>
+                      The server-conf git log provides a history of config changes
+                  </figcation>
+              </figure>
+              <p>
+                  NGINX is relativily easy to configure, but I used to dread making
+                  changes in production because I’m not as handy with the command-line
+                  and Vim as I am a graphical text editor. Having this setup in place
+                  makes it as easy as updating any other files associated with my sites.
+              </p>
+
+              <p>
+                  <i>Thanks for reading</i>
+              </p>
+              ]]>
+          </description>
+          <link>http://tylergaw.com/articles/how-i-manage-nginx-config</link>
+          <guid>http://tylergaw.com/articles/how-i-manage-nginx-config</guid>
+          <pubDate>Thur, 24 July 2014 14:30:00 -0400</pubDate>
+      </item>
+      <item>
+          <title>A Logo Design Process</title>
+          <dc:creator>Tyler Gaw</dc:creator>
+          <description>
+              <![CDATA[
+                  <p class="entry-intro">
+                      As part of my site <a href="http://tylergaw.com/articles/how-i-start">redesign</a>
+                      I wanted new branding. It's not really a logo I guess, but
+                      it's what I'll be using on this site and any other promotional crud that I make
+                      like business cards. This was a fun process that let me dive deeper
+                      into hand-lettering than I have before. Here's a look into the design of the
+                      new logo from pencil sketch to final (enough) image.
+                  </p>
+                  <p>
+                      I'm not trying throw out everything and
+                      start from zero. Because of that, my first step was look at what I have now. My current
+                      logo appears in three variations. The largest appears
+                      on my homepage. On medium size screens a smaller, stacked
+                      version with "web" on top and "designer" below my name is shown. On small screens,
+                      a side-by-side version with my name on the left and "web designer" on the right is shown.
+                  </p>
+                  <figure>
+                      <img src="http://tylergaw.com/articles/assets/post-image-logo-process-existing.jpg" alt="">
+                      <figcaption>
+                          Variations of my current logo displayed at different screen sizes
+                      </figcation>
+                  </figure>
+
+                  <p>
+                      I always start as rough as possible. I grabbed the "Tyler Gaw" portion
+                      of the existing logo and plopped it into a new PSD. I didn't have a
+                      plan for what I'd do with the logo so just started
+                      typing out different titles next to it in different typefaces to get
+                      things rolling. I tried side-by-side, top and bottom, serifs, sans-serifs, handwriting,
+                      pulling, prodding, stretching, scaling, etc. I let myself play and make
+                      as many ugly messes as I could.
+                  </p>
+                  <p>
+                      After a good amount of messin' I landed on something that definitely
+                      wasn't ready, but felt like a good path. My name with "Design & Development" and "Brooklyn NY, USA"
+                      below it. I added a slight angle to both sides to make it a more
+                      interesting.
+                  </p>
+
+                  <p>
+                      The image below shows that everything was out of whack, it's
+                      not even fully readable. That was OK. It was enough that I could see
+                      where I wanted to go with it.
+                  </p>
+
+                  <figure>
+                      <img src="http://tylergaw.com/articles/assets/post-image-logo-process-roughage.jpg" alt="">
+                      <figcaption>
+                          The results of messing with the existing logo. This was bad on
+                          purpose. It got me started down the right path.
+                      </figcation>
+                  </figure>
+
+                  <p>
+                      In the existing logo I refer to myself as a "Web Designer". That feels like
+                      an accurate title because I design and
+                      write code, but I wanted to be more clear so I went with "Design & Development".
+                      Using "Web Designer"
+                      as a title I often have to answer; "no, not only design. I write code too".
+                  </p>
+
+                  <h2>Back to Sketching</h2>
+                  <p>
+                      The next step was to get off the computer and do some sketching. I gave
+                      myself some loose guides to follow for the width/height and for the
+                      shape the text would be in. I redrew the same thing five or six times
+                      until I got one that was close enough.
+                  </p>
+                  <figure>
+                      <img src="http://tylergaw.com/articles/assets/post-image-logo-process-sketches.jpg" alt="">
+                      <figcaption>
+                          Trying to get a solid sketch to start
+                      </figcation>
+                  </figure>
+
+                  <figure>
+                      <img src="http://tylergaw.com/articles/assets/post-image-logo-process-sketch.jpg" alt="">
+                      <figcaption>
+                          The close enough pencil &amp; Ink sketch that was used as a starting point in Illustrator
+                      </figcation>
+                  </figure>
+
+                  <h2>Moving Into Illustrator</h2>
+                  <p>
+                      I brought the close enough sketch into Illustrator and live traced it.
+                      The conversion to vector was as good as could be expected. With any
+                      hand-drawn text there are a lot of unneeded and rough points.
+                  </p>
+                  <p>
+                      I did a pass where I cleaned up the spacing and removed many points to
+                      make the letters of "Design &amp; Development" smoother. In the image
+                      below you can see some sharp edges in places on the "Tyler Gaw". Those
+                      were caused by me changing the height and rotation of different letters
+                      and portions of letters.
+                  </p>
+
+                  <p>
+                      When I thought I had the basic size and shape where I wanted it I
+                      brought it over to Photoshop and placed it in a very early layout of
+                      the new site.
+                  </p>
+
+                  <figure>
+                      <img src="http://tylergaw.com/articles/assets/post-image-logo-process-first-thought.jpg" alt="">
+                      <figcaption>
+                          This is what I originally imagined the logo would resemble. Very
+                          hand-drawn, close to my existing logo. There would still have been a lot of
+                          clean-up required for this to work.
+                      </figcation>
+                  </figure>
+                  <p>
+                      This felt wrong. It was too spindly. I didn't feel like it was standing up on its own.
+                      Felt like it could get lost easily at smaller sizes. I wanted
+                      it to feel more involved, more interesting, just more.
+                  </p>
+
+                  <p>
+                      "What if I add some serifs?" I asked myself. I started with the "D"
+                      in "Design". I widened the stroke and added slight serifs to it.
+                      That's what it needed. With that small change I could tell immediately that this was where
+                      it needed to go. That also let me know that I was in for a whole lot
+                      of tedious work as I would have to take the same steps for each letter.
+                  </p>
+
+                  <h2>The Work</h2>
+
+                  <p>
+                      It took me about about fours days to update all the letters. I
+                      always started by removing as many points as possible. A general rule
+                      I figured out was mo' points, mo' problems. Fewer points allow for
+                      smoother curves and fewer pinches and nicks where they aren't wanted.
+                      After deleting the points it was a matter of moving them around until
+                      the stroke width and serifs matched the rest of the letters. I used
+                      some loose guides to keep the serif sizes similar, but since this is
+                      supposed to have a hand-drawn look I could take liberties with them.
+                  </p>
+
+                  <p>
+                      The removing, adding, and moving of points feels a lot like working with clay. You start with these
+                      rough shapes and you slowly push and pull and smooth it into the shape
+                      that you're looking for. I've written about this process before
+                      for <a href="http://tylergaw.com/articles/slenderman">Slenderman</a>.
+                      For some reason it felt more like chiseling rock that time.
+                  </p>
+
+                  <p>
+                      As a way to check that things were shaping up correctly and as a break
+                      from tedium, I would often bring the logo into the rough layout in Photoshop.
+                      Looking at it as a raster image at the approximate size it would be
+                      displayed helped me make sure it was readable and looked how I wanted it.
+                      I worked on the letters in bursts. I would do a letter, maybe two. Then
+                      stop, get some air. Move it to Photoshop, check it, repeat.
+                  </p>
+                  <figure>
+                      <img src="http://tylergaw.com/articles/assets/post-image-logo-process-ani.gif" alt="">
+                      <figcaption>
+                          Animation showing the rough steps of the process
+                      </figcation>
+                  </figure>
+
+                  <p>
+                      I'm happy with how it's turned out. I'm also working on colors
+                      for the redesign so I added bits of color to the logo and put it up on
+                      <a href="https://dribbble.com/shots/1644137-GAW-Mark-WIP">Dribbble</a> for feedback.
+                      From the beginning I've had my brain set on a red for some reason, but
+                      all of the feedback points to yellow. I've been playing with yellow
+                      as an accent color for the the rest of the site and it feels like it's working so far.
+                  </p>
+
+                  <p>
+                      Here's a final (as-of-right-now) version of the logo embedded as SVG.
+                      I removed the yellow drop shadow from my name that is shown in the Dribbble shot.
+                      It was kind of cool, but didn't feel necessary. I think I can get more
+                      mileage out of the logo without it.
+                  </p>
+                  <figure>
+                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+               width="3267.3px" height="440px" viewBox="0 0 3267.3 2116.3" style="width:100%; height:auto; min-height:200px;background-color:#1e1e1d;"
+               xml:space="preserve" title="Tyler Gaw Design & Development - Brooklyn, NY U.S.A.">
+                      <g id="Logo">
+                          <path id="gaw-w" style="fill-rule:evenodd;clip-rule:evenodd;fill:#F9F9F9;" d="M2783.4,977c19.8,1,52-275.5,54.8-279.7
+                              c3.2-4.7-29.4-47.2-22.1-47.5c1.6-0.1,96.1-21.8,124.4,0c8.3,6.4-19.9,14-15.8,33.3c9,41.6,87.5,202.7,94.3,204.2
+                              c12.2,0-9.5-125.3-9.2-143c0.5-28.8-2.9-132.7-4-146.9c-1.5-19.3-6.5-110.3-6.5-127.6c0-79.5,2.8-178,6-199
+                              c1.6-10.6-4-46.6-2.8-65.3c3.1-45.3-37.7-51.7-36.2-84.7c-0.8-8.4,152.9,15.5,151.1,18.2c-13.6,38.8-41.8,33.8-44.4,53.2
+                              c-1.8,13.7-12.7,79.5-20.8,157.7c-0.4,0.4-3.7,78.6-2.4,103.1c1,19.4,10.8,100.4,10.6,106.2c-1.4,40,0.1,30.4,0.5,72
+                              c0.2,19.8,15.4,82,11.2,111.1c-3.3,22.6,6.7,168.1,6,175c-2.1,20.1,41.9,30.9,39.5,55c-0.6,5.9-136.4,50.2-142.1,38.9
+                              c-4.5-9,19.7-36.7,1.5-75c-10.4-21.7-28.6-52.9-45.2-89.6c-27.7-61.2-36.6-128.9-41.1-128.9c-5.7,0-4.7,67.5-15.5,142.2
+                              c-11.9,82.7-35.1,174.1-28.5,192.3c-2.1,9.5-121.1,56.8-125.8,49.6c-3.2-4.9,11.9-62.1,9.7-74.8c-2.4-13.6-23.4-137.5-25.9-183.1
+                              c-0.7-12.3-16.3-114.5-19.6-136.7c-3.2-21.2-15.4-94.7-17.4-102.9c-5.3-21.4-15.1-59.9-23.5-83.5c-5.9-16.4-8.4-33.8-13.4-50.5
+                              c-5.3-18.1-28.4-138.5-32.8-154c-3.9-13.9-39.8-126.7-45.5-155.2c-1.9-9.4-41-58.8-44-68c-2.2-6.7,153.2,4.2,156,6
+                              c17-4.9-30.3,61.4-29.7,65.5c1.8,11.2,34.8,135.9,37.7,144.7c8.1,24.5,27.5,129.3,30.4,145.8c2.7,15.3,48.6,274.5,47.7,289.9
+                              c-0.7,12.1,6.1,92.2,4.7,115C2754.1,878.5,2763.9,976.5,2783.4,977z"/>
+                          <path id="gaw-a" style="fill-rule:evenodd;clip-rule:evenodd;fill:#F9F9F9;" d="M2446.7,797.9c-17.4,2.8-66.3,24.6-74.6,26.4
+                              c-15.5,3.4-88.7,13.5-93.8,17c-5.8,7.7,26.6,280.8,27,304c2,27,19.7,15.7,24.3,47.1c1.8,12.2-159.5,66.3-158.3,57.9
+                              c2.4-15.8,18.3-34.1,21-49.8c2.7-15.8,21.6-110.2,22.2-126.1c0.2-5.5,0.1-11.1,1.1-16.5c5.1-27.7-8.3-171.9-5.7-199.8
+                              c1.5-15.9,1.3-177.4,0.2-200.2c-1-19.8,2.8-291.5-1.3-310.9c-2.6-12.2-13.6-195.6-14.5-205.7c-1.1-12.5-26.4-44.2-26-57
+                              c0-9.4,167,0.6,173,8c2.9,9.1-19.8,23.3-19,39c1.9,36.2,20.1,94.9,38,126.2c4.2,7.3,65.9,180.7,72.9,203.6
+                              c3.3,10.9,58.6,132.3,62.7,157.7c3.1,19,21.2,109.6,21.4,128.8c0.2,18.2,41.2,314.4,40.3,332.7c-1.1,21.2,19,18,25.7,49
+                              c1.2,5.8-133.2,45-135.9,40.3c-2.2-18.6,20.2-18.3,19.2-55.9C2464.6,1035.5,2450.9,797.2,2446.7,797.9z M2283.4,767.7
+                              c1.9,1.2,66.9-1.9,79.3-6.7c10.3-3.9,72.2-22.5,71.9-31.5c-10.2-77.1-45.4-196.1-53.4-224.1c-2.7-9.3-69.2-225-71.8-232.2
+                              c-3.5-9.5-46.9-117.3-52-117.8c-7-0.6-3.4,173.7-2,181c3.1,16.4,5.7,169.2,9.5,180.8C2270.7,535.4,2281.9,763.1,2283.4,767.7z"/>
+                          <path id="gaw-g" style="fill-rule:evenodd;clip-rule:evenodd;fill:#F9F9F9;" d="M2005.4,258.9c-26.7-12.8-33.9-21.7-44.3-56.2
+                              c-39.5-131.4-157.3-82.4-171-71.1c-5.9,4.1,24.3,560.6,23.9,586.6c-0.4,26.7-15.1,252.2-16.9,267.8c-0.2,1.9,1.4,55.8-1.6,80.6
+                              c-2.6,21.5-40.2,246.2,24.8,237.6c50-6.6,114-76,133-121c9.5-17.6,27.9-395.9,23.7-395c-24,5.4-44.5,12.2-65.7,15.7
+                              c-9.9,11.5-18.8,15.1-35.7,14.7c-4.8-0.3-2.2-95,1.3-98.2c5-8.7,44.7-6.6,72.7-7.5c21.1-1.6,77.5-10.4,78.1-8.9
+                              c2.4,6.2,9.9,220.2,8,239.7c-1.4,14.3-2.7,348.2-15.4,350.5c-39.3,4.8-48.2-39.4-48.2-39.4c-5.8,18.2-19.8,70.3-62.1,82
+                              c-16,0.3-125,54.7-159.8,48.6c-35-6.1-33.9-244-32.1-278c0.7-1.9,25.1-241.6,25.1-250c-0.1-5.6,3.2-206,3.1-231
+                              c0-15.9-16.8-235.1-21.6-314c-3.4-19.1,3.2-170.9,10.1-181c14.8-30.9,15.5-67.7,139.2-67.7c84.9,0,78.3,38.2,102.6,41.5
+                              c26.4,3.6,26.4-18.1,37-1.7C2014.7,120.5,2014.6,234.7,2005.4,258.9z"/>
+                          <path id="tyler-r" style="fill-rule:evenodd;clip-rule:evenodd;fill:#F9F9F9;" d="M1488.2,432.6c-0.1,11.3-7.8,101.4-7.7,117.9
+                              c0-21.1,2.1,242.4-18.5,333.9c-5.3,17.7-68.6,34.2-83.6,36.2c-0.3,0,74.8,23.7,69.8,79.7c-2.8,30.9-9.9,186-10.8,217
+                              c-0.4,15.1-24.8,170.5,73.5,112.5c10.9-6.5,22.5-20.2,30.6-25.1c13.3-8,30.9,78.8-56.4,100.8c-4.7,0.1-106.3-36.7-113-40.9
+                              c-13.9-29.4,1.3-79-1.3-104.3s9.2-222.5,9-229.7c-0.6-23.3-5.7-72.3-36.3-64.3c0,0-3.9,66.8-7.3,89.2
+                              c-3.5,23.1-14.7,128.1-18,142.2c-3.1,13.2-6.6,83.7-4.1,95.8c0.8,4,14.5,53.9,10.2,55.2c-4.8,1.5-106.3-41.8-108.6-45.9
+                              c-1.7-3.2,20.5-23.7,21.1-27.5c4.6-29.7,12.5-58.8,19.7-88c3.7-14.8,3.1-30.2,4.7-45.3c2.5-22.8,8.5-96.5,11.6-119.2
+                              c2.4-17.5,6.1-41.9,7.4-59.6c0.3-4.8-0.4-9.7,0.1-14.5c6.6-64.2,4-192,4-177.4c0-20.8,1.4-41.3,2.6-61.9
+                              c0.9-14.5,4.5-68.3,4.1-88.9c-0.4-21.4,4.6-220.4,4.3-225.6c-1.1-20.2-8.4-83.1-8.3-94.5c0.1-11-21.6-195.2-20-209.2
+                              c0.3-2.9-32.7-17.4-31.2-28.4c5.2-4.1,68.9-6,74-6.1C1532,44.8,1480.6,248,1480.4,279.3C1480.4,296.4,1488.3,417,1488.2,432.6z
+                               M1348.5,854.7c0.4,5.6-3,4.7,33.9-0.4c21.1-2.9,36.1-104.4,38.1-122.4c2.4-20.9,9.6-148.1,9.7-150c0.3-10.9-0.6-148.6,0-161.5
+                              c0.5-11.3-4.5-60.4-4-72c1.3-28,1.1-167.5-5.8-188.1c-6.7-20.1-3.3-34.9-21-48c-29.4-21.8-25.5-25.7-63-22
+                              c0,0,10.5,96.4,10.5,114.5c0,17.7,8,233,8,260.5c0,29-4.3,139-4,143c1.2,19.3-0.9,78.2-2.4,88.2
+                              C1344.5,721.8,1348.8,832.7,1348.5,854.7z"/>
+                          <path id="tyler-e" style="fill-rule:evenodd;clip-rule:evenodd;fill:#F9F9F9;" d="M1022.7,887c10.8-55,1.6-97.9,3.7-117.4
+                              c0.8-8.1-9.2-196.6-10.5-214.1c-1.6-20.7-22.1-261.9-22.2-293.8c0-13.6-10.8-144.4-9.4-156.7c-1-20.6-41.9-15.3-42.2-35.7
+                              c0-4.1,76.4-4.4,84.7-4.3c10.6,0.1,45.8-1.2,52.6,0.4c4.2,1,73.9-2.3,85.8-2.2c5.4,0,11.8,63.4-4.8,62.4c-16-1.3,28-32-109.3-32
+                              c0.1,6,21.3,212.8,26.7,265.3c2.5,52.5,11.3,212.2,12.7,236.9c0.5,10.2,6.7,160.8,4,178.4c-2.2,13.9-2.9,75.6-4.6,88.3
+                              c-1,7.9,53.3-3.2,74.6,1.7c0.6,0.1,1.9,76.8-5,74.3c-17.8-6.3-80.4-14.9-81.9-11c-2.7,7.5-2.7,100-9.4,138
+                              c-5.1,24.9-11.8,93.4-15.7,118.5c1.1,4.2,69.4,21.7,81,26.5c4,1.7,27.1-1.9,31.7-2.7c3.8-0.7-2.4,95.9-6.7,94.8
+                              c-4.2-1-112-41.6-122.5-45.5c-10.1-3.7-91.4-29-91.8-29c-9-11,33.3-56.3,33.3-56.3c4.8-9.3,10.6-46,12.9-67.7
+                              C990.7,1100.5,1019.7,913.1,1022.7,887z"/>
+                          <path id="tyler-l" style="fill-rule:evenodd;clip-rule:evenodd;fill:#F9F9F9;" d="M891.5,1107.5c-0.6,15.6,1,118.3-5.5,115.8
+                              c-8.7-3.3-116.2-44.4-137.3-48.9c-3.2-0.7-98-28.7-101.3-29.1c-0.4-25.7,51.8-47.8,52.6-54.6c3.4-23,29.1-94.3,29.6-97.7
+                              c3.4-22.4,19.3-61.8,20.8-84.3c1.6-22.8,6.3-60.8,8.3-83.7c1.5-16.7,27.3-180.5,28.7-195.7c0.9-9.5-2.9-28.5-1.3-38
+                              c4-23.9-7.1-253.7-7.3-272.3c-0.3-20.7-0.8-38.1-3-58.7c-1.5-14.1,10.9-143.1,8.3-157c-1.6-8.6-33.7-14.7-33.7-28.4
+                              c0,0,60.1-0.3,77.1-2.8s55.3,2.8,55.3,2.8c-0.7,19.1-36.2,19.8-33.8,37.1c2.1,12.1-1.1,141-0.2,155c1.7,25.7,3.1,62.1,3.3,77.3
+                              c0.4,23.5,4.7,93.1,6.7,111c1.8,15.9,1.2,125.8,0,138c-1.4,14-9.9,124.2-12,157.7c-1.7,27.6-6.2,54.7-11.2,82
+                              c-2.4,13.3-8.4,57.9-9.8,80.7c-1.4,22.1-15.6,73.4-17,81.3c-2.4,13.7-11.5,36.8-13,50.7c-4.1,38-10.1,61.7-10.1,61.7
+                              c32.7,13.5,36.3,19.4,53.3,24.7C859.2,1138.4,874.2,1104.5,891.5,1107.5z"/>
+                          <path id="tyler-y" style="fill-rule:evenodd;clip-rule:evenodd;fill:#F9F9F9;" d="M711.5,85.9c-3.3,22.8-22.1,14-29.5,36.5
+                              c-4.2,12.7-17.1,70.2-21,83c-3.2,10.8-31.8,102.6-35,108c-3.5,5.9-50.2,223.8-52.5,228.9c-4.1,9.1-7.5,47.5-8.8,54.3
+                              c-5.2,26.6-2.2,60.1-1.3,93.1c-3.7,24.5-9.2,160.9-10.4,182.9c-0.7,14.5-7.7,56.3-10.3,70.7c-0.9,4.8-8,115.5-6.8,131.8
+                              c0.5,7.1,15.8,27.9,12.5,49.2c0,0-158.9-55.2-159.7-61.3c4-10.7,27.3-10.7,36.7-21.5c5.9-10.9,27.9-44.5,29-63.5
+                              c0.7-11.4,15.3-61,20-78c1.3-4.8,16.3-97.8,17-123c0.6-20,0.5-84.3,4-113.9c2.1-44.7-6.3-48.6-7-75.9c-1.9-31.2,2-87-4-106.7
+                              c-5.1-16.5-35.8-223.5-40.4-245.1c-3.6-17.3-13.7-100-22.3-118.4c-4.4-9.3-32.6-15-37.7-24c-2.4-4.3,94.1-8.3,95.5-6.2
+                              c1.8,4.6-26.1,18.4-22,34.7c12.4,49,23.4,136.1,27,151.5c4.9,20.8,38.5,222.8,42.5,222.9c3.9,0.1,34.7-184.7,39.5-195.9
+                              c9.4-22.1,36.9-164.3,42.4-181.5c4.5-14.3-21.9-29-23.4-35.5c-0.4-2,30.7,3.9,61.8,0.5C660,82,711.4,83.9,711.5,85.9z"/>
+                          <path id="tyler-t" style="fill-rule:evenodd;clip-rule:evenodd;fill:#F9F9F9;" d="M137.7,929.3c8.4-14,28.7-258.7,31.3-277.9
+                              c2-14.3,8.4-296.9,7.7-308.6s-3-185.9,0.7-205.2c0,0-42.4,2.7-66,6.9c-9.1,0.2-41.9,32.7-50.4,35.8c-2.6,1,6.8-62,9-63.7
+                              c11.7-3.6,21.2-1.8,33.9-1.2c8.8,0.4,84.5-4.5,84.5-4.5s95.8-11.7,119.3-10.8c9.7,0.4,32.9-1.3,35-1.2c6.3,0.4,16.3,69.9,10,69.4
+                              c-5.7-0.4-38.2-34.7-46-35.3c-16.8-1.5-56.1,1.7-56.1,1.7s6.2,223.5,8.1,245.7c-0.5,15.5-6.7,98.5-7.9,110.6
+                              c-1.8,17.9,1.1,95.3-0.7,108.8c-2.7,20.9-11.2,347.1-11.3,356.5c-0.2,10,24.7,56.6,16.7,72c0,0-155-53.8-153.9-67
+                              C105.2,951,135.3,935.7,137.7,929.3z"/>
+                          <path id="dev-t" style="fill-rule:evenodd;clip-rule:evenodd;fill:#FFB400;" d="M3188.7,1119.3c0,0,2.3,33.9-1.9,32.8
+                              c-3.8,1.2-6.5-6.5-33.3,1.8c-2.2,0.7-1.7,149.2-5,168.2c-6.1,35.3-4,64.6-7.2,105.9c-2,26.2,3.4,52.1,1.1,78.2
+                              c-1.7,19.3,0.9,38.5,2.3,57.8c1.6,21.2,3.6,42.4,5.4,63.6c2.5,28.8,8.1,171.8,10.7,187.7c1,4.5,16.6,14.5,15.4,21.9
+                              c-1,1.7-63.1,2.5-62.8,0.6c2.3-12.3,13.6-19.5,13.9-24c1.1-13.8-1.2-124.6-1.7-153.8c-0.2-15-11.2-104.7-10.1-135
+                              c0.9-23.8-4.3-47.7-0.5-71.3c3-18.4,3.5-87.9,5.9-104.2c2.1-14.5,2.8-28.6,4-43.3c1-12.9,4.7-148.5,2.7-148
+                              c-36.3,9.2-27.3,17.7-32,19.8c-0.9,0.8-8.9-27.4-7.9-28.5c9.2-5.8,17.5-9,27.2-11.1c17.8-3.8,37.1-11.3,55.8-16.4
+                              C3175.4,1121.5,3181.7,1118.9,3188.7,1119.3z"/>
+                          <path id="dev-n" style="fill-rule:evenodd;clip-rule:evenodd;fill:#FFB400;" d="M3040.2,1764.4c3.4-2.8-2.9-89.2-2.7-107.3
+                              c0.2-19.2-4.3-38.1-4.6-57.2c-0.2-14.2-6.9-162.2-5-179c3.4-30.2-2-219.6-0.9-235.3c-4,0-15.1-4.8-19-10.3
+                              c-1.2-4,52.4-17.3,52.2-15.7c3.1,12-9.8,11.9-9.2,23.5c0.8,8.2,3.9,123,1.8,143c-1.5,13.9,2.1,57.9,0.1,71.8
+                              c-2.6,18.1,1.3,158.1,1.2,177.1c-0.2,27.7,7.3,219.9,8.4,238.2c0.1,2.7,15.9,17,14.3,23.9c-0.3,1.2-60.3,1.9-60.7-0.2
+                              c-1.5-8.9,9.8-18.1,9.4-24.1c-1-14.6-11-76.9-14.5-89.6c-4.9-17.3-17.5-88-18-103.1c-0.6-18.7-14.1-164.6-15.4-190
+                              c-0.9-17.7-17.8-178.4-24-176.2c-9.5,1.5,4.7,209.8,5.2,218.7c1.3,23.8-0.8,159.6-0.6,171.2c0.5,20.1,0.5,145.1-0.9,167.9
+                              c0.1,5.2,14.1,15.5,16.5,25.2c0.8,3.3-56.9,3-56.8,0.4c-1.7-13.7,10.3-12.4,10.5-24.5c1.7-81.4,7.9-360.4,5.6-396.4
+                              c-0.6-23.9-5.2-193.3-6.7-207.2c-0.8-4.4-12-8.2-15.1-15.1c-0.1-2.7,42.8-11.7,44.4-9.2c7.9,16.2,26.3,58.5,29.1,77.2
+                              c5.5,37,21.6,243.3,25.5,266S3037.4,1762.4,3040.2,1764.4z"/>
+                          <path id="dev-e-3" style="fill-rule:evenodd;clip-rule:evenodd;fill:#FFB400;" d="M2800.8,1629.3c1.5-17.2-0.2-38.2,1.5-55.3
+                              c5.3-53.1,5.7-217.8,4.3-229c-0.5-3.6-5.7-90.3-6.2-94.7c-0.9-1.7-14.9,1.6-14.9,1.6c-1.4-12.2-3.5-20.7-3.5-20.7
+                              c26.5-11.5,79.9-26.6,90.7-29.9c4.9-1.5,8.5,36.7,7.6,39c-1,1.6-5.3-8-15.5-7.8c-15.8,0.3-31.5,7.3-38.7,10.8
+                              c-1.9,1,0,53.8,2.7,65.8c3.6,16.3,3.8,72.1,3.5,92.7c-0.4,22.5,1.4,60.9,0.2,68.6c-2.8,18.4-2.7,30.9-3.2,49.5
+                              c-0.4,15.2-1.8,31,0,31.2c23.9,1,33.9-6.4,41.6-5.8c0.8,0.8,2.5,37.2-2.1,36.7c-6.2-0.5-21-7.2-42.2-4.5
+                              c-1.8-0.3-4.4,236.6-0.1,236.4c6.4-0.2,29,1.3,35.2,1.2c10.6,0,8.4-11.2,18.8-10c4.1,0.5,0.4,36.6-1,36.7
+                              c-10.5-1.1-81.9-1.7-87.2-2c-0.4,0-4.6-10.4-1.6-25.1c0.5-2.3,10.2-1.6,10.2-1.6C2801.9,1760,2800.2,1636.5,2800.8,1629.3z"/>
+                          <path id="dev-m" style="fill-rule:evenodd;clip-rule:evenodd;fill:#FFB400;" d="M2659.8,1551.3c-0.1-7.7,6.7-11.2,6.6-16
+                              c-0.3-18.9-25.2-164-27.5-163.5s-0.3,96.4-1.4,107.3c-1.2,11.6,0.5,23.4,0.3,35.1c-0.1,7.2,0,100.8-3.4,122.1
+                              c-1.6,10.1-1.6,138.8-3.2,181.6c-0.3,6.9,11.2,9.3,9.9,19.7c-0.6,1.8-49.5,2.9-49.3,0.2c-0.1-8.6,7.7-11.6,8.7-16.6
+                              c2.9-18.8,5.1-138.8,7.6-157.6c2.9-21.2,1.6-120.6,2.6-137.1c0.8-14.1,0-46.7-0.1-55.1c-0.1-35.5,7-99,4.4-134.5
+                              c-0.9-12.7-2-26.6-4.1-41.6c-0.3-2-16-5.5-15-11.5c0.5-2.5,56-21.2,57-17.5c0.7,2.6-6.1,17.5-5.5,22c0.2,1.7-4.6,13.5,2.2,55.2
+                              c0.6,7.3,32.1,157.9,32.1,157.9c4-4,13.9-130.3,18.6-179.4c4.1-42.5,5.4-42.8,6-55.8c-0.6-5.4-12.1-6.3-12-12.9
+                              c1.1-3.5,47.3-18,47.5-15.1c1.6,7.4-7.6,14.4-7.5,21c-0.1,6.1,8.3,106.7,9.6,124.8c1.7,24.5,5.9,72,3.2,96.4
+                              c-2.8,26-0.2,43.1-2.9,69.1c-1,9.9,2.8,52.9,1.1,62.8c-3.8,23.6-0.2,181.1-1.6,205c-0.2,6.3,9.5,9,8.9,21.1
+                              c0.2,2.5-49.6,2.5-51.2,0c-1.7-7.2,13.8-12.4,13.8-21.2c0.2-36.6-1.2-164.8,4-201c4.4-30.4,0-84,3.3-114.5
+                              c2.5-23,1.7-136.4-0.9-159.5c-0.5-4.5-9.2,83.3-10.5,93.1c-1.3,17.2-10.5,65.1-16.5,94.9c-0.8,4.5,6.3,6.3,6.4,13.5
+                              C2701.3,1547.1,2660.9,1555.3,2659.8,1551.3z"/>
+                          <path id="dev-p" style="fill-rule:evenodd;clip-rule:evenodd;fill:#FFB400;" d="M2577.5,1532.5c0.2,11.4-0.3,32.8-1.6,44.2
+                              c-3.7,31.6-5.6,40.2-54,40.9c-0.8,0.5-2.8,78.7-2.7,94c0.1,12.6,1.4,25.2,0.2,37.7c-1.4,14.2,2,54.6-0.2,68.6
+                              c-1.7,10.7,12.4,11.8,11.1,21.1c-0.3,2.2-54.9,4.2-55.2,1c-0.6-8,12.9-12.3,13.8-19.9c1.6-14.2,3.2-39.4,5.4-53.5
+                              c4.4-27.4,2.8-55.1,4.3-82.5c0.2-3.8-0.9-44.7-0.3-48.5c1-6.6-2.2-59.7-1.1-77c1.4-23.5-0.2-46.8-0.7-70.1
+                              c-0.5-21.7-5.2-40.3-7.3-61.8c-2-20.6-6.3-67-11.4-95.1c0,0-11.1,4.8-11.9,1.4c-0.4-1.9-11.3-14-10.6-14.7
+                              c11.4-5.4,59.6-17.9,72.5-19.7c9.5-1.3,15.8,2.5,22,10c6.8,8.3,9.9,21.7,13,31.7c3.7,11.9,4.3,45.4,5.4,53.3
+                              c2.4,18.4,3.6,33.5,4.6,52C2573.6,1456.7,2576.5,1502.1,2577.5,1532.5z M2521.5,1552.3c0,12.2,0.3,37.6,1.3,37.6
+                              c2.8-0.2,11.5,0.8,17.5,0.2c20.8-2.6,18.8-6.8,19.2-25.7c0.5-22.7-1.4-55.5-1.3-75.7c0.1-16.7-9-99.2-11.1-117.5
+                              c-1.8-15.3,1.6-26.9-6.9-40c-4.1-6.4-12.2-9.6-17.9-8.5s-19.6,5.1-21.5,5.6c-1.6,0.7,8.6,67.8,9.2,74.7
+                              c2.6,28.1,9.3,53.1,10.2,81.4C2520.3,1490.1,2521.6,1535.3,2521.5,1552.3z"/>
+                          <path id="dev-o" style="fill-rule:evenodd;clip-rule:evenodd;fill:#FFB400;" d="M2444.7,1488.8c1.2,29.9,2.7,99.7,3.2,131.6
+                              c0.5,31.6-2.3,67.1-4.7,98.5c-2.5,32.5-3.5,64.5-14.7,95c-4,10.7-4.7,32-39.9,32c-14.6-1.7-31.5-12-32.7-24.9
+                              c-0.7-7.5-2.7-14.7-2.8-22.5c-0.2-11.1-0.5-22.3-0.2-33.3c0.7-24.9,2.3-49.9,1.2-74.8c-1-21.6-1-47.1-1.3-68.7
+                              c-0.2-14-3.4-65.8-3.6-79.6c-0.3-20.7-4-40.9-5.1-61.4c-0.9-16.5-2.9-33-3.6-49.6c-1.3-29.3-4.3-54.5,8.8-80.8
+                              c3.6-7.2,12.2-12.5,18.8-16.7c26.1-9.3,44.9-7.7,49.6-0.7c6.1,9.1,9.9,34.4,11.9,41.6c2.8,10,6,20.7,7.5,31.1
+                              C2440.8,1432.5,2444.1,1459.5,2444.7,1488.8z M2382.6,1817.3c1.5,5.4,9,6,12.6,1.8c2.5-3,7.8-12.1,8.8-15.8c5.1-14.6,9-53.7,11-71
+                              c1.7-14.8,1.3-29.9,2.7-44.6c1.9-19.2,3.2-42.4,4.2-61.6c1.1-21.5-2.1-81.1-1.8-102.6c0.2-12.3,0.8-24.7-0.3-36.8
+                              c-2-21.8-5.5-43.4-7-65.2c-0.4-5.2-5.7-44.5-10.3-63.2c-2.7-13.4-16.5-11.7-20.3-11.9c-7.9-0.9-12.1,33-14.1,49.3
+                              c-2.1,16.7-0.7,65,0.7,72c3,16,3.5,32.4,5,48.5c2.3,25.8,5.5,89.6,5.5,115.7c0,19.3,1.6,42.5,1.4,61.8c-0.2,18.3-1.6,36.4-2.1,54.6
+                              C2378.3,1761.3,2380,1807.8,2382.6,1817.3z"/>
+                          <path id="dev-l" style="fill-rule:evenodd;clip-rule:evenodd;fill:#FFB400;" d="M2319.2,1841.6c-18.2-1.7-75.8,1.1-92.6-0.7
+                              c-1.8-1-1.1-12.5,0-23.7c0.3-3.5,15.9-1.5,16-3.6c0.8-12.5,6.9-83.2,7.9-95.8c1.4-16.9,3.2-33.7,6-50.4c3-17.8,3.1-35.6,4.4-53.5
+                              c0.9-11.6,1.1-72.7,1.4-91.6c0.4-22.7,2.3-33.9-1.3-56.2c-1.5-9.2-8.4-66.8-7.2-76c0.5-3.8-16.9-8.3-16.9-18.8
+                              c0-1.6,53.3-13.6,53.2-12.9c2.6,17.2-8.3,21.8-7.5,26.8c1.7,11.1,4,87.9,3.7,97c-0.3,10.6,2.2,57,1.1,68.5
+                              c-2.2,21.8-2.2,55-3.1,76.8c-0.9,21.2-7.1,84.4-8,89.2c-2.8,14.7-2.1,36.1-4.1,50.9c-2.1,15.4-3.9,46.9-2.9,47.1
+                              c7.6,1.7,24.5,0.5,32.1,0.1c13.9,0.4,12.9-10.6,18.7-8.9C2324.3,1807.2,2321.5,1842.2,2319.2,1841.6z"/>
+                          <path id="dev-e-2" style="fill-rule:evenodd;clip-rule:evenodd;fill:#FFB400;" d="M2149.6,1691.9c-1,0.1-3.8,47.8-7.4,64.1
+                              c-2.9,13.3-5.2,59.7-1.9,59.5c12.2,0.5,14.3,1.8,25.4,1.8c9.7,0,7-13.3,15.5-13.9c2.4,0.8,1.9,37.4-1,37.2
+                              c-4.6,0.4-23.2-0.9-27.8-0.6c-12.2,0.7-41.8,0.9-55.4,0.5c0,0-1.1-12.1,1.3-22.8c1.1-5.1,11.9-1.4,12.2-2.9
+                              c5.8-39.5,14.6-154.9,17.5-176.4c3.1-22.7,8.1-68.3,7.6-91.8c-0.1-7.3,1.9-111.3,2.2-118.6c-0.1-4.1-15.9,9.7-15.3-2.7
+                              c0.3-5.4-4.7-22.8-3.5-24.3c4.8-0.8,50.6-12.6,63.2-14.7c7.6-1,22.9-10.2,25.2-10.2c4.5,0.1,7.4,44.1,5.8,47.3
+                              c-0.6,1.2-19-13.2-19-13.2c-11.5,3.3-19.5,5.8-29,8.9c-2.9,1.5-3.2,47.2-3,53.4c0.9,30.2-0.4,58.2-0.5,88.4c0,21.9-2.4,33.7-4,55.5
+                              c-1.7,24.6-6.5,45.9-4.9,46c37.5,1.5,22.7-13.1,35.3-11.3c3.5,2,2.8,41.1,1,42.6c-4-0.3-9.6-2.8-15.6-3.3
+                              C2165.6,1689.9,2155,1691.6,2149.6,1691.9z"/>
+                          <path id="dev-v" style="fill-rule:evenodd;clip-rule:evenodd;fill:#FFB400;" d="M2016.9,1807.9c5.8,0,11.1-75.8,13.4-87.9
+                              c4-20.8,8.4-71.7,9.5-76.4c6.7-28.4,14-120.5,15.6-136c0.1-1,7.4-55.2,5.3-69.6c-0.7-12.8-14.1-6.3-16.5-16.4
+                              c-0.9-4.1,49.3-15.5,50.1-14.3c0.1,14.9-12.7,13.9-12.4,23.4c0.3,11.1-6.2,67-4.6,80.1c0.7,5.4-3.9,91.4-11,127.2
+                              c-1.8,9-20.5,97.4-25.7,131.3c-1.7,9.8-5.3,39-9,50.7c-0.5,8.5,6,5.8,6.8,21.7c0.2,3.5-44.3,1.8-46.9,1.8
+                              c-4.4-11.2,10.3-16.6,8.8-23.8c-1-4.9-3-61.3-3-66.3c0-36.9-2.5-75.2-3.7-112c-1-31.2-3.7-61.6-3.7-92.9c0-15.5-2.9-81.1-3.3-90.3
+                              c-0.2-6.4-16.4-3.5-17.9-10.9c-0.8-4.2,50.1-16.6,51.6-15.1c1.4,9.2-13.2,14.1-12.3,20.6c0.7,5.4,5.3,62.5,4.3,79
+                              c-1.2,20.6,3,37,3,66.7c0,13.3,1.8,82.2,2.3,106C2018.1,1721.6,2012.4,1807.3,2016.9,1807.9z"/>
+                          <path id="dev-e" style="fill-rule:evenodd;clip-rule:evenodd;fill:#FFB400;" d="M1918.8,1840.6c-11.3,0.8-56.8-1.3-58.8-1.1
+                              c-3.4,0-1.3-14.4-0.5-23.2c0.1-1.3,6.7,1.3,7.4-1.1c6.1-23.6,12.4-172.7,12.2-180.2c-0.4-23.6,0-39-3.8-62.4
+                              c-2.2-13.4-2.2-70-3.3-77.2c0,0-13.5,4.1-13.4,2.3c0.7-4.4-5.3-17.8-3.7-18.2c2.6,0,38.5-11.2,43.7-12.2c10.9-3.2,32.4-8.4,42-9.3
+                              c1.6-0.2,2.1,34.5,0.5,39.4c-0.2,0.6-9.8-10.1-14.8-9.9c-7.4,0.3-22.3,2.7-30.2,3.6c-1.9,0.2-2.2,19.6-1.2,28.5
+                              c2.9,25.4,1,51.8,3.8,77.3c4.1,36.7,2.4,61.5,0.6,98.4c-0.4,8.7-1.4,14.7,0.2,15.1c32.3-0.2,28.3-5.5,36-5.2c0,0-0.1,6.2-0.2,11.7
+                              c0.1,6.4-0.3,19.5-0.3,19.5c-6.9-0.5-6-5-37.1-4.2c-2.4,0.5-2.3,6.4-4,25.9c-1.8,15.5-5.6,57.6-4,57.7c12,0.4,20.1,1.5,31.1,1.6
+                              c12,0.4,12.6-10.5,18.5-10.3c1,3.9,1.8,31.1-0.5,32.8C1937.1,1841.4,1927.7,1840.5,1918.8,1840.6z"/>
+                          <path id="dev-d" style="fill-rule:evenodd;clip-rule:evenodd;fill:#FFB400;" d="M1740.7,1610c-1.2-31-3.1-35.3-3.1-35.8
+                              c-0.1-1.6-4.5-32.4-4.8-34c-3.1,0.8-15.9,4.4-16.5,2c-1.2-4.8-2.9-22.6-2-23.1c9-4.4,43-14.5,53.4-16.3c3.7-0.1,26-3.1,29.4-1.6
+                              c13.6,6.3,21.4,17.1,22.4,31.3c2.1,30.7,4.8,55.4,5.4,86.1c0.2,13.8,0.3,62.5-0.3,81c-0.9,25.2-2.5,50.2-7.2,75.1
+                              c-3.1,16.1-9.1,31-16.8,45.2c-3.5,6.5-13,13.8-24.2,17.3c-12.1,3.8-48.5,2.7-61.6,2.7c-2-0.7,0.9-18.7,1-22.8c10.8-0.5,13-1,13-1
+                              c4.9-27.3,11.9-135.7,12-152.7C1741.9,1638,1740.4,1618.2,1740.7,1610z M1802.5,1660.2c0.1-6-2.9-105.3-4.4-118.1
+                              c-2.8-23.9-45.2-7.9-45.2-7.9c1.2,11.2,6.8,30.5,7.3,41.9c0.8,16,1.8,16.9,2.9,32.9c0.4,6.6,1.5,20.5,0.3,32.7
+                              c-1.5,15.7-1.9,82.7-2,95.5c0,4.8,0,9-0.4,14.1c-1.1,12.4-11.7,63.9-10.8,64c10.7,0.8,26,0.2,31.6-7.9c8.3-12.1,12-38.9,12.8-41.2
+                              c1.7-11.5,2.1-24.1,3.5-35.5C1800.7,1710,1803.6,1680.9,1802.5,1660.2z"/>
+                          <path id="des-n" style="fill-rule:evenodd;clip-rule:evenodd;fill:#FFB400;" d="M1172.1,1672.2c-0.7,23.9,0,141.7-1.4,153.1
+                              c-0.7,7.7,10,3,11.3,13.8c0.2,1.5-57.2,3.5-57.2-0.2c0-7.6,9.2-5.6,10.6-11.5c5.6-24,7.6-91.9,9.8-101
+                              c4.3-17.8-1.5-224.9-1.5-245.3c0-10.5-10.4-12.9-8.5-23.4c0.9-5.1,33.3,7.2,35,11.3c2.2,5.4,8,42.2,13.5,54.2
+                              c4.4,9.6,13.8,44.7,15.5,52.4c5.1,23.8,20.3,107.5,24.7,129.9c1.2,5.9,16.5,85.4,17.7,88.7c9.4-2.5-3.1-189-2.8-202.5
+                              c0.4-16.9,1.7-80.8,0.7-92.2c-1.6-4.1-9-11.7-8.9-18c0.9-2,51.2,15.3,48.6,19.6c-3.4,8-11,0.7-12.3,13.6c1.7,15.3-4,44.4-4.1,59.9
+                              c-0.1,16.3,5.5,98.1,3.5,139.4c0.1,25.1,3.6,82.4-1.2,103.4c-3.8,16.5,9.6,8.7,11.3,20.3c0.3,2-58.4,4-59.8,0.3
+                              c-0.9-5.9,11.7-5.3,7.2-20.8c-4.4-15.2-15.6-67.2-17.9-82.8c-2.5-17.7-11.1-34.5-13-52.2c-1.5-13.9-22.6-123.5-24.5-127.3
+                              C1165,1554.4,1172.7,1649.5,1172.1,1672.2z"/>
+                          <path id="des-g" style="fill-rule:evenodd;clip-rule:evenodd;fill:#FFB400;" d="M1046.7,1434.9c-0.8,1.3-20,49.6-20.9,47.2
+                              c-12.2-12.1,4-8.4-8.2-32.8c-4.4-9.9-36.3-32.3-46.9-25.8c-8.6,5.3-12,19.1-14.1,28.2c-2.6,11.3,4,60.4,4.2,73.5
+                              c0,1.5-0.8,90.1-2.2,97.4c-3,16-6.7,111-10.4,137c-2.2,15.1,0.7,22,5.4,36c7,21.2,36.4,29.8,52,14.4c7.3-7.1,5.6-60.8,7.3-78.8
+                              s0.3-37-2.9-36c-3.5,0-14.5-2-24.4-0.9c-0.3-9.1-14.3-26.2-7.2-29.7c15.5,0.9,67.6,2.4,82.7,0.4c3.3,1.3,1.4,20.5-2.7,27.7
+                              c-0.7,8-15.3,1-16.3,5c-3.1,12.5,2.3,138.3,0.7,143.5c-25.7,1.6-15.1-21.5-25.7-11.4c-11.1,10.4-11,13.8-48.9,13.8
+                              c-49.8,0-54.6-69.1-51.1-87.6c3.4-17.8,15.5-231.8,13.3-241.5c-5.1-23.6-8.3-123.4,46.5-115.6c28.4,4.1,43.1,25.7,52.3,30.2
+                              C1036.9,1432.7,1050,1425.9,1046.7,1434.9z"/>
+                          <path id="des-i" style="fill-rule:evenodd;clip-rule:evenodd;fill:#FFB400;" d="M817.9,1572.5c0.3,2.4,0.1,22.8,0,27.8
+                              c-0.7,25.8-2.3,72.9-2.8,88.9c-0.1,2.3-5.8,67-7.4,79.2c-1.6,12.3,0.2,35.7,0.1,40.2c-0.2,3.7,4,3.9,11.8,5.2
+                              c6.5,1.2,7.2-6.5,10.8-4.5c-0.6,4.5,1.9,28.7-1.5,29.7c-24-3.7-65.2,1.1-68.1,0.3c-1.1-1.1-2.3-24.7-1.6-29.5c3.8-4,4.4,3.8,10,3.1
+                              c7.5-1.5,9.9,2.6,10.5-3.1c1.7-16.7,1.6-39.9,3-56.7c1.3-15.8,8.2-142.2,8.6-152.5c0.3-8.9-0.8-28.6-0.7-38.5
+                              c0.2-17.2-7.2-133.3-7.9-140.6c-1.5-15.6-0.4-48.9-0.6-50.6c0,0-3.6-2.4-7.8-4.3c-8.2-2.5-9.9,6.2-13.7,2.8
+                              c1.8-4-1.5-31.6,2.3-32.2c5-0.3,25.8,5.7,40.6,12.4c11.7,5.3,7.9,3.6,20.7,8c2.3,1.1,10.8,5.4,10.2,7.8c-3.1,12-3.9,26.9-5.7,26.1
+                              c-4.7-1.5,2.6-2.4-8.7-8.5l-12.4-4.7C807.4,1380.6,816.8,1563.2,817.9,1572.5z"/>
+                          <path id="des-s" style="fill-rule:evenodd;clip-rule:evenodd;fill:#FFB400;" d="M633.7,1593.6c-5-10.8-42.2-23.9-45.7-27
+                              c-14.3-12.7-29.1-28.2-32.3-46.9c-1.4-8.5-7.9-85.2-7-105.4c0.1-1.3,1.3-124.5,51.9-125c49.5-0.5,61.9,46.1,63.5,61
+                              c1.5,19,8.6,87.4,8.8,106.4c0.1,16.9,6,10.7,6,22.1c-1.2,3.5-38.2,3.4-41.8-0.1c-1.7-11.3,8.9,0,8.9-20.4
+                              c0-13.6-2.9-101.1-3.5-114.7c-0.5-11.1-17.7-32-24.8-33.3c-8.3-1.6-26.3-0.1-31.1,19.5c-4.1,11.5-8.4,78.9-8.4,84.3
+                              c-0.3,31.9,1.6,97,9.2,111.5c6.7,28.1,48.7,28.7,64.6,52.8c5.9,7.7,15.8,88.4,15.4,114.2c-0.2,6.6,10.8,148.7-51.6,150
+                              s-87-72-86.6-96.3c0.3-18.6-2.2-53.2,1.9-76.3c3.9-21.7,29.1-40.7,44-40.7c6.2,0,7.5-5.3,17-12c3.1-2.2,14.3,65.5,10.7,65.2
+                              c-12.7-1.2-7.2-7.3-19.4-14.8c-8.7-5.3-17-8.3-20.8-0.1c-6.4,14.1-3.9,36.3-3.9,52.7c0,13.2,23.6,88.9,51.6,88.3
+                              s35.4-54.3,34.9-90.8S637,1600.8,633.7,1593.6z"/>
+                          <path id="des-e" style="fill-rule:evenodd;clip-rule:evenodd;fill:#FFB400;" d="M390.9,1837.5c-14.1,0.2-47-1.7-63.2-2.6
+                              c0,0-2.3-8.4,1.4-24.7c7.6,2.2,6.5-0.6,6.6-12.9c0.8-11.5,1.1-87.4,2.2-122.6c0.2-5.8,0.6-24.6,0.5-26.3c0-1.3,1.2-60.1,2.8-65.7
+                              c1.6-5.7-0.1-91.5-1.9-103.6c-0.6-3.9-5.9-97.2-5.6-105.1c0.4-12.5-1.9-96.5-1.2-108.9c1-29.3,3.4-26.6-8.4-27
+                              c-0.9-13.7-1.4-31.6-0.8-31.6c18.3,0,60.6,21.5,76.7,27.6c52.2,15.8,50.4,10.3,59.1,10.9c3.1,0.6-6.7,49.1-9.6,48.6
+                              c-6.4-0.7,2.6-13.5-15-21.1c-20.2-8.6-53.9-24.3-73-28.1c-2.5-0.3,1.9,105.3,2.5,116.2c1,21.2,0.3,48.6,2.4,69.8
+                              c1.2,12.5,3.6,60.7,4.4,72c1.1,16.5-1.6,70.6-1.2,74.8c1.4,16.9-0.5,72.7,0.6,73.2c4.5,1.2,24.5,0.8,28.8,0.9
+                              c28.8,1.2,26.8-7.5,35-7.8c1.1,0.4,1.6,39.9,0.4,39.9c-5.9,0-2.6-8.6-64.7-8.2c-1.8,0-1.2,136.5,2.2,137.5
+                              c74.2,3.4,61.5-11.1,70.8-11.2c5.1-0.7,3.4,33.7,2.8,34C436.5,1837.5,404.6,1837.5,390.9,1837.5z"/>
+                          <path id="des-d" style="fill-rule:evenodd;clip-rule:evenodd;fill:#FFB400;" d="M126.1,1143.7c14.1,4,43.3,12.5,57.2,17
+                              c16.3,5.2,31.2,20.7,38.8,36.3c7.6,15.5,11.1,31.5,14.7,48c3.3,15.3,14.6,210.1,11.9,231.1c-2.2,16.8-6.5,184.4-7.3,203.3
+                              c-1.1,27.2-12.2,123.8-42.6,142.9c-32.2,20.2-98.8,6.3-118.7,11.6c0,0-0.7-8.5,0-23.9c0.9-6.9,17.3,11.1,17.4-17.1
+                              c0.2-53.8-6.2-295.7-6.2-299.6c0-114,3-286.6,2.9-296.1c1.5-45.9-15.1-24.4-16.5-32.9c-0.5-2.8,0.2-27.7,3.5-27.9
+                              C83.3,1136.4,121.2,1142.4,126.1,1143.7z M201.1,1210.7c-5.6-16.7-17.2-23.3-33.5-28.2c-15.9-4.6-51.2-15-50.7-11.2
+                              c0.8,6.9,0.7,61.5,0.9,71.1c0.3,16.2,2.1,171.9,2.8,182.6c1.2,18.9,0.4,132.4,1.8,151.4c0.4,5.3-1.5,123.7-1.8,126.3
+                              c-1.3,16.4,0.9,102.1,0.9,102.1c21.4,6.4,21.4,6.4,43.7-2.8s37.6-42.3,39.4-55c2.7-19.4,10.7-255.5,10.7-265.3
+                              C215.3,1469.3,208.4,1232.4,201.1,1210.7z"/>
+                          <path id="bk-n" style="fill-rule:evenodd;clip-rule:evenodd;fill:#D8D8D8;" d="M1650.6,2036.7c-8.8,0.1-8.7-1.3-10-7
+                              c-1.5-6.9-8.3-9.3-12.2-14.3c-5.4-6.8-11.8-13-18-19.1c-3.3-3.2-5.2-2.5-6.2,2c-3.4,14.9-10.6,28.4-16.3,42.4c-2,4.9-7,6.8-10.7,5
+                              c-4.4-2.1-5.8-6.5-3.5-11.8c6.6-15.1,12.8-30.3,17.3-46.2c1.4-5,2-9.8,2.5-14.8c0.5-5,1.8-9.9,6.8-11.3c5.4-1.5,9.7,1.5,12.7,6.2
+                              c8.6,13.5,21.8,22.8,31.3,35.6c4.9,6.7,8,6,11-2.2c4.5-12.2,13.7-21.5,19-33.1c1.7-3.8,0.6-5.4,9.8-3.2c6,2.7,3.2,4.6,3.3,7.7
+                              c0,2.9-1.5,5.1-3.2,7.3c-8.6,11.1-13.2,24.2-19,36.8c-1.4,2.9-0.8,5.9-1,8.9C1664.2,2036.1,1664.2,2036.1,1650.6,2036.7z"/>
+                          <path id="bk-k" style="fill-rule:evenodd;clip-rule:evenodd;fill:#D8D8D8;" d="M1120.3,1996.2c11.6,13,26.9,20.3,40.8,29.6
+                              c9.6,5.8,9.6,5.8,3.6,13.5c-7,9-7,9-14.1,3.7c-0.9-0.4-1.9-0.8-2.6-1.5c-10.4-10.2-24.2-15.8-35.1-25.2c-1.8-1.5-3.7-3-5.8-4.1
+                              c-8.3-4.5-11.4-3.2-13.2,6.3c-1.2,6.1-3.5,11.6-6.1,17.1c-3.4,8.2-4.4,10.6-12.8,6.9c-10.9-4.6-8.9-4.9-3.6-14.1
+                              c6.6-11.8,9.8-24.9,15.9-36.9c5.5-10.9,13.1-21.3,13.4-34.5c0.1-3.9,1.7-7.1,10.9-3.9c8.8,3.1,7,5.6,5.3,9.3c-1.7,3.7-4,7-5.9,10.6
+                              c-1.1,2.1-2,4.8,0.2,6.5c1.7,1.4,4,0.2,5.5-1c8-6.4,17.8-9.6,26.3-15.1c3.4-2.2,6.4-4.5,10,0.1c7.4,8.7,2.1,7.7-0.6,10.2
+                              c-3.2,7.1-10.7,8.1-16.2,11.3C1130.6,1988.3,1125.3,1991.7,1120.3,1996.2z"/>
+                          <path id="bk-o-2" style="fill-rule:evenodd;clip-rule:evenodd;fill:#D8D8D8;" d="M1001.8,2002c1,8.2-3.7,14.4-8.9,21
+                              c-10.5,13.2-24.9,20.4-40.6,18.3c-16-2.1-31.2-8.7-39.7-25.5c-5.6-11.1-4.3-20.8,1-30.6c5.1-9.6,13-16.1,24-18.3
+                              c4-0.8,11.6-1.4,14-4.6c0,0,3.8-4.4,8.3-2.8c5.4,1.9,11.1,3,16.5,4.8C992.4,1969.6,1002.8,1985,1001.8,2002z M936,1981
+                              c-10.3,4.6-14.5,18.7-7.3,27.4c5,6,11,11.5,19.3,14c9.8,2.9,19,0.7,27.3-3.4c7-3.5,12.6-9.3,12-18.4c-0.7-9.7-7.5-18.3-15.8-21.4
+                              C961.4,1973.9,940.9,1978.8,936,1981z"/>
+                          <path id="bk-o-1" style="fill-rule:evenodd;clip-rule:evenodd;fill:#D8D8D8;" d="M728.3,2009.1c1.7-16.7,6.8-31.7,20.8-42.5
+                              c6.4-4.9,13-7.6,21.3-7.1c11.3,0.7,22.2,1.6,30.8,10.3c6,6,9.4,13,9.6,21.6c0.3,13.4-3.2,25.4-13.1,34.9
+                              c-5.6,5.4-9.8,12.6-19.2,13.6c-11,1.2-21-0.4-31.2-4.8c-7.9-3.4-11.9-10.5-18.2-15.4C725.6,2016.7,728.4,2012.7,728.3,2009.1z
+                               M744.8,2002.9c-0.9,3.7,1.1,7.3,4.5,10.6c4.7,4.7,10.7,7.6,16.8,8.7c4.7,0.8,10,3.8,14.7,0.9c9.2-5.8,15.6-14.4,15.9-25.4
+                              c0.2-8.2-3.6-16.4-11.2-20.2C768.3,1969,746.1,1982.6,744.8,2002.9z"/>
+                          <path id="bk-r" style="fill-rule:evenodd;clip-rule:evenodd;fill:#D8D8D8;" d="M627.9,1978.4c1.8,6.7-6,8.4-9.6,12.8
+                              c-1,1.2-2.9,1.6-4.4,2.4c-3.1,1.8-9,1.1-9.3,5c-0.3,4.5,5.5,6.5,8.9,8.2c14.3,7,31,18.4,45.1,25.5c3.9,2-4.8,15.9-10,14.7
+                              c-4.5-1-9.5-2.3-13.1-4.9c-15-11-32.4-17.8-48.3-27.1c-2.3-1.3-5.1-1.7-7.7-2.4c-7.6-1.8-9.3-1.2-9.6,6.8
+                              c-0.3,6.7-4.7,9.2-8.7,12.7c-2.3,2-4.3,0.9-6.5,0c-2.8-1.2-2.9-3.4-2.3-5.9c3.5-14.7,1.2-30.1,4.9-44.8c0.9-3.7,0.9-7-0.7-10.7
+                              c-1.8-4.1-2.3-8.5,0.6-12.6c1.5-2,2.9-3.3,5.8-2.7c10.3,1.9,20.5,2.4,30.9,0.4c6.3-1.2,12.7,0.9,19,1.8
+                              C620.4,1958.6,627.7,1969,627.9,1978.4z M591.7,1970.9c-3.3,0.4-6.6,0.8-10,1.3c-1.3,0.2-5.8-1.4-7-0.9c-3.8,1.4-2.8,21.5,2.7,19.7
+                              c13.4-4.2,7.2-1.9,22.7-7.2c3.5-1.2,8.1-2.8,8.1-6.4c0-4.1-5.1-4.5-8.5-5.5C597.1,1971.2,594.4,1971.2,591.7,1970.9z"/>
+                          <path id="bk-b" style="fill-rule:evenodd;clip-rule:evenodd;fill:#D8D8D8;" d="M420.5,1946.9c7.5,2.3,14.3,0.5,21,1.7
+                              c11,2,18.7,10.7,19.1,21.6c0.1,3.6-1.9,6.5-3.4,9.4c-4.5,8.6-4.2,8.1,2.2,14.6c10,10.2,13.3,20.8,4.2,34.3
+                              c-2.6,3.8-6.5,5.8-10.5,7.6c-12.6,5.6-25.4,10.8-39.2,12.9c-4.9,0.8-11.8,1.7-16.3,4.6c-3.9,2.5-7,2.5-11.7,2.3
+                              c-6.8-0.4-8.5-3.3-6.9-9.9c3.4-14.1,8.6-27.5,15.3-40.3c4.9-9.5,5.7-20,9-29.9c1.9-5.7,4.2-10.8,0.5-17.2c-2.2-3.8,2.2-7.5,6-9
+                              C413.2,1948,417.3,1947.6,420.5,1946.9z M436.8,2005.3c-5,0.2-24.5,3.4-28.8,5.7c-3.6,1.9-12.3,25-6.7,25c2.7,0,14.3-2.4,16.9-3.2
+                              c9.3-2.9,18.6-6.2,27.9-9.2c4.1-1.3,5.8-3.6,5.9-8.1c0.1-5-2.2-7.5-6.2-9.3C443,2004.9,439.9,2005.1,436.8,2005.3z M444.1,1972.4
+                              c-1.7-2.6-1.7-6.9-5.8-7.4c-4.7-0.6-8.9-2.8-13.8-2.8c-4,0-6.1,1.5-7.6,5.1c-1.9,4.8-2,9.9-3,14.8c-2.3,11.2-4.7,11.2,6.1,8.7
+                              c8.1-1.9,15.7-7.9,21.4-13C443,1976.5,444.2,1974.8,444.1,1972.4z"/>
+                          <path id="ny-n" style="fill-rule:evenodd;clip-rule:evenodd;fill:#D8D8D8;" d="M1893.7,1997.2c-3,9.2-11.7,27.1-17.1,35.1
+                              c-3,4.4-5.9,8.9-7.1,14.4c-0.6,2.8-1.7,7-6.1,7.1l-11.3-7.1c-1.7-6.7,2.9-14,6.8-18c10-10.3,13.7-23.3,17.3-36.3
+                              c2.3-8.2,7.8-14.1,12.4-20.6c4.5-6.3,4.5-6.3,15.2,3.3c2.5,3.1,18.4,33.6,22.1,41.9l9.4-14.6c0,0,12.8-27.5,15.9-36.1
+                              c2.9-9.7,2.9-9.7,14.6-4.7c5.8,3.2,5.8,3.2,2.8,9.4c-3.5,7.4-6,15.1-9.8,21.9c-3.8,7-7,14.4-11,21.4c-3.9,6.8-13.8,32.3-14.2,35.7
+                              c-2.2,8,0.1,8-9.1,8c-7.9,0.1-6.8-2.8-7.8-6.5C1912.9,2037.1,1894.9,1997.5,1893.7,1997.2z"/>
+                          <path id="us-a" style="fill-rule:evenodd;clip-rule:evenodd;fill:#D8D8D8;" d="M2774.7,1972.3c0.7,7.8,1.3,16.8,1.1,26
+                              c-0.1,3.4,1.8,4.8,4.7,5.3c10.5,1.7,10.5,2.7,0.7,10.6c-5.2,4.2,0.8,11.3,1.9,16.4c2.8,13.2,8,19.5-6.7,19.5
+                              c-10.7,0-9.2-3.6-9.9-9.2c-0.9-6.8-0.6-21.9-2.1-28.4c-11.1-3.6-10.1-3.1-16.2-3.7c-4.4-0.4-11.8-4.3-16.2-4.3
+                              c0,0-13.2,14.5-17.5,25.4c-0.9,2.2-0.9,6.9-2.2,8.8c-1.6,2.3-20.9,2.3-23.4-1.5c-2.5-3.9,4.6-15.1,6.3-16.2
+                              c3.6-6.6,35.2-41.2,39.2-45c6.2-5.9,13.2-13.3,17.4-20.8c5.4-9.5,4.2-7,10.4-6.8c6.4,0,7.5,0.4,9.8,8.3
+                              C2773.9,1961.5,2774.1,1963.2,2774.7,1972.3z M2735.7,1993.9c15.2,2.8,29.7,6.5,29.7,6.5s1.9-20.8-5.8-35.7
+                              C2754.6,1968.6,2739.4,1987.9,2735.7,1993.9z"/>
+                          <path id="us-s" style="fill-rule:evenodd;clip-rule:evenodd;fill:#D8D8D8;" d="M2537.2,2045.4c-3.7-0.7-9.4-1.5-14.9-2.8
+                              c-6.5-1.5-10.1-3-16.6-1.8c-6.3,0.7-17-3.8-16.2-14.9c0.9-12.5,2.2-6.7,6-7.4c9.5,1.7,31.5,13.4,58,5.1c3.6-1.1,3.9-3.6,1.3-6.1
+                              c-2.7-2.5-5.5-4.9-8.9-6.5c-3.9-1.9-7.3-4.8-10.9-7c-10.3-6.1-10-14.9-8-24.5c0.9-4.5,11.1-13,17.3-13.9s12.3-2.8,37.7-3.9
+                              c1.2,0,4.8,9,3.9,9.7c-4.6,3.5-7.8,5.8-13.8,5.5c-6.7-0.3-18.5,0.7-23.7,5c-2.5,2.1,1.7,10.3,15.7,14.4
+                              c10.1,2.3,16.9,16.3,16.3,24.5c-0.6,8-6,17.6-14.4,19.8C2557.1,2042.8,2548.3,2045.1,2537.2,2045.4z"/>
+                          <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#D8D8D8;" d="M2325.7,1966.4c3-13.2,3.5-12.6,16.4-8.9
+                              c4.1,1.2,4.1,1.2,2.3,7.5c-1.5,4.9-4.4,19.2-6,24c-3.3,9.9-0.3,18.8,4,27.2c4.9,9.3,18.3,8.2,24-1.6c7.1-12.3,10.7-25.9,14.1-39.6
+                              c0.5-2,0.9-3.9,1.3-5.9c2.7-11.7,2.7-11.7,13.5-9.2c10.9,2.5,9.6,3,7.7,12.6c-0.6,3.2-1.2,6.8-2.7,9.4
+                              c-6.9,12.4-11.5,25.7-16.9,38.7c-5.6,13.5-23.8,24.5-37.4,20.7c-7.7-2.1-13.1-8.8-19-14.3C2312.5,2013.3,2323.6,1976,2325.7,1966.4
+                              z"/>
+                          <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#D8D8D8;" d="M2032.6,2061c-6.7,0.1-9.2-2.4-6.9-8.4
+                              c4.5-11.6,7.2-23.6,11.6-35.2c3.9-10.3,2.6-14.9-6.2-21.7c-6.9-5.3-13.7-10.9-20.2-16.7c-5.8-5.2-5.7-9.9-0.6-14.4
+                              c5.3-4.7,11.6-4.5,15.5,1.4c2.8,4.2,6.7,6.6,10.7,8.9c3.6,2,7.3,4,9.6,7.2c3.5,4.9,6.5,3.4,10.1,0.6c5.4-4.2,7.5-11,12.2-15.8
+                              c3.7-3.8,7.6-6.7,12.8-7.5c4.4-0.6,8.3,1.2,10,5.3c1.5,3.8-1.5,6.4-4.3,8.3c-11.8,8.4-19.4,20.2-25.7,32.9
+                              c-6.2,12.3-10.5,25.1-12.2,38.9C2047.7,2055.3,2041.3,2060.8,2032.6,2061z"/>
+                          <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#D8D8D8;" d="M1414.7,1960.6c3,0.1,5.4,1,7.4,3.2
+                              c6.5,7.4,15.6,10.2,24.1,14.1c2,0.9,8.5,7.2,9.9,6c6.5-5.3,22.6-16,28.5-22.3c4.5-4.8,8.6-4.9,12.1-1.3c3.1,3.2,2.2,9.6-2.9,13.1
+                              c-7.8,5.4-15,11.4-22,17.6c-13.1,11.5-23.8,24.5-25.6,43.1c-0.7,7.1-5.1,13.1-12.5,15.9c-3.1,1.2-6,1.5-8.4-1.1
+                              c-2.1-2.3-3.7-4.9-2.6-8.2c0.1-0.3,0.2-0.7,0.3-1c5.4-10.2,7-22.1,13.8-31.9c5.8-8.3,5.5-11.4-3.2-16c-8.4-4.4-15.4-10.8-23.8-15.1
+                              c-4.1-2.1-7.6-4.7-5.8-10.3C1405.8,1961.1,1410.6,1961.5,1414.7,1960.6z"/>
+                          <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#D8D8D8;" d="M1283.1,1969.3c-4.7,8-3.6,19.3-7.5,29.5
+                              c-1.9,5-3.1,10.3-4.3,15.6c-0.7,3.1,0.5,5.6,4,5.7c13.4,0.4,26,7.6,39.8,4.8c1-0.2,2-0.1,3,0c4.5,0.7,9.1,5.1,8.6,8.2
+                              c-0.9,5.9-6.7,11.4-11.6,10.8c-20.6-2.6-48.1-5-68.9-5.8c-4.3-0.3-8.9-0.7-0.4-12.7c3-4,10.7-21.9,12.7-26.8
+                              c1.8-4.7,4.2-9.2,4.8-14.3c0.4-3.7,1-6.9-0.2-10.8c2.5-14.1,1.5-15.6,14-13.8C1286,1961.3,1283.8,1962.9,1283.1,1969.3z"/>
+                          <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#D8D8D8;" d="M1717.4,2048.4c-2.5,11-12.2,22.2-16.2,19.8
+                              c-2.6-2.8,3.4-5.5,4.8-14.3c3.2-20.4-9.2-12.8-13.5-15.6c-3.9-2.4-6.2-5.7-4.9-10.4c1.3-4.3,4.6-6.9,8.9-7.8c4.5-1,9,1.2,11.2,5.2
+                              C1710.8,2035.1,1719.5,2031.9,1717.4,2048.4z"/>
+                          <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#D8D8D8;" d="M2411.4,2040.5c-5.5,2.7-7.9,2.1-9.4,1.4c-3.4-1.5-5.7-4-5.1-8
+                              c0.6-3.7,3.1-6.1,6.5-7.3c3.6-1.3,7.5,0,9.7,3.1C2417.9,2036.4,2415,2037.2,2411.4,2040.5z"/>
+                          <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#D8D8D8;" d="M2601.6,2031c2,5.4,1.1,7.5,0.2,8.9c-2,3-4.7,4.7-8.5,3.6
+                              c-3.5-1-5.6-3.6-6.4-6.9c-0.8-3.4,1-6.9,4.3-8.5C2598.4,2024.5,2598.8,2027.2,2601.6,2031z"/>
+                          <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#D8D8D8;" d="M2807.2,2031.4c3.7,2.6,4,4.4,3.9,5.7
+                              c-0.2,2.8-1.5,5.2-4.8,6.3c-3.1,1-5.7,0.2-7.7-1.6c-2-1.9-2.2-5-0.4-7.5C2802,2028.6,2803.5,2030.2,2807.2,2031.4z"/>
+                          <g id="ampersand">
+                              <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#F9F9F9;" d="M1445.7,1604.9c0,0-21.7-10.2-24-37.3
+                                  c-2.7-31.7,23.3-58.3,62-58.3c20.6,0,39.1,15.8,41.3,26.3c2,9.7-1.2,19.5-2.7,26.3c-12,4.8-32.6,0.5-34-5.3
+                                  c-1.1-4.3,19.7-11.1,16-22.3c-2.5-7.8-19-11.3-33.3-9.3c-15.5,2.2-43.3,57.9,1.6,70.6c13.4,3.8,19.4,3.7,19,13
+                                  c-0.3,8.4-6.4,10.4-18.6,10.4s-56.9,26.9-66,44c-32,60.3-27,149.2,96.2,146.4c85-2,69.9-151.8,69.1-155.4
+                                  c-0.8-1.9-41-0.7-65.6,10.3c-6.1,2.7-24.4,23.7-13.7,39.7c6.7,10,21.9,8.2,25.7,7c14.3-4.3,2.9-21.7,9.3-22c2.3-0.1,22.3,14,6,29
+                                  c-9.1,8.4-36.2,9.5-45.5,0.8c-26.2-24.3-6.2-85.5,54.4-86.4c7.8-0.1,31.8-2.6,39.4-1.7c15.6,1.8,58,3.3,64.3-24
+                                  s-6.8-42.9-15.7-46.7c-12.8-6.3-28.4-4.6-37,0.3c-25.1,14.4-15.4,44,9.7,34.7c5.7-24.7,39,9.7-6.3,16c-8,1.1-22-2.3-26.8-9.8
+                                  c-5.5-6.3-8.3-17.6-6.7-24.5c3.7-16.2,15.6-24.2,32.4-29.4c16.4-5.1,32.9-4.3,46.1,3.9c32.6,19.5,30.7,76.9,2.6,92.5
+                                  c-15.7,8.7-20.1,13.6-45.7,12.3c-2,1,1.6,25,2,55.3c0.2,16.3,16.6,99.1-88.1,118.9c-48.7,9.2-111.2,5.3-135.3-44.7
+                                  C1312.4,1649.4,1445.7,1604.9,1445.7,1604.9z"/>
+                          </g>
+                      </g>
+                      </svg>
+                      <figcaption>
+                          An embedded SVG version of the final(ish) logo. SVG is amazing
+                      </figcation>
+                  </figure>
+                  <p>
+                      I'm looking forward to working with the logo more. Keeping
+                      it vector was important for me because I want to display it using SVG.
+                      I also think there will be some interesting things to do with it using
+                      CSS transitions and animations further down the road.
+                  </p>
+                  <p>
+                      <i>Thanks for reading</i>
+                  </p>
+              ]]>
+          </description>
+          <link>http://tylergaw.com/articles/a-logo-design-process</link>
+          <guid>http://tylergaw.com/articles/a-logo-design-process</guid>
+          <pubDate>Thur, 17 July 2014 18:30:00 -0400</pubDate>
+      </item>
+      <item>
+          <title>How I Start</title>
+          <dc:creator>Tyler Gaw</dc:creator>
+          <description>
+              <![CDATA[
+              <p class="entry-intro">
+                  I'm beginning a design iteration of this site. I've started
+                  freelancing full time and I want the site to display more of my work
+                  and explain it in finer detail to give potential clients and collaborators
+                  a better idea of what I do and how I go about it.
+                  I love this early part of the process where everything is on the table,
+                  and up in the air, and I can get arty-farty and a little weird. Hold
+                  on tight, it's a bumpy ride.
+              </p>
+              <h2>Nonsense</h2>
+              <p>
+                  This part of the process has no structure. I just like to
+                  make things as messy as possible. I immerse myself in the types of
+                  ideas I want to convey and the type of designer I want to be. I open
+                  100 browser tabs across 10 different windows. I keep multiple sketch books in front
+                  of me, a No. 2 pencil and busted, cheap sharpener. I drag out every
+                  micron pen I have, even though I'll probably not use any of them.
+                  I haven't yet, but I'll probably get out the paint and brushes to
+                  make a really big mess.
+              </p>
+              <figure>
+                  <img src="http://tylergaw.com/articles/assets/post-image-starting-sketches.jpg" alt="">
+                  <figcaption>
+                      Bad handwriting. Worse block lettering.
+                  </figcation>
+              </figure>
+              <p>
+                  In my sketchbooks I don't really sketch interface wireframes, but I do write lots of words
+                  and phrases. Some of them are ideas I want to convey. Some of them
+                  are just nonsense that I think is funny. "Hollerin'" "Sweatin'" "Braggin'"
+                  "BLACK" "MAKE IT EXTRA LARGE"
+                  "NO STRAIGHT LINES" "ALL RIGHT ANGLES" "Don't limit" "Do limit"
+                  and plenty more non-sequiturs, contradictions, and fibs
+                  that will have me scatching my head when I look back at them at some
+                  point in the future. I also draw plenty of skulls on fire and anarchy signs
+                  and all other types of bad drawings that look awesome on the back
+                  of 8th grader's notebooks.
+              </p>
+              <h2>Folks</h2>
+              <p>
+                  I listen to artists and designers talk about making cool art and design.
+                  I have seen all of these multiple times, they never get old. I love them and
+                  they get me excited to design:
+              </p>
+              <ul>
+                  <li><a href="https://vimeo.com/39441590">Portland/CreativeMornings - Draplin</a></li>
+                  <li><a href="http://www.aiga.org/video-HHH-2013-draplin/">More Draplin - Tall Tales from a Large man</a></li>
+                  <li><a href="https://vimeo.com/20456428">Even more Draplin</a></li>
+                  <li><a href="https://vimeo.com/20777627">Draplin, shit! He's the best</a></li>
+                  <li><a href="http://hillmancurtis.com/artist-series/lawrence-weiner/">Design Matters: Lawrence Weiner</a></li>
+                  <li><a href="http://buy.beautyisembarrassing.com/">Beauty is Embarrassing - Wayne White</a></li>
+                  <li><a href="https://www.youtube.com/watch?v=JyRAHKTy6hI">Beautiful Losers - Buncha great folks</a></li>
+              </ul>
+              <figure>
+                  <img src="http://tylergaw.com/articles/assets/post-image-starting-art.png" alt="">
+                  <figcaption>
+                      Art, beards, grumpy men
+                  </figcation>
+              </figure>
+              <p>
+                  With all of those it's not even really about the crud they make. I
+                  don't sit and stare at the work they produce. I get inspired and excited
+                  hearing them talk about how much they love what they do, what it
+                  means to them, and what they think it means to other people.
+              </p>
+              <h2>Letters and Such</h2>
+              <p>
+                  This time around I wrote names of different fonts that
+                  I was interested in using or just like the name; "Franklin Gothic Condensed",
+                  "Futura", "Roboto Slab", "Neue Helvetica 55 Roman".
+              </p>
+              <p>
+                  I hopped into ole sparky (PS) and threw together some of the type
+                  to see how it would look in the colors I have in mind. Again, no structure,
+                  just bashing on the keyboard and tweaking some settings here and there to
+                  see how things might work later.
+              </p>
+              <figure>
+                  <img src="http://tylergaw.com/articles/assets/post-image-starting-type.png" alt="">
+                  <figcaption>
+                      Playing around with some type treatments
+                  </figcation>
+              </figure>
+              <h2>Music</h2>
+              <p>
+                  Music is always a huge part of my process. A <a href="http://www.rollingstone.com/music/videos/interpol-comes-out-of-the-black-in-all-the-rage-back-home-video-20140709">new Interpol song</a> was
+                  released yesterday. It's awesome. I've listened to it about 999 times so far.
+                  It's having an impact on my brain and designs.
+              </p>
+              <iframe width="100%" height="325" src="//www.youtube.com/embed/-u6DvRyyKGU" frameborder="0" allowfullscreen></iframe>
+              <p>
+                  Here's some other crud I have on repeat that will also have an impact on the design:
+              </p>
+              <ul>
+                  <li><a href="http://www.rdio.com/artist/Interpol/album/Our_Love_To_Admire/">Our Love to Admire - Interpol</a></li>
+                  <li><a href="https://twitter.com/ANTEMASQUE">ANTEMASQUE - ANTEMASQUE</a></li>
+                  <li><a href="http://www.rdio.com/artist/AFI/album/Burials_(Digital_Booklet_Version)/">Burials - AFI</a></li>
+                  <li><a href="http://www.rdio.com/artist/Every_Time_I_Die/album/From_Parts_Unknown/">From Parts Unknown - Every Time I Die</a></li>
+                  <li><a href="http://www.rdio.com/artist/Lana_Del_Rey/album/Ultraviolence_(Deluxe)/">Ultraviolence - Lana Del Rey</a></li>
+                  <li><a href="http://nadiesound.com/album/cry-is-for-the-flies">Cry Is For The Flies - Le Butcherettes</a></li>
+                  <li><a href="http://www.rdio.com/artist/Mastodon/album/Once_More_%27Round_The_Sun_1/">Once More 'Round The Sun - Mastodon</a></li>
+              </ul>
+              <p>
+                  That's pretty heavy list. This design is most likely going
+                  to be dark, loud, bold, and brooding. Simple and clean can take a
+                  long walk off a short pier.
+              </p>
+
+              <h2>6th Grade Art Class</h2>
+              <p>
+                  Here's something I haven't done for designs in the past, but felt
+                  compelled to for this one. I pulled out a stack of old magazines and
+                  have been tearing through them cutting things out to make crap little
+                  collages. I'm not putting much thought into the pieces. These aren't
+                  "mood boards" or whatever. Just flipping the pages and if something
+                  catches my eye I hack it out and throw it on some paper. A piece of
+                  text that's bright. Some dumb phrase. Creepy dude eyes. Anything that's
+                  interesting.
+              </p>
+              <figure>
+                  <img src="http://tylergaw.com/articles/assets/post-image-starting-collage.png" alt="">
+                  <figcaption>
+                      Cuttin’ out Hetfield's eyeballs for shits and giggles
+                  </figcation>
+              </figure>
+              <p>
+                  These collages aren't going to be part of the design, they're
+                  just a way for me to get moving. Computers are too damn slow. I
+                  need to use my hands to move fast and toss shit around and scribble and just
+                  be a wreck in general. It helps me get my entire self into it.
+              </p>
+              <h2>These Silly Paragraphs</h2>
+              <p>
+                  This post is part of it too. This isn't meant to be some how-to or
+                  "10 Clever Ways to Inspire Your Next Responsive E-Commerce Design" post.
+                  Like the rest of the process, it's messy. It's unedited and maybe unfinished.
+                  It's also a chance to stop and think about what I'm doing. Or to put
+                  it another way; procrastinate.
+              </p>
+              <p>
+                  What about you, how do you start?
+              </p>
+              <p>
+                  <i>Thanks for reading</i>
+              </p>
+              ]]>
+          </description>
+          <link>http://tylergaw.com/articles/how-i-start</link>
+          <guid>http://tylergaw.com/articles/how-i-start</guid>
+          <pubDate>Thur, 10 July 2014 17:30:00 -0400</pubDate>
+      </item>
+    <item>
+        <title>CSS True Titles</title>
+        <dc:creator>Tyler Gaw</dc:creator>
+        <description>
+            <![CDATA[
+            <figure>
+            <a href="http://lab.tylergaw.com/css-true-titles/">
+                <img src="http://tylergaw.com/articles/assets/post-image-true-titles-intro.jpg"
+                    alt="Image of the title cards from the True Titles demo">
+            </a>
+        </figure>
+        <p class="entry-intro">
+            The <a href="http://youtu.be/ZRPpCqXYoos">opening titles</a> to the
+            show True Detective are incredible. CSS contains the building
+            blocks necessary to create a similar style title sequence. I tried my
+            hand it and came up with fun results. Here's the
+            <a href="http://lab.tylergaw.com/css-true-titles/">demo</a> and the
+            <a href="https://github.com/tylergaw/css-true-titles">source code</a>.
+        </p>
+        <p>
+            The first thing I have to do is issue the disclaimer. This is an
+            experimental project. Things will most likely go wrong when you view
+            it. I'm pushing on the browser pretty hard to get it to do things it
+            maybe wasn't intended to. Also, due to limited suppport
+            of <a href="http://www.w3.org/TR/css-masking-1">CSS masking</a>
+            you'll only see the full effect in Chrome, Opera, and possibly Mobile Safari.
+            The animations will work in other browsers, but things will look strange.
+        </p>
+        <h2>The Masking</h2>
+        <p>
+            There's a whole lot going on in each shot of the TD titles. You should
+            read the write up about it on <a href="http://www.artofthetitle.com/title/true-detective/">Art of the Title</a>.
+            The main effect that I wanted to recreate was the use of human silhouettes
+            to mask shots. They use video clips for the masks and the content being
+            masked, but I stuck with still images to keep things a little easier.
+        </p>
+        <figure>
+            <img src="http://tylergaw.com/articles/assets/post-image-true-titles-mask-example.jpg"
+                alt="">
+            <figcaption>
+                An example of using a human to mask footage in the True Detective titles
+            </figcaption>
+        </figure>
+        <p>
+            I'm accomplishing masking using the CSS <code>mask</code>
+            property. As I mentioned, browser support for it is currently
+            limited. I'm going to break down the first title
+            card to explain how the masking is
+            implemented.
+        </p>
+        <figure>
+            <img src="http://tylergaw.com/articles/assets/post-image-true-titles-opener-card.jpg"
+                alt="">
+            <figcaption>
+                A still of the first title card.
+            </figcaption>
+        </figure>
+        <p>
+            Each title card is an <code>li</code> element. They contain base
+            styles like width, height, position, etc. Within each <code>li</code>
+            is markup specific to that card. Below is the markup for the elements
+            that make up the opening card.
+        </p>
+        <pre><code>&lt;div class="composition animated"&gt;
+  &lt;div class="town animated">&lt;/div&gt;
+  &lt;div class="human">&lt;/div&gt;
+&lt;/div&gt;
+&lt;h1 class="copy animated"&gt;
+  &lt;b class="role">This is a&lt;/b&gt; CSS Experiment
+&lt;/h1&gt;</code></pre>
+        <p>
+            The containing <code>div</code> element with the class of "composition"
+            houses all the images. I'm using a containing element here so I can move
+            and scale the "human" and the "town" together, while still being able
+            to move and scale each independently. I'm also applying the mask
+            to the composition element. The "human" and "town" elements have background
+            images applied to them.
+        </p>
+        <figure>
+            <img src="http://lab.tylergaw.com/css-true-titles/img/opener-human.png"
+                alt="">
+            <figcaption>
+                The partially transparent human image, which doubles as the mask
+                for the opening card.
+            </figcaption>
+        </figure>
+        <p>
+            All of the images are from the <a href="http://flickr.com/commons">Flickr Commons</a>.
+            I cropped, clipped, and pushed their pixels around in Photoshop until
+            they felt right. Some of them have kind of ratty clipping paths, but
+            you can't really seen them with everything moving. I was able to bring
+            the file size down some because of that.
+        </p>
+        <figure>
+            <img src="http://lab.tylergaw.com/css-true-titles/img/opener-town.png"
+                alt="">
+            <figcaption>
+                The background image for the town element.
+            </figcaption>
+        </figure>
+        <p>
+            I want to be able to move the "town" element from right to left and
+            left to right. If I applied the mask to that element, the mask would
+            move with the town causing it to not line up properly with the human image.
+            The mask needs to be applied to an element above it, the composition element.
+            Since CSS masks are only concerned with the opaque and transparent
+            portions of an image, I can reuse the human image as the mask for the
+            "composition" element using the CSS below. Areas appearing under
+            opaque portions will be visible, those under transparent portions will
+            be invisible.
+        </p>
+        <pre><code>.opener .composition {
+  ...
+  -webkit-mask: url("opener-human.png") top left/cover no-repeat;
+  mask: url("opener-human.png") top left/cover no-repeat;
+}</code></pre>
+        <p>
+            The shorthand <code>mask</code> has similar properties as <code>background</code>.
+            URL, position, size, repeat. It was important that all of the images and mask
+            had the same <code>background-size</code> setting. In this case they
+            are all set to <code>cover</code>. That prevents the images from becoming
+            too short or too narrow so that you see the edges of them. I could
+            have set a fixed width and height on the cards to avoid this
+            altogether, however it was more fun to embrace the unstable
+            environment that is a Web browser by letting everything remain fluid.
+        </p>
+        <p>
+            The rest of the title cards follow a similar pattern with adjustments
+            based on the the number of images that were needed and the animations
+            that were put into place. You can see the source scss for each
+            card <a href="https://github.com/tylergaw/css-true-titles/tree/master/css/scss/partials">here</a>.
+        </p>
+        <h2>The Animations</h2>
+        <p>
+            There are a few different animations happening during the sequence.
+            The main animation–or timeline–is responsible for cutting from one card to the next
+            and looping back to the first after the last. Within each card there
+            are one or more animations that control composition elements and individual
+            elements.
+        </p>
+        <figure>
+            <img src="http://tylergaw.com/articles/assets/post-image-true-titles-ani-diagram.jpg"
+                alt="Sketch showing the length of the main timelime is seconds and the length of each sub timeline as a percentage.">
+            <figcaption>
+                A diagram showing the main and sub timelines of the sequence.
+            </figcaption>
+        </figure>
+        <h3>The main timeline</h3>
+        <p>
+            Once I came up with all the cards I wanted, I tweaked
+            the total length until the pacing felt about right at 36 seconds. The .54 seconds was
+            added the to make the sequence length match the length of the audio track.
+            The track ended up an odd length because I edited it with <a href="http://audacity.sourceforge.net/">Audacity</a>
+            and I've never been able to tame that beast. Has anyone?
+        </p>
+        <p>
+            As the diagram shows, the length of each title card is a percentage
+            of the total sequence length. That length is how long that card will
+            be visible. Figuring out the length for each card took quite a bit
+            of trial and error to get right. If each card was the same length, coming
+            up with a percentage for each would be easy: <code>100% / number of cards = length</code>.
+            That was not the case with this sequence.
+            There are four title cards and one "bump" card.
+            The bump card contains no text, it's there as a break and
+            extra visual information (AKA, it looks cool). Because of that, the
+            bump needed to be shorter than the title cards. The photography card
+            doesn't contain as much motion as the other cards and that was making it feel too long.
+            I stole time from it to give to the last card. I wanted the last card with my Twitter info
+            to be longer than the others.
+        </p>
+        <p>
+            Each card needs keyframes at multiple positions. I'm going to show
+            the second title card–the director card–as an example, because they get a little strange.
+        </p>
+        <pre><code>@keyframes director {
+  0%, 22.9%, 46%, 100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  23%, 45.9% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}</code></pre>
+        <p>
+            I'm going to explain this backwards. Starting at 23% of the main
+            timeline length I want the card to be visible and on the screen. It should stay
+            visible until 45.9% of the main timeline length.
+        </p>
+        <p>
+            The first set of frames says that the card should be invisible and
+            off screen from 0% until 22.9% and again from 46% to 100%.
+        </p>
+        <p>
+            I'm using the 0.1% intervals to make sure there is no visible interpolation
+            of the opacity or transform. I want the transition from one card to
+            the next to be a quick cut. The opacity is still interpolating from
+            0 to 1 and transform from -100% to 0, but it's too fast to be seen.
+        </p>
+        <p>
+            I'm using <code>translateX</code> to move the invisible cards
+            out of the viewport so they don't obsure any elements of the current
+            visible card. That was happening when I was only using <code>opacity</code>.
+        </p>
+        <p>
+            Again, getting the timing correct on each card was a lot of trial
+            and error. Making changes a percentage at a time. You can see
+            the full scss for the main timeline animation
+            <a href="https://github.com/tylergaw/css-true-titles/blob/master/css/scss/partials/_general.scss#L115">here</a>.
+        </p>
+        <h3>A sub timeline example</h3>
+        <figure>
+            <img src="http://tylergaw.com/articles/assets/post-image-true-titles-director-card.jpg"
+                alt="">
+            <figcaption>
+                A still of the director title card.
+            </figcaption>
+        </figure>
+        <p>
+            The director card is the most complex card with five separate animations happening
+            simultaneously. Here's the markup for the card.
+        </p>
+        <pre><code>&lt;div class="composition animated"&gt;
+  &lt;div class="street animated">&lt;/div&gt;
+  &lt;div class="trees animated">&lt;/div&gt;
+  &lt;div class="human">&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class="copy animated"&gt;
+  &lt;b class="role">Directed by&lt;/b&gt;
+  &lt;a href="http://tylergaw.com">Tyler Gaw&lt;/a&gt;
+&lt;/h2&gt;</code></pre>
+        <p>
+            Anything with the class of "animated"–you guessed it–has an animation
+            applied to it. The fifth animation is on a pseudo-element. Below is
+            list of each animated element and description of what is animated.
+        </p>
+        <ul>
+            <li>
+                <b>composition</b>: Houses all the images. Over the span of 17 seconds
+                it is slightly scaled, skewed along the X axis, and translated on the X axis.
+            </li>
+            <li>
+                <b>street</b>: A <a href="http://lab.tylergaw.com/css-true-titles/img/director-street.png">masked image</a>.
+                Its X and Y positions are changed over 18 seconds using <code>translate</code>.
+            </li>
+            <li><b>trees</b>: A <a href="http://lab.tylergaw.com/css-true-titles/img/director-trees.png">masked image</a>.
+                Its X and Y positions are changed over 18 seconds using <code>translate</code>.
+            </li>
+            <li>
+                <b>copy</b>: The card info is slightly scaled and translated
+                on the X and Y axes over 17 seconds. The copy moves somewhat in
+                tandem with the composition.
+            </li>
+            <li>
+                <b>pseudo-element</b>: I'm using the <code>::before</code> selector
+                on the trees element to add an additional subtle detail I called a "blip". It is a
+                <a href="http://lab.tylergaw.com/css-true-titles/img/director-blip.png">image of fire</a>
+                that is displayed shortly to give a little more detail to animation.
+            </li>
+        </ul>
+        <p>
+            A quick note on using <code>translate</code>. Always use it to animate
+            elements on X and Y axes instead of using positioning properties like
+            left, right, top, bottom. Also try to use it instead of animating
+            the <code>background-position</code> property. Using <code>translate</code>
+            gives much smoother animations and uses less CPU. <a href="http://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/">Paul</a>
+            explains it better than I can.
+        </p>
+        <p>
+            All of the animations have their <code>animation-direction</code> set
+            to <code>alternate</code>. I did this so there would be no visible jumps
+            back to the starting position of the properties. If you watch the
+            sequence multiple times, you're likely to see the animations running
+            in different directions.
+        </p>
+        <p>
+            You can see the full source scss for the director card
+            <a href="https://github.com/tylergaw/css-true-titles/blob/master/css/scss/partials/_card-director.scss">here</a>.
+        </p>
+        <h3>Pausing the animations</h3>
+        <p>
+            In the markup there is a class of "animated" applied to any animated
+            element. I'm using that as way to pause and unpause all of the
+            animations using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-play-state"><code>animation-play-state</code></a>.
+        </p>
+        <pre><code>.paused .animated,
+.paused .title-card .animated {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}</code></pre>
+        <p>
+            There is some <a href="https://github.com/tylergaw/css-true-titles/blob/master/js/controls.js">light JavaScript</a> to allow the pause/play
+            button to add and remove the class of "paused" from the
+            body element, the CSS above takes care of the rest.
+        </p>
+        <h2>This was tough!</h2>
+        <p>
+            When I was working on this project, I realized there was a lot going
+            on to make it happen, however I didn't realize how much I was on
+            autopilot during the process. Sitting down and trying to explain—in
+            words—what I did was difficult. If you read this far I hope there's a
+            useful technique or trick that you picked up along the way. If not,
+            I hope it was an interesting look into what goes on in my brain when
+            building this type of thing.
+        </p>
+        <p>
+            <i>Thanks for reading</i>
+        </p>
+            ]]>
+        </description>
+        <link>http://tylergaw.com/articles/css-true-titles</link>
+        <guid>http://tylergaw.com/articles/css-true-titles</guid>
+        <pubDate>Tue, 25 February 2014 19:30:00 -0400</pubDate>
+    </item>
+    <item>
+        <title>2000 Days</title>
+        <dc:creator>Tyler Gaw</dc:creator>
+        <description>
+            <![CDATA[
+            <p class="entry-intro">
+            That’s roughly the number of days I was a member of the team at
+            <a href="http://arc90.com">Arc90</a>. Five years, five months, and a couple
+            weeks. Feb. 14th 2014 was my last day. Leaving was a difficult and
+            emotional decision, but after months of mulling it over I decided it
+            was the right one to make.
+        </p>
+
+        <p>
+            Summer 2008. I was living in St. Louis, MO and working as a freelance
+            designer/developer. For months I’d had a nagging feeling that I couldn’t
+            articulate. The best I can describe it was a “pull” that was
+            originating from my gut. The feeling was telling me there was
+            something out there and I needed to go. The feeling didn’t bother to
+            let on what was out there, or where “there” was. It wanted somewhere
+            big though. Somewhere completely different from where I was then or
+            where I had been before. Los Angeles? Nah, too glossy. New York City?
+            Rough, the opposite of glossy. I’d only been to New York once before
+            for a few days years earlier. At the time I described it as “a cool
+            place to visit, but I couldn’t imagine living there.” The fact that
+            I didn’t see New York as a place for me became a reason to go. This
+            move wasn’t about comfort, it was about changing my life. Once I
+            knew where “there” was I decided quickly, almost cavalierly. When my
+            lease was up, I’d pack everything I owned into my Dodge Durango and
+            move to a new city half way across the country.
+        </p>
+
+        <p>
+            The freedom that comes with freelancing and working from home was
+            great, but I needed something new. I needed to be around other
+            designers and developers. I wanted to share the work I was doing
+            every day and learn from people that loved the Web like I did.
+        </p>
+        <p>
+            In my job search for “NYC Web designer”, “Front-end Web NYC”,
+            “NYC Web PHP”, etc I
+            came across this
+            <a href="http://blog.arc90.com/2008/07/18/were-looking-for-the-lone-wolf-mcquade-of-php-development/">job post</a>.
+            PHP was my language of choice in ‘08 and wow, what a great post. No
+            long list of buzz word requirements, no arbitrary years of experience
+            necessary. Just three lighthearted, pointed paragraphs. Who was this company?
+            Who was behind it?
+        </p>
+        <p>
+            Time has claimed some of the styles, but the Arc90 jobs page from
+            July ‘08 is still available via the
+            <a href="https://web.archive.org/web/20080715112955/http://arc90.com/jobs.php">Wayback Machine</a>.
+            Here's a small portion:
+        </p>
+        <blockquote>
+            <p>
+                “...if you appreciate (and violently defend) standards-based
+                technologies like <strong>XHTML</strong> and <strong>CSS</strong>...”
+            </p>
+        </blockquote>
+        <p>
+            It's easy to take for granted in 2014, but in 2008 an agency
+            saying they wanted people that cared about Web Standards was
+            not the norm. That description was speaking to me.
+            It was saying all the things I wanted
+            a company to say. That sealed the deal. Arc90 was where I needed to be. I
+            hadn’t applied to anywhere else, and I wouldn’t. I wasn’t sure
+            that my PHP skills were good enough to get hired for the developer
+            position, but I was going for it anyway. I wanted to work for this company.
+            I <em>had</em> to work for this company.
+        </p>
+        <p>
+            When I got to New York on August 27th 2008 I sprinted to the Arc90
+            office. I didn’t start work for a few more days, but I couldn’t wait
+            to see the place and meet the people I’d only seen in
+            <a href="http://www.flickr.com/search/?q=arc90">photos</a> up to
+            that point. I was here. This place was real. I was a part of it.
+        </p>
+        <p>
+            Five years didn’t just happen. Working for a company is a
+            relationship. Relationships are hard and require work to maintain.
+            Over the years there’ve been ups and downs, too much work and too
+            little, I saw good people leave and great people join. There were
+            times I thought I was ready to throw in the towel, but didn’t. I
+            knew how special my relationship with Arc90 and the humans there was
+            so I stuck with it.
+        </p>
+        <p>
+            I wore a lot of hats. I designed a boatload of interfaces for
+            insurance software. Designed and built sites and an app for a
+            <a href="http://en.wikipedia.org/wiki/GradeGuru">failed education startup</a>.
+            Designed and helped build <a href="http://donahueapp.com">an app</a>
+            to experience conference talks in a novel way. I also made a couple
+            brief design visits to <a href="http://www.kindlingapp.com">an app</a>
+            that I saw grow from weekend project to successful business.
+        </p>
+        <p>
+            The best work I’ve ever done I did for
+            <a href="http://readability.com">Readability</a>. On Readability I
+            was able to stretch my abilities in ways that I never imagined I
+            would. My design and development skills were challenged and
+            strengthened like never before. As the Product Lead I had the
+            opportunity to shape the vision and direction of a product that I
+            used and continue to use every day. I was able to try my hand at
+            leading a team of incredible people to build incredible software.
+            Working to make the lives of the people I worked with more enjoyable
+            has been by far the most challenging thing I’ve done in my career.
+        </p>
+        <p>
+            I’m forever grateful for Arc90, the people there today, and all the
+            people that have come and gone. The opportunities it’s given me have altered
+            my life for the better. At Arc I was able to be a designer, developer,
+            writer, customer support, marketer, advocate, lobbyist, conflict
+            mediator, and–when needed–ad hoc therapist.
+        </p>
+        <p>
+            So why am I leaving now? It’s back. That feeling. That pull from my
+            gut that I felt back in St. Louis in ‘08. It’s telling me it’s time
+            to go again. Telling me something is out there. Telling me I need to
+            go find it. Like before, it’s not doing me any favors of being
+            specific about what “it” is. It’s not looking for a new “there” this
+            time. It’s just looking for a “what”. It wants change. It didn’t
+            let me down last time, so I’m not inclined to ignore it this time around.
+        </p>
+        <p>
+            I’m not sure what’s next, and that feels OK. I don’t have a new job
+            lined up. I don’t have any interviews or prospects. I’m on the hunt.
+            I’m going to spend my next handful of a days looking for it.
+            Meeting and talking with passionate people about what they’re working
+            on and what’s out there. I’m going to spend my next few days searching
+            for how I’ll spend my next 2000.
+        </p>
+        <p>
+            The world is bigger than ever right now. I can't wait to see what I find.
+        </p>
+        <p>
+            <i>Thanks for reading</i>
+        </p>
+            ]]>
+        </description>
+        <link>http://tylergaw.com/articles/2000-days</link>
+        <guid>http://tylergaw.com/articles/2000-days</guid>
+        <pubDate>Mon, 17 February 2014 17:00:00 -0400</pubDate>
+    </item>
+    <item>
+        <title>Papersaver</title>
+        <dc:creator>Tyler Gaw</dc:creator>
+        <description>
+            <![CDATA[
+            <figure>
+            <a href="http://lab.tylergaw.com/papers">
+                <img src="http://tylergaw.com/articles/assets/post-image-papersaver-intro.png"
+                    alt="Papersaver text on a crappy Photoshopped background">
+            </a>
+        </figure>
+        <p>
+            <a href="http://www.fiftythree.com/paper">Paper</a> is an excellent
+            product. Like all great products, it not only does a thing well, it
+            also makes you want to do that thing more. Paper makes me want to
+            draw more. After drawing with Paper for a few weeks, I wanted a
+            quick way to share my drawings from Paper to the Web. I built
+            <a href="https://github.com/tylergaw/papersaver">Papersaver</a> so I
+            could get that done.
+        </p>
+
+        <h2>In Dependence</h2>
+        <p>
+            <a href="http://madewithpaper.fiftythree.com/">Made with Paper</a>
+            is a showcase of what people are drawing with Paper. I went to
+            submit one of my silly sketches to it and saw that they ask for an
+            attribution link. They suggest–and most submissions are hosted
+            on–Tumblr. Twitter and Facebook are also mentioned as hosting choices.
+            I don’t care for that. I want the canonical location of my brain
+            dumps to be on a server that I control. This is my natural tendency,
+            but I was also inspired by <a href="http://adactio.com/journal/6620/">Jeremy</a>
+            and <a href="http://frankchimero.com/blog/2013/12/homesteading-2014/">Frank’s</a>
+            articles on the topic of pushing ourselves to take more control over
+            our digital artifacts by self-hosting.
+        </p>
+        <figure>
+            <img src="http://tylergaw.com/articles/assets/post-image-papersaver-attribution.jpg" alt="A portion of the Made with Paper submission form">
+            <figcaption>
+                Host my masterpieces on a Tumblr? Nope.
+            </figcaption>
+        </figure>
+        <p>
+            At this point it was clear that I had a fun side project in front of
+            me. With a few days off work for the holidays, I started letting my
+            brain run wild with possibilities. The plan was to build some type
+            of site where I could publish my drawings while digging into a
+            technology or two that was new to me.
+        </p>
+
+        <h2>Planning</h2>
+        <p>
+            I generally start a new project with a few bullet points for
+            what I want, what I don’t, technologies I’ll use, etc. These points
+            don’t always make it into the final project and some are just
+            questions to think about during the process. Here’s a few I jotted
+            down for Papersaver:
+        </p>
+
+        <h3>Project goals</h3>
+        <ul>
+            <li>Publish images from Paper to my personal Web site</li>
+            <li>Do not rely on third-party platforms for storage</li>
+            <li>“In Dependence”</li>
+        </ul>
+        <figure>
+            <img src="http://tylergaw.com/articles/assets/post-image-papersaver-notes01.jpg" alt="Papersaver notes taken in the Paper App">
+            <figcaption>
+                I used Paper to take notes.
+            </figcaption>
+        </figure>
+        <h3>What does it do?</h3>
+        <ul>
+            <li>Static HTML site</li>
+            <li>Displays a list of images (maybe thumbnails + click to enlarge)</li>
+            <li>Git repo backed up to Github</li>
+            <li>Different input methods: email, Twitter, direct to repo</li>
+            <li>generate(): image creation, HTML generation, Git commit, publish</li>
+            <li>How can others use this?</li>
+            <li>Permalinks to each item</li>
+        </ul>
+        <p>
+            At this point I’ll also jot down some pseudo-code to start thinking
+            about core functions of what I’ll be building. In this case I wanted
+            to visualize what the main method of saving a Paper would look like:
+        </p>
+        <pre><code>newPaper() // takes img
+// contents/papers/Date.getTime()
+// &quot; &quot;/index.md
+// date: D.getTime()
+// template: paper.html
+// image_path: tylergaw-paper-{date}.jpg
+// save img: image_path.jpg</code></pre>
+        <h2>Getting rolling</h2>
+        <p>
+            After a few hours of writing down goals and researching similar
+            projects I had a good idea of what I would build and the tools I
+            would use to build it. I needed a way to get my drawings out of Paper.
+            The App allows drawings to be shared to Tumblr, Facebook, Twitter,
+            Camera Roll, and Email. The first three were out
+            since they’re third-parties. I entertained the idea of using a
+            combination of export to cameral roll and Dropbox to publish, but
+            went away from it because it didn’t feel flexible enough.
+            I’d be going the route of publishing via email.
+        </p>
+
+        <h2>How I use Papersaver</h2>
+        <ul>
+            <li>
+                Draw in Paper
+            </li>
+            <li>
+                Email each drawing I want published to a dedicated email address
+            </li>
+            <li>
+                A Node.js <a href="https://github.com/tylergaw/papersaver/blob/master/papersaver-mail-listener.js">script</a>
+                listens for new email at the dedicated email address
+            </li>
+            <li>
+                When a new email arrives, the script grabs the attached
+                image and hands it off to
+                <a href="https://github.com/tylergaw/papersaver/blob/master/papersaver.js">Papersaver.js</a>
+            </li>
+            <li>
+                Papersaver.js creates the necessary directories and files
+                for Node.js static site generator, <a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>
+            </li>
+            <li>
+                Wintersmith regenerates the site with the new drawings
+            </li>
+            <li>
+                The newly added and created files are commited to the Git
+                repo and those commits are pushed to the remote repo at Github
+            </li>
+            <li>
+                The drawings live at <a href="http://lab.tylergaw.com/papers">http://lab.tylergaw.com/papers</a>
+            </li>
+        </ul>
+        <h2>The pieces</h2>
+        <p>
+            Papersaver is a fairly simple hack, but there are a few interesting
+            parts worth talking about in more detail.
+        </p>
+        <h3>Good enough email security</h3>
+        <p>
+            I'm using a <a href="https://github.com/chirag04/mail-listener2">node package</a>
+            to access Papersaver emails over IMAP. I don't want to leave the
+            security of my primary email address in the hands of my programming
+            skills so I use a dedicated email address–tylergaw.papersaver@gmail.com–for
+            Papersaver.
+        </p>
+        <p>
+            I just gave you the email address. So what's to keep you from
+            flooding my Papersaver with all the images you please? (aside from your trustworthy nature)
+            I use a settings file with to and from whitelists to only allow emails
+            to/from certain addresses. Nothing good would come from me adding
+            my actual settings to the public Github repo, but I do include a
+            <a href="https://github.com/tylergaw/papersaver/blob/master/mail-settings.sample.json">sample settings file</a>.
+            The from address is really easy to fake, but the to address is a pretty
+            decent way to lock things down.
+        </p>
+        <p>
+            I use a "+slug" on the email address that I don't publish anywhere.
+            Fake example; tylergaw.papersaver+71ksk27817@gmail.com. I put that address
+            in my <code>toWhitelist</code> settings. The <a href="https://github.com/tylergaw/papersaver/blob/master/papersaver-mail-listener.js#L69">mail listener script</a>
+            checks to make sure any emails received are to an address in the whitelist,
+            if not, it bails. Fort Knox an email slug don't make, but for this
+            little project it gets the job done.
+        </p>
+        <h3>Papersaver Command-line interface</h3>
+        <p>
+            While I was working on Papersaver, I didn't want to have to send an
+            email each time I needed to test that the saving code was working.
+            To make things faster I wrote a <a href="https://github.com/tylergaw/papersaver/blob/master/papersaver-cli.js">simple CLI</a>
+            that allows me to create new Papers from images on my machine. I used
+            the super-cool node package <a href="https://github.com/substack/node-optimist">Optimist</a>
+            to handle the arguments I wanted to provide. The Papersaver CLI isn't
+            any type of technological achievement, but it was the first time I've
+            written something like it, so it gets a mention here.
+        </p>
+        <h3>Static site generator</h3>
+        <p>
+            Since I decided to go the Node.js route for this project, I wanted
+            all the pieces to be written in Node.js. <a href="http://wintersmith.io/">Wintersmith</a>
+            is a static site generator written in Node.js. These types of static generators
+            have been <a href="http://davidtucker.net/articles/introduction-to-wintersmith/">written about at length</a>
+            so I don't have anything more to add.
+            I'll just say that Wintersmith gets the job done and if I need a
+            generator written in Node.js, it will be my go-to.
+        </p>
+        <h2>Steal this project!</h2>
+        <p>
+            I didn't build this project just for me. My hope is that other folks
+            that use Paper will find it interesting and start self-hosting the
+            notes, drawings, and sketches they create. Papersaver isn't yet a
+            turnkey project. I had that in mind from the start, but it will require
+            more work to get it there. In the meantime, I'd love to see forks of
+            it that remedy some of the issues that are currently making it not
+            ready for quick re-use. I'm also 100% open to pull requests, so
+            <a href="https://github.com/tylergaw/papersaver">fork it!</a>
+        </p>
+        <p>
+            <i>Thanks for reading</i>
+        </p>
+            ]]>
+        </description>
+        <link>http://tylergaw.com/articles/papersaver</link>
+        <guid>http://tylergaw.com/articles/papersaver</guid>
+        <pubDate>Mon, 03 February 2014 22:00:00 -0400</pubDate>
+    </item>
+    <item>
+        <title>Slenderman</title>
+        <dc:creator>Tyler Gaw</dc:creator>
+        <description>
+            <![CDATA[
+                <figure>
+                    <a href="http://lab.tylergaw.com/slenderman">
+                        <img src="http://tylergaw.com/articles/assets/post-image-slenderman-intro.png" alt="Slenderman in use">
+                    </a>
+                </figure>
+                <p class="entry-intro">
+                    Fonts have always felt like a black box to me. The thought of creating
+                    a new one seemed like a task reserved for a select few with decades
+                    of experience, a deep knowledge of typography, and cumbersome,
+                    expensive software. Not me, I thought. I proved myself wrong by
+                    making my first font,
+                    <a href="http://lab.tylergaw.com/slenderman">Slenderman</a>.
+                </p>
+                <h2>Made to Scratch an Itch</h2>
+                <p>
+                    I’m working on a small design project that felt like it needed hand drawn type.
+                    I could have gone the route of using images, but
+                    that just doesn’t feel right on the Web these days.
+                    I want my web type to be scalable and maintainable. Using images for
+                    type is neither of those. It was clear that I’d need to either find an
+                    existing font that fit the style I wanted, or create my own.
+                </p>
+                <p>
+                    I didn’t look around for existing fonts that fit. I jumped straight
+                    to creating my own. The project is a personal one so there’s no
+                    time limit. When I have that choice I love to let projects expand to
+                    as many different areas as they need to. This same project also led
+                    me down the path of building <a href="http://tylergaw.com/articles/webvtt-cuemarker">another small tool</a>
+                    for working with HTML video subtitles.
+                </p>
+                <h2>The Process</h2>
+                <p>
+                    I knew how I wanted the capital letters to look from the outset. I
+                    started by just drawing them out on paper. My first thought for the
+                    lowercase letters was to make them not match the style of the caps,
+                    but to be a complement to them. I though a cursive handwriting style
+                    would be a nice contrast to the tall, skinny caps.
+                </p>
+                <figure>
+                    <img src="http://tylergaw.com/articles/assets/post-image-slenderman-sketch01.jpg" alt="Initial pen and paper sketches of Slenderman">
+                    <figcaption>Capital and unused lowercase letter sketches</figcaption>
+                </figure>
+                <p>
+                    After drawing the letters, I scanned them and used Illustrator’s
+                    Live Trace to convert them to vectors. The cursive lowercase letters didn’t
+                    convert well. They lost a lot of detail, and just kind of turned
+                    into muck. It was clear they weren’t going to work out so I ditched them.
+                </p>
+                <p>
+                    I went back to the pen and paper and drew a new set of lowercase
+                    letters as well as the numbers, punctuation, and assorted symbols.
+                    You can see in the drawing that the “@” and “&” are tough to decide on.
+                    I followed the same scan then Live Trace with these.
+                </p>
+                <figure>
+                    <img src="http://tylergaw.com/articles/assets/post-image-slenderman-sketch02.jpg" alt="Initial pen and paper sketches of Slenderman">
+                    <figcaption>Numbers, punctuation, symbols, and two sets of lowercase letter sketches</figcaption>
+                </figure>
+                <p>
+                    With all the characters drawn, scanned, and converted to vector the next
+                    step was to start refining them. All the charaters needed to have similar
+                    stroke weights, similar widths and heights, and a handful of other
+                    defining characteristics to make them feel like a family.
+                </p>
+                <p>
+                    I started with the capital letters. They converted to vector really well.
+                    For them I mostly just needed to make sure each letter was the
+                    correct width and height. I also needed to remove extra, uneeded
+                    points that Live Trace had added during conversion.
+                </p>
+                <figure>
+                    <img src="http://tylergaw.com/articles/assets/post-image-slenderman-vector-caps.jpg" alt="A few Slenderman capital letters in Illustrator">
+                    <figcaption>Working with the capital letters in Illustrator</figcaption>
+                </figure>
+                <p>
+                    While I was refining each capital letter, I was bringing each into
+                    <a href="http://glyphsapp.com/glyphs-mini/">Glyphs Mini</a>, my font
+                    editor of choice. It allows vectors to be pasted in from Illustrator.
+                    Once the vector is in Glyphs I could set the position and spacing.
+                    Glyphs also allows characters to be typed out in
+                    the edit tab to get a real feel for how each one interacts
+                    with the others. This allows for creating kerning pairs of characters.
+                </p>
+                <figure>
+                    <img src="http://tylergaw.com/articles/assets/post-image-slenderman-glyphs01.jpg" alt="Editing Slenderman glyphs using Glyphs Mini">
+                    <figcaption>Glyphs Mini edit tab</figcaption>
+                </figure>
+                <p>
+                    The refining process for the lowercase letters took a lot more work
+                    than the capitals. For each of the 26 letters, I needed to make the strokes narrower,
+                    and for a lot of them completely change the shape from what I had
+                    drawn. This involved manually moving the points that made up each
+                    letter. It felt a lot like the original vectors were chunks of
+                    rough granite that I needed to chisel down into their final forms.
+                    As you can imagine, it’s a long, slow process.
+                </p>
+                <p>
+                    I followed the same process for the punctuation, numbers, and symbols.
+                    While I was refining the numbers, I did get a little overzealous. I
+                    ended up chipping away a bit too much off each one, leaving them very
+                    skinny. When they were next to other characters it looked like they
+                    were from a different family. This required me to go back and make
+                    each number a bit heavier. Lesson learned; compare each character to
+                    as many others as you can while you’re tweaking the vectors.
+                </p>
+                <figure>
+                    <img src="http://tylergaw.com/articles/assets/post-image-slenderman-glyphs02.jpg" alt="A view of most of the glyphs of Slenderman in Glyphs Mini">
+                    <figcaption>A bird’s-eye view of Slenderman</figcaption>
+                </figure>
+                <p>
+                    Glyphs Mini allows for exporting to the OpenType format. While I was adding characters
+                    I wanted to get a better feel for how they were working. I would export
+                    the font, install it and then open up a test Photoshop document. Seeing
+                    full sentences and different combinations of letters, numbers, and symbols
+                    is really key to determining if things are working. I could better
+                    see any issues with spacing and sizing and pick out pairs of
+                    characters that could use attention to kerning. Also, it’s a really
+                    great feeling to be able to use a font after spending so much time
+                    working with it.
+                </p>
+                <figure>
+                    <img src="http://tylergaw.com/articles/assets/post-image-slenderman-tester-psd.jpg" alt="Testing Slenderman in Photoshop">
+                    <figcaption>Testing Slenderman in Photoshop</figcaption>
+                </figure>
+
+                <h2>Detail of a Gotcha</h2>
+                <p>
+                    This is very specific to users of Glyphs Mini, but I spent a few hours
+                    banging my head against the desk before I figured it out
+                    so I’m going to write about it in the hopes that I’ll save some
+                    other poor soul’s forehead.
+                </p>
+                <p>
+                    Glyphs has components. A component is a Glyph that is made
+                    up of a base glyph. Example components are right and left double quotes
+                    and the ellipsis; made up of right and left single quotes and the period,
+                    respectively. When you open a component to edit, the base
+                    glyph is grayed out, it seems like it is uneditable. It also only shows
+                    the base glyph. In the case of double quotes only a single right
+                    or left quote is shown. For the ellipsis only a single period. For some reason
+                    Glyphs stacks the base glyphs on top of each other. The base
+                    glyph needs to be clicked and dragged to reveal the other base glyph(s)
+                    under it. I found this answer on the
+                    <a href="http://glyphsapp.com/forums/index.php?action=vthread&forum=1&topic=282">Glyphs forum</a>.
+                </p>
+                <p>
+                    Part two of the gotcha took longer to figure out. After I’d separated
+                    the base glyphs of the compenents, I spaced them, tested them with
+                    other characters in the edit tab, and exported like normal.
+                    Then I tried to use right and left double quotes and the ellipsis. Nothing
+                    would show up. I could tell the glyph exported because I didn’t get
+                    the usual missing glyph character and neither Photoshop nor TextEdit
+                    tried to replace it with another font. This seemed like one of those
+                    what in the hell?!/computer voodoo moments.
+                </p>
+                <p>
+                    <b>Cmd + Shift + D</b> was the magic key combo that ended my confusion.
+                    Components need to be Decomposed before they can be exported properly.
+                    The option is available under the Glyph menu > Decompose Components.
+                    Once a component is decomposed it is no longer tied to a base glyph
+                    so it can be edited like any other glyph and it exports normally.
+                </p>
+
+                <h2>Slenderman is Open Source</h2>
+                <p>
+                    I’ve always felt like when I download a font that’s that. The font is
+                    done and nothing can be added or modified. This might not be the
+                    reality, but without a knowledge of how fonts are
+                    made, that’s how I’ve seen things. With Slenderman, I’m not aiming for
+                    it being “done”. I want to keep iterating and improving on it.
+                    All of the source files are available on
+                    <a href="https://github.com/tylergaw/slenderman">GitHub</a>. That means
+                    anybody can fork the repo and make any changes or additions needed.
+                    They can make new versions of it that fit their needs, or open Pull
+                    Requests to have their changes added into the main fork of Slenderman.
+                    I haven’t seen that before and I’m interested in seeing if anyone
+                    is interested in working on it.
+                </p>
+
+                <h2>What Did I Learn?</h2>
+                <p>
+                    Slenderman does not make me a typographer by any means. It did open up
+                    the possibilty though. Working on it has given me a greater
+                    appreciation for the skill and patience required to create the
+                    beautiful type that we use and often take for granted.
+                </p>
+                <p>
+                    <i>Thanks for reading</i>
+                </p>
+            ]]>
+        </description>
+        <link>http://tylergaw.com/articles/slenderman</link>
+        <guid>http://tylergaw.com/articles/slenderman</guid>
+        <pubDate>Wed, 03 July 2013 12:00:00 -0400</pubDate>
+    </item>
+    <item>
+        <title>WebVTT Cuemarker</title>
+        <dc:creator>Tyler Gaw</dc:creator>
+        <description>
+            <![CDATA[
+            <p>
+            <a href="http://dev.w3.org/html5/webvtt/">WebVTT</a> is a text format
+            that can be used to provide captions and subtitles for HTML video.
+            While working on a project that uses it I found myself needing a
+            way to find and mark precise cue in/out times.
+            <a href="https://github.com/tylergaw/webvtt-cuemarker">webvtt-cuemarker</a>
+            is a small tool I whipped up in JavaScript to do just that.
+        </p>
+        <h2>A WebVTT Primer</h2>
+        <p>
+            The format is still fairly new and not yet widely supported, so I'll give
+            a quick example of how it's used.
+        </p>
+        <pre><code>WEBVTT FILE
+
+00:00:01.265 --> 00:00:06.210
+This is text that will appear over the video at during the in/out points.
+
+00:00:05.500 --> 00:00:10.250
+You can use <b>HTML</b> within WebVTT, pretty cool.
+</code></pre>
+        <p>
+            That's an example of a very simple WebVTT file with two cues. We'll
+            refer to it as <code>captions.vtt</code>
+        </p>
+        <p>
+            The next thing to do is to let your HTML video know about the WebVTT file.
+            That's done using the <code>track</code> element.
+        </p>
+        <pre><code>&lt;video controls&gt;
+    &lt;source src="/path/to/video.mp4" type="video/mp4"&gt;
+    &lt;source src="/path/to/video.webm" type="video/webm"&gt;
+    &lt;track kind="captions" label="English captions"
+        src="/path/to/captions.vtt" srclang="en" default>&lt;/track&gt;
+&lt;/video&gt;
+</code></pre>
+        <p>
+            That's all there is to it. If we played the fictional video above
+            we would see the two captions appear at the times provided in <code>captions.vtt</code>.
+            For a more in-depth look at the <code>track</code> element I suggest
+            <a href="http://www.html5rocks.com/en/tutorials/track/basics/">Getting Started With the Track Element</a>
+            on HTML5 Rocks. That's where I first learned about all this goodness.
+        </p>
+        <h2>Why Is Cuemarker Needed?</h2>
+        <p>
+            WebVTT is very specific about the time format for cues. Cue times must
+            be represented exactly as shown in <code>captions.vtt</code>. It's
+            easy to type out the times in that way, but how do you find
+            precise times using HTML video? HTML video controls display the time
+            of the video, but only down to the second. And not in the format needed
+            for WebVTT. This is why I wrote Cuemarker.
+        </p>
+        <p>
+            Cuemarker provides a keyboard shortcut–the period key–for setting in/out
+            points and outputting the cue time in the required format.
+        </p>
+        <p>
+            Cuemarker also provides shortcuts to interact with HTML
+            video. You can play/pause using the space bar and
+            seek forward/backward using the right/left arrow keys. Those controls
+            allow you to arrive at more precise moments in video than you can
+            using the default video scrubber provided by the browser.
+        </p>
+        <h2>How Do I Use It?</h2>
+        <p>
+            I'll go back to the HTML in the previous example, but I'm going to
+            remove the <code>track</code> element. For marking cue times you only
+            need an HTML video.
+        </p>
+        <pre><code>&lt;video controls&gt;
+    &lt;source src="/path/to/video.mp4" type="video/mp4"&gt;
+    &lt;source src="/path/to/video.webm" type="video/webm"&gt;
+&lt;/video&gt;
+</code></pre>
+        <p>
+            Once your HTML is in place, you'll need a bit of JavaScript.
+            Cuemarker creates a variable–<code>cuemarker</code>–in the global scope.
+            <code>cuemarker</code> is a function that takes one required parameter;
+            the video element. It also takes a second, optional parameter to
+            specify a seek interval and output function.
+        </p>
+        <pre><code>cuemarker(document.querySelector('video'));
+</code></pre>
+        <p>
+            That's a bare-bones example and may be all that you'll need. The cue
+            times will be output using <code>console.log</code>.
+        </p>
+        <p>
+            Here's another example using both the available options.
+        </p>
+        <pre><code>cuemarker(document.querySelector('video'), {
+  seekInterval: 0.5 //default is 0.03,
+  output: function (cuetime) {
+    var times = document.getElementById('cuetimes'),
+        li = document.createElement('li');
+      li.innerHTML = cuetime;
+      times.appendChild(li);
+    }
+});
+</code></pre>
+        <p>
+            In that example, the seek interval is less precise than the default
+            and the cue times will be injected into the page as <code>li</code>
+            elements that are children of the <code>ul</code> with an id of "cuetimes".
+        </p>
+        <figure>
+            <img src='http://tylergaw.com/articles/assets/post-image-cuemarker-output.jpg' alt='Screenshot of Cuemarker output'>
+            <figcaption>Cuemarker output</figcaption>
+        </figure>
+        <p>
+            Cuemarker doesn't try to get cute by attempting to transfer cue times to
+            a WebVTT file. All it's interested in doing is outputting the
+            in/out times. Once you've marked in/out times you
+            can copy them over to your WebVTT files. That's how I've been using
+            it and it's working really well for me.
+        </p>
+        <p>
+            A working demo of the latter example is located
+            <a href="http://tylergaw.github.io/webvtt-cuemarker/demo.html">here</a>.
+        </p>
+        <h2>That's It?</h2>
+        <p>
+            Yep, that's what I got for now. Again, the <code>track</code> element
+            and WebVTT are not yet widely supported. As of this writing only the
+            latest Chrome and Opera are cool enough to do so. The Web moves fast though and
+            I know it won't be long before Firefox and Safari follow suit.
+        </p>
+        <p>
+            Limited support for the underlying technology means that this is a
+            tool you may not need today, but you might tomorrow.
+            <a href="https://github.com/tylergaw/webvtt-cuemarker">Fork it!</a>
+        </p>
+        <p>
+            <i>Thanks for reading</i>
+        </p>
+            ]]>
+        </description>
+        <link>http://tylergaw.com/articles/webvtt-cuemarker</link>
+        <guid>http://tylergaw.com/articles/webvtt-cuemarker</guid>
+        <pubDate>Sat, 08 June 2013 20:00:00 -0400</pubDate>
+    </item>
+    <item>
+        <title>Get Together. Get Excited. Get to Work.</title>
+        <dc:creator>Tyler Gaw</dc:creator>
+        <description>
+            <![CDATA[
+            <figure>
+                <a href="http://brooklynalpha.org/2012">
+                    <img src='http://tylergaw.com/articles/assets/post-image-brooklyn-alpha-2012.png' alt='Brooklyn Alpha 2012'>
+                </a>
+            </figure>
+            <p>
+                <b>Brass tacks:</b> <em>
+                    <a href="http://brooklynalpha.org/2012">
+                        Come to my build-a-thon, make cool shit!
+                    </a>.
+                </em>
+            </p>
+            <p class="entry-intro">
+                If you haven't heard, Brooklyn is <b>the</b> place to be the
+                second week of October 2012. That's the week that the Internet
+                is getting together for a week of conferences, meet ups, drink-ups,
+                shinanagans, and the friendliest little web build-a-thon that could.
+                It just so happens that that build-a-thon is being organized and
+                hosted by myself and <a href="https://twitter.com/xiian">Tom Sartain</a>.
+                We'd love for you to join us!
+            </p>
+            <h2>What's this &#8220;build-a-thon&#8221;?</h2>
+            <p>
+                Alright, here's the deal. If you're a designer or a developer I
+                know you have at least one project in your mind right now
+                that you want to work on. And there's a good chance you've
+                been thinking about working on this project for a while and for
+                one reason or another haven't been able to dive in and get it done.
+            </p>
+            <p>
+                Brooklyn Alpha is a perfect excuse to give yourself three days
+                to put your idea into motion. Not only will you have three days, you'll
+                have access to other motivated folks who may have complementary
+                skills. Maybe you're a designer who needs a Python developer. Or
+                you're Mr. Django himself and you need a designer to help
+                make your project easy to use and easy on the eyes. Or maybe you're someone
+                who has a head full of great ideas and you're looking for
+                designers and developers to lend a hand in materializing all that
+                greatness coming from your grey matter. Whatever your situation
+                we'll have you covered.
+            </p>
+            <h2>&#8220;I don't have any ideas&#8221;</h2>
+            <p>
+                OK, OK. The brain well done gone dry. It happens to the best of us.
+                Can you sling hot pixels or code? Of course you can. Then you should
+                come to Brooklyn Alpha. Here's why. Last year when we opened up
+                the floor to anyone to get up and pitch ideas, nearly every
+                single one of our incredible attendees got up and did just that.
+                And more than a few got up a second or third time. There will be
+                no shortage of excellent ideas at Alpha and many of them will need
+                your brain to get them moving.
+            </p>
+            <h2>OK, cool. What else?</h2>
+            <p>
+                I'll tell you what else. You get to be a part of something that's
+                going to be huge. Brooklyn Alpha is sharing the week with the
+                legendary <a href="https://brooklynbeta.org/">Brooklyn Beta</a>
+                and we're an official part of <a href="https://brooklynbeta.org/beyond">Beyond Beta</a>.
+                If you haven't heard of those stop reading this now and go find out
+                about them (then hurry back and pick up your ticket to Alpha).
+            </p>
+            <p>
+                Brooklyn Alpha will be taking place during the day each of its
+                three days. That leaves the evenings free for maximum mingling
+                with a whole host of excellent web folks that will for sure be
+                inhabiting our incredible Borough of Brooklyn during the week.
+            </p>
+            <h2>Hope to see you there!</h2>
+            <p>
+                This is our second year hosting Brooklyn Alpha. It's a challenging,
+                fun, and rewarding task to take on. We're doing this because
+                we love the work we do, we love the city we live in, and we love
+                the web community that makes events like this possible. We're
+                honored to be able to surround ourselves with so many people that
+                share our passions.
+            </p>
+            <figure>
+                <a href="http://www.flickr.com/photos/brooklynalpha/6251904083/in/photostream">
+                    <img src='http://farm7.staticflickr.com/6042/6251904083_1347d7870f_b.jpg' alt='Brooklyn Alpha 2011'>
+                </a>
+                <figcaption>Brooklyn Alpha 2011 Group Photo</figcaption>
+            </figure>
+            <p>
+                <i>Thanks for reading</i>
+            </p>
+            ]]>
+        </description>
+        <link>http://tylergaw.com/articles/get-together-get-excited-get-to-work</link>
+        <guid>http://tylergaw.com/articles/get-together-get-excited-get-to-work</guid>
+        <pubDate>Mon, 24 Sept 2012 11:30:00 -0400</pubDate>
+    </item>
+  <item>
+    <title>Reacting to Media Queries in Javascript</title>
+    <dc:creator>Tyler Gaw</dc:creator>
+    <description>
+        <![CDATA[
+            <p>
+                <b>Brass tacks:</b> <em><a href="http://tylergaw.github.com/media-query-events/">A demo</a> and <a href="https://github.com/tylergaw/media-query-events">some code</a>.</em>
+            </p>
+            <p>
+                <code>window.matchMedia</code> provides a way for Javascript to react when a media query condition is met or unmet. While the functionality it allows is great, the necessary code duplication required to use it leaves a bit to be desired. I'm going to walk through a work-in-progress approach to getting around that duplication.
+            </p>
+            <h2>window.matchMedia</h2>
+            <p>
+                The method is simple enough to use and works the way you'd expect it. You give it a media query string it gives you back a <a href="https://developer.mozilla.org/en/DOM/MediaQueryList">MediaQueryList</a> object.
+            </p>
+            <pre><code>var mql = window.matchMedia("(min-width: 480px)");</code></pre>
+            <p>
+                That sets the value of <code>mql</code> to a MediaQueryList object with two members, something like:
+            </p>
+            <pre><code>MediaQueryList: {
+  matches: true,
+  media: "(min-width: 480px)"
+}</code></pre>
+            <p>
+                The boolean value of the <code>matches</code> member will be determined by the width of your browser window at the time.
+            </p>
+            <p>
+                You can add event listeners to MediaQueryList objects. An event will fire each time the condition is triggered. This allows you to be updated on the status of the media query without having to resort to polling or a <code>window.resize</code> event. Using <code>mql</code> from above we can set up a listener and handler like so:
+            </p>
+            <pre><code>mql.addListener(handleMediaChange);
+handleMediaChange(mql);
+
+var handleMediaChange = function (mediaQueryList) {
+  if (mediaQueryList.matches) {
+    // The browser window is at least 480px wide
+  }
+  else {
+    // The browser window is less than 480px wide
+  }
+}</code></pre>
+            <p>
+                You can find similar code examples and further explanation of MatchMedia on the <a href="https://developer.mozilla.org/en/DOM/window.matchMedia">Mozilla Developer Network</a>
+            </p>
+            <p>
+                MatchMedia works pretty well. As usual there are some caveats that I'll mention later. My issue is with needing to specify the media query when you create the MediaQueryList. If you wanted an event to fire for every media query you might have, you'd have manually copy each from your stylesheets to you JS. Every time you update a media query in CSS, you'd have to do the same in JS. What I want is a script to look at a page's stylesheets, pick out all the media queries and create a MediaQueryList for each one.
+            </p>
+            <h2>
+                Getting Media Queries from CSS to JS
+            </h2>
+            <p>
+                When I first started looking into this I thought I was in for some really hairy stuff. I imagined myself having to make ajax requests to fetch stylesheets, use weird regexes to find the <code>@media</code> rules, and employ other types of not-so-fun things. Luckily, this did not turn out to be the case.
+            </p>
+            <p>
+                I've written small script that accomplishes the tasks I'm after, <a href="https://github.com/tylergaw/media-query-events/blob/master/js/mq-events.js">mqEvents.js is on Github</a> and a working example is at <a href="http://tylergaw.github.com/media-query-events/">tylergaw.github.com/media-query-events</a>.
+            </p>
+            <pre><code>(function () {
+  var mqEvents = function (mediaChangeHandler) {
+    var sheets = document.styleSheets,
+        numSheets = sheets.length,
+        mqls = {},
+        mediaChange = function (mql) {
+            console.log(mql);
+        }
+
+    if (mediaChangeHandler) {
+      mediaChange = mediaChangeHandler;
+    }
+
+    for (var i = 0; i < numSheets; i += 1) {
+      var rules = sheets[i].cssRules,
+          numRules = rules.length;
+
+      for (var j = 0; j < numRules; j += 1) {
+        if (rules[j].constructor === CSSMediaRule) {
+          mqls['mql' + j] = window.matchMedia(rules[j].media.mediaText);
+          mqls['mql' + j].addListener(mediaChange);
+          mediaChange(mqls['mql' + j]);
+        }
+      }
+    }
+  }
+
+  window.mqEvents = mqEvents;
+}());</code></pre>
+            <p>
+                I'm going to go through the code here and explain what's happening each step of the way.
+            </p>
+            <pre><code>var mqEvents = function (mediaChangeHandler)</code></pre>
+            <p>
+                The <code>mqEvents</code> function takes a single parameter, a function that will be called each time a media query is triggered.
+            </p>
+            <pre><code>var sheets = document.styleSheets,
+    numSheets = sheets.length</code></pre>
+            <p>
+                The document contains an object of all loaded stylesheets. Our <code>sheets</code> variable is a list of <a href="https://developer.mozilla.org/en/DOM/stylesheet">StyleSheet</a> objects. <code>numSheets</code> is stored for convenience for when we loop over the list of stylesheets.
+            </p>
+            <pre><code>mediaChange = function (mql) {
+  console.log(mql);
+}
+
+if (mediaChangeHandler) {
+  mediaChange = mediaChangeHandler;
+}
+</code></pre>
+            <p>
+                If the <code>mediaChangeHandler</code> argument is not passed to <code>mqEvents</code>, a default function, <code>mediaChange</code> will handle each media query event. The default doesn't do much of anything. For the purpose of this script we just want to have something there.
+            </p>
+            <pre><code>for (var i = 0; i < numSheets; i += 1) {
+  var rules = sheets[i].cssRules,
+      numRules = rules.length;</code></pre>
+            <p>
+                Here we're looping over our <code>sheets</code> list to look at each loaded stylesheet. The <code>rules</code> variable is list of all the rules of the current stylesheet represented as <a href="https://developer.mozilla.org/en/DOM/cssRule">CSSRule</a> objects. <br><em>This is where things take a turn for the awesome.</em>
+            </p>
+            <p>
+                At the start of this I was aware that all a document's stylesheets could be accessed and that all the rules of the stylesheets were represented by CSSRule objects, but what I didn't know was that CSSRule objects that contain a media query have a unique name. Take a look at this screen shot of the console when logging out each CSSRule object:
+            </p>
+            <figure>
+              <img src='http://tylergaw.com/articles/assets/mqevents-cssrules-in-console.jpg' alt='Screenshot of the Chrome developer console showing a number of CSSRule objects being logged.'>
+              <figcaption>Logging out each CSSRule object reveals a unique name for media query rules. Badass.</figcaption>
+            </figure>
+            <p>
+                Regular CSS rules have the name "CSSStyleRule" while media queries have the name "CSSMediaRule". This is great because it gives us an easy way to pluck out only the media queries from our stylesheets without needing to resort to string parsing, which can get ugly quickly.
+            </p>
+            <p>
+                (It looks like other types of rules like font-face and keyframes have <a href="https://developer.mozilla.org/en/DOM/cssRule#section_2">unique names too</a>.)
+            </p>
+            <pre><code>for (var j = 0; j < numRules; j += 1) {
+  if (rules[j].constructor === CSSMediaRule)</code></pre>
+            <p>
+                We can now loop over each rule in the stylesheet and check to see if it is a media query. The condition here, checking to see if the constructor matches the name "CSSMediaRule", was also new to me. I found that approach in a thorough <a href="http://stackoverflow.com/a/332429/368634">Stack Overflow answer</a> on the topic.
+            </p>
+            <pre><code>mqls['mql' + j] = window.matchMedia(rules[j].media.mediaText);
+mqls['mql' + j].addListener(mediaChange);
+mediaChange(mqls['mql' + j]);</code></pre>
+            <p>
+                Now that we know we're only dealing with media queries, we're free to use them with matchMedia to create MediaQueryList objects, bind events to those and handle them with a given handler function. This bit of code is nearly the same as the matchMedia example. The noticeable exception here is that each MediaQueryList object is being added to a hash, <code>mqls</code>, that we created earlier. We could accomplish the same thing without putting each object in the hash, this was more of a forward-thinking thing. I have a feeling that there could be a use for holding on to all of the objects to access them later.
+            </p>
+            <h2>Usage</h2>
+            <p>
+                So why would you use this and what happens when you do? In the demo I linked to, this is the implementation:
+            </p>
+            <pre><code>var msg = document.getElementById('condition'),
+    handleMediaChange = function (mql) {
+
+  // For some reason Firefox has trouble always running this code.
+  // The console.log seems to help it.
+  // TODO: Figure out what the hell that's all about
+  console.log();
+
+  if (mql.matches) {
+    msg.setAttribute('class', 'met');
+    msg.innerHTML = 'The condition "' + mql.media + '" was met.';
+  }
+  else {
+    msg.setAttribute('class', 'unmet');
+    msg.innerHTML = 'The condition "' + mql.media + '" was not met.';
+  }
+};
+
+mqEvents(handleMediaChange);</code></pre>
+            <p>
+                Notice the big comment about Firefox there, I still don't know what that is. Like I said, work-in-progress here.
+            </p>
+            <p>
+                What this does is update a the DOM element, represented by <code>msg</code>, each time a media query is triggered. <code>mqEvents</code> doesn't try to react differently to specific media queries. It calls the same handler each time one is triggered. The handler function, however, does receive information about the media query. It knows what the media query is–which I'm placing in the DOM with <code>mql.media</code>–and if the condition was met by the window–which I'm checking with <code>mql.matches</code>.
+            </p>
+            <h2>What Else Can This Be Used For?</h2>
+            <p>
+                Maybe parts of the page layout are done with Javascript and need to be updated each time a media query is triggered. Maybe it could be used to do conditional loading of images, scripts, fonts, or the like. This type of conditional loading of assets could be used to help reduce the bandwidth usage on mobile devices.
+            </p>
+            <h2>Concerns and Caveats</h2>
+            <p>
+                If a page has a lot of media queries, <code>mqEvents</code> is going to add a lot of event listeners and it's going to be calling the handling function a lot of times. I haven't run into anything problematic with my small demo page, but I'd be curious to see the impacts on performance on a page with a substantial number of media queries.
+            </p>
+            <p>
+                With all these fancy new things browser support is a big question. <code>matchMedia</code> is not supported very well yet. According to <a href="http://caniuse.com/#search=matchMedia">caniuse.com</a> we're looking at Chrome 17+, Firefox 9+, Safari 5.1+, iOS Safari 5.0+, IE 10+ (with an ms prefix), and no support yet for Opera. For unsupported browsers a polyfill could be employed. Here's a good one right <a href="https://github.com/paulirish/matchMedia.js/">here</a>.
+            </p>
+            <h2>Other Cool Stuff</h2>
+            <p>
+                As I was working on this I found out about a related project named <a href="http://harvesthq.github.com/harvey">Harvey</a>. I haven't used it yet, but it looks really good. It looks like it still has that duplication of media queries issue, but if you're looking for targeted reactions to specific media queries it might be the way to go.
+            </p>
+            <p>
+              <i>Thanks for reading</i>
+            </p>
+        ]]>
+    </description>
+    <link>http://tylergaw.com/articles/reacting-to-media-queries-in-javascript</link>
+    <guid>http://tylergaw.com/articles/reacting-to-media-queries-in-javascript</guid>
+    <pubDate>Thur, 17 May 2012 07:15:35 -0400</pubDate>
+  </item>
+  <item>
+    <title>Fun with HTML Form Validation Styles</title>
+    <dc:creator>Tyler Gaw</dc:creator>
+    <description>
+      <![CDATA[
+        <p>
+        	<b>Brass tacks:</b> <em>Demos; <a href="http://lab.tylergaw.com/html5forms/errorStyles/01/">Style 01</a>, <a href="http://lab.tylergaw.com/html5forms/errorStyles/02/">Style 02</a>, <a href="http://lab.tylergaw.com/html5forms/errorStyles/03/">Style 03</a> and <a href="https://github.com/tylergaw/html5forms/tree/master/errorStyles">the code</a>.</em>
+        </p>
+        <p class="entry-intro">
+        	If you haven't heard already, the current HTML Living Standard or HTML5 spec has in it some super cool form validation. This is client-side form validation that is meant to remove some of the burden of writing validation with Javascript. If you've ever written form validation with Javascript I think you'll agree that this is a very good thing.
+        </p>
+        <p>
+          Using this new feature of html can be as easy as creating a form and within it creating an input with a <code>required</code> attribute. When the form is submitted, browsers that support validation will take the reigns and make sure that the required input has a value. If it does not, the browser will display a validation error message.
+        </p>
+        <p>
+          In addition to validating required fields, the form validation will also check to make sure inputted values match given input types. New in the Living Standard are quite a few new input types such as; "email", "url", "number" and so on. Check out the full list located at <a href="http://developers.whatwg.org/the-input-element.html#the-input-element">http://developers.whatwg.org/the-input-element.html#the-input-element</a>.
+        </p>
+        <h2>Validation error messages</h2>
+        <p>
+          As of this writing, there are three browsers that both support html form validation and display error messages when needed. Browser support includes; Chrome 10+, Firefox 3.6+, and Opera 11+. Safari doesn't care about validating your forms and I haven't checked any versions of IE, maybe 9 or 10 support this? Each browser handles the styling of validation messages differently.
+        </p>
+        <figure>
+          <img src='http://tylergaw.com/articles/assets/post_image_htmlFormErrors_defaultChrome.jpg' alt='Chrome 12 default error messages'>
+          <figcaption>Chrome 13 default error message</figcaption>
+        </figure>
+        <figure>
+          <img src='http://tylergaw.com/articles/assets/post_image_htmlFormErrors_defaultFirefox.jpg' alt='Firefox 5.0 default error messages'>
+          <figcaption>Firefox 6.0 default error message</figcaption>
+        </figure>
+        <figure>
+          <img src='http://tylergaw.com/articles/assets/post_image_htmlFormErrors_defaultOpera.jpg' alt='Opera 11.5 default error messages'>
+          <figcaption>Opera 11.5 default error message</figcaption>
+        </figure>
+        <p>
+          Of the three, only Chrome currently offers a way to apply custom styles to the message. Through non-standard, Webkit-specific pseudo classes you are able to style the messages in any way that floats your boat. That's what I'm focusing on with this article.
+        </p>
+        <h2>What about the other browsers?</h2>
+        <p>
+          That's a good question. I haven't heard anything about Opera, but it seems that the style and even handling of the error messages is an open discussion with Firefox. I did quite a bit of digging around in <a href="http://www.bugzilla.org/">Bugzilla</a> and in the FF 6 source code, but couldn't find any solid information on what the plan is. My hope is that a standard will emerge for styling the messages, but that could be far off.
+        </p>
+        <h2>The pseudo classes and markup</h2>
+        <p>
+          When I first started looking into if/how the error messages could be styled I quickly came across a "Rosetta Stone" in an article by Peter Gasston, <a href="http://www.broken-links.com/2011/06/16/styling-html5-form-validation-errors/">http://www.broken-links.com/2011/06/16/styling-html5-form-validation-errors</a>. In the post Peter explains the pseudo classes that webkit makes available to target the error message elements. He's done the leg work of digging through the Webkit source code to find this stuff, thanks Peter! To reiterate some of what is in Peter's article, the following are the classes that are available to hook into:
+        </p>
+        <pre><code>::-webkit-validation-bubble {}
+      ::-webkit-validation-bubble-message {}
+      ::-webkit-validation-bubble-arrow {}
+      ::-webkit-validation-bubble-arrow-clipper {}</code></pre>
+        <p>
+          Each of those target a <code>&lt;div&gt;</code> element that is inserted into the DOM when a validation error is triggered. The markup looks like this:
+        </p>
+        <pre><code>&lt;div -webkit-validation-bubble&gt;
+      &lt;div -webkit-validation-bubble-arrow&gt;&lt;/div&gt;
+      &lt;div -webkit-validation-bubble-arrow-clipper&gt;&lt;/div&gt;
+      &lt;div -webkit-validation-bubble-message&gt;Error Message&lt;/div&gt;
+      &lt;/div&gt;</code></pre>
+        <p>
+          There are four more pseudo classes that were added as I was writing this article. These are currently only in the nightly builds of Chrome/Webkit and seem to just allow further control of the styling.
+        </p>
+        <pre><code>::-webkit-validation-bubble-icon {}
+      ::-webkit-validation-bubble-body {}
+      ::-webkit-validation-bubble-text-block {}
+      ::-webkit-validation-bubble-arrow-heading {}</code></pre>
+        <p>
+          As of this writing and Chrome 13.0.782.112 these classes do not seem to have corresponding html elements. Only the <code>bubble-text-block</code> and <code>bubble-heading</code> contain default CSS rules and they are minimal and any CSS rules applied to these do not seem to affect any changes to the current validation error messages. We'll have to wait and see how these elements get put to use.
+        </p>
+        <h2>Default styles</h2>
+        <p>
+          A huge help when styling the messages is knowing the default styles that Chrome applies. Luckily the default Webkit CSS is available to peruse so you can see the exact properties that need to be modified. The default styles live here; <a href="http://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css">http://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css</a>
+        </p>
+        <h2>Demos</h2>
+        <p>
+          I set up three different demos using markup for a simple login form containing two fields. The first field is an email input that is required:
+        </p>
+        <pre><code>&lt;input type="email" name="email" required&gt;</pre></code>
+        <p>
+          The second field is a password input that is required:
+        </p>
+        <pre><code>&lt;input type="password" name="password" required&gt;</pre></code>
+        <p>
+          The rest of the markup for each demo is nearly identical, differences include; using <code>&lt;label&gt;</code> elements for the first demo and some different structural elements for each.
+        </p>
+        <p>
+          To really work with the message styles, I wanted each demo to have a distinct style from the others. Demo 1 has a kind of standard-looking style with error messages that are big, bright and bubbly. Demo 2 has a sleeker, higher-tech, control panel-y look with a slimmed down error icon with no text. Demo 3 has an artsy, Draplin-inspired, Futura-filled look that carries over into big-ole, text only error messages.
+        </p>
+        <figure>
+          <a href="http://lab.tylergaw.com/html5forms/errorStyles/01">
+            <img src='http://tylergaw.com/articles/assets/post_image_htmlFormErrors_demo01.jpg' alt='Demo 01 style showing an error'>
+          </a>
+          <figcaption>Style 01; 37 Signals called, they want their form back</figcaption>
+        </figure>
+        <figure>
+          <a href="http://lab.tylergaw.com/html5forms/errorStyles/02">
+            <img src='http://tylergaw.com/articles/assets/post_image_htmlFormErrors_demo02.jpg' alt='Demo 02 style showing an error'>
+          </a>
+          <figcaption>Style 02; this is the login form for your Starcraft forum</figcaption>
+        </figure>
+        <figure>
+          <a href="http://lab.tylergaw.com/html5forms/errorStyles/03">
+            <img src='http://tylergaw.com/articles/assets/post_image_htmlFormErrors_demo03.jpg' alt='Demo 03 style showing an error'>
+          </a>
+          <figcaption>Style 03; hard to go wrong with fire engine-red Futura</figcaption>
+        </figure>
+        <h2>Fun with CSS animations</h2>
+        <p>
+          Something to keep in mind when styling the messages is that most any styles that are available in Chrome can be applied to the message bubbles, this includes animations. With demos 1 and 2 I created CSS animations to bring the messages into view. Since the message elements do not exist in the DOM until an error is triggered, the animations will not run until that time. So, in demo 1, to get that little shimmy and shake I'm using the following:
+        </p>
+        <pre><code>@-webkit-keyframes bounce {
+      0% {
+      opacity: 0.5;
+      margin-left: 85px;
+      }
+
+      25% {
+      margin-left: -35px;
+      }
+
+      50% {
+      margin-left: 50px;
+      }
+
+      75% {
+      margin-left: -22px;
+      }
+
+      100% {
+      margin-left: -15px;
+      opacity: 0.9;
+      }
+      }</pre></code>
+        <p>
+          The named animation is applied to the main message container;
+        </p>
+        <pre><code>::-webkit-validation-bubble {
+      -webkit-animation-timing-function: ease;
+      -webkit-animation: bounce 0.45s 1;
+      ...
+      }</code></pre>
+        <p>
+          Demo 2 uses a similar, but less complex animation to slide the serious looking icon in from the left. This demo also introduces something new; custom error message text. The message text, among many other things, can be customized through the Constraint Validation API.
+        </p>
+        <h2>Custom message text with the Constraint API</h2>
+        <p>
+          The Constraint API is a new one in the HTML Living Standard, it allows you to further customize form validation using Javascript. The API is large enough for a full article to explain its features and how to use it, here I'll just point out the code used to set a custom error message.
+        </p>
+        <pre><code>var inputs = document.getElementsByTagName('input'),
+      len    = inputs.length,
+      i      = 0,
+      cur    = null,
+      errMsg = '!';
+
+      for (i; i &lt; len; i += 1) {
+
+      cur = inputs[i];
+
+      if (cur.getAttribute('type') !== 'submit') {
+      cur.setCustomValidity(errMsg);
+
+      cur.oninput = function () {
+      if (!this.value || this.validity.typeMismatch) {
+      this.setCustomValidity(errMsg);
+      } else {
+      this.setCustomValidity('');
+      }
+      }
+      }
+      }</code></pre>
+        <p>
+          This is a fairly simple block of code, we start by looking at each <code>input</code> element on the page through a <code>for</code> loop, if the <code>input</code> is not a submit button we then use the Constraint API method <code>setCustomValidity</code> to apply the custom message of "!" that we stored in the <code>errMsg</code> variable. In my opinion that should be the end of the work needed, but there is more.
+        </p>
+        <p>
+          For some reason, when we set a custom error message with <code>setCustomValidity</code> that also removes the error checking from the input. If we were to stop here and submit the form, it would submit without triggering any errors. Starting at the line <code>cur.oninput</code> is the code needed to get around this oddity. The <code>oninput</code> event is fired each time a key is pressed that will change the contents of the input, each time the event fires we are checking to make sure the input has a value and that the value is valid according to the input type. The Constraint API makes available a <code>validity</code> property for <code>input</code> elements. This object contains a number of properties to determine the validity of the input, the one that we're using to make sure the value given is Ok is <code>typeMismatch</code>. If the input either has no value or the given value is not of the correct type, we need to set the custom message again. If a correct value has been entered we then set the custom validity to an empty string, which does a kind of reset on the validation. The input will then be validated normally again.
+        </p>
+        <h2>Going forward</h2>
+        <p>
+          This is definitely new, new stuff, and with all fun new things it will take some time before it can be used on a wide scale. I don't think that should be seen as a huge hinderance though. The Constraint API seems mature enough to be put into use right now, with the aide of a poly fill for browsers that don't yet support it. I haven't used it yet, but at least one exists already; <a href="http://afarkas.github.com/webshim/demos/demos/webforms.html">http://afarkas.github.com/webshim/demos/demos/webforms.html</a>. The error message bubbles are not really ready though. With only one browser supporting custom styles, and with no small amount of finagling needed to get them looking right, for now we'll need to keep creating our own error messages. I'll take it though, this is a huge step in the right direction and I can't wait for wider browser support and even more fun new things that will no doubt come with it.
+        </p><p><i>Thanks for reading</i></p>]]>
+    </description>
+    <link>http://tylergaw.com/articles/fun-with-html-form-validation-styles</link>
+    <guid>http://tylergaw.com/articles/fun-with-html-form-validation-styles</guid>
+    <pubDate>Tue, 23 Aug 2011 09:33:55 -0400</pubDate>
+  </item>
+  <item>
+    <title>A Small Redesign with a Little Sugar</title>
+    <dc:creator>Tyler Gaw</dc:creator>
+    <description>
+      <![CDATA[  <p>
+        	<b>Take aways:</b> <em>Look at <a href="http://lab.tylergaw.com/jribbble/">this site</a> and fork <a href="https://github.com/tylergaw/jribbble.com">this code</a> if you don't feel like reading.</em>
+        </p>
+        <p class="entry-intro">
+        	Since reading <a href="http://www.abookapart.com/products/responsive-web-design">Responsive Web Design</a> by Ethan Marcotte I've been chomping at the bit to design a site using all of the fancy things written about in that little, yellow, different book. To really take those new ideas and techniques for a ride I needed a small project to work on where I could just go crazy and try every new thing I could pull out of the book and my brain. Luckily I have a never-ending stream of personal projects that can always use a little TLC. The project that I picked to revamp is a small one page site for a jQuery plugin that I wrote last year, Jribbble. The site is quick overview of the methods that the plugin makes available, documentation of those methods and some working demos.
+        </p>
+        <h2>The design process</h2>
+        <p>
+        	Before starting a design I like to set some rules for myself. These aren't hard and fast rules, just some general thoughts that I keep in mind to guide the process and keep myself in check. The rules for this design were nothing outlandish, the design should:
+        </p>
+        <ul>
+          <li>Use a flexible grid that remains comfortable from 320px to 1280px in width</li>
+          <li>Be designed mostly in the browser with CSS, limited Photoshop work</li>
+          <li>Not use any gradients</li>
+          <li>Not use any Photoshop noise!</li>
+          <li>Have some bits of CSS "sugar"</li>
+        </ul>
+        <p>
+        	The last rule, "sugar", I think of as something extra, something possibly new, that you might not see that often. I'll talk about it more later.
+        </p>
+        <p>
+        	The first graphic I envisioned for the design was the name, Jribbble. I saw the "J" and the "b"s in a large, swooping style. A style that I would not be able to accomplish with a computer. I would need to use my hands. The vision I had for it was too large for a pencil or pen or marker. I grabbed my box of acrylic paints, brushes, my 14" x 17" drawing pad and spread them out on my definitely-not-for-painting-on Ikea coffee table. With a medium sized brush and Primary Magenta I scrawled out a couple of "Jribbble"s as well as some random strokes. The toothbrush you see in the photo I used for making paint spatters and for getting paint all over the damned place.
+        </p>
+        <figure>
+      	  <img src='http://tylergaw.com/articles/assets/post_image_jribbble_painting.jpg' alt='Jribbble painting'>
+      	  <figcaption>The start of the Jribbble redesign; a hand-painted logo.</figcaption>
+      	</figure>
+        <p>
+        	After the painting I took the "Jribbble" I liked most into Photoshop and fiddled with it a bit. I isolated the color from the background, applied the Twirl filter a few times to give it more character and added some of the random strokes and splatters around it for a more haphazard look. In Photoshop I set up a 958px, 12 column grid to work off of. For the banner and assorted page headers I selected <a href="http://typekit.com/fonts/botanika-mono-web">Botanika Mono Web from Typekit</a>. I don't own that font so I have to use a very advanced and elegant method for playing around with initial type layout. I input the text I need into Typekit's Type Tester and take screenshots of the text from there. See, fancy ain't it?
+        </p>
+        <figure>
+      	  <img src='http://tylergaw.com/articles/assets/post_image_jribbble_design.jpg' alt='Jribbble design'>
+      	  <figcaption>Getting out of Photoshop as soon as possible, this was the extent of the design accomplished with the graphics monolith.</figcaption>
+      	</figure>
+        <p>
+        	The image above is the extent of the design accomplished with Photoshop. From that point on the rest of the design was created with good ole' CSS. Just like I have always done in Photoshop I went through quite a few style iterations; colors, type sizes, positioning, but instead of spending that time in Photoshop and only moving to the browser when it was "final" I used the medium that would be delivered to create the design. Designing in the browser, it feels good man.
+        </p>
+        <h2>The flexibility</h2>
+        <p>
+        	To accomplish my flexible grid, I started with a overall width of 80% on the content area. That number was somewhat arbitrary, I started with 100% and decreased the number until I felt there was a comfortable amount of room between the edge of the browser and the beginning of the content. I am setting a <code>max-width</code> of 1280px on the content area. Any wider than that and things started to get a little unwieldy; line-lengths were too long and in general things just didn't look good. At browser widths of 768px or narrower I wanted to gain back some of the margin so I used a media query to increase the width to 95%.
+        </p>
+        <pre><code>#content {
+      margin: 0 auto;
+      max-width: 1280px;
+      width: 80%;
+
+      @media screen and (max-width: 768px) {
+      width: 95%;
+      }
+      }</code></pre>
+        <p>
+        	<em>Quick note on the media query. I'm using <a href="http://sass-lang.com/">Sass</a> which allows for nested styles. You'll see more of this in later code examples.</em>
+        </p>
+        <p>
+        	In a number of areas of the design I use a two-column layout. To determine the widths of each column I used the oh-so-helpful formula that Ethan describes in <abbr title="Responsive Web Design">RWD</abbr>: <br>
+        </p>
+        <pre><code>target &divide; context = result</code></pre>
+        <p>
+        	For the columns I use the starting width of 958px as a context then determine a pixel value based off the width of each of my grid columns, 69px, to come up with widths like:
+        </p>
+        <pre><code>.method-description {
+      h3 {
+      float: left;
+      width: 40.1878914%; /* 385 &divide; 958 = .401878914 */
+      ...
+      }
+
+      p {
+      float: right;
+      ...
+      width: 56.4718163%; /* 541 &divide; 958 = .564718163 */
+      }
+      }</code></pre>
+        <h2>More on media queries</h2>
+        <p>
+        	Throughout the design I used media queries to add more fine tuning of styles that I couldn't accomplish with percentages alone. I decrease font sizes, switch to single column layouts and make other miscellaneous tweaks as the browser width decreases or increases to specified break points. For cross browser media query support I used the <a href="https://github.com/scottjehl/Respond">Respond.js</a> poly fill. It works great, media queries in IE7, you can't beat that with a stick! I needed to make some specific enhancements based on features as well so I used <a href="http://www.modernizr.com/">Modernizer</a> for feature detection. I included Respond.js in my Modernizer build.
+        </p>
+        <h2>The good stuff, the sweetness, the sugar</h2>
+        <p>
+        	How does a die-cut, scaleable background image sound? I thought it sounded pretty rad. I'll explain. I had the idea that I wanted the "Jribbble" graphic to be different colors at different times. One way to accomplish that would have been to make a number of different images in the various colors that I wanted. That would work, but I thought I could do it a more efficient way. What I did was create an image that had a set background color of <code>#ececec</code> with the text itself transparent allowing for a background color to show through.
+        </p>
+        <figure>
+          <img src='http://tylergaw.com/articles/assets/post_image_jribbble_transparent.jpg' alt='Jribbble background image'>
+          <figcaption>
+            The die-cut .png used to create the color-shifting Jribbble logo.
+          </figcaption>
+        </figure>
+        <p>
+        	With die-cut taken care of, let's look at scaleable. At its base size of 1149px by 663px the logo graphic is pretty large. At medium to large browser widths, this works fine, as the browser width decreases or increases the graphic starts to lose its intended effect and also starts to cause readability issues for other page elements. <code>background-size</code> to the rescue!
+        </p>
+        <pre><code>#bigAssJribbble {
+      background-image: url(../images/branding-die-cut.png);
+      background-repeat: no-repeat;
+      background-position: 15% 100%;
+      -moz-background-size: 190% 140%;
+      -webkit-background-size: 190% 140%;
+      -o-background-size: 190% 140%;
+      background-size: 190% 140%;
+      padding-top: 45%;
+      position: absolute;
+      width: 100%;
+      }</code></pre>
+        <p>
+        	A couple things are going on here. It's important to note that the branding-die-cut.png image is much wider than it needs to be. The graphic is flush left and the right side extends ~1049px and is filled with our background color <code>#ececec</code>. I do this so I am able to position the background image off the left side of the browser and not leave a gap on the right side. If there was a gap that the image didn't cover, any background color would show through where I didn't want. The width of the element is set to 100% so it is always the size of the browser. The <code>background-size</code> property does exactly what it says, it scales the background image to the percentages that I used. There isn't a science to those numbers, I just tweaked them until they looked right.
+        </p>
+        <p>
+        	Another cool thing in that block of CSS is the <code>padding-top</code>. Since an element has to be taller than 0px for a background image to show and I didn't want to set an explicit height due to the changing graphic size I used the percentage padding to give the element a height. Again, no science with that number, just changed it until it worked.
+        </p>
+        <p>
+        	Something that's not accounted for in the above CSS is the background color, the color that should show through the die-cut image. This is where I started having a lot of fun. I set up 11 media queries at different pixel max-widths from 320px to 2360px, at each of those I set a different background color for the logo as well as a number of different elements on the page. As the browser width increases or decreases the background color changes. Another little extra I use is a CSS transition to smoothly change from one color to another on each of the chameleon-like elements. An example element with a media query colorway:
+        </p>
+        <pre><code>#bigAssJribbble {
+      -moz-transition: background-color 0.2s;
+      -webkit-transition: background-color 0.2s;
+      -o-transition: background-color 0.2s;
+      transition: background-color 0.2s;
+      }
+
+      @media screen and (max-width: 480px) {
+      #bigAssJribbble {
+      background-color: #4400ff;
+      }
+      }</code></pre>
+        <p>
+        	I didn't get incredibly specific with what colors I chose. I started with a base of <code>#ff0066</code> and then apply cooler colors as the width decreases and warmer as it increases.
+        </p>
+        <p>
+        	That's CSS sugar in my view. It's not something that everyone will see, but it's just a little extra for those that are looking and into that sort of thing.
+        </p>
+        <h2>That's all</h2>
+        <p>
+        	All in all a very fun process full of experimentation and learning for the sake of experimentation and learning. It probably took too long, so it goes. Side projects live in the off hours, the small windows of time before and after the "real" work and in the hours when you probably need to be sleeping.
+        </p>
+        <p>
+        	Again, the completed site lives here <a href="http://lab.tylergaw.com/jribbble">http://lab.tylergaw.com/jribbble</a> and if you're interested in more of the code, fork it from its Github repo <a href="https://github.com/tylergaw/jribbble.com">https://github.com/tylergaw/jribbble.com</a>.
+        </p>
+        <p>
+        	<i>Thanks for reading</i>
+        </p>
+      ]]>
+    </description>
+    <link>http://tylergaw.com/articles/a-small-redesign-with-a-little-sugar</link>
+    <guid>http://tylergaw.com/a-small-redesign-with-a-little-sugar</guid>
+    <pubDate>Sat, 09 Jul 2011 19:14:52 -0400</pubDate>
+  </item>
+  <item>
+    <title>All Talkie Talkie</title>
+    <dc:creator>Tyler Gaw</dc:creator>
+    <description>
+      <![CDATA[<p>
+  	    <figure>
+  	      <a href='http://lab.tylergaw.com/whatsgoingonwithcss'>
+  	        <img src='http://tylergaw.com/articles/assets/post_image_whatupcss.jpg' alt='View the presentation slides'>
+  	      </a>
+  	      <figcaption>
+      	    View the slides
+      	  </figcaption>
+  	    </figure>
+  	  </p>
+  	  <p>
+  	    On Tuesday, the 25th I presented an introduction of CSS3 features to a great group of folks at <a href="http://refreshnyc.org/">Refresh NYC</a>. The new features included in CSS3 are something that I'm really interested in and very excited about so it was a good opportunity to really dig in and learn a whole lot about them in a short amount of time. For my slides I decided to not take the Keynote route and instead decided to create the presentation as HTML, CSS, and Javascript. It turned out great, not only did I get to explore the sweetness of CSS3 for the sake of presenting the information, I also used a lot of the features I was talking about to build the presentation.
+  	  </p>
+  	  <p>
+  	    This was the first time I had put together a presentation like this and got up in front of a crowd to present it, and I loved every minute of it. You really gain a deeper knowledge of a topic when you are trying to explain it to someone else. I'm definitely going to do this again in the near future and if you've had any interest in doing so I would highly recommend it.
+  	  </p>
+  	  <p>
+      	<i>Thanks for reading</i>
+      </p>]]>
+    </description>
+    <link>http://tylergaw.com/articles/all-talkie-talkie</link>
+    <guid>http://tylergaw.com/articles/all-talkie-talkie</guid>
+    <pubDate>Thu, 27 May 2010 11:18:00 -0400</pubDate>
+  </item>
+  <item>
+    <title>You Did What with What?</title>
+    <dc:creator>Tyler Gaw</dc:creator>
+    <description>
+      <![CDATA[<p class="entry-intro">
+        <a href='http://lab.tylergaw.com/themanfromhollywood'>
+          <img src='http://tylergaw.com/articles/assets/post_image_hollywood.jpg' alt='View the demo'>
+        </a>
+      </p>
+      <h2>Stuff You'll Most Likely Do Before Reading Any of This Post</h2>
+      <p>
+        <a href='http://lab.tylergaw.com/themanfromhollywood'>View the demo</a>
+        <a href='http://github.com/tylergaw/themanfromhollywood'>Fork it</a><br>
+        <em>You'll need Safari or Chrome to view the demo</em>
+      </p>
+      <p>
+        There have been a ton of new, really exciting things going on with CSS over the past couple years and I've had an itch for a while to work with them. I started out just wanting to do a small project to get familiar with some of the newer, more advanced CSS3 features, and it quickly grew into a two month immersion into CSS3 land.
+      </p>
+      <h2>Do they speak English in what?</h2>
+      <p>
+        A few years back Jarrat Moody, a super talented designer, created a kinetic type <a rel='external' href='http://www.youtube.com/watch?v=HePWBNcugf8'>motion graphics piece</a> based on a scene from the movie Pulp Fiction; that I am still floored by to this day. Since I saw that I have wanted to create a similar piece and even made a few attempts using After Effects, none of which ever really materialized.
+      </p>
+      <h2>Let's do this!</h2>
+      <p>
+        So I have my excitement over a new feature set, and inspiration from Mr. Moody, time to get to it. <a href='http://lab.tylergaw.com/themanfromhollywood'>The Man From Hollywood</a> is a kinetic type animation using only HTML, CSS and Javascript. All of the animation is done using Webkit CSS transition, transforms, as well as standard CSS properties. Javascript just acts as a helper to turn CSS classnames on and off at the appropriate times. All of the content you see on the demo is HTML and CSS, no images were used. The audio clip is scene from the movie <a rel='external' href='http://www.imdb.com/title/tt0113101/'>Four Rooms</a>
+      </p>
+      <h2>Is it practical?</h2>
+      <p>
+        No, not really, but it's not really supposed to be. My goals were to teach myself the ins and outs of a new feature set, make something fun to look at, and hopefully help and/or inspire others to work on their own CSS3 awesomeness.
+      </p>
+      <p>
+        If you enjoy it, you should <a href="http://twitter.com/home?status=@thegaw is the awesomest dude on the planet because of this: http://bit.ly/9rOtd4">Tweet it</a> or share it on your blog or just whisper the URL into a co-worker's ear. That last one would definitely be the best.
+      </p>
+      <p>
+      	<i>Thanks for reading</i>
+      </p>]]>
+    </description>
+    <link>http://tylergaw.com/articles/you-did-what-with-what</link>
+    <guid>http://tylergaw.com/articles/you-did-what-with-what</guid>
+    <pubDate>Tue, 06 Apr 2010 22:09:00 -0400</pubDate>
+  </item>
+  <item>
+    <title>I Less Than Three IE6</title>
+    <dc:creator>Tyler Gaw</dc:creator>
+    <description>
+      <![CDATA[<p class="entry-intro">
+    	  I am not a fan of the Die IE6 Campaigns, can't get behind them. You will not see me sporting some goofy <a href='http://twibbon.com/join/IE6-Must-Die' rel='external'>IE6 Must Die Twibbon</a> any time soon. I take a pretty unpopular position on IE6; I do not mind developing for IE6, working with it over the past few years has made me a better, smarter developer and I am going to miss it a bit when It's completely out of the picture. Whoa, look out, you're probably thinking I'm bat-shit crazy by now, but hear me out. I have reasons.
+    	</p>
+    	<p>
+    	  <strong>1. It pushes you to write proper, lightweight HTML markup: </strong>
+    	  IE6 has well-known issues with the box model, strange padding and margin issue, etc. One very good way to stop these potential CSS issues is to write good markup. Easy things like making sure you are writing semantic, valid markup and using <code>&lt;div&gt;</code> tags sparingly can knock out probably 95% of these issues that seem to be such a problem for so many. In my experience, most folks' CSS issues aren't CSS issues at all, they are HTML issues.
+    	</p>
+    	<p>
+    	  <strong>2. It gives you yet another chance to get creative: </strong>
+    	  So what if IE6 doesn't support transparent pngs. Find a way to make that image a transparent gif or a jpg. Doesn't look as crisp as the png? So what, this is where progressive enhancement steps in, this is why we have conditional comments. Set up an IE6 stylesheet and dump all of the not so desirable CSS in there. Chances are most of your users are not on IE6 anyway, and if they are this can be a friendly little jab at them for using it. I took this route when building my site. I wanted to let anyone viewing my site with The 6 know that they are missing out so I created a completely stripped down version just for IE6, plus a nice reminder of why. It still works, you can access all the same content, it's just not pretty.
+    	</p>
+    	<figure>
+    	  <img src='http://tylergaw.com/articles/assets/post_image_tgawie6_thumb.jpg' alt='tylergaw.com IE6 Screenshot'>
+    	  <figcaption>Users of IE6 receive a version of tylergaw.com that contains all the same content, but has a very pared-down aesthetic.</figcaption>
+    	</figure>
+    	<p>
+    	  <strong>3. It forces you to clean up sloppy code that other browsers ignore: </strong>
+    	  I've seen this a number of times when writing Javascript. Take a look at this bit of JS:
+    	</p>
+    	<pre><code>var someCrud = ['item01', 'item02', 'item03',];
+alert(someCrud.length);</code></pre>
+      <p>
+        What's the length of the array? Firefox and Safari say 3. IE6 says 4. I'm siding with The 6 on this one, the comma at the end of the array is erroneous, it should not be there. IE6 sends the message that you should clean up your code by recognizing the extra item while the more advanced browsers ignore it and let you go on your sloppy way. This is just one example, I've come across a number of similar examples over the years, I'm sure others have too.
+      </p>
+      <p>
+        <strong>4. It keeps you on your toes: </strong>
+        If you're building websites you need to be flexible. Not all environments are going to be picture perfect, and knowing how to find solutions to problems that arise when working with a browser like The 6 is key. It's easy to just say that a browser is the sole reason for not getting something to function well. Another look at it may reveal that the first approach taken was maybe not the best. You just have to put on that thinking cap a bit.
+      </p>
+      <p>
+        <strong>5. It's good to have a nemesis: </strong>
+        What good is Batman without the Joker? You have to have someone or something that challenges you and makes your job harder, and sometimes downright frustrating. Web development is hard, that's why it's fun. How good a feeling is it to confront a problem in development and find some interesting way around it? I got a whole crappy article out of doing just that.
+      </p>
+      <p>
+        This viewpoint is 100% from that of a developer. As a user, I agree using IE6 would just be a nightmare. The security issues, the lack of features that modern browsers have, etc., etc. That is one merit that the Die IE6 campaigns have. But every time I see some Johnny Developer complaining about how hard it is to build websites for IE6 and how much they hate it, I can't help but think that that person is missing out on opportunities to use their noggin. And that they are a bit of a wimp. :)
+      </p>
+      <p>
+        After IE6 is gone some other browser will take it's place as the whipping boy. IE7? So, instead of just joining a campaign of wishing death on an inanimate object, I say learn to take away as much knowledge as you can from a less-than-ideal situation. Like Kuato said, "<a href='http://www.youtube.com/watch?v=xO1kKemcwYk' rel='external'>Open your miiinddddd.</a>"
+      </p>
+      <p>
+        <i>Thanks for reading</i>
+      </p>]]>
+    </description>
+    <link>http://tylergaw.com/articles/i-less-than-three-ie6</link>
+    <guid>http://tylergaw.com/articles/i-less-than-three-ie6</guid>
+    <pubDate>Mon, 27 Jul 2009 00:41:00 -0400</pubDate>
+  </item>
+  <item>
+    <title>Ch-ch-ch-changes!</title>
+    <dc:creator>Tyler Gaw</dc:creator>
+    <description>
+      <![CDATA[<p class="entry-update">
+        <b>Update:</b> This post was about the previous version of this site, <a href="http://v3.tylergaw.com">version 3</a>.
+      </p>
+    	<p class="entry-intro">
+    	  I slapped a fresh coat on the old website. Well, new paint, siding, frame, foundation...who am I kidding? I just burned down the old one and built anew on its smoldering ashes.
+    	</p>
+    	<p>
+    	  This is the third incarnation of tylergaw.com and just like the past two versions, I've had a damn good time working on this one. I've been able to take the time to work with so much amazing code that I've never really dug into before. This is the first full site I've built using the <a href='http://framework.zend.com/'>Zend Framework</a> which has just made me realize how completely rad it is working with a rock-solid framework. It also makes me kick myself a little for not picking it up a long time ago. I'm integrating with a number of different third party APIs, this is also the first time I've built a site doing that. How freaking cool is working with well-written, well-documented APIs?
+    	<p>
+    	<p>With the visual design, I've really tried to push it in a direction that I think is, "me". This was one of those designs that I could really see in my head before I opened Photoshop or even put one thing down on paper. The biggest inspiration came from the cover art for <a href='http://en.wikipedia.org/wiki/Women_%28novel%29'>Charles Bukowski's Women</a>. The whole time I was reading the book, I was constantly looking back at the cover. I don't know exactly what it is but it is just so damned cool. For this round, I started the design process the old fashioned way; I grabbed a six-pack, some colored pencils, a big-ass sketch book and then went to work.
+    	</p>
+    	<figure>
+        <img class="image-vertical" src='http://tylergaw.com/articles/assets/post_image_women.jpg' alt='Bukowski - Women'>
+        <figcaption>The cover of Charles Bukowski's "Women" was a main source of inspiration for the aesthetics.</figcaption>
+      </figure>
+      <figure>
+        <img class="image-vertical" src='http://tylergaw.com/articles/assets/post_image_tgaw2009sketch.jpg' alt='tgaw2009 Sketch'>
+        <figcaption>Starting a design with paper and pencil allows for quick iteration and time to really nail down the overall vision.</figcaption>
+      </figure>
+      <p>
+        I'm a big fan of organic textures and knew that I wanted to incorporate some into the design. When I sat down in Photoshop to start turning my sketch into a working design, I realized quickly that I was going to need some real-world help getting the organic look and feel that I was going for. When it's time for real-world textures I just start grabbing <a href='http://tylergaw.com/articles/assets/post_image_art01.jpg'>anything</a>, and I mean <a href='http://tylergaw.com/articles/assets/post_image_samich.jpg'>anything</a>, and throw it on the scanner. You never know what you might use that scan of an old broken toothbrush for. Just to be sure, scan it!
+      </p>
+      <p>
+        <i>Thanks for reading</i>
+      </p>]]>
+    </description>
+    <link>http://tylergaw.com/articles/ch-ch-ch-changes</link>
+    <guid>http://tylergaw.com/articles/ch-ch-ch-changes</guid>
+    <pubDate>Thu, 18 Jun 2009 21:42:00 -0400</pubDate>
+  </item>
+</channel>
+</rss>
