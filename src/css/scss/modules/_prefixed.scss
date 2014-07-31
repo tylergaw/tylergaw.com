@@ -1,6 +1,6 @@
-@mixin box-sizing ($val) {
-    -moz-box-sizing: $val;
-    box-sizing: $val;
+@mixin border-box {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 @mixin transition ($val...) {

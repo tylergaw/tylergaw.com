@@ -237,6 +237,7 @@ a {
 }
 .article-list li {
   border-bottom: 1px solid rgba(248, 248, 248, 0.1);
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0.5em 0;
   padding: 1.2em 1em;
@@ -467,6 +468,7 @@ a {
   -webkit-align-items: center;
   align-items: center;
   border-bottom: 2px solid #1e1e1d;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   display: -webkit-flex;
   display: flex;
@@ -717,6 +719,7 @@ a {
 }
 
 .all-about-me {
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   font-size: 1.2em;
   margin: 0 auto;
@@ -728,6 +731,7 @@ a {
 .my-big-dumb-faces {
   background: transparent url(../images/tyler-gaw-portraits-horizontal.jpg) no-repeat center top;
   background-size: 97%;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding-top: 66%;
   width: 100%;
@@ -736,6 +740,7 @@ a {
 .design-to-me {
   border-top: 8px solid #f8f8f8;
   border-bottom: 8px solid #f8f8f8;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   color: #f8f8f8;
   font-size: 1.55em;
@@ -784,6 +789,7 @@ a {
 .services .listed {
   border-bottom: 4px solid #1e1e1d;
   border-top: 4px solid #1e1e1d;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   font-size: 1em;
   line-height: 1.3;
@@ -806,6 +812,7 @@ a {
 }
 
 .skills {
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   color: #d2d2d2;
   font-size: 1.2em;
@@ -839,6 +846,7 @@ a {
   background-color: rgba(153, 153, 153, 0.1);
   border: 1px solid rgba(153, 153, 153, 0.1);
   align-self: center;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   display: -webkit-flex;
   display: flex;
@@ -864,6 +872,7 @@ a {
 }
 
 .previous-versions {
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   display: -webkit-flex;
   display: flex;
@@ -875,6 +884,7 @@ a {
 .previous-versions li {
   display: -webkit-flex;
   display: flex;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0.6em 0;
   width: 100%;
@@ -883,6 +893,7 @@ a {
   background-color: #1e1e1d;
   background-size: 100%;
   background-repeat: no-repeat;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   display: block;
   font-size: 1.2em;
@@ -981,6 +992,7 @@ a {
     font-size: 0.8em;
   }
   .more-on div {
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
     width: 50%;
   }

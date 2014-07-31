@@ -7,7 +7,7 @@
     li {
         @include align-items(center);
         border-bottom: 2px solid $grey;
-        box-sizing: border-box;
+        @include border-box;
         @include flex;
         padding: 2.4em 3.6%;
         position: relative;

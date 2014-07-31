@@ -4,7 +4,7 @@
 
     li {
         border-bottom: 1px solid rgba($offwhite, 0.1);
-        box-sizing: border-box;
+        @include border-box;
         margin: 0.5em 0;
         padding: 1.2em 1em;
     }
