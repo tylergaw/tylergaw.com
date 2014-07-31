@@ -482,6 +482,7 @@ a {
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
   padding-top: 1em;
+  max-width: 100%;
 }
 .projects-list li {
   -webkit-align-items: center;
