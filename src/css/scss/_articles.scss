@@ -13,7 +13,7 @@
         color: #fcf1d3;
     }
 
-    & > div {
+    .containing-element {
         background: #fcf1d3 url(/images/content-bg-tan.png) repeat 20% top;
         @include border-image('articles');
         color: #433f1e;

@@ -40,9 +40,28 @@
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
             })();
         </script>
+
+        <style>
+      	/* These styles were not a part of the original site. */
+      		#archivedMsg {
+      		          background-color: #1f1f1f;
+                        background-image: none;
+                        color: #f1f1f1;
+      		           opacity: 0.9;
+                         text-align: center; width: 100%; z-index: 999;}
+      		#archivedMsg p { padding: 4px; }
+      		#archivedMsg a { color: yellow; }
+      	</style>
     </head>
+
     <body id="page-{{ page.type }}">
-        <div>
+        <div id="archivedMsg" style="background-color: #000;">
+          <p>
+              You’re looking at a previous version of <a href="http://tylergaw.com">tylergaw.com</a>.
+            It’s very likely that there are dead links and designs that are no longer current.
+          </p>
+        </div>
+        <div class="containing-element">
             <header role="banner">
                 <a href="/">
                     <h1>Tyler Gaw</h1>

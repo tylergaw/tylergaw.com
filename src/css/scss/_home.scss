@@ -6,7 +6,7 @@
         color: #081516;
     }
 
-    & > div {
+    .containing-element {
         background: #081516 url(/images/content-bg-navy.png) repeat 20% top;
         @include border-image("home");
         color: #b3b3b3;

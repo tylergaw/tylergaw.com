@@ -4,7 +4,7 @@ body {
     font-family: 'chaparral-pro', georgia, times, serif;
     -webkit-font-smoothing: antialiased;
 
-    & > div {
+    .containing-element {
         border-width: 3px;
         padding-bottom: 10em;
         position: relative;
