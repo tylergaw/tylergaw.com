@@ -60,7 +60,7 @@
                   The location of this file is different for each install. Locally, mine is at
                   <code>/usr/local/etc/nginx</code>. I can never remeber where it is
                   on my VPS, I just have to peck around until I find it. Here are
-                  the relevant snippits from my local and prod <code>nginx.conf</code>.
+                  the relevant snippets from my local and prod <code>nginx.conf</code>.
               </p>
               <pre><code># local
 http {
