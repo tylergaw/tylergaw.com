@@ -333,7 +333,7 @@ a {
   }
 }
 
-.entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6, .entry-content p:not(.entry-intro), .entry-content ul, #disqus_thread {
+.entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6, .entry-content p:not(.entry-intro), .entry-content ul, .entry-content ol, #disqus_thread {
   margin: 0 auto;
   max-width: 790px;
 }
@@ -421,12 +421,38 @@ a {
   font-size: 0.8em;
   font-style: italic;
 }
-.entry-content ul {
+.entry-content ul, .entry-content ol {
   padding: 0 0.2em 1.4em 0.2em;
+}
+.entry-content ol {
+  counter-reset: li;
 }
 .entry-content li {
   font-size: 0.95em;
+  line-height: 1.6;
   list-style: disc inside;
+  padding-bottom: 0.9em;
+  position: relative;
+}
+.entry-content ol li {
+  padding-left: 2.4em;
+  padding-right: 0.8em;
+  list-style: none;
+}
+.entry-content ol li:before {
+  background-color: #ffad15;
+  border-radius: 55%;
+  counter-increment: li;
+  content: counter(li);
+  color: #1e1e1d;
+  font-weight: 600;
+  height: 1.4em;
+  left: 0;
+  position: absolute;
+  line-height: 1.2;
+  text-align: center;
+  top: 0.3em;
+  width: 1.4em;
 }
 .entry-content blockquote {
   border-left: 4px solid #ffad15;
@@ -1376,3 +1402,5 @@ pre[class*="language-"],
     font-size: 20vw;
   }
 }
+
+/*# sourceMappingURL=tylergaw.css.map */

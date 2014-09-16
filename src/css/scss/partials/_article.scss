@@ -110,14 +110,43 @@ $maxTextWidth: 790px;
         font-style: italic;
     }
 
-    ul {
+    ul, ol {
         padding: 0 0.2em 1.4em 0.2em;
         @extend %maxedText;
     }
 
+    ol {
+        counter-reset: li;
+    }
+
     li {
         font-size: 0.95em;
+        line-height: 1.6;
         list-style: disc inside;
+        padding-bottom: 0.9em;
+        position: relative;
+    }
+
+    ol li {
+        padding-left: 2.4em;
+        padding-right: 0.8em;
+        list-style: none;
+
+        &:before {
+            background-color: #ffad15;
+            border-radius: 55%;
+            counter-increment: li;
+            content: counter(li);
+            color: $grey;
+            font-weight: 600;
+            height: 1.4em;
+            left: 0;
+            position: absolute;
+            line-height: 1.2;
+            text-align: center;
+            top: 0.3em;
+            width: 1.4em;
+        }
     }
 
     blockquote {

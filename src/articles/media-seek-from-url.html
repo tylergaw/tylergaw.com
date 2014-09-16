@@ -1,0 +1,73 @@
+---
+layout: article
+title: "Media Seek from URL"
+title_size: med
+date: 2014-09-17
+disqus_id: media-seek-from-url
+---
+
+<p class="entry-intro">
+    I recently had a need to be able to control the time of <code>audio</code>
+    elements via a URL query string. I whipped up a bit of JavaScript to handle it.
+    There’s a demo <a href="http://lab.tylergaw.com/media-seek-from-url/">here</a> and
+    the source is <a href="https://github.com/tylergaw/media-seek-from-url">on GitHub</a>.
+    I had fun figuring it out and thought maybe you’d enjoy reading about it.
+    The following are details about why I needed it and the code I wrote.
+</p>
+<p>
+    As with most projects, this one started with a problem that needed fixin’ The
+    site this was for had a listing of audio tracks. Each list item included; the <code>audio</code>
+    element, a title/link to the page for that track and a short description.
+    Some of list items had additional links to the track’s page in the description.
+</p>
+<p>
+    With this setup, the links to the track pages were causing the problem. Here’s
+    what was happening; Users were pressing play on one of the tracks in the list.
+    They would then click on one of the track’s links. That would take them away
+    from the listing to that track’s page. The navigation would cause them to
+    lose their place in the track they were listening to. The tracks were podcasts that
+    ran from 45 to 70 minutes in length so losing your spot at 33 minutes and 45 seconds was annoying.
+</p>
+<p>
+    This is where controlling the time of the <code>audio</code> element came into play.
+    Clicking on a link should take the user to the track’s page and
+    the track should resume playing where they left off.
+</p>
+<h2>Writing The Thing</h2>
+<p>
+    YouTube does this style of jumping around in a video via the URL. I think
+    the query string style they use works well, so I took my cues from them. I would
+    have URLs like:<br> <code>http://site.com/tracks/track-name?t=1h22m35s</code>
+</p>
+<p>
+    Two quick things about the following code examples and descriptions:
+</p>
+<ol>
+    <li>
+        I wrote the original code for a specific project. The code I’ll be showing
+        here is a modified version of that project’s code. The biggest difference
+        is that there are no links to separate pages. I left that out because I
+        felt like the main idea is not the navigation between pages.
+    </li>
+    <li>
+        The example only shows <code>audio</code> elements. The some code
+        can be used with the <code>video</code> element because both use the same
+        HTML media api.
+    </li>
+</ol>
+<p>
+    To get going, I didn’t want to get bogged down in run-of-the-mill stuff.
+    I knew that changing an <code>href</code> value of an <code>a</code> on click wouldn’t be challenging,
+    so I started in the middle with something I didn’t know how to do.
+    I started with parsing the query string I’d use–<code>?t=1h32m27s</code>–that
+    I would just type into the URL bar to get a usable time value.
+</p>
+<p>
+</p>
+
+
+
+<!-- <p>
+    For this project I was working specifically with the <code>audio</code> element,
+    but all of the code can be used with the <code>video</code> element as well.
+</p> -->
