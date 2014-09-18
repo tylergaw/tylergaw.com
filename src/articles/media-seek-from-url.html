@@ -18,7 +18,7 @@ disqus_id: media-seek-from-url
   As with most projects, this one started with a problem that needed fixin’ The
   site this was for had a listing of audio tracks. Each list item included; the <code>audio</code>
   element, a title/link to the page for that track and a short description.
-  Some of list items had additional links to the track’s page in the description.
+  Some of list items had extra links to the track’s page in the description.
 </p>
 <p>
   With this setup, the links to the track pages were causing the problem. Here’s
@@ -35,41 +35,38 @@ disqus_id: media-seek-from-url
 </p>
 <h2>Writing The Thing</h2>
 <p>
-  YouTube does this style of jumping around in a video via the URL. I think
-  the query string style they use works well, so I took my cues from them. I would
-  have URLs like:<br> <code>http://site.com/tracks/track-name?t=1h22m35s</code>.
+  YouTube does this style of jumping around in videos via the URL. I think
+  the query string style they use works well, so I took my cues from them. I decided
+  I’d use URLs like:<br> <code>http://site.com/tracks/track-name?t=1h22m35s</code>.
 </p>
 <p>
-  Two quick things about the following code examples and descriptions:
+  Two quick things about the code examples and descriptions:
 </p>
 <ol>
   <li>
     I wrote the original code for a specific project. The code I’ll be showing
-    here is a modified version of that project’s code. The biggest difference
+    here is a modified version of that project’s code. The main difference
     is that there are no links to separate pages. I left that out because I
-    felt like the main idea is not the navigation between pages.
+    felt like the interesting thing is not the navigation between pages.
   </li>
   <li>
-    The example only shows <code>audio</code> elements. The some code
-    can be used with the <code>video</code> element because both use the same
-    HTML media api.
+    The examples only show <code>audio</code> elements, but you can use the same code
+    with <code>video</code> elements.
   </li>
 </ol>
 <p>
   To get going, I didn’t want to get bogged down in run-of-the-mill stuff. I wanted something new.
   I knew that changing an <code>href</code> value of an <code>a</code> on click wouldn’t be challenging,
   so I started in the middle with something I didn’t know how to do.
-  I started with parsing the query string I’d use–(ex., <code>?t=1h32m27s</code>)–that
-  I would just type into the URL bar to get a usable time value.
+  I started with parsing the query string.
 </p>
 <p>
-  On page load, I’m running a function called <code>seekIfNeeded</code>. This
-  function checks the <code>window.location.search</code> for the presense of
-  the string “t=”. This will determine if we need to bother trying to parse
-  a time from the URL. This check is by no means fool-proof, but for my purposes
-  it gets the job done.
+  On page load, we run a function called <code>seekIfNeeded</code>. This
+  function checks the <code>window.location.search</code> for the presence of
+  the string “t=”. This determines if we need to bother trying to parse
+  a time from the URL. This check is by no means fool-proof, but it gets the job done.
 </p>
-<pre><code class="language-javascript">function seekIfNeeded () {
+<pre class="line-numbers"><code class="language-javascript">function seekIfNeeded () {
   var q = window.location.search;
 
   if (q.indexOf('t=') > -1) {
@@ -78,11 +75,13 @@ disqus_id: media-seek-from-url
 }
 </code></pre>
 <p>
-  After we’ve determined that we do need to parse a time we do a bit of setup,
-  prepare, the audio element, and if a condition is met start parsing the query
-  string into a time.
+  Once it’s determined there’s a time to parse the good stuff starts.
+  We need to; declare a couple convenience vars,
+  bind a <code>canplay</code> event to the <code>audio</code>,
+  convert the query string to seconds, and update <code>currentTime</code>
+  property of the <code>audio</code>.
 </p>
-<pre><code class="language-javascript">function seekIfNeeded () {
+<pre class="line-numbers"><code class="language-javascript">function seekIfNeeded () {
   var q = window.location.search;
 
   if (q.indexOf('t=') > -1) {
@@ -112,42 +111,39 @@ disqus_id: media-seek-from-url
         seekedFromURL = true;
       }
     });
+
+    media.play();
   }
 }
 </code></pre>
 <p>
-  Most of that code is boilerplate. Things get interesting with the line that sets
-  <code>media.currentTime</code>. It’s being set to the value of a function–
-  <code>secondsFromTimeParts</code>–that is being passed the value of another
-  function–<code>partsFromTimeString</code>.
+  Things get interesting with the line that sets
+  <code>media.currentTime</code>. It’s being set to the return value of the
+  <code>secondsFromTimeParts</code> function. That function is given the
+  return value of another function, <code>partsFromTimeString</code>.
 </p>
 <p>
-  So many functions right? I tend to take a functional approach with my JavaScript
-  when applicable. I’m not always sure what is pure functional programming, but
-  I get a lot of milage out of a lot of small functions that; take a value, do
-  one or more small things with that value, and then return a new value without
-  effecting the initial value or other items outside of the functions. Maybe I
-  need to say “function” once more here for good measure?
-</p>
-<p>
-  Let’s break down that line of code from the inside out. First <code>timeString</code>
+  I’ll break down that line of code from the inside out. First <code>timeString</code>
   is a string like; “1h32m23s” or “15m10s” or “12s”. Any combination of hours,
-  minutes, and seconds. Even though humans can figure out that the string represents time, the <code>audio</code>
+  minutes, and seconds. Even though humans can figure out that the string
+  represents time, the <code>audio</code>
   element isn’t going to understand it. The string is passed to <code>partsFromTimeString</code>.
   That function converts the string into an object of key/value pairs where the
   keys represent a part of the time and the values the amount of time for each part.
 </p>
-<pre><code class="language-javascript">function partsFromTimeString (str) {
+<pre class="line-numbers"><code class="language-javascript">function partsFromTimeString (str) {
   var parts = {h: 0, m: 0, s: 0};
 
-  // Breaks the string into an array like ["1h", "32m", "6s"]
-  //
   // Wrapping in a try to avoid an error in case someone gives the 't='
   // query string with no time. It'll just default to zero without it.
   try {
+
+    // The regex match breaks the string into an array
+    // like ["1h", "32m", "6s"]
     str.match(/[0-9]+[hms]+/g).forEach(function (val) {
 
-      // Creates an array with two elements, the time and part key like ["32", "m"]
+      // Creates an array with two elements, the time and part
+      // key like ["32", "m"]
       var part = val.match(/[hms]+|[0-9]+/g);
       parts[part[1]] = parseInt(part[0], 10);
     });
@@ -157,6 +153,35 @@ disqus_id: media-seek-from-url
   return parts;
 }
 </pre></code>
+<p>
+  My first thought wasn’t to use a regular expression. I tend to avoid them because
+  I only have a cursory knowledge of them. But the query string posed a problem. When trying
+  to break up a string into specific parts, I look for patterns. A common letter or
+  symbol or certain number or anything that repeats. A string like “1h32m23s”
+  doesn’t have that, so I needed another pattern.
+</p>
+<p>
+  The pattern that sticks out is; some number, followed by one of three letters.
+  That letter could be “h”, “m”, or “s”. There’s no certainty
+  that they would all be there or be in the same order. Ambiguity leads
+  me down regular expression path. I suppose that’s what they’re there for?
+</p>
+<p>
+  The <code>string.match</code> method returns an array of all matches found
+  by a given regex. The regex <code>/[0-9]+[hms]+/g</code> looks at the string from left to right
+  and says, “I want an integer with a value of 0 through 9, followed by the letter ‘h’, ‘m’, or ‘s’.”
+  If the regex finds that numeric/alpha combination, it puts it in the array. Match.
+</p>
+<p>
+  We’re getting closing to being able to separate the letters from the numbers.
+  That’s what we’re after. Even though we want to separate them, we don’t want
+  to disassociate them. Each letter gives us valuable information about the
+  number. It tells us what part of the time it represents.
+</p>
+<p>
+  The next step is to iterate over the array of number + letter combinations one by one.
+</p>
+
 
 
 <!-- <p>
