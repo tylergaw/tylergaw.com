@@ -62,11 +62,11 @@ disqus_id: media-seek-from-url
 </p>
 <p>
   On page load, we run a function called <code>seekIfNeeded</code>. This
-  function checks the <code>window.location.search</code> for the presence of
+  function checks the <code class="language-javascript">window.location.search</code> for the presence of
   the string “t=”. This determines if we need to bother trying to parse
   a time from the URL. This check is by no means fool-proof, but it gets the job done.
 </p>
-<pre class="line-numbers"><code class="language-javascript">function seekIfNeeded () {
+<pre><code class="language-javascript">function seekIfNeeded () {
   var q = window.location.search;
 
   if (q.indexOf('t=') > -1) {
@@ -76,19 +76,19 @@ disqus_id: media-seek-from-url
 </code></pre>
 <p>
   Once it’s determined there’s a time to parse the good stuff starts.
-  We need to; declare a couple convenience vars,
-  bind a <code>canplay</code> event to the <code>audio</code>,
-  convert the query string to seconds, and update <code>currentTime</code>
+  Declare a couple convenience variables.
+  Bind a <code>canplay</code> event to the <code>audio</code>.
+  Convert the query string to seconds and then update <code>currentTime</code>
   property of the <code>audio</code>.
 </p>
-<pre class="line-numbers"><code class="language-javascript">function seekIfNeeded () {
+<pre><code class="language-javascript">function seekIfNeeded () {
   var q = window.location.search;
 
   if (q.indexOf('t=') > -1) {
-    // Store the "1h34m27s" portion of the query string
+    // Store the "1h34m27s" part of the query string
     var timeString = q.split('=')[1],
 
-      // Store a reference to the audo element with an id of "media"
+      // Store a reference to the audio element with an id of "media"
       media = document.getElementById('media'),
 
       // Have we updated the time of the media element from the URL before?
@@ -116,6 +116,7 @@ disqus_id: media-seek-from-url
   }
 }
 </code></pre>
+<h2>Converting a String to Time</h2>
 <p>
   Things get interesting with the line that sets
   <code>media.currentTime</code>. It’s being set to the return value of the
@@ -128,10 +129,10 @@ disqus_id: media-seek-from-url
   minutes, and seconds. Even though humans can figure out that the string
   represents time, the <code>audio</code>
   element isn’t going to understand it. The string is passed to <code>partsFromTimeString</code>.
-  That function converts the string into an object of key/value pairs where the
+  That function converts the string into an object of key/value pairs. In the object, the
   keys represent a part of the time and the values the amount of time for each part.
 </p>
-<pre class="line-numbers"><code class="language-javascript">function partsFromTimeString (str) {
+<pre><code class="language-javascript">function partsFromTimeString (str) {
   var parts = {h: 0, m: 0, s: 0};
 
   // Wrapping in a try to avoid an error in case someone gives the 't='
@@ -161,16 +162,16 @@ disqus_id: media-seek-from-url
   doesn’t have that, so I needed another pattern.
 </p>
 <p>
-  The pattern that sticks out is; some number, followed by one of three letters.
+  The pattern that sticks out is; a number, followed by one of three letters.
   That letter could be “h”, “m”, or “s”. There’s no certainty
-  that they would all be there or be in the same order. Ambiguity leads
-  me down regular expression path. I suppose that’s what they’re there for?
+  that all the letters will be there. And they may not appear in the same order. Ambiguity lead
+  me down regular expression path. I suppose that’s what they’re for?
 </p>
 <p>
   The <code>string.match</code> method returns an array of all matches found
-  by a given regex. The regex <code>/[0-9]+[hms]+/g</code> looks at the string from left to right
+  by a given regex. The regex <code class="language-javascript">/[0-9]+[hms]+/g</code> reads the string from left to right
   and says, “I want an integer with a value of 0 through 9, followed by the letter ‘h’, ‘m’, or ‘s’.”
-  If the regex finds that numeric/alpha combination, it puts it in the array. Match.
+  If the regex finds that alphanumeric combination, it puts it in the array.
 </p>
 <p>
   We’re getting closing to being able to separate the letters from the numbers.
@@ -179,12 +180,151 @@ disqus_id: media-seek-from-url
   number. It tells us what part of the time it represents.
 </p>
 <p>
-  The next step is to iterate over the array of number + letter combinations one by one.
+  The next step is to iterate over the array of number/letter pairs one by one.
+</p>
+<p>
+  Again, we use the <code>match</code> method with a regex. The <code class="language-javascript">/[hms]+|[0-9]+/g</code>
+  regex says, “I want either the letter ‘h’, ‘m’, ‘s’ or a number, 0 through 9.”
+  When either of those are found they’re placed in the array we named “part”.
+</p>
+<p>
+  The last bit of work is to add each of the time parts to the parts object we
+  created at the start of the function. Since we get the time value from a
+  string we need to use <code>parseInt</code> to convert it to a integer.
+</p>
+<p>
+  Now we have an object of time parts. The object looks like <code class="language-javascript">{h: 1, m: 22, s: 37}</code>.
+  The next step in <code>seekIfNeeded</code> is to get seconds from those parts.
+  For that, we use the <code>secondsFromTimeParts</code> function.
+</p>
+<pre><code class="language-javascript">function secondsFromTimeParts (parts) {
+  var seconds = 0;
+
+  seconds += parts.s;
+  seconds += parts.m * 60;
+  seconds += parts.h * 3600;
+
+  return seconds;
+}
+</pre></code>
+<p>
+  <code>secondsFromTimeParts</code> adds up all the values the time parts object to
+  get a total number of seconds. To get the number of seconds from
+  minutes we multiply by 60. To get the number of seconds from
+  hours we multiply by 3600. 3600 equals 60 minutes per hour times 60 seconds per minute.
+</p>
+<p>
+  At this point, we’ve converted a string that represents a time into an actual
+  time value the media element can understand. We use that value–the number
+  of seconds into the media we want to go–to set the <code>currentTime</code>
+  property and then tell it to play.
+</p>
+<h2>Converting a Time to String</h2>
+<p>
+  So now we can update the time of a media element with a query string, but what
+  if we want to go the other way? What if we have the seconds and we want
+  to convert that to our time string?
+</p>
+<p>
+  For that we’ll follow the previous process in reverse. We’ll get an object of
+  time parts from the seconds and then a time string from the parts.
+</p>
+<pre><code class="language-javascript">var timeStr = timeStringFromParts(timePartsFromSeconds(media.currentTime));
+</pre></code>
+<p>
+  Again, from the inside out, let’s look at the <code>timePartsFromSeconds</code>
+  function.
+</p>
+<pre><code class="language-javascript">function timePartsFromSeconds (seconds) {
+  var parts = {},
+    secondsInt = Math.floor(seconds);
+
+  parts.h = Math.floor((secondsInt / 3600) % 24);
+  parts.m = Math.floor(secondsInt / 60);
+  parts.s = secondsInt % 60;
+
+  return parts;
+}
+</pre></code>
+<p>
+  We start by creating the empty parts object where we’ll store the key/value pairs.
+  <code>media.currentTime</code> gives a the number of seconds and milliseconds
+  as a float. In this script I decided that I didn’t need milliseconds.
+  <code>Math.floor(seconds)</code> removes the decimal point and everything after it.
+</p>
+<p>
+  The next few lines use the total number of seconds to determine the number of
+  hours and minutes. Those values are set to the appropriate members of the parts
+  object. These calculations are the reverse of what we need in <code>secondsFromTimeParts</code>.
+  We know there are 3600 seconds in an hour so we divide the total seconds by it.
+  We use the modulus–<code>% 24</code>–because anything over 24 hours would be a new
+  time part: days. This script doesn’t handle days, but with a handful of additions
+  it would be able to. Determine the number of minutes by dividing the total
+  seconds by the number of seconds in a minute: 60.
+</p>
+<p>
+  That gives us an object of parts–<code class="language-javascript">{h: 1, m: 32, s: 27}</code>–that we need
+  to convert into a time string. We’ll do that with the <code>timeStringFromParts</code>
+  function.
+</p>
+<pre><code class="language-javascript">function timeStringFromParts (parts) {
+  var str = '';
+
+  for (key in parts) {
+    if (parts[key] > 0) {
+      str += parts[key] + key;
+    }
+  }
+
+  return str;
+}
+</pre></code>
+<p>
+  This small function iterates over the keys in the parts object. For each key,
+  if the value is greater than zero we add the value followed by the key to the
+  <code>str</code> variable that we’ll return. The string returned will look something
+  like “1h32m28s”.
+</p>
+<p>
+  <code>secondsFromTimeParts</code> and <code>timeStringFromParts</code> could have
+  been combine into a single function like <code>timeStringFromSeconds</code>. I
+  chose to separate them because I like to make functions that are as small and
+  as specific as possible. Doing so provides clarity and allows reuse. This
+  approach is a tenet of functional programming.
+</p>
+<p>
+  And with that, we have our script soup to nuts. If you take a look at the source
+  code you’ll see a function named <code>displayTimeURL</code>. That function
+  converts a time to a time string for display. It also contains a couple other
+  tidbits that may be useful if you need to build something like this yourself.
 </p>
 
+<h2>Bonus: Soundcloud</h2>
+<p>
+  Soundcloud allows for embedding of most of their tracks. The embedded player
+  also has a <a href="https://developers.soundcloud.com/docs/api/html5-widget">pretty cool API</a>.
+  I whipped up a version of this script to work with Soundcloud players. I’d say
+  it’s about 95% the same. All the little functions I wrote aren’t concerned
+  with the whole story. They just want numbers, strings, arrays, etc. Because of
+  that I was able to use them with the Soundcloud version. <a href="http://lab.tylergaw.com/media-seek-from-url/soundcloud.html">Have a look</a> at the
+  demo. Like the HTML demo, you can add "?t=1m35s" to the URL to jump to that
+  point in the track.
+</p>
+<p>
+  The only differences are how you interact with the media element
+  and that Soundcloud takes milliseconds instead of seconds
+  to set the current time. Soundcloud provides events and
+  methods that you can use to control the player. They aren’t the same as their HTML
+  counterparts, but the ideas are the same. The Soundcloud example code is in
+  the <a href="https://github.com/tylergaw/media-seek-from-url">same repo</a> as the HTML
+  version.
+</p>
+<p>
+  This was a fun problem to solve. Both from the UX view and from the code. I’m
+  sure there are quite a few similar implementations, but I’m none just like this
+  one.
+</p>
 
-
-<!-- <p>
-    For this project I was working specifically with the <code>audio</code> element,
-    but all of the code can be used with the <code>video</code> element as well.
-</p> -->
+<p>
+  <i>Thanks for reading</i>
+</p>
