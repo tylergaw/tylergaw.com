@@ -17,7 +17,7 @@ disqus_id: media-seek-from-url
 <p>
   As with most projects, this one started with a problem that needed fixin’ The
   site this was for had a listing of audio tracks. Each list item included; the <code>audio</code>
-  element, a title/link to the page for that track and a short description.
+  element, a title/link to the page for that track, and a short description.
   Some of list items had extra links to the track’s page in the description.
 </p>
 <p>
@@ -26,7 +26,7 @@ disqus_id: media-seek-from-url
   They would then click on one of the track’s links. That would take them away
   from the listing to that track’s page. The navigation would cause them to
   lose their place in the track they were listening to. The tracks were podcasts that
-  ran from 45 to 70 minutes in length so losing your spot at 33 minutes and 45 seconds was annoying.
+  ran from 45 to 90 minutes in length so losing your spot at 33 minutes and 45 seconds was annoying.
 </p>
 <p>
   This is where controlling the time of the <code>audio</code> element came into play.
@@ -55,12 +55,6 @@ disqus_id: media-seek-from-url
   </li>
 </ol>
 <p>
-  To get going, I didn’t want to get bogged down in run-of-the-mill stuff. I wanted something new.
-  I knew that changing an <code>href</code> value of an <code>a</code> on click wouldn’t be challenging,
-  so I started in the middle with something I didn’t know how to do.
-  I started with parsing the query string.
-</p>
-<p>
   On page load, we run a function called <code>seekIfNeeded</code>. This
   function checks the <code class="language-javascript">window.location.search</code> for the presence of
   the string “t=”. This determines if we need to bother trying to parse
@@ -75,11 +69,11 @@ disqus_id: media-seek-from-url
 }
 </code></pre>
 <p>
-  Once it’s determined there’s a time to parse the good stuff starts.
-  Declare a couple convenience variables.
-  Bind a <code>canplay</code> event to the <code>audio</code>.
-  Convert the query string to seconds and then update <code>currentTime</code>
-  property of the <code>audio</code>.
+  Once it’s determined there’s a time to parse the fun code starts.
+  We declare a couple convenience variables for later use.
+  We bind a <code>canplay</code> event to the <code>audio</code>.
+  We convert the query string to seconds and then update <code>currentTime</code>
+  property of the <code>audio</code> element.
 </p>
 <pre><code class="language-javascript">function seekIfNeeded () {
   var q = window.location.search;
@@ -124,11 +118,11 @@ disqus_id: media-seek-from-url
   return value of another function, <code>partsFromTimeString</code>.
 </p>
 <p>
-  I’ll break down that line of code from the inside out. First <code>timeString</code>
+  I’ll break down that line of code from the inside out. <code>timeString</code>
   is a string like; “1h32m23s” or “15m10s” or “12s”. Any combination of hours,
-  minutes, and seconds. Even though humans can figure out that the string
+  minutes, and seconds. Even though humans can figure out the string
   represents time, the <code>audio</code>
-  element isn’t going to understand it. The string is passed to <code>partsFromTimeString</code>.
+  element isn’t going to understand it. We pass the string to <code>partsFromTimeString</code>.
   That function converts the string into an object of key/value pairs. In the object, the
   keys represent a part of the time and the values the amount of time for each part.
 </p>
@@ -155,17 +149,18 @@ disqus_id: media-seek-from-url
 }
 </pre></code>
 <p>
-  My first thought wasn’t to use a regular expression. I tend to avoid them because
-  I only have a cursory knowledge of them. But the query string posed a problem. When trying
+  My first idea wasn’t to use a regular expression. I tend to avoid them because
+  I only have a cursory knowledge of them. But the query string posed a problem
+  I couldn’t solve without a regex. When trying
   to break up a string into specific parts, I look for patterns. A common letter or
   symbol or certain number or anything that repeats. A string like “1h32m23s”
-  doesn’t have that, so I needed another pattern.
+  doesn’t have that, so I needed a more complex pattern.
 </p>
 <p>
   The pattern that sticks out is; a number, followed by one of three letters.
   That letter could be “h”, “m”, or “s”. There’s no certainty
   that all the letters will be there. And they may not appear in the same order. Ambiguity lead
-  me down regular expression path. I suppose that’s what they’re for?
+  me down the regular expression path. I suppose that’s what they’re for?
 </p>
 <p>
   The <code>string.match</code> method returns an array of all matches found
@@ -208,13 +203,13 @@ disqus_id: media-seek-from-url
 }
 </pre></code>
 <p>
-  <code>secondsFromTimeParts</code> adds up all the values the time parts object to
+  <code>secondsFromTimeParts</code> adds up the values of the time parts object to
   get a total number of seconds. To get the number of seconds from
   minutes we multiply by 60. To get the number of seconds from
   hours we multiply by 3600. 3600 equals 60 minutes per hour times 60 seconds per minute.
 </p>
 <p>
-  At this point, we’ve converted a string that represents a time into an actual
+  At this point, we’ve converted a string that represents a time to an actual
   time value the media element can understand. We use that value–the number
   of seconds into the media we want to go–to set the <code>currentTime</code>
   property and then tell it to play.
@@ -248,18 +243,18 @@ disqus_id: media-seek-from-url
 </pre></code>
 <p>
   We start by creating the empty parts object where we’ll store the key/value pairs.
-  <code>media.currentTime</code> gives a the number of seconds and milliseconds
+  <code>media.currentTime</code> gives the number of seconds and milliseconds
   as a float. In this script I decided that I didn’t need milliseconds.
   <code>Math.floor(seconds)</code> removes the decimal point and everything after it.
 </p>
 <p>
   The next few lines use the total number of seconds to determine the number of
   hours and minutes. Those values are set to the appropriate members of the parts
-  object. These calculations are the reverse of what we need in <code>secondsFromTimeParts</code>.
+  object. These calculations are the reverse of what we used in <code>secondsFromTimeParts</code>.
   We know there are 3600 seconds in an hour so we divide the total seconds by it.
   We use the modulus–<code>% 24</code>–because anything over 24 hours would be a new
   time part: days. This script doesn’t handle days, but with a handful of additions
-  it would be able to. Determine the number of minutes by dividing the total
+  it would be able to. We determine the number of minutes by dividing the total
   seconds by the number of seconds in a minute: 60.
 </p>
 <p>
@@ -289,7 +284,7 @@ disqus_id: media-seek-from-url
   <code>secondsFromTimeParts</code> and <code>timeStringFromParts</code> could have
   been combine into a single function like <code>timeStringFromSeconds</code>. I
   chose to separate them because I like to make functions that are as small and
-  as specific as possible. Doing so provides clarity and allows reuse. This
+  as specific as possible. Doing so provides clarity and allows for reuse. This
   approach is a tenet of functional programming.
 </p>
 <p>
@@ -304,7 +299,7 @@ disqus_id: media-seek-from-url
   Soundcloud allows for embedding of most of their tracks. The embedded player
   also has a <a href="https://developers.soundcloud.com/docs/api/html5-widget">pretty cool API</a>.
   I whipped up a version of this script to work with Soundcloud players. I’d say
-  it’s about 95% the same. All the little functions I wrote aren’t concerned
+  it’s about 98% the same. All the little functions I wrote aren’t concerned
   with the whole story. They just want numbers, strings, arrays, etc. Because of
   that I was able to use them with the Soundcloud version. <a href="http://lab.tylergaw.com/media-seek-from-url/soundcloud.html">Have a look</a> at the
   demo. Like the HTML demo, you can add "?t=1m35s" to the URL to jump to that
@@ -321,8 +316,8 @@ disqus_id: media-seek-from-url
 </p>
 <p>
   This was a fun problem to solve. Both from the UX view and from the code. I’m
-  sure there are quite a few similar implementations, but I’m none just like this
-  one.
+  sure there are quite a few similar implementations, but I’m sure there are
+  none just like this one.
 </p>
 
 <p>
