@@ -80,9 +80,9 @@
             width: 48%;
         }
 
-        .potential.first-block {
-            @include flex;
-        }
+        // .potential.first-block {
+        //     @include flex;
+        // }
     }
 
     @media screen and (min-width: 1080px) {

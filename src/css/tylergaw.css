@@ -311,11 +311,6 @@ a {
     padding: 1em;
     width: 48%;
   }
-  .article-list .potential.first-block {
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-  }
 }
 @media screen and (min-width: 1080px) {
   .article-list li {
