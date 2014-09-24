@@ -2,5 +2,4 @@ title: Tyler Gaw
 source: ./src
 destination: ./public
 permalink: none
-exclude: [css/scss]
 future: false
