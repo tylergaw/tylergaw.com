@@ -1,0 +1,98 @@
+---
+layout: article
+title: "You Can Build OS X Apps with JavaScript"
+title_size: med
+date: 2014-09-24
+disqus_id: you-can-build-osx-apps-with-js
+---
+
+<p class="entry-intro">
+  OS X 10.10, Yosemite introduced JavaScript for Automation. This makes it possible
+  to access all included and custom native OS X frameworks using good ol’ JS.
+  I’ve been digging in deep to this new-to-me world and putting together
+  <a href="https://github.com/tylergaw/js-osx-app-examples">examples</a> along the way.
+  Here I’ll talk about the basics and step through putting together small app.
+</p>
+
+<p>
+  WWDC 2014 included a session on <a href="https://developer.apple.com/librarY/prerelease/mac/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/index.html">JavaScript for Automation</a>.
+  The session introduced the idea that in 10.10 you would be able to use JavaScript
+  in place of AppleScript to automate existing OS X applications. That alone is
+  exciting news.
+</p>
+<p>
+  During the session–which you <a href="https://developer.apple.com/videos/wwdc/2014/">can watch</a> if you have an Apple Developer account–
+  the presenter explains the Objective-C bridge. This is is where things get super
+  cool. With the bridge you’re able to import any Objective-C frameworks in JS
+  applications. For example, if you want to build a GUI using standard OS X controls
+  you can import Cocoa:
+</p>
+<pre><code class="language-javascript">ObjC.import("Cocoa");
+</code></pre>
+<p>
+  When you build an application, the <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/ObjC_classic/_index.html">Foundation</a> framework is included automatically
+  without you needing to import it. What is the Foundation framework? Foundation
+  contains a huge base of classes that allow for doing anything from making an HTTP request
+  to creating custom notifications in the OS X Notification Center.
+</p>
+<p>
+  As far as I can tell, you can use JavaScript to build anything that you can
+  build using Objective-C or Swift.
+</p>
+<h2>Building an example app</h2>
+<p>
+  The best way to get going with this is to build something. We’re going to build
+  a small app that allows you to select and display an image from your computer.
+</p>
+<p>
+  You can get the completed example from my <a href="https://github.com/tylergaw/js-osx-app-examples">example apps repo</a>.
+</p>
+<figure>
+    <img src="assets/post-image-jsosx-example-01.jpg" alt="">
+    <figcaption>
+      A screenshot of the app we’re building.
+    </figcation>
+</figure>
+<p>
+  Clicking the Choose Image button will open an <code>NSOpenPanel</code> that
+  allows you to select a file. We’ll configure the OpenPanel to restrict the selection
+  to .jpg, .png, .gif.
+</p>
+<p>
+  After an image is selected, the window will resize to match the width and height
+  of the image plus the height of the controls. We’ll also set a min and max height
+  for the window to make sure the controls don’t get cut off.
+</p>
+<h3>Setting up the project files</h3>
+<p>
+  Open the Apple Script Editor application located in <code>Applications > Utilities</code>.
+  Script Editor leaves quite a bit to be desired as a text editor, but we’ll use
+  it because contains other things that are necessary to building JS OS X apps.
+</p>
+<p>
+  Create a new document with <code>File > New</code> or <code>cmd + N</code>. The
+  first thing we need to do, is save this document as an application. Save with
+  <code>File > Save</code> or <code>cmd + S</code>. You’ll be presented with a
+  save dialog.
+</p>
+<p>
+  There are two options that are necessary to make this run as an application.
+  The File Format should be changed from the default to “Application”. The
+  “Stay open after run handler” should be checked. It’s important to set
+  both of these options the first time you save the file, because as far as I can
+  tell there is no way to set them later. If you miss one of these you’ll have
+  to create a new document and copy your code over.
+</p>
+<p>
+  If anyone knows a way to change the settings I’d love to know.
+</p>
+<figure>
+    <img src="assets/post-image-jsosx-save.jpg" alt="">
+    <figcaption>
+      The Script Editor Save dialog with important fields highlighted
+    </figcation>
+</figure>
+
+<p>
+  <i>Thanks for reading</i>
+</p>
