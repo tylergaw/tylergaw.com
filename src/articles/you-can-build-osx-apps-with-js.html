@@ -2,89 +2,93 @@
 layout: article
 title: "You Can Build OS X Apps with JavaScript"
 title_size: med
-date: 2014-09-24
+date: 2014-09-26
 disqus_id: you-can-build-osx-apps-with-js
 ---
 
 <p class="entry-intro">
-  OS X 10.10, Yosemite introduced JavaScript for Automation. This makes it possible
-  to access all included and custom native OS X frameworks using good ol’ JS.
-  I’ve been digging in deep to this new-to-me world and putting together
-  <a href="https://github.com/tylergaw/js-osx-app-examples">examples</a> along the way.
-  Here I’ll talk about the basics and step through putting together small app.
+  OS X Yosemite introduced JavaScript for Automation. This makes it possible to
+  access all included and custom native OS X frameworks using JavaScript. I’ve been
+  digging in to this new world and putting together <a href="https://github.com/tylergaw/js-osx-app-examples">examples</a>
+  along the way. In this post I’ll explain the basics and step through building
+  a small example app
 </p>
 
 <p>
-  WWDC 2014 included a session on <a href="https://developer.apple.com/librarY/prerelease/mac/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/index.html">JavaScript for Automation</a>.
-  The session introduced the idea that in 10.10 you would be able to use JavaScript
-  in place of AppleScript to automate existing OS X applications. That alone is
-  exciting news.
+  WWDC 2014 included a session on
+  <a href="https://developer.apple.com/librarY/prerelease/mac/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/index.html">JavaScript for Automation</a>.
+  The session introduced that in you would be able to use JavaScript in place of
+  AppleScript to for automation. That alone is exciting news. Being able to automate
+  repetitive tasks using AppleScript has been around a long time. AppleScript is
+  not my definition of fun. Using a familiar syntax in its place is most welcome.
 </p>
 <p>
-  During the session–which you <a href="https://developer.apple.com/videos/wwdc/2014/">can watch</a> if you have an Apple Developer account–
-  the presenter explains the Objective-C bridge. This is is where things get super
-  cool. With the bridge you’re able to import any Objective-C frameworks in JS
-  applications. For example, if you want to build a GUI using standard OS X controls
-  you can import Cocoa:
+  During the session the presenter explains the Objective-C bridge. This is where
+  things get super cool. The bridge allows you to import any Objective-C framework
+  into JS applications. For example, if you want to build a GUI using standard OS X
+  controls you would want to import Cocoa:
 </p>
 <pre><code class="language-javascript">ObjC.import("Cocoa");
 </code></pre>
 <p>
-  When you build an application, the <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/ObjC_classic/_index.html">Foundation</a> framework is included automatically
-  without you needing to import it. What is the Foundation framework? Foundation
-  contains a huge base of classes that allow for doing anything from making an HTTP request
-  to creating custom notifications in the OS X Notification Center.
+  The OS X <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/ObjC_classic/_index.html">Foundation</a>
+  framework does what its name suggests. It provides the building blocks for
+  OS X apps. The framework includes a massive amount of classes and protocols.
+  <code>NSArray</code>, <code>NSURL</code>, <code>NSUserNotification</code>, and so on. You may not be familiar with
+  those classes, but their names hint at what they do. Because of its importance,
+  you can use its classes without needing to import it in new apps. They are
+  available by default.
 </p>
 <p>
   As far as I can tell, you can use JavaScript to build anything that you can
-  build using Objective-C or Swift.
+  with Objective-C or Swift.
 </p>
 <h2>Building an example app</h2>
 <p>
-  The best way to get going with this is to build something. We’re going to build
-  a small app that allows you to select and display an image from your computer.
+  The best way to get going with this is to jump in and build something. I’m
+  going to describe how to build a small app that allows you display an image
+  from your computer of your choosing.
 </p>
 <p>
-  You can get the completed example from my <a href="https://github.com/tylergaw/js-osx-app-examples">example apps repo</a>.
+  You can download the completed example from my <a href="https://github.com/tylergaw/js-osx-app-examples">example apps repo</a>.
 </p>
 <figure>
     <img src="assets/post-image-jsosx-example-01.jpg" alt="">
     <figcaption>
-      A screenshot of the app we’re building.
+      A screenshot of the app we’ll build.
     </figcation>
 </figure>
 <p>
-  Clicking the Choose Image button will open an <code>NSOpenPanel</code> that
-  allows you to select a file. We’ll configure the OpenPanel to restrict the selection
-  to .jpg, .png, .gif.
+  Making up the app is; a window, text label, text input, and button. Or by their
+  class names; <code>NSWindow</code>, <code>NSTextField</code>, <code>NSTextField</code>,
+  and <code>NSButton</code>.
 </p>
 <p>
-  After an image is selected, the window will resize to match the width and height
-  of the image plus the height of the controls. We’ll also set a min and max height
-  for the window to make sure the controls don’t get cut off.
+  Clicking the Choose an Image button will show an <code>NSOpenPanel</code> that allows you
+  to select a file. We’ll configure the panel to restrict the selection to .jpg,
+  .png, .gif.
 </p>
-<h3>Setting up the project files</h3>
+<p>
+  After selecting an image, we'll display it in the window. The window will
+  resize to match the width and height of the image plus the height of the controls.
+  We’ll also set a min width and height for the window to make sure the controls
+  don’t get cut off.
+</p>
+<h3>Setting up the project</h3>
 <p>
   Open the Apple Script Editor application located in <code>Applications > Utilities</code>.
-  Script Editor leaves quite a bit to be desired as a text editor, but we’ll use
-  it because contains other things that are necessary to building JS OS X apps.
+  Script Editor ain’t the best editor I’ve ever used, but it’s necessary for now.
+  It has a bunch of features that we need for building JS OS X apps. I’m not sure
+  what goes on beyond the scenes, but it can compile and run your scripts as apps.
+  It also creates a bunch of extra stuff like an info.plist file. My guess is there
+  are ways to make other editors do the same, but I haven’t looked into it yet.
 </p>
 <p>
-  Create a new document with <code>File > New</code> or <code>cmd + N</code>. The
-  first thing we need to do, is save this document as an application. Save with
-  <code>File > Save</code> or <code>cmd + S</code>. You’ll be presented with a
-  save dialog.
-</p>
-<p>
-  There are two options that are necessary to make this run as an application.
-  The File Format should be changed from “Script” to “Application”. The
-  “Stay open after run handler” should be checked. It’s important to set
-  both of these options the first time you save the file, because as far as I can
-  tell there is no way to set them later. If you miss one of these you’ll have
-  to create a new document and copy your code over.
-</p>
-<p>
-  If anyone knows a way to change the settings I’d love to know.
+  Create a new document with <code>File > New</code> or <code>cmd + n</code>. The
+  first thing we need to do, is save this document as an application.
+  Save with <code>File > Save</code> or <code>cmd + s</code>.
+  Don’t hit save right away. There are two options that are necessary to make
+  this run as an application.
 </p>
 <figure>
     <img src="assets/post-image-jsosx-save.jpg" alt="">
@@ -92,7 +96,69 @@ disqus_id: you-can-build-osx-apps-with-js
       The Script Editor Save dialog with important fields highlighted
     </figcation>
 </figure>
-
+<p>
+  Change the File Format to “Application”. Check the “Stay open after run handler”
+  option. It’s important to set both of these options the first time you save the
+  file, because as far as I can tell there is no way to set them later. If you
+  miss one of these you’ll have to create a new document and copy your code over.
+</p>
+<p>
+  If anyone knows a way to change the settings after creation, let me know.
+</p>
+<p>
+  If you don’t select “Stay open after run handler” your app will open, flash for
+  a split second, and then close. There is not much in the way of documentation for
+  this stuff online. I only learned this detail after hours of forehead/keyboard merging.
+</p>
+<h3>Let’s make something do something!</h3>
+<p>
+  Add the following two lines to your script and then run it with <code>Script > Run Application</code>
+  or <code>opt + cmd + r</code>.
+</p>
+<pre><code class="language-javascript">ObjC.import("Cocoa");
+$.NSLog("Hi everybody!");
+</code></pre>
+<p>
+  Not much happened. The only visible changes are in the menubar and dock. The app
+  name along with <code>File</code> and <code>Edit</code> menus are in the menubar.
+  You can see the app is running because it’s in your dock.
+</p>
+<p>
+  Where is the “Hi everybody!”? What is with the dollar sign, what is this, jQuery?
+  Quit the app the app with <code>File > Quit</code> or <code>cmd + q</code> and
+  we’ll find out where that <code>NSLog</code> went.
+</p>
+<p>
+  Open the Console app, <code>Applications > Utilities > Console</code>. Every
+  application can log messages to the console. This console is not much different
+  than Developer Tools in Chrome, Safari, or Firefox. The main difference is you
+  use it for debugging applications instead of websites.
+</p>
+<p>
+  There’s a whole lot of messages in the console. You can filter it down by
+  typing “applet” into the search field in the top right corner. Leave “applet” in
+  the search field and go back to Script Editor. Run the application again
+  with <code>opt + cmd + r</code>.
+</p>
+<figure>
+    <img src="assets/post-image-jsosx-console.jpg" alt="A screenshot showing a log message in Console.app">
+</figure>
+<p>
+  Did you see it!? The message “Hi everybody!” should have logged to the console.
+  If you didn’t see it, quit your application and run it again. A lot of times
+  I forget to quit and the code doesn’t run again.
+</p>
+<h3>What about the dollar sign?</h3>
+<p>
+  The dollar sign is your access to the Objective-C bridge. Any time you need
+  to access an objective-c class, you use <code>$.className</code> notation. There
+  are a couple of other ways to use <code>$</code> that I’ll cover later.
+</p>
+<p>
+  Console App and <code>$.NSLog</code> are indispensable tools, you’ll use them
+  non-stop. For examples of logging things other than strings, have a look at
+  my <a href="https://github.com/tylergaw/js-osx-app-examples/tree/master/NSLog.app/Contents">NSLog example</a>.
+</p>
 <p>
   <i>Thanks for reading</i>
 </p>
