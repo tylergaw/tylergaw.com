@@ -151,13 +151,73 @@ $.NSLog("Hi everybody!");
 <h3>What about the dollar sign?</h3>
 <p>
   The dollar sign is your access to the Objective-C bridge. Any time you need
-  to access an objective-c class, you use <code>$.className</code> notation. There
-  are a couple of other ways to use <code>$</code> that I’ll cover later.
+  to access an objective-c class or constant, you use <code>$.ObjCThing</code> notation.
+  There are a couple of other ways to use <code>$</code> that I’ll cover later.
 </p>
 <p>
-  Console App and <code>$.NSLog</code> are indispensable tools, you’ll use them
-  non-stop. For examples of logging things other than strings, have a look at
-  my <a href="https://github.com/tylergaw/js-osx-app-examples/tree/master/NSLog.app/Contents">NSLog example</a>.
+  Console App and <code>NSLog</code> are indispensable tools, you’ll use them
+  non-stop for debugging.
+  For examples of logging things other than strings, have a look at my
+  <a href="https://github.com/tylergaw/js-osx-app-examples/tree/master/NSLog.app/Contents">NSLog example</a>.
+</p>
+<h3>Creating the window</h3>
+<p>
+  Let’s make something we can see and interact with. Update your script to look
+  like the following code:
+</p>
+<pre><code class="language-javascript">ObjC.import("Cocoa");
+
+var styleMask = $.NSTitledWindowMask | $.NSClosableWindowMask | $.NSMiniaturizableWindowMask;
+var windowHeight = 85;
+var windowWidth = 600;
+var window = $.NSWindow.alloc.initWithContentRectStyleMaskBackingDefer(
+	$.NSMakeRect(0, 0, windowWidth, windowHeight),
+	styleMask,
+	$.NSBackingStoreBuffered,
+	false
+);
+
+window.center;
+window.title = "Choose and Display Image";
+window.makeKeyAndOrderFront(window);
+</code></pre>
+<p>
+  Once you have that in place, run the app. <code>opt + cmd + r</code>. Now we’re
+  talking! With a small amount of code we’ve built an app that launches a window
+  with a title that we can move, minimize, and close.
+</p>
+<figure>
+  <img src="assets/post-image-jsosx-basic-window.jpg" alt="">
+  <figcaption>A basic NSWindow created with JS</figcaption>
+</figure>
+<p>
+  If you’ve never built an app with Objective-C or Cocoa–like me–a parts of this might
+  look like a whole lot of gibberish. For me, that was due to the length of the
+  method names. I enjoy descriptive names, but Cocoa takes it to the extreme.
+</p>
+<p>
+  Looking past that though, this is JavaScript. This code looks just like code
+  you’d write when building a website.
+</p>
+<p>
+  What’s going on with that firt new line where we set <code>styleMask</code>.
+  You use style masks to configure windows. Each style option says what it adds;
+  a title, a close button, a minimize button. The options are constants. Use a pipe “|”
+  to separate options. That pipe is a C bitwise <code>OR</code> operator.
+  I’m not gonna to pretend I know what that means. I just know it’s
+  needed to use multiple style options for a mask and that’s good enough for me.
+</p>
+<p>
+  There are more style options. You can read about them in <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/WinPanel/Tasks/SettingWindowAppearance.html">the docs</a>.
+  <code>NSResizableWindowMask</code> is one you’ll use. If you’re not
+  sure, try adding it to the style mask to see what it does.
+</p>
+<p>
+  There are a couple interesting things about syntax that you’ll need to remember.
+  <code>$.NSWindow.alloc</code> calls the <code>alloc</code> method of <code>$.NSWindow</code>.
+  Notice there are no parenthesis “()”. In JS for OS X parens are only allowed
+  if you pass arguments to a method. If you use parens with no arguments, you will
+  get a runtime error. If your app doesn’t open, check Console for errors.
 </p>
 <p>
   <i>Thanks for reading</i>
