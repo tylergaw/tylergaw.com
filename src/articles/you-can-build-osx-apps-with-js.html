@@ -8,10 +8,10 @@ disqus_id: you-can-build-osx-apps-with-js
 
 <p class="entry-intro">
   OS X Yosemite introduced JavaScript for Automation. This makes it possible to
-  access all included and custom native OS X frameworks using JavaScript. I’ve been
+  access all native OS X frameworks with JavaScript. I’ve been
   digging in to this new world and putting together <a href="https://github.com/tylergaw/js-osx-app-examples">examples</a>
   along the way. In this post I’ll explain the basics and step through building
-  a small example app
+  a small <a href="https://github.com/tylergaw/js-osx-app-examples/tree/master/ChooseAndDisplayImage.app">example app</a>.
 </p>
 
 <p>
@@ -158,7 +158,7 @@ $.NSLog("Hi everybody!");
   Console App and <code>NSLog</code> are indispensable tools, you’ll use them
   non-stop for debugging.
   For examples of logging things other than strings, have a look at my
-  <a href="https://github.com/tylergaw/js-osx-app-examples/tree/master/NSLog.app/Contents">NSLog example</a>.
+  <a href="https://github.com/tylergaw/js-osx-app-examples/tree/master/NSLog.app">NSLog example</a>.
 </p>
 <h3>Creating the window</h3>
 <p>
@@ -205,7 +205,7 @@ window.makeKeyAndOrderFront(window);
   a title, a close button, a minimize button. The options are constants. Use a pipe “|”
   to separate options. That pipe is a C bitwise <code>OR</code> operator.
   I’m not gonna to pretend I know what that means. I just know it’s
-  needed to use multiple style options for a mask and that’s good enough for me.
+  needed to combine style options for a mask and that’s good enough for me.
 </p>
 <p>
   There are more style options. You can read about them in <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/WinPanel/Tasks/SettingWindowAppearance.html">the docs</a>.
@@ -215,9 +215,108 @@ window.makeKeyAndOrderFront(window);
 <p>
   There are a couple interesting things about syntax that you’ll need to remember.
   <code>$.NSWindow.alloc</code> calls the <code>alloc</code> method of <code>$.NSWindow</code>.
-  Notice there are no parenthesis “()”. In JS for OS X parens are only allowed
-  if you pass arguments to a method. If you use parens with no arguments, you will
-  get a runtime error. If your app doesn’t open, check Console for errors.
+  Notice there are no parenthesis “()” after alloc. In JavaScript that is how you
+  access a property, not how you call a method. In JS for OS X parenthesis are only
+  allowed when calling a method if you pass arguments to it. If you use parenthesis
+  with no arguments, you will get a runtime error. Check Console for errors when
+  things don’t do what you think they should.
+</p>
+<p>
+  The next thing is about that super long method name; <code>initWithContentRectStyleMaskBackingDefer</code>.
+  Take a look at the <code>NSWindow</code> <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Classes/NSWindow_Class/Reference/Reference.html#jumpTo_105">docs</a>
+  for that method and you’ll notice it looks a bit different.
+  <code>initWithContentRect:styleMask:backing:defer:</code>. In Objective-C you
+  would create the same window we did like this:
+</p>
+<pre><code class="language-clike">NSWindow* window [[NSWindow alloc]
+  initWithContentRect: NSMakeRect(0, 0, windowWidth, windowHeight)
+  styleMask: styleMask,
+  backing: NSBackingStoreBuffered
+  defer: NO];
+</code></pre>
+<p>
+  The thing to note are the colons “:” in the original signature. When you convert
+  and Objective-C method to JS you remove the colons and capitalize the first letter
+  following it. When you see two items in brackets “[]”, that is calling a method
+  of a class. <code>[NSWindow alloc]</code> calls the <code>alloc</code> method
+  of the <code>NSWindow</code>. For JS, convert those to dot-notation and parenthesis
+  if necessary; <code>NSWindow.alloc</code>.
+</p>
+<p>
+  I think the rest of the code to create and display the window is straightforward-enough.
+  I’ll skip any more detailed description of it.
+  It takes time and a lot of reading the docs and time to understand what is happening
+  for each step along the way, but you’ll get there. As long as the window is
+  showing up you’re doing great. Let’s do more.
+</p>
+<h3>Adding the controls</h3>
+<p>
+  We need a label, text field, and a button in this window. We’ll use <code>NSTextField</code>
+  and <code>NSButton</code> to make that happen. Update your script with the
+  following code and then run the app.
+</p>
+<pre><code class="language-javascript">ObjC.import("Cocoa");
+
+var styleMask = $.NSTitledWindowMask | $.NSClosableWindowMask | $.NSMiniaturizableWindowMask;
+var windowHeight = 85;
+var windowWidth = 600;
+var window = $.NSWindow.alloc.initWithContentRectStyleMaskBackingDefer(
+	$.NSMakeRect(0, 0, windowWidth, windowHeight),
+	styleMask,
+	$.NSBackingStoreBuffered,
+	false
+);
+
+var textFieldLabel = $.NSTextField.alloc.initWithFrame($.NSMakeRect(25, (windowHeight - 40), 200, 24));
+textFieldLabel.stringValue = "Image: (jpg, png, or gif)";
+textFieldLabel.drawsBackground = false;
+textFieldLabel.editable = false;
+textFieldLabel.bezeled = false;
+textFieldLabel.selectable = true;
+
+var textField = $.NSTextField.alloc.initWithFrame($.NSMakeRect(25, (windowHeight - 60), 205, 24));
+textField.editable = false;
+
+var singleBtn = $.NSButton.alloc.initWithFrame($.NSMakeRect(230, (windowHeight - 62), 150, 25));
+singleBtn.title = "Choose an Image...";
+singleBtn.bezelStyle = $.NSRoundedBezelStyle;
+singleBtn.buttonType = $.NSMomentaryLightButton;
+
+window.contentView.addSubview(textFieldLabel);
+window.contentView.addSubview(textField);
+window.contentView.addSubview(singleBtn);
+
+window.center;
+window.title = "Choose and Display Image";
+window.makeKeyAndOrderFront(window);
+</code></pre>
+<p>
+  If things worked you’ll now have a window with a label, text field, and button.
+  You can’t type in the text field and the button doesn’t do anything, but hey
+  we’re getting somewhere now.
+</p>
+<figure>
+  <img src="assets/post-image-jsosx-controls.jpg" alt="">
+  <figcaption>Label, field, and button elements in the window</figcaption>
+</figure>
+<p>
+  What did we do in that addition? <code>textFieldLabel</code> and <code>textField</code>
+  are similar. They’re both instances of <code>NSTextField</code>. We make them
+  in a similar way as we made the window. When you see <code>initWithFrame</code>
+  and <code>NSMakeRect</code>, it’s a good sign that the script is creating
+  a UI element. <code>NSMakeRect</code> does what it says. It makes a rectangle
+  with the give position and dimensions; <code>(x, y, width, height)</code>. That
+  creates what’s called a struct in Objective-C. In JavaScript we’d refer to it as an
+  object or hash or maybe dict. It’s a thing with keys and values.
+</p>
+<p>
+  After creating the text fields we set a handful of properties on each to get the
+  results we’re looking for. Cocoa doesn’t have anything like the html <code>label</code>
+  element. For that we make our own by disabling editing and background styling.
+</p>
+<p>
+  We’ll populate the text field programmatically, so disable editing on it as well.
+  If we didn’t need that, creating a standard text field is a one-liner.
 </p>
 <p>
   <i>Thanks for reading</i>
