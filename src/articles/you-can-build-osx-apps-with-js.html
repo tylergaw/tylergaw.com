@@ -319,5 +319,26 @@ window.makeKeyAndOrderFront(window);
   If we didn’t need that, creating a standard text field is a one-liner.
 </p>
 <p>
+  For the button we use an <code>NSButton</code>. Like the text fields, creating
+  it requires drawing a rectangle. There are two properties that stand out;
+  <code>bezelStyle</code> and <code>buttonType</code>. The values for both are
+  constants. These properties control how the button will render and type of style
+  it will have. Check out the <code>NSButton</code>
+  <a href="https://developer.apple.com/library/mac/documentation/cocoa/reference/applicationkit/classes/NSButton_Class/Reference/Reference.html">docs</a>
+  to see everything you can do with it. I also have
+  an <a href="https://github.com/tylergaw/js-osx-app-examples/tree/master/NSButton.app">example app</a>
+  that shows the different button types and styles in action.
+</p>
+<p>
+  The last new thing we do is add the new elements to the window with <code>addSubview</code>.
+  When I first tried this I did <code>window.addSubview(theView)</code>. That works
+  for other standard views that you create with <code>NSView</code>, but not for
+  instances of <code>NSWindow</code>. I’m not sure why that is, but for it you
+  need to add sub views to the <code>contentView</code>. The docs describe it as;
+  “The highest accessible NSView object in the window’s view hierarchy”. Works for
+  me.
+</p>
+<h3>Making something happen</h3>
+<p>
   <i>Thanks for reading</i>
 </p>
