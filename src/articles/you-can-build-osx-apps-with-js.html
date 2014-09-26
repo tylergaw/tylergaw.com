@@ -400,9 +400,26 @@ textFieldLabel.stringValue = "Image: (jpg, png, or gif)";
 ...
 </code></pre>
 <p>
-  Run the app, click the Choose Image button, and watch Console. Do you “Clicked!”
+  Run the app, click the Choose Image button, and watch Console. Do you see “Clicked!”
   when you click the button? If so, that’s pretty darn cool right? If not, double
-  check your script matches and watch for any errors in Console.
+  check your script matches the code here and look for any errors in Console.
+</p>
+<h3>Subclassing</h3>
+<p>
+  What’s this <code>ObjC.registerSubclass</code> all about? Subclassing is a way
+  to create a new object that inherits from another Objective-C object. Side note; the likelihood
+  I’m using incorrect terminology here is through the roof. Bear with me.
+  <code>registerSubclass</code> takes a single argument;
+  a JS object with the members of the new object. Members can be; <code>name</code>,
+  <code>superclass</code>, <code>protocols</code>, <code>properties</code>, and
+  <code>methods</code>. I’m not 100% sure that’s an exhaustive list, but that’s what is
+  shown in the <a href="https://developer.apple.com/librarY/prerelease/mac/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/index.html#//apple_ref/doc/uid/TP40014508-CH109-SW30">release notes</a>.
+</p>
+<p>
+  That’s all well and good, but what did we do there? Since we didn’t provide a
+  <code>superclass</code> we inherited from <code>NSObject</code>. That’s the base
+  Objective-C object, nothing fancy. Setting a <code>name</code> let’s us reference
+  the object later through the <code>$</code> bridge. We do that with <code>$.AppDelegate</code>.
 </p>
 <p>
   <i>Thanks for reading</i>
