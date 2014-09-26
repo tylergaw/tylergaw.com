@@ -162,7 +162,6 @@ $maxTextWidth: 790px;
     font-size: 1.1em;
     font-style: italic;
     line-height: 1.4;
-    text-indent: 1em;
 
     &::after {
         @extend %yellow-divider;
