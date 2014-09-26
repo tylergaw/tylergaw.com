@@ -338,7 +338,72 @@ window.makeKeyAndOrderFront(window);
   “The highest accessible NSView object in the window’s view hierarchy”. Works for
   me.
 </p>
-<h3>Making something happen</h3>
+<h3>Making the button do something</h3>
+<p>
+  When clicking the Choose an Image button, we want a panel to open that shows
+  files on our computer. First, let’s log a message to the console when clicking
+  the button.
+</p>
+<p>
+  In JavaScript you bind event listeners to elements to handle clicks.
+  Objective-C doesn’t use quite that same concept. It has what’s called message passing.
+  With it, you send a message–a name of a method–to an object. That object needs
+  to have information about what to do with the method. It’s need to have an
+  implementation of that method. That may not be a spot-on description, but it’s
+  how I understand it.
+</p>
+<p>
+  The first thing we need to do is set the button <code>code</code> and <code>action</code>.
+  The <code>target</code> is the object that we want to send the <code>action</code>
+  to. If this doesn’t make sense now, just keep going and it’ll get more clear
+  when you see the code. Update the button setup part of the script with the
+  following properties.
+</p>
+<pre><code class="language-javascript">...
+singleBtn.target = appDelegate;
+singleBtn.action = "btnClickHandler:";
+...
+</code></pre>
+<p>
+  <code>appDelegate</code> and “btnClickHandler:” don’t exist yet. We need to
+  make them. In the next addition to the script, order matters. I put
+  comments in the following code block to show where you should add the new code.
+</p>
+<pre><code class="language-javascript">...
+  var window = $.NSWindow.alloc.initWithContentRectStyleMaskBackingDefer(
+    $.NSMakeRect(0, 0, windowWidth, windowHeight),
+    styleMask,
+    $.NSBackingStoreBuffered,
+    false
+  );
+// Above here is in place already.
+
+// New stuff
+ObjC.registerSubclass({
+  name: "AppDelegate",
+  methods: {
+    "btnClickHandler:": {
+      types: ["void", ["id"]],
+      implementation: function (sender) {
+        $.NSLog("Clicked!");
+      }
+    }
+  }
+});
+
+var appDelegate = $.AppDelegate.alloc.init;
+// end of new stuff
+
+// Below here is in place already
+var textFieldLabel = $.NSTextField.alloc.initWithFrame($.NSMakeRect(25, (windowHeight - 40), 200, 24));
+textFieldLabel.stringValue = "Image: (jpg, png, or gif)";
+...
+</code></pre>
+<p>
+  Run the app, click the Choose Image button, and watch Console. Do you “Clicked!”
+  when you click the button? If so, that’s pretty darn cool right? If not, double
+  check your script matches and watch for any errors in Console.
+</p>
 <p>
   <i>Thanks for reading</i>
 </p>
