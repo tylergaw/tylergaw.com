@@ -151,7 +151,7 @@ $.NSLog("Hi everybody!");
 <h3>What about the dollar sign?</h3>
 <p>
   The dollar sign is your access to the Objective-C bridge. Any time you need
-  to access an objective-c class or constant, you use <code>$.ObjCThing</code> notation.
+  to access an Objective-c class or constant, you use <code>$.ObjCThing</code> notation.
   There are a couple of other ways to use <code>$</code> that I’ll cover later.
 </p>
 <p>
@@ -170,6 +170,7 @@ $.NSLog("Hi everybody!");
 var styleMask = $.NSTitledWindowMask | $.NSClosableWindowMask | $.NSMiniaturizableWindowMask;
 var windowHeight = 85;
 var windowWidth = 600;
+var ctrlsHeight = 80;
 var minWidth = 400;
 var minHeight = 340;
 var window = $.NSWindow.alloc.initWithContentRectStyleMaskBackingDefer(
@@ -262,6 +263,7 @@ window.makeKeyAndOrderFront(window);
 var styleMask = $.NSTitledWindowMask | $.NSClosableWindowMask | $.NSMiniaturizableWindowMask;
 var windowHeight = 85;
 var windowWidth = 600;
+var ctrlsHeight = 80;
 var minWidth = 400;
 var minHeight = 340;
 var window = $.NSWindow.alloc.initWithContentRectStyleMaskBackingDefer(
@@ -410,7 +412,7 @@ textFieldLabel.stringValue = "Image: (jpg, png, or gif)";
   a JS object with the members of the new object. Members can be; <code>name</code>,
   <code>superclass</code>, <code>protocols</code>, <code>properties</code>, and
   <code>methods</code>. I’m not 100% sure that’s an exhaustive list, but that’s what is
-  shown in the <a href="https://developer.apple.com/librarY/prerelease/mac/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/index.html#//apple_ref/doc/uid/TP40014508-CH109-SW30">release notes</a>.
+  in the <a href="https://developer.apple.com/librarY/prerelease/mac/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/index.html#//apple_ref/doc/uid/TP40014508-CH109-SW30">release notes</a>.
 </p>
 <p>
   That’s all well and good, but what did we do there? Since we didn’t provide a
@@ -483,7 +485,7 @@ implementation: function (sender) {
       $.NSMakeRect(
         0, 0,
         (img.size.width > minWidth) ? img.size.width : minWidth,
-        (img.size.height > minHeight) ? img.size.height : minHeight
+        ((img.size.height > minHeight) ? img.size.height : minHeight) + ctrlsHeight
       ),
       true
     );
@@ -531,17 +533,28 @@ implementation: function (sender) {
 <p>
   We want to change the width and height of our window to match the dimensions of
   the image. We also want to make sure not to go below a minimum height or width.
-  <code>setFrameDisplay</code> is how we go about doing that.
-</p>
-<p>
-  We wrap things up by setting the image view’s image and add it to the window. Since its width and
+  <code>setFrameDisplay</code> is how we go about doing that. We wrap things up by setting
+  the image view’s image and add it to the window. Since its width and
   height have updated we re-center the window.
 </p>
 <p>
   And that’s our little app. Kick it around, open a bunch of images. And yes,
   animated gifs will display and play.
 </p>
-<h3>Why I’m excited</h3>
+<p>
+  So far, we’ve been running the app from Script Editor
+  with <code>opt + cmd + d</code>. You run the actual app, by double clicking
+  its icon like any other application.
+</p>
+<figure>
+  <img src="assets/post-image-jsosx-appicon.jpg" alt="">
+  <figcaption>Double click the icon to run the app</figcaption>
+</figure>
+<p>
+  You can update the app icon be replacing <code>/Contents/Resources/applet.icns</code>.
+  To access the app resources, right click on the app icon and choose “Show Package Contents”.
+</p>
+<h2>Why I’m excited</h2>
 <p>
   I’m excited about this topic because it has so much potential. Here’s
   how I’ve been thinking about it. When Yosemite is available, anyone that installs
