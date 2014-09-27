@@ -170,11 +170,13 @@ $.NSLog("Hi everybody!");
 var styleMask = $.NSTitledWindowMask | $.NSClosableWindowMask | $.NSMiniaturizableWindowMask;
 var windowHeight = 85;
 var windowWidth = 600;
+var minWidth = 400;
+var minHeight = 340;
 var window = $.NSWindow.alloc.initWithContentRectStyleMaskBackingDefer(
-	$.NSMakeRect(0, 0, windowWidth, windowHeight),
-	styleMask,
-	$.NSBackingStoreBuffered,
-	false
+  $.NSMakeRect(0, 0, windowWidth, windowHeight),
+  styleMask,
+  $.NSBackingStoreBuffered,
+  false
 );
 
 window.center;
@@ -260,11 +262,13 @@ window.makeKeyAndOrderFront(window);
 var styleMask = $.NSTitledWindowMask | $.NSClosableWindowMask | $.NSMiniaturizableWindowMask;
 var windowHeight = 85;
 var windowWidth = 600;
+var minWidth = 400;
+var minHeight = 340;
 var window = $.NSWindow.alloc.initWithContentRectStyleMaskBackingDefer(
-	$.NSMakeRect(0, 0, windowWidth, windowHeight),
-	styleMask,
-	$.NSBackingStoreBuffered,
-	false
+  $.NSMakeRect(0, 0, windowWidth, windowHeight),
+  styleMask,
+  $.NSBackingStoreBuffered,
+  false
 );
 
 var textFieldLabel = $.NSTextField.alloc.initWithFrame($.NSMakeRect(25, (windowHeight - 40), 200, 24));
@@ -277,14 +281,14 @@ textFieldLabel.selectable = true;
 var textField = $.NSTextField.alloc.initWithFrame($.NSMakeRect(25, (windowHeight - 60), 205, 24));
 textField.editable = false;
 
-var singleBtn = $.NSButton.alloc.initWithFrame($.NSMakeRect(230, (windowHeight - 62), 150, 25));
-singleBtn.title = "Choose an Image...";
-singleBtn.bezelStyle = $.NSRoundedBezelStyle;
-singleBtn.buttonType = $.NSMomentaryLightButton;
+var btn = $.NSButton.alloc.initWithFrame($.NSMakeRect(230, (windowHeight - 62), 150, 25));
+btn.title = "Choose an Image...";
+btn.bezelStyle = $.NSRoundedBezelStyle;
+btn.buttonType = $.NSMomentaryLightButton;
 
 window.contentView.addSubview(textFieldLabel);
 window.contentView.addSubview(textField);
-window.contentView.addSubview(singleBtn);
+window.contentView.addSubview(btn);
 
 window.center;
 window.title = "Choose and Display Image";
@@ -360,8 +364,8 @@ window.makeKeyAndOrderFront(window);
   following properties.
 </p>
 <pre><code class="language-javascript">...
-singleBtn.target = appDelegate;
-singleBtn.action = "btnClickHandler:";
+btn.target = appDelegate;
+btn.action = "btnClickHandler";
 ...
 </code></pre>
 <p>
@@ -369,20 +373,13 @@ singleBtn.action = "btnClickHandler:";
   make them. In the next addition to the script, order matters. I put
   comments in the following code block to show where you should add the new code.
 </p>
-<pre><code class="language-javascript">...
-  var window = $.NSWindow.alloc.initWithContentRectStyleMaskBackingDefer(
-    $.NSMakeRect(0, 0, windowWidth, windowHeight),
-    styleMask,
-    $.NSBackingStoreBuffered,
-    false
-  );
-// Above here is in place already.
+<pre><code class="language-javascript">ObjC.import("Cocoa");
 
 // New stuff
 ObjC.registerSubclass({
   name: "AppDelegate",
   methods: {
-    "btnClickHandler:": {
+    "btnClickHandler": {
       types: ["void", ["id"]],
       implementation: function (sender) {
         $.NSLog("Clicked!");
@@ -417,10 +414,86 @@ textFieldLabel.stringValue = "Image: (jpg, png, or gif)";
 </p>
 <p>
   That’s all well and good, but what did we do there? Since we didn’t provide a
-  <code>superclass</code> we inherited from <code>NSObject</code>. That’s the base
-  Objective-C object, nothing fancy. Setting a <code>name</code> let’s us reference
-  the object later through the <code>$</code> bridge. We do that with <code>$.AppDelegate</code>.
+  <code>superclass</code> we inherited from <code>NSObject</code>. That’s the root
+  class of most Objective-C classes. Setting a <code>name</code> let’s us reference
+  the object later through the bridge with <code>$</code> or <code>ObjC</code>.
 </p>
+<p>
+  <code>$.AppDelegate.alloc.init;</code> creates an
+  instance of our <code>AppDelegate</code> object. Again, notice that we don’t
+  use parenthesis with the <code>alloc</code> or <code>init</code> methods since
+  we’re not passing arguments. We store the instance in the <code>appDelegate</code>
+  variable.
+</p>
+<h3>Subclass methods</h3>
+<p>
+  You create a method by giving it any string name. In this case “btnClickHandler”.
+  Give it an object with <code>types</code> and <code>implementation</code>. I
+  haven’t found official docs for what the <code>types</code> array should
+  contain. Through trial and error it seems like it goes like this:
+</p>
+<pre><code class="language-javascript">["return type", ["arg 1 type", "arg 2 type",...]]</code></pre>
+<p>
+  <code>btnClickHandler</code> won’t return anything so we set it to <code>void</code>.
+  It takes one parameter, the sender object. In this case it will be the <code>NSButton</code>
+  we named <code>btn</code>. The “id” type represents any object.
+</p>
+<p>
+  You can see the full list of types in the
+  <a href="https://developer.apple.com/librarY/prerelease/mac/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/index.html#//apple_ref/doc/uid/TP40014508-CH109-SW32">release notes</a>.
+</p>
+<p>
+  <code>implementation</code> is a normal function. Inside of it you write
+  JavaScript. You have the same access to the <code>$</code> bridge as you do
+  outside of an object. You also have access to variables you create outside
+  the object.
+</p>
+<h3>A quick note on using protocols</h3>
+<p>
+  You can implement existing Cocoa protocols with sublcasses,
+  but there are some gotchas.
+  I found out that if you list use the <code>protocols</code> array your script
+  just dies with no errors. I wrote an <a href="https://github.com/tylergaw/js-osx-app-examples/blob/master/docs/subclass-using-NSUserNotificationCenterDelegate.md">example and explanation</a>
+  that you’ll want to have a look at if you’re doing that type of thing.
+</p>
+<h3>Choosing and displaying images</h3>
+<p>
+  We’re ready to open the panel, choose an image, and display it. Update the
+  <code>btnClickHandler</code> implementation function with following code:
+</p>
+<pre><code class="language-javascript">...
+implementation: function (sender) {
+  var panel = $.NSOpenPanel.openPanel;
+  panel.title = "Choose an Image";
+
+  // NOTE: We need to bridge the JS array to an NSArray here.
+  var allowedTypes = ["jpg", "png", "gif"];
+  panel.allowedFileTypes = $(allowedTypes);
+
+  if (panel.runModal == $.NSOKButton) {
+    // NOTE: panel.URLs is an ObjectiveC Array not a JS array
+    var imagePath = panel.URLs.objectAtIndex(0).path;
+    textField.stringValue = imagePath;
+
+    var img = $.NSImage.alloc.initByReferencingFile(imagePath);
+    var imgView = $.NSImageView.alloc.initWithFrame(
+    $.NSMakeRect(0, windowHeight, img.size.width, img.size.height));
+
+    window.setFrameDisplayAnimate(
+      $.NSMakeRect(
+        0, 0,
+        (img.size.width > minWidth) ? img.size.width : minWidth,
+        (img.size.height > minHeight) ? img.size.height : minHeight
+      ),
+      true, true
+    );
+
+    window.contentView.addSubview(imgView);
+    window.center;
+    imgView.setImage(img);
+  }
+}
+</code></pre>
 <p>
   <i>Thanks for reading</i>
 </p>
