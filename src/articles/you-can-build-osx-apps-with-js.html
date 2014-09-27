@@ -2,7 +2,7 @@
 layout: article
 title: "You Can Build OS X Apps with JavaScript"
 title_size: med
-date: 2014-09-26
+date: 2014-09-27
 disqus_id: you-can-build-osx-apps-with-js
 ---
 
@@ -466,12 +466,12 @@ implementation: function (sender) {
   var panel = $.NSOpenPanel.openPanel;
   panel.title = "Choose an Image";
 
-  // NOTE: We need to bridge the JS array to an NSArray here.
   var allowedTypes = ["jpg", "png", "gif"];
+  // NOTE: We bridge the JS array to an NSArray here.
   panel.allowedFileTypes = $(allowedTypes);
 
   if (panel.runModal == $.NSOKButton) {
-    // NOTE: panel.URLs is an ObjectiveC Array not a JS array
+    // NOTE: panel.URLs is an NSArray not a JS array
     var imagePath = panel.URLs.objectAtIndex(0).path;
     textField.stringValue = imagePath;
 
@@ -479,21 +479,92 @@ implementation: function (sender) {
     var imgView = $.NSImageView.alloc.initWithFrame(
     $.NSMakeRect(0, windowHeight, img.size.width, img.size.height));
 
-    window.setFrameDisplayAnimate(
+    window.setFrameDisplay(
       $.NSMakeRect(
         0, 0,
         (img.size.width > minWidth) ? img.size.width : minWidth,
         (img.size.height > minHeight) ? img.size.height : minHeight
       ),
-      true, true
+      true
     );
 
+    imgView.setImage(img);
     window.contentView.addSubview(imgView);
     window.center;
-    imgView.setImage(img);
   }
 }
 </code></pre>
+<p>
+  The first thing we do is create an instance of an <code>NSOpenPanel</code>. If
+  you’ve ever selected a file to open, or a location to save a file you’ve seen
+  panels in action.
+</p>
+<p>
+  We only want the app to open images. Setting <code>allowedFileTypes</code> let’s
+  us specify the allowed types for the panel. It expects an <code>NSArray</code>. We create
+  a JS array with <code>allowedTypes</code>, but we need to convert that to an
+  <code>NSArray</code>. We make that conversion with <code>$(allowedTypes)</code>.
+  This is another common use of the bridge. You use it in this way to bridge
+  a JS value to Objective-C. To bridge an Objective-C value to JavaScript you’d
+  use <code>$(ObjCThing).js</code>.
+</p>
+<p>
+  We open the panel with <code>panel.runModal</code>. That pauses code execution.
+  When you click Cancel or Open in the panel a value is returned. <code>$.NSOKButton</code>
+  checks to see if you clicked Open.
+</p>
+<p>
+  The other note about <code>panel.URLs</code> is important. In JS, we access
+  the first value of an array with <code>array[0]</code>. Because <code>URLs</code>
+  is an NSArray we can’t use the same bracket notation. Instead we use the <code>objectAtIndex</code>
+  method. The both provide the same results.
+</p>
+<p>
+  Once we have the URL of the image on our file system we can create a new <code>NSImage</code>.
+  Since it’s common to create an image from a file path, there’s a handy method
+  doing it; <code>initByReferencingFile</code>.
+</p>
+<p>
+  We create an <code>NSImageView</code> using the same process as creating other
+  UI elements. <code>imgView</code> handles displaying the image.
+</p>
+<p>
+  We want to change the width and height of our window to match the dimensions of
+  the image. We also want to make sure not to go below a minimum height or width.
+  <code>setFrameDisplay</code> is how we go about doing that.
+</p>
+<p>
+  We wrap things up by setting the image view’s image and add it to the window. Since its width and
+  height have updated we re-center the window.
+</p>
+<p>
+  And that’s our little app. Kick it around, open a bunch of images. And yes,
+  animated gifs will display and play.
+</p>
+<h3>Why I’m excited</h3>
+<p>
+  I’m excited about this topic because it has so much potential. Here’s
+  how I’ve been thinking about it. When Yosemite is available, anyone that installs
+  the OS will be able to sit down and write a native application. They will be
+  able to do so using the most ubiquitous programming language that exists. They
+  won’t need to download or install anything extra. You don’t even have to install
+  or open Xcode if you don’t want to. That’s incredible.
+</p>
+<p>
+  I realize there’s a whole lot more to building OS X apps than just being able
+  whip up a quick script. I don’t have any illusions that JavaScript will become
+  the new way to build for the Mac. I do think this is going to allow developers
+  to build small apps that make development easier for themselves and for other
+  people. Have a team member that’s not so comfortable using the command line?
+  Build a quick GUI for them. Need a quick, visual way to create and update
+  a large configuration file? Make a little app for it.
+</p>
+<p>
+  Other languages have these capabilities. Python and Ruby have access to the same
+  native APIs and people make apps using those languages. Something just feels
+  different about being able to use JavaScript. It feels subversive. It feels
+  like the DIY of the Web coming to the Desktop. Apple left the door open, I’m walking in.
+</p>
 <p>
   <i>Thanks for reading</i>
 </p>
