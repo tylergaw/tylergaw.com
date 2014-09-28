@@ -106,18 +106,33 @@ $maxTextWidth: 790px;
 
     figcaption,
     .note,
-    .special-note {
+    .note-special,
+    .note-update {
         font-size: 0.8em;
         font-style: italic;
     }
 
-    p.special-note {
-      border: 1px solid rgba(#ffad15, 0.3);
-      border-radius: 3px;
-      background-color: rgba(#ffad15, 0.15);
-      color: #fff;
-      padding: 0.5em 1em;
-      margin: 0.8em 0 1.2em 0;
+    // NOTE: I HATE THE SPECIFICITY TRAP I GOT MYSELF INTO HERE. FIX THAT!
+    p {
+      &.note-special,
+      &.note-update {
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 3px;
+        color: #fff;
+        padding: 0.5em 1em;
+        margin: 0.1em 0 1.2em 0;
+      }
+
+      &.note-special {
+        border-color: rgba(#ffad15, 0.3);
+        background-color: rgba(#ffad15, 0.15);
+      }
+
+      &.note-update {
+        border-color: rgba(#007cff, 0.3);
+        background-color: rgba(#007cff, 0.15);
+      }
     }
 
     ul, ol {
