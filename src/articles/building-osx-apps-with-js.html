@@ -49,9 +49,9 @@ disqus_id: building-osx-apps-with-js
   Preview 7+ for the examples to work.
 </p>
 <p>
-  The best way to get going with this is to jump in and build something. I’m
-  going to describe how to build a small app that allows you display an image
-  from your computer of your choosing.
+  The best way to get going is to jump in and build something. I’m
+  going to walk through building a small app that lets you display an image
+  from your computer.
 </p>
 <p>
   You can download the completed example from my <a href="https://github.com/tylergaw/js-osx-app-examples">example apps repo</a>.
@@ -69,13 +69,13 @@ disqus_id: building-osx-apps-with-js
 </p>
 <p>
   Clicking the Choose an Image button will show an <code>NSOpenPanel</code> that allows you
-  to select a file. We’ll configure the panel to restrict the selection to .jpg,
-  .png, .gif.
+  to select a file. We’ll configure the panel to restrict the file selection to .jpg,
+  .png, or .gif.
 </p>
 <p>
   After selecting an image, we'll display it in the window. The window will
   resize to match the width and height of the image plus the height of the controls.
-  We’ll also set a min width and height for the window to make sure the controls
+  We’ll also set a minimum width and height for the window to make sure the controls
   don’t get cut off.
 </p>
 <h3>Setting up the project</h3>
@@ -84,14 +84,14 @@ disqus_id: building-osx-apps-with-js
   Script Editor ain’t the best editor I’ve ever used, but it’s necessary for now.
   It has a bunch of features that we need for building JS OS X apps. I’m not sure
   what goes on beyond the scenes, but it can compile and run your scripts as apps.
-  It also creates a bunch of extra stuff like an info.plist file. My guess is there
+  It also creates extra stuff that we need like an Info.plist file. My guess is there
   are ways to make other editors do the same, but I haven’t looked into it yet.
 </p>
 <p>
   Create a new document with <code>File > New</code> or <code>cmd + n</code>. The
-  first thing we need to do, is save this document as an application.
+  first thing we need to do is save the document as an application.
   Save with <code>File > Save</code> or <code>cmd + s</code>.
-  Don’t hit save right away. There are two options that are necessary to make
+  Don’t confirm the save right away. There are two options that are necessary to make
   this run as an application.
 </p>
 <figure>
@@ -103,7 +103,7 @@ disqus_id: building-osx-apps-with-js
 <p>
   Change the File Format to “Application”. Check the “Stay open after run handler”
   option. It’s important to set both of these options the first time you save the
-  file, because as far as I can tell there is no way to set them later. If you
+  file because–as far as I can tell–there is no way to set them later. If you
   miss one of these you’ll have to create a new document and copy your code over.
 </p>
 <p>
@@ -123,23 +123,23 @@ disqus_id: building-osx-apps-with-js
 $.NSLog("Hi everybody!");
 </code></pre>
 <p>
-  Not much happened. The only visible changes are in the menubar and dock. The app
-  name along with <code>File</code> and <code>Edit</code> menus are in the menubar.
-  You can see the app is running because it’s in your dock.
+  Not much happened. The only visible changes are in the menu bar and dock. The app
+  name along with <code>File</code> and <code>Edit</code> menus are in the menu bar.
+  You can see the app is running because its icon is in your dock.
 </p>
 <p>
   Where is the “Hi everybody!”? What is with the dollar sign, what is this, jQuery?
-  Quit the app the app with <code>File > Quit</code> or <code>cmd + q</code> and
+  Quit the app with <code>File > Quit</code> or <code>cmd + q</code> and
   we’ll find out where that <code>NSLog</code> went.
 </p>
 <p>
-  Open the Console app, <code>Applications > Utilities > Console</code>. Every
+  Open the Console app: <code>Applications > Utilities > Console</code>. Every
   application can log messages to the console. This console is not much different
   than Developer Tools in Chrome, Safari, or Firefox. The main difference is you
   use it for debugging applications instead of websites.
 </p>
 <p>
-  There’s a whole lot of messages in the console. You can filter it down by
+  There’s a lot of messages in the console. You can filter it down by
   typing “applet” into the search field in the top right corner. Leave “applet” in
   the search field and go back to Script Editor. Run the application again
   with <code>opt + cmd + r</code>.
@@ -155,8 +155,9 @@ $.NSLog("Hi everybody!");
 <h3>What about the dollar sign?</h3>
 <p>
   The dollar sign is your access to the Objective-C bridge. Any time you need
-  to access an Objective-c class or constant, you use <code>$.ObjCThing</code> notation.
-  There are a couple of other ways to use <code>$</code> that I’ll cover later.
+  to access an Objective-c class or constant, you use <code>$.foo</code> or
+  <code>ObjC.foo</code>. There are a couple of other ways
+  to use <code>$</code> that I’ll cover later.
 </p>
 <p>
   Console App and <code>NSLog</code> are indispensable tools, you’ll use them
@@ -189,7 +190,7 @@ window.title = "Choose and Display Image";
 window.makeKeyAndOrderFront(window);
 </code></pre>
 <p>
-  Once you have that in place, run the app. <code>opt + cmd + r</code>. Now we’re
+  When that’s in place, run the app. <code>opt + cmd + r</code>. Now we’re
   talking! With a small amount of code we’ve built an app that launches a window
   with a title that we can move, minimize, and close.
 </p>
@@ -198,8 +199,8 @@ window.makeKeyAndOrderFront(window);
   <figcaption>A basic NSWindow created with JS</figcaption>
 </figure>
 <p>
-  If you’ve never built an app with Objective-C or Cocoa–like me–a parts of this might
-  look like a whole lot of gibberish. For me, that was due to the length of the
+  If you’ve never built an app with Objective-C or Cocoa–like me–parts of this might
+  look like a lot of gibberish. For me, that was due to the length of the
   method names. I enjoy descriptive names, but Cocoa takes it to the extreme.
 </p>
 <p>
@@ -207,33 +208,38 @@ window.makeKeyAndOrderFront(window);
   you’d write when building a website.
 </p>
 <p>
-  What’s going on with that firt new line where we set <code>styleMask</code>.
+  What’s going on with that first new line where we set <code>styleMask</code>?
   You use style masks to configure windows. Each style option says what it adds;
-  a title, a close button, a minimize button. The options are constants. Use a pipe “|”
+  a title, a close button, a minimize button. These options are constants. Use a pipe “|”
   to separate options. That pipe is a C bitwise <code>OR</code> operator.
-  I’m not gonna to pretend I know what that means. I just know it’s
+  I’m not gonna pretend to know what that means. I just know it’s
   needed to combine style options for a mask and that’s good enough for me.
 </p>
 <p>
   There are more style options. You can read about them in <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/WinPanel/Tasks/SettingWindowAppearance.html">the docs</a>.
-  <code>NSResizableWindowMask</code> is one you’ll use. If you’re not
-  sure, try adding it to the style mask to see what it does.
+  <code>NSResizableWindowMask</code> is one you’ll use. Try adding it to the
+  style mask to see what it does.
 </p>
 <p>
   There are a couple interesting things about syntax that you’ll need to remember.
-  <code>$.NSWindow.alloc</code> calls the <code>alloc</code> method of <code>$.NSWindow</code>.
-  Notice there are no parenthesis “()” after alloc. In JavaScript that is how you
-  access a property, not how you call a method. In JS for OS X parenthesis are only
+  <code>$.NSWindow.alloc</code> calls the <code>alloc</code> method of <code>NSWindow</code>.
+  Notice there are no parenthesis “()” after alloc. In JavaScript that’s how we
+  access properties, not how we call a methods. What’s with that? In JS for OS X parenthesis are only
   allowed when calling a method if you pass arguments to it. If you use parenthesis
   with no arguments, you will get a runtime error. Check Console for errors when
   things don’t do what you think they should.
 </p>
 <p>
-  The next thing is about that super long method name; <code>initWithContentRectStyleMaskBackingDefer</code>.
+  The next thing is about that super long method name:
+</p>
+<pre><code class="language-javascript">initWithContentRectStyleMaskBackingDefer</code></pre>
+<p>
   Take a look at the <code>NSWindow</code> <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Classes/NSWindow_Class/Reference/Reference.html#jumpTo_105">docs</a>
   for that method and you’ll notice it looks a bit different.
-  <code>initWithContentRect:styleMask:backing:defer:</code>. In Objective-C you
-  would create the same window we did like this:
+</p>
+<pre><code class="language-javascript">initWithContentRect:styleMask:backing:defer:</code></pre>
+<p>
+  In Objective-C you would create the same window we did like this:
 </p>
 <pre><code class="language-clike">NSWindow* window [[NSWindow alloc]
   initWithContentRect: NSMakeRect(0, 0, windowWidth, windowHeight)
@@ -242,23 +248,23 @@ window.makeKeyAndOrderFront(window);
   defer: NO];
 </code></pre>
 <p>
-  The thing to note are the colons “:” in the original signature. When you convert
+  The thing to note are the colons “:” in the original method signature. When you convert
   and Objective-C method to JS you remove the colons and capitalize the first letter
   following it. When you see two items in brackets “[]”, that is calling a method
-  of a class. <code>[NSWindow alloc]</code> calls the <code>alloc</code> method
-  of the <code>NSWindow</code>. For JS, convert those to dot-notation and parenthesis
+  of a class or object. <code>[NSWindow alloc]</code> calls the <code>alloc</code> method
+  of <code>NSWindow</code>. For JS, convert those to dot-notation and parenthesis
   if necessary; <code>NSWindow.alloc</code>.
 </p>
 <p>
   I think the rest of the code to create and display the window is straightforward-enough.
   I’ll skip any more detailed description of it.
-  It takes time and a lot of reading the docs and time to understand what is happening
+  It takes time and a lot of reading the docs to understand what’s happening
   for each step along the way, but you’ll get there. As long as the window is
   showing up you’re doing great. Let’s do more.
 </p>
 <h3>Adding the controls</h3>
 <p>
-  We need a label, text field, and a button in this window. We’ll use <code>NSTextField</code>
+  We need a label, text field, and button in this window. We’ll use <code>NSTextField</code>
   and <code>NSButton</code> to make that happen. Update your script with the
   following code and then run the app.
 </p>
@@ -301,9 +307,9 @@ window.title = "Choose and Display Image";
 window.makeKeyAndOrderFront(window);
 </code></pre>
 <p>
-  If things worked you’ll now have a window with a label, text field, and button.
-  You can’t type in the text field and the button doesn’t do anything, but hey
-  we’re getting somewhere now.
+  If things worked you’ll now have a window with controls.
+  You can’t type in the text field and the button doesn’t do anything, but hey,
+  we’re getting somewhere.
 </p>
 <figure>
   <img src="assets/post-image-jsosx-controls.jpg" alt="">
@@ -315,7 +321,7 @@ window.makeKeyAndOrderFront(window);
   in a similar way as we made the window. When you see <code>initWithFrame</code>
   and <code>NSMakeRect</code>, it’s a good sign that the script is creating
   a UI element. <code>NSMakeRect</code> does what it says. It makes a rectangle
-  with the give position and dimensions; <code>(x, y, width, height)</code>. That
+  with the given position and dimensions; <code>(x, y, width, height)</code>. That
   creates what’s called a struct in Objective-C. In JavaScript we’d refer to it as an
   object or hash or maybe dict. It’s a thing with keys and values.
 </p>
@@ -325,14 +331,14 @@ window.makeKeyAndOrderFront(window);
   element. For that we make our own by disabling editing and background styling.
 </p>
 <p>
-  We’ll populate the text field programmatically, so disable editing on it as well.
+  We’ll populate the text field programmatically, so we disable editing on it as well.
   If we didn’t need that, creating a standard text field is a one-liner.
 </p>
 <p>
-  For the button we use an <code>NSButton</code>. Like the text fields, creating
+  For the button we use <code>NSButton</code>. Like the text fields, creating
   it requires drawing a rectangle. There are two properties that stand out;
   <code>bezelStyle</code> and <code>buttonType</code>. The values for both are
-  constants. These properties control how the button will render and type of style
+  constants. These properties control how the button will render and the style
   it will have. Check out the <code>NSButton</code>
   <a href="https://developer.apple.com/library/mac/documentation/cocoa/reference/applicationkit/classes/NSButton_Class/Reference/Reference.html">docs</a>
   to see everything you can do with it. I also have
@@ -340,10 +346,10 @@ window.makeKeyAndOrderFront(window);
   that shows the different button types and styles in action.
 </p>
 <p>
-  The last new thing we do is add the new elements to the window with <code>addSubview</code>.
+  The last new thing we do is add the elements to the window with <code>addSubview</code>.
   When I first tried this I did <code>window.addSubview(theView)</code>. That works
   for other standard views that you create with <code>NSView</code>, but not for
-  instances of <code>NSWindow</code>. I’m not sure why that is, but for it you
+  instances of <code>NSWindow</code>. I’m not sure why that is, but for windows you
   need to add sub views to the <code>contentView</code>. The docs describe it as;
   “The highest accessible NSView object in the window’s view hierarchy”. Works for
   me.
@@ -351,20 +357,20 @@ window.makeKeyAndOrderFront(window);
 <h3>Making the button do something</h3>
 <p>
   When clicking the Choose an Image button, we want a panel to open that shows
-  files on our computer. First, let’s log a message to the console when clicking
-  the button.
+  files on our computer. Before we do that, let’s warm up by logging a message
+  to the console when clicking the button.
 </p>
 <p>
   In JavaScript you bind event listeners to elements to handle clicks.
   Objective-C doesn’t use quite that same concept. It has what’s called message passing.
-  With it, you send a message–a name of a method–to an object. That object needs
-  to have information about what to do with the method. It’s need to have an
-  implementation of that method. That may not be a spot-on description, but it’s
+  With it, you send a message containing a method name to an object. That object needs
+  to have information about what to do when it receives a message containing
+  the method name. That may not be a spot-on description, but it’s
   how I understand it.
 </p>
 <p>
-  The first thing we need to do is set the button <code>code</code> and <code>action</code>.
-  The <code>target</code> is the object that we want to send the <code>action</code>
+  The first thing we need to do is set the button <code>target</code> and <code>action</code>.
+  The <code>target</code> is the object we want to send the <code>action</code>
   to. If this doesn’t make sense now, just keep going and it’ll get more clear
   when you see the code. Update the button setup part of the script with the
   following properties.
@@ -375,9 +381,9 @@ btn.action = "btnClickHandler";
 ...
 </code></pre>
 <p>
-  <code>appDelegate</code> and “btnClickHandler:” don’t exist yet. We need to
+  <code>appDelegate</code> and <code>btnClickHandler</code> don’t exist yet. We need to
   make them. In the next addition to the script, order matters. I put
-  comments in the following code block to show where you should add the new code.
+  comments in the following code to show where you should add the new stuff.
 </p>
 <pre><code class="language-javascript">ObjC.import("Cocoa");
 
@@ -410,12 +416,12 @@ textFieldLabel.stringValue = "Image: (jpg, png, or gif)";
 <h3>Subclassing</h3>
 <p>
   What’s this <code>ObjC.registerSubclass</code> all about? Subclassing is a way
-  to create a new object that inherits from another Objective-C object. Side note; the likelihood
+  to create a new class that inherits from another Objective-C class. Side note; the likelihood
   I’m using incorrect terminology here is through the roof. Bear with me.
   <code>registerSubclass</code> takes a single argument;
   a JS object with the members of the new object. Members can be; <code>name</code>,
   <code>superclass</code>, <code>protocols</code>, <code>properties</code>, and
-  <code>methods</code>. I’m not 100% sure that’s an exhaustive list, but that’s what is
+  <code>methods</code>. I’m not 100% sure that’s an exhaustive list, but that’s what’s
   in the <a href="https://developer.apple.com/librarY/prerelease/mac/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/index.html#//apple_ref/doc/uid/TP40014508-CH109-SW30">release notes</a>.
 </p>
 <p>
@@ -426,40 +432,39 @@ textFieldLabel.stringValue = "Image: (jpg, png, or gif)";
 </p>
 <p>
   <code>$.AppDelegate.alloc.init;</code> creates an
-  instance of our <code>AppDelegate</code> object. Again, notice that we don’t
+  instance of our <code>AppDelegate</code> class. Again, notice we don’t
   use parenthesis with the <code>alloc</code> or <code>init</code> methods since
-  we’re not passing arguments. We store the instance in the <code>appDelegate</code>
-  variable.
+  we’re not passing arguments.
 </p>
 <h3>Subclass methods</h3>
 <p>
   You create a method by giving it any string name. In this case “btnClickHandler”.
-  Give it an object with <code>types</code> and <code>implementation</code>. I
-  haven’t found official docs for what the <code>types</code> array should
-  contain. Through trial and error it seems like it goes like this:
+  Give it an object with <code>types</code> and <code>implementation</code> members.
+  I haven’t found official docs for what the <code>types</code> array should
+  contain. Through trial and error I found it goes like this:
 </p>
 <pre><code class="language-javascript">["return type", ["arg 1 type", "arg 2 type",...]]</code></pre>
 <p>
-  <code>btnClickHandler</code> won’t return anything so we set it to <code>void</code>.
+  <code>btnClickHandler</code> won’t return anything so we set the return type to <code>void</code>.
   It takes one parameter, the sender object. In this case it will be the <code>NSButton</code>
-  we named <code>btn</code>. The “id” type represents any object.
+  we named <code>btn</code>. We use the “id” type because represents any object.
 </p>
 <p>
-  You can see the full list of types in the
+  The full list of types is in the
   <a href="https://developer.apple.com/librarY/prerelease/mac/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/index.html#//apple_ref/doc/uid/TP40014508-CH109-SW32">release notes</a>.
 </p>
 <p>
   <code>implementation</code> is a normal function. Inside of it you write
   JavaScript. You have the same access to the <code>$</code> bridge as you do
   outside of an object. You also have access to variables you create outside
-  the object.
+  the function.
 </p>
 <h3>A quick note on using protocols</h3>
 <p>
   You can implement existing Cocoa protocols with sublcasses,
-  but there are some gotchas.
-  I found out that if you list use the <code>protocols</code> array your script
-  just dies with no errors. I wrote an <a href="https://github.com/tylergaw/js-osx-app-examples/blob/master/docs/subclass-using-NSUserNotificationCenterDelegate.md">example and explanation</a>
+  but there’s a “gotcha”.
+  I found out that if you use the <code>protocols</code> array your script
+  will just stop with no errors. I wrote an <a href="https://github.com/tylergaw/js-osx-app-examples/blob/master/docs/subclass-using-NSUserNotificationCenterDelegate.md">example and explanation</a>
   that you’ll want to have a look at if you’re doing that type of thing.
 </p>
 <h3>Choosing and displaying images</h3>
@@ -506,48 +511,53 @@ implementation: function (sender) {
   panels in action.
 </p>
 <p>
-  We only want the app to open images. Setting <code>allowedFileTypes</code> let’s
+  We only want the app to open images. Setting <code>allowedFileTypes</code> lets
   us specify the allowed types for the panel. It expects an <code>NSArray</code>. We create
   a JS array with <code>allowedTypes</code>, but we need to convert that to an
   <code>NSArray</code>. We make that conversion with <code>$(allowedTypes)</code>.
-  This is another common use of the bridge. You use it in this way to bridge
+  This is another use of the bridge. You use it in this way to bridge
   a JS value to Objective-C. To bridge an Objective-C value to JavaScript you’d
   use <code>$(ObjCThing).js</code>.
 </p>
 <p>
   We open the panel with <code>panel.runModal</code>. That pauses code execution.
-  When you click Cancel or Open in the panel a value is returned. <code>$.NSOKButton</code>
-  checks to see if you clicked Open.
+  When you click Cancel or Open, the panel will return a value.
+  If you clicked Open, the contstant value of <code>$.NSOKButton</code> is returned.
 </p>
 <p>
   The other note about <code>panel.URLs</code> is important. In JS, we access
   the first value of an array with <code>array[0]</code>. Because <code>URLs</code>
-  is an NSArray we can’t use the same bracket notation. Instead we use the <code>objectAtIndex</code>
-  method. The both provide the same results.
+  is an <code>NSArray</code> we can’t use bracket notation. Instead we use the <code>objectAtIndex</code>
+  method. They both give the same results.
 </p>
 <p>
-  Once we have the URL of the image on our file system we can create a new <code>NSImage</code>.
-  Since it’s common to create an image from a file path, there’s a handy method
-  doing it; <code>initByReferencingFile</code>.
+  Once we have the URL of the image we can create a new <code>NSImage</code>.
+  Since it’s common to create an image from a file URL, there’s a handy method
+  doing it:
+</p>
+<pre><code class="language-javascript">initByReferencingFile</code></pre>
+<p>
+  We create an <code>NSImageView</code> using the same process we did for creating
+  other UI elements. <code>imgView</code> handles displaying the image.
 </p>
 <p>
-  We create an <code>NSImageView</code> using the same process as creating other
-  UI elements. <code>imgView</code> handles displaying the image.
+  We want to change the width and height of our window to match the width and height of
+  the image. We also want to make sure we don’t go below a minimum width or height.
+  We use <code>setFrameDisplay</code> to change the size of the window.
 </p>
 <p>
-  We want to change the width and height of our window to match the dimensions of
-  the image. We also want to make sure not to go below a minimum height or width.
-  <code>setFrameDisplay</code> is how we go about doing that. We wrap things up by setting
-  the image view’s image and add it to the window. Since its width and
+  We wrap things up by setting the image view image and
+  adding it to the window. Since its width and
   height have updated we re-center the window.
 </p>
 <p>
   And that’s our little app. Kick it around, open a bunch of images. And yes,
-  animated gifs will display and play.
+  animated gifs will display and play so be sure to try some.
 </p>
+<h3>Tidbits</h3>
 <p>
   So far, we’ve been running the app from Script Editor
-  with <code>opt + cmd + d</code>. You run the actual app, by double clicking
+  with <code>opt + cmd + d</code>. You run the actual app by double clicking
   its icon like any other application.
 </p>
 <figure>
@@ -555,22 +565,23 @@ implementation: function (sender) {
   <figcaption>Double click the icon to run the app</figcaption>
 </figure>
 <p>
-  You can update the app icon be replacing <code>/Contents/Resources/applet.icns</code>.
+  You can update the app icon by replacing <code>/Contents/Resources/applet.icns</code>.
   To access the app resources, right click on the app icon and choose “Show Package Contents”.
 </p>
 <h2>Why I’m excited</h2>
 <p>
-  I’m excited about this topic because it has so much potential. Here’s
+  I’m excited about this because I think it has a lot of potential. Here’s
   how I’ve been thinking about it. When Yosemite is available, anyone that installs
   the OS will be able to sit down and write a native application. They will be
-  able to do so using the most ubiquitous programming language that exists. They
+  able to do so using one of the most ubiquitous programming languages that exists. They
   won’t need to download or install anything extra. You don’t even have to install
-  or open Xcode if you don’t want to. That’s incredible.
+  or open Xcode if you don’t want to. That removes a massive barrier to entry.
+  It’s incredible.
 </p>
 <p>
-  I realize there’s a whole lot more to building OS X apps than just being able
+  I know there’s a whole lot more to building OS X apps than just being able
   whip up a quick script. I don’t have any illusions that JavaScript will become
-  the new way to build for the Mac. I do think this is going to allow developers
+  the defacto way to build for the Mac. I do think this will allow developers
   to build small apps that make development easier for themselves and for other
   people. Have a team member that’s not so comfortable using the command line?
   Build a quick GUI for them. Need a quick, visual way to create and update
@@ -580,7 +591,8 @@ implementation: function (sender) {
   Other languages have these capabilities. Python and Ruby have access to the same
   native APIs and people make apps using those languages. Something just feels
   different about being able to use JavaScript. It feels subversive. It feels
-  like the DIY of the Web coming to the Desktop. Apple left the door open, I’m walking in.
+  like some of the DIY of the Web knocking on the door of the Desktop.
+  Apple left the door unlock, I’m inviting myself in.
 </p>
 <p>
   <i>Thanks for reading</i>
