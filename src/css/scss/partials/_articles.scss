@@ -80,14 +80,18 @@
             width: 48%;
         }
 
-        // .potential.first-block {
-        //     @include flex;
-        // }
+        .potential.first-block {
+            @include flex;
+        }
     }
 
     @media screen and (min-width: 1080px) {
         li {
             width: 31.33%
+        }
+
+        .potential {
+            @include flex;
         }
     }
 
@@ -96,8 +100,8 @@
             width: 23%
         }
 
-        .potential {
-            @include flex;
+        .potential:last-child {
+            display: none;
         }
     }
 }

@@ -105,9 +105,19 @@ $maxTextWidth: 790px;
     }
 
     figcaption,
-    .note {
+    .note,
+    .special-note {
         font-size: 0.8em;
         font-style: italic;
+    }
+
+    p.special-note {
+      border: 1px solid rgba(#ffad15, 0.3);
+      border-radius: 3px;
+      background-color: rgba(#ffad15, 0.15);
+      color: #fff;
+      padding: 0.5em 1em;
+      margin: 0.8em 0 1.2em 0;
     }
 
     ul, ol {
@@ -162,7 +172,6 @@ $maxTextWidth: 790px;
     font-size: 1.1em;
     font-style: italic;
     line-height: 1.4;
-    text-indent: 1em;
 
     &::after {
         @extend %yellow-divider;
