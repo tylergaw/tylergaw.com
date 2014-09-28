@@ -8,7 +8,7 @@ disqus_id: building-osx-apps-with-js
 
 <p class="entry-intro">
   OS X Yosemite introduced JavaScript for Automation. This makes it possible to
-  access all native OS X frameworks with JavaScript. I’ve been
+  access native OS X frameworks with JavaScript. I’ve been
   digging in to this new world and putting together <a href="https://github.com/tylergaw/js-osx-app-examples">examples</a>
   along the way. In this post I’ll explain the basics and step through building
   a small <a href="https://github.com/tylergaw/js-osx-app-examples/tree/master/ChooseAndDisplayImage.app">example app</a>.
@@ -17,23 +17,23 @@ disqus_id: building-osx-apps-with-js
 <p>
   WWDC 2014 included a session on
   <a href="https://developer.apple.com/librarY/prerelease/mac/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/index.html">JavaScript for Automation</a>.
-  The session introduced that in you would be able to use JavaScript in place of
-  AppleScript to for automation. That alone is exciting news. Being able to automate
+  The session explained that you would be able to use JavaScript in place of
+  AppleScript to automate applications. That alone is exciting news. Being able to automate
   repetitive tasks using AppleScript has been around a long time. AppleScript is
-  not my definition of fun. Using a familiar syntax in its place is most welcome.
+  not the most fun thing to write so using a familiar syntax in its place is welcome.
 </p>
 <p>
   During the session the presenter explains the Objective-C bridge. This is where
   things get super cool. The bridge allows you to import any Objective-C framework
   into JS applications. For example, if you want to build a GUI using standard OS X
-  controls you would want to import Cocoa:
+  controls you would import Cocoa:
 </p>
 <pre><code class="language-javascript">ObjC.import("Cocoa");
 </code></pre>
 <p>
-  The OS X <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/ObjC_classic/_index.html">Foundation</a>
+  The <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/ObjC_classic/_index.html">Foundation</a>
   framework does what its name suggests. It provides the building blocks for
-  OS X apps. The framework includes a massive amount of classes and protocols.
+  OS X apps. The framework includes a large amount of classes and protocols.
   <code>NSArray</code>, <code>NSURL</code>, <code>NSUserNotification</code>, and so on. You may not be familiar with
   those classes, but their names hint at what they do. Because of its importance,
   you can use its classes without needing to import it in new apps. They are
@@ -44,6 +44,10 @@ disqus_id: building-osx-apps-with-js
   with Objective-C or Swift.
 </p>
 <h2>Building an example app</h2>
+<p class="special-note">
+  <b>Note:</b> You need Yosemite Developer
+  Preview 7+ for the examples to work.
+</p>
 <p>
   The best way to get going with this is to jump in and build something. I’m
   going to describe how to build a small app that allows you display an image
