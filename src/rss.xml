@@ -1,7 +1,7 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
 <channel>
   <title>Tyler Gaw: Articles</title>
-  <link>http://tylergaw.com/</link>
+  <link>https://tylergaw.com/</link>
   <managingEditor>me@tylergaw.com.com (Tyler Gaw)</managingEditor>
   <webMaster>me@tylergaw.com.com (Tyler Gaw)</webMaster>
   <description>An account of the work I do as a Web Designer</description>
@@ -9,13 +9,13 @@
   <language>en</language>
   <generator>Elbow grease</generator>
   <image>
-    <url>http://tylergaw.com/images/rss-graphic.png</url>
+    <url>https://tylergaw.com/images/rss-graphic.png</url>
     <title>Tyler Gaw Occasionally Writes About Web Design and Life</title>
-    <link>http://tylergaw.com/</link>
+    <link>https://tylergaw.com/</link>
     <width>144</width>
     <height>180</height>
   </image>
-  <atom:link href="http://tylergaw.com/rss.xml" rel="self" type="application/rss+xml"/>
+  <atom:link href="https://tylergaw.com/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Overawe</title>
       <dc:creator>Tyler Gaw</dc:creator>
@@ -115,8 +115,8 @@
 </p>
         ]]>
       </description>
-      <link>http://tylergaw.com/articles/overawe</link>
-      <guid>http://tylergaw.com/articles/overawe</guid>
+      <link>https://tylergaw.com/articles/overawe</link>
+      <guid>https://tylergaw.com/articles/overawe</guid>
       <pubDate>Thur, 25 June 2015 10:00:00 -0400</pubDate>
     </item>
     <item>
@@ -175,7 +175,7 @@
   You can download the completed example from my <a href="https://github.com/tylergaw/js-osx-app-examples">example apps repo</a>.
 </p>
 <figure>
-    <img src="http://tylergaw.com/articles/assets/post-image-jsosx-example-01.jpg" alt="">
+    <img src="https://tylergaw.com/articles/assets/post-image-jsosx-example-01.jpg" alt="">
     <figcaption>
       A screenshot of the app we’ll build.
     </figcation>
@@ -213,7 +213,7 @@
   this run as an application.
 </p>
 <figure>
-    <img src="http://tylergaw.com/articles/assets/post-image-jsosx-save.jpg" alt="">
+    <img src="https://tylergaw.com/articles/assets/post-image-jsosx-save.jpg" alt="">
     <figcaption>
       The Script Editor Save dialog with important fields highlighted
     </figcation>
@@ -263,7 +263,7 @@ $.NSLog("Hi everybody!");
   with <code>opt + cmd + r</code>.
 </p>
 <figure>
-    <img src="http://tylergaw.com/articles/assets/post-image-jsosx-console.jpg" alt="A screenshot showing a log message in Console.app">
+    <img src="https://tylergaw.com/articles/assets/post-image-jsosx-console.jpg" alt="A screenshot showing a log message in Console.app">
 </figure>
 <p>
   Did you see it!? The message “Hi everybody!” should have logged to the console.
@@ -313,7 +313,7 @@ window.makeKeyAndOrderFront(window);
   with a title that we can move, minimize, and close.
 </p>
 <figure>
-  <img src="http://tylergaw.com/articles/assets/post-image-jsosx-basic-window.jpg" alt="">
+  <img src="https://tylergaw.com/articles/assets/post-image-jsosx-basic-window.jpg" alt="">
   <figcaption>A basic NSWindow created with JS</figcaption>
 </figure>
 <p>
@@ -430,7 +430,7 @@ window.makeKeyAndOrderFront(window);
   we’re getting somewhere.
 </p>
 <figure>
-  <img src="http://tylergaw.com/articles/assets/post-image-jsosx-controls.jpg" alt="">
+  <img src="https://tylergaw.com/articles/assets/post-image-jsosx-controls.jpg" alt="">
   <figcaption>Label, field, and button elements in the window</figcaption>
 </figure>
 <p>
@@ -679,7 +679,7 @@ implementation: function (sender) {
   its icon like any other application.
 </p>
 <figure>
-  <img src="http://tylergaw.com/articles/assets/post-image-jsosx-appicon.jpg" alt="">
+  <img src="https://tylergaw.com/articles/assets/post-image-jsosx-appicon.jpg" alt="">
   <figcaption>Double click the icon to run the app</figcaption>
 </figure>
 <p>
@@ -717,8 +717,8 @@ implementation: function (sender) {
 </p>
         ]]>
       </description>
-      <link>http://tylergaw.com/articles/building-osx-apps-with-js</link>
-      <guid>http://tylergaw.com/articles/building-osx-apps-with-js</guid>
+      <link>https://tylergaw.com/articles/building-osx-apps-with-js</link>
+      <guid>https://tylergaw.com/articles/building-osx-apps-with-js</guid>
       <pubDate>Sat, 27 Sept 2014 17:45:00 -0400</pubDate>
     </item>
     <item>
@@ -1045,8 +1045,8 @@ implementation: function (sender) {
           </p>
           ]]>
       </description>
-      <link>http://tylergaw.com/articles/media-seek-from-url</link>
-      <guid>http://tylergaw.com/articles/media-seek-from-url</guid>
+      <link>https://tylergaw.com/articles/media-seek-from-url</link>
+      <guid>https://tylergaw.com/articles/media-seek-from-url</guid>
       <pubDate>Sat, 20 Sept 2014 04:00:00 -0400</pubDate>
     </item>
       <item>
@@ -1080,7 +1080,7 @@ implementation: function (sender) {
                   own config file.
               </p>
               <figure>
-                  <img src="http://tylergaw.com/articles/assets/post-image-nginx-conf-editor.jpg" alt="The server-conf repo opened in a text editor">
+                  <img src="https://tylergaw.com/articles/assets/post-image-nginx-conf-editor.jpg" alt="The server-conf repo opened in a text editor">
                   <figcaption>
                       server-conf in my current preferred text editor, Atom. Being able to use it instead of something
                       like Vim is much more comfortable for me
@@ -1161,7 +1161,7 @@ http {
                   multiple people making updates.
               </p>
               <figure>
-                  <img src="http://tylergaw.com/articles/assets/post-image-nginx-conf-log.jpg" alt="Github commit log for the server-conf repo">
+                  <img src="https://tylergaw.com/articles/assets/post-image-nginx-conf-log.jpg" alt="Github commit log for the server-conf repo">
                   <figcaption>
                       The server-conf git log provides a history of config changes
                   </figcation>
@@ -1178,8 +1178,8 @@ http {
               </p>
               ]]>
           </description>
-          <link>http://tylergaw.com/articles/how-i-manage-nginx-config</link>
-          <guid>http://tylergaw.com/articles/how-i-manage-nginx-config</guid>
+          <link>https://tylergaw.com/articles/how-i-manage-nginx-config</link>
+          <guid>https://tylergaw.com/articles/how-i-manage-nginx-config</guid>
           <pubDate>Thur, 24 July 2014 14:30:00 -0400</pubDate>
       </item>
       <item>
@@ -1188,7 +1188,7 @@ http {
           <description>
               <![CDATA[
                   <p class="entry-intro">
-                      As part of my site <a href="http://tylergaw.com/articles/how-i-start">redesign</a>
+                      As part of my site <a href="https://tylergaw.com/articles/how-i-start">redesign</a>
                       I wanted new branding. It's not really a logo I guess, but
                       it's what I'll be using on this site and any other promotional crud that I make
                       like business cards. This was a fun process that let me dive deeper
@@ -1204,7 +1204,7 @@ http {
                       a side-by-side version with my name on the left and "web designer" on the right is shown.
                   </p>
                   <figure>
-                      <img src="http://tylergaw.com/articles/assets/post-image-logo-process-existing.jpg" alt="">
+                      <img src="https://tylergaw.com/articles/assets/post-image-logo-process-existing.jpg" alt="">
                       <figcaption>
                           Variations of my current logo displayed at different screen sizes
                       </figcation>
@@ -1233,7 +1233,7 @@ http {
                   </p>
 
                   <figure>
-                      <img src="http://tylergaw.com/articles/assets/post-image-logo-process-roughage.jpg" alt="">
+                      <img src="https://tylergaw.com/articles/assets/post-image-logo-process-roughage.jpg" alt="">
                       <figcaption>
                           The results of messing with the existing logo. This was bad on
                           purpose. It got me started down the right path.
@@ -1256,14 +1256,14 @@ http {
                       until I got one that was close enough.
                   </p>
                   <figure>
-                      <img src="http://tylergaw.com/articles/assets/post-image-logo-process-sketches.jpg" alt="">
+                      <img src="https://tylergaw.com/articles/assets/post-image-logo-process-sketches.jpg" alt="">
                       <figcaption>
                           Trying to get a solid sketch to start
                       </figcation>
                   </figure>
 
                   <figure>
-                      <img src="http://tylergaw.com/articles/assets/post-image-logo-process-sketch.jpg" alt="">
+                      <img src="https://tylergaw.com/articles/assets/post-image-logo-process-sketch.jpg" alt="">
                       <figcaption>
                           The close enough pencil &amp; Ink sketch that was used as a starting point in Illustrator
                       </figcation>
@@ -1290,7 +1290,7 @@ http {
                   </p>
 
                   <figure>
-                      <img src="http://tylergaw.com/articles/assets/post-image-logo-process-first-thought.jpg" alt="">
+                      <img src="https://tylergaw.com/articles/assets/post-image-logo-process-first-thought.jpg" alt="">
                       <figcaption>
                           This is what I originally imagined the logo would resemble. Very
                           hand-drawn, close to my existing logo. There would still have been a lot of
@@ -1328,7 +1328,7 @@ http {
                       The removing, adding, and moving of points feels a lot like working with clay. You start with these
                       rough shapes and you slowly push and pull and smooth it into the shape
                       that you're looking for. I've written about this process before
-                      for <a href="http://tylergaw.com/articles/slenderman">Slenderman</a>.
+                      for <a href="https://tylergaw.com/articles/slenderman">Slenderman</a>.
                       For some reason it felt more like chiseling rock that time.
                   </p>
 
@@ -1341,7 +1341,7 @@ http {
                       stop, get some air. Move it to Photoshop, check it, repeat.
                   </p>
                   <figure>
-                      <img src="http://tylergaw.com/articles/assets/post-image-logo-process-ani.gif" alt="">
+                      <img src="https://tylergaw.com/articles/assets/post-image-logo-process-ani.gif" alt="">
                       <figcaption>
                           Animation showing the rough steps of the process
                       </figcation>
@@ -1685,8 +1685,8 @@ http {
                   </p>
               ]]>
           </description>
-          <link>http://tylergaw.com/articles/a-logo-design-process</link>
-          <guid>http://tylergaw.com/articles/a-logo-design-process</guid>
+          <link>https://tylergaw.com/articles/a-logo-design-process</link>
+          <guid>https://tylergaw.com/articles/a-logo-design-process</guid>
           <pubDate>Thur, 17 July 2014 18:30:00 -0400</pubDate>
       </item>
       <item>
@@ -1715,7 +1715,7 @@ http {
                   make a really big mess.
               </p>
               <figure>
-                  <img src="http://tylergaw.com/articles/assets/post-image-starting-sketches.jpg" alt="">
+                  <img src="https://tylergaw.com/articles/assets/post-image-starting-sketches.jpg" alt="">
                   <figcaption>
                       Bad handwriting. Worse block lettering.
                   </figcation>
@@ -1748,7 +1748,7 @@ http {
                   <li><a href="https://www.youtube.com/watch?v=JyRAHKTy6hI">Beautiful Losers - Buncha great folks</a></li>
               </ul>
               <figure>
-                  <img src="http://tylergaw.com/articles/assets/post-image-starting-art.png" alt="">
+                  <img src="https://tylergaw.com/articles/assets/post-image-starting-art.png" alt="">
                   <figcaption>
                       Art, beards, grumpy men
                   </figcation>
@@ -1772,7 +1772,7 @@ http {
                   see how things might work later.
               </p>
               <figure>
-                  <img src="http://tylergaw.com/articles/assets/post-image-starting-type.png" alt="">
+                  <img src="https://tylergaw.com/articles/assets/post-image-starting-type.png" alt="">
                   <figcaption>
                       Playing around with some type treatments
                   </figcation>
@@ -1814,7 +1814,7 @@ http {
                   interesting.
               </p>
               <figure>
-                  <img src="http://tylergaw.com/articles/assets/post-image-starting-collage.png" alt="">
+                  <img src="https://tylergaw.com/articles/assets/post-image-starting-collage.png" alt="">
                   <figcaption>
                       Cuttin’ out Hetfield's eyeballs for shits and giggles
                   </figcation>
@@ -1841,8 +1841,8 @@ http {
               </p>
               ]]>
           </description>
-          <link>http://tylergaw.com/articles/how-i-start</link>
-          <guid>http://tylergaw.com/articles/how-i-start</guid>
+          <link>https://tylergaw.com/articles/how-i-start</link>
+          <guid>https://tylergaw.com/articles/how-i-start</guid>
           <pubDate>Thur, 10 July 2014 17:30:00 -0400</pubDate>
       </item>
     <item>
@@ -1852,7 +1852,7 @@ http {
             <![CDATA[
             <figure>
             <a href="http://lab.tylergaw.com/css-true-titles/">
-                <img src="http://tylergaw.com/articles/assets/post-image-true-titles-intro.jpg"
+                <img src="https://tylergaw.com/articles/assets/post-image-true-titles-intro.jpg"
                     alt="Image of the title cards from the True Titles demo">
             </a>
         </figure>
@@ -1882,7 +1882,7 @@ http {
             masked, but I stuck with still images to keep things a little easier.
         </p>
         <figure>
-            <img src="http://tylergaw.com/articles/assets/post-image-true-titles-mask-example.jpg"
+            <img src="https://tylergaw.com/articles/assets/post-image-true-titles-mask-example.jpg"
                 alt="">
             <figcaption>
                 An example of using a human to mask footage in the True Detective titles
@@ -1896,7 +1896,7 @@ http {
             implemented.
         </p>
         <figure>
-            <img src="http://tylergaw.com/articles/assets/post-image-true-titles-opener-card.jpg"
+            <img src="https://tylergaw.com/articles/assets/post-image-true-titles-opener-card.jpg"
                 alt="">
             <figcaption>
                 A still of the first title card.
@@ -1986,7 +1986,7 @@ http {
             elements.
         </p>
         <figure>
-            <img src="http://tylergaw.com/articles/assets/post-image-true-titles-ani-diagram.jpg"
+            <img src="https://tylergaw.com/articles/assets/post-image-true-titles-ani-diagram.jpg"
                 alt="Sketch showing the length of the main timelime is seconds and the length of each sub timeline as a percentage.">
             <figcaption>
                 A diagram showing the main and sub timelines of the sequence.
@@ -2058,7 +2058,7 @@ http {
         </p>
         <h3>A sub timeline example</h3>
         <figure>
-            <img src="http://tylergaw.com/articles/assets/post-image-true-titles-director-card.jpg"
+            <img src="https://tylergaw.com/articles/assets/post-image-true-titles-director-card.jpg"
                 alt="">
             <figcaption>
                 A still of the director title card.
@@ -2075,7 +2075,7 @@ http {
 &lt;/div&gt;
 &lt;h2 class="copy animated"&gt;
   &lt;b class="role">Directed by&lt;/b&gt;
-  &lt;a href="http://tylergaw.com">Tyler Gaw&lt;/a&gt;
+  &lt;a href="https://tylergaw.com">Tyler Gaw&lt;/a&gt;
 &lt;/h2&gt;</code></pre>
         <p>
             Anything with the class of "animated"–you guessed it–has an animation
@@ -2156,8 +2156,8 @@ http {
         </p>
             ]]>
         </description>
-        <link>http://tylergaw.com/articles/css-true-titles</link>
-        <guid>http://tylergaw.com/articles/css-true-titles</guid>
+        <link>https://tylergaw.com/articles/css-true-titles</link>
+        <guid>https://tylergaw.com/articles/css-true-titles</guid>
         <pubDate>Tue, 25 February 2014 19:30:00 -0400</pubDate>
     </item>
     <item>
@@ -2300,8 +2300,8 @@ http {
         </p>
             ]]>
         </description>
-        <link>http://tylergaw.com/articles/2000-days</link>
-        <guid>http://tylergaw.com/articles/2000-days</guid>
+        <link>https://tylergaw.com/articles/2000-days</link>
+        <guid>https://tylergaw.com/articles/2000-days</guid>
         <pubDate>Mon, 17 February 2014 17:00:00 -0400</pubDate>
     </item>
     <item>
@@ -2311,7 +2311,7 @@ http {
             <![CDATA[
             <figure>
             <a href="http://lab.tylergaw.com/papers">
-                <img src="http://tylergaw.com/articles/assets/post-image-papersaver-intro.png"
+                <img src="https://tylergaw.com/articles/assets/post-image-papersaver-intro.png"
                     alt="Papersaver text on a crappy Photoshopped background">
             </a>
         </figure>
@@ -2340,7 +2340,7 @@ http {
             our digital artifacts by self-hosting.
         </p>
         <figure>
-            <img src="http://tylergaw.com/articles/assets/post-image-papersaver-attribution.jpg" alt="A portion of the Made with Paper submission form">
+            <img src="https://tylergaw.com/articles/assets/post-image-papersaver-attribution.jpg" alt="A portion of the Made with Paper submission form">
             <figcaption>
                 Host my masterpieces on a Tumblr? Nope.
             </figcaption>
@@ -2369,7 +2369,7 @@ http {
             <li>“In Dependence”</li>
         </ul>
         <figure>
-            <img src="http://tylergaw.com/articles/assets/post-image-papersaver-notes01.jpg" alt="Papersaver notes taken in the Paper App">
+            <img src="https://tylergaw.com/articles/assets/post-image-papersaver-notes01.jpg" alt="Papersaver notes taken in the Paper App">
             <figcaption>
                 I used Paper to take notes.
             </figcaption>
@@ -2509,8 +2509,8 @@ http {
         </p>
             ]]>
         </description>
-        <link>http://tylergaw.com/articles/papersaver</link>
-        <guid>http://tylergaw.com/articles/papersaver</guid>
+        <link>https://tylergaw.com/articles/papersaver</link>
+        <guid>https://tylergaw.com/articles/papersaver</guid>
         <pubDate>Mon, 03 February 2014 22:00:00 -0400</pubDate>
     </item>
     <item>
@@ -2520,7 +2520,7 @@ http {
             <![CDATA[
                 <figure>
                     <a href="http://lab.tylergaw.com/slenderman">
-                        <img src="http://tylergaw.com/articles/assets/post-image-slenderman-intro.png" alt="Slenderman in use">
+                        <img src="https://tylergaw.com/articles/assets/post-image-slenderman-intro.png" alt="Slenderman in use">
                     </a>
                 </figure>
                 <p class="entry-intro">
@@ -2545,7 +2545,7 @@ http {
                     to creating my own. The project is a personal one so there’s no
                     time limit. When I have that choice I love to let projects expand to
                     as many different areas as they need to. This same project also led
-                    me down the path of building <a href="http://tylergaw.com/articles/webvtt-cuemarker">another small tool</a>
+                    me down the path of building <a href="https://tylergaw.com/articles/webvtt-cuemarker">another small tool</a>
                     for working with HTML video subtitles.
                 </p>
                 <h2>The Process</h2>
@@ -2557,7 +2557,7 @@ http {
                     would be a nice contrast to the tall, skinny caps.
                 </p>
                 <figure>
-                    <img src="http://tylergaw.com/articles/assets/post-image-slenderman-sketch01.jpg" alt="Initial pen and paper sketches of Slenderman">
+                    <img src="https://tylergaw.com/articles/assets/post-image-slenderman-sketch01.jpg" alt="Initial pen and paper sketches of Slenderman">
                     <figcaption>Capital and unused lowercase letter sketches</figcaption>
                 </figure>
                 <p>
@@ -2573,7 +2573,7 @@ http {
                     I followed the same scan then Live Trace with these.
                 </p>
                 <figure>
-                    <img src="http://tylergaw.com/articles/assets/post-image-slenderman-sketch02.jpg" alt="Initial pen and paper sketches of Slenderman">
+                    <img src="https://tylergaw.com/articles/assets/post-image-slenderman-sketch02.jpg" alt="Initial pen and paper sketches of Slenderman">
                     <figcaption>Numbers, punctuation, symbols, and two sets of lowercase letter sketches</figcaption>
                 </figure>
                 <p>
@@ -2589,7 +2589,7 @@ http {
                     points that Live Trace had added during conversion.
                 </p>
                 <figure>
-                    <img src="http://tylergaw.com/articles/assets/post-image-slenderman-vector-caps.jpg" alt="A few Slenderman capital letters in Illustrator">
+                    <img src="https://tylergaw.com/articles/assets/post-image-slenderman-vector-caps.jpg" alt="A few Slenderman capital letters in Illustrator">
                     <figcaption>Working with the capital letters in Illustrator</figcaption>
                 </figure>
                 <p>
@@ -2602,7 +2602,7 @@ http {
                     with the others. This allows for creating kerning pairs of characters.
                 </p>
                 <figure>
-                    <img src="http://tylergaw.com/articles/assets/post-image-slenderman-glyphs01.jpg" alt="Editing Slenderman glyphs using Glyphs Mini">
+                    <img src="https://tylergaw.com/articles/assets/post-image-slenderman-glyphs01.jpg" alt="Editing Slenderman glyphs using Glyphs Mini">
                     <figcaption>Glyphs Mini edit tab</figcaption>
                 </figure>
                 <p>
@@ -2624,7 +2624,7 @@ http {
                     as many others as you can while you’re tweaking the vectors.
                 </p>
                 <figure>
-                    <img src="http://tylergaw.com/articles/assets/post-image-slenderman-glyphs02.jpg" alt="A view of most of the glyphs of Slenderman in Glyphs Mini">
+                    <img src="https://tylergaw.com/articles/assets/post-image-slenderman-glyphs02.jpg" alt="A view of most of the glyphs of Slenderman in Glyphs Mini">
                     <figcaption>A bird’s-eye view of Slenderman</figcaption>
                 </figure>
                 <p>
@@ -2639,7 +2639,7 @@ http {
                     working with it.
                 </p>
                 <figure>
-                    <img src="http://tylergaw.com/articles/assets/post-image-slenderman-tester-psd.jpg" alt="Testing Slenderman in Photoshop">
+                    <img src="https://tylergaw.com/articles/assets/post-image-slenderman-tester-psd.jpg" alt="Testing Slenderman in Photoshop">
                     <figcaption>Testing Slenderman in Photoshop</figcaption>
                 </figure>
 
@@ -2709,8 +2709,8 @@ http {
                 </p>
             ]]>
         </description>
-        <link>http://tylergaw.com/articles/slenderman</link>
-        <guid>http://tylergaw.com/articles/slenderman</guid>
+        <link>https://tylergaw.com/articles/slenderman</link>
+        <guid>https://tylergaw.com/articles/slenderman</guid>
         <pubDate>Wed, 03 July 2013 12:00:00 -0400</pubDate>
     </item>
     <item>
@@ -2824,7 +2824,7 @@ You can use <b>HTML</b> within WebVTT, pretty cool.
             elements that are children of the <code>ul</code> with an id of "cuetimes".
         </p>
         <figure>
-            <img src='http://tylergaw.com/articles/assets/post-image-cuemarker-output.jpg' alt='Screenshot of Cuemarker output'>
+            <img src='https://tylergaw.com/articles/assets/post-image-cuemarker-output.jpg' alt='Screenshot of Cuemarker output'>
             <figcaption>Cuemarker output</figcaption>
         </figure>
         <p>
@@ -2855,8 +2855,8 @@ You can use <b>HTML</b> within WebVTT, pretty cool.
         </p>
             ]]>
         </description>
-        <link>http://tylergaw.com/articles/webvtt-cuemarker</link>
-        <guid>http://tylergaw.com/articles/webvtt-cuemarker</guid>
+        <link>https://tylergaw.com/articles/webvtt-cuemarker</link>
+        <guid>https://tylergaw.com/articles/webvtt-cuemarker</guid>
         <pubDate>Sat, 08 June 2013 20:00:00 -0400</pubDate>
     </item>
     <item>
@@ -2866,7 +2866,7 @@ You can use <b>HTML</b> within WebVTT, pretty cool.
             <![CDATA[
             <figure>
                 <a href="http://brooklynalpha.org/2012">
-                    <img src='http://tylergaw.com/articles/assets/post-image-brooklyn-alpha-2012.png' alt='Brooklyn Alpha 2012'>
+                    <img src='https://tylergaw.com/articles/assets/post-image-brooklyn-alpha-2012.png' alt='Brooklyn Alpha 2012'>
                 </a>
             </figure>
             <p>
@@ -2951,8 +2951,8 @@ You can use <b>HTML</b> within WebVTT, pretty cool.
             </p>
             ]]>
         </description>
-        <link>http://tylergaw.com/articles/get-together-get-excited-get-to-work</link>
-        <guid>http://tylergaw.com/articles/get-together-get-excited-get-to-work</guid>
+        <link>https://tylergaw.com/articles/get-together-get-excited-get-to-work</link>
+        <guid>https://tylergaw.com/articles/get-together-get-excited-get-to-work</guid>
         <pubDate>Mon, 24 Sept 2012 11:30:00 -0400</pubDate>
     </item>
   <item>
@@ -3072,7 +3072,7 @@ if (mediaChangeHandler) {
                 At the start of this I was aware that all a document's stylesheets could be accessed and that all the rules of the stylesheets were represented by CSSRule objects, but what I didn't know was that CSSRule objects that contain a media query have a unique name. Take a look at this screen shot of the console when logging out each CSSRule object:
             </p>
             <figure>
-              <img src='http://tylergaw.com/articles/assets/mqevents-cssrules-in-console.jpg' alt='Screenshot of the Chrome developer console showing a number of CSSRule objects being logged.'>
+              <img src='https://tylergaw.com/articles/assets/mqevents-cssrules-in-console.jpg' alt='Screenshot of the Chrome developer console showing a number of CSSRule objects being logged.'>
               <figcaption>Logging out each CSSRule object reveals a unique name for media query rules. Badass.</figcaption>
             </figure>
             <p>
@@ -3141,8 +3141,8 @@ mqEvents(handleMediaChange);</code></pre>
             </p>
         ]]>
     </description>
-    <link>http://tylergaw.com/articles/reacting-to-media-queries-in-javascript</link>
-    <guid>http://tylergaw.com/articles/reacting-to-media-queries-in-javascript</guid>
+    <link>https://tylergaw.com/articles/reacting-to-media-queries-in-javascript</link>
+    <guid>https://tylergaw.com/articles/reacting-to-media-queries-in-javascript</guid>
     <pubDate>Thur, 17 May 2012 07:15:35 -0400</pubDate>
   </item>
   <item>
@@ -3167,15 +3167,15 @@ mqEvents(handleMediaChange);</code></pre>
           As of this writing, there are three browsers that both support html form validation and display error messages when needed. Browser support includes; Chrome 10+, Firefox 3.6+, and Opera 11+. Safari doesn't care about validating your forms and I haven't checked any versions of IE, maybe 9 or 10 support this? Each browser handles the styling of validation messages differently.
         </p>
         <figure>
-          <img src='http://tylergaw.com/articles/assets/post_image_htmlFormErrors_defaultChrome.jpg' alt='Chrome 12 default error messages'>
+          <img src='https://tylergaw.com/articles/assets/post_image_htmlFormErrors_defaultChrome.jpg' alt='Chrome 12 default error messages'>
           <figcaption>Chrome 13 default error message</figcaption>
         </figure>
         <figure>
-          <img src='http://tylergaw.com/articles/assets/post_image_htmlFormErrors_defaultFirefox.jpg' alt='Firefox 5.0 default error messages'>
+          <img src='https://tylergaw.com/articles/assets/post_image_htmlFormErrors_defaultFirefox.jpg' alt='Firefox 5.0 default error messages'>
           <figcaption>Firefox 6.0 default error message</figcaption>
         </figure>
         <figure>
-          <img src='http://tylergaw.com/articles/assets/post_image_htmlFormErrors_defaultOpera.jpg' alt='Opera 11.5 default error messages'>
+          <img src='https://tylergaw.com/articles/assets/post_image_htmlFormErrors_defaultOpera.jpg' alt='Opera 11.5 default error messages'>
           <figcaption>Opera 11.5 default error message</figcaption>
         </figure>
         <p>
@@ -3232,19 +3232,19 @@ mqEvents(handleMediaChange);</code></pre>
         </p>
         <figure>
           <a href="http://lab.tylergaw.com/html5forms/errorStyles/01">
-            <img src='http://tylergaw.com/articles/assets/post_image_htmlFormErrors_demo01.jpg' alt='Demo 01 style showing an error'>
+            <img src='https://tylergaw.com/articles/assets/post_image_htmlFormErrors_demo01.jpg' alt='Demo 01 style showing an error'>
           </a>
           <figcaption>Style 01; 37 Signals called, they want their form back</figcaption>
         </figure>
         <figure>
           <a href="http://lab.tylergaw.com/html5forms/errorStyles/02">
-            <img src='http://tylergaw.com/articles/assets/post_image_htmlFormErrors_demo02.jpg' alt='Demo 02 style showing an error'>
+            <img src='https://tylergaw.com/articles/assets/post_image_htmlFormErrors_demo02.jpg' alt='Demo 02 style showing an error'>
           </a>
           <figcaption>Style 02; this is the login form for your Starcraft forum</figcaption>
         </figure>
         <figure>
           <a href="http://lab.tylergaw.com/html5forms/errorStyles/03">
-            <img src='http://tylergaw.com/articles/assets/post_image_htmlFormErrors_demo03.jpg' alt='Demo 03 style showing an error'>
+            <img src='https://tylergaw.com/articles/assets/post_image_htmlFormErrors_demo03.jpg' alt='Demo 03 style showing an error'>
           </a>
           <figcaption>Style 03; hard to go wrong with fire engine-red Futura</figcaption>
         </figure>
@@ -3323,8 +3323,8 @@ mqEvents(handleMediaChange);</code></pre>
           This is definitely new, new stuff, and with all fun new things it will take some time before it can be used on a wide scale. I don't think that should be seen as a huge hinderance though. The Constraint API seems mature enough to be put into use right now, with the aide of a poly fill for browsers that don't yet support it. I haven't used it yet, but at least one exists already; <a href="http://afarkas.github.com/webshim/demos/demos/webforms.html">http://afarkas.github.com/webshim/demos/demos/webforms.html</a>. The error message bubbles are not really ready though. With only one browser supporting custom styles, and with no small amount of finagling needed to get them looking right, for now we'll need to keep creating our own error messages. I'll take it though, this is a huge step in the right direction and I can't wait for wider browser support and even more fun new things that will no doubt come with it.
         </p><p><i>Thanks for reading</i></p>]]>
     </description>
-    <link>http://tylergaw.com/articles/fun-with-html-form-validation-styles</link>
-    <guid>http://tylergaw.com/articles/fun-with-html-form-validation-styles</guid>
+    <link>https://tylergaw.com/articles/fun-with-html-form-validation-styles</link>
+    <guid>https://tylergaw.com/articles/fun-with-html-form-validation-styles</guid>
     <pubDate>Tue, 23 Aug 2011 09:33:55 -0400</pubDate>
   </item>
   <item>
@@ -3355,14 +3355,14 @@ mqEvents(handleMediaChange);</code></pre>
         	The first graphic I envisioned for the design was the name, Jribbble. I saw the "J" and the "b"s in a large, swooping style. A style that I would not be able to accomplish with a computer. I would need to use my hands. The vision I had for it was too large for a pencil or pen or marker. I grabbed my box of acrylic paints, brushes, my 14" x 17" drawing pad and spread them out on my definitely-not-for-painting-on Ikea coffee table. With a medium sized brush and Primary Magenta I scrawled out a couple of "Jribbble"s as well as some random strokes. The toothbrush you see in the photo I used for making paint spatters and for getting paint all over the damned place.
         </p>
         <figure>
-      	  <img src='http://tylergaw.com/articles/assets/post_image_jribbble_painting.jpg' alt='Jribbble painting'>
+      	  <img src='https://tylergaw.com/articles/assets/post_image_jribbble_painting.jpg' alt='Jribbble painting'>
       	  <figcaption>The start of the Jribbble redesign; a hand-painted logo.</figcaption>
       	</figure>
         <p>
         	After the painting I took the "Jribbble" I liked most into Photoshop and fiddled with it a bit. I isolated the color from the background, applied the Twirl filter a few times to give it more character and added some of the random strokes and splatters around it for a more haphazard look. In Photoshop I set up a 958px, 12 column grid to work off of. For the banner and assorted page headers I selected <a href="http://typekit.com/fonts/botanika-mono-web">Botanika Mono Web from Typekit</a>. I don't own that font so I have to use a very advanced and elegant method for playing around with initial type layout. I input the text I need into Typekit's Type Tester and take screenshots of the text from there. See, fancy ain't it?
         </p>
         <figure>
-      	  <img src='http://tylergaw.com/articles/assets/post_image_jribbble_design.jpg' alt='Jribbble design'>
+      	  <img src='https://tylergaw.com/articles/assets/post_image_jribbble_design.jpg' alt='Jribbble design'>
       	  <figcaption>Getting out of Photoshop as soon as possible, this was the extent of the design accomplished with the graphics monolith.</figcaption>
       	</figure>
         <p>
@@ -3413,7 +3413,7 @@ mqEvents(handleMediaChange);</code></pre>
         	How does a die-cut, scaleable background image sound? I thought it sounded pretty rad. I'll explain. I had the idea that I wanted the "Jribbble" graphic to be different colors at different times. One way to accomplish that would have been to make a number of different images in the various colors that I wanted. That would work, but I thought I could do it a more efficient way. What I did was create an image that had a set background color of <code>#ececec</code> with the text itself transparent allowing for a background color to show through.
         </p>
         <figure>
-          <img src='http://tylergaw.com/articles/assets/post_image_jribbble_transparent.jpg' alt='Jribbble background image'>
+          <img src='https://tylergaw.com/articles/assets/post_image_jribbble_transparent.jpg' alt='Jribbble background image'>
           <figcaption>
             The die-cut .png used to create the color-shifting Jribbble logo.
           </figcaption>
@@ -3472,8 +3472,8 @@ mqEvents(handleMediaChange);</code></pre>
         </p>
       ]]>
     </description>
-    <link>http://tylergaw.com/articles/a-small-redesign-with-a-little-sugar</link>
-    <guid>http://tylergaw.com/a-small-redesign-with-a-little-sugar</guid>
+    <link>https://tylergaw.com/articles/a-small-redesign-with-a-little-sugar</link>
+    <guid>https://tylergaw.com/a-small-redesign-with-a-little-sugar</guid>
     <pubDate>Sat, 09 Jul 2011 19:14:52 -0400</pubDate>
   </item>
   <item>
@@ -3483,7 +3483,7 @@ mqEvents(handleMediaChange);</code></pre>
       <![CDATA[<p>
   	    <figure>
   	      <a href='http://lab.tylergaw.com/whatsgoingonwithcss'>
-  	        <img src='http://tylergaw.com/articles/assets/post_image_whatupcss.jpg' alt='View the presentation slides'>
+  	        <img src='https://tylergaw.com/articles/assets/post_image_whatupcss.jpg' alt='View the presentation slides'>
   	      </a>
   	      <figcaption>
       	    View the slides
@@ -3500,8 +3500,8 @@ mqEvents(handleMediaChange);</code></pre>
       	<i>Thanks for reading</i>
       </p>]]>
     </description>
-    <link>http://tylergaw.com/articles/all-talkie-talkie</link>
-    <guid>http://tylergaw.com/articles/all-talkie-talkie</guid>
+    <link>https://tylergaw.com/articles/all-talkie-talkie</link>
+    <guid>https://tylergaw.com/articles/all-talkie-talkie</guid>
     <pubDate>Thu, 27 May 2010 11:18:00 -0400</pubDate>
   </item>
   <item>
@@ -3510,7 +3510,7 @@ mqEvents(handleMediaChange);</code></pre>
     <description>
       <![CDATA[<p class="entry-intro">
         <a href='http://lab.tylergaw.com/themanfromhollywood'>
-          <img src='http://tylergaw.com/articles/assets/post_image_hollywood.jpg' alt='View the demo'>
+          <img src='https://tylergaw.com/articles/assets/post_image_hollywood.jpg' alt='View the demo'>
         </a>
       </p>
       <h2>Stuff You'll Most Likely Do Before Reading Any of This Post</h2>
@@ -3541,8 +3541,8 @@ mqEvents(handleMediaChange);</code></pre>
       	<i>Thanks for reading</i>
       </p>]]>
     </description>
-    <link>http://tylergaw.com/articles/you-did-what-with-what</link>
-    <guid>http://tylergaw.com/articles/you-did-what-with-what</guid>
+    <link>https://tylergaw.com/articles/you-did-what-with-what</link>
+    <guid>https://tylergaw.com/articles/you-did-what-with-what</guid>
     <pubDate>Tue, 06 Apr 2010 22:09:00 -0400</pubDate>
   </item>
   <item>
@@ -3561,7 +3561,7 @@ mqEvents(handleMediaChange);</code></pre>
     	  So what if IE6 doesn't support transparent pngs. Find a way to make that image a transparent gif or a jpg. Doesn't look as crisp as the png? So what, this is where progressive enhancement steps in, this is why we have conditional comments. Set up an IE6 stylesheet and dump all of the not so desirable CSS in there. Chances are most of your users are not on IE6 anyway, and if they are this can be a friendly little jab at them for using it. I took this route when building my site. I wanted to let anyone viewing my site with The 6 know that they are missing out so I created a completely stripped down version just for IE6, plus a nice reminder of why. It still works, you can access all the same content, it's just not pretty.
     	</p>
     	<figure>
-    	  <img src='http://tylergaw.com/articles/assets/post_image_tgawie6_thumb.jpg' alt='tylergaw.com IE6 Screenshot'>
+    	  <img src='https://tylergaw.com/articles/assets/post_image_tgawie6_thumb.jpg' alt='tylergaw.com IE6 Screenshot'>
     	  <figcaption>Users of IE6 receive a version of tylergaw.com that contains all the same content, but has a very pared-down aesthetic.</figcaption>
     	</figure>
     	<p>
@@ -3591,8 +3591,8 @@ alert(someCrud.length);</code></pre>
         <i>Thanks for reading</i>
       </p>]]>
     </description>
-    <link>http://tylergaw.com/articles/i-less-than-three-ie6</link>
-    <guid>http://tylergaw.com/articles/i-less-than-three-ie6</guid>
+    <link>https://tylergaw.com/articles/i-less-than-three-ie6</link>
+    <guid>https://tylergaw.com/articles/i-less-than-three-ie6</guid>
     <pubDate>Mon, 27 Jul 2009 00:41:00 -0400</pubDate>
   </item>
   <item>
@@ -3611,22 +3611,22 @@ alert(someCrud.length);</code></pre>
     	<p>With the visual design, I've really tried to push it in a direction that I think is, "me". This was one of those designs that I could really see in my head before I opened Photoshop or even put one thing down on paper. The biggest inspiration came from the cover art for <a href='http://en.wikipedia.org/wiki/Women_%28novel%29'>Charles Bukowski's Women</a>. The whole time I was reading the book, I was constantly looking back at the cover. I don't know exactly what it is but it is just so damned cool. For this round, I started the design process the old fashioned way; I grabbed a six-pack, some colored pencils, a big-ass sketch book and then went to work.
     	</p>
     	<figure>
-        <img class="image-vertical" src='http://tylergaw.com/articles/assets/post_image_women.jpg' alt='Bukowski - Women'>
+        <img class="image-vertical" src='https://tylergaw.com/articles/assets/post_image_women.jpg' alt='Bukowski - Women'>
         <figcaption>The cover of Charles Bukowski's "Women" was a main source of inspiration for the aesthetics.</figcaption>
       </figure>
       <figure>
-        <img class="image-vertical" src='http://tylergaw.com/articles/assets/post_image_tgaw2009sketch.jpg' alt='tgaw2009 Sketch'>
+        <img class="image-vertical" src='https://tylergaw.com/articles/assets/post_image_tgaw2009sketch.jpg' alt='tgaw2009 Sketch'>
         <figcaption>Starting a design with paper and pencil allows for quick iteration and time to really nail down the overall vision.</figcaption>
       </figure>
       <p>
-        I'm a big fan of organic textures and knew that I wanted to incorporate some into the design. When I sat down in Photoshop to start turning my sketch into a working design, I realized quickly that I was going to need some real-world help getting the organic look and feel that I was going for. When it's time for real-world textures I just start grabbing <a href='http://tylergaw.com/articles/assets/post_image_art01.jpg'>anything</a>, and I mean <a href='http://tylergaw.com/articles/assets/post_image_samich.jpg'>anything</a>, and throw it on the scanner. You never know what you might use that scan of an old broken toothbrush for. Just to be sure, scan it!
+        I'm a big fan of organic textures and knew that I wanted to incorporate some into the design. When I sat down in Photoshop to start turning my sketch into a working design, I realized quickly that I was going to need some real-world help getting the organic look and feel that I was going for. When it's time for real-world textures I just start grabbing <a href='https://tylergaw.com/articles/assets/post_image_art01.jpg'>anything</a>, and I mean <a href='https://tylergaw.com/articles/assets/post_image_samich.jpg'>anything</a>, and throw it on the scanner. You never know what you might use that scan of an old broken toothbrush for. Just to be sure, scan it!
       </p>
       <p>
         <i>Thanks for reading</i>
       </p>]]>
     </description>
-    <link>http://tylergaw.com/articles/ch-ch-ch-changes</link>
-    <guid>http://tylergaw.com/articles/ch-ch-ch-changes</guid>
+    <link>https://tylergaw.com/articles/ch-ch-ch-changes</link>
+    <guid>https://tylergaw.com/articles/ch-ch-ch-changes</guid>
     <pubDate>Thu, 18 Jun 2009 21:42:00 -0400</pubDate>
   </item>
 </channel>
