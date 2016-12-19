@@ -13,8 +13,7 @@
         border-bottom: 0;
     }
 
-    .section-title,
-    .potential {
+    .section-title {
         @include align-items(flex-end);
         background-color: $yellow;
         color: $grey;
@@ -33,15 +32,9 @@
         }
     }
 
-    .potential {
-        @extend %futura-heading;
-        display: none;
-    }
-
     time {
         color: $yellow;
         display: block;
-        font-variant: small-caps;
         margin-bottom: 0.4em;
     }
 
@@ -79,29 +72,17 @@
             padding: 1em;
             width: 48%;
         }
-
-        .potential.first-block {
-            @include flex;
-        }
     }
 
     @media screen and (min-width: 1080px) {
         li {
             width: 31.33%
         }
-
-        .potential {
-            @include flex;
-        }
     }
 
     @media screen and (min-width: 1600px) {
         li {
             width: 23%
-        }
-
-        .potential:last-child {
-            display: none;
         }
     }
 }
