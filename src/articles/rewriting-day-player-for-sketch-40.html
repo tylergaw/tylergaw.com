@@ -2,12 +2,12 @@
 layout: article
 title: "Rewriting Day Player for Sketch 40+"
 title_size: short
-date: 2016-12-18
+date: 2016-12-19
 disqus_id: rewriting-day-player-for-sketch-40
 ---
 
 <p class="entry-intro">
-  At 2 ½ years old my placeholder image Sketch plugin was showing its age. It was also showing signs of typical side-project neglect. I decided to make it a priority to get <a href="https://github.com/tylergaw/day-player" title="View Day Player on GitHub">Day Player</a> back in working order. In doing so, I would also need to educate myself on the latest in Sketch Plugin development.
+  At 2 ½ years old my placeholder image Sketch plugin was showing its age. It was also showing signs of side-project neglect. I decided to make it a priority to get <a href="https://github.com/tylergaw/day-player" title="View Day Player on GitHub">Day Player</a> back in working order. In doing so, I would also need to educate myself on the latest in Sketch Plugin development.
 </p>
 
 <p>
@@ -16,46 +16,64 @@ disqus_id: rewriting-day-player-for-sketch-40
 
 <h2>What got removed?</h2>
 <p>
-  The first feature cut was the placeholder service <a href="http://lorempixel.com/">Lorempixel.com</a>. I removed it because it doesn't support <code>https</code>. The plugin doesn't transport sensitive data, but I decided against using a service without <code>https</code> support.
+  The first feature cut was the placeholder service <a href="http://lorempixel.com/">Lorempixel.com</a>. I removed it because it doesn't support <code>https</code>. Day Player doesn't transport sensitive data, but I decided against using any service without <code>https</code> support.
 </p>
 <p>
-  The second feature cut was <a href="https://github.com/tylergaw/day-player/pull/9">remembering user values for each service</a>. I cut this for time only. I didn't want to hold up getting it released any longer for a non-essential feature. There's a good chance I'll circle back and add this in the future. Or, if you're feeling up to it, <a href="https://github.com/tylergaw/day-player#contributing-to-this-project">open a pull request</a>.
+  The second feature cut was <a href="https://github.com/tylergaw/day-player/pull/9">remembering user values for each service</a>. I cut this for time. I didn't want to hold up the release for a non-essential feature. There's a good chance I'll circle back and add this in the future. Or, if you're feeling up to it, <a href="https://github.com/tylergaw/day-player#contributing-to-this-project">open a pull request</a>.
 </p>
 
 <h2>What’s new?</h2>
 <p>
-  The one new feature is the ability to add an image with the same size and dimensions <a href="https://github.com/tylergaw/day-player#creating-images-with-dimensions-and-position-of-existing-layers">as an existing layer</a>.
+  The one new feature is the ability to add an image with the same dimensions and position <a href="https://github.com/tylergaw/day-player#creating-images-with-dimensions-and-position-of-existing-layers">as an existing layer</a>.
 </p>
 <figure>
   <a href="https://github.com/tylergaw/day-player">
     <img src="https://d3vv6lp55qjaqc.cloudfront.net/items/0o1M3n07223o223D2C3R/Screen%20Recording%202016-11-13%20at%2003.23%20PM.gif" alt="Animated gif showing new Day Player functionality" />
   </a>
   <figcaption>
-    Placing an image with the same dimensions and position as an existin layer
+    Placing an image with the same dimensions and position as an existing layer
   </figcation>
 </figure>
 <p>
-  This was an addition inspired by a <a href="https://github.com/tylergaw/day-player/issues/27">user request</a>. While it's not exactly what the user was asking for, it feels close enough to get the job done. And as a user myself, a welcome addition.
+  I added this because of a <a href="https://github.com/tylergaw/day-player/issues/27">user request</a>. While it's not exactly what the user was asking for, it feels close enough to get the job done. And, as a user myself, it's a welcome addition.
 </p>
 
 <h2>What’s next?</h2>
 <p>
-  As expected, within a day or two of release, the first "this doesn't work" <a href="https://github.com/tylergaw/day-player/issues/37">issue was opened</a>. After a quick back and forth, it seems we've isolated the issue to macOS Sierra. I'm a slow new OS adopter, so I still haven't reproduced the issue. Sooner than later I'll update a machine and find and fix the issue. If you have any tips for what may have changed, let me know here or on that issue.
+  As expected, within a day or two of release, I got the first “this doesn't work” <a href="https://github.com/tylergaw/day-player/issues/37">issue</a>. After a quick back and forth, it seems we've isolated the problem to macOS Sierra. I'm a slow new adopter, so I still haven't reproduced the issue. Sooner than later I'll update a machine and find and fix what's broken. If you have any tips for what may have changed, let me know here or on that issue.
 </p>
 
 <h2>How do you build and release this?</h2>
 <p>
-  So glad you asked. This is a topic I want to write in more detail about because it's fun, but I'll give highlights now.
+  So glad you asked. This is a topic I want to write in more detail about in the future because it's fun, but I'll give a few highlights now.
 </p>
 <h3>Building</h3>
 <p>
-  I'm not using Babel or any other code transmogrifying. I write in the JavaScript available in JavaScriptCore. In my day-to-day JS I use Babel and enjoy using ES2015+ features. With the current JSCore we have access to a limited set of new features. We can use <code>const</code> (but not <code>let</code>). Template literals are available to make short work of string munging. And that's about it. No arrow functions or other niceties yet. They'll get there.
+  I'm not using Babel or any other code transmogrifying. I write in the JavaScript available in JavaScriptCore. In my day-to-day JS I use Babel and enjoy using ES2015+ features. With the current JSCore we have access to a limited set of new features. We can use <code>const</code> (but not <code>let</code>). Template literals are available to make short work of string munging. And that's about it. No arrow functions or other niceties yet. They'll get there. As I do more plugin development, I'll likely update my build tooling to use Babel.
 </p>
 <p>
-  Sketch plugins give you access to Cocoa. This allows you to write JS to create and interact with Cocoa elements. If you've ever written code to do this, you know that it does not have the smoothest API of all time. A fun aspect of Day Player was writing <a href="https://github.com/tylergaw/day-player/tree/develop/src/components">thin facades</a> for each Cocoa element needed. These facades allow me to write more idiomatic code. The main advantage they provide–for me–is a chainable interface.
+  Sketch plugins give you access to the Cocoa Framework. This allows you to write JS to create and interact with Cocoa elements. If you've ever written code to do this, you know that it doesn't have the smoothest API. A fun aspect of Day Player was writing components to act as <a href="https://github.com/tylergaw/day-player/tree/develop/src/components">facades</a> for each Cocoa element needed. These components allow me to write more idiomatic code. They also allow for writing less code for each use and provide a chainable interface.
 </p>
 <p>
-  There are plenty of idiosyncrasies to discuss about writing Sketch plugins. But for Day Player, a few functions in <a href="https://github.com/tylergaw/day-player/blob/develop/src/utils.js">utils.js</a> handles the much of the work.
+  For example, here is the code required to create a text label using regular Cocoa:
+</p>
+<pre><code class="language-javascript">const textField = NSTextField.alloc().initWithFrame(NSMakeRect(0, 0, 350, 16));
+textField.setDrawsBackground(false);
+textField.setEditable(false);
+textField.setBezeled(false);
+textField.setSelectable(true);
+textField.setStringValue('My Label:');
+</code></pre>
+<p>
+  and the code required using the <code>Label</code> <a href="https://github.com/tylergaw/day-player/blob/develop/src/components/Label.js">component</a>:
+</p>
+<pre><code class="language-javascript">new Label({
+  value: 'My Label:'
+});
+</code></pre>
+
+<p>
+  Because each image service in Day Player has similar options I was able to abstract most common setup code to a few functions. Those functions live in <a href="https://github.com/tylergaw/day-player/blob/develop/src/utils.js">utils.js</a>. Utils.js also includes comments describing my learning process with the excellent and in-progress <a href="http://developer.sketchapp.com/reference/api/">Sketch JS API</a>.
 </p>
 
 <h3>Releasing</h3>
