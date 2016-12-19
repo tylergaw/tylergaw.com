@@ -16,17 +16,29 @@ disqus_id: rewriting-day-player-for-sketch-40
 
 <h2>What got removed?</h2>
 <p>
-  The first feature cut was the placeholder service Lorempixel.com. I removed it because it does not support <code>https</code>. Day Player doesn't transport sensitive data, but for me it’s a no-go to use a service without <code>https</code> support.
+  The first feature cut was the placeholder service <a href="http://lorempixel.com/">Lorempixel.com</a>. I removed it because it doesn't support <code>https</code>. The plugin doesn't transport sensitive data, but I decided against using a service without <code>https</code> support.
+</p>
+<p>
+  The second feature cut was <a href="https://github.com/tylergaw/day-player/pull/9">remembering user values for each service</a>. I cut this for time only. I didn't want to hold up getting it released any longer for a non-essential feature. There's a good chance I'll circle back and add this in the future. Or, if you're feeling up to it, <a href="https://github.com/tylergaw/day-player#contributing-to-this-project">open a pull request</a>.
 </p>
 
 <h2>What’s new?</h2>
 <p>
-
+  The one new feature is the ability to add an image with the same size and dimensions <a href="https://github.com/tylergaw/day-player#creating-images-with-dimensions-and-position-of-existing-layers">as an existing layer</a>.
+</p>
+<figure>
+  <img src="https://d3vv6lp55qjaqc.cloudfront.net/items/0o1M3n07223o223D2C3R/Screen%20Recording%202016-11-13%20at%2003.23%20PM.gif" alt="Animated gif showing new Day Player functionality" />
+  <figcaption>
+    Placing an image with the same dimensions and position as an existin layer
+  </figcation>
+</figure>
+<p>
+  This was an addition inspired by a <a href="https://github.com/tylergaw/day-player/issues/27">user request</a>. While it's not exactly what the user was asking for, it feels close enough to get the job done. And as a user myself, a welcome addition.
 </p>
 
-<h2>Where did this come from?</h2>
+<h2>What’s next?</h2>
 <p>
-
+  As expected, within a day or two of release, the first "this doesn't work" <a href="https://github.com/tylergaw/day-player/issues/37">issue was opened</a>. After a quick back and forth, it seems we've isolated the issue to macOS Sierra. I'm a slow new OS adopter, so I still haven't reproduced the issue. Sooner than later I'll update a machine and find and fix the issue. If you have any tips for what may have changed, let me know here or on that issue.
 </p>
 
 {% include thanks-for-reading.html %}
