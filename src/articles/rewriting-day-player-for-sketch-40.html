@@ -2,7 +2,7 @@
 layout: article
 title: "Rewriting Day Player for Sketch 40+"
 title_size: short
-date: 2016-12-19
+date: 2016-12-21
 disqus_id: rewriting-day-player-for-sketch-40
 ---
 
@@ -78,6 +78,13 @@ textField.setStringValue('My Label:');
 
 <h3>Releasing</h3>
 
+<p>
+  <a href="https://github.com/tylergaw/day-player#installation">Installing</a> Day Player takes 3 steps; download, unzip, double-click. It was important to make that process as easy as possible. I want the user to use the plugin, not spend time figuring out how to get it.
+</p>
+
+<p>
+  As as plugin author, it's also important that the release process is as painless as possible. The release process works by chaining 5 primary tools together. Make, Node.js, Git, Travis CI, and AWS S3.
+</p>
 <figure>
   <a href="https://github.com/tylergaw/day-player/blob/develop/scripts/release.js">
     <img src="https://cl.ly/2p0j2O0Q1a3p/Screen%20Shot%202016-12-18%20at%208.18.39%20PM.png" alt="" />
@@ -86,5 +93,24 @@ textField.setStringValue('My Label:');
     The friendly prompt I see when releasing Day Player
   </figcation>
 </figure>
+<p>
+  Here's how it works. When I'm ready to ship a new release I update the <code>version</code> in <code>package.json</code>. I then run <code>make release</code>. That in turn uses Node.js to execute the <a href="https://github.com/tylergaw/day-player/blob/develop/scripts/release.js">release.js</a> script. I could run <code>node scripts/release.js</code> directly, but I prefer to put it in a Make target so all build commands are in one place.
+</p>
+<p>
+  <code>Release.js</code> first confirms I want to release. I put this in as check to keep myself from releasing an incorrect version. The script then creates a new Git tag and pushes it to the origin at GitHub.
+</p>
+<p>
+  At this point Travis CI takes over and the process is on autopilot. In <a href="https://github.com/tylergaw/day-player/blob/develop/.travis.yml">travis.yml</a> we have the following:
+</p>
+<pre><code class="language-javascript">deploy:
+- provider: script
+  script: make publish
+  on:
+    tags: true
+</code></pre>
+<p>
+  This tells Travis to watch for builds that create new Git tags. If it sees one, run <code>make publish</code> once it has completed all other tasks.
+</p>
+
 
 {% include thanks-for-reading.html %}
