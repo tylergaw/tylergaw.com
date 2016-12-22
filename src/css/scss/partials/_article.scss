@@ -3,219 +3,220 @@ $maxContentWidth: 850px;
 $maxTextWidth: 790px;
 
 %maxedText {
-    margin: 0 auto;
-    max-width: $maxTextWidth;
+  margin: 0 auto;
+  max-width: $maxTextWidth;
 }
 
 .hentry {
-    overflow: hidden;
+  overflow: hidden;
 
-    header {
-        margin: 1.8em 0 2.3em 0;
-        text-align: center;
+  header {
+    margin: 1.8em 0 2.3em 0;
+    text-align: center;
+  }
+
+  .entry-title {
+    @extend %futura-heading;
+    color: $offwhite;
+    font-size: 2.5em;
+    margin: 0 auto;
+    max-width: 95%;
+  }
+
+  .published {
+    color: $yellow;
+    display: block;
+    font-size: 1.2em;
+    margin-top: 0.4em;
+
+    &::before,
+    &::after {
+      color: rgba($offwhite, 0.3);
+      content: "–";
     }
+  }
 
+  @media (min-width: 620px) {
     .entry-title {
-        @extend %futura-heading;
-        color: $offwhite;
-        font-size: 2.5em;
-        margin: 0 auto;
-        max-width: 95%;
+      font-size: 6.5vw;
     }
-
-    .published {
-        color: $yellow;
-        display: block;
-        font-size: 1.2em;
-        font-variant: small-caps;
-        margin-top: 0.4em;
-
-        &::before,
-        &::after {
-            color: rgba($offwhite, 0.3);
-            content: "–";
-        }
-    }
-
-    @media screen and (min-width: 620px) {
-        .entry-title {
-            font-size: 6.5vw;
-        }
-    }
+  }
 }
 
 .entry-author {
-    display: none;
+  display: none;
 }
 
 .entry-content {
-    color: $darkerwhite;
+  color: $darkerwhite;
+  font-size: 1.2em;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: $maxContentWidth;
+  width: $contentWidth;
+
+  h2, h3, h4, h5, h6 {
+    color: $offwhite;
+    @extend %maxedText;
+    font-weight: 700;
+  }
+
+  h2 {
+    @extend %futura-heading;
     font-size: 1.2em;
-    line-height: 1.5;
-    margin: 0 auto;
-    max-width: $maxContentWidth;
-    width: $contentWidth;
+    padding: 0.7em 0 0.25em 0;
+  }
 
-    h2, h3, h4, h5, h6 {
-        color: $offwhite;
-        @extend %maxedText;
-        font-weight: 700;
+  h3 {
+    margin-top: 1.2em;
+  }
+
+  p:not(.entry-intro) {
+    padding-bottom: 1.4em;
+    @extend %maxedText;
+  }
+
+  .thanks-for-reading {
+    padding-bottom: 0.4em;
+
+    i {
+      background: transparent url('/images/article-thanks.svg') no-repeat left top;
+      background-size: 100%;
+      display: inline-block;
+      height: 70px;
+      margin-top: 0.1em;
+      text-indent: -300em;
+      max-width: 250px;
+      width: 95%;
+    }
+  }
+
+  figure {
+    margin: 0.2em 0 1.8em 0;
+
+    img {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+    }
+  }
+
+  figcaption {
+    margin-top: 0.4em;
+    text-align: center;
+  }
+
+  figcaption,
+  .note,
+  .note-special,
+  .note-update {
+    font-size: 0.8em;
+    font-style: italic;
+  }
+
+  p {
+    &.note-special,
+    &.note-update {
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 3px;
+      color: #fff;
+      padding: 0.5em 1em;
+      margin: 0.1em 0 1.2em 0;
     }
 
-    h2 {
-        @extend %futura-heading;
-        font-size: 1.2em;
-        padding: 0.7em 0 0.25em 0;
+    &.note-special {
+      border-color: rgba(#ffad15, 0.3);
+      background-color: rgba(#ffad15, 0.15);
     }
 
-    p:not(.entry-intro) {
-        padding-bottom: 1.4em;
-        @extend %maxedText;
+    &.note-update {
+      border-color: rgba(#007cff, 0.3);
+      background-color: rgba(#007cff, 0.15);
     }
+  }
 
-    // Thanks for reading
-    p:last-child {
-        padding-bottom: 0.4em;
+  ul, ol {
+    padding: 0 0.2em 1.4em 0.2em;
+    @extend %maxedText;
+  }
 
-        i {
-            background: transparent url(/images/article-thanks.svg) no-repeat left top;
-            background-size: 100%;
-            display: inline-block;
-            height: 70px;
-            margin-top: 0.1em;
-            text-indent: -300em;
-            max-width: 250px;
-            width: 95%;
-        }
+  ol {
+    counter-reset: li;
+  }
+
+  li {
+    font-size: 0.95em;
+    line-height: 1.6;
+    list-style: disc inside;
+    padding-bottom: 0.9em;
+    position: relative;
+  }
+
+  ol li {
+    padding-left: 2.4em;
+    padding-right: 0.8em;
+    list-style: none;
+
+    &:before {
+      background-color: #ffad15;
+      border-radius: 55%;
+      counter-increment: li;
+      content: counter(li);
+      color: $grey;
+      font-weight: 600;
+      height: 1.4em;
+      left: 0;
+      position: absolute;
+      line-height: 1.2;
+      text-align: center;
+      top: 0.3em;
+      width: 1.4em;
     }
+  }
 
-    figure {
-        margin: 0.2em 0 1.8em 0;
-
-        img {
-            display: block;
-            margin: 0 auto;
-            width: 100%;
-        }
-    }
-
-    figcaption {
-        margin-top: 0.4em;
-        text-align: center;
-    }
-
-    figcaption,
-    .note,
-    .note-special,
-    .note-update {
-        font-size: 0.8em;
-        font-style: italic;
-    }
-
-    // NOTE: I HATE THE SPECIFICITY TRAP I GOT MYSELF INTO HERE. FIX THAT!
-    p {
-      &.note-special,
-      &.note-update {
-        border-width: 1px;
-        border-style: solid;
-        border-radius: 3px;
-        color: #fff;
-        padding: 0.5em 1em;
-        margin: 0.1em 0 1.2em 0;
-      }
-
-      &.note-special {
-        border-color: rgba(#ffad15, 0.3);
-        background-color: rgba(#ffad15, 0.15);
-      }
-
-      &.note-update {
-        border-color: rgba(#007cff, 0.3);
-        background-color: rgba(#007cff, 0.15);
-      }
-    }
-
-    ul, ol {
-        padding: 0 0.2em 1.4em 0.2em;
-        @extend %maxedText;
-    }
-
-    ol {
-        counter-reset: li;
-    }
-
-    li {
-        font-size: 0.95em;
-        line-height: 1.6;
-        list-style: disc inside;
-        padding-bottom: 0.9em;
-        position: relative;
-    }
-
-    ol li {
-        padding-left: 2.4em;
-        padding-right: 0.8em;
-        list-style: none;
-
-        &:before {
-            background-color: #ffad15;
-            border-radius: 55%;
-            counter-increment: li;
-            content: counter(li);
-            color: $grey;
-            font-weight: 600;
-            height: 1.4em;
-            left: 0;
-            position: absolute;
-            line-height: 1.2;
-            text-align: center;
-            top: 0.3em;
-            width: 1.4em;
-        }
-    }
-
-    blockquote {
-        border-left: 4px solid $yellow;
-        padding: 0.4em 0.3em 0 1em;
-        margin-bottom: 1em;
-        font-size: 0.9em;
-    }
+  blockquote {
+    border-left: 4px solid $yellow;
+    padding: 0.4em 0.3em 0 1em;
+    margin-bottom: 1em;
+    font-size: 0.9em;
+  }
 }
 
 .entry-intro {
-    color: $offwhite;
-    font-size: 1.1em;
-    font-style: italic;
-    line-height: 1.4;
+  color: $offwhite;
+  font-size: 1.1em;
+  font-style: italic;
+  line-height: 1.6;
 
-    &::after {
-        @extend %yellow-divider;
-        margin: 1.5em auto 1.5em auto;
-    }
+  &::after {
+    @extend %yellow-divider;
+    margin: 1.5em auto 1.5em auto;
+  }
 }
 
 .entry-intro + h2 {
-    padding-top: 0;
+  padding-top: 0;
 }
 
 .entry-intro + p:first-letter,
 .entry-intro + h2 + p:first-letter {
-    @extend %drop-cap;
+  @extend %drop-cap;
 }
 
-@media screen and (min-width: 620px) {
-    .entry-content {
-        font-size: 1.4em;
-    }
+@media (min-width: 620px) {
+  .entry-content {
+    font-size: 1.4em;
+  }
 }
 
 .entry-update {
-    font-size: 0.9em;
-    font-style: italic;
+  font-size: 0.9em;
+  font-style: italic;
 }
 
 #disqus_thread {
-    @extend %maxedText;
-    margin-top: 3.5em;
-    width: $contentWidth;
+  @extend %maxedText;
+  margin-top: 3.5em;
+  width: $contentWidth;
 }

@@ -1,11 +1,11 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
 <channel>
-  <title>Tyler Gaw: Articles</title>
+  <title>Tyler Gaw Occasionally Writes About Web Design and Life</title>
   <link>https://tylergaw.com/</link>
   <managingEditor>me@tylergaw.com.com (Tyler Gaw)</managingEditor>
   <webMaster>me@tylergaw.com.com (Tyler Gaw)</webMaster>
   <description>An account of the work I do as a Web Designer</description>
-  <lastBuildDate>Thur, 25 June 2015 10:30:00 EST</lastBuildDate>
+  <lastBuildDate>Wed, 21 Dec 2016 08:30:00 EST</lastBuildDate>
   <language>en</language>
   <generator>Elbow grease</generator>
   <image>
@@ -16,6 +16,148 @@
     <height>180</height>
   </image>
   <atom:link href="https://tylergaw.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Rewriting Day Player for Sketch 40+</title>
+      <dc:creator>Tyler Gaw</dc:creator>
+      <description>
+        <![CDATA[
+<p class="entry-intro">
+  At 2 ½ my placeholder image plugin was showing signs of age and side-project neglect. I decided to make it a priority to get <a href="https://github.com/tylergaw/day-player" title="View Day Player on GitHub">Day Player</a> back in working order. In doing so, I would also need to educate myself on the latest in Sketch Plugin development. I didn't know it when I started, but I would also put together a fun build and release setup for Sketch plugins.
+</p>
+<p>
+  Day Player has a limited scope. It requests images from placeholder image services and places them in Sketch documents. This <code>3.0.0</code> rewrite and release hasn't changed the scope. I did end up cutting two features and adding a new one.
+</p>
+<h2>What got removed?</h2>
+<p>
+  The first feature cut was the placeholder service <a href="http://lorempixel.com/">Lorempixel.com</a>. I removed it because it doesn't support <code>https</code>. Day Player doesn't transport sensitive data. Still, I decided not to use services without <code>https</code> support.
+</p>
+<p>
+  The second feature cut was <a href="https://github.com/tylergaw/day-player/pull/9">remembering user values for each service</a>. I cut this for time. I didn't want to hold up the release for a non-essential feature. There's a good chance I'll circle back and add this in the future. Or, if you're feeling up to it, <a href="https://github.com/tylergaw/day-player#contributing-to-this-project">open a pull request</a>.
+</p>
+<h2>What’s new?</h2>
+<p>
+  The one new feature is the ability to add an image with the same dimensions and position <a href="https://github.com/tylergaw/day-player#creating-images-with-dimensions-and-position-of-existing-layers">as an existing layer</a>.
+</p>
+<figure>
+  <a href="https://github.com/tylergaw/day-player">
+    <img src="https://d3vv6lp55qjaqc.cloudfront.net/items/0o1M3n07223o223D2C3R/Screen%20Recording%202016-11-13%20at%2003.23%20PM.gif" alt="Animated gif showing new Day Player functionality" />
+  </a>
+  <figcaption>
+    Placing an image with the same dimensions and position as an existing layer
+  </figcation>
+</figure>
+<p>
+  I added this because of a <a href="https://github.com/tylergaw/day-player/issues/27">user request</a>. While it's not exactly what the user was asking for, it feels close enough to get the job done. And, as a user myself, it's a welcome addition.
+</p>
+<h2>What’s next?</h2>
+<p>
+  As expected, within a day or two of release, I got the first “this doesn't work” <a href="https://github.com/tylergaw/day-player/issues/37">issue</a>. After a quick back and forth, it seems we've isolated the problem to macOS Sierra. I'm a slow new adopter, so I still haven't reproduced the issue. Sooner than later I'll update a machine and find and fix what's broken. If you have any tips for what may have changed, let me know here or on that issue.
+</p>
+<h2>How do you build and release this?</h2>
+<p>
+  So glad you asked. This is a topic I want to write in more detail about in the future because it's fun, but I'll give a few highlights now.
+</p>
+<h3>Building</h3>
+<p>
+  I'm not using Babel or any other code transmogrifying. I write in the JavaScript available in JavaScriptCore. In my day-to-day JS I use Babel and enjoy using ES2015+ features. With the current JSCore we have access to a limited set of new features. We can use <code>const</code> (but not <code>let</code>). Template literals are available to make short work of string munging. And that's about it. No arrow functions or other niceties yet. They'll get there. As I do more plugin development, I'll likely update my build tooling to use Babel.
+</p>
+<p>
+  Sketch plugins give you access to the Cocoa Framework. This allows you to write JS to create and interact with Cocoa elements. If you've ever written code to do this, you know that it doesn't have the smoothest API. A fun aspect of Day Player was writing components to act as <a href="https://github.com/tylergaw/day-player/tree/3.0.0/src/components">facades</a> for each Cocoa element needed. These components allow me to write more idiomatic code. They also allow for writing less code and provide a chainable interface.
+</p>
+<p>
+  For example, here's the code required to create a text label using regular Cocoa:
+</p>
+<pre><code class="language-javascript">const textField = NSTextField.alloc().initWithFrame(NSMakeRect(0, 0, 350, 16));
+textField.setDrawsBackground(false);
+textField.setEditable(false);
+textField.setBezeled(false);
+textField.setSelectable(true);
+textField.setStringValue('My Label:');
+</code></pre>
+<p>
+  and the code required using the <code>Label</code> <a href="https://github.com/tylergaw/day-player/blob/3.0.0/src/components/Label.js">component</a>:
+</p>
+<pre><code class="language-javascript">new Label({
+  value: 'My Label:'
+});
+</code></pre>
+<p>
+  Each image service has similar options. Because of this, I was able to abstract common setup code to a few functions. Those functions live in <a href="https://github.com/tylergaw/day-player/blob/3.0.0/src/utils.js">utils.js</a>. Utils.js also includes comments describing my learning process with the excellent and in-progress <a href="http://developer.sketchapp.com/reference/api/">Sketch JS API</a>.
+</p>
+<h3>Releasing</h3>
+<p>
+  <a href="https://github.com/tylergaw/day-player#installation">Installing</a> Day Player takes 3 steps; download, unzip, double-click. It was important to make that process as easy as possible. I want the user to use the plugin, not spend time figuring out how to get it.
+</p>
+
+<p>
+  As as plugin author, it's also important that the release process is as painless as possible. The release process works by chaining 5 primary tools together. Make, Node.js, Git, Travis CI, and AWS S3.
+</p>
+<figure>
+  <img src="https://tylergaw.com/articles/assets/post-image-dayplayer-process.png" alt="An illustration showing the steps of the Day Player release process">
+  <figcaption>
+    A diagram showing the steps of the release process
+  </figcation>
+</figure>
+<p>
+  Here's how it works. When I'm ready to ship a new release I update the <code>version</code> in <code>package.json</code>. I then run <code>make release</code>. That in turn uses Node.js to execute the <a href="https://github.com/tylergaw/day-player/blob/3.0.0/scripts/release.js">release.js</a> script. I could run <code>node scripts/release.js</code> directly, but I prefer to put it in a Make target so all build commands are in one place.
+</p>
+<p>
+  <code>Release.js</code> first confirms I want to release. I put this in as check to keep myself from releasing an incorrect version. The script then creates a new Git tag and pushes it to the origin at GitHub. At this point, the process is on autopilot.
+</p>
+<figure>
+  <a href="https://github.com/tylergaw/day-player/blob/3.0.0/scripts/release.js">
+    <img src="https://cl.ly/2p0j2O0Q1a3p/Screen%20Shot%202016-12-18%20at%208.18.39%20PM.png" alt="A screenshot of a command prompt confirming the release of Day Player" />
+  </a>
+  <figcaption>
+    The friendly prompt I see when releasing Day Player
+  </figcation>
+</figure>
+<p>
+  Travis CI now takes over. In <a href="https://github.com/tylergaw/day-player/blob/3.0.0/.travis.yml">travis.yml</a> we have the following:
+</p>
+<pre><code class="language-javascript">deploy:
+- provider: script
+  script: make publish
+  on:
+    tags: true
+</code></pre>
+<p>
+  This tells Travis to watch for builds that create new Git tags. When it sees a tag it should run <code>make publish</code> after all other tasks are complete.
+</p>
+<p>
+  The <a href="https://github.com/tylergaw/day-player/blob/3.0.0/Makefile#L53">publish</a> Make target handles packaging the plugin and uploading it to S3. It first creates a zip file of the Sketch plugin <a href="http://developer.sketchapp.com/introduction/plugin-bundles/">bundle</a>. Then using the AWS CLI, copies the zip file to the Day Player bucket; <code>s3://day-player</code>.
+</p>
+<p>
+  Interacting with AWS CLI in this way requires extra setup. First, we install the tool during the Travis <a href="https://github.com/tylergaw/day-player/blob/3.0.0/.travis.yml#L13">install step</a>.
+</p>
+<pre><code class="language-javascript">install:
+- pip install --user -U awscli
+</code></pre>
+<p>
+  The next steps ensure Travis can make safe requests to AWS on my behalf. I set two environment variables in the <a href="https://github.com/tylergaw/day-player/blob/3.0.0/.travis.yml#L24">travis conf</a>. <code>AWS_ACCESS_KEY_ID</code> and an encrypted value for the <code>secure</code> key. The encrypted key:value is for the <code>AWS_SECRET_ACCESS_KEY</code>. The access key is not sensitive, so it's OK to be out in the open. The secret is for my eyes only. I used the Travis CLI tool to encrypt that value. You can read about that process in the <a href="https://docs.travis-ci.com/user/environment-variables/#Encrypting-environment-variables">Travis docs</a>.
+</p>
+<p>
+  By default, the AWS CLI tool looks for the environment variables set above. Requests use them for authentication if found.
+</p>
+<p>
+  You may be wondering where the AWS access key and secret come from. This is an area where I use a best practice for handling AWS credentials. I've set up an AWS IAM Role that only has permission to upload objects to the Day Player S3 bucket. Setting up a restricted IAM Role is outside the scope of this post. A Google search for “IAM role for single bucket” returns up-to-date articles on the topic. That's how I figured it out for this process.
+</p>
+<h2>All this for placeholder images?</h2>
+<p>
+  Yeah! This is a side project and my side projects are for learning, tinkering, and fun. If I also build things that are useful to other folks at the same time, that makes it even better.
+</p>
+<p>
+  Download <a href="https://github.com/tylergaw/day-player/releases/tag/3.0.0">Day Player 3.0</a>.
+</p>
+<p>
+  <i>Thanks for reading</i>
+</p>
+        ]]>
+      </description>
+      <link>https://tylergaw.com/articles/rewriting-day-player-for-sketch-40</link>
+      <guid>https://tylergaw.com/articles/rewriting-day-player-for-sketch-40</guid>
+      <pubDate>Wed, 21 Dec 2016 08:30:00 -0400</pubDate>
+    </item>
     <item>
       <title>Overawe</title>
       <dc:creator>Tyler Gaw</dc:creator>

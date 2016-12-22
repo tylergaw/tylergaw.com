@@ -1,21 +1,22 @@
 ---
 layout: default
 article: true
+type: article
 ---
 
 <article class="hentry">
-    <header>
-        <h1 class="entry-title {{ page.title_size }}-title">{{ page.title }}</h1>
-        <time class="published" datetime="{{ page.date }}">
-            {{ page.date | date: '%B %d, %Y' }}
-        </time>
-        <p class="entry-author author vcard">
-            By <span class="fn">Tyler Gaw</span>
-        </p>
-    </header>
-    <div class="entry-content">
-        {{ content }}
-    </div>
+  <header>
+    <h1 class="entry-title {{ page.title_size }}-title">{{ page.title }}</h1>
+    <time class="published" datetime="{{ page.date }}">
+      {{ page.date | date: '%B %d, %Y' }}
+    </time>
+    <p class="entry-author author vcard">
+      By <span class="fn">Tyler Gaw</span>
+    </p>
+  </header>
+  <div class="entry-content">
+    {{ content }}
+  </div>
 </article>
 
 {% include article-comments.html %}
