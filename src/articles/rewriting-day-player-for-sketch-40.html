@@ -16,7 +16,7 @@ disqus_id: rewriting-day-player-for-sketch-40
 
 <h2>What got removed?</h2>
 <p>
-  The first feature cut was the placeholder service <a href="http://lorempixel.com/">Lorempixel.com</a>. I removed it because it doesn't support https. Day Player doesn't transport sensitive data. Still, I decided not to use services without <code>https</code> support.
+  The first feature cut was the placeholder service <a href="http://lorempixel.com/">Lorempixel.com</a>. I removed it because it doesn't support <code>https</code>. Day Player doesn't transport sensitive data. Still, I decided not to use services without <code>https</code> support.
 </p>
 <p>
   The second feature cut was <a href="https://github.com/tylergaw/day-player/pull/9">remembering user values for each service</a>. I cut this for time. I didn't want to hold up the release for a non-essential feature. There's a good chance I'll circle back and add this in the future. Or, if you're feeling up to it, <a href="https://github.com/tylergaw/day-player#contributing-to-this-project">open a pull request</a>.
@@ -52,10 +52,10 @@ disqus_id: rewriting-day-player-for-sketch-40
   I'm not using Babel or any other code transmogrifying. I write in the JavaScript available in JavaScriptCore. In my day-to-day JS I use Babel and enjoy using ES2015+ features. With the current JSCore we have access to a limited set of new features. We can use <code>const</code> (but not <code>let</code>). Template literals are available to make short work of string munging. And that's about it. No arrow functions or other niceties yet. They'll get there. As I do more plugin development, I'll likely update my build tooling to use Babel.
 </p>
 <p>
-  Sketch plugins give you access to the Cocoa Framework. This allows you to write JS to create and interact with Cocoa elements. If you've ever written code to do this, you know that it doesn't have the smoothest API. A fun aspect of Day Player was writing components to act as <a href="https://github.com/tylergaw/day-player/tree/develop/src/components">facades</a> for each Cocoa element needed. These components allow me to write more idiomatic code. They also allow for writing less code for each use and provide a chainable interface.
+  Sketch plugins give you access to the Cocoa Framework. This allows you to write JS to create and interact with Cocoa elements. If you've ever written code to do this, you know that it doesn't have the smoothest API. A fun aspect of Day Player was writing components to act as <a href="https://github.com/tylergaw/day-player/tree/3.0.0/src/components">facades</a> for each Cocoa element needed. These components allow me to write more idiomatic code. They also allow for writing less code and provide a chainable interface.
 </p>
 <p>
-  For example, here is the code required to create a text label using regular Cocoa:
+  For example, here's the code required to create a text label using regular Cocoa:
 </p>
 <pre><code class="language-javascript">const textField = NSTextField.alloc().initWithFrame(NSMakeRect(0, 0, 350, 16));
 textField.setDrawsBackground(false);
@@ -65,7 +65,7 @@ textField.setSelectable(true);
 textField.setStringValue('My Label:');
 </code></pre>
 <p>
-  and the code required using the <code>Label</code> <a href="https://github.com/tylergaw/day-player/blob/develop/src/components/Label.js">component</a>:
+  and the code required using the <code>Label</code> <a href="https://github.com/tylergaw/day-player/blob/3.0.0/src/components/Label.js">component</a>:
 </p>
 <pre><code class="language-javascript">new Label({
   value: 'My Label:'
@@ -73,7 +73,7 @@ textField.setStringValue('My Label:');
 </code></pre>
 
 <p>
-  Each image service has similar options. Because of this, I was able to abstract common setup code to a few functions. Those functions live in <a href="https://github.com/tylergaw/day-player/blob/develop/src/utils.js">utils.js</a>. Utils.js also includes comments describing my learning process with the excellent and in-progress <a href="http://developer.sketchapp.com/reference/api/">Sketch JS API</a>.
+  Each image service has similar options. Because of this, I was able to abstract common setup code to a few functions. Those functions live in <a href="https://github.com/tylergaw/day-player/blob/3.0.0/src/utils.js">utils.js</a>. Utils.js also includes comments describing my learning process with the excellent and in-progress <a href="http://developer.sketchapp.com/reference/api/">Sketch JS API</a>.
 </p>
 
 <h3>Releasing</h3>
@@ -93,13 +93,13 @@ textField.setStringValue('My Label:');
 </figure>
 
 <p>
-  Here's how it works. When I'm ready to ship a new release I update the <code>version</code> in <code>package.json</code>. I then run <code>make release</code>. That in turn uses Node.js to execute the <a href="https://github.com/tylergaw/day-player/blob/develop/scripts/release.js">release.js</a> script. I could run <code>node scripts/release.js</code> directly, but I prefer to put it in a Make target so all build commands are in one place.
+  Here's how it works. When I'm ready to ship a new release I update the <code>version</code> in <code>package.json</code>. I then run <code>make release</code>. That in turn uses Node.js to execute the <a href="https://github.com/tylergaw/day-player/blob/3.0.0/scripts/release.js">release.js</a> script. I could run <code>node scripts/release.js</code> directly, but I prefer to put it in a Make target so all build commands are in one place.
 </p>
 <p>
   <code>Release.js</code> first confirms I want to release. I put this in as check to keep myself from releasing an incorrect version. The script then creates a new Git tag and pushes it to the origin at GitHub. At this point, the process is on autopilot.
 </p>
 <figure>
-  <a href="https://github.com/tylergaw/day-player/blob/develop/scripts/release.js">
+  <a href="https://github.com/tylergaw/day-player/blob/3.0.0/scripts/release.js">
     <img src="https://cl.ly/2p0j2O0Q1a3p/Screen%20Shot%202016-12-18%20at%208.18.39%20PM.png" alt="A screenshot of a command prompt confirming the release of Day Player" />
   </a>
   <figcaption>
@@ -107,7 +107,7 @@ textField.setStringValue('My Label:');
   </figcation>
 </figure>
 <p>
-  Travis CI now takes over. In <a href="https://github.com/tylergaw/day-player/blob/develop/.travis.yml">travis.yml</a> we have the following:
+  Travis CI now takes over. In <a href="https://github.com/tylergaw/day-player/blob/3.0.0/.travis.yml">travis.yml</a> we have the following:
 </p>
 <pre><code class="language-javascript">deploy:
 - provider: script
@@ -119,16 +119,16 @@ textField.setStringValue('My Label:');
   This tells Travis to watch for builds that create new Git tags. When it sees a tag it should run <code>make publish</code> after all other tasks are complete.
 </p>
 <p>
-  The <a href="https://github.com/tylergaw/day-player/blob/develop/Makefile#L53">publish</a> Make target handles packaging the plugin and uploading it to S3. It first creates a zip file of the Sketch plugin <a href="http://developer.sketchapp.com/introduction/plugin-bundles/">bundle</a>. Then using the AWS CLI, copies the zip file to the Day Player bucket; <code>s3://day-player</code>.
+  The <a href="https://github.com/tylergaw/day-player/blob/3.0.0/Makefile#L53">publish</a> Make target handles packaging the plugin and uploading it to S3. It first creates a zip file of the Sketch plugin <a href="http://developer.sketchapp.com/introduction/plugin-bundles/">bundle</a>. Then using the AWS CLI, copies the zip file to the Day Player bucket; <code>s3://day-player</code>.
 </p>
 <p>
-  Interacting with AWS CLI in this way requires extra setup. First, we install the tool during the Travis <a href="https://github.com/tylergaw/day-player/blob/develop/.travis.yml#L13">install step</a>.
+  Interacting with AWS CLI in this way requires extra setup. First, we install the tool during the Travis <a href="https://github.com/tylergaw/day-player/blob/3.0.0/.travis.yml#L13">install step</a>.
 </p>
 <pre><code class="language-javascript">install:
 - pip install --user -U awscli
 </code></pre>
 <p>
-  The next steps ensure Travis can make safe requests to AWS on my behalf. I set two environment variables in the <a href="https://github.com/tylergaw/day-player/blob/develop/.travis.yml#L24">travis conf</a>. <code>AWS_ACCESS_KEY_ID</code> and an encrypted value for the <code>secure</code> key. The encrypted key:value is for the <code>AWS_SECRET_ACCESS_KEY</code>. The access key is not sensitive, so it's OK to be out in the open. The secret is for my eyes only. I used the Travis CLI tool to encrypt that value. You can read about that process in <a href="https://docs.travis-ci.com/user/environment-variables/#Encrypting-environment-variables">Travis docs</a>.
+  The next steps ensure Travis can make safe requests to AWS on my behalf. I set two environment variables in the <a href="https://github.com/tylergaw/day-player/blob/3.0.0/.travis.yml#L24">travis conf</a>. <code>AWS_ACCESS_KEY_ID</code> and an encrypted value for the <code>secure</code> key. The encrypted key:value is for the <code>AWS_SECRET_ACCESS_KEY</code>. The access key is not sensitive, so it's OK to be out in the open. The secret is for my eyes only. I used the Travis CLI tool to encrypt that value. You can read about that process in the <a href="https://docs.travis-ci.com/user/environment-variables/#Encrypting-environment-variables">Travis docs</a>.
 </p>
 <p>
   By default, the AWS CLI tool looks for the environment variables set above. Requests use them for authentication if found.
