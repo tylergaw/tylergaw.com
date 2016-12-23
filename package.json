@@ -1,0 +1,24 @@
+{
+  "name": "tylergaw.com",
+  "version": "1.0.0",
+  "description": "My personal website",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tylergaw/tylergaw.com.git"
+  },
+  "scripts": {
+    "build": "jekyll build && npm run postcss",
+    "postcss": "postcss --no-map -u postcss-import -u postcss-cssnext -o public/css/tylergaw.css src/css/tylergaw.css"
+  },
+  "author": "Tyler Gaw",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tylergaw/tylergaw.com/issues"
+  },
+  "homepage": "https://tylergaw.com",
+  "devDependencies": {
+    "postcss-cli": "2.6.0",
+    "postcss-cssnext": "2.9.0",
+    "postcss-import": "9.0.0"
+  }
+}
