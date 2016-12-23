@@ -1,2 +1,4 @@
 .sass-cache
 public
+node_modules
+npm-debug.log
