@@ -2,8 +2,12 @@
   "use": [
     "postcss-import",
     "postcss-cssnext",
-    "css-mqpacker"
+    "css-mqpacker",
+    "cssnano"
   ],
+  "postcss-cssnext": {
+    "warnForDuplicates": false
+  },
   "input": "src/css/tylergaw.css",
   "output": "public/css/tylergaw.css",
   "no-map": true
