@@ -1,0 +1,25 @@
+[data-page='error'] {
+  & [role='main'] {
+    padding: 0 4%;
+    text-align: center;
+  }
+
+  & h1 {
+    @apply --futura-heading;
+    font-size: 44vw;
+    line-height: 1;
+  }
+
+  & h2 {
+    font-size: 1.4em;
+    line-height: 1.5;
+    margin: 0 auto 2em auto;
+    max-width: 21em;
+  }
+
+  @media (min-width: 520px) {
+    & h1 {
+      font-size: 20vw;
+    }
+  }
+}

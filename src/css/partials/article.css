@@ -1,43 +1,44 @@
-$contentWidth: 93%;
-$maxContentWidth: 850px;
-$maxTextWidth: 790px;
+:root {
+  --contentWidth: 93%;
+  --maxContentWidth: 850px;
 
-%maxedText {
-  margin: 0 auto;
-  max-width: $maxTextWidth;
+  --maxedText: {
+    margin: 0 auto;
+    max-width: 790px;
+  };
 }
 
 .hentry {
   overflow: hidden;
 
-  header {
+  & header {
     margin: 1.8em 0 2.3em 0;
     text-align: center;
   }
 
-  .entry-title {
-    @extend %futura-heading;
-    color: $offwhite;
+  & .entry-title {
+    @apply --futura-heading;
+    color: var(--offwhite);
     font-size: 2.5em;
     margin: 0 auto;
     max-width: 95%;
   }
 
-  .published {
-    color: $yellow;
+  & .published {
+    color: var(--yellow);
     display: block;
     font-size: 1.2em;
     margin-top: 0.4em;
 
     &::before,
     &::after {
-      color: rgba($offwhite, 0.3);
-      content: "–";
+      color: color(var(--offwhite) alpha(-70%));
+      content: '–';
     }
   }
 
   @media (min-width: 620px) {
-    .entry-title {
+    & .entry-title {
       font-size: 6.5vw;
     }
   }
@@ -48,38 +49,42 @@ $maxTextWidth: 790px;
 }
 
 .entry-content {
-  color: $darkerwhite;
+  color: var(--darkerwhite);
   font-size: 1.2em;
   line-height: 1.5;
   margin: 0 auto;
-  max-width: $maxContentWidth;
-  width: $contentWidth;
+  max-width: var(--maxContentWidth);
+  width: var(--contentWidth);
 
-  h2, h3, h4, h5, h6 {
-    color: $offwhite;
-    @extend %maxedText;
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    @apply --maxedText;
+    color: var(--offwhite);
     font-weight: 700;
   }
 
-  h2 {
-    @extend %futura-heading;
+  & h2 {
+    @apply --futura-heading;
     font-size: 1.2em;
     padding: 0.7em 0 0.25em 0;
   }
 
-  h3 {
+  & h3 {
     margin-top: 1.2em;
   }
 
-  p:not(.entry-intro) {
+  & p:not(.entry-intro) {
+    @apply --maxedText;
     padding-bottom: 1.4em;
-    @extend %maxedText;
   }
 
-  .thanks-for-reading {
+  & .thanks-for-reading {
     padding-bottom: 0.4em;
 
-    i {
+    & i {
       background: transparent url('/images/article-thanks.svg') no-repeat left top;
       background-size: 100%;
       display: inline-block;
@@ -91,30 +96,30 @@ $maxTextWidth: 790px;
     }
   }
 
-  figure {
+  & figure {
     margin: 0.2em 0 1.8em 0;
 
-    img {
+    & img {
       display: block;
       margin: 0 auto;
       width: 100%;
     }
   }
 
-  figcaption {
+  & figcaption {
     margin-top: 0.4em;
     text-align: center;
   }
 
-  figcaption,
-  .note,
-  .note-special,
-  .note-update {
+  & figcaption,
+  & .note,
+  & .note-special,
+  & .note-update {
     font-size: 0.8em;
     font-style: italic;
   }
 
-  p {
+  & p {
     &.note-special,
     &.note-update {
       border-width: 1px;
@@ -126,26 +131,27 @@ $maxTextWidth: 790px;
     }
 
     &.note-special {
-      border-color: rgba(#ffad15, 0.3);
-      background-color: rgba(#ffad15, 0.15);
+      border-color: color(#ffad15 alpha(-70%));
+      background-color: color(#ffad15 alpha(-85%));
     }
 
     &.note-update {
-      border-color: rgba(#007cff, 0.3);
-      background-color: rgba(#007cff, 0.15);
+      border-color: color(#007cff alpha(-70%));
+      background-color: color(#007cff alpha(-85%));
     }
   }
 
-  ul, ol {
+  & ul,
+  & ol {
+    @apply --maxedText;
     padding: 0 0.2em 1.4em 0.2em;
-    @extend %maxedText;
   }
 
-  ol {
+  & ol {
     counter-reset: li;
   }
 
-  li {
+  & li {
     font-size: 0.95em;
     line-height: 1.6;
     list-style: disc inside;
@@ -153,7 +159,7 @@ $maxTextWidth: 790px;
     position: relative;
   }
 
-  ol li {
+  & ol li {
     padding-left: 2.4em;
     padding-right: 0.8em;
     list-style: none;
@@ -163,7 +169,7 @@ $maxTextWidth: 790px;
       border-radius: 55%;
       counter-increment: li;
       content: counter(li);
-      color: $grey;
+      color: var(--grey);
       font-weight: 600;
       height: 1.4em;
       left: 0;
@@ -175,8 +181,8 @@ $maxTextWidth: 790px;
     }
   }
 
-  blockquote {
-    border-left: 4px solid $yellow;
+  & blockquote {
+    border-left: 4px solid var(--yellow);
     padding: 0.4em 0.3em 0 1em;
     margin-bottom: 1em;
     font-size: 0.9em;
@@ -184,13 +190,13 @@ $maxTextWidth: 790px;
 }
 
 .entry-intro {
-  color: $offwhite;
+  color: var(--offwhite);
   font-size: 1.1em;
   font-style: italic;
   line-height: 1.6;
 
   &::after {
-    @extend %yellow-divider;
+    @apply --yellow-divider;
     margin: 1.5em auto 1.5em auto;
   }
 }
@@ -201,7 +207,7 @@ $maxTextWidth: 790px;
 
 .entry-intro + p:first-letter,
 .entry-intro + h2 + p:first-letter {
-  @extend %drop-cap;
+  @apply --drop-cap;
 }
 
 @media (min-width: 620px) {
@@ -216,7 +222,7 @@ $maxTextWidth: 790px;
 }
 
 #disqus_thread {
-  @extend %maxedText;
+  @apply --maxedText;
   margin-top: 3.5em;
-  width: $contentWidth;
+  width: var(--contentWidth);
 }

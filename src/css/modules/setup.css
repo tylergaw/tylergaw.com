@@ -1,0 +1,37 @@
+:root {
+  --white: #fff;
+  --grey: #1e1e1d;
+  --yellow: #ffad15;
+  --offwhite: #f8f8f8;
+  --darkerwhite: color(var(--offwhite) shade(20%));
+
+  --futura: {
+    font-family: 'futura-pt', helvetica, sans-serif;
+  };
+
+  --futura-heading: {
+    @apply --futura;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+  };
+
+  --drop-cap: {
+    @apply --futura;
+    color: var(--yellow);
+    float: left;
+    font-size: 350%;
+    font-weight: 700;
+    line-height: 0.85;
+    padding-right: 0.08em;
+  };
+
+  --yellow-divider: {
+    background-color: var(--yellow);
+    content: '';
+    display: block;
+    text-align: center;
+    width: 25%;
+    height: 0.4em;
+  };
+}

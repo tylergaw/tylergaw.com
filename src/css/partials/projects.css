@@ -1,0 +1,224 @@
+.projects-list {
+  align-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 1em;
+  max-width: 100%;
+
+  & li {
+    align-items: center;
+    border-bottom: 2px solid var(--grey);
+    box-sizing: border-box;
+    display: flex;
+    padding: 2.4em 3.6%;
+    position: relative;
+    text-align: center;
+    width: 100%;
+
+    & div {
+      width: 100%;
+    }
+  }
+
+  & a {
+    @apply --futura-heading;
+    background-color: var(--offwhite);
+    border: 1px solid var(--offwhite);
+    border-radius: 2px;
+    color: var(--grey);
+    display: inline-block;
+    font-size: 1.2em;
+    margin-bottom: 0.2em;
+    padding: 0.6em 0.7em 0.55em 0.7em;
+    text-decoration: none;
+    transition: background-color 0.15s, color 0.15s;
+
+    &:hover,
+    &:focus {
+      color: var(--offwhite);
+    }
+  }
+
+  & .section-desc {
+    background-color: var(--yellow);
+    color: var(--grey);
+  }
+
+  & .potential {
+    align-items: flex-end;
+    background-color: var(--yellow);
+    color: var(--grey);
+    display: none;
+    flex-grow: 1;
+    min-height: 10rem;
+  }
+
+  & .potential,
+  & h2 {
+    @apply --futura-heading;
+  }
+
+  & h2 {
+    font-size: 2.4em;
+  }
+
+  & .rip {
+    color: var(--grey);
+    display: block;
+    font-size: 50%;
+  }
+
+  & p {
+    font-size: 1.1em;
+    line-height: 1.4;
+    margin: 0.5em 0 0.9em 0;
+  }
+
+  @media (min-width: 620px) {
+    & li {
+      border-right: 2px solid var(--grey);
+      width: 50%;
+
+      & a {
+        font-size: 0.9em;
+      }
+    }
+
+    & .potential {
+      display: flex;
+    }
+  }
+
+  @media (min-width: 1050px) {
+    & li {
+      width: 33.33%
+    }
+
+    & .potential {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1460px) {
+    & li {
+      width: 25%
+    }
+
+    & .potential {
+      display: flex;
+    }
+  }
+}
+
+:root {
+  --color-rdb: #ac1603;
+  --color-rdl: #6e2911;
+  --color-jrb: #ff0066;
+  --color-trt: #008ea2;
+  --color-tmh: #8c132b;
+  --color-shk: #3ca335;
+  --color-wrt: #ff00ae;
+  --color-ppr: #6b4ba0;
+  --color-sld: #0b7daa;
+  --color-sls: #346f6e;
+  --color-spr: #dd6364;
+}
+
+.p-readability,
+.p-readability a:matches(:hover, :focus) {
+  background-color: var(--color-rdb);
+
+  & a {
+    color: var(--color-rdb);
+  }
+}
+
+.p-readlists,
+.p-readlists a:matches(:hover, :focus) {
+  background-color: var(--color-rdl);
+
+  & a {
+    color: var(--color-rdl);
+  }
+}
+
+.p-jribbble,
+.p-jribbble a:matches(:hover, :focus) {
+  background-color: var(--color-jrb);
+
+  & a {
+    color: var(--color-jrb);
+  }
+}
+
+.p-true-titles,
+.p-true-titles a:matches(:hover, :focus) {
+  background-color: var(--color-trt);
+
+  & a {
+    color: var(--color-trt);
+  }
+}
+
+.p-tmfh,
+.p-tmfh a:matches(:hover, :focus) {
+  background-color: var(--color-tmh);
+
+  & a {
+    color: var(--color-tmh);
+  }
+}
+
+.p-css-shaky,
+.p-css-shaky a:matches(:hover, :focus) {
+  background-color: var(--color-shk);
+
+  & a {
+    color: var(--color-shk);
+  }
+}
+
+.p-css-write-on,
+.p-css-write-on a:matches(:hover, :focus) {
+  background-color: var(--color-wrt);
+
+  & a {
+    color: var(--color-wrt);
+  }
+}
+
+.p-papersaver,
+.p-papersaver a:matches(:hover, :focus) {
+  background-color: var(--color-ppr);
+
+  & a {
+    color: var(--color-ppr);
+  }
+}
+
+.p-slenderman,
+.p-slenderman a:matches(:hover, :focus) {
+  background-color: var(--color-sld);
+
+  & a {
+    color: var(--color-sld);
+  }
+}
+
+.p-css-slideshows,
+.p-css-slideshows a:matches(:hover, :focus) {
+  background-color: var(--color-sls);
+
+  & a {
+    color: var(--color-sls);
+  }
+}
+
+.p-css-sprites,
+.p-css-sprites a:matches(:hover, :focus) {
+  background-color: var(--color-spr);
+
+  & a {
+    color: var(--color-spr);
+  }
+}

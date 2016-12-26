@@ -1,0 +1,27 @@
+[role='banner'] {
+  overflow: hidden;
+  padding-top: 0.6em;
+  text-align: center;
+
+  & .logo {
+    display: block;
+    height: 165px;
+    margin: 0 auto;
+    transition: max-width 0.1s;
+    width: 240px;
+  }
+
+  & svg {
+    height: 100%;
+    width: 95%;
+  }
+}
+
+.logo:matches(:hover, :focus) .logo-title {
+  fill: #F9F9F9;
+}
+
+.logo-title {
+  fill: #FFB400;
+  transition: fill 0.2s;
+}

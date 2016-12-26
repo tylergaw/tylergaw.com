@@ -1,0 +1,9 @@
+{
+  "use": [
+    "postcss-import",
+    "postcss-cssnext"
+  ],
+  "input": "src/css/tylergaw.css",
+  "output": "public/css/tylergaw.css",
+  "no-map": true
+}

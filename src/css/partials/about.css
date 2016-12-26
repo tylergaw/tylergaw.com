@@ -1,0 +1,511 @@
+[data-page='about'] {
+  & h2,
+  & h3,
+  & h4,
+  & .design-to-me {
+    @apply --futura-heading;
+  }
+}
+
+.gaw-gives-a-shit {
+  font-size: 2.9em;
+  margin-bottom: 0.2em;
+  text-align: center;
+  width: 98%;
+}
+
+.big-talker {
+  align-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  padding-top: 1.6em;
+  position: relative;
+
+  & h3 {
+    font-size: 1.2em;
+    padding: 0.6em 0 0.1em 0;
+  }
+
+  & p {
+    color: var(--darkerwhite);
+    padding-bottom: 1.4em;
+  }
+
+  & .number-one {
+    color: var(--offwhite) !important;
+    font-size: 1.2em;
+    font-style: italic;
+    line-height: 1.4;
+    margin-top: 0.3em;
+    text-align: center;
+
+    & strong {
+      @apply --futura-heading;
+      font-style: normal;
+    }
+
+    &::after {
+      @apply --yellow-divider;
+      margin: 1em auto 0 auto;
+    }
+  }
+}
+
+.all-about-me {
+  box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 1.2em;
+  margin: 0 auto;
+  line-height: 1.5;
+  padding-top: 0.8em;
+  width: 93%;
+}
+
+.number-one + p:first-letter {
+  @apply --drop-cap;
+}
+
+.my-big-dumb-faces {
+  background: transparent url('../images/tyler-gaw-portraits-horizontal.jpg') no-repeat center top;
+  background-size: 97%;
+  box-sizing: border-box;
+  padding-top: 66%;
+  width: 100%;
+}
+
+.design-to-me {
+  border-top: 8px solid var(--offwhite);
+  border-bottom: 8px solid var(--offwhite);
+  box-sizing: border-box;
+  color: var(--offwhite);
+  font-size: 1.55em;
+  line-height: 1.3 !important;
+  margin: 0 auto;
+  padding: 0.3em 0;
+  position: relative;
+  text-align: center;
+}
+
+.things-i-do {
+  align-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1.2em auto 0 auto;
+}
+
+:root {
+  --width-services: 88%;
+}
+
+.services {
+  @apply --futura;
+  align-items: center;
+  background-color: var(--yellow);
+  color: var(--grey);
+  display: flex;
+  padding: 0.8em 0 0.4em 0;
+  text-align: center;
+  text-transform: uppercase;
+
+  & > div {
+    width: 100%;
+  }
+
+  & .boastin {
+    border-bottom: 4px solid var(--grey);
+    font-size: 1em;
+    margin: 0 auto;
+    padding: 0.3em 0 0.6em 0;
+    width: var(--width-services);
+
+    & p {
+      display: inline-block;
+      text-align: center;
+      width: 48%;
+    }
+  }
+
+  & .listed {
+    border-bottom: 4px solid var(--grey);
+    border-top: 4px solid var(--grey);
+    box-sizing: border-box;
+    font-size: 1em;
+    line-height: 1.3;
+    margin: 0 auto;
+    padding: 0.3em 3%;
+    width: var(--width-services);
+  }
+
+  & .no-bullshit {
+    font-size: 1.3em;
+    padding: 0.6em 0;
+  }
+}
+
+.big-bad-words {
+  font-size: 1.2em;
+  padding: 0.8em 0 0.4em 0;
+
+  & h2 {
+    font-size: 1.6em;
+    font-weight: 700;
+  }
+}
+
+.skills {
+  box-sizing: border-box;
+  color: var(--darkerwhite);
+  font-size: 1.2em;
+  line-height: 1.5;
+  margin: 0.5em auto 0 auto;
+  width: 93%;
+}
+
+.skill-type  {
+  & + li {
+    margin-top: 1em;
+  }
+
+  & h3 {
+    color: var(--offwhite);
+    font-size: 1.2em;
+    padding: 0.6em 0 0.1em 0;
+  }
+
+  & h4 {
+    color: var(--yellow);
+    font-size: 0.9em;
+    padding-bottom: 0.1em;
+  }
+
+  & p {
+    font-size: 0.9em;
+    line-height: 1.4;
+  }
+
+  & li {
+    padding: 0.6em 0;
+  }
+}
+
+:root {
+  --color-site: color(var(--white) shade(60%) alpha(10%));
+}
+
+.the-site {
+  align-self: center;
+  background-color: var(--color-site);
+  border: 1px solid var(--color-site);
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1.2em auto 0 auto;
+  padding: 1em 1.2em;
+  width: 95%;
+}
+
+.site-description {
+  font-size: 1em;
+  line-height: 1.5;
+  width: 100%;
+
+  & h2 {
+    font-size: 1.2em;
+    padding: 0.6em 0 0.1em 0;
+  }
+
+  & p {
+    color: var(--darkerwhite);
+    padding-bottom: 1.4em;
+  }
+}
+
+.previous-versions {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  width: 100%;
+
+  & li {
+    display: flex;
+    box-sizing: border-box;
+    padding: 0.6em 0;
+    width: 100%;
+  }
+
+  & a {
+    @apply --futura-heading;
+    background-color: var(--grey);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    display: block;
+    font-size: 1.2em;
+    min-height: 5em;
+    position: relative;
+    text-decoration: none;
+    width: 100%;
+
+    & b {
+      background-color: var(--yellow);
+      color: var(--grey);
+    }
+  }
+
+  & .version-1 a {
+    background-image: url('../images/about-versions-1.jpg');
+    background-size: 120%;
+  }
+
+  & .version-2 a {
+    background-image: url('../images/about-versions-2.jpg');
+    background-position: right top;
+  }
+
+  & .version-3 a {
+    background-image: url('../images/about-versions-3.jpg');
+  }
+
+  & .version-4 a {
+    background-image: url('../images/about-versions-4.jpg');
+  }
+}
+
+@media (min-width: 390px) {
+  .gaw-gives-a-shit {
+    font-size: 12vw;
+  }
+}
+
+@media (min-width: 440px) {
+  .big-bad-words {
+    font-size: 1.7em;
+  }
+}
+
+@media (min-width: 500px) {
+  .design-to-me {
+    font-size: 5.2vw;
+    width: 98%;
+  }
+
+  .services {
+    margin: 0 auto;
+    width: 98%;
+
+    & .listed {
+      font-size: 1.2em;
+    }
+
+    & .no-bullshit {
+      font-size: 1.6em;
+    }
+  }
+
+  .big-bad-words h2 {
+    font-size: 9vw;
+  }
+
+  .previous-versions {
+    & li {
+      padding: 0.6em;
+      width: 50%;
+    }
+  }
+}
+
+@media (min-width: 555px) {
+  .skill-type {
+    & li {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    & h4 {
+      padding-top: 0.25em;
+      width: 20%;
+    }
+
+    & p {
+      width: 80%;
+    }
+  }
+}
+
+@media (min-width: 570px) {
+  .gaw-gives-a-shit {
+    font-size: 8.3vw;
+    width: 100%;
+  }
+
+  .all-about-me {
+    font-size: 1.4em;
+  }
+}
+
+@media (min-width: 650px) {
+  .more-on {
+    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 0.8em;
+
+    & div {
+      box-sizing: border-box;
+      width: 50%;
+    }
+  }
+
+  .on-design {
+    padding-right: 3%;
+  }
+
+  .on-development {
+    padding-left: 3%;
+  }
+}
+
+@media (min-width: 720px) {
+  .big-talker .number-one {
+    font-size: 1.4em;
+  }
+
+  .skills {
+    font-size: 1.4em;
+  }
+}
+
+@media (min-width: 820px) {
+  .my-big-dumb-faces {
+    background-size: 95%;
+    background-image: url('../images/tyler-gaw-portraits.jpg');
+    padding-top: 0;
+    width: 40%;
+  }
+
+  .all-about-me {
+    padding-right: 4%;
+    padding-left: 2%;
+    padding-bottom: 1.2em;
+    width: 60%;
+  }
+
+  .big-talker .number-one {
+    font-size: 1.3em;
+    text-align: left;
+  }
+
+  .more-on div {
+    width: 100%;
+  }
+
+  .on-design, .on-development {
+    padding: 0;
+  }
+}
+
+@media (min-width: 880px) {
+  .the-site {
+    padding: 1em 1.2em 1em 1.6em;
+  }
+
+  .site-description {
+    width: 45%;
+
+    & p {
+      padding-right: 0.8em;
+    }
+  }
+
+  .previous-versions {
+    width: 55%;
+  }
+}
+
+@media (min-width: 910px) {
+  .more-on div {
+    width: 50%;
+  }
+
+  .on-design {
+    padding-right: 3%;
+  }
+
+  .on-development {
+    padding-left: 3%;
+  }
+
+  .things-i-do {
+    width: 98%;
+  }
+
+  .services {
+    width: 45%;
+  }
+
+  .big-bad-words h2 {
+    font-size: 7vw;
+  }
+
+  .skills {
+    padding-right: 2%;
+    padding-left: 2%;
+    font-size: 1.2em;
+    width: 55%;
+  }
+
+  .skill-type {
+    h4,
+    p {
+      width: 100%;
+    }
+  }
+
+  .the-site {
+    width: 98%;
+  }
+}
+
+@media (min-width: 1130px) {
+  .skill-type {
+    h4 {
+      width: 20%;
+    }
+
+    p {
+      width: 80%;
+    }
+  }
+}
+
+@media (min-width: 1500px) {
+  .all-about-me {
+    font-size: 1.6em;
+  }
+
+  .more-on {
+    font-size: 0.9em;
+  }
+
+  .skills {
+    font-size: 1.4em;
+  }
+
+  .site-description {
+    width: 35%;
+  }
+
+  .previous-versions {
+    width: 65%;
+
+    & li {
+      width: 25%;
+    }
+
+    & a {
+      background-size: 165% !important;
+    }
+  }
+}

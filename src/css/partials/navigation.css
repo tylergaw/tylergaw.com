@@ -1,0 +1,40 @@
+[role='navigation'] {
+  border-top: 1px solid color(var(--offwhite) alpha(10%));
+  border-bottom: 8px solid var(--yellow);
+  font-size: 1.1em;
+  margin: 0 auto;
+  max-width: 720px;
+
+  & ul {
+    display: flex;
+  }
+
+  & li {
+    width: 33.33%;
+  }
+
+  & a {
+    @apply --futura-heading;
+    display: inline-block;
+    padding: 0.7em 0.2em;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover,
+    &:focus {
+      color: var(--offwhite);
+    }
+  }
+
+  @media (min-width: 450px) {
+    font-size: 1.4em;
+  }
+}
+
+[data-page='article'] .nav-articles,
+[data-page='articles'] .nav-articles,
+[data-page='project'] .nav-projects,
+[data-page='projects'] .nav-projects,
+[data-page='about'] .nav-about {
+  color: var(--offwhite);
+}
