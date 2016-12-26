@@ -1,7 +1,8 @@
 {
   "use": [
     "postcss-import",
-    "postcss-cssnext"
+    "postcss-cssnext",
+    "css-mqpacker"
   ],
   "input": "src/css/tylergaw.css",
   "output": "public/css/tylergaw.css",

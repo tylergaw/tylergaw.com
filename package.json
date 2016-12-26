@@ -18,6 +18,7 @@
   },
   "homepage": "https://tylergaw.com",
   "devDependencies": {
+    "css-mqpacker": "5.0.1",
     "postcss-cli": "2.6.0",
     "postcss-cssnext": "2.9.0",
     "postcss-import": "9.0.0"
