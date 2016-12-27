@@ -3,4 +3,4 @@ source: ./src
 destination: ./public
 permalink: none
 future: false
-exclude: [css/modules, css/partials]
+exclude: [css/modules]
