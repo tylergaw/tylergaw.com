@@ -2,7 +2,7 @@
 layout: article
 title: "Moving from Sass to PostCSS"
 title_size: short
-date: 2016-12-30
+date: 2016-12-27
 disqus_id: sass-to-postcss
 ---
 
@@ -36,7 +36,7 @@ disqus_id: sass-to-postcss
 <p>
   I needed to rename all the files. Changing the <code>scss</code> extension to <code>css</code> was easy enough after a quick search:
 </p>
-<pre><code class="language-javascript">for f in *.scss; do git mv -- "$f" "${f%.scss}.css; done;"
+<pre><code class="language-bash">for f in *.scss; do git mv -- "$f" "${f%.scss}.css; done;"
 </code></pre>
 <p>
   Removing the leading underscore. That was a pain. I ended up doing it manually. Reminder to self; learn how to Bash better.
@@ -94,14 +94,14 @@ disqus_id: sass-to-postcss
 <p>
   Using <code>rgba()</code> with hex or variable values like <code>rgba($blue, 0.5)</code> is another Sass feature I use frequently. The outcome is possible with CSS, but we now use the <code>color()</code> function.
 </p>
-<pre><code class="language-javascript">color(var(--offwhite) alpha(10%));</code></pre>
+<pre><code class="language-css">color(var(--offwhite) alpha(10%));</code></pre>
 <p>
   The <code>color</code> function is powerful and provides quite a few <a href="https://github.com/postcss/postcss-color-function#list-of-color-adjuster">adjusters</a>
 </p>
 <p>
   You can use multiple color adjusters too;
 </p>
-<pre><code class="language-javascript">color(var(--white) shade(40%) alpha(10%))</code></pre>
+<pre><code class="language-css">color(var(--white) shade(40%) alpha(10%))</code></pre>
 
 <h2>Move aside extend, here comes apply</h2>
 <p>
@@ -111,7 +111,7 @@ disqus_id: sass-to-postcss
 <p>
   Here's one way I was using <code>@extend</code> with placeholder classes:
 </p>
-<pre><code class="language-javascript">%futura {
+<pre><code class="language-scss">%futura {
   font-family: 'futura-pt', helvetica, sans-serif;
 }
 
@@ -129,7 +129,7 @@ disqus_id: sass-to-postcss
 <p>
   and how it looks converted to CSS:
 </p>
-<pre><code class="language-javascript">:root {
+<pre><code class="language-css">:root {
   ...
 
   --futura: {
@@ -155,7 +155,7 @@ disqus_id: sass-to-postcss
 <p>
   Mixins with arguments. For my Projects page I give a different background color to each project block. To make this easier on myself, I used a Sass mixin that takes a single argument. The color I want:
 </p>
-<pre><code class="language-javascript">@mixin project-block ($c) {
+<pre><code class="language-scss">@mixin project-block ($c) {
   background-color: $c;
 
   a {
@@ -177,7 +177,7 @@ disqus_id: sass-to-postcss
 <p>
   This doesn't mean all is lost. I did find a way to make each rule shorter. Here's an example of what each rule looks like now:
 </p>
-<pre><code class="language-javascript">.p-jribbble,
+<pre><code class="language-css">.p-jribbble,
 .p-jribbble a:matches(:hover, :focus) {
   background-color: var(--color-jrb);
 
@@ -191,7 +191,7 @@ disqus_id: sass-to-postcss
 <p>
   The code above compiles to:
 </p>
-<pre><code class="language-javascript">.p-jribbble,
+<pre><code class="language-css">.p-jribbble,
 .p-jribbble a:hover,
 .p-jribbble a:focus {
   background-color: #ff0066
