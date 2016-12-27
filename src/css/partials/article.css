@@ -152,10 +152,11 @@
   }
 
   & li {
-    font-size: 0.95em;
-    line-height: 1.6;
+    color: var(--offwhite);
+    font-size: 0.8em;
+    line-height: 1.5;
     list-style: disc inside;
-    padding-bottom: 0.9em;
+    padding-bottom: 0.25em;
     position: relative;
   }
 
@@ -183,9 +184,19 @@
 
   & blockquote {
     border-left: 4px solid var(--yellow);
-    padding: 0.4em 0.3em 0 1em;
-    margin-bottom: 1em;
+    color: var(--offwhite);
     font-size: 0.9em;
+    margin-bottom: 1.6em;
+    padding: 0.4em 1em 0 1em;
+
+    & p {
+      font-style: italic;
+    }
+
+    & cite {
+      @apply --maxedText;
+      display: block;
+    }
   }
 }
 

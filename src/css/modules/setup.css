@@ -20,10 +20,11 @@
     @apply --futura;
     color: var(--yellow);
     float: left;
-    font-size: 350%;
+    font-size: 520%;
     font-weight: 700;
-    line-height: 0.85;
-    padding-right: 0.08em;
+    line-height: 0.4;
+    padding-right: 0.07em;
+    margin-left: -0.25em;
   };
 
   --yellow-divider: {
