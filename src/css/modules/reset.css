@@ -51,3 +51,7 @@ border-spacing: 0;
 b, strong {
 font-weight: 600;
 }
+
+i, em {
+  font-style: italic;
+}

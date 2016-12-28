@@ -1,69 +1,147 @@
 ---
 layout: article
-title: "Moving from Sass to PostCSS"
+title: "From Sass to PostCSS"
 title_size: short
 date: 2016-12-27
 disqus_id: sass-to-postcss
 ---
 
 <p class="entry-intro">
-  Sass has been my go-to for styling for years. It's been taken much burden off writing and organizing styles. In the last few years alternatives have shown up on the scene. Recently I've been wanting to try out a new styling setup using just CSS with the aid of PostCSS to fill Sass's big shoes. I also using this opportunity to use cssnext. To start using in-progress CSS specifications now.
+  Sass has been my go-to for years. But for a while now, I've wanted to try a new styling setup with PostCSS and the cssnext plugin. I love the idea of writing future CSS syntax today and using tooling more aligned with other tools I'm used to. This personal site is a perfect test bed to try this new setup.
 </p>
-
 <p>
-  The first thing I did was take an inventory of what Sass features I'm using on this project. Here's what I'm working with:
+  The first step I took was to take an inventory of my Sass usage. I needed to know what features I was using to make sure I found a replacement in the new setup. Here's a list of what I was using on this project:
 </p>
 <ul>
-  <li>imports</li>
-  <li>underscore naming convention</li>
-  <li>$ - variables</li>
+  <li>partial imports</li>
+  <li>variables</li>
   <li>nesting</li>
   <li>mixins</li>
-  <li>extends (maybe I shouldn't use this)</li>
+  <li>extend</li>
   <li>placeholder classes</li>
-  <li>color functions (darken, lighten, rgba with hex and variable values)</li>
+  <li><code>darken</code> and <code>rgba</code> color functions</li>
   <li>compression</li>
 </ul>
 
-<h2>The Setup</h2>
+<h2>Preparing</h2>
 <p>
-  For my purposes, I want the least amount of tooling. For now I'm sticking with the PostCSS CLI. I added the command to this project's Procfile, and we're good to go.
+  Before getting to any new syntax or fun things I needed to do some yak shaving. The project was using typical file structure typical for using Sass. I used the leading underscore naming convention for partials. And included the required <code>scss</code> extension. I used two directories to loosely organize Sass files. <code>modules</code> housed Sass that didn't produce CSS. Things like variables, placeholder classes, and mixins. <code>partials</code> housed all CSS-producing Sass.
+</p>
+<p>
+  This was the beginning file structure:
+</p>
+<pre><code class="language-none">css/
+  scss/
+    modules/
+      _module.scss
+      ...
+    partials/
+      _partial.scss
+      ...
+    tylergaw.scss
+</code></pre>
+<p>
+  Each Sass partial gets imported in <code>tylergaw.scss</code>.
+</p>
+
+<pre><code class="language-scss">@import "modules/setup";
+@import "modules/reset";
+@import "modules/fonts";
+</code></pre>
+
+<p>
+  I reorganized and renamed the files. I first changed the extension from <code>scss</code> to <code>css</code>. Instead of doing it a file at a time, I used a Bash script:
+</p>
+<pre><code class="language-bash">for f in *.scss; do git mv -- "$f" "${f%.scss}.css"; done;
+</code></pre>
+
+<p>
+  Because the leading underscore is from the Sass world I also removed that. I couldn't figure a way to do it with Bash so I removed it from each file by hand. <i>(note to self; learn how to Bash better)</i>
+</p>
+<p>
+  The last step was to move all the CSS files to the <code>modules</code> directory and remove the <code>partials</code> directory. I decided referring to all CSS as modules made more sense than trying to split them along the modules/partials line.
+</p>
+
+<h2>Build setup</h2>
+<p>
+  I started with the <a href="https://github.com/postcss/postcss-cli">PostCSS CLI</a>. I added a temporary build script to <code>package.json</code>:
+</p>
+<pre><code class="language-json">"scripts": {
+  "postcss": "postcss -o public/css/tylergaw.css src/css/tylergaw.css"
+}</code></pre>
+<p>
+  Without changing any styles I compiled the CSS:
+</p>
+<pre><code class="language-json">npm run postcss</code></pre>
+<p>
+  It worked! Sorta. I didn't get errors in the console, but it left me with a naked page on the <a href="http://css-naked-day.github.io/">wrong day</a>.
+</p>
+<figure>
+  <img src="/articles/assets/post-image-postcss-1.png" alt="A screenshot of tylergaw.com missing all styles" />
+  <figcaption>
+    Results of the first PostCSS build
+  </figcation>
+</figure>
+<p>
+  With the build process functional I could now work to get the styles back in order.
 </p>
 
 <p>
-  I wasn't sure about best practices for naming directories and files. I realized I'd been using organization and naming conventions suggested by Sass. Those likely aren't valid or needed in this new world.
+   Looking at the console in Chrome I saw a stack of 404s. This revealed the first missing feature; <code>@import</code> inlining. With no changes <code>tylergaw.css</code> contains only <code>@import</code>s for each CSS module. The browser saw those and did what it knows to do. It attempted to load each module via an HTTP request. My build process only copies the single CSS file, not each module. Because of that, the browser couldn't find them.
+</p>
+
+<p>
+  I could change the build process to make default <code>@import</code>s work, but that would be inefficient. I needed a replacement for Sass style <code>@import</code>s.
+</p>
+
+<h2>The first plugin</h2>
+<p>
+  To get Sass-style <code>@import</code>s I used the <code>postcss-import</code> plugin. After installing the module via npm I updated the build script to use it:
+</p>
+
+<pre><code class="language-json">"scripts": {
+  "postcss": "postcss -u postcss-import -o public/css/tylergaw.css src/css/tylergaw.css"
+}</code></pre>
+<p>
+  And ran the script again with <code>npm run postcss</code>. The single CSS file now contains all the modules and the site now has partial styling.
+</p>
+
+<figure>
+  <img src="/articles/assets/post-image-postcss-2.png" alt="A screenshot of tylergaw.com with partial styles" />
+  <figcaption>
+    Results of the PostCSS build using postcss-import plugin
+  </figcation>
+</figure>
+
+<h3>Will this be in a future CSS?</h3>
+<p>
+  The inlining of <code>@import</code>s was huge when it showed up in Sass. It's changed the way organize our styles for the better. I doubt this functionality will ever be native though. It seems like we'll always need a build step for this type of functionality.
 </p>
 <p>
-  I needed to rename all the files. Changing the <code>scss</code> extension to <code>css</code> was easy enough after a quick search:
-</p>
-<pre><code class="language-bash">for f in *.scss; do git mv -- "$f" "${f%.scss}.css; done;"
-</code></pre>
-<p>
-  Removing the leading underscore. That was a pain. I ended up doing it manually. Reminder to self; learn how to Bash better.
-</p>
-<p>
-  This left me with a naked page on the <a href="">wrong day</a>. From here, the goal was to get the site styles back to where they were before.
-</p>
-<p>
-  Before I could see any styling, I needed <code>@import</code> to function in the way I needed. That is the non-standard way of inlining imported CSS files. <code>postcss-import</code> has this covered. Judging by this quote, the plugin author knows this is where folks will land.
+  I imagine the <code>postcss-import</code> plugin will be a staple for all my future PostCSS setups. My guess is this will be true for other folks too. This quote from the plugin author sounds right on:
 </p>
 <blockquote>
   <p>
     This plugin should probably be used as the first plugin of your list. This way, other plugins will work on the AST as if there were only a single file to process, and will probably work as you can expect.
   </p>
-  <cite><a href="https://github.com/postcss/postcss-import#postcss-import">postcss-import</a></cite>
+  <cite>
+    <a href="https://github.com/postcss/postcss-import#postcss-import">
+      postcss-import
+    </a>
+  </cite>
 </blockquote>
-<p>
-  This is a killer feature that Sass (and Less and Stylus) brought about. This is the type of feature that tells me we'll be using some type of build tooling for styling on the Web indefinitely. I don't want the browser making dozens of requests. But I want to organize my code into logical chunks. We can work without this, but who wants to?
-</p>
-<p>
-  Oh boy. When I installed, configured, ran <code>postcss</code> with PostCSS import for the first time...jaw on floor. It worked exactly as it said and it was excellent.
-</p>
+
+
+
+<hr>
+
+
+
 <p>
   I Killed prefixed.css. I built this site before Autoprefixer was a thing. I also only needed to prefix a handful of properties. So, I wrote a few Sass mixins to hanle the vendor prefixing. This was the easiest thing to remove. Because cssnext handles necessary vender prefixing, I could safely remove all uses of the prefix mixins I'd created.
 </p>
 <p>
-  OK. I added PostCSS and cssnext and removed my prefix mixins, but I'm still looking at this:
+  I added PostCSS and cssnext and removed my prefix mixins, but I'm still looking at this:
 </p>
 <figure>
   <img src="" alt="Screenshot of a partially styled tylergaw.com">
@@ -149,7 +227,7 @@ disqus_id: sass-to-postcss
 }</code></pre>
 
 <p>
-  It's the same amount of code with slightly different syntax. I haven't dug in to the output the cssnext polyfill generates yet. I'm not sure if this produces more, less, or the same amount of CSS as <code>extend</code>. For my use case now, I'm not too concerned since this is a small site.
+  It's the same amount of code with slightly different syntax.
 </p>
 
 <p>

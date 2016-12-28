@@ -4,9 +4,7 @@
     <meta charset="utf-8">
     <title>
     {% if page.title %}
-      {{ page.title }}
-
-      {% if layout.article %}by Tyler Gaw{% endif %}
+      {{ page.title }} {% if layout.article %}by Tyler Gaw{% endif %}
     {% else %}
       Tyler Gaw - Web Design & Development - New York, New York USA
     {% endif %}
