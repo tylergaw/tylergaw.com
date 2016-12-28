@@ -15,34 +15,37 @@
   overflow: hidden;
 
   & header {
-    margin: 1.8em 0 2.3em 0;
+    margin: 2.4em 0 2.3em 0;
     text-align: center;
   }
 
   & .entry-title {
-    @apply --futura-heading;
+    @apply --franklin-heading;
     color: var(--offwhite);
-    font-size: 2.5em;
+    font-size: 3.2em;
+    font-weight: 900;
     margin: 0 auto;
     max-width: 95%;
   }
 
   & .published {
+    @apply --franklin-heading;
     color: var(--yellow);
     display: block;
     font-size: 1.2em;
-    margin-top: 0.4em;
+    font-weight: 500;
   }
 
   @media (min-width: 620px) {
     & .entry-title {
-      font-size: 6.5vw;
+      font-size: 7vw;
     }
   }
 }
 
 .entry-author {
   display: none;
+  visibility: hidden;
 }
 
 .entry-content {
@@ -64,7 +67,7 @@
   }
 
   & h2 {
-    @apply --futura-heading;
+    @apply --franklin-heading;
     font-size: 1.2em;
     padding: 0.7em 0 0.25em 0;
   }
@@ -142,6 +145,7 @@
   & ul,
   & ol {
     @apply --maxedText;
+    clear: both;
     padding: 0 0.2em 1.4em 0.2em;
   }
 

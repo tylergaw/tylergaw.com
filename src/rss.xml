@@ -302,12 +302,12 @@ $darkerwhite: darken($offwhite, 15);</code></pre>
 <pre><code class="language-css">:root {
   ...
 
-  --futura: {
+  --franklin: {
     font-family: 'futura-pt', helvetica, sans-serif;
   };
 
-  --futura-heading: {
-    @apply --futura;
+  --franklin-heading: {
+    @apply --franklin;
     font-weight: 700;
     line-height: 1.1;
     text-transform: uppercase;
@@ -319,7 +319,7 @@ $darkerwhite: darken($offwhite, 15);</code></pre>
 </p>
 
 <pre><code class="language-scss">.my-heading {
-  @apply --futura-heading;
+  @apply --franklin-heading;
 }</code></pre>
 
 <p>

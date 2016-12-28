@@ -10,7 +10,7 @@
     border-bottom: 2px solid var(--grey);
     box-sizing: border-box;
     display: flex;
-    padding: 2.4em 3.6%;
+    padding: 2.4em;
     position: relative;
     text-align: center;
     width: 100%;
@@ -21,15 +21,15 @@
   }
 
   & a {
-    @apply --futura-heading;
+    @apply --franklin-heading;
     background-color: var(--offwhite);
-    border: 1px solid var(--offwhite);
-    border-radius: 2px;
+    border: 2px solid var(--offwhite);
+    border-radius: 3px;
     color: var(--grey);
     display: inline-block;
     font-size: 1.2em;
     margin-bottom: 0.2em;
-    padding: 0.6em 0.7em 0.55em 0.7em;
+    padding: 0.6em 0.8em;
     text-decoration: none;
     transition: background-color 0.15s, color 0.15s;
 
@@ -42,6 +42,14 @@
   & .section-desc {
     background-color: var(--yellow);
     color: var(--grey);
+    text-align: left;
+
+    & h2 {
+      @apply --franklin-heading;
+      font-weight: 900;
+      font-size: 3em;
+      text-transform: uppercase;
+    }
   }
 
   & .potential {
@@ -55,17 +63,18 @@
 
   & .potential,
   & h2 {
-    @apply --futura-heading;
+    @apply --franklin-heading;
   }
 
   & h2 {
-    font-size: 2.4em;
+    font-size: 2.8em;
   }
 
   & .rip {
     color: var(--grey);
     display: block;
-    font-size: 50%;
+    font-size: 40%;
+    font-weight: 500;
   }
 
   & p {
@@ -80,7 +89,7 @@
       width: 50%;
 
       & a {
-        font-size: 0.9em;
+        font-size: 1em;
       }
     }
 

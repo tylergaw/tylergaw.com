@@ -1,14 +1,12 @@
-:root {
-  --contentinfo-icon-size: 2.2em;
-}
-
 [role='contentinfo'] {
-  border-top: 8px solid var(--yellow);
+  border-top: 6px solid var(--yellow);
+  box-sizing: border-box;
   margin: 1em auto 2em auto;
   max-width: 720px;
   overflow: hidden;
-  padding: 1.2em 0 0.8em 0;
+  padding: 1em 0 0.8em 0;
   text-align: center;
+  width: 95%;
 
   & li {
     display: inline-block;
@@ -16,48 +14,19 @@
     width: 25%;
   }
 
-  & .icon {
-    display: inline-block;
-    overflow: hidden;
-    height: var(--contentinfo-icon-size);
-    text-decoration: none;
-    width: var(--contentinfo-icon-size);
-
-    & svg {
-      height: 100%;
-      width: 100%;
-    }
-
-    & .filled-shape {
-      fill: #f8f8f8;
-      transition: fill 0.2s;
-    }
-
-    &:hover,
-    &:focus {
-      & .filled-shape {
-        fill: var(--yellow);
-      }
-    }
-  }
-
   & .contact {
-    line-height: 1.1;
-    margin-top: 1em;
+    line-height: 1.2;
 
     & a {
-      @apply --futura-heading;
-      font-size: 1.2em;
+      @apply --franklin-heading;
+      display: inline-block;
+      font-size: 0.9em;
+      font-weight: 500;
+      padding: 0.7em;
       text-decoration: none;
 
       &:hover {
         color: var(--offwhite);
-      }
-
-      &:first-child::after {
-        content: '';
-        display: block;
-        margin-bottom: 0.8em;
       }
     }
   }

@@ -2,9 +2,11 @@
   padding-top: 1em;
 
   & h1 {
-    @apply --futura-heading;
-    font-size: 4.3em;
+    @apply --franklin-heading;
+    font-size: 21vw;
+    font-weight: 900;
     text-align: center;
+    text-transform: uppercase;
     word-wrap: break-word;
   }
 
@@ -27,21 +29,15 @@
     font-style: italic;
   }
 
-  @media (min-width: 480px) {
-    & h1 {
-      font-size: 13.5vw;
-    }
-  }
-
   @media (min-width: 620px) {
     & p {
       font-size: 1.4em;
     }
   }
 
-  @media (min-width: 1260px) {
+  @media (min-width: 860px) {
     & h1 {
-      font-size: 10.7em;
+      font-size: 12em;
     }
   }
 }
