@@ -3,7 +3,7 @@
   --grey: #1e1e1d;
   --yellow: #ffad15;
   --offwhite: #f8f8f8;
-  --darkerwhite: color(var(--offwhite) shade(20%));
+  --darkerwhite: color(var(--offwhite) shade(15%));
 
   --futura: {
     font-family: 'futura-pt', helvetica, sans-serif;

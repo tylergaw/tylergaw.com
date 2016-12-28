@@ -13,7 +13,7 @@ meta:
   Sass has been my go-to for years. But for a while now, I've wanted to try a new styling setup with PostCSS and the cssnext plugin. I love the idea of writing future CSS syntax today and using tooling more aligned with other tools I'm used to. This personal site is a perfect test bed to try this new setup.
 </p>
 <p>
-  The first step I took was to take an inventory of my Sass usage. I needed to know what features I was using to make sure I found a replacement in the new setup. Here's a list of what I was using on this project:
+  The first step I took was an inventory of my Sass usage. I needed to know what features I was using to make sure I found a replacement in the new setup. Here's a list of what I was using on this project:
 </p>
 <ul>
   <li>partial imports</li>
@@ -28,7 +28,7 @@ meta:
 
 <h2>Preparing</h2>
 <p>
-  Before getting to any new syntax or fun things I needed to do some yak shaving. The project was using typical file structure typical for using Sass. I used the leading underscore naming convention for partials. And included the required <code>scss</code> extension. I used two directories to loosely organize Sass files. <code>modules</code> housed Sass that didn't produce CSS. Things like variables, placeholder classes, and mixins. <code>partials</code> housed all CSS-producing Sass.
+  Before getting to new syntax or other fun I needed to do some yak shaving. The project was using a file structure typical for Sass usage. I used the leading underscore naming convention for partials. And included the required <code>scss</code> extension. I used two directories to loosely organize Sass files. <code>modules</code> housed Sass that didn't produce CSS. Things like variables, placeholder classes, and mixins. <code>partials</code> housed all CSS-producing Sass.
 </p>
 <p>
   This was the beginning file structure:
@@ -90,11 +90,11 @@ meta:
 </p>
 
 <p>
-   Looking at the console in Chrome I saw a stack of 404s. This revealed the first missing feature; <code>@import</code> inlining. With no changes <code>tylergaw.css</code> contains only <code>@import</code>s for each CSS module. The browser saw those and did what it knows to do. It attempted to load each module via an HTTP request. My build process only copies the single CSS file, not each module. Because of that, the browser couldn't find them.
+   Looking at the console in Chrome I saw a stack of 404s. This revealed the first missing feature; <code>@import</code> inlining. <code>tylergaw.css</code> contains only <code>@import</code>s for each CSS module. The browser saw those and did what it knows to do. It attempted to load each module via an HTTP request. My build process only copies the single CSS file, not each module. Because of that, the browser couldn't find them.
 </p>
 
 <p>
-  I could change the build process to make default <code>@import</code>s work, but that would be inefficient. I needed a replacement for Sass style <code>@import</code>s.
+  I could change the build process to make default <code>@import</code>s work, but that would be inefficient. I needed a replacement for Sass style <code>@import</code> inlining.
 </p>
 
 <h2>The first plugin</h2>
@@ -106,7 +106,7 @@ meta:
   "postcss": "postcss -u postcss-import -o public/css/tylergaw.css src/css/tylergaw.css"
 }</code></pre>
 <p>
-  And ran the script again with <code>npm run postcss</code>. The single CSS file now contains all the modules and the site now has partial styling.
+  And ran the script again with <code>npm run postcss</code>. The single CSS file contains all the modules and the site now has partial styling.
 </p>
 
 <figure>
@@ -118,7 +118,7 @@ meta:
 
 <h3>Will this be in a future CSS?</h3>
 <p>
-  The inlining of <code>@import</code>s was huge when it showed up in Sass. It's changed ways we're able to organize styles for the better. I'm not sure this functionality will ever be native in though. It seems like we'll always need a build step for this type of functionality. Which doesn't seem all that bad.
+  The inlining of <code>@import</code>s was huge when it showed up in Sass. It's changed how we're able to organize styles for the better. I'm not sure this functionality will ever be native in though. It seems like we'll always need a build step for this type of functionality. Which doesn't seem all that bad.
 </p>
 <p>
   I imagine the <code>postcss-import</code> plugin will be a staple for all my future PostCSS setups. My guess is this will be true for other folks too. This quote from the plugin author sounds right on:
@@ -184,7 +184,7 @@ $darkerwhite: darken($offwhite, 15);</code></pre>
 
 <h3>Color functions</h3>
 <p>
-  In the previous example, I left out one variable; <code>$darkerwhite: darken($offwhite, 15);</code>. This is another Sass feature I need a replacement for. There's a <a href="https://drafts.csswg.org/css-color/#modifying-colors">draft spec</a> for a <code>color</code> function. cssnext includes this function today and it's super cool. Here's <code>setup.css</code> with the converted <code>darkerwhite</code> variable:
+  In the previous example, I left out one variable; <code>$darkerwhite: darken($offwhite, 15);</code>. This is another Sass feature I needed a replacement for. There's a <a href="https://drafts.csswg.org/css-color/#modifying-colors">draft spec</a> for a CSS <code>color</code> function. cssnext includes this function today and it's super cool. Here's <code>setup.css</code> with a <code>darkerwhite</code> custom property created with the <code>color</code> function and <code>shade</code> adjuster:
 </p>
 <pre><code class="language-css">:root {
   ...
@@ -192,9 +192,6 @@ $darkerwhite: darken($offwhite, 15);</code></pre>
   --darkerwhite: color(var(--offwhite) shade(20%));
   ...
 }</code></pre>
-<p>
-  This is an example usage of the <code>color</code> function and <code>shade</code> adjuster.
-</p>
 <p>
   The <code>color</code> function provides a bunch of <a href="https://github.com/postcss/postcss-color-function#list-of-color-adjuster">adjusters</a>. You can use multiple adjusters in a single usage:
 </p>
@@ -205,12 +202,12 @@ $darkerwhite: darken($offwhite, 15);</code></pre>
 <pre><code class="language-css">background-color: rgba(127, 26, 38, 0.4);</code></pre>
 
 <p>
-  To reiterate. Right now cssnext compiles the result of <code>color</code> to a hex or rgba value. When the <code>color</code> function arrives in browsers, the compilation won't be necessary. The color manipulation can happen at runtime.
+  To reiterate. Right now cssnext compiles the result of <code>color()</code> to hex or rgba values. When the <code>color</code> function arrives in browsers, the compilation won't be necessary. The color manipulation can happen at runtime.
 </p>
 
 <h3>Nesting</h3>
 <p>
-  Nesting is an indispensable feature introduced by CSS processors. A must for any comfortable styling setup. Tab Atkins has a <a href="http://tabatkins.github.io/specs/css-nesting/">spec</a> in-progress for CSS nesting and cssnext makes it available today.
+  Nesting is an indispensable feature introduced by CSS preprocessors. A must for any comfortable styling setup. Tab Atkins has a <a href="http://tabatkins.github.io/specs/css-nesting/">spec</a> in-progress for CSS nesting and cssnext makes it available today.
 </p>
 <p>
   This was mostly legwork. The CSS syntax for nesting includes a leading <code>&</code> before nested blocks. For example, the following is a Sass snippet from my Projects page:
@@ -258,7 +255,7 @@ $darkerwhite: darken($offwhite, 15);</code></pre>
   Basic nesting requires the leading <code>&</code>. Pseudo classes and selectors are the same in Sass and CSS. Media queries don't need a leading <code>&</code>.
 </p>
 <p>
-  Also worth noting is <code>@nest</code>. As mentioned in the <a href="http://cssnext.io/features/#nesting">docs</a> complex nesting requires <code>@nest</code> instead of <code>&</code>. I didn't have any use cases for it on this project, but may in the future.
+  Also worth noting is <code>@nest</code>. As mentioned in the <a href="http://cssnext.io/features/#nesting">docs</a>, complex nesting requires <code>@nest</code> instead of <code>&</code>. I didn't have any use cases for it on this project, but may in the future.
 </p>
 
 <h3>Extend and Placeholder classes</h3>
@@ -284,7 +281,7 @@ $darkerwhite: darken($offwhite, 15);</code></pre>
 }</code></pre>
 
 <p>
-  We looked at CSS properties usage earlier. There's a related in <a href="http://tabatkins.github.io/specs/css-apply-rule/">progress spec</a> for the <code>@apply</code> rule. <code>@apply</code> allows you to store a set of properties and reference them in selectors. I used <code>@apply</code> in place of Sass's <code>extend</code>.
+  We looked at CSS custom properties usage earlier. There's a related in-progress <a href="http://tabatkins.github.io/specs/css-apply-rule/">spec</a> for the <code>@apply</code> rule. <code>@apply</code> allows you to store a set of properties and reference them in selectors. I used <code>@apply</code> in place of Sass's <code>extend</code>.
 </p>
 <p>
   Back in <code>setup.css</code> I added the updated Futura heading properties:
@@ -314,11 +311,11 @@ $darkerwhite: darken($offwhite, 15);</code></pre>
 }</code></pre>
 
 <p>
-  <code>@apply</code> is not <code>extend</code>. In the current form in cssnext, <code>@apply</code> copies the properties and values to each rule. This is a small project so that's OK. On larger projects the extra properties may cause problems. At that time it would be probably be best to use a common class name to get similar results.
+  <code>@apply</code> is not <code>extend</code>. In the current form in cssnext, <code>@apply</code> copies the properties and values to each rule. This is a small project so that's OK. On larger projects the extra properties may cause too much bloat. At that time it would probably be best to use a common class name to get similar results.
 </p>
 
 <p>
-  At this point I had the site looking as it did before the changes. The Projects page was an exception. On it I used a different color for each project tile. Making that work without Sass required more work.
+  At this point I had the site looking as it did before the changes. The Projects page was an exception. On it I used a different color for each project tile. Next I'll describe how styling that correctly without Sass required more work and more typing.
 </p>
 
 <figure>
@@ -354,11 +351,11 @@ $darkerwhite: darken($offwhite, 15);</code></pre>
 }</code></pre>
 
 <p>
-  At the time of this writing, I couldn't find a way to mimic this functionality. Custom property sets with @apply aren't functions, so you can't provide arguments. In the future, it might be possible to use custom selectors for argument magic. The <a href="https://drafts.csswg.org/css-extensions/#declarative-custom-selector">draft spec</a> has a complex example that I don't fully understand.
+  At the time of this writing, I couldn't find a way to mimic this functionality in CSS. Custom property sets with <code>@apply</code> aren't functions, so you can't pass them arguments. In the future, it might be possible to use custom selectors for argument magic. The <a href="https://drafts.csswg.org/css-extensions/#declarative-custom-selector">draft spec</a> has a complex example that looks promising. Right now, I'll admin, I don't fully understand how it works.
 </p>
 
 <p>
-  This didn't mean I was out of luck. The CSS I write is longer that the Sass, but not much longer. I also made use of another in-progress CSS feature; the <a href="https://drafts.csswg.org/selectors-4/#matches">matches</a> selector.
+  That didn't mean I was out of luck. The CSS I write is longer than the Sass, but not by much. I also made use of another in-progress CSS feature; the <a href="https://drafts.csswg.org/selectors-4/#matches">matches</a> selector.
 </p>
 
 <p>
@@ -373,7 +370,7 @@ $darkerwhite: darken($offwhite, 15);</code></pre>
   }
 }</code></pre>
 <p>
-  The color variables are in a <code>:root</code> scope earlier in the file. cssnext compiles the above code to:
+  The color variables are in a <code>:root</code> scope earlier in the file. cssnext compiles the above CSS to:
 </p>
 <pre><code class="language-css">.p-jribbble,
 .p-jribbble a:hover,
