@@ -5,10 +5,10 @@
 
   & .logo {
     display: block;
-    height: 165px;
+    height: 145px;
     margin: 0 auto;
     transition: max-width 0.1s;
-    width: 240px;
+    width: 220px;
   }
 
   & svg {
