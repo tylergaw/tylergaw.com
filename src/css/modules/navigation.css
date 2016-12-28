@@ -1,20 +1,23 @@
 [role='navigation'] {
-  border-bottom: 8px solid var(--yellow);
-  font-size: 1.1em;
+  border-bottom: 6px solid var(--yellow);
+  font-size: 1.2em;
   margin: 0 auto;
   max-width: 720px;
+  width: 95%;
 
   & ul {
     display: flex;
+    flex-wrap: wrap;
   }
 
   & li {
-    width: 33.33%;
+    flex-grow: 1;
   }
 
   & a {
-    @apply --futura-heading;
+    @apply --franklin-heading;
     display: inline-block;
+    font-weight: 500;
     padding: 0.7em 0.2em;
     text-decoration: none;
     transition: color 0.2s;

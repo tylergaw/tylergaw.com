@@ -5,26 +5,26 @@
   --offwhite: #f8f8f8;
   --darkerwhite: color(var(--offwhite) shade(15%));
 
-  --futura: {
-    font-family: 'futura-pt', helvetica, sans-serif;
+  --franklin: {
+    font-family: 'franklin-gothic-urw', helvetica, sans-serif;
   };
 
-  --futura-heading: {
-    @apply --futura;
+  --franklin-heading: {
+    @apply --franklin;
     font-weight: 700;
     line-height: 1.1;
-    text-transform: uppercase;
   };
 
   --drop-cap: {
-    @apply --futura;
+    @apply --franklin;
     color: var(--yellow);
     float: left;
-    font-size: 520%;
-    font-weight: 700;
-    line-height: 0.4;
-    padding-right: 0.07em;
-    margin-left: -0.25em;
+    font-size: 790%;
+    font-weight: 900;
+    line-height: 0.9;
+    padding-right: 0.09em;
+    margin-left: -0.2em;
+    margin-top: -0.15em;
   };
 
   --yellow-divider: {
@@ -33,6 +33,6 @@
     display: block;
     text-align: center;
     width: 25%;
-    height: 0.4em;
+    height: 6px;
   };
 }

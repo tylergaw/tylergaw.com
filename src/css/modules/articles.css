@@ -14,35 +14,38 @@
   }
 
   & .section-title {
-    align-items: flex-end;
+    align-items: center;
     background-color: var(--yellow);
     color: var(--grey);
-  }
-
-  & .section-title {
     display: flex;
+    padding: 1.8em;
 
     & p {
       color: var(--grey);
     }
 
     & h2 {
-      @apply --futura-heading;
-      font-size: 2.2em;
+      @apply --franklin-heading;
+      font-weight: 900;
+      font-size: 3em;
+      text-transform: uppercase;
     }
   }
 
   & time {
+    @apply --franklin-heading;
+    font-size: 0.9em;
+    font-weight: 500;
     color: var(--yellow);
     display: block;
-    margin-bottom: 0.4em;
+    margin-bottom: 0.25em;
   }
 
   & a {
-    @apply --futura-heading;
+    @apply --franklin-heading;
     color: var(--offwhite);
     display: inline-block;
-    font-size: 2.2em;
+    font-size: 2.6em;
     max-width: 100%;
     text-decoration: none;
     transition: color 0.2s;
