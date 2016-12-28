@@ -141,12 +141,12 @@ disqus_id: sass-to-postcss
 
 <h3>Vendor prefixes</h3>
 <p>
-  I built this site before I knew about <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a>. I used <a href="https://github.com/tylergaw/tylergaw.com/blob/master/src/css/scss/modules/_prefixed.scss">custom Sass mixins</a> to handle adding the needed prefixes. cssnext includes Autoprefixer, so I was able to remove that entire mixins module.
+  I built this site before I knew about <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a>. I used <a href="https://github.com/tylergaw/tylergaw.com/blob/pre-postcss/src/css/scss/modules/_prefixed.scss">custom Sass mixins</a> to handle adding the needed prefixes. cssnext includes Autoprefixer, so I was able to remove that entire mixins module.
 </p>
 
 <h3>Variables</h3>
 <p>
-  Next I changed the Sass variables to CSS variables. In <a href="https://github.com/tylergaw/tylergaw.com/blob/master/src/css/scss/modules/_setup.scss">_setup.scss</a> I had:
+  Next I changed the Sass variables to CSS custom properties. In <a href="https://github.com/tylergaw/tylergaw.com/blob/pre-postcss/src/css/scss/modules/_setup.scss">_setup.scss</a> I had:
 </p>
 <pre><code class="language-scss">$grey: #1e1e1d;
 $yellow: #ffad15;
@@ -154,6 +154,9 @@ $offwhite: #f8f8f8;
 $darkerwhite: darken($offwhite, 15);</code></pre>
 <p>
   This isn't all the Sass vars I was using, but it's the main ones. The rest are in individual modules.
+</p>
+<p class="note-special">
+  <b>Note:</b> The “custom properties” vs. “variables” distinction. CSS custom properties are only valid for property values. They can't be used in selectors, property names, or media query values.
 </p>
 <p>
   The updated <code>setup.css</code>:
@@ -173,7 +176,7 @@ $darkerwhite: darken($offwhite, 15);</code></pre>
 }</code></pre>
 
 <p>
-  Apart from syntax, CSS variables works the same as Sass variables. Because of limited browser support, variables are still compiled out. In the above example, the compiled value is <code>color: #ffad15</code>.
+  Apart from syntax, CSS custom properties work the same as Sass variables. Because of limited browser support, properties are still compiled out. In the above example, the compiled value is <code>color: #ffad15</code>.
 </p>
 
 <h3>Color functions</h3>
@@ -204,7 +207,7 @@ $darkerwhite: darken($offwhite, 15);</code></pre>
 
 <h3>Nesting</h3>
 <p>
-  Nesting is an indispensable feature introduced by CSS processors. A must for any comfortable styling setup. Tab Atkins has a <a href="http://tabatkins.github.io/specs/css-nesting/">spec</a> in progress for CSS nesting and cssnext makes it available today.
+  Nesting is an indispensable feature introduced by CSS processors. A must for any comfortable styling setup. Tab Atkins has a <a href="http://tabatkins.github.io/specs/css-nesting/">spec</a> in-progress for CSS nesting and cssnext makes it available today.
 </p>
 <p>
   This was mostly legwork. The CSS syntax for nesting includes a leading <code>&</code> before nested blocks. For example, the following is a Sass snippet from my Projects page:
@@ -255,18 +258,10 @@ $darkerwhite: darken($offwhite, 15);</code></pre>
   Also worth noting is <code>@nest</code>. As mentioned in the <a href="http://cssnext.io/features/#nesting">docs</a> complex nesting requires <code>@nest</code> instead of <code>&</code>. I didn't have any use cases for it on this project, but may in the future.
 </p>
 
-<hr>
-
 <h3>Extend and Placeholder classes</h3>
 
-
-<h2>Move aside extend, here comes apply</h2>
 <p>
-  I was using <code>@extend</code> for common styles throughout the site. You can store a set of properties and use <code>@apply</code> to achieve the same outcome.
-</p>
-
-<p>
-  Here's one way I was using <code>@extend</code> with placeholder classes:
+  I was using Sass <code>@extend</code> and placeholder classes for common styles. Here's an example usage responsible for styling Futura headings:
 </p>
 <pre><code class="language-scss">%futura {
   font-family: 'futura-pt', helvetica, sans-serif;
@@ -277,15 +272,21 @@ $darkerwhite: darken($offwhite, 15);</code></pre>
   font-weight: 700;
   line-height: 1.1;
   text-transform: uppercase;
-}
-
-.my-heading {
+}</code></pre>
+<p>
+  and an example usage:
+</p>
+<pre><code class="language-scss">.my-heading {
   @extend %futura-heading;
 }</code></pre>
 
 <p>
-  and how it looks converted to CSS:
+  We looked at CSS properties usage earlier. There's a related in <a href="http://tabatkins.github.io/specs/css-apply-rule/">progress spec</a> for the <code>@apply</code> rule. <code>@apply</code> allows you to store a set of properties and reference them in selectors. I used <code>@apply</code> in place of Sass's <code>extend</code>.
 </p>
+<p>
+  Back in <code>setup.css</code> I added the updated Futura heading properties:
+</p>
+
 <pre><code class="language-css">:root {
   ...
 
@@ -299,19 +300,37 @@ $darkerwhite: darken($offwhite, 15);</code></pre>
     line-height: 1.1;
     text-transform: uppercase;
   };
-}
+}</code></pre>
 
-.my-heading {
+<p>
+  and an example usage:
+</p>
+
+<pre><code class="language-scss">.my-heading {
   @apply --futura-heading;
 }</code></pre>
 
 <p>
-  It's the same amount of code with slightly different syntax.
+  <code>@apply</code> is not <code>extend</code>. In the current form in cssnext, <code>@apply</code> copies the properties and values to each rule. This is a small project so that's OK. On larger projects the extra properties may cause problems. At that time it would be probably be best to use a common class name to get similar results.
 </p>
 
 <p>
-  Mixins with arguments. For my Projects page I give a different background color to each project block. To make this easier on myself, I used a Sass mixin that takes a single argument. The color I want:
+  At this point I had the site looking as it did before the changes. The Projects page was an exception. On it I used a different color for each project tile. Making that work without Sass required more work.
 </p>
+
+<figure>
+  <img src="/articles/assets/post-image-postcss-3.png" alt="A screenshot of tylergaw.com/projects" />
+  <figcaption>
+    The colorful tiles of the Projects page
+  </figcation>
+</figure>
+
+<h2>Mixins with arguments</h2>
+
+<p>
+  To make writing the projects styles easier I used a Sass mixin. The mixin took a single argument, the color for the tile. Here's the <code>project-block</code> mixin:
+</p>
+
 <pre><code class="language-scss">@mixin project-block ($c) {
   background-color: $c;
 
@@ -323,16 +342,24 @@ $darkerwhite: darken($offwhite, 15);</code></pre>
       color: $offwhite);
     }
   }
-}
-...
-.p-jribbble {
-  @include project-block(#ff0066);
 }</code></pre>
 <p>
-  At the time of this writing, I couldn't find a way to mimic this functionality. Custom property sets with <code>@apply</code> aren't functions, so you can't provide arguments. Looking at the <a href="https://drafts.csswg.org/css-extensions/#declarative-custom-selector">draft spec</a> for custom selectors, it <i>looks</i> like it may be a way to do some argument magic in the future, but today I couldn't see a way to make it work.
+  and example usage:
 </p>
+<pre><code class="language-scss">.p-jribbble {
+  @include project-block(#ff0066);
+}</code></pre>
+
 <p>
-  This doesn't mean all is lost. I did find a way to make each rule shorter. Here's an example of what each rule looks like now:
+  At the time of this writing, I couldn't find a way to mimic this functionality. Custom property sets with @apply aren't functions, so you can't provide arguments. In the future, it might be possible to use custom selectors for argument magic. The <a href="https://drafts.csswg.org/css-extensions/#declarative-custom-selector">draft spec</a> has a complex example that I don't fully understand.
+</p>
+
+<p>
+  This didn't mean I was out of luck. The CSS I write is longer that the Sass, but not much longer. I also made use of another in-progress CSS feature; the <a href="https://drafts.csswg.org/selectors-4/#matches">matches</a> selector.
+</p>
+
+<p>
+  Here's an example of the CSS replacement for the <code>project-block</code> mixin:
 </p>
 <pre><code class="language-css">.p-jribbble,
 .p-jribbble a:matches(:hover, :focus) {
@@ -343,10 +370,7 @@ $darkerwhite: darken($offwhite, 15);</code></pre>
   }
 }</code></pre>
 <p>
-  The color variables are defined in a <code>:root</code> scope earlier in the file. The new feature in use here is the <code>matches</code> <a href="https://drafts.csswg.org/selectors-4/#matches">pseudo class</a>. For these purposes it's letting me write a shorter selector for each project block.
-</p>
-<p>
-  The code above compiles to:
+  The color variables are in a <code>:root</code> scope earlier in the file. cssnext compiles the above code to:
 </p>
 <pre><code class="language-css">.p-jribbble,
 .p-jribbble a:hover,
@@ -360,12 +384,23 @@ $darkerwhite: darken($offwhite, 15);</code></pre>
   color: #ff0066;
 }</code></pre>
 <p>
-  The last two selectors that include <code>a a:hover</code> won't match any elements. They're unecessary, but aside from a few more bytes they don't hurt anything. I preferred to nest the <code>a</code> selector for code readability.
+  The last two selectors <code>...a a:hover</code> and <code>...a a:focus</code> won't match any elements. They're unecessary, but aside from a few more bytes they don't hurt anything. I preferred nesting the <code>a</code> selector for code readability.
 </p>
 
-<h2>Further Improvements</h2>
+<h2>More PostCSS</h2>
 <p>
-  Since I'm using PostCSS I'm taking advantage of more plugins. I used <a href="https://github.com/hail2u/node-css-mqpacker">css mqpacker</a> to combine media queries that share the same query. I also used <a href="http://cssnano.co/">cssnano</a> for further optimization.
+  With the styles back in proper order, I decided to take advantage of more PostCSS plugins. I used <a href="https://github.com/hail2u/node-css-mqpacker">css mqpacker</a> to combine media queries that share the same query. I also used <a href="http://cssnano.co/">cssnano</a> for code optimization.
+</p>
+<p>
+  This is where I'm looking forward to using a PostCSS setup. With Sass I felt locked in to the features in the current version. Because PostCSS works as a collection of plugins, it's extendible. If I have a specific need, I can write a plugin for it. The potential there is exciting.
+</p>
+
+<h2>I'm sold</h2>
+<p>
+  After working with this setup for a few days, I'm all in. Making the switch from Sass syntax to new CSS syntax has been easy. And that's after five or six years of using Sass on every project I worked on.
+</p>
+<p>
+  I enjoy the shift in thinking this brings. cssnext has a similar approach to CSS as <a href="https://babeljs.io/">Babel</a> has to JavaScript. They both allow you to write the language as it is and as it will be in the future.
 </p>
 
 {% include thanks-for-reading.html %}

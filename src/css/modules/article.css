@@ -123,13 +123,14 @@
       border-style: solid;
       border-radius: 3px;
       color: #fff;
-      padding: 0.5em 1em;
+      padding: 0.6em 1em;
       margin: 0.1em 0 1.2em 0;
     }
 
     &.note-special {
       border-color: color(var(--color-note) alpha(-70%));
       background-color: color(var(--color-note) alpha(-85%));
+      color: color(var(--color-note) w(70%));
     }
 
     &.note-update {
