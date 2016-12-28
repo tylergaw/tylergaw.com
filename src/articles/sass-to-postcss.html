@@ -2,7 +2,7 @@
 layout: article
 title: "From Sass to PostCSS"
 title_size: short
-date: 2016-12-27
+date: 2016-12-28
 disqus_id: sass-to-postcss
 ---
 
@@ -115,7 +115,7 @@ disqus_id: sass-to-postcss
 
 <h3>Will this be in a future CSS?</h3>
 <p>
-  The inlining of <code>@import</code>s was huge when it showed up in Sass. It's changed the way organize our styles for the better. I doubt this functionality will ever be native though. It seems like we'll always need a build step for this type of functionality.
+  The inlining of <code>@import</code>s was huge when it showed up in Sass. It's changed ways we're able to organize styles for the better. I'm not sure this functionality will ever be native in though. It seems like we'll always need a build step for this type of functionality. Which doesn't seem all that bad.
 </p>
 <p>
   I imagine the <code>postcss-import</code> plugin will be a staple for all my future PostCSS setups. My guess is this will be true for other folks too. This quote from the plugin author sounds right on:
@@ -131,55 +131,134 @@ disqus_id: sass-to-postcss
   </cite>
 </blockquote>
 
+<h2>cssnext</h2>
+<p>
+  <a href="http://cssnext.io/">cssnext</a> is a PostCSS plugin for compiling future CSS syntax to syntax that works today. It's important to note that it's not a different language like Sass or Less. The features it offers are in-progress CSS specs. Some for features already showing up in browsers today. Others in beginning stages of the specification process.
+</p>
+<p>
+  I used cssnext to fill in the rest of the gaps left by missing Sass features.
+</p>
 
+<h3>Vendor prefixes</h3>
+<p>
+  I built this site before I knew about <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a>. I used <a href="https://github.com/tylergaw/tylergaw.com/blob/master/src/css/scss/modules/_prefixed.scss">custom Sass mixins</a> to handle adding the needed prefixes. cssnext includes Autoprefixer, so I was able to remove that entire mixins module.
+</p>
+
+<h3>Variables</h3>
+<p>
+  Next I changed the Sass variables to CSS variables. In <a href="https://github.com/tylergaw/tylergaw.com/blob/master/src/css/scss/modules/_setup.scss">_setup.scss</a> I had:
+</p>
+<pre><code class="language-scss">$grey: #1e1e1d;
+$yellow: #ffad15;
+$offwhite: #f8f8f8;
+$darkerwhite: darken($offwhite, 15);</code></pre>
+<p>
+  This isn't all the Sass vars I was using, but it's the main ones. The rest are in individual modules.
+</p>
+<p>
+  The updated <code>setup.css</code>:
+</p>
+<pre><code class="language-css">:root {
+  --white: #fff;
+  --grey: #1e1e1d;
+  --yellow: #ffad15;
+  --offwhite: #f8f8f8;
+  ...
+}</code></pre>
+<p>
+  and an example of updated usage:
+</p>
+<pre><code class="language-css">a {
+  color: var(--yellow);
+}</code></pre>
+
+<p>
+  Apart from syntax, CSS variables works the same as Sass variables. Because of limited browser support, variables are still compiled out. In the above example, the compiled value is <code>color: #ffad15</code>.
+</p>
+
+<h3>Color functions</h3>
+<p>
+  In the previous example, I left out one variable; <code>$darkerwhite: darken($offwhite, 15);</code>. This is another Sass feature I need a replacement for. There's a <a href="https://drafts.csswg.org/css-color/#modifying-colors">draft spec</a> for a <code>color</code> function. cssnext includes this function today and it's super cool. Here's <code>setup.css</code> with the converted <code>darkerwhite</code> variable:
+</p>
+<pre><code class="language-css">:root {
+  ...
+  --offwhite: #f8f8f8;
+  --darkerwhite: color(var(--offwhite) shade(20%));
+  ...
+}</code></pre>
+<p>
+  This is an example usage of the <code>color</code> function and <code>shade</code> adjuster.
+</p>
+<p>
+  The <code>color</code> function provides a bunch of <a href="https://github.com/postcss/postcss-color-function#list-of-color-adjuster">adjusters</a>. You can use multiple adjusters in a single usage:
+</p>
+<pre><code class="language-css">background-color: color(#d32c3f shade(40%) alpha(40%));</code></pre>
+<p>
+  compiles to:
+</p>
+<pre><code class="language-css">background-color: rgba(127, 26, 38, 0.4);</code></pre>
+
+<p>
+  To reiterate. Right now cssnext compiles the result of <code>color</code> to a hex or rgba value. When the <code>color</code> function arrives in browsers, the compilation won't be necessary. The color manipulation can happen at runtime.
+</p>
+
+<h3>Nesting</h3>
+<p>
+  Nesting is an indispensable feature introduced by CSS processors. A must for any comfortable styling setup. Tab Atkins has a <a href="http://tabatkins.github.io/specs/css-nesting/">spec</a> in progress for CSS nesting and cssnext makes it available today.
+</p>
+<p>
+  This was mostly legwork. The CSS syntax for nesting includes a leading <code>&</code> before nested blocks. For example, the following is a Sass snippet from my Projects page:
+</p>
+<pre><code class="language-scss">.projects-list {
+  ...
+
+  li {
+    & > div {...}
+  }
+
+  a {
+    ...
+
+    &:hover,
+    &:focus {...}
+
+    &::after {...}
+  }
+
+  @media (min-width: 640px) {...}
+}</code></pre>
+<p>
+  For CSS nesting, I changed that to:
+</p>
+<pre><code class="language-css">.projects-list {
+  ...
+
+  & li {
+    & > div {...}
+  }
+
+  & a {
+    ...
+
+    &:hover,
+    &:focus {...}
+
+    &::after {...}
+  }
+
+  @media (min-width: 640px) {...}
+}</code></pre>
+<p>
+  Basic nesting requires the leading <code>&</code>. Pseudo classes and selectors are the same in Sass and CSS. Media queries don't need a leading <code>&</code>.
+</p>
+<p>
+  Also worth noting is <code>@nest</code>. As mentioned in the <a href="http://cssnext.io/features/#nesting">docs</a> complex nesting requires <code>@nest</code> instead of <code>&</code>. I didn't have any use cases for it on this project, but may in the future.
+</p>
 
 <hr>
 
+<h3>Extend and Placeholder classes</h3>
 
-
-<p>
-  I Killed prefixed.css. I built this site before Autoprefixer was a thing. I also only needed to prefix a handful of properties. So, I wrote a few Sass mixins to hanle the vendor prefixing. This was the easiest thing to remove. Because cssnext handles necessary vender prefixing, I could safely remove all uses of the prefix mixins I'd created.
-</p>
-<p>
-  I added PostCSS and cssnext and removed my prefix mixins, but I'm still looking at this:
-</p>
-<figure>
-  <img src="" alt="Screenshot of a partially styled tylergaw.com">
-</figure>
-<p>
-  There's a foundational piece missing. Variables. I leaned on Sass variables for this project. Without them, there is no background or text color. This is the point that I needed to switch my brain from Sass to a future CSS.
-</p>
-<p>
-  I took this step one rule at a time. The first thing I needed to figure out was the <code>body</code> rule. If I could get that together everything else would be a copy.
-</p>
-<h2>Nothing works (the way you expect it to)</h2>
-<p>
-  Not dogging anyone with this observation. If you go down this path things are not going to work like you're used to or you expect. This is a new frontier. Plan accordingly.
-</p>
-
-<p>
-  Converted Sass style variables to CSS. <code>$foo</code> to <code>--foo</code>.
-</p>
-
-<p>
-  Updated nesting syntax. Basic nesting requires the an ampersand "&" like <code>.parent { & .child {}}</code>. Media queries work without the "&".
-</p>
-
-<p>
-  One thing that surprised me about the nesting syntax is that things like <code>&:hover</code>, <code>&::after</code> worked the same way as Sass. That's when it clicked for me that requiring the ampersand for all nesting is because it's a placeholder for the parent selector.
-</p>
-
-<p>
-  Using <code>rgba()</code> with hex or variable values like <code>rgba($blue, 0.5)</code> is another Sass feature I use frequently. The outcome is possible with CSS, but we now use the <code>color()</code> function.
-</p>
-<pre><code class="language-css">color(var(--offwhite) alpha(10%));</code></pre>
-<p>
-  The <code>color</code> function is powerful and provides quite a few <a href="https://github.com/postcss/postcss-color-function#list-of-color-adjuster">adjusters</a>
-</p>
-<p>
-  You can use multiple color adjusters too;
-</p>
-<pre><code class="language-css">color(var(--white) shade(40%) alpha(10%))</code></pre>
 
 <h2>Move aside extend, here comes apply</h2>
 <p>
@@ -283,9 +362,10 @@ disqus_id: sass-to-postcss
 <p>
   The last two selectors that include <code>a a:hover</code> won't match any elements. They're unecessary, but aside from a few more bytes they don't hurt anything. I preferred to nest the <code>a</code> selector for code readability.
 </p>
-<h2>More Improvements</h2>
+
+<h2>Further Improvements</h2>
 <p>
-  Since I'm using PostCSS I'm taking advantage of more plugins. I used <a href="https://github.com/hail2u/node-css-mqpacker">css mqpacker</a> to combine media queries that share the same query. I also used <a href="">cssnano</a> for further optimization.
+  Since I'm using PostCSS I'm taking advantage of more plugins. I used <a href="https://github.com/hail2u/node-css-mqpacker">css mqpacker</a> to combine media queries that share the same query. I also used <a href="http://cssnano.co/">cssnano</a> for further optimization.
 </p>
 
 {% include thanks-for-reading.html %}
