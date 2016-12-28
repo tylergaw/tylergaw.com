@@ -6,6 +6,9 @@
     margin: 0 auto;
     max-width: 790px;
   };
+
+  --color-note: #ffad15;
+  --color-update: #007cff;
 }
 
 .hentry {
@@ -29,12 +32,6 @@
     display: block;
     font-size: 1.2em;
     margin-top: 0.4em;
-
-    &::before,
-    &::after {
-      color: color(var(--offwhite) alpha(-70%));
-      content: '–';
-    }
   }
 
   @media (min-width: 620px) {
@@ -131,13 +128,13 @@
     }
 
     &.note-special {
-      border-color: color(#ffad15 alpha(-70%));
-      background-color: color(#ffad15 alpha(-85%));
+      border-color: color(var(--color-note) alpha(-70%));
+      background-color: color(var(--color-note) alpha(-85%));
     }
 
     &.note-update {
-      border-color: color(#007cff alpha(-70%));
-      background-color: color(#007cff alpha(-85%));
+      border-color: color(var(--color-update) alpha(-70%));
+      background-color: color(var(--color-update) alpha(-85%));
     }
   }
 
@@ -166,7 +163,7 @@
     list-style: none;
 
     &:before {
-      background-color: #ffad15;
+      background-color: var(--color-note);
       border-radius: 55%;
       counter-increment: li;
       content: counter(li);
