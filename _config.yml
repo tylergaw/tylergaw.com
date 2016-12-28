@@ -4,3 +4,4 @@ destination: ./public
 permalink: none
 future: false
 exclude: [css/modules]
+url: https://tylergaw.com

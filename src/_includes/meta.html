@@ -1,0 +1,23 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% if page.meta.description %}
+  <meta name="description" content="{{page.meta.description}}">
+  <meta property="og:description" content="{{page.meta.description}}">
+  <meta name="twitter:description" content="{{page.meta.description}}">
+{% else %}
+  <meta name="description" content="Tyler Gaw is a Web Designer &amp; Developer in New York, New York">
+  <meta name="og:description" content="Tyler Gaw is a Web Designer &amp; Developer in New York, New York">
+  <meta name="twitter:description" content="Tyler Gaw is a Web Designer &amp; Developer in New York, New York">
+{% endif %}
+{% if page.meta.image %}
+  <meta property="og:image" content="{{ site.url }}">
+  <meta name="twitter:image:src" content="{{ site.url }}">
+  <meta name="twitter:card" content="summary_large_image">
+{% endif %}
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}Tyler Gaw - Web Design & Development - New York, New York USA{% endif %}">
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}Tyler Gaw - Web Design & Development - New York, New York USA{% endif %}">
+
+  <meta property="og:url" content="{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}">
+  <meta name="twitter:url" content="{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}">
+
+  <meta name="twitter:site" content="@tylergaw">
+  <meta property="og:type" content="article">
