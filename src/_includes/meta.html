@@ -12,6 +12,10 @@
   <meta property="og:image" content="{{ site.url }}">
   <meta name="twitter:image:src" content="{{ site.url }}">
   <meta name="twitter:card" content="summary_large_image">
+{% else %}
+  <meta property="og:image" content="{{ site.url }}/images/social-default.png">
+  <meta name="twitter:image:src" content="{{ site.url }}/images/social-default.png">
+  <meta name="twitter:card" content="summary_large_image">
 {% endif %}
   <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}Tyler Gaw - Web Design & Development - New York, New York USA{% endif %}">
   <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}Tyler Gaw - Web Design & Development - New York, New York USA{% endif %}">
