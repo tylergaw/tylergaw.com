@@ -421,7 +421,7 @@ $darkerwhite: darken($offwhite, 15);</code></pre>
       </description>
       <link>https://tylergaw.com/articles/sass-to-postcss</link>
       <guid>https://tylergaw.com/articles/sass-to-postcss</guid>
-      <pubDate>Wed, 28 Dec 2016 04:30:00 -0400</pubDate>
+      <pubDate>Wed, 28 Dec 2016 04:30:00 EST</pubDate>
     </item>
     <item>
       <title>Rewriting Day Player for Sketch 40+</title>
@@ -563,7 +563,7 @@ textField.setStringValue('My Label:');
       </description>
       <link>https://tylergaw.com/articles/rewriting-day-player-for-sketch-40</link>
       <guid>https://tylergaw.com/articles/rewriting-day-player-for-sketch-40</guid>
-      <pubDate>Wed, 21 Dec 2016 08:30:00 -0400</pubDate>
+      <pubDate>Wed, 21 Dec 2016 08:30:00 EST</pubDate>
     </item>
     <item>
       <title>Overawe</title>
@@ -650,7 +650,7 @@ textField.setStringValue('My Label:');
 <p>
   This was a lot of fun. Any time I get to sit down and create my own little
   world is good time. If no other person saw this but me, it’s still served it’s
-  purpose. It allowed me to just make a thifng without the normal internal
+  purpose. It allowed me to just make a thing without the normal internal
   debates about if I was doing every little thing the "right" way. I encourage everyone to
   do the same regardless of the medium.
 </p>
@@ -666,7 +666,7 @@ textField.setStringValue('My Label:');
       </description>
       <link>https://tylergaw.com/articles/overawe</link>
       <guid>https://tylergaw.com/articles/overawe</guid>
-      <pubDate>Thur, 25 June 2015 10:00:00 -0400</pubDate>
+      <pubDate>Thu, 25 Jun 2015 10:00:00 EST</pubDate>
     </item>
     <item>
       <title>Building OS X Apps with JavaScript</title>
@@ -1268,7 +1268,7 @@ implementation: function (sender) {
       </description>
       <link>https://tylergaw.com/articles/building-osx-apps-with-js</link>
       <guid>https://tylergaw.com/articles/building-osx-apps-with-js</guid>
-      <pubDate>Sat, 27 Sept 2014 17:45:00 -0400</pubDate>
+      <pubDate>Sat, 27 Sep 2014 17:45:00 EST</pubDate>
     </item>
     <item>
       <title>Media Seek from URL</title>
@@ -1596,7 +1596,7 @@ implementation: function (sender) {
       </description>
       <link>https://tylergaw.com/articles/media-seek-from-url</link>
       <guid>https://tylergaw.com/articles/media-seek-from-url</guid>
-      <pubDate>Sat, 20 Sept 2014 04:00:00 -0400</pubDate>
+      <pubDate>Sat, 20 Sep 2014 04:00:00 EST</pubDate>
     </item>
       <item>
           <title>How I Manage NGINX Config</title>
@@ -1729,7 +1729,7 @@ http {
           </description>
           <link>https://tylergaw.com/articles/how-i-manage-nginx-config</link>
           <guid>https://tylergaw.com/articles/how-i-manage-nginx-config</guid>
-          <pubDate>Thur, 24 July 2014 14:30:00 -0400</pubDate>
+          <pubDate>Thu, 24 Jul 2014 14:30:00 EST</pubDate>
       </item>
       <item>
           <title>A Logo Design Process</title>
@@ -2236,7 +2236,7 @@ http {
           </description>
           <link>https://tylergaw.com/articles/a-logo-design-process</link>
           <guid>https://tylergaw.com/articles/a-logo-design-process</guid>
-          <pubDate>Thur, 17 July 2014 18:30:00 -0400</pubDate>
+          <pubDate>Thu, 17 Jul 2014 18:30:00 EST</pubDate>
       </item>
       <item>
           <title>How I Start</title>
@@ -2392,7 +2392,7 @@ http {
           </description>
           <link>https://tylergaw.com/articles/how-i-start</link>
           <guid>https://tylergaw.com/articles/how-i-start</guid>
-          <pubDate>Thur, 10 July 2014 17:30:00 -0400</pubDate>
+          <pubDate>Thu, 10 Jul 2014 17:30:00 EST</pubDate>
       </item>
     <item>
         <title>CSS True Titles</title>
@@ -2707,7 +2707,7 @@ http {
         </description>
         <link>https://tylergaw.com/articles/css-true-titles</link>
         <guid>https://tylergaw.com/articles/css-true-titles</guid>
-        <pubDate>Tue, 25 February 2014 19:30:00 -0400</pubDate>
+        <pubDate>Tue, 25 Feb 2014 19:30:00 EST</pubDate>
     </item>
     <item>
         <title>2000 Days</title>
@@ -2759,7 +2759,7 @@ http {
         </p>
         <p>
             Time has claimed some of the styles, but the Arc90 jobs page from
-            July ‘08 is still available via the
+            Jul ‘08 is still available via the
             <a href="https://web.archive.org/web/20080715112955/http://arc90.com/jobs.php">Wayback Machine</a>.
             Here's a small portion:
         </p>
@@ -2851,7 +2851,7 @@ http {
         </description>
         <link>https://tylergaw.com/articles/2000-days</link>
         <guid>https://tylergaw.com/articles/2000-days</guid>
-        <pubDate>Mon, 17 February 2014 17:00:00 -0400</pubDate>
+        <pubDate>Mon, 17 Feb 2014 17:00:00 EST</pubDate>
     </item>
     <item>
         <title>Papersaver</title>
@@ -3060,7 +3060,7 @@ http {
         </description>
         <link>https://tylergaw.com/articles/papersaver</link>
         <guid>https://tylergaw.com/articles/papersaver</guid>
-        <pubDate>Mon, 03 February 2014 22:00:00 -0400</pubDate>
+        <pubDate>Mon, 03 Feb 2014 22:00:00 EST</pubDate>
     </item>
     <item>
         <title>Slenderman</title>
@@ -3260,7 +3260,7 @@ http {
         </description>
         <link>https://tylergaw.com/articles/slenderman</link>
         <guid>https://tylergaw.com/articles/slenderman</guid>
-        <pubDate>Wed, 03 July 2013 12:00:00 -0400</pubDate>
+        <pubDate>Wed, 03 Jul 2013 12:00:00 EST</pubDate>
     </item>
     <item>
         <title>WebVTT Cuemarker</title>
@@ -3406,7 +3406,7 @@ You can use <b>HTML</b> within WebVTT, pretty cool.
         </description>
         <link>https://tylergaw.com/articles/webvtt-cuemarker</link>
         <guid>https://tylergaw.com/articles/webvtt-cuemarker</guid>
-        <pubDate>Sat, 08 June 2013 20:00:00 -0400</pubDate>
+        <pubDate>Sat, 08 Jun 2013 20:00:00 EST</pubDate>
     </item>
     <item>
         <title>Get Together. Get Excited. Get to Work.</title>
@@ -3502,7 +3502,7 @@ You can use <b>HTML</b> within WebVTT, pretty cool.
         </description>
         <link>https://tylergaw.com/articles/get-together-get-excited-get-to-work</link>
         <guid>https://tylergaw.com/articles/get-together-get-excited-get-to-work</guid>
-        <pubDate>Mon, 24 Sept 2012 11:30:00 -0400</pubDate>
+        <pubDate>Mon, 24 Sep 2012 11:30:00 EST</pubDate>
     </item>
   <item>
     <title>Reacting to Media Queries in Javascript</title>
@@ -3692,7 +3692,7 @@ mqEvents(handleMediaChange);</code></pre>
     </description>
     <link>https://tylergaw.com/articles/reacting-to-media-queries-in-javascript</link>
     <guid>https://tylergaw.com/articles/reacting-to-media-queries-in-javascript</guid>
-    <pubDate>Thur, 17 May 2012 07:15:35 -0400</pubDate>
+    <pubDate>Thu, 17 May 2012 07:15:35 EST</pubDate>
   </item>
   <item>
     <title>Fun with HTML Form Validation Styles</title>
@@ -3874,7 +3874,7 @@ mqEvents(handleMediaChange);</code></pre>
     </description>
     <link>https://tylergaw.com/articles/fun-with-html-form-validation-styles</link>
     <guid>https://tylergaw.com/articles/fun-with-html-form-validation-styles</guid>
-    <pubDate>Tue, 23 Aug 2011 09:33:55 -0400</pubDate>
+    <pubDate>Tue, 23 Aug 2011 09:33:55 EST</pubDate>
   </item>
   <item>
     <title>A Small Redesign with a Little Sugar</title>
@@ -4023,7 +4023,7 @@ mqEvents(handleMediaChange);</code></pre>
     </description>
     <link>https://tylergaw.com/articles/a-small-redesign-with-a-little-sugar</link>
     <guid>https://tylergaw.com/a-small-redesign-with-a-little-sugar</guid>
-    <pubDate>Sat, 09 Jul 2011 19:14:52 -0400</pubDate>
+    <pubDate>Sat, 09 Jul 2011 19:14:52 EST</pubDate>
   </item>
   <item>
     <title>All Talkie Talkie</title>
@@ -4051,7 +4051,7 @@ mqEvents(handleMediaChange);</code></pre>
     </description>
     <link>https://tylergaw.com/articles/all-talkie-talkie</link>
     <guid>https://tylergaw.com/articles/all-talkie-talkie</guid>
-    <pubDate>Thu, 27 May 2010 11:18:00 -0400</pubDate>
+    <pubDate>Thu, 27 May 2010 11:18:00 EST</pubDate>
   </item>
   <item>
     <title>You Did What with What?</title>
@@ -4092,7 +4092,7 @@ mqEvents(handleMediaChange);</code></pre>
     </description>
     <link>https://tylergaw.com/articles/you-did-what-with-what</link>
     <guid>https://tylergaw.com/articles/you-did-what-with-what</guid>
-    <pubDate>Tue, 06 Apr 2010 22:09:00 -0400</pubDate>
+    <pubDate>Tue, 06 Apr 2010 22:09:00 EST</pubDate>
   </item>
   <item>
     <title>I Less Than Three IE6</title>
@@ -4142,7 +4142,7 @@ alert(someCrud.length);</code></pre>
     </description>
     <link>https://tylergaw.com/articles/i-less-than-three-ie6</link>
     <guid>https://tylergaw.com/articles/i-less-than-three-ie6</guid>
-    <pubDate>Mon, 27 Jul 2009 00:41:00 -0400</pubDate>
+    <pubDate>Mon, 27 Jul 2009 00:41:00 EST</pubDate>
   </item>
   <item>
     <title>Ch-ch-ch-changes!</title>
@@ -4176,7 +4176,7 @@ alert(someCrud.length);</code></pre>
     </description>
     <link>https://tylergaw.com/articles/ch-ch-ch-changes</link>
     <guid>https://tylergaw.com/articles/ch-ch-ch-changes</guid>
-    <pubDate>Thu, 18 Jun 2009 21:42:00 -0400</pubDate>
+    <pubDate>Thu, 18 Jun 2009 21:42:00 EST</pubDate>
   </item>
 </channel>
 </rss>
