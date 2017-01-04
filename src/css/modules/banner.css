@@ -6,7 +6,7 @@
   & .logo {
     display: block;
     margin: 0 auto;
-    max-width: 200px;
+    max-width: 160px;
     width: 95%;
   }
 
@@ -19,6 +19,11 @@
 
 .logo:matches(:hover, :focus) .logo-title {
   fill: #F9F9F9;
+}
+
+.logo-name {
+  fill: #F9F9F9;
+  transition: fill 0.2s;
 }
 
 .logo-title {
