@@ -11,7 +11,7 @@
   --color-update: #007cff;
 }
 
-.hentry {
+.h-entry {
   overflow: hidden;
 
   & header {
@@ -19,7 +19,7 @@
     text-align: center;
   }
 
-  & .entry-title {
+  & .p-name {
     @apply --franklin-heading;
     color: var(--offwhite);
     font-size: 3.2em;
@@ -28,7 +28,7 @@
     max-width: 95%;
   }
 
-  & .published {
+  & .dt-published {
     @apply --franklin-heading;
     color: var(--yellow);
     display: block;
@@ -37,18 +37,18 @@
   }
 
   @media (min-width: 620px) {
-    & .entry-title {
+    & .p-name {
       font-size: 7vw;
     }
   }
 }
 
-.entry-author {
+.p-author {
   display: none;
   visibility: hidden;
 }
 
-.entry-content {
+.e-content {
   color: var(--darkerwhite);
   font-size: 1.2em;
   line-height: 1.5;
@@ -224,7 +224,7 @@
 }
 
 @media (min-width: 620px) {
-  .entry-content {
+  .e-content {
     font-size: 1.3em;
   }
 }
