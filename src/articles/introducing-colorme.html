@@ -1,0 +1,47 @@
+---
+layout: article-custom
+title: "Introducing: ColorMe.io"
+title_size: short
+date: 2017-01-04
+disqus_id: introducing-colorme
+stylesheet: post-colorme
+---
+
+<p class="entry-intro">
+  Sass has been my go-to for years. But for a while now, I've wanted to try a new styling setup with PostCSS and the cssnext plugin. I love the idea of writing future CSS syntax today and using tooling more aligned with other tools I'm used to. This personal site is a perfect test bed to try this new setup.
+</p>
+<p>
+  The first step I took was an inventory of my Sass usage. I needed to know what features I was using to make sure I found a replacement in the new setup. Here's a list of what I was using on this project:
+</p>
+
+<h2>Preparing</h2>
+<p>
+  Before getting to new syntax or other fun I needed to do some yak shaving. The project was using a file structure typical for Sass usage. I used the leading underscore naming convention for partials. And included the required <code>scss</code> extension. I used two directories to loosely organize Sass files. <code>modules</code> housed Sass that didn't produce CSS. Things like variables, placeholder classes, and mixins. <code>partials</code> housed all CSS-producing Sass.
+</p>
+<p>
+  This was the <a href="">beginning file</a> structure:
+</p>
+<pre><code class="language-none">css/
+  scss/
+    modules/
+      _module.scss
+      ...
+    partials/
+      _partial.scss
+      ...
+    tylergaw.scss
+</code></pre>
+<p>
+  Each Sass partial gets imported in <code>tylergaw.scss</code>.
+</p>
+
+<pre><code class="language-scss">@import "modules/setup";
+@import "modules/reset";
+@import "modules/fonts";
+</code></pre>
+
+<p>
+  Before getting to new syntax or other fun I needed to do some yak shaving. The project was using a file structure typical for Sass usage. I used the leading underscore naming convention for partials. And included the required <code>scss</code> extension. I used two directories to loosely organize Sass files. <code>modules</code> housed Sass that didn't produce CSS. Things like variables, placeholder classes, and mixins. <code>partials</code> housed all CSS-producing Sass.
+</p>
+
+{% include thanks-for-reading.html %}
