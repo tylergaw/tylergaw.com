@@ -1,5 +1,17 @@
-{% include header.html %}
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include head-contents.html %}
+  </head>
+  <body data-page="{{page.type}}{{layout.type}}">
 
-{{ content }}
+    {% include banner.html %}
 
-{% include footer.html %}
+    <div role="main">
+      {{ content }}
+    </div>
+
+    {% include footer.html %}
+    {% include scripts.html %}
+  </body>
+</html>
