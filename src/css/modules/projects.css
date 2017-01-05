@@ -120,6 +120,9 @@
 }
 
 :root {
+  --color-clr: #ea3333;
+  --color-jsx: #ae00ff;
+  --color-dpl: rgb(255, 119, 0);
   --color-rdb: #ac1603;
   --color-rdl: #6e2911;
   --color-jrb: #ff0066;
@@ -131,6 +134,33 @@
   --color-sld: #0b7daa;
   --color-sls: #346f6e;
   --color-spr: #dd6364;
+}
+
+.p-jsx,
+.p-jsx a:matches(:hover, :focus) {
+  background-color: var(--color-jsx);
+
+  & a {
+    color: var(--color-jsx);
+  }
+}
+
+.p-dpl,
+.p-dpl a:matches(:hover, :focus) {
+  background-color: var(--color-dpl);
+
+  & a {
+    color: var(--color-dpl);
+  }
+}
+
+.p-colorme,
+.p-colorme a:matches(:hover, :focus) {
+  background-color: var(--color-clr);
+
+  & a {
+    color: var(--color-clr);
+  }
 }
 
 .p-readability,
