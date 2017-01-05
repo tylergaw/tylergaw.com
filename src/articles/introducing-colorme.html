@@ -41,34 +41,43 @@ meta:
 </p>
 <figure>
   <a href="https://colorme.io">
-    <img src="/articles/assets/post-image-colorme-screenshot-1.png" alt="A screenshot of colorme.io" />
+    <img src="https://tylergaw.com/articles/assets/post-image-colorme-screenshot-1.png" alt="A screenshot of colorme.io" />
   </a>
   <figcaption>
-   This is ColorMe
+   This is <a href="https://colorme.io">ColorMe.io</a>
   </figcation>
 </figure>
 
-<hr>
-
-<h2>TODO</h2>
+<h2>Building It</h2>
 <p>
-  There are more things that I want to do.
+  ColorMe is a React app. I used the wonderful <a href="https://github.com/facebookincubator/create-react-app">create-react-app</a> to get started.
+</p>
+<p>
+  Before getting any UI in place I needed to see a first thing work. I needed to convert color function strings to rgb(a) strings. For that I used the <code>css-color-function</code> package. I started by importing the package logging its results:
+</p>
+<pre><code class="language-js">import colorFn from 'css-color-function';
+console.log(colorFn.convert('color(red alpha(50%))')); // rgba(255, 0, 0, 0.5)</code></pre>
+<p>
+  No major breakthrough, but that's how I get myself going. Just get one win no matter how small. From there it was a matter of building up functionality piece by piece.
+</p>
+<p>
+  The workhorse of the project is the <a href="https://github.com/tylergaw/colorme/blob/develop/src/utils/color.js">color utils</a>. All color calculations happen there. When you enter a base color, the app <a href="https://github.com/tylergaw/colorme/blob/2017-01-05T17.19.10/src/utils/color.js#L10">breaks it apart</a> into individual color properties. Those properties are initial values for the adjusters. I used <a href="https://github.com/Qix-/color">this color package</a> to parse the base color string.
+</p>
+<p>
+  Because the color utils do so much I took the time to write <a href="https://github.com/tylergaw/colorme/blob/develop/src/utils/__tests__/color.test.js">decent test coverage</a>. Writing tests isn't something I jump at doing (<i>read as: I get distracted, just wanna draw pictures, or go outside, or anything else. Please don't make me write tests!</i>). But it felt necessary for this and did save me a few headaches during refactoring.
 </p>
 
-<h2>The Build</h2>
+<h2>Deploying It</h2>
 <p>
-  I used the wonderful <a href="https://github.com/facebookincubator/create-react-app">create-react-app</a> to get it started.
-
-  <br>I used the <code>css-color-function</code> package to transform color function strings to <code>rgb(a)</code> strings.
-
-  <br>The adjusters array is key. When the input color or any adjuster values change, <code>getAdjustersForColor</code> create and returns a new array with updated adjusters.
-
-  <br><a href="https://github.com/tylergaw/colorme/blob/develop/src/utils/color.js">utils/color.js</a> is the workhorse of the project. All color calculations happen there. I'm not always the best at write tests, especially for side projects, but I'm proud of myself for having <a href="https://github.com/tylergaw/colorme/blob/develop/src/utils/__tests__/color.test.js">decent coverage</a> for the color utils.
+  When I'm ready to release updates to ColorMe I run <code>npm run release</code>. That command creates a new Git tag and pushes it to GitHub. Travis then runs the tests. When Travis sees the build is for a tag it executes <a href="https://github.com/tylergaw/colorme/blob/2017-01-03T23.50.13/scripts/deploy.sh">deploy.sh</a>. That script does a production-ready build with <code>npm run build</code> and then syncs the artifacts to AWS S3. This is a similar build process that I wrote about in more detail in <a href="https://tylergaw.com/articles/rewriting-day-player-for-sketch-40">“Rewriting Day Player for Sketch 40+”</a>.
 </p>
 
-<h2>The Deploy Process</h2>
+<h2>Try it out</h2>
 <p>
-  When I'm ready to release updates to ColorMe all I need to do is run `npm run release`. That command creates a new Git tag and pushed it to GitHub. Travis then runs the tests. When Travis sees the build is for a tag it exucutes <a href="https://github.com/tylergaw/colorme/blob/2017-01-03T23.50.13/scripts/deploy.sh">deploy.sh</a>. That script does a production-ready build of the project and then syncs the artifacts to AWS S3. This is a similar build process that I wrote about in more detail in <a href="https://tylergaw.com/articles/rewriting-day-player-for-sketch-40">“Rewriting Day Player for Sketch 40+”</a>
+  It's still early days for the CSS Color Function, but it's a promising feature with momentum behind it. My hope is that more folks will start using it and we'll see the spec continue to evolve and get implemented by browsers.
+</p>
+<p>
+  Take <a href="https://colorme.io">ColorMe</a> for a spin. If you find bugs or have ideas, feel free to add <a href="https://github.com/tylergaw/colorme/issues">issues</a>.
 </p>
 
 {% include thanks-for-reading.html %}
