@@ -8,7 +8,7 @@
   "postcss-cssnext": {
     "warnForDuplicates": false
   },
-  "input": "src/css/tylergaw.css",
-  "output": "public/css/tylergaw.css",
+  "input": "src/css/*.css",
+  "dir": "public/css",
   "no-map": true
 }

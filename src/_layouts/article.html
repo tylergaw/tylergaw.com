@@ -4,17 +4,19 @@ article: true
 type: article
 ---
 
-<article class="hentry">
-  <header>
-    <time class="published" datetime="{{ page.date }}">
+<article class="h-entry">
+  <header class="e-header">
+    <time class="dt-published" datetime="{{ page.date }}">
       {{ page.date | date: '%B %d, %Y' }}
     </time>
-    <h1 class="entry-title {{ page.title_size }}-title">{{ page.title }}</h1>
-    <p class="entry-author author vcard">
-      By <span class="fn">Tyler Gaw</span>
+    <h1 class="p-name {{ page.title_size }}-title">
+      {{ page.title }}
+    </h1>
+    <p class="p-author h-card">
+      By Tyler Gaw
     </p>
   </header>
-  <div class="entry-content">
+  <div class="e-content">
     {{ content }}
   </div>
 </article>

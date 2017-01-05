@@ -23,8 +23,11 @@
     font-weight: 900;
     line-height: 0.9;
     padding-right: 0.09em;
-    margin-left: -0.2em;
     margin-top: -0.15em;
+
+    @media (min-width: 55em) {
+      margin-left: -0.2em;
+    }
   };
 
   --yellow-divider: {
