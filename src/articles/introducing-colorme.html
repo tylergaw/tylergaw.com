@@ -19,7 +19,7 @@ meta:
   The Color Function is a CSS feature in editor's draft stage of specification. This means it will be a while before it lands in any browser. That doesn't mean you can't use the proposed syntax today though. You can use the <a href="https://github.com/postcss/postcss-color-function">color function</a> PostCSS plugin. That plugin is also included in <a href="http://cssnext.io/features/#color-function">cssnext</a> if you want access to more future-facing CSS. The plugin uses the <a href="https://github.com/ianstormtaylor/css-color-function">css-color-function</a> package for its parsing and converting.
 </p>
 <p>
-  I <a href="https://tylergaw.com/articles/sass-to-postcss">wrote</a> about switching this site to PostCSS. That was my first encounter of the color function. After years of using color transform functions in Sass it's easy to see how powerful a native CSS color function will be.
+  I <a href="https://tylergaw.com/articles/sass-to-postcss">wrote</a> about switching this site to PostCSS. That was my first encounter with the color function. After years of using color transform functions in Sass it's easy to see how powerful a native CSS color function will be.
 </p>
 <p>
   There are more detailed <a href="https://topaxi.codes/modifying-css-colors-with-the-color-function/"> articles</a> about the color function. I'll give a brief overview of it here. On its own, <code>color</code> doesn't do anything with the given base color:
@@ -53,7 +53,7 @@ meta:
   ColorMe is a React app. I used the wonderful <a href="https://github.com/facebookincubator/create-react-app">create-react-app</a> to get started.
 </p>
 <p>
-  Before getting any UI in place I needed to see a first thing work. I needed to convert color function strings to rgb(a) strings. For that I used the <code>css-color-function</code> package. I started by importing the package logging its results:
+  Before getting any UI in place I needed to see a first thing work. I needed to convert color function strings to rgb(a) strings. For that I used the <code>css-color-function</code> package. I started by importing the package and logging results of its use:
 </p>
 <pre><code class="language-js">import colorFn from 'css-color-function';
 console.log(colorFn.convert('color(red alpha(50%))')); // rgba(255, 0, 0, 0.5)</code></pre>
@@ -61,7 +61,7 @@ console.log(colorFn.convert('color(red alpha(50%))')); // rgba(255, 0, 0, 0.5)</
   No major breakthrough, but that's how I get myself going. Just get one win no matter how small. From there it was a matter of building up functionality piece by piece.
 </p>
 <p>
-  The workhorse of the project is the <a href="https://github.com/tylergaw/colorme/blob/develop/src/utils/color.js">color utils</a>. All color calculations happen there. When you enter a base color, the app <a href="https://github.com/tylergaw/colorme/blob/2017-01-05T17.19.10/src/utils/color.js#L10">breaks it apart</a> into individual color properties. Those properties are initial values for the adjusters. I used <a href="https://github.com/Qix-/color">this color package</a> to parse the base color string.
+  The workhorse of the project is the <a href="https://github.com/tylergaw/colorme/blob/2017-01-05T17.19.10/src/utils/color.js">color utils</a>. All color calculations happen there. When you enter a base color, the app <a href="https://github.com/tylergaw/colorme/blob/2017-01-05T17.19.10/src/utils/color.js#L10">breaks it apart</a> into individual color properties. Those properties are initial values for the adjusters. I used <a href="https://github.com/Qix-/color">this color package</a> to parse the base color string.
 </p>
 <p>
   Because the color utils do so much I took the time to write <a href="https://github.com/tylergaw/colorme/blob/develop/src/utils/__tests__/color.test.js">decent test coverage</a>. Writing tests isn't something I jump at doing (<i>read as: I get distracted, just wanna draw pictures, or go outside, or anything else. Please don't make me write tests!</i>). But it felt necessary for this and did save me a few headaches during refactoring.
@@ -74,7 +74,7 @@ console.log(colorFn.convert('color(red alpha(50%))')); // rgba(255, 0, 0, 0.5)</
 
 <h2>Try it out</h2>
 <p>
-  It's still early days for the CSS Color Function, but it's a promising feature with momentum behind it. My hope is that more folks will start using it and we'll see the spec continue to evolve and get implemented by browsers.
+  It's still early days for the CSS Color Function. It's a promising feature with momentum behind it. My hope is that more folks will start using it and giving feedback. We'll see the spec continue to evolve and sooner or later get implemented by browsers. 
 </p>
 <p>
   Take <a href="https://colorme.io">ColorMe</a> for a spin. If you find bugs or have ideas, feel free to add <a href="https://github.com/tylergaw/colorme/issues">issues</a>.
