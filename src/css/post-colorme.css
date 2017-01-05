@@ -27,7 +27,7 @@
   border-bottom-color: var(--grey);
   position: relative;
   z-index: 10;
-  margin-bottom: 100%;
+  margin-bottom: 105%;
 
   & a {
     color: var(--grey);
@@ -48,6 +48,10 @@
 
   & .dt-published {
     color: rgba(255, 255, 255, 0.8);
+  }
+
+  & .p-name {
+    font-size: 60px;
   }
 }
 
@@ -80,7 +84,7 @@
     & .p-name {
       box-sizing: border-box;
       font-size: 76px;
-      max-width: 48rem;
+      max-width: 46rem;
     }
   }
 }

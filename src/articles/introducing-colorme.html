@@ -1,47 +1,74 @@
 ---
 layout: article-custom
-title: "Introducing: ColorMe.io"
+title: "Introducing: ColorMe"
 title_size: short
-date: 2017-01-04
+date: 2017-01-05
 disqus_id: introducing-colorme
 stylesheet: post-colorme
+permalink: /articles/introducing-colorme
+meta:
+  description: ColorMe allows you to visualize The CSS Color Function
+  image: /articles/assets/post-image-colorme-social.png
 ---
 
 <p class="entry-intro">
-  Sass has been my go-to for years. But for a while now, I've wanted to try a new styling setup with PostCSS and the cssnext plugin. I love the idea of writing future CSS syntax today and using tooling more aligned with other tools I'm used to. This personal site is a perfect test bed to try this new setup.
-</p>
-<p>
-  The first step I took was an inventory of my Sass usage. I needed to know what features I was using to make sure I found a replacement in the new setup. Here's a list of what I was using on this project:
+  <a href="https://colorme.io">ColorMe</a> is a site I built to make working with the <a href="https://drafts.csswg.org/css-color/#modifying-colors">CSS Color Function</a> easier. It provides a UI for applying adjusters to a base color and gives a visual of the adjustments. The excellent <a href="http://jim-nielsen.com/sassme/" target="_blank">SassMe</a> was my inspiration.
 </p>
 
-<h2>Preparing</h2>
 <p>
-  Before getting to new syntax or other fun I needed to do some yak shaving. The project was using a file structure typical for Sass usage. I used the leading underscore naming convention for partials. And included the required <code>scss</code> extension. I used two directories to loosely organize Sass files. <code>modules</code> housed Sass that didn't produce CSS. Things like variables, placeholder classes, and mixins. <code>partials</code> housed all CSS-producing Sass.
+  The Color Function is a CSS feature in editor's draft stage of specification. This means it will be a while before it lands in any browser. That doesn't mean you can't use the proposed syntax today though. You can use the <a href="https://github.com/postcss/postcss-color-function">color function</a> PostCSS plugin. That plugin is also included in <a href="http://cssnext.io/features/#color-function">cssnext</a> if you want access to more future-facing CSS. The plugin uses the <a href="https://github.com/ianstormtaylor/css-color-function">css-color-function</a> package for its parsing and converting.
 </p>
 <p>
-  This was the <a href="">beginning file</a> structure:
+  I <a href="https://tylergaw.com/articles/sass-to-postcss">wrote</a> about switching this site to PostCSS. That was my first encounter of the color function. After years of using color transform functions in Sass it's easy to see how powerful a native CSS color function will be.
 </p>
-<pre><code class="language-none">css/
-  scss/
-    modules/
-      _module.scss
-      ...
-    partials/
-      _partial.scss
-      ...
-    tylergaw.scss
-</code></pre>
 <p>
-  Each Sass partial gets imported in <code>tylergaw.scss</code>.
+  There are more detailed <a href="https://topaxi.codes/modifying-css-colors-with-the-color-function/"> articles</a> about the color function. I'll give a brief overview of it here. On its own, <code>color</code> doesn't do anything with the given base color:
+</p>
+<pre><code class="language-css">color(#ea3333) /* output is the same as input */</code></pre>
+<p>
+  The power of the function is in adjusters. These are transformations applied to the base color. The current draft spec lists 15 available adjusters; <code>alpha</code>, <code>rgb</code>, <code>red</code>, <code>green</code>, <code>blue</code>, <code>hue</code>, <code>saturation</code>, <code>lightness</code>, <code>whiteness</code>, <code>blackness</code>, <code>tint</code>, <code>shade</code>, <code>blend</code>, <code>blenda</code>, and <code>contrast</code>.
+</p>
+<p>
+  The <code>color</code> function allows you to apply one or more adjusters to the given base color:
+</p>
+<pre><code class="language-css">color(#ea3333 alpha(90%) saturation(75%) shade(20%)) /* rgba(182, 47, 47, 0.9) */</code></pre>
+<p>
+  Many of the adjusters also have short names:
+</p>
+<pre><code class="language-css">color(#ea3333 a(90%) s(75%) shade(20%)) /* rgba(182, 47, 47, 0.9) */</code></pre>
+<p>
+  Like Sass, using the CSS Color Function in code can be difficult visualize. Colors are easier to work with when you can see them. That's why SassMe is so darn useful. And that's why I thought we needed the same for CSS.
+</p>
+<figure>
+  <a href="https://colorme.io">
+    <img src="/articles/assets/post-image-colorme-screenshot-1.png" alt="A screenshot of colorme.io" />
+  </a>
+  <figcaption>
+   This is ColorMe
+  </figcation>
+</figure>
+
+<hr>
+
+<h2>TODO</h2>
+<p>
+  There are more things that I want to do.
 </p>
 
-<pre><code class="language-scss">@import "modules/setup";
-@import "modules/reset";
-@import "modules/fonts";
-</code></pre>
-
+<h2>The Build</h2>
 <p>
-  Before getting to new syntax or other fun I needed to do some yak shaving. The project was using a file structure typical for Sass usage. I used the leading underscore naming convention for partials. And included the required <code>scss</code> extension. I used two directories to loosely organize Sass files. <code>modules</code> housed Sass that didn't produce CSS. Things like variables, placeholder classes, and mixins. <code>partials</code> housed all CSS-producing Sass.
+  I used the wonderful <a href="https://github.com/facebookincubator/create-react-app">create-react-app</a> to get it started.
+
+  <br>I used the <code>css-color-function</code> package to transform color function strings to <code>rgb(a)</code> strings.
+
+  <br>The adjusters array is key. When the input color or any adjuster values change, <code>getAdjustersForColor</code> create and returns a new array with updated adjusters.
+
+  <br><a href="https://github.com/tylergaw/colorme/blob/develop/src/utils/color.js">utils/color.js</a> is the workhorse of the project. All color calculations happen there. I'm not always the best at write tests, especially for side projects, but I'm proud of myself for having <a href="https://github.com/tylergaw/colorme/blob/develop/src/utils/__tests__/color.test.js">decent coverage</a> for the color utils.
+</p>
+
+<h2>The Deploy Process</h2>
+<p>
+  When I'm ready to release updates to ColorMe all I need to do is run `npm run release`. That command creates a new Git tag and pushed it to GitHub. Travis then runs the tests. When Travis sees the build is for a tag it exucutes <a href="https://github.com/tylergaw/colorme/blob/2017-01-03T23.50.13/scripts/deploy.sh">deploy.sh</a>. That script does a production-ready build of the project and then syncs the artifacts to AWS S3. This is a similar build process that I wrote about in more detail in <a href="https://tylergaw.com/articles/rewriting-day-player-for-sketch-40">“Rewriting Day Player for Sketch 40+”</a>
 </p>
 
 {% include thanks-for-reading.html %}
