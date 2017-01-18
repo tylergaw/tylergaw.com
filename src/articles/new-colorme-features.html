@@ -1,0 +1,62 @@
+---
+layout: article
+title: "New ColorMe Features"
+date: 2017-01-18
+disqus_id: new-colorme-features
+permalink: /articles/new-colorme-features
+meta:
+  description: After a week and half of usage and great feedback, I made a few feature additions to the popular color tweaker.
+---
+
+<p class="entry-intro">
+  Since <a href="https://tylergaw.com/articles/introducing-colorme">releasing it</a> the week before last, ColorMe has had time to simmer and I've gotten a bunch of great feedback from folks. In that time I've made a few additions. New features include; support for hsl(a) and rrggbbaa colors. Red, green, and blue color adjusters. And the option to choose the format of the output color. In this post I write about the work went into the updates.
+</p>
+
+<p>
+  The first changes made I snuck in the day after release. Those were minor improvements to the color adjusters for touch devices. Or more accuratly, devices without `hover` support. During initial build and usage, I knew the adjusters had usability issues on mobile devices, but decided to get it releases first and then circle back to it. This was also among the first feedback.
+</p>
+<p>
+  I didn't change the UI completely for touch devices, but what I did was increase the size of the thumb on the adjuster range sliders in <a href="https://github.com/tylergaw/colorme/pull/4">this pull request</a>. The problem the UI had was the horizontal scrolling interfering with the range sliders. The thumb of the sliders was too hard to get a hold of with a finger.
+</p>
+<p>
+  By default, the CSS for the range slider thumbs gives large, almost comical size. And even larger on `:active`.
+</p>
+<pre><code class="language-css">.adjusterValRange::-webkit-slider-thumb {
+  ...
+  height: 1.6rem;
+  margin-top: -0.8rem;
+  width: 1.6rem;
+}
+
+.adjusterValRange::-webkit-slider-thumb:hover,
+.adjusterValRange::-webkit-slider-thumb:active {
+  margin-top: -1.8rem;
+  height: 2.5rem;
+  width: 2.5rem;
+}</code></pre>
+<figure>
+  <img src="/articles/assets/post-image-colorme-updates-touch-support.png" alt="A screenshot of touch device use of color adjusters on ColorMe" />
+  <figcaption>
+    The size of an inactive and an active slider thumb on touch devices. It looks odd here, but easier to see and handle when you're using a finger.
+  </figcation>
+</figure>
+<p>
+  To decrease the thumb size on devices with <code>hover</code> support , I used the <code>hover</code> media query. This is available in the Media Queries Level 4 <a href="https://www.w3.org/TR/mediaqueries-4/#hover">spec</a>.
+</p>
+<pre><code class="language-css">@media (hover) {
+  .adjusterValRange::-webkit-slider-thumb {
+    ...
+    height: 0.75rem;
+    margin-top: -0.3rem;
+    width: 0.75rem;
+  }
+
+  .adjusterValRange::-webkit-slider-thumb:hover,
+  .adjusterValRange::-webkit-slider-thumb:active {
+    margin-top: -0.5rem;
+    height: 1.1rem;
+    width: 1.1rem;
+  }
+}</code></pre>
+
+{% include thanks-for-reading.html %}
