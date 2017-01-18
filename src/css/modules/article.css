@@ -206,7 +206,6 @@
 .entry-intro {
   color: var(--offwhite);
   font-size: 1.2em;
-  font-style: italic;
   line-height: 1.6;
 
   &::after {
