@@ -16,3 +16,12 @@ For a one-off build without starting watchers, run
 ```
 npm run build
 ```
+
+## Viewing locally
+
+Tyler, this project doesn't have a development server. You have an nginx conf
+and [http://dev.tylergaw](http://dev.tylergaw) set up. Run nginx:
+
+```
+sudo nginx
+```
