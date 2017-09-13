@@ -1,0 +1,99 @@
+@import "modules/setup";
+
+:root {
+  --red: #ff3030;
+}
+
+body {
+  background: #fff;
+  color: var(--grey);
+}
+
+.logo-name,
+.logo-title {
+  fill: var(--red);
+}
+
+.logo:matches(:hover, :focus) .logo-name,
+.logo:matches(:hover, :focus) .logo-title {
+  fill: var(--red);
+}
+
+[role='navigation'] {
+  border-bottom-color: var(--red);
+
+  & a {
+    color: var(--red);
+
+    &:hover,
+    &:focus {
+      color: var(--red);
+      opacity: 0.5;
+    }
+  }
+}
+
+[data-page='article'] .nav-articles,
+[data-page='articles'] .nav-articles,
+[data-page='project'] .nav-projects,
+[data-page='projects'] .nav-projects,
+[data-page='about'] .nav-about {
+  color: var(--red);
+  opacity: 0.5;
+}
+
+.e-header {
+  & .p-name {
+    color: var(--red);
+  }
+
+  & .dt-published {
+    color: var(--red);
+  }
+}
+
+.entry-intro {
+  color: var(--red);
+
+  &::after {
+    background-color: var(--red);
+  }
+}
+
+.entry-intro + p:first-letter {
+  color: var(--red);
+}
+
+.e-content {
+  color: var(--red);
+
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    color: var(--red);
+  }
+}
+
+.h-entry {
+  & a {
+    color: var(--red);
+  }
+}
+
+[role='contentinfo'] {
+  border-top-color: var(--red);
+
+  & .contact {
+    & a {
+      color: var(--red);
+
+      &:hover,
+      &:focus {
+        color: var(--red);
+        opacity: 0.5;
+      }
+    }
+  }
+}

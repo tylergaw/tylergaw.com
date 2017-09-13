@@ -1,6 +1,12 @@
 <div id="disqus_thread"></div>
 <script>
     (function() {
+      // Just a real garbage exit for local dev so disqus doesn't vomit requests
+      // all over the place.
+      if (window.location.host === 'dev.tylergaw') {
+        return;
+      }
+
       var disqus_shortname  = 'tylergaw',
           disqus_title = '{{ page.title }}',
           disqus_identifier = '{{ page.disqus_id }}',
