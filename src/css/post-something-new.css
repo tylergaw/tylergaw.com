@@ -2,11 +2,31 @@
 
 :root {
   --red: #ff3030;
+  --red-light: #ff8d8d;
 }
 
 body {
   background: #fff;
   color: var(--grey);
+}
+
+.article-hero {
+  box-shadow: inset 0 4px 0 var(--red-light);
+}
+
+[role='banner'] {
+  padding-top: 0;
+}
+
+.logo {
+  &::before {
+    background-color: var(--red);
+    content: '';
+    display: block;
+    height: 4px;
+    margin: 0 auto 1em auto;
+    width: 70%;
+  }
 }
 
 .logo-name,
@@ -27,8 +47,7 @@ body {
 
     &:hover,
     &:focus {
-      color: var(--red);
-      opacity: 0.5;
+      color: var(--red-light);
     }
   }
 }
@@ -38,15 +57,11 @@ body {
 [data-page='project'] .nav-projects,
 [data-page='projects'] .nav-projects,
 [data-page='about'] .nav-about {
-  color: var(--red);
-  opacity: 0.5;
+  color: var(--red-light);
 }
 
 .e-header {
-  & .p-name {
-    color: var(--red);
-  }
-
+  & .p-name,
   & .dt-published {
     color: var(--red);
   }
@@ -91,8 +106,7 @@ body {
 
       &:hover,
       &:focus {
-        color: var(--red);
-        opacity: 0.5;
+        color: var(--red-light);
       }
     }
   }
