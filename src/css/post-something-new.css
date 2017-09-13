@@ -24,7 +24,7 @@ body {
     content: '';
     display: block;
     height: 4px;
-    margin: 0 auto 1em auto;
+    margin: 0 auto 0.6em auto;
     width: 70%;
   }
 }
