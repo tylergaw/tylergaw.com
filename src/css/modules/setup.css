@@ -28,6 +28,7 @@
     @media (min-width: 55em) {
       font-size: 700%;
       margin-left: -0.2em;
+      margin-top: -0.08em;
     }
   };
 

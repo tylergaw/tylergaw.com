@@ -95,6 +95,10 @@
       max-width: 250px;
       width: 95%;
     }
+
+    & svg {
+      max-width: 250px;
+    }
   }
 
   & figure {
