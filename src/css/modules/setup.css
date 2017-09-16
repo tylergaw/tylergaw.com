@@ -19,13 +19,14 @@
     @apply --franklin;
     color: var(--yellow);
     float: left;
-    font-size: 795%;
+    font-size: 650%;
     font-weight: 900;
-    line-height: 0.9;
-    padding-right: 0.09em;
+    line-height: 0.8;
+    padding-right: 0.07em;
     margin-top: -0.15em;
 
     @media (min-width: 55em) {
+      font-size: 700%;
       margin-left: -0.2em;
     }
   };
