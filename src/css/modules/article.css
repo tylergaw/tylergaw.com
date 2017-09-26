@@ -237,9 +237,3 @@
   font-size: 0.9em;
   font-style: italic;
 }
-
-#disqus_thread {
-  @apply --maxedText;
-  margin-top: 3.5em;
-  width: var(--contentWidth);
-}
