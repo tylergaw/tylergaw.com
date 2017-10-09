@@ -1,21 +1,21 @@
 ---
-layout: article-custom
+layout: article
 title: "A First PWA"
-date: 2017-10-05
-stylesheet: first-pwa
+date: 2017-10-09
 permalink: /articles/first-pwa
 meta:
   description: Notes a making my first progressive web app
-  image: /articles/assets/post-image-limbo-social.png
 ---
 
 <p class="entry-intro">
 
 </p>
 
-switch over to HTTPS,
-add a JSON manifest file with your metacrap, and
-add a service worker.
+From Jeremy:
+
+- switch over to HTTPS,
+- add a JSON manifest file with your metacrap, and
+- add a service worker.
 
 <blockquote>
   <p>
@@ -49,13 +49,21 @@ This was the biggest mystery for me. I understood the concept of service workers
 Steps:
 - Following the tutorial, register the most simple service worker possible. Does nothing.
 - Got hung up when listing assets to cache because my JS/CSS files are fingerprinted. This is default in create-react-app. I don't want to eject to change things. Researching what to do...
+- Piggy backed on CRA build process. Once it completes building, my custom script replaces special strings in the service worker with the fingerprinted names of the CSS and JS files and an image.
+- Not supposed to scale. Quick and dirty on purpose.
+
+CRA + cache options:
+1. eject and modify the Webpack build process
+2. update to latest CRA and use their built-in PWA
+3. Walk away from computer, sleep on it, think about a better solution the next morning while walking my <a href="http://leela.dog">dog</a>
 
 
-Thoughts:
+Thoughts/Notes:
 - I didn't know Service Workers usurped AppCache, which was an awful thing
 - This feels a bit like reading about Responsive Design for the first time
 - <code>caches</code> is a global variable. On <code>window</code> scope.
 - Usually, when I thought my service working wasn't updating correctly, it wasn't that, it was cache at Cloudfront.
+- Every change you make; html, css, js, images, etc. you have to change the cache version to make sure the old sw is deleted and new one takes over.
 
 
 #### Reference:
@@ -63,7 +71,4 @@ Thoughts:
 - https://developer.mozilla.org/en-US/docs/Web/Manifest
 - https://developers.google.com/web/tools/lighthouse/audits/registered-service-worker
 - (most helpful, but dated) https://codelabs.developers.google.com/codelabs/offline
-- https://jakearchibald.com/2014/offline-cookbook/
-
-TODO:
-- Add google analytics
+- (most helpful for driving home concepts and uses) https://jakearchibald.com/2014/offline-cookbook/
