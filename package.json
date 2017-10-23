@@ -7,9 +7,9 @@
     "url": "git+https://github.com/tylergaw/tylergaw.com.git"
   },
   "scripts": {
-    "build": "jekyll b && npm run postcss",
+    "build": "jekyll b && yarn postcss",
     "postcss": "postcss -c postcss.json",
-    "start": "npm run build && jekyll b -w && postcss -w -c postcss.json"
+    "start": "yarn build && jekyll b -w && postcss -w -c postcss.json"
   },
   "author": "Tyler Gaw",
   "license": "ISC",
