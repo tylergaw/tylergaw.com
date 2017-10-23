@@ -1,74 +1,129 @@
 ---
 layout: article
-title: "A First PWA"
-date: 2017-10-09
+title: "Building My First PWA"
+date: 2017-10-23
 permalink: /articles/first-pwa
 meta:
-  description: Notes a making my first progressive web app
+  description: Notes a making my first Progressive Web Site
 ---
 
 <p class="entry-intro">
-
+  I’ve read a lot about building offline-capable/first web sites or “Progress Web Apps” (PWA) for a while now. I needed a sandbox so I could learn hands-on how to make them. <a href="https://colorme.io/" target="_blank" rel="noopener">ColorMe</a> is a small site I maintain and a perfect candidate for offline experimentation. This post details the steps I took, the issues I ran into, and things I learned while building my first PWA.
 </p>
 
-From Jeremy:
+<p>
+  In many of the articles I read about PWA, there were common steps for building them. A simple-on-the-surface looking process. Here’s one list from Jeremy in <a href="https://adactio.com/journal/12461">“Progressing the Web.”</a>
+</p>
 
-- switch over to HTTPS,
-- add a JSON manifest file with your metacrap, and
-- add a service worker.
+<blockquote>
+  <ol>
+    <li>switch over to HTTPS,</li>
+    <li>add a JSON manifest file with your metacrap, and</li>
+    <li>add a service worker.</li>
+  </ol>
+  <cite>
+    <a href="https://adactio.com/journal/12461">Jeremy Keith, “Progressing the Web.”</a>
+  </cite>
+</blockquote>
+
+<p>
+  OK, that seems easy enough. But that last step, that seems like it could be a lot to unpack and Jeremy does offer a disclaimer:
+</p>
 
 <blockquote>
   <p>
-    That last step can be tricky if you’re new to service workers...
+    That last step can be tricky if you’re new to service workers, but it’s not unsurmountable.
   </p>
+  <cite>
+    <a href="https://adactio.com/journal/12461">Jeremy Keith, “Progressing the Web.”</a>
+  </cite>
 </blockquote>
+<p>
+  I’ll ignore the service worker portion of the process for now and focus on the first two items.
+</p>
+<h2>Using HTTPS</h2>
+<p>
+  ColorMe already has HTTPS in place. The site is hosted on S3 and served by CloudFront so I used <a href="https://aws.amazon.com/certificate-manager/">Amazon’s Certificate Manager</a> to obtain an SSL certificate. The most difficult part of that process for me was setting up a temporary email address to confirm domain ownership. But it’s in place and has been since launch.
+</p>
 
-## Adding a Manifest
+<h2>Adding a Manifest</h2>
+<p>
+  This is where things get more interesting. Including the <code>manifest.json</code> was easy. ColorMe is built using <a href="https://github.com/facebookincubator/create-react-app">Create React App</a> so I created the file in the public directory. <code>/public/manifest.json</code> The same directory as the favicon and <code>index.html</code>.
+</p>
+<p>
+  I knew there was “stuff” that went in the manifest, but I had questions about specifics. What keys can I use? What are example values for each key? And what key-values am I supposed to have? The best resource I found for questions number one and two is the MDN <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest">Web App Manifest documentation</a>. It lists available keys and example values.
+</p>
 
-- Create manifest.json in root public directory. The same directory has favicon and index.html. In this case <code>/public</code>
-- Add <code>short_name</code> and <code>name</code>
-- Referenced manifest in index.html <code>link rel="manifest" href="/manifest.json"</code>
-- Created and added three launch icon sizes. At least one (192x192) is required.
-- Add colors: background_color and theme_color
-- Add display: standalone
-- Added <code>noscript</code> content. Would be better to have some type of useful experience without JS, but will try that another time. It's interesting to think how to make a site like this provide something of value without JS.
-- Noticed I was still failing the Splash Screen audit so added more icon sizes; 256x256, 384x384, and 512x512. I'm not sure what each of those are for, but they were recomended.
+<ul>
+  <li>
+    Add <code>short_name</code> and <code>name</code></li>
+  <li>
+    Referenced manifest in index.html <code>link rel="manifest" href="/manifest.json"</code></li>
+  <li>
+    Created and added three launch icon sizes. At least one (192x192) is required.</li>
+  <li>
+    Add colors: background_color and theme_color</li>
+  <li>
+    Add display: standalone</li>
+  <li>
+    Added <code>noscript</code> content. Would be better to have some type of useful experience without JS, but will try that another time. It's interesting to think how to make a site like this provide something of value without JS.</li>
+  <li>
+    Noticed I was still failing the Splash Screen audit so added more icon sizes; 256x256, 384x384, and 512x512. I'm not sure what each of those are for, but they were recomended.</li>
+</ul>
 
 Oh:
 > If you want to manually verify that your web app manifest is set up correctly, use the Manifest tab on the Application panel of Chrome DevTools.
 
-I didn't realize that was a thing. Kept re-running the PWA Audit. It's great and has an "Add to homescreen" button to test the mechanism which is much appreciated since I don't have access to an Android device.
+<p>
+  I didn't realize that was a thing. Kept re-running the PWA Audit. It's great and has an "Add to homescreen" button to test the mechanism which is much appreciated since I don't have access to an Android device.
+</p>
 
-At this point I still don’t have an PWA that can be added to any homescreen. The audit turns up one failure still:
-> Failures: Site does not register a Service Worker, Manifest start_url is not cached by a Service Worker.
+<p>
+  At this point I still don’t have an PWA that can be added to any homescreen. The audit turns up one failure still:
+</p>
 
-## The Service Worker
+<blockquote>
+  <p>
+    Failures: Site does not register a Service Worker, Manifest start_url is not cached by a Service Worker.
+  </p>
+</blockquote>
 
-This was the biggest mystery for me. I understood the concept of service workers. I didn't understand what the goals of a service worker for a PWA were. Sure, it's JS, it runs in the background, but what’s the JS supposed to do?
+<h2>The Service Worker</h2>
 
-Steps:
+<p>
+  This was the biggest mystery for me. I understood the concept of service workers. I didn't understand what the goals of a service worker for a PWA were. Sure, it's JS, it runs in the background, but what’s the JS supposed to do?
+</p>
+
+<h3>Steps</h3>
 - Following the tutorial, register the most simple service worker possible. Does nothing.
 - Got hung up when listing assets to cache because my JS/CSS files are fingerprinted. This is default in create-react-app. I don't want to eject to change things. Researching what to do...
 - Piggy backed on CRA build process. Once it completes building, my custom script replaces special strings in the service worker with the fingerprinted names of the CSS and JS files and an image.
 - Not supposed to scale. Quick and dirty on purpose.
 
-CRA + cache options:
-1. eject and modify the Webpack build process
-2. update to latest CRA and use their built-in PWA
-3. Walk away from computer, sleep on it, think about a better solution the next morning while walking my <a href="http://leela.dog">dog</a>
+<p>
+  This left me with a few options for caching fingerprinted files:
+</p>
 
+<ol>
+  <li>Eject and modify the Webpack build process</li>
+  <li>Update to latest CRA and use their built-in PWA</li>
+  <li>Walk away from computer, sleep on it, think about a better solution the next morning while walking my <a href="http://leela.dog">dog</a></li>
+</ol>
 
-Thoughts/Notes:
-- I didn't know Service Workers usurped AppCache, which was an awful thing
-- This feels a bit like reading about Responsive Design for the first time
-- <code>caches</code> is a global variable. On <code>window</code> scope.
-- Usually, when I thought my service working wasn't updating correctly, it wasn't that, it was cache at Cloudfront.
-- Every change you make; html, css, js, images, etc. you have to change the cache version to make sure the old sw is deleted and new one takes over.
+<h3>Thoughts/Notes:</h3>
+<ul>
+  <li>I didn't know Service Workers usurped AppCache, which was an awful thing</li>
+  <li>This feels a bit like reading about Responsive Design for the first time</li>
+  <li><code>caches</code> is a global variable. On <code>window</code> scope.</li>
+  <li>Usually, when I thought my service working wasn't updating correctly, it wasn't that, it was cache at Cloudfront.</li>
+  <li>Every change you make; html, css, js, images, etc. you have to change the cache version to make sure the old sw is deleted and new one takes over. (this might be true)</li>
+</ul>
 
-
-#### Reference:
-- https://developers.google.com/web/fundamentals/web-app-manifest/
-- https://developer.mozilla.org/en-US/docs/Web/Manifest
-- https://developers.google.com/web/tools/lighthouse/audits/registered-service-worker
-- (most helpful, but dated) https://codelabs.developers.google.com/codelabs/offline
-- (most helpful for driving home concepts and uses) https://jakearchibald.com/2014/offline-cookbook/
+<h3>Reference</h3>
+<ul>
+  <li>https://developers.google.com/web/fundamentals/web-app-manifest/</li>
+  <li>https://developer.mozilla.org/en-US/docs/Web/Manifest</li>
+  <li>https://developers.google.com/web/tools/lighthouse/audits/registered-service-worker</li>
+  <li>(most helpful, but dated) https://codelabs.developers.google.com/codelabs/offline</li>
+  <li>(most helpful for driving home concepts and uses) https://jakearchibald.com/2014/offline-cookbook/</li>
+</ul>
