@@ -8,11 +8,15 @@ meta:
 ---
 
 <p class="entry-intro">
-  I’ve read a lot about building offline-capable/first web sites or “Progress Web Apps” (PWA) for a while now. I needed a sandbox so I could learn hands-on how to make them. <a href="https://colorme.io/" target="_blank" rel="noopener">ColorMe</a> is a small site I maintain and a perfect candidate for offline experimentation. This post details the steps I took, the issues I ran into, and things I learned while building my first PWA.
+  I’ve been looking for a sandbox–and time–to sit down and learn how to build offline-capable/first web sites or “Progress Web Apps” (PWA) for a while. I learn best with hands-on approach. <a href="https://colorme.io/" target="_blank" rel="noopener">ColorMe</a> is a small site I maintain and a perfect candidate for offline functionality experimentation. This post details the steps I took, the issues I ran into, and things I learned building my first PWA.
 </p>
 
 <p>
-  In many of the articles I read about PWA, there were common steps for building them. A simple-on-the-surface looking process. Here’s one list from Jeremy in <a href="https://adactio.com/journal/12461">“Progressing the Web.”</a>
+  Quick note. This isn’t a general “How to make a PWA” post. It may not even be a good intro. There are plenty of articles and tutorials to get the basics. This post is specific to the work involved in making ColorMe a PWA. And more specifically about an issue I ran into to trying to cache fingerprinted filenames.
+</p>
+
+<p>
+  In a lot of posts I’ve read about building PWAs, there were common steps for building them. A simple-on-the-surface looking process. Here’s one list from Jeremy in <a href="https://adactio.com/journal/12461">“Progressing the Web.”</a>
 </p>
 
 <blockquote>
@@ -109,6 +113,119 @@ Oh:
   <li>Update to latest CRA and use their built-in PWA</li>
   <li>Walk away from computer, sleep on it, think about a better solution the next morning while walking my <a href="http://leela.dog">dog</a></li>
 </ol>
+
+------------
+
+<h3>Piggybacking on the build script</h3>
+
+<p>
+  The default CRA build script builds the project according to the built in Webpack config. I don't have access to change the underlying config–without ejecting–but I can modify the build script in <code>package.json</code>. I’d already modified the script to include <code>NODE_PATH=src</code>. That makes it easier to import modules without referencing the full path. The starting build script looked like:
+</p>
+
+<pre><code class="language-javascript">NODE_PATH=src react-scripts build</code></pre>
+
+<p>
+  I knew a couple things. I knew the build process creates a file named <code>asset-manifest.json</code>. The contents of that file include the full fingerprinted names of all static assets used in the site. The contents of the manifest file:
+</p>
+
+<pre><code class="language-javascript">{
+  "main.css": "static/css/main.2ebebc14.css",
+  "main.css.map": "static/css/main.2ebebc14.css.map",
+  "main.js": "static/js/main.7e7a1a8f.js",
+  "main.js.map": "static/js/main.7e7a1a8f.js.map",
+  "static/media/bgTransparent.svg": "static/media/bgTransparent.e6317315.svg"
+}</code></pre>
+
+<p>
+  Those are the full filenames I need to cache in my service worker. Now I just need to get those filenames into the service worker file. The first thing I need to do is piggyback on the build script. Back in <code>package.json</code> I updated the script to look like:
+
+  The first thing I did was create a new, empty file, <code>/scripts/generate-sw.js</code>
+</p>
+
+<pre><code class="language-javascript">NODE_PATH=src react-scripts build && npm run generate-sw</code></pre>
+
+<p>
+  This says; “run the normal build process, then when you’re done with that run this other npm script”. That script looks like:
+</p>
+
+<pre><code class="language-javascript">"generate-sw": "node scripts/generate-sw.js"</code></pre>
+
+<h4>The generate script</h4>
+
+<p>
+  I need to get the filenames out of <code>asset-manifest.json</code> and into the array of filenames to cache in <code>/public/service-worker.js</code>. My plan was to not get fancy with this. I just need to grab strings from one file and write them into another file. The fact that the target file is JavaScript is immaterial to this process.
+</p>
+
+<p>
+  The full file is available <a href="https://github.com/tylergaw/colorme/blob/03946e9540a031075f3f691356d7aa3f4e457a2d/scripts/generate-sw.js">on GitHub</a> and I’ll go through the code in detail here.
+</p>
+
+<pre><code class="language-javascript">const manifest = require('../build/asset-manifest.json');
+const fs = require('fs');
+const swPath = 'build/service-worker.js';</code></pre>
+
+<p>
+  First is setup. <code>asset-manifest.json</code> is JSON so we <code>require</code> it here for use as a normal object. We’ll need the <code>fs</code> package for reading and writing files. We’ll need to reference the path of the service worker a couple times later so we store it for convenience.
+</p>
+
+<pre><code class="code-muted">const manifest = require('../build/asset-manifest.json');
+const fs = require('fs');
+const swPath = 'build/service-worker.js';</code>
+<code class="language-javascript">const urlsCSV = Object.keys(manifest)
+  .filter(k => !k.includes('.map'))
+  .map(k => manifest[k]);</code></pre>
+
+<p>
+  Getting more interesting, but still not fancy. At then end of all this we want a list of strings to place in an array so we’re building a CSV. The first thing we do is use <code>Object.keys</code> get the keys from the manifest JSON so we can loop over an array.
+</p>
+<p>
+  If you look at <code>asset-manifest.json</code> you’ll see source maps. We don’t want to cache those. I’m not sure if there’s a best practice for or against that, but I decided it didn’t seem right for this project. We use <code>filter</code> to remove any keys that include the <code>.map</code> extension.
+</p>
+<p>
+  Now that we only have keys for the files we want to cache we use <code>map</code> to create the new array of filenames. We now have a <code>urlsCSV</code> array:
+</p>
+
+<pre><code class="language-javascript">[
+  "static/css/main.2ebebc14.css",
+  "static/js/main.7e7a1a8f.js",
+  "static/media/bgTransparent.e6317315.svg"
+]</code></pre>
+
+<p>
+  <strong>Tangent.</strong> If you’re the savvy JavaScripter that I know you are, you might be asking; <em>“why didn’t you just use <code>Object.values</code> instead of <code>Object.keys</code> plus <code>map</code>?”</em> That’s a great question with a quick answer. I’m running Node.js version 6.9.1. <code>Object.values</code> is not supported without the <code>--harmony</code> until version <code>7.0.0</code>. I didn’t want to upgrade Node.js for this. That’s all.
+</p>
+
+<p>
+  Now that we have an array of the filenames we want to cache, we need to get them into the service worker file. Again, this isn’t meant to be fancy or scalable. It’s meant to get the job done.
+</p>
+
+<pre><code class="code-muted">const manifest = require('../build/asset-manifest.json');
+const fs = require('fs');
+const swPath = 'build/service-worker.js';
+const urlsCSV = Object.keys(manifest)
+  .filter(k => !k.includes('.map'))
+  .map(k => manifest[k]);</code>
+
+<code class="language-javascript">fs.readFile(swPath, "utf8", (err, data) => {
+  if (err) { return console.log("Error trying to read SW file", err); }
+
+  const result = data.replace("%MANIFESTURLS%", JSON.stringify(urlsCSV));
+
+  fs.writeFile(swPath, result, "utf8", err => {
+    if (err) { return console.log("Error trying to write SW file", err); }
+  });
+});</code></pre>
+
+<p>
+  Let’s break this down. First we open the service worker file for reading that we made a reference to above in <code>swPath</code>. The <code>err</code> condition isn’t pertinent to our purposes here, I only included it to be nice to myself in case something odd happens during a build.
+</p>
+
+<p>
+  The next line is important.
+</p>
+
+
+------------
 
 <h3>Thoughts/Notes:</h3>
 <ul>

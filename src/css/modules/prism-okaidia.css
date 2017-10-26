@@ -116,3 +116,8 @@ pre[class*="language-"],
 .token.entity {
 	cursor: help;
 }
+
+.code-muted,
+.code-muted span {
+  color: #7f7f7f !important;
+}
