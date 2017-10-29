@@ -51,7 +51,7 @@
 
 .e-content {
   color: var(--darkerwhite);
-  font-size: 1.2em;
+  font-size: 1.3em;
   line-height: 1.5;
   margin: 0 auto;
   max-width: var(--maxContentWidth);
@@ -170,7 +170,7 @@
   }
 
   & blockquote {
-    border-left: 4px solid var(--yellow);
+    border-left: 4px solid var(--darkerwhite);
     color: var(--offwhite);
     font-size: 1em;
     margin-bottom: 1.6em;
@@ -213,7 +213,7 @@
 
 @media (min-width: 620px) {
   .e-content {
-    font-size: 1.3em;
+    font-size: 1.4em;
   }
 }
 
