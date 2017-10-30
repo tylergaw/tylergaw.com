@@ -209,6 +209,7 @@
 .entry-intro + p:first-letter,
 .entry-intro + h2 + p:first-letter {
   @apply --drop-cap;
+  color: var(--offwhite);
 }
 
 @media (min-width: 620px) {

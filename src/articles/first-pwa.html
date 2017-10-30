@@ -1,14 +1,14 @@
 ---
 layout: article
 title: "Building My First PWA"
-date: 2017-10-29
+date: 2017-10-30
 permalink: /articles/first-pwa
 meta:
   description: Notes a making my first Progressive Web Site
 ---
 
 <p class="entry-intro">
-  I’ve been looking for a sandbox–and time–to sit down and learn how to build offline-capable/first web sites or “Progress Web Apps” (PWA) for a while. I learn best with hands-on approach. <a href="https://colorme.io/" target="_blank" rel="noopener">ColorMe</a> is a small site I maintain and a perfect candidate for offline functionality experimentation. This post details the steps I took, the issues I ran into, and things I learned building my first PWA.
+  I’ve been looking for a sandbox–and time–to sit down and learn how to build offline-capable/first web sites or “Progressive Web Apps” (PWA) for a while. I learn best with hands-on approach. <a href="https://colorme.io/" target="_blank" rel="noopener">ColorMe</a> is a site I maintain and a perfect candidate for offline experimentation. This post details the steps I took, the issues I ran into, and things I learned building my first PWA.
 </p>
 
 <p>
@@ -16,7 +16,7 @@ meta:
 </p>
 
 <p>
-  In a lot of posts I’ve read about building PWAs, there were common steps for building them. A simple-on-the-surface looking process. Here’s one list from Jeremy in <a href="https://adactio.com/journal/12461">“Progressing the Web.”</a>
+  In a lot of what I’ve read about PWAs, there’s been common steps for building them. A simple-on-the-surface looking process. Here’s one list from Jeremy in <a href="https://adactio.com/journal/12461">“Progressing the Web.”</a>
 </p>
 
 <blockquote>
@@ -31,7 +31,7 @@ meta:
 </blockquote>
 
 <p>
-  OK, that seems easy enough. But that last step, that seems like it could be a lot to unpack and Jeremy does offer a disclaimer:
+  OK, that seems easy enough. Except that last step. That seems like it could be a lot to unpack. Jeremy does offer a disclaimer:
 </p>
 
 <blockquote>
@@ -43,47 +43,131 @@ meta:
   </cite>
 </blockquote>
 <p>
-  I’ll ignore the service worker portion of the process for now and focus on the first two items.
+  I’ll ignore the service worker part of the process for now and focus on the first two items.
 </p>
 <h2>Using HTTPS</h2>
 <p>
-  ColorMe already has HTTPS in place. The site is hosted on S3 and served by CloudFront so I used <a href="https://aws.amazon.com/certificate-manager/">Amazon’s Certificate Manager</a> to obtain an SSL certificate. The most difficult part of that process for me was setting up a temporary email address to confirm domain ownership. But it’s in place and has been since launch.
+  ColorMe already has HTTPS in place. I host it on S3 and serve it through CloudFront. I use <a href="https://aws.amazon.com/certificate-manager/">Amazon’s Certificate Manager</a> to add an SSL certificate. HTTPS is in place and has been since launch.
 </p>
 
 <h2>Adding a Manifest</h2>
 <p>
-  This is where things get more interesting. Including the <code>manifest.json</code> was easy. ColorMe is built using <a href="https://github.com/facebookincubator/create-react-app">Create React App</a> so I created the file in the public directory. <code>/public/manifest.json</code> The same directory as the favicon and <code>index.html</code>.
-</p>
-<p>
-  I knew there was “stuff” that went in the manifest, but I had questions about specifics. What keys can I use? What are example values for each key? And what key-values am I supposed to have? The best resource I found for questions number one and two is the MDN <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest">Web App Manifest documentation</a>. It lists available keys and example values.
+  This is where things got more interesting. ColorMe is built with <a href="https://github.com/facebookincubator/create-react-app">Create React App</a> (CRA) so I created the <code>manifest.json</code> file in the <code>public</code> directory. The same directory as the favicon and <code>index.html</code>. Anything in the <code>public</code> directory gets copied to the <code>build</code> directory as is. That’s what we need for <code>manifest.json</code>.
 </p>
 
-<ul>
-  <li>
-    Add <code>short_name</code> and <code>name</code></li>
-  <li>
-    Referenced manifest in index.html <code>link rel="manifest" href="/manifest.json"</code></li>
-  <li>
-    Created and added three launch icon sizes. At least one (192x192) is required.</li>
-  <li>
-    Add colors: background_color and theme_color</li>
-  <li>
-    Add display: standalone</li>
-  <li>
-    Added <code>noscript</code> content. Would be better to have some type of useful experience without JS, but will try that another time. It's interesting to think how to make a site like this provide something of value without JS.</li>
-  <li>
-    Noticed I was still failing the Splash Screen audit so added more icon sizes; 256x256, 384x384, and 512x512. I'm not sure what each of those are for, but they were recomended.</li>
-</ul>
-
-Oh:
-> If you want to manually verify that your web app manifest is set up correctly, use the Manifest tab on the Application panel of Chrome DevTools.
-
+<h3>Doesn’t CRA do PWA stuff out of the box?</h3>
 <p>
-  I didn't realize that was a thing. Kept re-running the PWA Audit. It's great and has an "Add to homescreen" button to test the mechanism which is much appreciated since I don't have access to an Android device.
+  Yes. CRA added built-in support for PWAs in version <code>1.0.0</code>. ColorMe is still on version <code>0.8.4</code>. That was the latest version when I created the project and haven’t had a reason to update.
+</p>
+<p>
+  I could have updated CRA to use the built-in PWA, but I didn’t want to miss the opportunity to learn step-by-step. Doing this myself, taking the long, “dumb” way, helped internalize the why and the how of each step. On future CRA-built projects, I’ll use the latest version with built-in PWA support. With that out of the way, I’ll detail the steps for all this “metacrap.”
 </p>
 
 <p>
-  At this point I still don’t have an PWA that can be added to any homescreen. The audit turns up one failure still:
+  I knew there was “stuff” that went in the manifest, but I wasn’t sure about specifics. What keys can I use? What are example values for each key? And what key-values am I supposed to have? The best resource I found for questions number one and two is the MDN <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest">Web App Manifest documentation</a>. It lists available keys and example values.
+</p>
+
+<h3>Lighthouse</h3>
+<p>
+  For the third question, I turned to <a href="https://developers.google.com/web/tools/lighthouse/">Lighthouse audits</a> in Chrome dev tools. Before adding anything to the manifest, I ran a PWA audit. It reported items needed to meet the minimum requirements for a PWA (according to the audit).
+</p>
+
+<figure>
+  <img src="/articles/assets/post-image-pwa-audit-before.png" alt="">
+  <figcaption>
+    A pre-pwa audit of colorme.io
+  </figcation>
+</figure>
+
+<p>
+  With the audit report as a starting point, I hit each item on the list. Most important, I referenced the manifest in the <code>head</code> of <code>index.html</code>. This uses the CRA-specific <code>%PUBLIC_URL%</code>.
+</p>
+
+<pre><code class="language-javascript">&lt;link rel="manifest" href="%PUBLIC_URL%/manifest.json"&gt;</code></pre>
+
+<p>
+  Most items in the manifest are straightforward enough so I won’t go line-by-line. But I will call out a couple items that took a bit more work. You can see the complete file <a href="https://github.com/tylergaw/colorme/blob/develop/public/manifest.json">on GitHub</a> and below:
+</p>
+
+<pre><code class="language-javascript">{
+  "background_color": "#ffffff",
+  "theme_color": "#B50003",
+  "display": "standalone",
+  "short_name": "ColorMe",
+  "name": "ColorMe",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "launcher-icon-48x48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "launcher-icon-96x96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "launcher-icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "launcher-icon-256x256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "launcher-icon-384x384.png",
+      "type": "image/png",
+      "sizes": "384x384"
+    },
+    {
+      "src": "launcher-icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}</code></pre>
+
+<h3>Icon sizes</h3>
+<p>
+  As you can see in the manifiest, I included six different icon sizes. The audit requires two sizes; 192x192 and 512x512. The former for the homescreen icon on Android, the latter as an icon for a splash screen on Android.
+</p>
+<p>
+  I’m not sure if the other four sizes are necessary, but I saw those sizes in tutorials and examples so I figured it wouldn’t hurt to include them.
+</p>
+
+<h3>Theme color</h3>
+<p>
+  Another requirement–per the audit–was to add a <code>theme-color</code> meta tag to <code>index.html</code>:
+</p>
+
+<pre><code class="language-javascript">&lt;meta name="theme-color" content="#B50003"&gt;</code></pre>
+
+<blockquote>
+  <p>
+    The theme-color meta tag ensures that the address bar is branded when a user visits your site as a normal webpage.
+  </p>
+</blockquote>
+
+<h3>noscript</h3>
+<p>
+  Another failing audit was “Contains Some Content When JavaScript Is Not Available.” For that, I added <code>noscript</code> content. It doesn’t do anything except apologize for not working without JavaScript. It would be better to have some type of useful experience without JS, but I’ll save that for another time. It’s interesting to think how to make a 100% static site like this provide value without JavaScript.
+</p>
+
+<h3>“According to the audit”</h3>
+<p>
+  I used specific language like; “per the audit” and “according to the audit” on purpose here. Some of these aren’t universal. For example, the <code>theme_color</code> property and the <code>theme-color</code> meta tag have no effect on Mobile Safari or Mobile Chrome on iOS as far as I can tell. For the purposes of this exercise, I’m working towards a 100% on the audit. I’m not sure every item is needed for every project. As usual, it depends.
+</p>
+
+<h3>The Manifest tab</h3>
+<p>
+  Every time I’d make a change to the manifest I’d re-run the PWA audit to check the results. This was slow. I didn’t realize there was a tab in Chrome dev tools for inspecting the <code>manifest.json</code> results. I found it early enough in the process that it helped speed things along. It also has an “Add to homescreen” button to test that mechanism. That’s much appreciated because I don’t have access to an Android device for proper testing.
+</p>
+
+<p>
+  At this point I still don’t have a valid PWA that can be added to any homescreen. The audit turns up one last failure:
 </p>
 
 <blockquote>
@@ -92,8 +176,13 @@ Oh:
   </p>
 </blockquote>
 
+<p>
+  With the rest of the manifest in place, I turned my attention to the meat of the project.
+</p>
+
 <h2>The Service Worker</h2>
 
+<hr />
 <p>
   This was the biggest mystery for me. I understood the concept of service workers. I didn't understand what the goals of a service worker for a PWA were. Sure, it's JS, it runs in the background, but what’s the JS supposed to do?
 </p>
