@@ -9,7 +9,9 @@
   "scripts": {
     "build": "jekyll b && yarn postcss",
     "postcss": "postcss -c postcss.json",
-    "start": "yarn build && jekyll b -w && postcss -w -c postcss.json"
+    "start": "yarn build && jekyll b -w && postcss -w -c postcss.json",
+    "start-jekyll": "jekyll b -w",
+    "start-css": "postcss -w -c postcss.json"
   },
   "author": "Tyler Gaw",
   "license": "ISC",
