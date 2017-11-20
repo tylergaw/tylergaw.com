@@ -70,7 +70,7 @@ meta:
 </p>
 
 <figure>
-  <img src="/articles/assets/post-image-pwa-audit-before.png" alt="">
+  <img src="https://tylergaw.com/articles/assets/post-image-pwa-audit-before.png" alt="">
   <figcaption>
     A pre-pwa audit of colorme.io
   </figcation>
@@ -283,7 +283,7 @@ self.addEventListener("install", event => {
 </p>
 
 <figure>
-  <img src="/articles/assets/post-image-pwa-audit-100-percent.png" alt="">
+  <img src="https://tylergaw.com/articles/assets/post-image-pwa-audit-100-percent.png" alt="">
   <figcaption>
     A post-pwa audit of colorme.io
   </figcation>
@@ -323,31 +323,64 @@ self.addEventListener("install", event => {
 <h2>Caching Dynamic Filenames</h2>
 
 <p>
-  At this point, all ColorMe’s service worker goals are met and we have a functioning PWA. There’s one issue though. The filenames for the CSS, JS, and image are incorrect. In the earlier snippet, I cached <code>"/static/css/main.css"</code>, <code>"/static/js/main.js"</code>, and <code>"/static/media/bgTransparent.svg"</code>. During the CRA build process, each of those filenames get fingerprinted. So they look more like; <code>"/static/css/main.2ebebc14.css"</code>, <code>"/static/js/main.7e7a1a8f.js"</code>, and <code>"/static/media/bgTransparent.e6317315.svg"</code>
+  At this point, I’ve met all the goals for ColorMe’s service worker and have a functioning PWA. If you visit ColorMe then turn off your network connection, you should be able to refresh the page and use it as normal. There’s one issue I mentioned above. The filenames for the CSS, JS, and image are incorrect. In the earlier snippet, I cached files named;
 </p>
+
+<ul>
+  <li>
+    <code>"/static/css/main.css"</code>
+  </li>
+  <li>
+    <code>"/static/js/main.js"</code>
+  </li>
+  <li>
+    <code>"/static/media/bgTransparent.svg"</code>
+  </li>
+</ul>
+
 <p>
-  I got hung up on this big time. How am I going to tell the service worker to cache files when I have no control over their names? I guessed quick that I’d need to somehow generate that list of filenames during the build process. I had a few options.
+  The CRA build process fingerprints those filenames to something like;
+</p>
+
+<ul>
+  <li>
+    <code>"/static/css/main.2ebebc14.css"</code>
+  </li>
+  <li>
+    <code>"/static/js/main.7e7a1a8f.js"</code>
+  </li>
+  <li>
+    <code>"/static/media/bgTransparent.e6317315.svg"</code>
+  </li>
+</ul>
+
+<p>
+  This is common for cachebusting and not only for CRAs. I’ve used and built tons of different asset pipelines over the years that use fingerprinting.
+</p>
+
+<p>
+  I got hung up on this big time. How am I going to tell the service worker to cache files when I have no control over their names? I didn’t find much info on the topic. <a href="https://github.com/w3c/ServiceWorker/issues/657">This issue</a> raises the question. The discussion helped me figure out an approach. I’d need to somehow generate the list of filenames during the build process. I had a few options, a couple of them not good ones;
 </p>
 <ol>
-  <li>Run the CRA eject script and update the default Webpack build process to generate the service worker</li>
+  <li>Run the CRA eject script and update the default webpack build process to generate the service worker</li>
   <li>Update to latest CRA and use their built-in PWA support</li>
   <li>Walk away from computer, sleep on it, think about a better solution the next morning while walking my <a href="http://leela.dog" target="_blank" rel="noopener">dog</a></li>
 </ol>
 
 <p>
-  I didn’t want to eject from CRA, because it didn’t seem worth it. I mentioned above updating to the latest CRA would take away the opportunity to learn. Option #3 sounded best. After getting away from the computer, I realized I had more options than I realized. It may not be an elegant or scalable solution, but I’d make it work.
+  I didn’t want to eject from CRA, because it didn’t seem worth it. I mentioned above, updating to the latest CRA would take away the opportunity to learn. Option #3 sounded best. After getting away from the computer, I realized I had more options than I realized and a solution that <em>should</em> work. It was’t going to be elegant or scalable, but it’d do the job.
 </p>
 
 <h3>Piggybacking on the CRA build script</h3>
 
 <p>
-  The default CRA build script builds the project according to the baked in webpack config. I can’t change the config–without ejecting–but I can change the build script in <code>package.json</code>. I’d already modified the script to include <code>NODE_PATH=src</code>. That makes it easier to import modules without referencing the full path. The starting build script looked like:
+  The default CRA build script builds the project according to the baked in webpack config. I can’t change the config–without ejecting–but I can change the build script in <code>package.json</code>. I’d already modified the script to include <code>NODE_PATH=src</code>. That makes it easier to import modules without referencing the full path. ColorMe’s starting build script looked like:
 </p>
 
 <pre><code class="language-javascript">NODE_PATH=src react-scripts build</code></pre>
 
 <p>
-  I knew a couple things. I knew the build process creates a file named <code>asset-manifest.json</code>. The contents of that file include the full fingerprinted names of all static assets used in the site. The contents of the manifest file:
+  I knew a couple things. I knew the build process creates a file named <code>asset-manifest.json</code>. The contents of that file include the full fingerprinted names of all static assets used in the site. Example contents of the manifest file:
 </p>
 
 <pre><code class="language-javascript">{
@@ -368,7 +401,7 @@ self.addEventListener("install", event => {
 <pre><code class="language-javascript">NODE_PATH=src react-scripts build && npm run generate-sw</code></pre>
 
 <p>
-  This says; “run the normal build process, then when you’re done with that run this other npm script”. That script looks like:
+  This says; “run the normal build process, when you’re done with that run this other npm script”. That script looks like:
 </p>
 
 <pre><code class="language-javascript">"generate-sw": "node scripts/generate-sw.js"</code></pre>
@@ -380,7 +413,7 @@ self.addEventListener("install", event => {
 <h4>The generate script</h4>
 
 <p>
-  I need to get the filenames out of <code>asset-manifest.json</code> and into the array of filenames to cache in <code>service-worker.js</code>. My plan was to not get fancy with this. I only need to grab strings from one file and write them into another file. The fact that the target file is JavaScript is immaterial to this process.
+  I need to get the filenames out of <code>asset-manifest.json</code> and into the array of filenames to cache in <code>service-worker.js</code>. My plan was to not get fancy with this. I only need to take strings from one file and write them into another file. The fact that the target file is JavaScript is immaterial to this process.
 </p>
 
 <p>
@@ -392,7 +425,7 @@ const fs = require("fs");
 const swPath = "build/service-worker.js";</code></pre>
 
 <p>
-  First is setup. <code>asset-manifest.json</code> is JSON so I <code>require</code> it here for use as an object. I’ll use the <code>fs</code> package for reading and writing files. I store the path of the service worker for later convenience.
+  First is setup. <code>asset-manifest</code> is JSON so I <code>require</code> it here for use as an object. I’ll use the <code>fs</code> package for reading and writing files. I store the path of the service worker for convenience.
 </p>
 
 <pre><code class="code-muted">const manifest = require("../build/asset-manifest.json");
@@ -409,7 +442,7 @@ const swPath = "build/service-worker.js";</code>
   Next, use <code>filter</code> to remove keys that include the string “.map.” If you look at <code>asset-manifest.json</code> you’ll see source maps. We don’t want to cache those. I’m not sure if there’s a best practice for or against that, but I decided it didn’t seem right for this project.
 </p>
 <p>
-  Now that we only have keys for the files we want to cache, use <code>map</code> to create the array of filenames; <code>urlsCSV</code>;
+  Now that we only have keys for the files we want to cache, use <code>map</code> to create the array of filenames stored as <code>urlsCSV</code>;
 </p>
 
 <pre><code class="language-javascript">[
@@ -419,11 +452,11 @@ const swPath = "build/service-worker.js";</code>
 ]</code></pre>
 
 <p>
-  <strong>A short tangent.</strong> Given the code above, you might be asking; <em>“why didn’t you just use <code>Object.values</code> instead of <code>Object.keys</code> plus <code>map</code>?”</em> That’s a great question with a quick answer. I’m running Node.js version 6.9.1. <code>Object.values</code> is not supported without the <code>--harmony</code> flag until version <code>7.0.0</code>. I didn’t want to upgrade Node.js for this. That’s all.
+  <strong>A short tangent.</strong> Given the code above, you might be asking; <em>“why didn’t you just use <code>Object.values</code> instead of <code>Object.keys</code> plus <code>map</code>?”</em> That’s a great question with a quick answer. As of this writing, I’m running Node.js version 6.9.1. <code>Object.values</code> is not supported without the <code>--harmony</code> flag until version <code>7.0.0</code>. I didn’t want to upgrade Node.js for this. I’ll do that another time. That’s all.
 </p>
 
 <p>
-  I need to get that array of filenames into the service worker file. Again, this isn’t meant to be fancy or scalable. It’s meant to get the job done.
+  I need to get that array of filenames into the service worker file. Again, this isn’t meant to be fancy or scalable. It’s meant to do the work.
 </p>
 
 <pre><code class="code-muted">const manifest = require('../build/asset-manifest.json');
@@ -448,14 +481,55 @@ const urlsCSV = Object.keys(manifest)
 </p>
 
 <p>
-  The next line is the point of this script. It searches the contents of service worker file (<code>results</code>) for the unique string <code>“%MANIFESTURLS%”</code>. When found it’s replaced with a JSON stringified version of our filenames array, <code>urlsCSV</code>.
+  The next line is the point of this script. It searches the contents of service worker file (<code>results</code>) for the unique string <code>“%MANIFESTURLS%”</code>. When found, it’s replaced with a JSON stringified version of our filenames array, <code>urlsCSV</code>.
+</p>
+
+<h3>Updates to service-worker.js</h3>
+<p>
+  As mentioned above the generate script needs to find <code>“%MANIFESTURLS%”</code> in <code>service-worker.js</code>. I went back and updated the script to account for that.
+</p>
+<pre><code class="language-javascript">const STATIC_CACHE_NAME = "colorme-v1";
+const BASE_STATIC_URLS = [
+  "/",
+  "/index.html",
+  "/manifest.json",
+  "https://fonts.googleapis.com/css?family=Cousine:400|Karla:400,700"
+];
+const STATIC_URLS = BASE_STATIC_URLS.concat(JSON.parse('%MANIFESTURLS%'));
+
+// The install handler is the same as when we started.
+self.addEventListener("install", event => {
+  event.waitUntil(
+    caches.open(STATIC_CACHE_NAME).then(cache => {
+      return cache.addAll(STATIC_URLS);
+    }).then(() => self.skipWaiting())
+  );
+});</code></pre>
+
+<p>
+  Here’s what I've done. I moved the filenames I know about to <code>BASE_STATIC_URLS</code>. I don’t fingerprint those file names, so they’re safe to hard-code. The important change is next. <code>STATIC_URLS</code> still ends up being an array of filenames, but now it's a combination of two arrays. The filenames we know about and the generated array of filenames written to this file.
+</p>
+<p>
+  <code>STATIC_URLS</code> ends up looking something like;
+</p>
+<pre><code class="language-javascript">[
+  "/",
+  "/index.html",
+  "/manifest.json",
+  "https://fonts.googleapis.com/css?family=Cousine:400|Karla:400,700",
+  "static/css/main.2ebebc14.css",
+  "static/js/main.7e7a1a8f.js",
+  "static/media/bgTransparent.e6317315.svg"
+]</code></pre>
+<p>
+  When the project builds the fingerprinted filenames and <code>asset-manifest</code> changes. Then the service worker gets updated with the new filenames.
+</p>
+<p>
+ That all adds up to a build process that handles caching of fingerprinted files.
+</p>
+<h2>A New Normal</h2>
+<p>
+  I’ve seen folks talking at length about how transformative PWAs are, but I couldn’t grasp it until I went through this process. This felt like building a responsive design for the first time. It’s the realization that this isn’t going to be a gimmick or extra or nice-to-have. It’ll take time for habit to kick in and browsers to catch up, but this will become my default when building sites.
 </p>
 
 {% include thanks-for-reading.html %}
-
-<hr />
-
-<h3>Thoughts/Notes:</h3>
-<ul>
-  <li>This feels a bit like reading about Responsive Design for the first time</li>
-</ul>
