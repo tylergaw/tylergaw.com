@@ -3,5 +3,5 @@ source: ./src
 destination: ./public
 permalink: none
 future: false
-exclude: [css/modules]
+exclude: [css]
 url: https://tylergaw.com

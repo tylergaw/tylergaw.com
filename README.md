@@ -8,13 +8,13 @@ topics related to the work I do on the web.
 To start Jekyll and PostCSS watchers, run
 
 ```
-npm start
+yarn start
 ```
 
 For a one-off build without starting watchers, run
 
 ```
-npm run build
+yarn build
 ```
 
 ## Viewing locally

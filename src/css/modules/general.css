@@ -1,16 +1,7 @@
 body {
-  background: var(--grey) url('../images/bg-crud.png') repeat-y center top;
-  background-size: 100%;
+  background-color: var(--grey);
   color: var(--offwhite);
   font-family: 'freight-text-pro', georgia, times, serif;
-
-  @media (min-width: 480px) {
-    background-size: 55%;
-  }
-
-  @media (min-width: 1600px) {
-    background-size: 25%;
-  }
 }
 
 a {
