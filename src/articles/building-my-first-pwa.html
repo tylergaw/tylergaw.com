@@ -5,6 +5,7 @@ date: 2017-11-20
 permalink: /articles/building-my-first-pwa
 meta:
   description: A probably-too-long post about the process beyond building my first Progressive Web App. Including a yarn about caching dynamic, fingerprinted filenames.
+  image: /articles/assets/post-image-first-pwa-social.png
 ---
 
 <p class="entry-intro">
@@ -150,15 +151,15 @@ meta:
 
 <h3>noscript</h3>
 <p>
-  Another failing audit was “Contains Some Content When JavaScript Is Not Available.” For that, I added <code>noscript</code> content. It doesn’t do anything except apologize for not working without JavaScript. It would be better to have some type of useful experience without JS, but I’ll save that for another time. It’s interesting to think how to make a 100% static site like this provide value without JavaScript.
+  Another failing audit was “Contains Some Content When JavaScript Is Not Available.” For that, I added <code>noscript</code> content. It doesn’t do anything except apologize for not working without JavaScript. It would be better to have some type of useful experience without JS, but I’ll save that for another time. It’s interesting to think how to make a site like this provide value without JavaScript.
 </p>
 
 <h3>“According to the audit”</h3>
 <p>
-  I’m using specific language like; “per the audit” and “according to the audit” on purpose here. Some of these aren’t universal. For example, the <code>theme_color</code> property and the <code>theme-color</code> meta tag have no effect on Mobile Safari or Mobile Chrome on iOS as far as I can tell. For the purposes of this exercise, I’m working towards 100% on the audit. I'm sure not every project needs every item. As usual, it depends.
+  I’m using specific language like; “per the audit” and “according to the audit” on purpose here. Some of these aren’t universal. For example, the <code>theme_color</code> property and the <code>theme-color</code> meta tag have no effect on Mobile Safari or Mobile Chrome on iOS as far as I can tell. For the purposes of this exercise, I’m working towards 100% on the audit. I’m sure not every project needs every item. As usual, it depends.
 </p>
 
-<h3>The Manifest tab</h3>
+<h3>The Chrome Dev Tools Manifest Tab</h3>
 <p>
   Every time I’d make a change to the manifest I’d re-run the PWA audit to check the results. This was slow. I didn’t realize there was a tab in Chrome dev tools for inspecting the <code>manifest.json</code> results. I found it early enough in the process that it helped speed things along. It also has an “Add to homescreen” button to test that mechanism. That’s much appreciated because I don’t have access to an Android device for proper testing. I wrote this in case someone else also doesn’t know about the manifest tab in Google Chrome Dev Tools.
 </p>
@@ -180,7 +181,7 @@ meta:
 <h2>The Service Worker</h2>
 
 <p>
-  Like I mentioned above, this was the biggest mystery for me. I understood the general concept of service workers, but I didn't understand what the goals of a service worker for a PWA were. Sure, it's JS, it runs in the background, but what’s that JS supposed to <em>do</em>? After spending time with tutorials, examples, and fiddling, I got a clearer picture.
+  Like I mentioned above, this was the biggest mystery for me. I understood the general concept of service workers, but I didn’t understand what the goals of a service worker for a PWA were. Sure, it’s JS, it runs in the background, but what’s that JS supposed to <em>do</em>? After spending time with tutorials, examples, and fiddling, I got a clearer picture.
 </p>
 <h3>The goals of ColorMe’s service worker:</h3>
 <ul>
@@ -205,7 +206,7 @@ meta:
 <pre><code class="language-javascript">caches.keys().then(names => {console.log(names)});</code></pre>
 
 <p>
-  That should output <code>["colorme-v7"]</code>. Not much to look at, but you can see that <code>window.caches</code> is a thing in this context. That means you can access caches from any client side JavaScript, not only service workers. That’s pretty cool.
+  That should output <code>["colorme-v7"]</code> (the version number might be different). Not much to look at, but you can see that <code>window.caches</code> is a thing in this context. That means you can access caches from any client side JavaScript, not only service workers. That’s pretty cool.
 </p>
 
 <h3>Goal 1: Cache Static Files</h3>
@@ -250,7 +251,7 @@ self.addEventListener("install", event => {
   <li>and put the files we specified in that cache.</li>
 </ol>
 <p>
-  There are better descriptions of the install event and <code>waitUntil</code> out there. <a href="https://developer.mozilla.org/en-US/docs/Web/API/InstallEvent">MDN</a> is a great one.
+  There are full descriptions of the install event and <code>waitUntil</code> available. <a href="https://developer.mozilla.org/en-US/docs/Web/API/InstallEvent">MDN</a> is a great one.
 </p>
 
 <h4>Skip Waiting?</h4>
@@ -275,7 +276,7 @@ self.addEventListener("install", event => {
 });</code></pre>
 
 <p>
-  This snippet listens for all HTTP requests from the user’s browser. <code>event.respondWith</code> prevents the browser’s default <code>fetch</code> handling. That allows us to check if the requested URL–<code>event.request</code>–is in the cache. If it is, respond with the cached file. If it's not cached, continue with the request to the server using <code>fetch()</code>.
+  This snippet listens for all HTTP requests from the user’s browser. <code>event.respondWith</code> prevents the browser’s default <code>fetch</code> handling. That allows us to check if the requested URL–<code>event.request</code>–is in the cache. If it is, respond with the cached file. If it’s not cached, continue with the request to the server using <code>fetch()</code>.
 </p>
 
 <p>
@@ -317,13 +318,16 @@ self.addEventListener("install", event => {
   When the service worker activates–every time the page loads–check to see if there are stale caches. If there are, delete them. I determine if a cache is stale with #2 above.
 </p>
 <p>
-  In the first code snippet I defined the cache key; <code>const STATIC_CACHE_NAME = "colorme-v1"</code>. When I make changes to any of the cached files and redeployed the site, I also change that version number. If a user visited the site when <code>colorme-v1</code> was latest, then visits again when <code>colorme-v7</code> is the latest, the service worker deletes v1 and caches v2.
+  In the first code snippet I defined the cache key; <code>const STATIC_CACHE_NAME = "colorme-v1"</code>. When I make changes to any of the cached files and deploy the site, I also change that version number. If a user visited the site when <code>colorme-v1</code> was latest, then visits again when <code>colorme-v7</code> is the latest, the service worker deletes v1 and caches v7.
 </p>
 
 <h2>Caching Dynamic Filenames</h2>
 
 <p>
-  At this point, I’ve met all the goals for ColorMe’s service worker and have a functioning PWA. If you visit ColorMe then turn off your network connection, you should be able to refresh the page and use it as normal. There’s one issue I mentioned above. The filenames for the CSS, JS, and image are incorrect. In the earlier snippet, I cached files named;
+  At this point, I’ve met all the goals for ColorMe’s service worker and have a functioning PWA. If you visit ColorMe then turn off your network connection, you should be able to refresh the page and use it as normal.
+</p>
+<p>
+  There is one issue I mentioned above. The filenames for the CSS, JS, and image are incorrect. In the earlier snippet, I cached files named;
 </p>
 
 <ul>
@@ -359,10 +363,10 @@ self.addEventListener("install", event => {
 </p>
 
 <p>
-  I got hung up on this big time. How am I going to tell the service worker to cache files when I have no control over their names? I didn’t find much info on the topic. <a href="https://github.com/w3c/ServiceWorker/issues/657">This issue</a> raises the question. The discussion helped me figure out an approach. I’d need to somehow generate the list of filenames during the build process. I had a few options, a couple of them not good ones;
+  I got hung up on this big time. How am I going to tell the service worker to cache files when I have no control over their names? I didn’t find much info on the topic. <a href="https://github.com/w3c/ServiceWorker/issues/657">This issue</a> raises the question and the discussion helped me figure out an approach. I’d need to somehow generate the list of filenames during the build process. I had a few options, a couple of them not good ones;
 </p>
 <ol>
-  <li>Run the CRA eject script and update the default webpack build process to generate the service worker</li>
+  <li>Run the CRA eject script and change the default webpack build process to generate the service worker</li>
   <li>Update to latest CRA and use their built-in PWA support</li>
   <li>Walk away from computer, sleep on it, think about a better solution the next morning while walking my <a href="http://leela.dog" target="_blank" rel="noopener">dog</a></li>
 </ol>
@@ -374,7 +378,7 @@ self.addEventListener("install", event => {
 <h3>Piggybacking on the CRA build script</h3>
 
 <p>
-  The default CRA build script builds the project according to the baked in webpack config. I can’t change the config–without ejecting–but I can change the build script in <code>package.json</code>. I’d already modified the script to include <code>NODE_PATH=src</code>. That makes it easier to import modules without referencing the full path. ColorMe’s starting build script looked like:
+  The default CRA build script builds the project according to the baked in webpack config. I can’t change the config–without ejecting–but I can add to the build script in <code>package.json</code>. I’d already modified the script to include <code>NODE_PATH=src</code>. That makes it easier to import modules without referencing the full path. ColorMe’s starting build script looked like:
 </p>
 
 <pre><code class="language-javascript">NODE_PATH=src react-scripts build</code></pre>
@@ -392,7 +396,7 @@ self.addEventListener("install", event => {
 }</code></pre>
 
 <p>
-  Those are the full filenames I need to cache with my service worker. Now I need to get those filenames into the service worker file.
+  Those are the full filenames I need to cache with my service worker. I need to get those filenames into the service worker file.
 </p>
 <p>
   The first thing I did was add to the build script. Back in <code>package.json</code> I updated the script to look like:
@@ -481,7 +485,7 @@ const urlsCSV = Object.keys(manifest)
 </p>
 
 <p>
-  The next line is the point of this script. It searches the contents of service worker file (<code>results</code>) for the unique string <code>“%MANIFESTURLS%”</code>. When found, it’s replaced with a JSON stringified version of our filenames array, <code>urlsCSV</code>.
+  The next line is the point of this script. It searches the contents of the service worker file (<code>data</code>) for the unique string <code>“%MANIFESTURLS%”</code>. When found, it’s replaced with a JSON stringified version of our filenames array, <code>urlsCSV</code>. Then, the updated contents are written back to the service worker file.
 </p>
 
 <h3>Updates to service-worker.js</h3>
@@ -507,10 +511,10 @@ self.addEventListener("install", event => {
 });</code></pre>
 
 <p>
-  Here’s what I've done. I moved the filenames I know about to <code>BASE_STATIC_URLS</code>. I don’t fingerprint those file names, so they’re safe to hard-code. The important change is next. <code>STATIC_URLS</code> still ends up being an array of filenames, but now it's a combination of two arrays. The filenames we know about and the generated array of filenames written to this file.
+  Here’s what I've done. I moved the filenames I know about to <code>BASE_STATIC_URLS</code>. I don’t fingerprint those file names, so they’re safe to hard-code. The important change is next. <code>STATIC_URLS</code> still ends up being an array of filenames, but now it’s a combination of two arrays. The filenames we know about and the generated array of filenames written to this file.
 </p>
 <p>
-  <code>STATIC_URLS</code> ends up looking something like;
+  <code>STATIC_URLS</code> ends up looking something like this;
 </p>
 <pre><code class="language-javascript">[
   "/",
@@ -525,7 +529,7 @@ self.addEventListener("install", event => {
   When the project builds the fingerprinted filenames and <code>asset-manifest</code> changes. Then the service worker gets updated with the new filenames.
 </p>
 <p>
- That all adds up to a build process that handles caching of fingerprinted files.
+ That all adds up to a build process that handles caching of fingerprinted files and one offline-capable PWA.
 </p>
 <h2>A New Normal</h2>
 <p>
