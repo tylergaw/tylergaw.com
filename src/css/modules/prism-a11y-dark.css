@@ -117,7 +117,7 @@ pre[class*="language-"],
 
 .code-muted,
 .code-muted span {
-  color: #7f7f7f !important;
+  color: #B6B6B6 !important;
 }
 
 @media screen and (-ms-high-contrast: active) {
