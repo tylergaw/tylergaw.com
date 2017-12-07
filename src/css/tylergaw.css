@@ -10,5 +10,7 @@
 @import "modules/about";
 @import "modules/purpose";
 @import "modules/contentinfo";
-@import "modules/prism-okaidia";
+/* Removed on 12/07/17 */
+/*@import "modules/prism-okaidia";*/
+@import "modules/prism-a11y-dark";
 @import "modules/errorpage";
