@@ -1,26 +1,18 @@
----
-article: true
-type: article
----
-
 <!doctype html>
 <html lang="en">
   <head>
-    {% include head-contents.html %}
-
-    <link rel="stylesheet" href="/css/{{page.stylesheet}}.css">
-
+    {{> head-contents }}
+    <link rel="stylesheet" href="/css/{{stylesheet}}.css">
   </head>
-  <body data-page="{{page.type}}{{layout.type}}">
-
+  <body>
     <div class="article-hero">
-      {% include banner.html %}
+      {{> banner }}
 
       <header class="e-header">
         <time class="dt-published" datetime="{{ date }}">
           {{dateFormat date}}
         </time>
-        <h1 class="p-name {{ page.title_size }}-title">
+        <h1 class="p-name">
           {{ title }}
         </h1>
         <p class="p-author h-card">
@@ -37,7 +29,7 @@ type: article
       </article>
     </div>
 
-    {% include footer.html %}
-    {% include scripts.html %}
+    {{> footer }}
+    {{> scripts }}
   </body>
 </html>
