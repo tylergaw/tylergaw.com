@@ -15,6 +15,11 @@ handlebars.registerHelper(helpers);
 metalsmith(__dirname)
   .source('../src')
   .destination('../build')
+  .metadata({
+    site: {
+      url: shouldServe ? '' : 'https://tylergaw.com'
+    }
+  })
   .use(
     inplace({
       engine: 'handlebars',
