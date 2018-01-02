@@ -18,7 +18,7 @@
     line-height: 1.2;
 
     & a {
-      @apply --franklin-heading;
+      @extend %franklin-heading;
       display: inline-block;
       font-size: 0.9em;
       font-weight: 500;

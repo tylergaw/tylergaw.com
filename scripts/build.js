@@ -3,6 +3,8 @@ const msIf = require('metalsmith-if');
 const browserSync = require('metalsmith-browser-sync');
 const inplace = require('metalsmith-in-place');
 const layouts = require('metalsmith-layouts');
+const postcss = require('metalsmith-postcss');
+
 const handlebars = require('handlebars');
 const helpers = require('./handlebars-helpers');
 
@@ -20,6 +22,16 @@ metalsmith(__dirname)
       url: shouldServe ? '' : 'https://tylergaw.com'
     }
   })
+  .use(
+    postcss({
+      plugins: {
+        'postcss-import': {},
+        'postcss-nesting': {},
+        'postcss-extend-rule': {}
+      }
+    })
+  )
+  .ignore('**/modules/*.css')
   .use(
     inplace({
       engine: 'handlebars',

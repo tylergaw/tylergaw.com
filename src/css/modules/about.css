@@ -1,12 +1,12 @@
 [data-page='about'] {
   & h3,
   & h4 {
-    @apply --franklin-heading;
+    @extend %franklin-heading;
   }
 }
 
 .gaw-gives-a-shit {
-  @apply --franklin-heading;
+  @extend %franklin-heading;
   font-size: 2.9em;
   font-weight: 900;
   margin-bottom: 0.2em;
@@ -42,7 +42,7 @@
     text-align: center;
 
     & strong {
-      @apply --franklin-heading;
+      @extend %franklin-heading;
       font-style: normal;
     }
 
@@ -76,7 +76,7 @@
 }
 
 .design-to-me {
-  @apply --franklin-heading;
+  @extend %franklin-heading;
   background-color: var(--grey);
   border-top: 6px solid var(--offwhite);
   border-bottom: 6px solid var(--offwhite);
@@ -104,11 +104,11 @@
 }
 
 .services {
-  @apply --franklin;
   align-items: center;
   background-color: var(--yellow);
   color: var(--grey);
   display: flex;
+  font-family: var(--font-franklin);
   padding: 0.8em 0 0.4em 0;
   text-align: center;
   text-transform: uppercase;
@@ -244,7 +244,7 @@
   }
 
   & a {
-    @apply --franklin-heading;
+    @extend %franklin-heading;
     background-color: var(--grey);
     background-size: 100%;
     background-repeat: no-repeat;

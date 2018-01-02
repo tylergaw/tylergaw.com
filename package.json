@@ -17,17 +17,16 @@
   },
   "homepage": "https://tylergaw.com",
   "devDependencies": {
-    "css-mqpacker": "5.0.1",
-    "cssnano": "3.9.1",
     "handlebars": "4.0.11",
     "metalsmith": "2.3.0",
     "metalsmith-browser-sync": "1.1.1",
     "metalsmith-if": "0.1.1",
     "metalsmith-in-place": "1.4.4",
     "metalsmith-layouts": "1.8.1",
+    "metalsmith-postcss": "4.1.1",
     "moment": "2.20.1",
-    "postcss-cli": "2.6.0",
-    "postcss-cssnext": "2.9.0",
-    "postcss-import": "9.0.0"
+    "postcss-extend-rule": "1.1.0",
+    "postcss-import": "11.0.0",
+    "postcss-nesting": "4.2.1"
   }
 }

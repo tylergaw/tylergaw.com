@@ -5,20 +5,12 @@
   --offwhite: #f8f8f8;
   --darkerwhite: color(var(--offwhite) shade(15%));
 
-  --franklin: {
-    font-family: 'franklin-gothic-urw', helvetica, sans-serif;
-  };
-
-  --franklin-heading: {
-    @apply --franklin;
-    font-weight: 700;
-    line-height: 1.1;
-  };
+  --font-franklin: 'franklin-gothic-urw', helvetica, sans-serif;
 
   --drop-cap: {
-    @apply --franklin;
     color: var(--yellow);
     float: left;
+    font-family: var(--font-franklin);
     font-size: 650%;
     font-weight: 900;
     line-height: 0.8;
@@ -40,4 +32,10 @@
     width: 25%;
     height: 6px;
   };
+}
+
+%franklin-heading {
+  font-family: var(--font-franklin);
+  font-weight: 700;
+  line-height: 1.1;
 }

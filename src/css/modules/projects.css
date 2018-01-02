@@ -21,7 +21,7 @@
   }
 
   & a {
-    @apply --franklin-heading;
+    @extend %franklin-heading;
     background-color: var(--offwhite);
     border: 2px solid var(--offwhite);
     border-radius: 3px;
@@ -45,7 +45,7 @@
     text-align: left;
 
     & h2 {
-      @apply --franklin-heading;
+      @extend %franklin-heading;
       font-weight: 900;
       font-size: 3em;
       text-transform: uppercase;
@@ -63,7 +63,7 @@
 
   & .potential,
   & h2 {
-    @apply --franklin-heading;
+    @extend %franklin-heading;
   }
 
   & h2 {

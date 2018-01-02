@@ -15,7 +15,7 @@
   }
 
   & a {
-    @apply --franklin-heading;
+    @extend %franklin-heading;
     display: inline-block;
     font-weight: 500;
     padding: 0.7em 0.2em;

@@ -21,7 +21,7 @@
   text-align: center;
 
   & .p-name {
-    @apply --franklin-heading;
+    @extend %franklin-heading;
     color: var(--offwhite);
     font-size: 3.2em;
     font-weight: 900;
@@ -30,7 +30,7 @@
   }
 
   & .dt-published {
-    @apply --franklin-heading;
+    @extend %franklin-heading;
     color: var(--yellow);
     display: block;
     font-size: 1.2em;
@@ -68,7 +68,7 @@
   }
 
   & h2 {
-    @apply --franklin-heading;
+    @extend %franklin-heading;
     font-size: 1.2em;
     padding: 0.7em 0 0.25em 0;
   }
