@@ -1,13 +1,13 @@
 <meta charset="utf-8">
 <title>
-{% if page.title %}
-  {{ page.title }} {% if layout.article %}by Tyler Gaw{% endif %}
-{% else %}
-  Tyler Gaw - Web Design & Development - New York, New York USA
-{% endif %}
+{{#if page.title}}
+  {{ page.title }} {{#if layout.article }}by Tyler Gaw{{/if}}
+{{else}}
+  Tyler Gaw is a Designer & Engineer in Brooklyn, New York USA
+{{/if}}
 </title>
 
-{% include meta.html %}
+{{> meta }}
 
 <link rel="alternate" href="https://tylergaw.com/rss.xml" type="application/rss+xml" title="Tyler Gaw Occasionally Writes About Web Design and Life">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">

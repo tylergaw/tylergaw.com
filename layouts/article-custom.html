@@ -17,11 +17,11 @@ type: article
       {% include banner.html %}
 
       <header class="e-header">
-        <time class="dt-published" datetime="{{ page.date }}">
-          {{ page.date | date: '%B %d, %Y' }}
+        <time class="dt-published" datetime="{{ date }}">
+          {{dateFormat date}}
         </time>
         <h1 class="p-name {{ page.title_size }}-title">
-          {{ page.title }}
+          {{ title }}
         </h1>
         <p class="p-author h-card">
           By Tyler Gaw
@@ -32,7 +32,7 @@ type: article
     <div role="main">
       <article class="h-entry">
         <div class="e-content">
-          {{ content }}
+          {{{contents}}}
         </div>
       </article>
     </div>
