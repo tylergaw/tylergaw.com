@@ -20,7 +20,7 @@ helpers.dateFormat = (date, format) => {
     fmt = format;
   }
 
-  return moment(`${date}Z-05:00`).format(fmt);
+  return moment(date).format(fmt);
 };
 
 module.exports = helpers;
