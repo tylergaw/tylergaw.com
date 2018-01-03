@@ -9,8 +9,9 @@
   fill: var(--grey);
 }
 
-.logo:matches(:hover, :focus) .logo-name {
-  fill: #F9F9F9;
+.logo:hover .logo-name,
+.logo:focus .logo-name {
+  fill: var(--offwhite);
 }
 
 .article-hero {
