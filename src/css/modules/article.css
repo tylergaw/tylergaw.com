@@ -1,14 +1,13 @@
 :root {
   --contentWidth: 93%;
   --maxContentWidth: 850px;
-
-  --maxedText: {
-    margin: 0 auto;
-    max-width: 790px;
-  };
-
   --color-note: #ffad15;
   --color-update: #007cff;
+}
+
+%maxedText {
+  margin: 0 auto;
+  max-width: 790px;
 }
 
 .h-entry {
@@ -62,7 +61,7 @@
   & h4,
   & h5,
   & h6 {
-    @apply --maxedText;
+    @extend %maxedText;
     color: var(--offwhite);
     font-weight: 700;
   }
@@ -78,7 +77,7 @@
   }
 
   & p {
-    @apply --maxedText;
+    @extend %maxedText;
     padding-bottom: 1.4em;
   }
 
@@ -149,7 +148,7 @@
 
   & ul,
   & ol {
-    @apply --maxedText;
+    @extend %maxedText;
     clear: both;
     padding: 0 0.2em 1.4em 0.2em;
   }
@@ -182,7 +181,7 @@
     }
 
     & cite {
-      @apply --maxedText;
+      @extend %maxedText;
       display: block;
       font-size: 0.9em;
     }
@@ -197,7 +196,7 @@
   padding-bottom: 0;
 
   &::after {
-    @apply --yellow-divider;
+    @extend %yellow-divider;
     margin: 1.5em auto 1.5em auto;
   }
 }
@@ -208,7 +207,7 @@
 
 .entry-intro + p:first-letter,
 .entry-intro + h2 + p:first-letter {
-  @apply --drop-cap;
+  @extend %drop-cap;
   color: var(--offwhite);
 }
 

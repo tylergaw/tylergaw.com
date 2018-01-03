@@ -56,7 +56,7 @@
     align-items: flex-end;
     background-color: var(--yellow);
     color: var(--grey);
-    display: none;
+    display: flex;
     flex-grow: 1;
     min-height: 10rem;
   }
@@ -92,19 +92,11 @@
         font-size: 1em;
       }
     }
-
-    & .potential {
-      display: flex;
-    }
   }
 
   @media (min-width: 1050px) {
     & li {
       width: 33.33%
-    }
-
-    & .potential {
-      display: none;
     }
   }
 
@@ -112,17 +104,13 @@
     & li {
       width: 25%
     }
-
-    & .potential {
-      display: flex;
-    }
   }
 }
 
 :root {
-  --color-clr: #ea3333;
+  --color-clr: #b50003;
   --color-jsx: #ae00ff;
-  --color-dpl: rgb(255, 119, 0);
+  --color-dpl: #ff7700;
   --color-rdb: #ac1603;
   --color-rdl: #6e2911;
   --color-jrb: #ff0066;
@@ -137,127 +125,131 @@
 }
 
 .p-jsx,
-.p-jsx a:matches(:hover, :focus) {
+.p-jsx a:hover,
+.p-jsx a:focus {
   background-color: var(--color-jsx);
+}
 
-  & a {
-    color: var(--color-jsx);
-  }
+.p-jsx a {
+  color: var(--color-jsx);
 }
 
 .p-dpl,
-.p-dpl a:matches(:hover, :focus) {
+.p-dpl a:hover,
+.p-dpl a:focus {
   background-color: var(--color-dpl);
+}
 
-  & a {
-    color: var(--color-dpl);
-  }
+.p-dpl a {
+  color: var(--color-dpl);
 }
 
 .p-colorme,
-.p-colorme a:matches(:hover, :focus) {
+.p-colorme a:hover,
+.p-colorme a:focus {
   background-color: var(--color-clr);
+}
 
-  & a {
-    color: var(--color-clr);
-  }
+.p-colorme a {
+  color: var(--color-clr);
 }
 
 .p-readability,
-.p-readability a:matches(:hover, :focus) {
+.p-readability a:hover,
+.p-readability a:focus {
   background-color: var(--color-rdb);
+}
 
-  & a {
-    color: var(--color-rdb);
-  }
+.p-readability a {
+  color: var(--color-rdb);
 }
 
 .p-readlists,
-.p-readlists a:matches(:hover, :focus) {
+.p-readlists a:hover,
+.p-readlists a:focus {
   background-color: var(--color-rdl);
+}
 
-  & a {
-    color: var(--color-rdl);
-  }
+.p-readlists a {
+  color: var(--color-rdl);
 }
 
 .p-jribbble,
-.p-jribbble a:matches(:hover, :focus) {
+.p-jribbble a:hover,
+.p-jribbble a:focus {
   background-color: var(--color-jrb);
+}
 
-  & a {
-    color: var(--color-jrb);
-  }
+.p-jribbble a {
+  color: var(--color-jrb);
 }
 
 .p-true-titles,
-.p-true-titles a:matches(:hover, :focus) {
+.p-true-titles a:hover,
+.p-true-titles a:focus {
   background-color: var(--color-trt);
+}
 
-  & a {
-    color: var(--color-trt);
-  }
+.p-true-titles a {
+  color: var(--color-trt);
 }
 
 .p-tmfh,
-.p-tmfh a:matches(:hover, :focus) {
+.p-tmfh a:hover,
+.p-tmfh a:focus {
   background-color: var(--color-tmh);
+}
 
-  & a {
-    color: var(--color-tmh);
-  }
+.p-tmfh a {
+  color: var(--color-tmh);
 }
 
 .p-css-shaky,
-.p-css-shaky a:matches(:hover, :focus) {
+.p-css-shaky a:hover,
+.p-css-shaky a:focus {
   background-color: var(--color-shk);
+}
 
-  & a {
-    color: var(--color-shk);
-  }
+.p-css-shaky a {
+  color: var(--color-shk);
 }
 
 .p-css-write-on,
-.p-css-write-on a:matches(:hover, :focus) {
+.p-css-write-on a:hover,
+.p-css-write-on a:focus {
   background-color: var(--color-wrt);
-
-  & a {
-    color: var(--color-wrt);
-  }
 }
 
-.p-papersaver,
-.p-papersaver a:matches(:hover, :focus) {
-  background-color: var(--color-ppr);
-
-  & a {
-    color: var(--color-ppr);
-  }
+.p-css-write-on a {
+  color: var(--color-wrt);
 }
 
 .p-slenderman,
-.p-slenderman a:matches(:hover, :focus) {
+.p-slenderman a:hover,
+.p-slenderman a:focus {
   background-color: var(--color-sld);
+}
 
-  & a {
-    color: var(--color-sld);
-  }
+.p-slenderman a {
+  color: var(--color-sld);
 }
 
 .p-css-slideshows,
-.p-css-slideshows a:matches(:hover, :focus) {
+.p-css-slideshows a:hover,
+.p-css-slideshows a:focus {
   background-color: var(--color-sls);
+}
 
-  & a {
-    color: var(--color-sls);
-  }
+.p-css-slideshows a {
+  color: var(--color-sls);
 }
 
 .p-css-sprites,
-.p-css-sprites a:matches(:hover, :focus) {
+.p-css-sprites a:hover,
+.p-css-sprites a:focus {
   background-color: var(--color-spr);
+}
 
-  & a {
-    color: var(--color-spr);
-  }
+.p-css-sprites a {
+  color: var(--color-spr);
 }

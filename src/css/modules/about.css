@@ -47,7 +47,7 @@
     }
 
     &::after {
-      @apply --yellow-divider;
+      @extend %yellow-divider;
       margin: 1em auto 0 auto;
     }
   }
@@ -63,7 +63,7 @@
 }
 
 .number-one + p:first-letter {
-  @apply --drop-cap;
+  @extend %drop-cap;
   margin-left: -0.1em;
 }
 
