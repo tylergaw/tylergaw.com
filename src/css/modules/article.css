@@ -1,8 +1,6 @@
 :root {
   --contentWidth: 93%;
   --maxContentWidth: 850px;
-  --color-note: #ffad15;
-  --color-update: #007cff;
 }
 
 %maxedText {
@@ -135,14 +133,14 @@
     }
 
     &.note-special {
-      border-color: color(var(--color-note) alpha(-70%));
-      background-color: color(var(--color-note) alpha(-85%));
-      color: color(var(--color-note) w(70%));
+      border-color: #ffad154d;
+      background-color: #ffad1526;
+      color: var(--darkerwhite);
     }
 
     &.note-update {
-      border-color: color(var(--color-update) alpha(-70%));
-      background-color: color(var(--color-update) alpha(-85%));
+      border-color: #007cff4d;
+      background-color: #007cff26;
     }
   }
 
