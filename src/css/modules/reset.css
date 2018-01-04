@@ -55,3 +55,7 @@ font-weight: 700;
 i, em {
   font-style: italic;
 }
+
+* {
+  box-sizing: border-box;
+}

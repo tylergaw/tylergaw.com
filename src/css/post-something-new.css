@@ -29,7 +29,7 @@ body {
   }
 }
 
-.logo-name,
+.logo svg,
 .logo-title {
   fill: var(--red);
 }

@@ -4,14 +4,9 @@
   --red: #ea3333;
 }
 
-.logo-name,
+.logo svg,
 .logo-title {
   fill: var(--grey);
-}
-
-.logo:hover .logo-name,
-.logo:focus .logo-name {
-  fill: var(--offwhite);
 }
 
 .article-hero {

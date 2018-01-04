@@ -6,28 +6,18 @@
   & .logo {
     display: block;
     margin: 0 auto;
-    max-width: 160px;
-    width: 95%;
+    max-width: 230px;
+    width: 90%;
   }
 
   & svg {
     display: block;
+    fill: white;
     height: 100%;
     width: 100%;
   }
 }
 
-.logo:hover .logo-title,
-.logo:focus .logo-title {
-  fill: var(--offwhite);
-}
-
-.logo-name {
-  fill: var(--offwhite);
-  transition: fill 0.2s;
-}
-
 .logo-title {
   fill: var(--yellow);
-  transition: fill 0.2s;
 }
