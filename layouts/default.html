@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en" {{#if type}}data-page="{{type}}"{{/if}}>
+  <head>
+    {{> head-contents }}
+  </head>
+  <body>
+    {{> banner }}
+    <div role="main">
+      {{{contents}}}
+    </div>
+
+    {{> footer }}
+    {{> scripts }}
+  </body>
+</html>

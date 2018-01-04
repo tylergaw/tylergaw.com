@@ -7,11 +7,9 @@
     "url": "git+https://github.com/tylergaw/tylergaw.com.git"
   },
   "scripts": {
-    "build": "jekyll b && yarn postcss",
-    "postcss": "postcss -c postcss.json",
-    "start": "yarn build && jekyll b -w && postcss -w -c postcss.json",
-    "start-jekyll": "jekyll b -w",
-    "start-css": "postcss -w -c postcss.json"
+    "build": "node scripts/build.js",
+    "start": "yarn build && SERVE=true yarn build",
+    "release": "yarn build && scp -r build tyler@50.56.73.185:/home/tyler/public_html/tylergaw.com/public"
   },
   "author": "Tyler Gaw",
   "license": "ISC",
@@ -20,10 +18,16 @@
   },
   "homepage": "https://tylergaw.com",
   "devDependencies": {
-    "css-mqpacker": "5.0.1",
-    "cssnano": "3.9.1",
-    "postcss-cli": "2.6.0",
-    "postcss-cssnext": "2.9.0",
-    "postcss-import": "9.0.0"
+    "handlebars": "4.0.11",
+    "metalsmith": "2.3.0",
+    "metalsmith-browser-sync": "1.1.1",
+    "metalsmith-if": "0.1.1",
+    "metalsmith-in-place": "1.4.4",
+    "metalsmith-layouts": "1.8.1",
+    "metalsmith-postcss": "4.1.1",
+    "moment": "2.20.1",
+    "postcss-extend-rule": "1.1.0",
+    "postcss-import": "11.0.0",
+    "postcss-nesting": "4.2.1"
   }
 }

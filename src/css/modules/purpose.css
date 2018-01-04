@@ -2,7 +2,7 @@
   padding-top: 1em;
 
   & h1 {
-    @apply --franklin-heading;
+    @extend %franklin-heading;
     font-size: 21vw;
     font-weight: 900;
     text-align: center;

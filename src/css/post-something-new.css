@@ -34,9 +34,14 @@ body {
   fill: var(--red);
 }
 
-.logo:matches(:hover, :focus) .logo-name,
-.logo:matches(:hover, :focus) .logo-title {
-  fill: var(--red);
+.logo {
+  &:hover,
+  &:focus {
+    & .logo-name,
+    & .logo-title {
+      fill: var(--red-light);
+    }
+  }
 }
 
 [role='navigation'] {

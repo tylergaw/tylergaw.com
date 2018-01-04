@@ -7,7 +7,7 @@
 }
 
 .bold-statements {
-  @apply --franklin-heading;
+  @extend %franklin-heading;
   font-size: 2.4em;
   font-weight: 900;
   margin: 0 auto;
@@ -25,13 +25,13 @@
 
     &::after {
       background-color: var(--offwhite);
-      bottom: -var(--statement-border);
       content: '';
-      display: inline-block;
+      display: block;
       left: 0;
       opacity: 0;
       position: absolute;
       height: var(--statement-border);
+      top: 100%;
       transition: width 0.2s;
       width: 1px;
     }

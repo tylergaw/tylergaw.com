@@ -17,16 +17,17 @@
   }
 }
 
-.logo:matches(:hover, :focus) .logo-title {
-  fill: #F9F9F9;
+.logo:hover .logo-title,
+.logo:focus .logo-title {
+  fill: var(--offwhite);
 }
 
 .logo-name {
-  fill: #F9F9F9;
+  fill: var(--offwhite);
   transition: fill 0.2s;
 }
 
 .logo-title {
-  fill: #FFB400;
+  fill: var(--yellow);
   transition: fill 0.2s;
 }

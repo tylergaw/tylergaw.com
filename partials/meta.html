@@ -1,0 +1,28 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{#if meta.description }}
+  <meta name="description" content="{{meta.description}}">
+  <meta property="og:description" content="{{meta.description}}">
+  <meta name="twitter:description" content="{{meta.description}}">
+{{ else }}
+  <meta name="description" content="Tyler Gaw is a Web Designer & Developer in Brooklyn, USA">
+  <meta name="og:description" content="Tyler Gaw is a Web Designer & Developer in Brooklyn, USA">
+  <meta name="twitter:description" content="Tyler Gaw is a Web Designer & Developer in Brooklyn, USA">
+{{/if}}
+
+{{#if meta.image }}
+  <meta property="og:image" content="{{ site.url }}{{ meta.image }}">
+  <meta name="twitter:image:src" content="{{ site.url }}{{ meta.image }}">
+  <meta name="twitter:card" content="summary_large_image">
+{{ else }}
+  <meta property="og:image" content="{{ site.url }}/images/social-default.png">
+  <meta name="twitter:image:src" content="{{ site.url }}/images/social-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+{{/if}}
+  <meta property="og:title" content="{{#if title }}{{ title }}{{else}}Tyler Gaw - Web Design & Development - Brooklyn, USA{{/if}}">
+  <meta name="twitter:title" content="{{#if title }}{{ title }}{{else}}Tyler Gaw - Web Design & Development - Brooklyn, USA{{/if}}">
+
+  <meta property="og:url" content="{{ site.url }}{{#if permalink }}{{ permalink }}{{/if}}">
+  <meta name="twitter:url" content="{{ site.url }}{{#if permalink }}{{ permalink }}{{/if}}">
+
+  <meta name="twitter:site" content="@tylergaw">
+  <meta property="og:type" content="article">

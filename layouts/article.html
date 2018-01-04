@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" {{#if type}}data-page="{{type}}"{{/if}}>
+  <head>
+    {{> head-contents }}
+  </head>
+  <body>
+    {{> banner }}
+    <div role="main">
+      <article class="h-entry">
+        <header class="e-header">
+          <time class="dt-published" datetime="{{ date }}">
+            {{dateFormat date}}
+          </time>
+          <h1 class="p-name">
+            {{ title }}
+          </h1>
+          <p class="p-author h-card">
+            By Tyler Gaw
+          </p>
+        </header>
+        <div class="e-content">
+          {{{contents}}}
+        </div>
+      </article>
+    </div>
+
+    {{> footer }}
+    {{> scripts }}
+  </body>
+</html>

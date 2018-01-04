@@ -1,14 +1,11 @@
 :root {
   --contentWidth: 93%;
   --maxContentWidth: 850px;
+}
 
-  --maxedText: {
-    margin: 0 auto;
-    max-width: 790px;
-  };
-
-  --color-note: #ffad15;
-  --color-update: #007cff;
+%maxedText {
+  margin: 0 auto;
+  max-width: 790px;
 }
 
 .h-entry {
@@ -21,7 +18,7 @@
   text-align: center;
 
   & .p-name {
-    @apply --franklin-heading;
+    @extend %franklin-heading;
     color: var(--offwhite);
     font-size: 3.2em;
     font-weight: 900;
@@ -30,7 +27,7 @@
   }
 
   & .dt-published {
-    @apply --franklin-heading;
+    @extend %franklin-heading;
     color: var(--yellow);
     display: block;
     font-size: 1.2em;
@@ -62,13 +59,13 @@
   & h4,
   & h5,
   & h6 {
-    @apply --maxedText;
+    @extend %maxedText;
     color: var(--offwhite);
     font-weight: 700;
   }
 
   & h2 {
-    @apply --franklin-heading;
+    @extend %franklin-heading;
     font-size: 1.2em;
     padding: 0.7em 0 0.25em 0;
   }
@@ -78,7 +75,7 @@
   }
 
   & p {
-    @apply --maxedText;
+    @extend %maxedText;
     padding-bottom: 1.4em;
   }
 
@@ -136,20 +133,20 @@
     }
 
     &.note-special {
-      border-color: color(var(--color-note) alpha(-70%));
-      background-color: color(var(--color-note) alpha(-85%));
-      color: color(var(--color-note) w(70%));
+      border-color: #ffad154d;
+      background-color: #ffad1526;
+      color: var(--darkerwhite);
     }
 
     &.note-update {
-      border-color: color(var(--color-update) alpha(-70%));
-      background-color: color(var(--color-update) alpha(-85%));
+      border-color: #007cff4d;
+      background-color: #007cff26;
     }
   }
 
   & ul,
   & ol {
-    @apply --maxedText;
+    @extend %maxedText;
     clear: both;
     padding: 0 0.2em 1.4em 0.2em;
   }
@@ -182,7 +179,7 @@
     }
 
     & cite {
-      @apply --maxedText;
+      @extend %maxedText;
       display: block;
       font-size: 0.9em;
     }
@@ -197,7 +194,7 @@
   padding-bottom: 0;
 
   &::after {
-    @apply --yellow-divider;
+    @extend %yellow-divider;
     margin: 1.5em auto 1.5em auto;
   }
 }
@@ -208,7 +205,7 @@
 
 .entry-intro + p:first-letter,
 .entry-intro + h2 + p:first-letter {
-  @apply --drop-cap;
+  @extend %drop-cap;
   color: var(--offwhite);
 }
 

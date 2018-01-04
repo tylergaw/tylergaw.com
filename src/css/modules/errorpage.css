@@ -5,7 +5,7 @@
   }
 
   & h1 {
-    @apply --franklin-heading;
+    @extend %franklin-heading;
     font-size: 44vw;
     line-height: 1;
   }

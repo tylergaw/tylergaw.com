@@ -3,7 +3,6 @@
   padding-top: 0.5em;
 
   & li {
-    border-bottom: 1px solid color(var(--offwhite) alpha(10%));
     box-sizing: border-box;
     margin: 0.5em 0;
     padding: 1.2em 1em;
@@ -25,7 +24,7 @@
     }
 
     & h2 {
-      @apply --franklin-heading;
+      @extend %franklin-heading;
       font-weight: 900;
       font-size: 3em;
       text-transform: uppercase;
@@ -33,7 +32,7 @@
   }
 
   & time {
-    @apply --franklin-heading;
+    @extend %franklin-heading;
     font-size: 0.9em;
     font-weight: 500;
     color: var(--yellow);
@@ -42,7 +41,7 @@
   }
 
   & a {
-    @apply --franklin-heading;
+    @extend %franklin-heading;
     color: var(--offwhite);
     display: inline-block;
     font-size: 2.6em;
@@ -58,7 +57,7 @@
   }
 
   & p {
-    color: color(var(--offwhite) shade(15%));
+    color: var(--darkerwhite);
     font-size: 1.1em;
     line-height: 1.4;
     margin-top: 0.5em;
@@ -70,7 +69,6 @@
     flex-wrap: wrap;
 
     & li {
-      border-bottom: 0;
       margin: 0.5em 1%;
       padding: 1em;
       width: 48%;
