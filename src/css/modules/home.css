@@ -1,0 +1,84 @@
+:root {
+  --hwh-size: 7vw;
+}
+
+[data-page='home'] .navigation {
+  display: none;
+  visibility: hidden;
+}
+
+.home-work-content-container {
+  margin-top: -6vw;
+  overflow: hidden;
+  padding-top: 3vw;
+}
+
+.home-work-heading {
+  font-family: var(--font-franklin);
+  font-size: var(--hwh-size);
+  letter-spacing: -0.2vw;
+  position: relative;
+  text-transform: uppercase;
+  transform: rotate(-15deg) translateX(-4%);
+  transform-origin: top center;
+  width: 100%;
+
+  & b {
+    font-weight: 900;
+    vertical-align: top;
+  }
+}
+
+.hwh-the {
+  line-height: 14vw;
+}
+
+.hwh-work {
+  font-size: calc(var(--hwh-size) * 3.55);
+  letter-spacing: -1.5vw;
+}
+
+.hwh-so-far {
+  display: block;
+  left: 50.5vw;
+  letter-spacing: -0.35vw;
+  line-height: 0.4;
+  position: relative;
+}
+
+.hwh-far {
+  font-size: calc(var(--hwh-size) * 2.8);
+  letter-spacing: -0.8vw;
+}
+
+.hwh-so {
+  font-size: calc(var(--hwh-size) * 1.6);
+  line-height: 0.25;
+}
+
+.work-intro {
+  display: flex;
+  margin: 0 auto;
+  max-width: 90ch;
+}
+
+.intro-copy {
+  font-size: 1.5rem;
+  line-height: 1.33;
+
+  & + .intro-copy {
+    margin-top: 2.5rem;
+  }
+}
+
+.intro-copy .shape {
+  display: block;
+  float: left;
+  shape-outside: polygon(0 0, 0 100px, 1200px 2500px);
+  height: 15rem;
+  width: 100%;
+}
+
+.home-limbo-container {
+  background-color: #FF3030;
+}
