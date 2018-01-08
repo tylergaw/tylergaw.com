@@ -1,0 +1,211 @@
+---
+layout: article.html
+title: "Dynamic Redux Reducers"
+date: "2018-01-07"
+permalink: /articles/dynamic-redux-reducers
+meta:
+  description: Details of an approach to adding Redux Reducers after initial store creation.
+  image: /articles/assets/post-image-first-pwa-social.png
+---
+
+<p>
+  This post is specific to a need I had on recent React / Redux project. It’s a
+  common need and one I’d run into before, but this was the first time I needed to
+  come up with a solution for it. This was difficult for me. I had to slow down
+  and take time to internalize what I was trying to do and all the pieces involved.
+  My hope is that this post will help someone else also working to figure
+  this out.
+</p>
+<p>
+  I’ll detail my process in this post. Here’s a
+  <a href="https://qk3n9xmm3w.codesandbox.io">live demo</a> and an
+  <a href="https://codesandbox.io/s/qk3n9xmm3w">editable sandbox</a>.
+  The best way to see the effects is do open the Redux dev tools.
+</p>
+
+<p>
+  If you’re reading this I’m going to assume you have knowledge of Redux and
+  are using it with React by way of <code>react-redux</code>.
+</p>
+
+<h2>What am I trying to do and why?</h2>
+<p>
+  In standard usage of Redux, you provide your reducer functions at the time you
+  initialize the store with <code>createStore</code>. I wanted to add reducer
+  functions later, on demand.
+</p>
+<p>
+  A lot of folks need to do this because they’re code-splitting so their reducers
+  are not available at <code>createStore</code> time. That’s a perfect use for dynamic
+  reducers.
+</p>
+<p>
+  My project isn’t using code-splitting. For me, this was just a preference. I
+  didn't want to have to spread info about my modules throughout my project structure.
+  I want each feature to live in a directory, isolated as much as possible.
+  That means placing each feature’s reducers alongside it's components, selectors,
+  tests, etc. I could have done that and still imported the reducers in the
+  main reducer creation, but then I’d have to couple the feature to the main
+  reducer creation. I didn't want to reference files all over the place.
+</p>
+
+<h2>Existing solutions</h2>
+<p>
+  In my Googling for an existing solution I landing on
+  <a href="https://stackoverflow.com/a/33044701">this Stack Overflow question and answer</a>.
+  The answer is from Dan Abramov so I knew it was the way to go. My solution uses
+  90% of that answer.
+</p>
+<p>
+  In Dan’s answer, it all made sense to me until his example of how to inject
+  the reducers. I’m using React Router, but I define my routes that way. I didn’t
+  want to have to change how I defined my routes for this. I also couldn’t find
+  official documentation for things he used in his example so I wanted to avoid
+  copy / paste. I wanted to fully understand the code I was adding to my project.
+</p>
+<p>
+  It’s also worth mentioning two projects I came across in my search.
+  <a href="https://github.com/ioof-holdings/redux-dynamic-reducer">redux-dynamic-reducer</a>
+  and <a href="https://github.com/asteridux/paradux">paradux</a>. I didn’t try
+  either of them because I didn’t see the need in adding another dependency, but
+  maybe they’ll work for you.
+</p>
+
+<h2>Code</h2>
+<p>
+  You can follow along in the <a href="https://codesandbox.io/s/github/tylergaw/redux-dynamic-reducers/tree/master/">CodeSandbox</a>.
+  I’ll start with creating the root reducer in <code>rootReducer.js</code>
+</p>
+
+<pre><code class="language-javascript">import { combineReducers } from "redux";
+import layout from "./reducers/layout";
+import home from "./reducers/home";
+
+/**
+ * @param {Object} - key/value reducer functions
+ */
+const createReducer = asyncReducers =>
+  combineReducers({
+    home,
+    layout,
+    ...asyncReducers
+  });
+
+export default createReducer;</code></pre>
+
+<p>
+  I pulled this code from Dan’s <abbr title="Stack Overflow">SO</abbr> answer.
+  In it we have two reducer functions; <code>layout<code> and <code>home</code>.
+  Those are reducers we know about at this time so we’re comfortable including them
+  here.
+</p>
+<p>
+  The key detail here is the <code>asyncReducers</code> parameter. Adding the
+  contents of that object to the object given to <code>combineReducers</code> is
+  how we sneak in dynamic reducers later.
+</p>
+<p>
+  Next up is store creation. Again, most of this code is from Dan’s example.
+</p>
+
+<pre><code class="language-javascript">import { createStore } from "redux";
+import createReducer from "./rootReducer";
+
+const initializeStore = () => {
+  const store = createStore(createReducer());
+
+  store.asyncReducers = {};
+  store.injectReducer = (key, reducer) => {
+    store.asyncReducers[key] = reducer;
+    store.replaceReducer(createReducer(store.asyncReducers));
+    return store;
+  };
+
+  return store;
+};
+
+export default initializeStore;</code></pre>
+
+<p>
+  The first line of <code>initializeStore</code> is where we create the Redux
+  store will the initial reducers from <code>createReducer</code>. In standard
+  Redux usage, this is all you’d need. The store is set up and ready with the
+  <code>home</code> and <code>layout</code> reducers.
+</p>
+<p>
+  <code>createStore</code> returns a plain object so we’ll take advantage of that
+  by tacking helpful items onto it. We’ll use <code>store.asyncReducers</code> to house
+  our dynamic reducers. With <code>store.injectReducer</code> I deviate from
+  Dan’s example. The function does the same thing as his <code>injectAsyncReducer</code>,
+  but I attach it to the <code>store</code> object for convenience that I’ll
+  later.
+</p>
+<p>
+  <code>injectReducer</code> has two responsibilities. First, store all dynamic
+  reducers in <code>asyncReducers</code>. This ensures that each time we call
+  <code>injectReducer</code> we don’t lose previously added reducers. Next up
+  is the main work. <a href="https://redux.js.org/docs/api/Store.html#replaceReducer"><code>replaceReducer</code></a>
+  isn’t custom, it’s part of Redux. It does does what it says on the tin.
+  Calling tt replaces the reducer function with one you give it.
+</p>
+
+<h3>Where things got tricky</h3>
+<p>
+  At this point everything seemed straightforward to me, but I got lost fast. We
+  have a store, we have a function to add new reducers. How and where to we
+  call that function though? In all my frantic Googling, I couldn’t find an
+  example that worked for my setup.
+</p>
+<p>
+  It took me a while to figure out where I could access that <code>store</code>
+  object. I had clues though. In my entry point file <code>index.js</code> I
+  was using the standard <code>Provider</code> component.
+</p>
+<pre><code class="language-javascript">import React from "react";
+import { render } from "react-dom";
+import { Provider } from "react-redux";
+import initializeStore from "./initializeStore";
+import App from "./App";
+
+const store = initializeStore();
+render(
+  &lt;Provider store={store}&gt;
+    &lt;App /&gt;
+  &lt;/Provider&gt;,
+  document.getElementById("root")
+);</code></pre>
+
+<p>
+  Giving the <code>store</code> to <code>Provider</code> makes it available to
+  all child components by way of the <code>connect</code> function. I read more
+  about how that works and found out that <code>store</code> is also available
+  in the <code>context</code> of each component. If you’ve read anything about
+  React <code>context</code>, you've probably read that you shouldn't use it.
+  I decided I'd take the risk for this.
+</p>
+
+<h2>withReducer</h2>
+
+<p>
+  Each time I add a new reducer, I want to use as little code as possible. To
+  accomplish this, I use a higher order component, <code>withReducer</code>, to
+  handle the work of injecting reducers.
+</p>
+
+<pre><code class="language-javascript">import React from "react";
+import { object } from "prop-types";
+
+const withReducer = (key, reducer) => WrappedComponent => {
+  const Extended = (props, context) => {
+    context.store.injectReducer(key, reducer);
+    return &lt;WrappedComponent {...props} /&gt;
+  };
+
+  Extended.contextTypes = {
+    store: object
+  };
+
+  return Extended;
+};
+
+export { withReducer };</pre></code>
