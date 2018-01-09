@@ -74,7 +74,7 @@ meta:
 <h2>Code</h2>
 <p>
   You can follow along in the <a href="https://codesandbox.io/s/github/tylergaw/redux-dynamic-reducers/tree/master/">CodeSandbox</a>.
-  I’ll start with creating the root reducer in <code>rootReducer.js</code>
+  I’ll start with creating the root reducer in <code>/rootReducer.js</code>
 </p>
 
 <pre><code class="language-javascript">import { combineReducers } from "redux";
@@ -82,7 +82,7 @@ import layout from "./reducers/layout";
 import home from "./reducers/home";
 
 /**
- * @param {Object} - key/value reducer functions
+ * @param {Object} - key/value of reducer functions
  */
 const createReducer = asyncReducers =>
   combineReducers({
@@ -105,7 +105,8 @@ export default createReducer;</code></pre>
   how we sneak in dynamic reducers later.
 </p>
 <p>
-  Next up is store creation. Again, most of this code is from Dan’s example.
+  Next up is store creation in <code>/initializeStore.js</code>. Again, most
+  of this code is from Dan’s example.
 </p>
 
 <pre><code class="language-javascript">import { createStore } from "redux";
@@ -149,7 +150,7 @@ export default initializeStore;</code></pre>
   Calling tt replaces the reducer function with one you give it.
 </p>
 
-<h3>Where things got tricky</h3>
+<h3>Where things got tricky for me</h3>
 <p>
   At this point everything seemed straightforward to me, but I got lost fast. We
   have a store, we have a function to add new reducers. How and where to we
@@ -158,7 +159,7 @@ export default initializeStore;</code></pre>
 </p>
 <p>
   It took me a while to figure out where I could access that <code>store</code>
-  object. I had clues though. In my entry point file <code>index.js</code> I
+  object. I had clues though. In my entry point file <code>/index.js</code> I
   was using the standard <code>Provider</code> component.
 </p>
 <pre><code class="language-javascript">import React from "react";
@@ -181,14 +182,15 @@ render(
   about how that works and found out that <code>store</code> is also available
   in the <code>context</code> of each component. If you’ve read anything about
   React <code>context</code>, you've probably read that you shouldn't use it.
-  I decided I'd take the risk for this.
+  For these purposes it seemed OK. Time will tell if that’s correct or not.
+  More details on <code>context</code> usage to follow.
 </p>
 
-<h2>withReducer</h2>
+<h2>Putting the pieces together</h2>
 
 <p>
   Each time I add a new reducer, I want to use as little code as possible. To
-  accomplish this, I use a higher order component, <code>withReducer</code>, to
+  accomplish this, I use a higher order component in <code>/withReducer.js</code> to
   handle the work of injecting reducers.
 </p>
 
@@ -209,3 +211,153 @@ const withReducer = (key, reducer) => WrappedComponent => {
 };
 
 export { withReducer };</pre></code>
+
+<p>
+  Here’s example usage in <code>routes/Records/Records.js</code>:
+</p>
+
+<pre><code class="language-javascript">import { withReducer } from "../../withReducer";
+import reducer from "./ducks";
+
+const Records = () => (...);
+export default withReducer("records", reducer)(Records);</code></pre>
+
+<p>
+  Let’s start with usage in <code>Records.js</code>. We import the records
+  reducer from <code>ducks</code>. The reducer doesn’t do much. It sets hard-coded
+  initial state, then returns it as-is. The component acts like a container
+  component. It could be <code>connect</code>ed but for the purposes of this
+  demo, I left it out.
+</p>
+<p>
+  The pertinent bit is the last line. There we call <code>withReducer</code> and
+  provide it a key of “records” and the record reducer. Then we invoke the
+  returned function–more on that next–providing the <code>Records</code> component.
+</p>
+<p>
+  <code>Records</code> is a normal component that we import and use as
+  <code>&lt;Records /&gt;</code>.
+</p>
+
+<h3>The withReducer component</h3>
+<p>
+  <code>withReducer</code> is a <a href="https://reactjs.org/docs/higher-order-components.html">Higher-Order Component</a>.
+  The <code>key</code> parameter will be used as the key in the Redux state tree.
+  The <code>reducer</code> paramter is the reducer to add. It returns a function
+  that accepts a single parameter, <code>WrappedComponent</code>. That’s expected
+  to be a valid React component. In the usage example above, that’s the
+  <code>Records</code> component.
+</p>
+<p>
+  Let’s jump ahead to an important part of <code>withReducer</code> that was
+  new to me and maybe a bit confusing.
+</p>
+<pre><code class="language-javascript">...
+Extended.contextTypes = {
+  store: object
+};
+...</code></pre>
+<p>
+  Because I used a stateless component–<code>Extended</code>–I must define
+  a <code>contextTypes</code> property to be able to access <code>context</code>
+  within the component. This is documented in the official React docs:
+</p>
+<blockquote>
+  <p>
+    Stateless functional components are also able to reference context if contextTypes is defined as a property of the function.
+  </p>
+  <cite>
+    <a href="https://reactjs.org/docs/context.html#referencing-context-in-stateless-functional-components">reactjs.org/docs/context.html#referencing-context-in-stateless-functional-components</a>
+  </cite>
+</blockquote>
+
+<p>
+  In <code>contextTypes</code> I defined the property I want to access in the
+  component, <code>store</code>. That uses the
+  <code>object</code> type from the <code>prop-types</code> library.
+</p>
+
+<p>
+  When you define <code>contextTypes</code> for a component, <code>context</code>
+  is then provided to your component as a second parameter. That’s visible in
+  the <code>Extended</code> signature:
+</p>
+<pre><code class="language-javascript">...
+const Extended = (props, context) => {...}
+...</code></pre>
+
+<p>
+  <code>Extended</code> now has access to the <code>store</code> object. That’s
+  because <code>&lt;Provider store={store}&gt;</code> in <code>/index.js</code>
+  makes it available to all child components via <code>context</code>.
+</p>
+
+<p>
+  If you’re interested, you can see where this happens in the <code>Provider.js</code>
+  source with
+  <a href="https://github.com/reactjs/react-redux/blob/master/src/components/Provider.js#L26"><code>getChildContext</code></a>
+  and <a href="https://github.com/reactjs/react-redux/blob/master/src/components/Provider.js#L52"><code>childContextTypes</code></a>.
+</p>
+
+<p>
+  Back in <code>initializeStore.js</code> I created a function on the store object,
+  <code>store.injectReducer</code>. Now, I use that to add the new reducer:
+</p>
+
+<pre><code class="language-javascript">...
+context.store.injectReducer(key, reducer);
+...</code></pre>
+
+<p>
+  No changes happen to the original component, <code>Extended</code> just returns
+  it with any original properties: <code>return &lt;WrappedComponent {...props} /&gt;;</code>
+</p>
+
+<h2>How to see it working</h2>
+<p>
+  At this point, the code works. But, this type of change can be difficult to
+  visualize. The way that works best for me is the <a href="https://github.com/zalmoxisus/redux-devtools-extension">Redux DevTools Chrome extension</a>.
+  In the <a href="https://qk3n9xmm3w.codesandbox.io">demo</a> I included the
+  devtools snippet when creating the store. If you install the extension and
+  view the Redux panel you can see when reducers are added.
+</p>
+<figure>
+  <img src="https://d3vv6lp55qjaqc.cloudfront.net/items/1n0J3V3G0j1X2a1M1C00/Screen%20Recording%202018-01-07%20at%2009.52%20PM.gif" alt="Animated gif showing a new reducer added in Redux devtools Chrome extension.">
+  <figcaption>
+    Demo of the records reducer being added when navigating to the /records route.
+  </figcation>
+</figure>
+
+<p>
+  To further show the results in the demo, the record route is <code>connect</code>ed
+  and displays record data from the store.
+</p>
+<pre><code class="language-javascript">...
+const mapStateToProps = (state, props) => {
+  const { match: { params: { id } } } = props;
+
+  return {
+    recordId: id,
+    record: state.records[id] || {}
+  };
+};
+
+export default connect(mapStateToProps)(Record);</code></pre>
+
+<p>
+  The full code is in <code>/routes/Records/routes/Record.js</code>.
+</p>
+
+<h2>A solution</h2>
+<p>
+  As I mentioned earlier, this is a common need in React/Redux projects for
+  different reasons. I’ve used different methods for accomplishing dynamic
+  routes and other folks have different approaches. With that, this is <em>a</em>
+  solution, not necessiarly <em>the</em> solution.
+</p>
+<p>
+  If this is helpful and you use it as is or modify it to fit your needs, let
+  me know. I’m sure this could be improved and I’d love to hear ways to do so.
+</p>
+
+{{> thanks-for-reading }}
