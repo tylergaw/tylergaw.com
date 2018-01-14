@@ -1,27 +1,36 @@
-# tylergaw.com
+# [tylergaw.com](http://tylergaw.com)
 
-Personal site that will house my projects, info and the occasional blog post on
-topics related to the work I do on the web.
+My little corner of the Web since 2006.
 
-## Working on this project
+## Local development.
 
-To start Jekyll and PostCSS watchers, run
+This is static site built with Metalsmith.
+
+Install node dependencies:
+
+```
+yarn
+```
+
+Run and initial build then start the development server and watchers.
 
 ```
 yarn start
 ```
 
-For a one-off build without starting watchers, run
+For one-off builds:
 
 ```
 yarn build
 ```
 
-## Viewing locally
+## Deploying
 
-Tyler, this project doesn't have a development server. You have an nginx conf
-and [http://dev.tylergaw](http://dev.tylergaw) set up. Run nginx:
+Tyler, you still host this on your VPS on Rackspace. When you're ready to deploy changes run:
 
 ```
-sudo nginx
+yarn release
 ```
+
+You'll be prompted for your ssh password. Give it to the computer. Once you do,
+the project will build with `yarn build` and the contents of `/build` will be uploaded to your server using `scp`.
