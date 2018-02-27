@@ -1,41 +1,12 @@
-.navigation {
-  font-size: 1.2em;
-  margin: 0 auto;
-  max-width: 720px;
-  width: 95%;
-
-  & ul {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  & li {
-    flex-grow: 1;
-  }
-
-  & a {
-    @extend %franklin-heading;
-    display: inline-block;
-    font-weight: 500;
-    padding: 0.7em 0.2em;
-    text-decoration: none;
-    transition: color 0.2s;
-
-    &:hover,
-    &:focus {
-      color: var(--offwhite);
-    }
-  }
-
-  @media (min-width: 450px) {
-    font-size: 1.4em;
+.navigation a {
+  &:hover,
+  &:focus {
+    color: #fff;
   }
 }
 
-[data-page='article'] .nav-articles,
-[data-page='articles'] .nav-articles,
-[data-page='project'] .nav-projects,
-[data-page='projects'] .nav-projects,
-[data-page='about'] .nav-about {
-  color: var(--offwhite);
+[data-page="articles"] .nav-articles,
+[data-page="home"] .nav-work,
+[data-page="about"] .nav-about {
+  color: #ccc;
 }

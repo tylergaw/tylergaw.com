@@ -1,9 +1,9 @@
-[role='contentinfo'] {
+[role="contentinfo"] {
   box-sizing: border-box;
-  margin: 1em auto 2em auto;
+  margin: 0 auto;
   max-width: 720px;
   overflow: hidden;
-  padding: 1em 0 0.8em 0;
+  padding: 2rem 0;
   text-align: center;
   width: 95%;
 
@@ -18,14 +18,15 @@
 
     & a {
       @extend %franklin-heading;
+      color: var(--grey);
       display: inline-block;
-      font-size: 0.9em;
+      font-size: 1em;
       font-weight: 500;
       padding: 0.7em;
       text-decoration: none;
 
       &:hover {
-        color: var(--offwhite);
+        color: var(--accent);
       }
     }
   }

@@ -7,7 +7,12 @@
 
 body {
   background: #fff;
-  color: var(--grey);
+  color: var(--red);
+  padding: 0;
+}
+
+.a-container-for-style-purposes {
+  background-color: #fff;
 }
 
 .article-hero {

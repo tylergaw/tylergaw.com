@@ -4,9 +4,8 @@
   --red: #ea3333;
 }
 
-.logo svg,
-.logo-title {
-  fill: var(--grey);
+.logo svg {
+  fill: #fff;
 }
 
 .article-hero {
@@ -14,13 +13,12 @@
   position: relative;
 }
 
-[role='banner'] {
+[role="banner"] {
   position: relative;
   z-index: 5;
 }
 
-[role='navigation'] {
-  border-bottom-color: var(--grey);
+[role="navigation"] {
   position: relative;
   z-index: 10;
   margin-bottom: 105%;

@@ -1,0 +1,87 @@
+/*
+  Hello. These inline styles are considered critical for page load.
+*/
+
+body {
+  --white: #fff;
+  --lightgrey: #ccc;
+  --grey: #292929;
+  --accent: #9A86BF;
+  --offwhite: #f8f8f8;
+  --darkerwhite: #d3d3d3;
+  --font-franklin: "franklin-gothic-urw", helvetica, sans-serif;
+}
+
+html, body {
+  background-color: var(--lightgrey);
+}
+
+body {
+  color: var(--offwhite);
+  font-family: var(--font-franklin);
+  padding: 0.5em;
+}
+
+a {
+  color: var(--accent);
+}
+
+.a-container-for-style-purposes {
+  background-color: var(--grey);
+}
+
+[role="banner"] {
+  overflow: hidden;
+  padding-top: 1.4rem;
+  text-align: center;
+}
+
+.logo {
+  display: block;
+  flex-shrink: 1;
+  margin: 0 auto;
+  max-width: 210px;
+  width: 82%;
+}
+
+.logo svg {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.logo-base {
+  fill: var(--lightgrey);
+}
+
+.logo-title {
+  fill: var(--accent);
+}
+
+.navigation {
+  font-size: 1.4em;
+  margin: 0 auto;
+  order: 4;
+  width: 100%;
+}
+
+.navigation ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation a {
+  display: inline-block;
+  font-family: var(--font-franklin);
+  font-weight: 900;
+  padding: 0.5rem;
+  text-decoration: none;
+}
+
+.home-intro-shape {
+  display: none;
+}

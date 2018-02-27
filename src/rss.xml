@@ -1528,7 +1528,7 @@ $darkerwhite: darken($offwhite, 15);</code></pre>
 <pre><code class="language-css">:root {
   --white: #fff;
   --grey: #1e1e1d;
-  --yellow: #ffad15;
+  --accent: #ffad15;
   --offwhite: #f8f8f8;
   ...
 }</code></pre>
@@ -1536,7 +1536,7 @@ $darkerwhite: darken($offwhite, 15);</code></pre>
   and an example of updated usage:
 </p>
 <pre><code class="language-css">a {
-  color: var(--yellow);
+  color: var(--accent);
 }</code></pre>
 
 <p>

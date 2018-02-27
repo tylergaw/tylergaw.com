@@ -40,6 +40,13 @@ metalsmith(__dirname)
     })
   )
   .use(
+    inplace({
+      engine: 'handlebars',
+      pattern: ['**/*.css'],
+      partials: '../src/css'
+    })
+  )
+  .use(
     layouts({
       engine: 'handlebars',
       default: 'default.html',
@@ -48,6 +55,7 @@ metalsmith(__dirname)
       partials: '../partials'
     })
   )
+  .ignore('**/tylergaw-critical.css')
   .use(
     msIf(
       shouldServe,

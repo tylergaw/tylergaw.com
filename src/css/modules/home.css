@@ -1,84 +1,144 @@
-:root {
-  --hwh-size: 7vw;
-}
-
-[data-page='home'] .navigation {
-  display: none;
-  visibility: hidden;
-}
-
-.home-work-content-container {
-  margin-top: -6vw;
-  overflow: hidden;
-  padding-top: 3vw;
-}
-
-.home-work-heading {
-  font-family: var(--font-franklin);
-  font-size: var(--hwh-size);
-  letter-spacing: -0.2vw;
-  position: relative;
-  text-transform: uppercase;
-  transform: rotate(-15deg) translateX(-4%);
-  transform-origin: top center;
-  width: 100%;
-
-  & b {
-    font-weight: 900;
-    vertical-align: top;
+[data-page="home"] {
+  & body {
+    --accent: #F1BC44;
   }
 }
 
-.hwh-the {
-  line-height: 14vw;
-}
-
-.hwh-work {
-  font-size: calc(var(--hwh-size) * 3.55);
-  letter-spacing: -1.5vw;
-}
-
-.hwh-so-far {
-  display: block;
-  left: 50.5vw;
-  letter-spacing: -0.35vw;
-  line-height: 0.4;
+[data-page="home"] [role="banner"] {
   position: relative;
+  z-index: 2;
 }
 
-.hwh-far {
-  font-size: calc(var(--hwh-size) * 2.8);
-  letter-spacing: -0.8vw;
+.home-intro-container {
+  background: var(--grey) url("../images/home-intro-bg-tile.svg") repeat;
+  background-size: 1000px;
 }
 
-.hwh-so {
-  font-size: calc(var(--hwh-size) * 1.6);
-  line-height: 0.25;
-}
-
-.work-intro {
+.home-intro {
   display: flex;
-  margin: 0 auto;
-  max-width: 90ch;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -6vw;
+  position: relative;
+  z-index: 1;
 }
 
-.intro-copy {
-  font-size: 1.5rem;
-  line-height: 1.33;
-
-  & + .intro-copy {
-    margin-top: 2.5rem;
-  }
+.home-intro-contents {
+  font-size: 1.3rem;
+  line-height: 1.5;
+  max-width: 40ch;
+  order: 1;
+  padding: 0 2.5rem 7rem 7vw;
 }
 
-.intro-copy .shape {
-  display: block;
+.home-intro-contents::before {
   float: left;
-  shape-outside: polygon(0 0, 0 100px, 1200px 2500px);
-  height: 15rem;
+  display: block;
+  content: "";
+  shape-outside: polygon(0 0, 20% 0, 100% 100%);
+  height: 120%;
+  width: 15%;
+}
+
+.home-intro-contents p + p {
+  margin-top: 1.3em;
+}
+
+.home-intro-graphic {
+  order: 0;
+  overflow: hidden;
+  padding: 0 0.5rem;
+  position: relative;
   width: 100%;
 }
 
-.home-limbo-container {
+.home-intro-graphic::before {
+  bottom: 3%;
+  color: #ba7f44;
+  content: "Where do you even start?";
+  font-size: 0.8em;
+  left: 20%;
+  letter-spacing: -0.2em;
+  position: absolute;
+  transform: rotate(-11deg);
+  transform-origin: 50%;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  max-height: 50%;
+}
+
+@media (min-width: 52em) {
+  .home-intro {
+    margin: -8vw auto 0 auto;
+    overflow: hidden;
+  }
+
+  .home-intro-graphic {
+    padding: 0;
+    position: absolute;
+    top: 0;
+    transform: translateX(-1vw);
+    width: 95%;
+  }
+
+  .home-intro-contents {
+    font-size: 2vw;
+    margin: 0;
+    max-width: 100%;
+    padding: 0;
+    transform: translateY(-7vw);
+    width: 100%;
+    z-index: 2;
+  }
+
+  .home-intro-contents::before {
+    display: none;
+  }
+
+  .home-intro-contents p {
+    padding-right: 1em;
+  }
+
+  .home-intro-shape {
+    float: left;
+    display: block;
+    margin-left: -13vw;
+    margin-top: -14vw;
+    opacity: 0;
+    shape-outside: url("../images/the-work-shape-outside.svg");
+    visibility: hidden;
+    width: 123%;
+  }
+
+  .home-intro-graphic::before {
+    bottom: 6%;
+    left: 30%;
+    font-size: 0.9em;
+    letter-spacing: -0.35em;
+  }
+}
+
+/*
+  At this width ~1880px we want to stop using viewport-relative units. This way
+  elements won't scale beyond the proportions we want.
+*/
+@media (min-width: 117.5em) {
+  .home-intro {
+    margin-top: -9.4rem;
+    width: 115.5rem;
+  }
+
+  .home-intro-contents {
+    font-size: 2.35rem;
+    transform: translateY(-8.375rem);
+  }
+
+  .home-intro-shape {
+    margin-left: -15.3rem;
+    margin-top: -16.4rem;
+  }
+}
+
+.limbo-container {
   background-color: #FF3030;
 }

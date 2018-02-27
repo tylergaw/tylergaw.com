@@ -1,20 +1,11 @@
-:root {
-  --white: #fff;
-  --grey: #1e1e1d;
-  --yellow: #ffc700;
-  --offwhite: #f8f8f8;
-  --darkerwhite: #d3d3d3;
-  --font-franklin: 'franklin-gothic-urw', helvetica, sans-serif;
-}
-
 %franklin-heading {
   font-family: var(--font-franklin);
   font-weight: 700;
   line-height: 1.1;
 }
 
-%yellow-divider {
-  background-color: var(--yellow);
+%purple-divider {
+  background-color: var(--accent);
   content: '';
   display: block;
   text-align: center;
@@ -23,7 +14,7 @@
 }
 
 %drop-cap {
-  color: var(--yellow);
+  color: var(--accent);
   float: left;
   font-family: var(--font-franklin);
   font-size: 650%;

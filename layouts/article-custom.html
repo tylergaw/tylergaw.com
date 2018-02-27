@@ -5,30 +5,31 @@
     <link rel="stylesheet" href="/css/{{stylesheet}}.css">
   </head>
   <body>
-    <div class="article-hero">
-      {{> banner }}
+    <div class="a-container-for-style-purposes">
+      <div class="article-hero">
+        {{> banner }}
 
-      <header class="e-header">
-        <time class="dt-published" datetime="{{ date }}">
-          {{dateFormat date}}
-        </time>
-        <h1 class="p-name">
-          {{ title }}
-        </h1>
-        <p class="p-author h-card">
-          By Tyler Gaw
-        </p>
-      </header>
+        <header class="e-header">
+          <time class="dt-published" datetime="{{ date }}">
+            {{dateFormat date}}
+          </time>
+          <h1 class="p-name">
+            {{ title }}
+          </h1>
+          <p class="p-author h-card">
+            By Tyler Gaw
+          </p>
+        </header>
+      </div>
+
+      <div role="main">
+        <article class="h-entry">
+          <div class="e-content">
+            {{{contents}}}
+          </div>
+        </article>
+      </div>
     </div>
-
-    <div role="main">
-      <article class="h-entry">
-        <div class="e-content">
-          {{{contents}}}
-        </div>
-      </article>
-    </div>
-
     {{> footer }}
     {{> scripts }}
   </body>

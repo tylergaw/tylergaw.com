@@ -1,11 +1,11 @@
 :root {
   --contentWidth: 93%;
-  --maxContentWidth: 850px;
+  --maxContentWidth: 1080px;
 }
 
 %maxedText {
   margin: 0 auto;
-  max-width: 790px;
+  max-width: 980px;
 }
 
 .h-entry {
@@ -28,7 +28,7 @@
 
   & .dt-published {
     @extend %franklin-heading;
-    color: var(--yellow);
+    color: var(--accent);
     display: block;
     font-size: 1.2em;
     font-weight: 500;
@@ -196,7 +196,7 @@
   padding-bottom: 0;
 
   &::after {
-    @extend %yellow-divider;
+    @extend %purple-divider;
     margin: 1.5em auto 1.5em auto;
   }
 }
@@ -213,11 +213,11 @@
 
 @media (min-width: 620px) {
   .e-content {
-    font-size: 1.4em;
+    font-size: 1.9em;
   }
 }
 
 .entry-update {
-  font-size: 0.9em;
+  font-size: 1em;
   font-style: italic;
 }

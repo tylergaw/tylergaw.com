@@ -1,5 +1,6 @@
 .article-list {
   margin: 0 auto;
+  max-width: 42em;
   padding-top: 0.5em;
 
   & li {
@@ -8,13 +9,9 @@
     padding: 1.2em 1em;
   }
 
-  & .oldest-article {
-    border-bottom: 0;
-  }
-
   & .section-title {
     align-items: center;
-    background-color: var(--yellow);
+    background-color: var(--accent);
     color: var(--grey);
     display: flex;
     padding: 1.8em;
@@ -33,9 +30,9 @@
 
   & time {
     @extend %franklin-heading;
-    font-size: 0.9em;
-    font-weight: 500;
-    color: var(--yellow);
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--accent);
     display: block;
     margin-bottom: 0.25em;
   }
@@ -44,46 +41,22 @@
     @extend %franklin-heading;
     color: var(--offwhite);
     display: inline-block;
-    font-size: 2.6em;
+    font-size: 2.2rem;
+    font-weight: 900;
     max-width: 100%;
     text-decoration: none;
-    transition: color 0.2s;
     word-wrap: break-word;
 
     &:hover,
     &:focus {
-      color: var(--yellow);
+      color: var(--accent);
     }
   }
 
   & p {
     color: var(--darkerwhite);
     font-size: 1.1em;
-    line-height: 1.4;
+    line-height: 1.5;
     margin-top: 0.5em;
-  }
-
-  @media (min-width: 650px) {
-    align-self: center;
-    display: flex;
-    flex-wrap: wrap;
-
-    & li {
-      margin: 0.5em 1%;
-      padding: 1em;
-      width: 48%;
-    }
-  }
-
-  @media (min-width: 1080px) {
-    & li {
-      width: 31.33%
-    }
-  }
-
-  @media (min-width: 1590px) {
-    & li {
-      width: 23%
-    }
   }
 }

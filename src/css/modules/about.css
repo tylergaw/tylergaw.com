@@ -1,4 +1,8 @@
-[data-page='about'] {
+[data-page="about"] {
+  & body {
+    --accent: #94aca4;
+  }
+
   & h3,
   & h4 {
     @extend %franklin-heading;
@@ -11,7 +15,6 @@
   font-weight: 900;
   margin-bottom: 0.2em;
   text-align: center;
-  text-transform: uppercase;
   width: 98%;
 }
 
@@ -47,7 +50,7 @@
     }
 
     &::after {
-      @extend %yellow-divider;
+      @extend %purple-divider;
       margin: 1em auto 0 auto;
     }
   }
@@ -67,13 +70,22 @@
   margin-left: -0.1em;
 }
 
-.my-big-dumb-faces {
+.about-portrait {
+  max-width: 950px;
+  width: 100%;
+}
+
+.about-portrait svg {
+  width: 100%;
+}
+
+/* .my-big-dumb-faces {
   background: transparent url('../images/tyler-gaw-portraits-horizontal.jpg') no-repeat center top;
   background-size: 97%;
   box-sizing: border-box;
   padding-top: 66%;
   width: 100%;
-}
+} */
 
 .design-to-me {
   @extend %franklin-heading;
@@ -105,7 +117,7 @@
 
 .services {
   align-items: center;
-  background-color: var(--yellow);
+  background-color: var(--accent);
   color: var(--grey);
   display: flex;
   font-family: var(--font-franklin);
@@ -182,7 +194,7 @@
   }
 
   & h4 {
-    color: var(--yellow);
+    color: var(--accent);
     font-size: 0.9em;
     padding-bottom: 0.1em;
   }
@@ -251,7 +263,7 @@
     width: 100%;
 
     & b {
-      background-color: var(--yellow);
+      background-color: var(--accent);
       color: var(--grey);
       padding: 0 0.25em;
     }
@@ -390,6 +402,10 @@
     background-size: 95%;
     background-image: url('../images/tyler-gaw-portraits.jpg');
     padding-top: 0;
+    width: 40%;
+  }
+
+  .about-portrait {
     width: 40%;
   }
 
