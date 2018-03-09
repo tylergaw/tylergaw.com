@@ -9,6 +9,18 @@ const handlebars = require('handlebars');
 const helpers = require('./handlebars-helpers');
 
 const shouldServe = process.env.SERVE === 'true';
+const watch = process.env.WATCH === 'true';
+
+let browserSyncOpts = {
+  port: 8001,
+  server: {
+    baseDir: 'build'
+  }
+};
+
+if (watch) {
+  browserSyncOpts.files = ['src/**/*', 'layouts/**/*', 'partials/**/*']
+}
 
 // Register all our helpers at once.
 // See ./handlebars-helpers.js for docs.
@@ -59,13 +71,7 @@ metalsmith(__dirname)
   .use(
     msIf(
       shouldServe,
-      browserSync({
-        port: 8001,
-        server: {
-          baseDir: 'build'
-        },
-        files: ['src/**/*', 'layouts/**/*', 'partials/**/*']
-      })
+      browserSync(browserSyncOpts)
     )
   )
   .build(err => {

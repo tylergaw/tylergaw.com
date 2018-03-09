@@ -21,28 +21,28 @@
     }
 
     & h2 {
-      @extend %franklin-heading;
+      font-family: "aktiv-grotesk-extended";
       font-weight: 900;
       font-size: 3em;
-      text-transform: uppercase;
     }
   }
 
   & time {
-    @extend %franklin-heading;
-    font-size: 1.2em;
-    font-weight: 700;
-    color: var(--accent);
+    font-family: "aktiv-grotesk";
+    font-size: 1em;
+    font-weight: 800;
+    color: var(--darkerwhite);
     display: block;
     margin-bottom: 0.25em;
   }
 
   & a {
-    @extend %franklin-heading;
     color: var(--offwhite);
     display: inline-block;
-    font-size: 2.2rem;
+    font-family: var(--font-aktiv-ex);
+    font-size: 2.3rem;
     font-weight: 900;
+    line-height: 1.1;
     max-width: 100%;
     text-decoration: none;
     word-wrap: break-word;
@@ -58,5 +58,27 @@
     font-size: 1.1em;
     line-height: 1.5;
     margin-top: 0.5em;
+  }
+
+  & .articles-year {
+    font-family: var(--font-aktiv-ex);
+    font-size: 1rem;
+    font-weight: 900;
+
+    & h3 {
+      background-color: #fff;
+      clip-path: polygon(
+        0.1em 0.1em,
+        10% 0,
+        50% 0.2em,
+        99% 0.1em,
+        100% 100%,
+        80% 97%,
+        40% 100%,
+        0 100%
+      );
+      color: var(--grey);
+      padding: 0.1em 0.2em;
+    }
   }
 }

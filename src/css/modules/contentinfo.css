@@ -17,11 +17,10 @@
     line-height: 1.2;
 
     & a {
-      @extend %franklin-heading;
       color: var(--grey);
       display: inline-block;
-      font-size: 1em;
-      font-weight: 500;
+      font-size: 0.8rem;
+      font-weight: 800;
       padding: 0.7em;
       text-decoration: none;
 

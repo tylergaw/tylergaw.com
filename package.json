@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "node scripts/build.js",
-    "start": "yarn build && SERVE=true yarn build",
+    "start": "yarn build && SERVE=true WATCH=true yarn build",
     "release": "yarn build && scp -r build tyler@50.56.73.185:/home/tyler/public_html/tylergaw.com/public"
   },
   "author": "Tyler Gaw",

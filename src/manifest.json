@@ -1,0 +1,16 @@
+{
+  "background_color": "#292929",
+  "theme_color": "#9A86BF",
+  "display": "standalone",
+  "short_name": "Tyler Gaw",
+  "name": "Tyler Gaw",
+  "lang": "en-US",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "images/icons/icon512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

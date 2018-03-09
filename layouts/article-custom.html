@@ -1,11 +1,10 @@
 <!doctype html>
-<html lang="en" {{#if type}}data-page="{{type}}"{{/if}}>
+<html lang="en" data-page="blog">
   <head>
     {{> head-contents }}
-    <link rel="stylesheet" href="/css/{{stylesheet}}.css">
   </head>
-  <body>
-    <div class="a-container-for-style-purposes">
+  <body class="body-default">
+    <div class="poster-fill-default">
       <div class="article-hero">
         {{> banner }}
 
@@ -32,5 +31,6 @@
     </div>
     {{> footer }}
     {{> scripts }}
+    <link rel="stylesheet" href="/css/{{stylesheet}}.css">
   </body>
 </html>

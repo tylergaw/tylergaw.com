@@ -1,15 +1,18 @@
 /*
-  Hello. These inline styles are considered critical for page load.
+  Hello. These inline styles are considered critical for page load so we put
+  them directly in the markup instead of blocking page load for the entire
+  stylesheet.
 */
 
 body {
-  --white: #fff;
-  --lightgrey: #ccc;
+  --lightgrey: #CCC;
   --grey: #292929;
-  --accent: #9A86BF;
-  --offwhite: #f8f8f8;
-  --darkerwhite: #d3d3d3;
-  --font-franklin: "franklin-gothic-urw", helvetica, sans-serif;
+  --accent: #8A7A9C;
+  --offwhite: #F8F8F8;
+  --darkerwhite: #D3D3D3;
+  --font-aktiv: "aktiv-grotesk", sans-serif;
+  --font-aktiv-ex: "aktiv-grotesk-extended", sans-serif;
+  --eggshell: #FCFBF2;
 }
 
 html, body {
@@ -18,36 +21,32 @@ html, body {
 
 body {
   color: var(--offwhite);
-  font-family: var(--font-franklin);
-  padding: 0.5em;
+  font-family: var(--font-aktiv);
 }
 
 a {
   color: var(--accent);
 }
 
-.a-container-for-style-purposes {
+.poster-fill-default {
   background-color: var(--grey);
 }
 
 [role="banner"] {
+  margin: 0 auto;
+  max-width: 109em;
   overflow: hidden;
   padding-top: 1.4rem;
+  position: relative;
   text-align: center;
+  z-index: 100;
 }
 
 .logo {
   display: block;
-  flex-shrink: 1;
   margin: 0 auto;
   max-width: 210px;
   width: 82%;
-}
-
-.logo svg {
-  display: block;
-  height: 100%;
-  width: 100%;
 }
 
 .logo-base {
@@ -59,10 +58,9 @@ a {
 }
 
 .navigation {
-  font-size: 1.4em;
+  font-size: 1.1rem;
   margin: 0 auto;
-  order: 4;
-  width: 100%;
+  width: 83%;
 }
 
 .navigation ul {
@@ -76,12 +74,16 @@ a {
 
 .navigation a {
   display: inline-block;
-  font-family: var(--font-franklin);
+  font-family: "aktiv-grotesk-extended";
   font-weight: 900;
-  padding: 0.5rem;
+  padding: 0.5rem 0.45rem;
   text-decoration: none;
 }
 
-.home-intro-shape {
+.banner-detail,
+.home-intro-graphic,
+.home-intro-shape,
+.about-portrait,
+.about-portrait-shape {
   display: none;
 }

@@ -4,98 +4,275 @@
     {{> head-contents }}
   </head>
   <body>
-    <div class="a-container-for-style-purposes home-intro-container">
-      {{> banner }}
+    <div class="poster-intro">
+      <div class="poster-fill-default poster-fill-intro">
+        {{> banner-detail }}
+        {{> banner }}
 
-      <section class="home-intro">
-        <div class="home-intro-contents">
-          <img class="home-intro-shape" src="images/the-work-shape-outside.svg" alt="" />
-          <p>
-            Since 2006 I’ve made a living creating experiences for humans
-            as a Designer and Software Engineer.
-          </p>
-          <p>
-            In that time I’ve been fortunate to work alongside excellent
-            people at three small companies, as a freelancer, and as a business
-            co-founder.
-          </p>
-          <p>
-            This site is an ongoing attempt to document my work and
-            myself.
-          </p>
+        <div class="home-intro">
+          <div class="home-intro-contents">
+            <img class="home-intro-shape" src="/images/the-work-shape-outside.svg" alt="" aria-hidden="true" />
+            <p>
+              Since 2006 I’ve made a living creating experiences for humans
+              as a Designer and Software Engineer.
+            </p>
+            <p>
+              In that time I’ve been fortunate to work alongside excellent
+              people at three small companies, as a freelancer, and as a business
+              co-founder. <strong>I’m looking for what’s next</strong>.
+            </p>
+            <p>
+              This site is an ongoing attempt to document my work and
+              myself.
+            </p>
+          </div>
+          <div class="home-intro-graphic">
+            {{> the-work-graphic.svg }}
+          </div>
         </div>
-        <div class="home-intro-graphic">
-          {{> the-work-graphic.svg }}
-        </div>
-      </section>
-    </div>
-    <div class="a-container-for-style-purposes limbo-container">
-      <section>
-        <h1>Limbo</h1>
-        <ul>
-          <li>Product Hunt</li>
-          <li>In NET Magazine</li>
-        </ul>
-      </section>
+      </div>
     </div>
 
-        <div hidden>
+    <div class="poster-limbo">
+      <div class="poster-fill-limbo">
+        <div class="limbo-contents">
+          <h2>
+            {{> limbo-logo.svg }}
+          </h2>
+
+          <aside>
+            Co-Founder, Design, Front-end
+            Started early 2017. Launched September 2017. Ongoing
+            https://www.limbo.io
+          </aside>
+
+          <p>
+            Limbo.io is an anonymous job platform Co-founded by Chris Dary and me. Chris came to me with the idea and a working prototype and invited me to join him as a partner. I wrote about our origin story in “Building Something New.”
+          </p>
+          <p>
+            We were trying something different with Limbo. Chris and I were eager to see something in tech hiring that we hadn’t seen before so we set out to create it. We also wanted to start a business on our terms. A business where growth for the sake of growth wasn’t the goal. Where 10x profit wasn’t the goal.
+          </p>
+          <p>
+            We don’t have an exact count, but we know we helped many companies find quality candidates that made it to interview processes and a number of hires from those. At the beginning I said I’d be happy if we could help make one hire. We did that and then some.
+          </p>
+          <p>
+            In March 2018 we moved Limbo to side project status to allow us to move on to other opportunities. Chris wrote about (https://medium.com/@chrisdary/f9d422d8fdd7).
+          </p>
+
+          <h3>Design</h3>
+          <p>
+            Our approach to business allowed us to focus on designing a slow product. Not slow in terms of our speed of production. Slow meaning the product doesn’t beg for our customers’ attention every minute. We designed Limbo to encourage candidates to take their time and think about what type of work would make them happy. We designed Limbo to slow hiring managers down to really think what qualities they need to see in a potential team member. Limbo is a tool for accomplishing tasks, not a thing to engage.
+          </p>
+
+          <h3>Technology</h3>
+          <p>
+            Chris handled the infrastructure and server-side work. Limbo is built with Python/Django and runs on AWS by way of Elasticbeanstalk. We made use of Elasticsearch for our Profile search capabilities.
+          </p>
+          <p>
+            I’m a little old-fashioned when it comes to web tech. From the start, I wanted Limbo to embrace progressive enhancement. I think all sites–or apps–should strive for that, but Limbo in particular is a site that can and should function without JavaScript. With that, I worked with Chris to make sure we backend support for template rendering, form posts, and the like. For each site addition we’d identify the core functionality that had to work without JS and go from there.
+          </p>
+          <p>
+            Our JavaScript setup consists of jQuery, Gulp, Rollup.js, Babel, and Prettier. The JS light on-purpose. We wrote the minimum amount to get the task at hand done and not a line more.
+          </p>
+
+          <h4>Callouts</h4>
+          <p>
+            Pattern Library, Unstuck
+          </p>
+
+          <h3>Recognition</h3>
+          <p>
+            Featured in net Magazine issue #300, December 2017 (photos)
+            Product Hunt
+            This Tweet by (find this)
+            “Quote about finding more useful info than LinkedIn” (ender)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="poster-groundwork">
+      <div class="poster-fill-groundwork">
+        <h2>The Groundwork</h2>
+        <aside>
+          The Groundwork / Timshel
+          Leadership, Design, Frontend, smidge of Backend, Vocal advocate
+          September 2014 - September 2017
+          https://thegroundwork.com, https://developer.thegroundwork.com
+        </aside>
+
+        <h3>Not The Story</h3>
+        <p>
+          We had one goal: Help Hillary Clinton become the first President of the United States of America. You know all about that. What you don’t know about is the tireless work that a small team of technologists dedicated themselves to from before the first day of the HFA campaign and through the end and then some. You don’t know about that because that’s how we designed it. From the beginning, our approach was to not be the story.
+        </p>
+
+        <h4>hillaryclinton.com</h4>
+        <p>
+          Our team was instrumental in the initial Hillary for America website launch. In the days leading up to the April 12, 2015 launch we helped the HFA tech team and another web development vendor implement a Wagtail CMS, implement designs, squash bugs, and make sure the the site could handle the massive traffic it was about to receive.
+        </p>
+        <p>
+          In the months after launch we continued our work with the growing HFA tech team. We played an instrumental role in interviewing candidates and making recommendations for designer and engineer hires for HFA. We also continued daily work on hillaryclinton.com.
+        </p>
+        <p>
+          Myself along with other members of the Groundwork helped complete the frontend engineering necessary for the HFA launch rally in New York City. Our team also built the events microservice and API that powered the events section of the HFA website.
+        </p>
+        <p>
+          Over 14,000 people RSVP’d for the launch rally using backend and frontend systems built by our team. This was only the beginning.
+        </p>
+
+        <h3>Leadership</h3>
+        <p>
+          While I never held the official title, I got to act as a de facto Lead of the Frontend Team at The Groundwork. For a time it was the largest team at seven excellent humans. I see leadership roles as a service position. My primary role during that time was to help make sure each member of the team had everything they needed to do great work. I didn’t always succeed. In fact, I made mistakes daily. But I got the opportunity to try, so I did every day.
+        </p>
+
+        <h3>Design</h3>
+        <p>
+          Did a bunch of this.
+        </p>
+
+        <h3>Technology</h3>
+        <p>
+          React, Redux, Immutable.js, CSS modules, Travis, Immutable infrastructure with AWS, next-level custom tooling for cloud infra management.
+        </p>
+      </div>
+    </div>
+
+    <div class="poster-colorme">
+      <div class="poster-fill-colorme">
+        <h2>ColorMe</h2>
+        <aside>
+          Personal project / OSS
+          Idea-ing, Research, Design, Engineering
+          January 2017
+          https://colorme.io
+        </aside>
+
+        <p>
+          I’d been reading about the potential of Sass-like color manipulation coming to CSS. I was also familiar with SassMe–built by a friend and former Co-worker–that made working with color manipulation functions easier. I had a bit of time off from work and wanted a project to tinker with, so I set to build a tool for working with the possible future CSS color functions.
+        </p>
+        <p>
+          In the weeks following the release I added a number features like; rrggbbaa support, a color picker, and a few other things I forgot. For me, the color function aspect has become secondary. ColorMe has turned into my go-to color picker. That wasn’t intended, but is a fun side-effect.
+        </p>
+
+        <h3>CSS Spec Discussions and OSS contributions</h3>
+        <p>
+          In January 2017, color() was part of an editor’s draft CSS spec (link). Since then, that has changed. It’s unclear what the fate of color modification in CSS is, but the syntax will not be color(). That’s being developed in a different specification.
+        </p>
+        <p>
+          I made use of Ian Storm’s css-color-function package for ColorMe. I discovered a couple bugs and needed tweaks to it during development and contributed back to the library. Ian made me a contributor in late 2017 to help shephard the project along. After a few lengthy discussions about the library’s future, work as paused for while. It’s not dead, we’re just holding off for a while since the CSS spec is in flux.
+        </p>
+
+        <h3>Writing</h3>
+        <p>
+          Introducing: ColorMe, New ColorMe Features, and Building My First PWA
+        </p>
+
+        <h3>Technology</h3>
+        <p>
+          Create React App, Travis, AWS S3, ACM, ServiceWorker, Web manifest, bad bash scripting.
+        </p>
+
+        <h3>Recognition</h3>
+        <p>
+          CSS-Tricks - https://css-tricks.com/colorme-css-color-level-4/
+Sidebar.io January 9, 2017 https://sidebar.io/?after=2017-01-09&before=2017-01-09
+Codrops #278 January 7, 2017 https://tympanus.net/codrops/collective/collective-278/
+(I think there were others?)
+Hacker News front paged Cool, but yuck https://news.ycombinator.com/item?id=13331968
+        </p>
+      </div>
+    </div>
+
+    <div class="poster-jxa">
+      <div class="poster-fill-jxa">
+        <h2>Building OS X Apps with JavaScript</h2>
+        <aside>
+          Personal project / OSS
+          Engineering, research, tinkering, writing, speaking
+          Initial work and writing August-September 2014. Talk prep through summer 2015
+        </aside>
+
+        <p>
+          This was something I got a glimpse of and got excited. At the WWDC in 2014, Apple made a tiny announcement that JavaScript would be supported as a native scripting language. I spent events and weekends over the next couple months researching what was possible, learning the basics of Objective-C, and building demos and writing about what was possible with the new technology.
+        </p>
+        <p>
+          After I proved to myself that I could produce a working native OS X app with JavaScript I set out to share what I found with other people. The result was the blog post (link) and the repository of examples (link). It was met with enthusiasm, positive feedback, and excitement that equalled my own. I couldn’t have asked for a better outcome from something that was just a fun thing to do.
+        </p>
+        <p>
+          I didn’t do much with it for while. Then, I got word that my talk proposal on the topic was accepted by MidwestJS 2015. In the months leading up to the conference I dove back and learned how all the pieces worked together again to put together a talk. During that time I also experiemented with a build process for it using webpack and started a jQuery-esque UI library for JXA called Starstuff.
+        </p>
+
+        <h4>Tangibles</h4>
+        <p>
+          Blog post, examples repo. Starstuff
+        </p>
+
+        <h3>Recognition</h3>
+        <p>
+          Hacker News front paged - https://news.ycombinator.com/item?id=8379247 Cool, but yuck. And yes I got shit on because I didn’t do everything exactly the way the inhabitants of that orange mess wanted me to ¯\_(ツ)_/¯
+          An email from the creator of AppleScript - This felt incredible. He sent me a short email to say he saw the post and thought it was cool and thanks for working with the technology. What a perfect way to get confirmation that I’d done something worthwhile.
+          The Changelog(?), list of publications
+        </p>
+
+        <h3>Talks</h3>
+        <p>
+          JeseryScript November 2014 [slides link and slides graphics]
+          MidwestJS August 2015 [slides graphics, link and youtubevideo screen/link]
+        </p>
+      </div>
+    </div>
+
+    <div class="poster-bumper">
+      <h2>The Readers</h2>
+      <p>
+        If you ever need someone to design a red and white reading website or application, I’m your guy. I’ve had the good fortune to work on three innovative reader-focused products in my career.
+      </p>
+    </div>
+
+    <div class="poster-readability">
+      <div class="poster-fill-readability">
+        <h2>Readability</h2>
+        <aside>
+          Arc90
+          Product & Design Lead, Frontend
+          November 2011 - February 2014
+        </aside>
+
+        <p>
+          From the day Readability launched as a full product offering I wanted to work on it. The original design by Darren Hoyt (http://darrenhoyt.com/) blew me away. In those early days it seemed like every person I looked up to in design was involved in some way. Zeldman(link), Mandy Brown(https://web.archive.org/web/20160325125906/http://blog.readability.com:80/2011/02/a-web-designed-for-reading), Chris Dary, Teehan+Lax, and again Darren. The excitement and momentum around it at that time was palpable in the Arc90 office and I wanted so bad to be a part of it.
+        </p>
+        <p>
+          In November 2011 I got the chance. I switched from client work at Arc90 to a Designer and Frontend Engineer on the Readability team. I was so excited! For about a year I helped continue the high standard of design and build iterative improvements to the Readability website.
+        </p>
+        <p>
+          In early 2013 we had a gap in the team. This a product that I loved and used daily so I asked Rich(link) for a quick chat where I asked him if he’d consider me for the vacant role of Product Lead of Readability. I was thrilled that Rich and the Readability team gave me the thumbs up and trusted me to take on the role.
+        </p>
+        <p>
+          Over the next year I helped lead the team on successful efforts to rebuild the Chrome extension, modernize the Reading view, and relaunch Top Reads. The biggest–and my last–effort I helped lead was a complete redesign and rebuild of the iOS app and in tandem a redesign of the website. Both included the biggest addition to Readability since its launch; Recommendations.
+        </p>
+        <p>
+          I left Arc90/Readability on February 14, 2014 (post link). The work I got to do and the team I got to do it with during that time will forever be on a pedestal for me.
+        </p>
+      </div>
+    </div>
 
 
-        <section class="home-groundwork-container">
-          <p>We had one goal: Help Hillary Clinton get to the White House.</p>
-          <p>We failed</p>
-          <h1>The Groundwork</h1>
+      <div hidden>
 
-          <ul>
-            <li>Developer Center</li>
-            <li>React / Admin</li>
-            <li>Interviewing</li>
-          </ul>
+        <section class="">
+          <h2>Readlists</h2>
         </section>
 
-        <section class="home-colorme-container">
-          <h1>ColorMe</h1>
-          <ul>
-            <li>Blog post</li>
-            <li>PWA Post</li>
-            <li>CSS-Tricks post</li>
-          </ul>
+        <section class="">
+          <h2>Longform</h2>
         </section>
 
-        <section class="home-jxa-container">
-          <h1>Building OS X Apps with JavaScript</h1>
-          <ul>
-            <li>Jerseyscript Slides</li>
-            <li>MidwestJS Slides & Video</li>
-            <li>Recognition from applescript creator</li>
-          </ul>
-        </section>
-
-        <section class="home-jxa-container">
-          <h1>Jribbble</h1>
-        </section>
-
-        <h2>The Readers</h2>
-
-        <section class="home-readability-container">
-          <h1>Readability</h1>
-        </section>
-
-        <section class="home-readlists-container">
-          <h1>Readlists</h1>
-
-          <ul>
-            <li>In NET Magazine</li>
-          </ul>
-        </section>
-
-        <section class="home-longform-container">
-          <h1>Longform</h1>
-        </section>
+        <div class="">
+          <h2>Jribbble</h2>
+        </div>
 
         <section class="home-css-exp-container">
-          <h1>The CSS Experiments</h1>
+          <h2>The CSS Experiments</h2>
           <h2>The Man From Hollywood</h2>
           <h2>CSS True Titles</h2>
           <h3>Squigglevision</h3>

@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="en" {{#if type}}data-page="{{type}}"{{/if}}>
+<html lang="en" data-page="blog">
   <head>
     {{> head-contents }}
   </head>
-  <body>
-    <div class="a-container-for-style-purposes">
+  <body class="body-default">
+    <div class="poster-fill-default poster-no-bg-img">
+      {{> banner-detail }}
       {{> banner }}
       <div role="main">
         <article class="h-entry">
