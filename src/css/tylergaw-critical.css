@@ -12,7 +12,7 @@ body {
   --darkerwhite: #D3D3D3;
   --font-aktiv: "aktiv-grotesk", sans-serif;
   --font-aktiv-ex: "aktiv-grotesk-extended", sans-serif;
-  --eggshell: #FCFBF2;
+  --eggshell: #f6f4de;
 }
 
 html, body {
@@ -32,7 +32,7 @@ a {
   background-color: var(--grey);
 }
 
-[role="banner"] {
+.banner {
   margin: 0 auto;
   max-width: 109em;
   overflow: hidden;

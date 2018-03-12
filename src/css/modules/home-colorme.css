@@ -1,0 +1,25 @@
+.poster-colorme {
+  --cm-red: #b50003;
+  background-color: var(--cm-red);
+  color: #252525;
+  /* clip-path: polygon(0 0.5rem, 100% 0, 100% 100%, 0 100%); */
+  /* margin-top: -0.5rem; */
+  padding: 0.25rem;
+}
+
+.poster-colorme a {
+  color: var(--cm-red);
+}
+
+.poster-fill-colorme {
+  background: #fff;
+  clip-path: polygon(
+    0.1rem 0.75rem,
+    50% 0.2rem,
+    100% 0.3rem,
+    calc(100% - 0.1rem) 50%,
+    100% 99.8%,
+    50% 100%,
+    0 99.7%
+  );
+}

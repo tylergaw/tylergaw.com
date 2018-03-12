@@ -35,20 +35,6 @@
   }
 }
 
-/*
-
-[role="banner"]::before {
-  order: 1;
-}
-
-[role="banner"]::after {
-  order: 3;
-} */
-
-/* .logo {
-  order: 2;
-} */
-
 .logo:hover .logo-base,
 .logo:focus .logo-base {
   fill: #fff;
