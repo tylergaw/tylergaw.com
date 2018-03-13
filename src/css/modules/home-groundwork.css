@@ -2,7 +2,9 @@
   --gw-blue: #0A6CFF;
   --gw-text: #293335;
   background-color: #e5eef3;
-  clip-path: polygon(0 0.75rem, 100% 0, 100% 100%, 0 100%);
+  --gw-poster-clip: polygon(0 0.75rem, 100% 0, 100% 100%, 0 100%);
+  -webkit-clip-path: var(--gw-poster-clip);
+  clip-path: var(--gw-poster-clip);
   margin-top: -0.75rem;
   padding: 0.25rem;
 }
@@ -27,7 +29,9 @@
 .poster-fill-groundwork {
   background: #fff;
   color: var(--gw-text);
-  clip-path: polygon(0 0.5rem, 100% 0, 100% 100%, 0 100%);
+  --gw-fill-clip: polygon(0 0.5rem, 100% 0, 100% 100%, 0 100%);
+  -webkit-clip-path: var(--gw-fill-clip);
+  clip-path: var(--gw-fill-clip);
 }
 
 .gw-header {

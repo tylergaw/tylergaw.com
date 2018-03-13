@@ -66,8 +66,8 @@
     font-weight: 900;
 
     & h3 {
-      background-color: #fff;
-      clip-path: polygon(
+      background-color: var(--lightgrey);
+      --h3-clip: polygon(
         0.1em 0.1em,
         10% 0,
         50% 0.2em,
@@ -77,6 +77,8 @@
         40% 100%,
         0 100%
       );
+      -webkit-clip-path: var(--h3-clip);
+      clip-path: var(--h3-clip);
       color: var(--grey);
       padding: 0.1em 0.2em;
     }

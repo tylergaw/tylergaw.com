@@ -18,7 +18,7 @@
     and can only travel in a straight line from point-to-point, no curves.
     That’s how polygon() works.
   */
-  clip-path: polygon(
+  --poster-fill-clip: polygon(
     /* Starting path at top left */
     0 0.7em,
     2vw 0.2em,
@@ -63,6 +63,8 @@
     0.6em 38%,
     0.1em 14%
   );
+  -webkit-clip-path: var(--poster-fill-clip);
+  clip-path: var(--poster-fill-clip);
 }
 
 .poster-no-bg-img {
