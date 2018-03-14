@@ -1,10 +1,10 @@
-const CACHE_KEY = "v6-tylergaw";
+const CACHE_KEY = "v7-tylergaw";
 const CACHE_URLS = [
   "/",
   "/index.html",
-  "/about/index.html",
-  "/articles/index.html",
-  "/purpose/index.html",
+  "/about/",
+  "/articles/",
+  "/purpose/",
   "/manifest.json",
   "/css/tylergaw.css",
   "/images/the-work-shape-outside.svg",
@@ -36,6 +36,10 @@ self.addEventListener("activate", event => {
 });
 
 self.addEventListener("fetch", event => {
+  if (event.request.method !== "GET") {
+    return;
+  }
+  
   event.respondWith(
     fetch(event.request)
       .then(res => res)
