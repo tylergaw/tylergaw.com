@@ -1,4 +1,4 @@
-const CACHE_KEY = "v5-tylergaw";
+const CACHE_KEY = "v6-tylergaw";
 const CACHE_URLS = [
   "/",
   "/index.html",
@@ -9,7 +9,8 @@ const CACHE_URLS = [
   "/css/tylergaw.css",
   "/images/the-work-shape-outside.svg",
   "/images/home-intro-bg-tile.svg",
-  "/offline.html"
+  "/offline.html",
+  "manifest.json"
 ];
 
 self.addEventListener("install", event =>
@@ -36,9 +37,9 @@ self.addEventListener("fetch", event => {
   event.respondWith(
     fetch(event.request)
       .then(res => res)
-      .catch(err => {
+      .catch(err =>
         caches.match(event.request)
           .then(res => res || caches.match("/offline.html"));
-      })
+      )
   );
 });
