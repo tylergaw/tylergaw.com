@@ -9,6 +9,8 @@ const CACHE_URLS = [
   "/css/tylergaw.css",
   "/images/the-work-shape-outside.svg",
   "/images/home-intro-bg-tile.svg",
+  "/images/portrait-shape-outside.svg",
+  "/images/article-thanks.svg",
   "/offline.html",
   "manifest.json"
 ];
