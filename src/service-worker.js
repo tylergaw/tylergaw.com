@@ -1,4 +1,4 @@
-const CACHE_KEY = "v8-tylergaw";
+const CACHE_KEY = "v9-tylergaw";
 const CACHE_URLS = [
   "/",
   "/index.html",
@@ -43,9 +43,10 @@ self.addEventListener("fetch", event => {
   event.respondWith(
     fetch(event.request)
       .then(res => res)
-      .catch(err =>
-        caches.match(event.request)
-          .then(res => res || caches.match("/offline.html"))
-      )
+      .catch(err => {
+        console.log('made it here', err);
+        return caches.match(event.request)
+          .then(res => res || caches.match("/offline.html"));
+      })
   );
 });
