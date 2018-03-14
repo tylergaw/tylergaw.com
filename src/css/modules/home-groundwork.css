@@ -10,7 +10,7 @@
 }
 
 .poster-groundwork a {
-  border-bottom: 1px solid var(--gw-blue);
+  border-bottom: 0.15em solid var(--gw-blue);
   color: var(--gw-text);
   text-decoration: none;
 
@@ -35,8 +35,8 @@
 }
 
 .gw-header {
-  margin: 0 auto;
   max-width: 57rem;
+  padding: 2rem 0;
 }
 
 .gw-mark {

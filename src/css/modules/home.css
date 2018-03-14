@@ -16,13 +16,13 @@
 
   & h3,
   & h4 {
-    font-family: var(--font-aktiv-ex);
-    font-weight: 900;
+    font-weight: 800;
+    margin-top: 1em;
   }
 
   & p {
     line-height: 1.5;
-    padding: 0.25rem 0 1rem 0;
+    padding: 0.2em 0 1.2em 0;
   }
 }
 
@@ -31,6 +31,11 @@
   max-width: 86.8125rem;
   padding: 0 1rem;
   width: 95%;
+}
+
+.project-body {
+  max-width: 65.94rem;
+  padding-top: 1rem;
 }
 
 .project-specs {
@@ -43,7 +48,20 @@
 }
 
 .project-intro {
-  font-size: 1.5rem;
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+@media (min-width: 47.5em) {
+  .project {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 75em) {
+  .project {
+    font-size: 1.8rem;
+  }
 }
 
 .poster-intro {

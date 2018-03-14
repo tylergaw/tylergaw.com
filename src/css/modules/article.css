@@ -60,7 +60,7 @@
   & h6 {
     @extend %maxedText;
     color: var(--offwhite);
-    font-weight: 700;
+    font-weight: 800;
   }
 
   & h2 {
