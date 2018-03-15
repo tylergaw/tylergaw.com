@@ -1,0 +1,174 @@
+.poster-intro {
+  padding: 0.25rem 0.25rem 0.1rem 0.25rem;
+}
+
+.home-intro {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -6vw;
+  position: relative;
+  z-index: 1;
+}
+
+.home-intro-contents {
+  font-size: 1.3rem;
+  line-height: 1.5;
+  max-width: 40ch;
+  padding: 0 2.5rem 7rem 7vw;
+}
+
+/* On narrow screens this is the diagonal shape of the intro copy. */
+.home-intro-contents::before {
+  float: left;
+  display: block;
+  content: "";
+  shape-outside: polygon(0 0, 20% 0, 100% 100%);
+  height: 120%;
+  width: 15%;
+}
+
+.home-intro-contents a {
+  border-bottom: 0.15em solid currentColor;
+  color: var(--offwhite);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.home-intro-contents a:hover,
+.home-intro-contents a:focus {
+  color: #ba7f44;
+}
+
+.home-intro-contents a:focus {
+  outline: 2px dashed var(--offwhite);
+}
+
+.home-intro-contents p + p {
+  margin-top: 1.3em;
+}
+
+.home-intro-graphic {
+  display: block;
+  overflow: hidden;
+  padding: 0 1rem;
+  position: relative;
+  width: 100%;
+}
+
+.home-intro-graphic::before {
+  bottom: 3%;
+  color: #ba7f44;
+  content: "Where do you even start?";
+  font-size: 0.8em;
+  left: 20%;
+  letter-spacing: -0.2em;
+  position: absolute;
+  transform: rotate(-11deg);
+  transform-origin: 50%;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  max-height: 50%;
+}
+
+@media (min-width: 40em) {
+  .poster-intro  {
+    padding: 0.5rem 0.5rem 0.1rem 0.5rem;
+  }
+}
+
+@media (min-width: 54em) {
+  .home-intro {
+    margin: -8vw auto 0 auto;
+    overflow: hidden;
+  }
+
+  .home-intro-graphic {
+    padding: 0;
+    position: absolute;
+    top: 0;
+    transform: translateX(-1vw);
+    width: 95%;
+  }
+
+  .home-intro-contents {
+    font-size: 1.9vw;
+    margin: -7vw 0 0 0;
+    max-width: 100%;
+    padding: 0;
+    width: 100%;
+    z-index: 2;
+  }
+
+  .home-intro-contents::before {
+    display: none;
+  }
+
+  .home-intro-contents p {
+    padding-right: 2.4rem;
+  }
+
+  .home-intro-contents p:last-child {
+    padding-right: 5em;
+  }
+
+  .home-intro-shape {
+    float: left;
+    display: block;
+    margin-left: -13vw;
+    margin-top: -10vw;
+    opacity: 0;
+    shape-outside: url("../images/the-work-shape-outside.svg");
+    visibility: hidden;
+    width: 123%;
+  }
+
+  .home-intro-graphic::before {
+    bottom: 6%;
+    left: 30%;
+    font-size: 0.9em;
+    letter-spacing: -0.35em;
+  }
+}
+
+@media (min-width: 101.25em) {
+  .home-intro-contents {
+    font-size: 1.7vw;
+    margin-top: 2vw;
+  }
+
+  .home-intro-contents p {
+    padding-right: 5rem;
+  }
+
+  .home-intro-contents p:last-child {
+    padding-right: 6em;
+  }
+
+  .home-intro-shape {
+    margin-left: -3vw;
+    margin-top: -2vw;
+    width: 109%;
+  }
+}
+
+/*
+  At this width ~1880px we want to stop using viewport-relative units. This way
+  elements won't scale beyond the proportions we want.
+*/
+@media (min-width: 117.5em) {
+  .home-intro {
+    margin-top: -9.4rem;
+    width: 115.5rem;
+  }
+
+  .home-intro-contents {
+    font-size: 2rem;
+    margin-top: 2.35rem;
+  }
+
+  .home-intro-shape {
+    margin-left: -3.52rem;
+    margin-top: -2.35rem;
+  }
+}

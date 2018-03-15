@@ -1,7 +1,7 @@
 .poster-groundwork {
   --gw-blue: #0A6CFF;
   --gw-text: #293335;
-  background-color: #e5eef3;
+  background-color: var(--gw-blue);
   --gw-poster-clip: polygon(0 0.75rem, 100% 0, 100% 100%, 0 100%);
   -webkit-clip-path: var(--gw-poster-clip);
   clip-path: var(--gw-poster-clip);
@@ -11,35 +11,59 @@
 
 .poster-groundwork a {
   border-bottom: 0.15em solid var(--gw-blue);
-  color: var(--gw-text);
+  color: var(--gw-blue);
   text-decoration: none;
 
   &:hover,
   &:focus {
-    color: var(--gw-blue);
-  }
-}
-
-@media (min-width: 40em) {
-  .poster-groundwork  {
-    padding: 0.5rem;
+    color: var(--gw-text);
   }
 }
 
 .poster-fill-groundwork {
   background: #fff;
-  color: var(--gw-text);
+  color: var(--gw-blue);
   --gw-fill-clip: polygon(0 0.5rem, 100% 0, 100% 100%, 0 100%);
   -webkit-clip-path: var(--gw-fill-clip);
   clip-path: var(--gw-fill-clip);
 }
 
 .gw-header {
-  max-width: 57rem;
-  padding: 2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 62rem;
+  padding: 4rem 0 2rem 0;
 }
 
 .gw-mark {
-  margin: 0 auto;
-  max-width: 10rem;
+  flex: 1 1 100%;
+  max-width: 4.5rem;
+}
+
+.gw-text {
+  flex: 1 1 100%;
+  margin-top: 1rem;
+}
+
+@media (min-width: 40em) {
+  .poster-groundwork  {
+    padding: 0.5rem;
+  }
+
+  .gw-header {
+    align-items: center;
+    padding-top: 6rem;
+  }
+
+  .gw-mark {
+    flex-basis: auto;
+    max-width: 5.8rem;
+  }
+
+  .gw-text {
+    flex-basis: auto;
+    margin-top: 0;
+    padding-left: 1rem;
+  }
 }

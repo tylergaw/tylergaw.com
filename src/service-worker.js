@@ -1,4 +1,4 @@
-const CACHE_KEY = "v9-tylergaw";
+const CACHE_KEY = "10-tylergaw";
 const CACHE_URLS = [
   "/",
   "/index.html",
@@ -24,6 +24,7 @@ self.addEventListener("install", event =>
 );
 
 self.addEventListener("activate", event => {
+  console.log("service worker activated");
   event.waitUntil(
     caches.keys().then(cacheNames =>
       Promise.all(

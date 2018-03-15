@@ -3,6 +3,7 @@
 @import "modules/general";
 @import "modules/banner";
 @import "modules/home";
+@import "modules/home-intro";
 @import "modules/home-limbo";
 @import "modules/home-groundwork";
 @import "modules/home-colorme";

@@ -60,10 +60,10 @@
     6vw 0.32em,
     18vw 0.38em,
     20vw 0.4em,
-    48vw 0.8em,
-    81vw 1em,
+    48vw 0.6em,
+    81vw 0.7em,
     /* top right, points below here draw the right edge of the path. */
-    calc(100% - 2rem) 1.4rem,
+    calc(100% - 1rem) 1.2rem,
     calc(100% - 0.5rem) 1.8em,
     calc(100% - 0.2rem) 2.5em,
     calc(100% - 0.1rem) 4em,

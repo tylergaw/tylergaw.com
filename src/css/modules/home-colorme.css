@@ -1,6 +1,7 @@
 .poster-colorme {
   --cm-red: #b50003;
-  background-color: var(--cm-red);
+  --cm-red-alt: #e00003;
+  background: linear-gradient(90deg, var(--cm-red) 50%, var(--cm-red-alt) 50%);
   color: #252525;
   --cm-poster-clip: polygon(0 0, 4rem 0.2rem, 50% 0, 100% 0, 99% 100%, 0 100%);
   -webkit-clip-path: var(--cm-poster-clip);
@@ -16,9 +17,9 @@
 .poster-fill-colorme {
   background: #fff;
   --cm-fill-clip: polygon(
-    0.8rem 0.75rem,
-    50% 0.2rem,
-    100% 0.3rem,
+    0.8rem 1rem,
+    64% 0.5rem,
+    100% 1.4rem,
     calc(100% - 0.1rem) 50%,
     100% 99.8%,
     50% 100%,
@@ -26,4 +27,8 @@
   );
   -webkit-clip-path: var(--cm-fill-clip);
   clip-path: var(--cm-fill-clip);
+}
+
+.colorme-header {
+  transform: translateY(-1vw);
 }
