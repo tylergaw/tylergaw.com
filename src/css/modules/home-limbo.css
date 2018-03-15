@@ -1,6 +1,4 @@
 .poster-limbo {
-  --limbo-red: #FF3030;
-  --limbo-dark: #272727;
   background-color: var(--eggshell);
   --limbo-poster-clip: polygon(0 0, 100% 1rem, 100% 100%, 0 100%);
   -webkit-clip-path: var(--limbo-poster-clip);
@@ -21,13 +19,13 @@
   }
 
   &:focus {
-    outline: 4px dotted var(--eggshell);
+    outline: 2px dashed currentColor;
   }
 }
 
 .limbo-header {
   background-color: var(--limbo-red);
-  --limbo-header-clip: polygon(0 0, 100% 0, 100% 99%, 75% 100%, 50% 98%, 0 100%);
+  --limbo-header-clip: polygon(0 0, 100% 0, 100% 99%, 50% 98%, 0 100%);
   -webkit-clip-path: var(--limbo-header-clip);
   clip-path: var(--limbo-header-clip);
   color: var(--eggshell);
@@ -56,16 +54,14 @@
   --limbo-fill-clip: polygon(
     /* Starting path at top left */
     0.4vw 0.8rem,
-    2.3vw 0.5em,
     6vw 0.32em,
     18vw 0.38em,
     20vw 0.4em,
     48vw 0.6em,
     81vw 0.7em,
     /* top right, points below here draw the right edge of the path. */
-    calc(100% - 1rem) 1.2rem,
-    calc(100% - 0.5rem) 1.8em,
-    calc(100% - 0.2rem) 2.5em,
+    calc(100% - 1.2rem) 1rem,
+    100% 1.2em,
     calc(100% - 0.1rem) 4em,
     100% 14em,
     calc(100% - 0.4em) 28em,
@@ -85,6 +81,6 @@
   );
   -webkit-clip-path: var(--limbo-fill-clip);
   clip-path: var(--limbo-fill-clip);
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
   width: 100%;
 }

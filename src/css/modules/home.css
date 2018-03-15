@@ -1,7 +1,8 @@
 [data-page="home"] {
-  & body {
-    /* --accent: #F1BC44; */
-  }
+  --limbo-red: #FF3030;
+  --limbo-dark: #272727;
+  --gw-blue: #0A6CFF;
+  --gw-text: #293335;
 }
 
 [data-page="home"] .banner {
@@ -50,6 +51,39 @@
 .project-intro {
   font-size: 1.2em;
   line-height: 1.6;
+}
+
+.poster-bumper {
+  padding: 0 0.25rem;
+}
+
+.poster-fill-bumper {
+  background-size: 110%;
+  background-position: center;
+  --bumper-clip: polygon(0 0, calc(100% - 0.2rem) 0, 99.5% 100%, 0.4rem 100%);
+  -webkit-clip-path: var(--bumper-clip);
+  clip-path: var(--bumper-clip);
+  color: var(--offwhite);
+  font-size: 1.2rem;
+  padding: 30rem 10% 10rem 1rem;
+  text-align: right;
+}
+
+.poster-fill-bumper h4 {
+  line-height: 0.4;
+}
+
+.poster-fill-bumper small {
+  font-weight: 400;
+}
+
+.poster-fill-bumper sup {
+  display: inline-block;
+  font-family: var(--font-aktiv-ex);
+  font-weight: 900;
+  font-size: 105%;
+  transform: translateY(0.3rem) rotate(1deg);
+  transform-origin: left bottom;
 }
 
 @media (min-width: 47.5em) {

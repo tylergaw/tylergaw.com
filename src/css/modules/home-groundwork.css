@@ -1,16 +1,14 @@
 .poster-groundwork {
-  --gw-blue: #0A6CFF;
-  --gw-text: #293335;
   background-color: var(--gw-blue);
-  --gw-poster-clip: polygon(0 0.75rem, 100% 0, 100% 100%, 0 100%);
+  --gw-poster-clip: polygon(0 0.5rem, 100% 0, 100% 100%, 0 100%);
   -webkit-clip-path: var(--gw-poster-clip);
   clip-path: var(--gw-poster-clip);
-  margin-top: -0.75rem;
-  padding: 0.25rem;
+  margin-top: -0.5rem;
+  padding: 0 0.25rem 0.2rem 0.1rem;
 }
 
 .poster-groundwork a {
-  border-bottom: 0.15em solid var(--gw-blue);
+  border-bottom: 0.15em solid currentColor;
   color: var(--gw-blue);
   text-decoration: none;
 
@@ -18,52 +16,47 @@
   &:focus {
     color: var(--gw-text);
   }
+
+  &:focus {
+    outline: 2px dashed currentColor;
+  }
 }
 
 .poster-fill-groundwork {
   background: #fff;
   color: var(--gw-blue);
-  --gw-fill-clip: polygon(0 0.5rem, 100% 0, 100% 100%, 0 100%);
+  --gw-fill-clip: polygon(0 0.8rem, 100% 0, 99.8% 100%, 0.25rem 100%);
   -webkit-clip-path: var(--gw-fill-clip);
   clip-path: var(--gw-fill-clip);
+  padding-bottom: 4rem;
 }
 
 .gw-header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 62rem;
   padding: 4rem 0 2rem 0;
 }
 
 .gw-mark {
-  flex: 1 1 100%;
-  max-width: 4.5rem;
+  flex: 0 1 22vw;
+  max-width: 9rem;
 }
 
 .gw-text {
   flex: 1 1 100%;
-  margin-top: 1rem;
+  margin-top: 1.1em;
 }
 
 @media (min-width: 40em) {
   .poster-groundwork  {
-    padding: 0.5rem;
+    padding: 0 0.1rem 0.3rem 0.5rem;
   }
+}
 
-  .gw-header {
-    align-items: center;
-    padding-top: 6rem;
-  }
-
+@media (min-width: 50em) {
   .gw-mark {
-    flex-basis: auto;
-    max-width: 5.8rem;
-  }
-
-  .gw-text {
-    flex-basis: auto;
-    margin-top: 0;
-    padding-left: 1rem;
+    flex: 0 1 18vw;
+    max-width: 16rem;
   }
 }
