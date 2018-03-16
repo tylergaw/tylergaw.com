@@ -1,12 +1,14 @@
-[data-page='error'] {
-  & [role='main'] {
-    padding: 0 4%;
+[data-page="error"] {
+  & [role="main"] {
+    padding: 4rem 3rem 6rem 3rem;
     text-align: center;
   }
 
   & h1 {
-    font-size: 44vw;
+    font-size: 15vw;
     line-height: 1;
+    font-family: var(--font-aktiv-ex);
+    font-weight: 900;
   }
 
   & h2 {
@@ -16,9 +18,16 @@
     max-width: 21em;
   }
 
-  @media (min-width: 520px) {
-    & h1 {
-      font-size: 20vw;
-    }
+  & p {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    margin: 0 auto;
+    max-width: 28em;
+  }
+}
+
+@media (min-width: 70em) {
+  [data-page="error"] h1 {
+    font-size: 10rem;
   }
 }

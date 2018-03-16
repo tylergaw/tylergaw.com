@@ -4,10 +4,9 @@
   --cm-text: #252525;
   background: linear-gradient(90deg, var(--cm-red) 50%, var(--cm-red-alt) 50%);
   color: var(--cm-text);
-  --cm-poster-clip: polygon(0 0, 4rem 0.2rem, 50% 0, 100% 0, 99% 100%, 0 100%);
+  --cm-poster-clip: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   -webkit-clip-path: var(--cm-poster-clip);
   clip-path: var(--cm-poster-clip);
-  margin-top: -0.2rem;
   padding: 0.25rem;
 }
 
@@ -32,8 +31,8 @@
     0.8rem 1rem,
     64% 0.5rem,
     100% 1.4rem,
-    calc(100% - 0.1rem) 50%,
-    100% 99.8%,
+    calc(100% - 0.15rem) 50%,
+    100% 99.5%,
     50% 100%,
     0 99.7%
   );

@@ -64,17 +64,13 @@
   -webkit-clip-path: var(--bumper-clip);
   clip-path: var(--bumper-clip);
   color: var(--offwhite);
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   padding: 30rem 10% 10rem 1rem;
   text-align: right;
 }
 
 .poster-fill-bumper h4 {
   line-height: 0.4;
-}
-
-.poster-fill-bumper small {
-  font-weight: 400;
 }
 
 .poster-fill-bumper sup {

@@ -56,11 +56,11 @@ table {
 }
 
 b, strong {
-font-weight: 800;
+  font-weight: 800;
 }
 
 i, em {
-  font-style: normal;
+  font-style: italic;
 }
 
 * {
