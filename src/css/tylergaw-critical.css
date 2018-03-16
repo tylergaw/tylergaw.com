@@ -1,8 +1,56 @@
 /*
-  Hello. These inline styles are considered critical for page load so we put
-  them directly in the markup instead of blocking page load for the entire
-  stylesheet.
+  Hello 👋 These inline styles are considered critical for the first meaningful
+  paint. So we put them directly in the markup instead of blocking page
+  load for the entire stylesheet. The main stylesheet loads after the document.
 */
+html, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, cite, code, del, dfn, em, img, q, s, small, strike,
+strong, sub, sup, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form,
+label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside,
+canvas, embed, figure, figcaption, footer, header, nav, section, time, mark,
+audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav,
+section {
+  display: block;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+b, strong {
+  font-weight: 800;
+}
+
+i, em {
+  font-style: italic;
+}
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   --lightgrey: #CCC;
@@ -13,15 +61,17 @@ body {
   --font-aktiv: "aktiv-grotesk", sans-serif;
   --font-aktiv-ex: "aktiv-grotesk-extended", sans-serif;
   --eggshell: #f6f5e4;
+  color: var(--offwhite);
+  font-family: var(--font-aktiv);
+  line-height: 1;
+  margin: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
 }
 
 html, body {
   background-color: var(--lightgrey);
-}
-
-body {
-  color: var(--offwhite);
-  font-family: var(--font-aktiv);
 }
 
 a {
@@ -86,4 +136,443 @@ a {
 .about-portrait,
 .about-portrait-shape {
   display: none;
+}
+
+/*
+  Home intro
+  I include these as inline styles because this first second sits well
+  "above the fold" on many screen sizes. Having these load fast decreases
+  the time to first meaningful paint.
+*/
+.poster-intro {
+  padding: 0.25rem 0.25rem 0.1rem 0.25rem;
+}
+
+.home-intro {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -6vw;
+  position: relative;
+  z-index: 1;
+}
+
+.home-intro-contents {
+  font-size: 1.3rem;
+  line-height: 1.5;
+  max-width: 40ch;
+  padding: 0 2.5rem 7rem 7vw;
+}
+
+/* On narrow screens this is the diagonal shape of the intro copy. */
+.home-intro-contents::before {
+  float: left;
+  display: block;
+  content: "";
+  shape-outside: polygon(0 0, 20% 0, 100% 100%);
+  height: 120%;
+  width: 15%;
+}
+
+.home-intro-contents a {
+  border-bottom: 0.15em solid currentColor;
+  color: var(--offwhite);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.home-intro-contents a:hover,
+.home-intro-contents a:focus {
+  color: #ba7f44;
+}
+
+.home-intro-contents a:focus {
+  outline: 2px dashed var(--offwhite);
+}
+
+.home-intro-contents p + p {
+  margin-top: 1.3em;
+}
+
+.home-intro-graphic {
+  display: block;
+  overflow: hidden;
+  padding: 0 1rem;
+  position: relative;
+  width: 100%;
+}
+
+.home-intro-graphic::before {
+  bottom: 3%;
+  color: #ba7f44;
+  content: "Where do you even start?";
+  font-size: 0.8em;
+  left: 20%;
+  letter-spacing: -0.2em;
+  position: absolute;
+  transform: rotate(-11deg);
+  transform-origin: 50%;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  max-height: 50%;
+}
+
+@media (min-width: 40em) {
+  .poster-intro  {
+    padding: 0.5rem 0.5rem 0.1rem 0.5rem;
+  }
+}
+
+@media (min-width: 54em) {
+  .home-intro {
+    margin: -8vw auto 0 auto;
+    overflow: hidden;
+  }
+
+  .home-intro-graphic {
+    padding: 0;
+    position: absolute;
+    top: 0;
+    transform: translateX(-1vw);
+    width: 95%;
+  }
+
+  .home-intro-contents {
+    font-size: 1.9vw;
+    margin: -7vw 0 0 0;
+    max-width: 100%;
+    padding: 0;
+    width: 100%;
+    z-index: 2;
+  }
+
+  .home-intro-contents::before {
+    display: none;
+  }
+
+  .home-intro-contents p {
+    padding-right: 2.4rem;
+  }
+
+  .home-intro-contents p:last-child {
+    padding-right: 5em;
+  }
+
+  .home-intro-shape {
+    float: left;
+    display: block;
+    margin-left: -13vw;
+    margin-top: -10vw;
+    opacity: 0;
+    shape-outside: url("../images/the-work-shape-outside.svg");
+    visibility: hidden;
+    width: 123%;
+  }
+
+  .home-intro-graphic::before {
+    bottom: 6%;
+    left: 30%;
+    font-size: 0.9em;
+    letter-spacing: -0.35em;
+  }
+}
+
+@media (min-width: 101.25em) {
+  .home-intro-contents {
+    font-size: 1.7vw;
+    margin-top: 2vw;
+  }
+
+  .home-intro-contents p {
+    padding-right: 5rem;
+  }
+
+  .home-intro-contents p:last-child {
+    padding-right: 6em;
+  }
+
+  .home-intro-shape {
+    margin-left: -3vw;
+    margin-top: -2vw;
+    width: 109%;
+  }
+}
+
+/*
+  At this width ~1880px we want to stop using viewport-relative units. This way
+  elements won't scale beyond the proportions we want.
+*/
+@media (min-width: 117.5em) {
+  .home-intro {
+    margin-top: -9.4rem;
+    width: 115.5rem;
+  }
+
+  .home-intro-contents {
+    font-size: 2rem;
+    margin-top: 2.35rem;
+  }
+
+  .home-intro-shape {
+    margin-left: -3.52rem;
+    margin-top: -2.35rem;
+  }
+}
+
+.article-list {
+  margin: 0 auto;
+  max-width: 42em;
+  padding-top: 0.5em;
+}
+
+.articles-section-title {
+  align-items: center;
+  background-color: var(--accent);
+  color: var(--grey);
+  display: flex;
+  padding: 1.8em;
+}
+
+.articles-section-title p {
+  color: var(--grey);
+}
+
+.articles-section-title h2 {
+  font-family: var(--font-aktiv-ex);
+  font-weight: 900;
+  font-size: 3em;
+}
+
+.article-listed {
+  box-sizing: border-box;
+  margin: 0.5em 0;
+  padding: 1.2em 1em;
+}
+
+.article-listed time {
+  font-size: 1em;
+  font-weight: 800;
+  color: var(--darkerwhite);
+  display: block;
+  margin-bottom: 0.25em;
+}
+
+.article-listed a {
+  color: var(--offwhite);
+  display: inline-block;
+  font-family: var(--font-aktiv-ex);
+  font-size: 2.3rem;
+  font-weight: 900;
+  line-height: 1.1;
+  max-width: 100%;
+  text-decoration: none;
+  word-wrap: break-word;
+}
+
+.article-listed a:hover,
+.article-listed a:focus {
+  color: var(--accent);
+}
+
+.article-listed p {
+  color: var(--darkerwhite);
+  font-size: 1.1em;
+  line-height: 1.5;
+  margin-top: 0.5em;
+}
+
+.articles-year {
+  font-family: var(--font-aktiv-ex);
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.articles-year h3 {
+  background-color: var(--lightgrey);
+  --h3-clip: polygon(
+    0.1em 0.1em,
+    10% 0,
+    50% 0.2em,
+    99% 0.1em,
+    100% 100%,
+    80% 97%,
+    40% 100%,
+    0 100%
+  );
+  -webkit-clip-path: var(--h3-clip);
+  clip-path: var(--h3-clip);
+  color: var(--grey);
+  padding: 0.1em 0.2em;
+}
+
+/* About critical styles */
+[data-page="about"] body {
+  --accent-about: #94aca4;
+}
+
+[data-page="about"] h2,
+[data-page="about"] h3 {
+  font-family: var(--font-aktiv-ex);
+  font-weight: 900;
+}
+
+.about-intro {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  padding: 0 1rem 2rem 1rem;
+  position: relative;
+}
+
+.about-intro-heading {
+  font-size: 21vw;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.about-intro-opening {
+  font-size: 1.5rem;
+  padding: 0.75rem 1.5rem 1.5rem 1.5rem;
+}
+
+@media (min-width: 26em) {
+  .about-intro-opening {
+    padding: 0.75rem 2rem 1.2rem 19%;
+  }
+}
+
+.about-intro-opening p + p {
+  margin-top: 1.2em;
+}
+
+.about-intro-body {
+  padding: 0 1.5rem 2.25rem 1.5rem;
+  position: relative;
+}
+
+.about-intro-body p {
+  line-height: 1.6;
+}
+
+.about-intro-body h3 {
+  color: var(--accent-about);
+  font-size: 1.4rem;
+  margin: 1.75em 0 0.25em 0;
+}
+
+.about-portrait {
+  display: block;
+  margin-bottom: -105%;
+  order: -1;
+  width: 100%;
+}
+
+.about-intro-outro {
+  font-size: 1.5rem;
+  padding: 2.5rem 1.5rem;
+}
+
+@media (min-width: 47em) {
+  .about-intro {
+    display: block;
+    font-size: 1.5rem;
+    margin-top: -7vw;
+  }
+
+  .about-portrait-shape {
+    float: left;
+    display: block;
+    opacity: 0;
+    shape-outside: url("../images/portrait-shape-outside.svg");
+    width: 50%;
+  }
+
+  .about-intro-heading {
+    font-size: 10vw;
+    padding-top: 11vw;
+  }
+
+  .about-intro-opening {
+    font-size: 1.6rem;
+    padding-left: 12%;
+    padding-right: 4rem;
+  }
+
+  .about-intro-body {
+    display: grid;
+    grid-column-gap: 4rem;
+    grid-template-columns: 1fr 1fr;
+    padding-left: 12%;
+    padding-right: 6rem;
+  }
+
+  .about-intro-body div p {
+    font-size: 1.1rem;
+  }
+
+  .about-portrait {
+    margin-bottom: 0;
+    position: absolute;
+    top: 1.2rem;
+    width: 45%;
+    z-index: -1;
+  }
+}
+
+@media (min-width: 76em) {
+  .about-intro {
+    margin: -12vw auto 0 auto;
+    max-width: 113.75rem;
+  }
+
+  .about-intro-heading {
+    font-size: 5.2vw;
+    padding-top: 16vw;
+    text-indent: -0.2em;
+  }
+
+  .about-intro-opening {
+    font-size: 1.8rem;
+    padding-right: 5rem;
+    max-width: 110rem;
+  }
+
+  .about-intro-body {
+    display: block;
+    max-width: 103rem;
+    padding-left: 22%;
+    padding-right: 7rem;
+  }
+
+  .about-intro-body div p {
+    font-size: 1.4rem;
+  }
+
+  .about-portrait {
+    max-width: 52rem;
+    top: 3.2rem;
+    width: 53%;
+  }
+
+  .about-portrait-shape {
+    max-width: 56rem;
+    width: 59%;
+  }
+}
+
+@media (min-width: 106.25em) {
+  .about-intro {
+    margin-top: -12.8rem;
+  }
+
+  .about-intro-heading {
+    padding-top: 17rem;
+  }
+}
+
+@media (min-width: 123.75em) {
+  .about-intro-heading {
+    font-size: 5.94rem;
+  }
 }

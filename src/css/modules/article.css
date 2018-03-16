@@ -196,8 +196,13 @@
   padding-bottom: 0;
 
   &::after {
-    @extend %purple-divider;
+    background-color: var(--accent);
+    content: '';
+    display: block;
+    height: 6px;
     margin: 1.5em auto 1.5em auto;
+    text-align: center;
+    width: 25%;
   }
 }
 
@@ -207,8 +212,21 @@
 
 .entry-intro + p:first-letter,
 .entry-intro + h2 + p:first-letter {
-  @extend %drop-cap;
-  color: var(--offwhite);
+  color: var(--accent);
+  float: left;
+  font-family: var(--font-aktiv-ex);
+  font-size: 560%;
+  font-weight: 900;
+  line-height: 0.8;
+  padding-right: 0.07em;
+  margin-top: -0.02em;
+}
+
+@media (min-width: 73.125em) {
+  .entry-intro + p:first-letter,
+  .entry-intro + h2 + p:first-letter {
+    margin-left: -0.25em;
+  }
 }
 
 @media (min-width: 620px) {

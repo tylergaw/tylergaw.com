@@ -1,86 +1,87 @@
+/* TODO: DELETE THIS FILE, moved to critcal */
+
 .article-list {
   margin: 0 auto;
   max-width: 42em;
   padding-top: 0.5em;
+}
 
-  & li {
-    box-sizing: border-box;
-    margin: 0.5em 0;
-    padding: 1.2em 1em;
-  }
+.articles-section-title {
+  align-items: center;
+  background-color: var(--accent);
+  color: var(--grey);
+  display: flex;
+  padding: 1.8em;
+}
 
-  & .section-title {
-    align-items: center;
-    background-color: var(--accent);
-    color: var(--grey);
-    display: flex;
-    padding: 1.8em;
+.articles-section-title p {
+  color: var(--grey);
+}
 
-    & p {
-      color: var(--grey);
-    }
+.articles-section-title h2 {
+  font-family: var(--font-aktiv-ex);
+  font-weight: 900;
+  font-size: 3em;
+}
 
-    & h2 {
-      font-family: "aktiv-grotesk-extended";
-      font-weight: 900;
-      font-size: 3em;
-    }
-  }
+.article-listed {
+  box-sizing: border-box;
+  margin: 0.5em 0;
+  padding: 1.2em 1em;
+}
 
-  & time {
-    font-family: "aktiv-grotesk";
-    font-size: 1em;
-    font-weight: 800;
-    color: var(--darkerwhite);
-    display: block;
-    margin-bottom: 0.25em;
-  }
+.article-listed time {
+  font-size: 1em;
+  font-weight: 800;
+  color: var(--darkerwhite);
+  display: block;
+  margin-bottom: 0.25em;
+}
 
-  & a {
-    color: var(--offwhite);
-    display: inline-block;
-    font-family: var(--font-aktiv-ex);
-    font-size: 2.3rem;
-    font-weight: 900;
-    line-height: 1.1;
-    max-width: 100%;
-    text-decoration: none;
-    word-wrap: break-word;
+.article-listed a {
+  color: var(--offwhite);
+  display: inline-block;
+  font-family: var(--font-aktiv-ex);
+  font-size: 2.3rem;
+  font-weight: 900;
+  line-height: 1.1;
+  max-width: 100%;
+  text-decoration: none;
+  word-wrap: break-word;
+}
 
-    &:hover,
-    &:focus {
-      color: var(--accent);
-    }
-  }
+.article-listed a:hover,
+.article-listed a:focus {
+  color: var(--accent);
+}
 
-  & p {
-    color: var(--darkerwhite);
-    font-size: 1.1em;
-    line-height: 1.5;
-    margin-top: 0.5em;
-  }
+.article-listed p {
+  color: var(--darkerwhite);
+  font-size: 1.1em;
+  line-height: 1.5;
+  margin-top: 0.5em;
+}
 
-  & .articles-year {
-    font-family: var(--font-aktiv-ex);
-    font-size: 1rem;
-    font-weight: 900;
+.articles-year {
+  font-family: var(--font-aktiv-ex);
+  font-size: 1rem;
+  font-weight: 900;
+}
 
-    & h3 {
-      background-color: var(--lightgrey);
-      --h3-clip: polygon(
-        0.1em 0.1em,
-        10% 0,
-        50% 0.2em,
-        99% 0.1em,
-        100% 100%,
-        80% 97%,
-        40% 100%,
-        0 100%
-      );
-      -webkit-clip-path: var(--h3-clip);
-      clip-path: var(--h3-clip);
-      color: var(--grey);
-      padding: 0.1em 0.2em;
-    }
-  }
+.articles-year h3 {
+  background-color: var(--lightgrey);
+  --h3-clip: polygon(
+    0.1em 0.1em,
+    10% 0,
+    50% 0.2em,
+    99% 0.1em,
+    100% 100%,
+    80% 97%,
+    40% 100%,
+    0 100%
+  );
+  -webkit-clip-path: var(--h3-clip);
+  clip-path: var(--h3-clip);
+  color: var(--grey);
+  padding: 0.1em 0.2em;
 }
