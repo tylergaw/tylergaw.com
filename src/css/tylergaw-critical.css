@@ -78,6 +78,16 @@ a {
   color: var(--accent);
 }
 
+.poster-default {
+  padding: 0.25rem;
+}
+
+@media (min-width: 40em) {
+  .poster-default {
+    padding: 0.5rem;
+  }
+}
+
 .poster-fill-default {
   background-color: var(--grey);
 }
@@ -124,7 +134,7 @@ a {
 
 .navigation a {
   display: inline-block;
-  font-family: "aktiv-grotesk-extended";
+  font-family: var(--font-aktiv-ex);
   font-weight: 900;
   padding: 0.5rem 0.45rem;
   text-decoration: none;

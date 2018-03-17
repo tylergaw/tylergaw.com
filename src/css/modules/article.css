@@ -18,7 +18,7 @@
   text-align: center;
 
   & .p-name {
-    font-family: "aktiv-grotesk-extended";
+    font-family: var(--font-aktiv-ex);
     color: var(--offwhite);
     font-size: 3.2em;
     font-weight: 900;
@@ -64,7 +64,7 @@
   }
 
   & h2 {
-    font-family: "aktiv-grotesk-extended";
+    font-family: var(--font-aktiv-ex);
     font-size: 1.2em;
     font-weight: 900;
     padding: 0.7em 0 0.25em 0;

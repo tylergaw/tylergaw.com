@@ -36,7 +36,7 @@
     background-repeat: no-repeat;
     box-sizing: border-box;
     display: block;
-    font-family: "aktiv-grotesk-extended";
+    font-family: var(--font-aktiv-ex);
     font-weight: 900;
     font-size: 1.1em;
     min-height: 5em;

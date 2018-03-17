@@ -54,18 +54,22 @@
 }
 
 .poster-bumper {
-  padding: 0 0.25rem;
+  background: #fff;
 }
 
 .poster-fill-bumper {
-  background-size: 110%;
-  background-position: center;
-  --bumper-clip: polygon(0 0, calc(100% - 0.2rem) 0, 99.5% 100%, 0.4rem 100%);
+  background: var(--eggshell);
+  box-shadow: inset 0 -1rem 0 #fff;
+  --bumper-clip: polygon(
+    0 0,
+    calc(100% - 0.2rem) 0,
+    99.5% 99%,
+    0.4rem 99%
+  );
   -webkit-clip-path: var(--bumper-clip);
   clip-path: var(--bumper-clip);
-  color: var(--offwhite);
-  font-size: 0.9rem;
-  padding: 30rem 10% 10rem 1rem;
+  color: var(--gw-blue);
+  padding: 20rem 10% 10rem 1rem;
   text-align: right;
 }
 

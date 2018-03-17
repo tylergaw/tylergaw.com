@@ -1,13 +1,3 @@
-.poster-default {
-  padding: 0.25rem;
-}
-
-@media (min-width: 40em) {
-  .poster-default {
-    padding: 0.5rem;
-  }
-}
-
 .poster-fill-default {
   background: var(--grey) url("../images/home-intro-bg-tile.svg") repeat;
   background-size: 1000px;
