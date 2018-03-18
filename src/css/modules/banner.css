@@ -9,7 +9,7 @@
   position: absolute;
   text-align: center;
   width: 100%;
-  z-index: -1;
+  z-index: 1;
 }
 
 .banner-detail b {
@@ -21,7 +21,7 @@
 
 .banner-detail::before,
 .banner-detail::after {
-  background: transparent url("../images/banner-bg.svg") no-repeat center 55%;
+  background: transparent url("/images/banner-bg.svg") no-repeat center 55%;
   background-size: 90% auto;
   content: "";
   flex: 1 1 0;

@@ -26,7 +26,6 @@
     "metalsmith-layouts": "1.8.1",
     "metalsmith-postcss": "4.1.1",
     "moment": "2.20.1",
-    "postcss-extend-rule": "1.1.0",
     "postcss-import": "11.0.0",
     "postcss-nesting": "4.2.1"
   }

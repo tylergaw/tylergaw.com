@@ -35,11 +35,6 @@ blockquote:before, blockquote:after, q:before, q:after {
   content: none;
 }
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
 b, strong {
   font-weight: 800;
 }
@@ -79,13 +74,7 @@ a {
 }
 
 .poster-default {
-  padding: 0.25rem;
-}
-
-@media (min-width: 40em) {
-  .poster-default {
-    padding: 0.5rem;
-  }
+  padding: 0.25rem 0.2rem 0.25rem 0.25rem;
 }
 
 .poster-fill-default {
@@ -228,8 +217,12 @@ a {
 }
 
 @media (min-width: 40em) {
+  .poster-default {
+    padding: 0.4rem;
+  }
+
   .poster-intro  {
-    padding: 0.5rem 0.5rem 0.1rem 0.5rem;
+    padding: 0.4rem 0.4rem 0.1rem 0.4rem;
   }
 }
 
@@ -309,7 +302,7 @@ a {
 }
 
 /*
-  At this width ~1880px we want to stop using viewport-relative units. This way
+  At ~1880px we want to stop using viewport-relative units. This way
   elements won't scale beyond the proportions we want.
 */
 @media (min-width: 117.5em) {
@@ -416,7 +409,7 @@ a {
 }
 
 /* About critical styles */
-[data-page="about"] body {
+[data-page="about"] {
   --accent-about: #94aca4;
 }
 
@@ -433,6 +426,7 @@ a {
   line-height: 1.6;
   padding: 0 1rem 2rem 1rem;
   position: relative;
+  z-index: 1;
 }
 
 .about-intro-heading {

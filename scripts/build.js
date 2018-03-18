@@ -38,8 +38,7 @@ metalsmith(__dirname)
     postcss({
       plugins: {
         'postcss-import': {},
-        'postcss-nesting': {},
-        'postcss-extend-rule': {}
+        'postcss-nesting': {}
       }
     })
   )

@@ -7,24 +7,22 @@
     <div class="poster-fill-default poster-no-bg-img">
       {{> banner-detail }}
       {{> banner }}
-      <div role="main">
-        <article class="h-entry">
-          <header class="e-header">
-            <time class="dt-published" datetime="{{ date }}">
-              {{dateFormat date}}
-            </time>
-            <h1 class="p-name">
-              {{ title }}
-            </h1>
-            <p class="p-author h-card">
-              By Tyler Gaw
-            </p>
-          </header>
-          <div class="e-content">
-            {{{contents}}}
-          </div>
-        </article>
-      </div>
+      <article class="h-entry">
+        <header class="e-header">
+          <time class="dt-published" datetime="{{ date }}">
+            {{dateFormat date}}
+          </time>
+          <h1 class="p-name">
+            {{ title }}
+          </h1>
+          <p class="p-author h-card" aria-hidden="true">
+            By Tyler Gaw
+          </p>
+        </header>
+        <div class="e-content">
+          {{{contents}}}
+        </div>
+      </article>
     </div>
     {{> footer }}
     <link rel="stylesheet" href="/css/tylergaw.css">
