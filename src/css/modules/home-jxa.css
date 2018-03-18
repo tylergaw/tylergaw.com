@@ -5,7 +5,7 @@
 
 @media (min-width: 40em) {
   .poster-jxa {
-    padding: 0.5rem;
+    padding: 0.4rem;
   }
 }
 
@@ -52,12 +52,10 @@
     calc(100% - 0.3em) 71em,
     /* bottom right. points below here draw the bottom edge of the path */
     100% 100%,
-    calc(100% - 22vw) 99.9%,
     calc(100% - 38vw) calc(100% - 0.2em),
-    calc(100% - 81vw) 100%,
     calc(100% - 90vw) calc(100% - 0.1em),
     /* bottom left. points below here draw the left edge of the path */
-    0 calc(100% - 0.2em),
+    0 100%,
     0.3em 80%,
     0.2em 74%,
     0.1em 64%,

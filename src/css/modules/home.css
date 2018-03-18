@@ -44,10 +44,11 @@
   line-height: 1.3;
 }
 
-@media (min-width: 68.75em) {
+@media (min-width: 64em) {
   .project-contents {
     display: grid;
     grid-template-columns: repeat(5, minmax(100px, 260px));
+    grid-column-gap: 2rem;
   }
 
   .project-contents header {
@@ -58,6 +59,7 @@
     font-size: 65%;
     grid-column: 1 / span 1;
     overflow-wrap: break-word;
+    padding-top: 1.1rem;
   }
 
   .project-body {

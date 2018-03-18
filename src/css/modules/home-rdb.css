@@ -1,0 +1,24 @@
+.poster-readability {
+  --rdb-red: #990000;
+  background-color: #fff;
+  padding-bottom: 0.4rem;
+}
+
+.poster-fill-readability {
+  background-color: var(--rdb-red);
+  color: #fff;
+}
+
+.poster-readability a {
+  border-bottom: 0.15em solid currentColor;
+  color: #fff;
+  text-decoration: none;
+
+  &:focus {
+    outline: 2px dashed currentColor;
+  }
+}
+
+.poster-readability header {
+  padding: 4rem 0 2rem 0;
+}
