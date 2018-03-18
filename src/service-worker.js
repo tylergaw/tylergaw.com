@@ -1,4 +1,4 @@
-const CACHE_KEY = "11-tylergaw";
+const CACHE_KEY = "12-tylergaw";
 const CACHE_URLS = [
   "/",
   "/index.html",
@@ -24,7 +24,6 @@ self.addEventListener("install", event =>
 );
 
 self.addEventListener("activate", event => {
-  console.log("service worker activated");
   event.waitUntil(
     caches.keys().then(cacheNames =>
       Promise.all(
@@ -45,7 +44,6 @@ self.addEventListener("fetch", event => {
     fetch(event.request)
       .then(res => res)
       .catch(err => {
-        console.log('made it here', err);
         return caches.match(event.request)
           .then(res => res || caches.match("/offline.html"));
       })
