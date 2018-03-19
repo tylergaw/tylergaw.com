@@ -131,6 +131,22 @@
   font-weight: 800;
 }
 
+.bumper-ender {
+  background-color: var(--lightgrey);
+  --bump-end-clip: polygon(
+      0 0,
+      100% 0,
+      100% 100%,
+      60% calc(100% - 0.4em),
+      34% 100%,
+      25% calc(100% - 0.2em),
+      0 calc(100% - 0.35em)
+  );
+  -webkit-clip-path: var(--bump-end-clip);
+  clip-path: var(--bump-end-clip);
+  padding: 0 0.25rem;
+}
+
 @media (min-width: 47.5em) {
   .project {
     font-size: 1.5rem;
