@@ -27,10 +27,14 @@
   }
 }
 
+.project-header {
+  padding: 4rem 0 2rem 0;
+}
+
 .project-contents {
   margin: 0 auto;
   max-width: 86.8125rem;
-  padding: 0 1rem;
+  padding: 0 1rem 4rem 1rem;
   width: 95%;
 }
 
@@ -43,10 +47,6 @@
   border-bottom: 0.15em solid currentColor;
   line-height: 1.5;
   text-decoration: none;
-}
-
-.project-body a:focus {
-  outline: 2px dashed currentColor;
 }
 
 .project-specs {

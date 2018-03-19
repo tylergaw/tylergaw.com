@@ -38,7 +38,7 @@
     <section class="poster-limbo project" id="limbo">
       <div class="poster-fill-limbo">
         <div class="project-contents">
-          <header class="limbo-header">
+          <header class="project-header">
             <h2>
               {{> limbo-logo.svg }}
             </h2>
@@ -49,6 +49,8 @@
               <li>Feb. 2017 -</li>
               <li class="project-specs-links">
                 <a href="https://www.limbo.io">limbo.io</a>
+                <br />
+                <a href="https://blog.limbo.io">Unstuck</a>
               </li>
             </ul>
           </aside>
@@ -92,6 +94,13 @@
               they need to see in a potential team member. Limbo is a tool for
               accomplishing tasks, not a thing to engage.
             </p>
+            <p>
+              From early on, we iterated on the design in browsers. To help that
+              process we built and maintained a <a href="https://www.limbo.io/about/patterns">Pattern Library</a>.
+              We didn’t use any fancy tech for it. The first iteration of the
+              library was a single html file with no styles. We built it up from
+              there as we moved along learned more about the design.
+            </p>
 
             <h3>Technology</h3>
             <p>
@@ -113,12 +122,6 @@
               Our JavaScript setup consists of jQuery, Gulp, Rollup.js, Babel,
               and Prettier. The JS light on-purpose. We wrote the minimum amount
               to get the task at hand done and not a line more.
-            </p>
-
-            <h4>Callouts</h4>
-            <p>
-              <a href="https://www.limbo.io/about/patterns">Pattern Library</a>,
-              <a href="https://blog.limbo.io">Unstuck</a>
             </p>
 
             <h3>Recognition</h3>
@@ -145,7 +148,7 @@
     <section class="poster-groundwork project" id="thegroundwork">
       <div class="poster-fill-groundwork">
         <div class="project-contents">
-          <header class="gw-header">
+          <header class="project-header gw-header">
             <div class="gw-mark">
               {{> gw-mark.svg }}
             </div>
@@ -262,8 +265,8 @@
     <section class="poster-colorme project" id="colorme">
       <div class="poster-fill-colorme">
         <div class="project-contents">
-          <header>
-            <h2 class="colorme-header">
+          <header class="project-header">
+            <h2>
               {{> colorme-logo.svg }}
             </h2>
           </header>
@@ -369,7 +372,7 @@
     <section class="poster-jxa project" id="jxa">
       <div class="poster-fill-jxa">
         <div class="project-contents">
-          <header>
+          <header class="project-header">
             <h2>Building OS X Apps with JavaScript</h2>
           </header>
           <aside class="project-specs">
@@ -466,10 +469,10 @@
     </section>
   </div>
 
-    <section class="poster-readability poster-intro project" id="readability">
+    <section class="poster-readability project" id="readability">
       <div class="poster-fill-readability">
         <div class="project-contents">
-          <header>
+          <header class="project-header">
             <h2>
               {{> readability-logo.svg }}
             </h2>
@@ -586,11 +589,16 @@
         <p>I miss my dog</p>
       </div>
     </div>
-    <p>
-      This pen is almost out of ink<br/>
-      But still I have enough<br/>
-      I thi…
-    </p>
+
+    <div class="poster-bumper">
+      <div class="poster-fill-bumper">
+        <p>
+          This pen is almost out of ink<br/>
+          But still I have enough<br/>
+          I thin…
+        </p>
+      </div>
+    </div>
 
     {{> footer }}
     <link rel="stylesheet" href="/css/tylergaw.css">

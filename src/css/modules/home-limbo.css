@@ -1,10 +1,10 @@
 .poster-limbo {
   background-color: var(--eggshell);
-  --limbo-poster-clip: polygon(0 0, 100% 1rem, 100% 100%, 0 100%);
+  --limbo-poster-clip: polygon(0 0, 100% 1.1rem, 100% 100%, 0 100%);
   -webkit-clip-path: var(--limbo-poster-clip);
   clip-path: var(--limbo-poster-clip);
   color: var(--limbo-red);
-  margin-top: -0.4rem;
+  margin-top: -1.3rem;
   padding: 0.2rem;
   padding-top: 0;
 }
@@ -16,10 +16,6 @@
   &:focus {
     color: var(--limbo-dark);
   }
-}
-
-.limbo-header {
-  padding: 4rem 0 2rem 0;
 }
 
 @media (min-width: 40em) {
@@ -62,6 +58,5 @@
   );
   -webkit-clip-path: var(--limbo-fill-clip);
   clip-path: var(--limbo-fill-clip);
-  padding-bottom: 4rem;
   width: 100%;
 }

@@ -22,14 +22,12 @@
   --gw-fill-clip: polygon(0 0, 100% 0.8rem, 99.8% 100%, 0.25rem 100%);
   -webkit-clip-path: var(--gw-fill-clip);
   clip-path: var(--gw-fill-clip);
-  padding-bottom: 4rem;
 }
 
 .gw-header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 4rem 0 2rem 0;
 }
 
 .gw-mark {

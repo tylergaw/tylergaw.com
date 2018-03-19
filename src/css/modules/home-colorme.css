@@ -32,9 +32,4 @@
   );
   -webkit-clip-path: var(--cm-fill-clip);
   clip-path: var(--cm-fill-clip);
-  padding-bottom: 4rem;
-}
-
-.colorme-header {
-  transform: translateY(-0.75vw);
 }

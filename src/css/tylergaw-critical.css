@@ -73,6 +73,10 @@ a {
   color: var(--accent);
 }
 
+a:focus {
+  outline: 3px solid currentColor;
+}
+
 .poster-default {
   padding: 0.25rem 0.2rem 0.25rem 0.25rem;
 }
@@ -201,19 +205,26 @@ a {
   width: 100%;
 }
 
-.home-intro-graphic::before {
-  bottom: 3%;
-  color: #ba7f44;
-  content: "Where do you even start?";
-  font-size: 0.8em;
-  left: 20%;
-  letter-spacing: -0.2em;
-  position: absolute;
-  transform: rotate(-11deg);
-  transform-origin: 50%;
-  writing-mode: vertical-lr;
-  text-orientation: upright;
-  max-height: 50%;
+@supports (writing-mode: vertical-lr) {
+  .home-intro-graphic::before {
+    bottom: 3%;
+    color: #ba7f44;
+    content: "Where do you even start?";
+    font-size: 0.8em;
+    left: 20%;
+    position: absolute;
+    transform: rotate(-11deg);
+    transform-origin: 50%;
+    max-height: 50%;
+    writing-mode: vertical-lr;
+  }
+}
+
+@supports ((writing-mode: vertical-lr) and (text-orientation: upright)) {
+  .home-intro-graphic::before {
+    letter-spacing: -0.1em;
+    text-orientation: upright;
+  }
 }
 
 @media (min-width: 40em) {
