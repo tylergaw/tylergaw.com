@@ -11,15 +11,13 @@
 
 .poster-jxa h2 {
   font-family: var(--font-aktiv-ex);
-  font-size: 9vw;
+  font-size: 7vw;
   font-weight: 900;
   letter-spacing: -0.05em;
 }
 
 .poster-jxa a {
-  border-bottom: 0.15em solid currentColor;
   color: #000;
-  text-decoration: none;
 
   &:hover,
   &:focus {

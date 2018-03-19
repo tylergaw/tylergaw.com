@@ -4,41 +4,22 @@
   -webkit-clip-path: var(--limbo-poster-clip);
   clip-path: var(--limbo-poster-clip);
   color: var(--limbo-red);
-  margin-top: -0.2rem;
+  margin-top: -0.4rem;
   padding: 0.2rem;
+  padding-top: 0;
 }
 
 .poster-limbo a {
-  border-bottom: 0.15em solid currentColor;
   color: var(--limbo-red);
-  text-decoration: none;
 
   &:hover,
   &:focus {
     color: var(--limbo-dark);
   }
-
-  &:focus {
-    outline: 2px dashed currentColor;
-  }
 }
 
 .limbo-header {
-  background-color: var(--limbo-red);
-  --limbo-header-clip: polygon(0 0, 100% 0, 100% 99%, 50% 98%, 0 100%);
-  -webkit-clip-path: var(--limbo-header-clip);
-  clip-path: var(--limbo-header-clip);
-  color: var(--eggshell);
-  padding-bottom: 2rem;
-}
-
-.limbo-header a {
-  color: var(--eggshell);
-}
-
-.poster-limbo h2 {
-  padding: 4rem 0 0.5rem 0;
-  max-width: 65.94rem;
+  padding: 4rem 0 2rem 0;
 }
 
 @media (min-width: 40em) {

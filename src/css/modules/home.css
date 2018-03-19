@@ -39,16 +39,31 @@
   padding-top: 1rem;
 }
 
+.project-body a {
+  border-bottom: 0.15em solid currentColor;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.project-body a:focus {
+  outline: 2px dashed currentColor;
+}
+
 .project-specs {
   font-size: 75%;
   line-height: 1.3;
 }
 
+.project-specs-links {
+  padding-top: 0.5em;
+}
+
 @media (min-width: 64em) {
   .project-contents {
     display: grid;
-    grid-template-columns: repeat(5, minmax(100px, 260px));
+    grid-template-columns: repeat(4, minmax(100px, 260px));
     grid-column-gap: 2rem;
+    max-width: 104.13rem;
   }
 
   .project-contents header {
@@ -63,7 +78,7 @@
   }
 
   .project-body {
-    grid-column: 2 / span 4;
+    grid-column: 2 / span 3;
     padding-top: 0;
   }
 }
@@ -82,16 +97,8 @@
 }
 
 .poster-fill-bumper {
-  background: var(--grey);
-  box-shadow: inset 0 -1rem 0 #fff;
-  --bumper-clip: polygon(
-    0 0,
-    calc(100% - 0.2rem) 0,
-    99.5% 99%,
-    0.4rem 99%
-  );
-  -webkit-clip-path: var(--bumper-clip);
-  clip-path: var(--bumper-clip);
+  background: var(--grey) url("/images/home-intro-bg-tile.svg") repeat;
+  background-size: 1000px;
   color: var(--offwhite);
   padding: 20rem 10% 10rem 1rem;
   text-align: right;
@@ -111,7 +118,7 @@
 }
 
 .bumper-center {
-  padding: 15rem 1rem 10rem 1rem;
+  padding: 15rem 1rem;
   text-align: center;
 }
 
@@ -130,8 +137,16 @@
   }
 }
 
-@media (min-width: 75em) {
+@media (min-width: 98em) {
   .project {
     font-size: 1.8rem;
+  }
+
+  .project-specs {
+    font-size: 55%;
+  }
+
+  .project-body {
+    grid-column: 2 / span 4;
   }
 }

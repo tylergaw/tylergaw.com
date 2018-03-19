@@ -3,7 +3,7 @@
   --cm-red-alt: #e00003;
   --cm-text: #252525;
   background: linear-gradient(90deg, var(--cm-red) 50%, var(--cm-red-alt) 50%);
-  color: var(--cm-text);
+  color: var(--cm-red);
   --cm-poster-clip: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   -webkit-clip-path: var(--cm-poster-clip);
   clip-path: var(--cm-poster-clip);
@@ -11,17 +11,11 @@
 }
 
 .poster-colorme a {
-  border-bottom: 0.15em solid currentColor;
-  color: var(--cm-text);
-  text-decoration: none;
+  color: var(--cm-red);
 
   &:hover,
   &:focus {
-    color: var(--cm-red);
-  }
-
-  &:focus {
-    outline: 2px dashed currentColor;
+    color: var(--cm-text);
   }
 }
 

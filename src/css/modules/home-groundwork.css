@@ -8,17 +8,11 @@
 }
 
 .poster-groundwork a {
-  border-bottom: 0.15em solid currentColor;
   color: var(--gw-blue);
-  text-decoration: none;
 
   &:hover,
   &:focus {
     color: var(--gw-text);
-  }
-
-  &:focus {
-    outline: 2px dashed currentColor;
   }
 }
 
