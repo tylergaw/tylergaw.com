@@ -28,7 +28,7 @@
 }
 
 .project-header {
-  padding: 4rem 0 2rem 0;
+  padding: 4rem 0 0.5rem 0;
 }
 
 .project-contents {
@@ -40,7 +40,7 @@
 
 .project-body {
   max-width: 65.94rem;
-  padding-top: 1rem;
+  padding-top: 2rem;
 }
 
 .project-body a {
@@ -56,6 +56,14 @@
 
 .project-specs-links {
   padding-top: 0.5em;
+}
+
+.project-specs-links br {
+  display: none;
+}
+
+.project-specs-links a {
+  display: inline-block;
 }
 
 @media (min-width: 64em) {
@@ -80,6 +88,10 @@
   .project-body {
     grid-column: 2 / span 3;
     padding-top: 0;
+  }
+
+  .project-specs-links br {
+    display: block;
   }
 }
 

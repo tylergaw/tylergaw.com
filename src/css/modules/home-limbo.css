@@ -1,62 +1,50 @@
 .poster-limbo {
-  background-color: var(--eggshell);
-  --limbo-poster-clip: polygon(0 0, 100% 1.1rem, 100% 100%, 0 100%);
-  -webkit-clip-path: var(--limbo-poster-clip);
-  clip-path: var(--limbo-poster-clip);
+  background-color: transparent;
   color: var(--limbo-red);
-  margin-top: -1.3rem;
-  padding: 0.2rem;
-  padding-top: 0;
+  margin-top: -24vw;
+  position: relative;
+  overflow: visible;
+}
+
+.limbo-header {
+  margin: 17vw auto -17vw auto;
+  position: relative;
+  padding: 0 1rem 0;
+  width: 95%;
+}
+
+.limbo-header h2 {
+  position: relative;
+  z-index: 3;
+}
+
+.limbo-header::before {
+  background: transparent url("/images/limbo-owl.png") no-repeat center;
+  background-size: contain;
+  content: "";
+  display: block;
+  left: calc(50% - 30%);
+  padding-top: 100%;
+  position: absolute;
+  top: -50vw;
+  width: 60%;
+  z-index: 2;
 }
 
 .poster-limbo a {
   color: var(--limbo-red);
-
-  &:hover,
-  &:focus {
-    color: var(--limbo-dark);
-  }
 }
 
-@media (min-width: 40em) {
-  .poster-limbo  {
-    padding: 0.4rem;
-  }
+.poster-limbo a:hover,
+.poster-limbo a:focus {
+  color: var(--limbo-dark);
 }
 
 .poster-fill-limbo {
   background: var(--eggshell);
-  box-shadow: inset 0 0 0 12px var(--limbo-red);
-  /* border: 12px solid var(--limbo-red); */
-  --limbo-fill-clip: polygon(
-    /* Starting path at top left */
-    0.4vw 0.8rem,
-    6vw 0.32em,
-    18vw 0.38em,
-    20vw 0.4em,
-    48vw 0.6em,
-    81vw 0.7em,
-    /* top right, points below here draw the right edge of the path. */
-    calc(100% - 1.2rem) 1rem,
-    100% 1.2em,
-    calc(100% - 0.1rem) 4em,
-    100% 14em,
-    calc(100% - 0.4em) 28em,
-    /* bottom right. points below here draw the bottom edge of the path */
-    calc(100% - 0.2em) 100%,
-    calc(100% - 0.5em) 99.5%,
-    3rem 99.8%,
-    /* bottom left. points below here draw the left edge of the path */
-    0.8rem 99.8%,
-    0.5em 97%,
-    0.2em 92%,
-    0.2em 74%,
-    0.1em 64%,
-    0.4em 51%,
-    0.3em 38%,
-    0.1em 2.8em
-  );
-  -webkit-clip-path: var(--limbo-fill-clip);
-  clip-path: var(--limbo-fill-clip);
+  --limbo-poster-clip: polygon(0 0, 100% 1.2rem, 100% 100%, 0 100%);
+  -webkit-clip-path: var(--limbo-poster-clip);
+  clip-path: var(--limbo-poster-clip);
+  padding-top: 18vw;
   width: 100%;
 }

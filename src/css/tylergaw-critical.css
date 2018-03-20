@@ -156,8 +156,20 @@ a:focus {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: -6vw;
+  padding-bottom: 80vw;
   position: relative;
   z-index: 1;
+}
+
+.home-intro::after {
+  background-color: var(--lightgrey);
+  bottom: 30vw;
+  content: "";
+  height: 60vw;
+  left: 50%;
+  position: absolute;
+  transform: rotate(-1deg);
+  width: 3px;
 }
 
 .home-intro-contents {
