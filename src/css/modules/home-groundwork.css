@@ -1,10 +1,10 @@
 .poster-groundwork {
-  background-color: var(--gw-blue);
-  --gw-poster-clip: polygon(0 0, 100% 0.5rem, 100% 100%, 0 100%);
+  background-color: #fff;
+  /* --gw-poster-clip: polygon(0 0, 100% 0.5rem, 100% 100%, 0 100%);
   -webkit-clip-path: var(--gw-poster-clip);
-  clip-path: var(--gw-poster-clip);
-  margin-top: -0.5rem;
-  padding: 0 0.25rem 0 0.1rem;
+  clip-path: var(--gw-poster-clip); */
+  /* margin-top: -0.5rem; */
+  /* padding: 0 0.25rem 0 0.1rem; */
 }
 
 .poster-groundwork a {
@@ -19,9 +19,9 @@
 .poster-fill-groundwork {
   background: #fff;
   color: var(--gw-blue);
-  --gw-fill-clip: polygon(0 0, 100% 0.8rem, 99.8% 100%, 0.25rem 100%);
+  /* --gw-fill-clip: polygon(0 0, 100% 0.8rem, 99.8% 100%, 0.25rem 100%);
   -webkit-clip-path: var(--gw-fill-clip);
-  clip-path: var(--gw-fill-clip);
+  clip-path: var(--gw-fill-clip); */
 }
 
 .gw-header {
@@ -42,7 +42,7 @@
 
 @media (min-width: 40em) {
   .poster-groundwork  {
-    padding: 0 0.1rem 0 0.5rem;
+    /* padding: 0 0.1rem 0 0.5rem; */
   }
 }
 

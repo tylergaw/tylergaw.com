@@ -54,6 +54,59 @@
   width: 100%;
 }
 
+.limbo-project-contents {
+  padding-bottom: 0;
+}
+
+.limbo-gw-bumper {
+  background: var(--eggshell);
+  color: var(--limbo-red);
+  font-size: 0.8rem;
+  padding-top: 50rem;
+  padding-bottom: 40rem;
+  position: relative;
+}
+
+.limbo-gw-bumper::after {
+  background-color: var(--limbo-red);
+  bottom: 0;
+  --line-clip: polygon(
+    0 5px,
+    100% 0,
+    40% 25%,
+    100% 50%,
+    30% 75%,
+    100% 100%,
+    0 99.8%
+  );
+  -webkit-clip-path: var(--line-clip);
+  clip-path: var(--line-clip);
+  content: "";
+  height: 100%;
+  left: 50%;
+  position: absolute;
+  transform: rotate(1deg);
+  width: 4px;
+}
+
+.limbo-gw-bumper h5 {
+  background-color: var(--eggshell);
+  display: inline-block;
+  left: 49%;
+  padding: 0.5rem 0 0.8rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.limbo-gw-bumper sup {
+  display: inline-block;
+  font-family: var(--font-aktiv-ex);
+  font-weight: 900;
+  font-size: 105%;
+  transform: translateY(0.3rem) rotate(1deg);
+  transform-origin: left bottom;
+}
+
 @media (min-width: 70em) {
   .poster-limbo {
     margin-top: -18vw;
