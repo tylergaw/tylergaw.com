@@ -7,9 +7,9 @@
 }
 
 .limbo-header {
-  margin: 17vw auto -17vw auto;
+  margin: 15vw auto -15vw auto;
   position: relative;
-  padding: 0 1rem 0;
+  padding: 0 1rem;
   width: 95%;
 }
 
@@ -26,7 +26,7 @@
   left: calc(50% - 30%);
   padding-top: 100%;
   position: absolute;
-  top: -50vw;
+  top: -51vw;
   width: 60%;
   z-index: 2;
 }
@@ -47,4 +47,28 @@
   clip-path: var(--limbo-poster-clip);
   padding-top: 18vw;
   width: 100%;
+}
+
+@media (min-width: 70em) {
+  .poster-limbo {
+    margin-top: -18vw;
+  }
+
+  .limbo-header {
+    margin: 10vw auto -10vw auto;
+  }
+
+  .poster-fill-limbo {
+    padding-top: 13vw;
+  }
+
+  .limbo-header h2 {
+    width: 75%;
+  }
+
+  .limbo-header::before {
+    left: calc(100% - 38%);
+    top: -45vw;
+    width: 40%;
+  }
 }

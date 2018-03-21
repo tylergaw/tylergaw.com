@@ -163,13 +163,33 @@ a:focus {
 
 .home-intro::after {
   background-color: var(--lightgrey);
-  bottom: 30vw;
+  bottom: 35vw;
+  --line-clip: polygon(
+    0 5px,
+    100% 0,
+    40% 25%,
+    100% 50%,
+    30% 75%,
+    100% 100%,
+    0 99.8%
+  );
+  -webkit-clip-path: var(--line-clip);
+  clip-path: var(--line-clip);
   content: "";
-  height: 60vw;
+  height: 55vw;
   left: 50%;
   position: absolute;
   transform: rotate(-1deg);
-  width: 3px;
+  width: 4px;
+}
+
+@media (min-width: 70em) {
+  .home-intro::after {
+    bottom: 20vw;
+    height: 80vw;
+    left: 75%;
+    transform: rotate(2deg);
+  }
 }
 
 .home-intro-contents {
