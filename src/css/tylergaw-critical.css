@@ -199,6 +199,11 @@ a:focus {
   padding: 0 2.5rem 7rem 7vw;
 }
 
+.home-intro-contents ::selection {
+  background-color: #ba7f44;
+  color: var(--offwhite);
+}
+
 /* On narrow screens this is the diagonal shape of the intro copy. */
 .home-intro-contents::before {
   float: left;
@@ -351,7 +356,13 @@ a:focus {
 @media (min-width: 117.5em) {
   .home-intro {
     margin-top: -9.4rem;
+    padding-bottom: 94rem;
     width: 115.5rem;
+  }
+
+  .home-intro::after {
+    bottom: 23.5rem;
+    height: 94rem;
   }
 
   .home-intro-contents {
