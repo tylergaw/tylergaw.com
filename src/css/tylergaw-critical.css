@@ -156,7 +156,7 @@ a:focus {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: -6vw;
-  padding-bottom: 80vw;
+  padding-bottom: 130vw;
   position: relative;
   z-index: 1;
 }
@@ -176,7 +176,7 @@ a:focus {
   -webkit-clip-path: var(--line-clip);
   clip-path: var(--line-clip);
   content: "";
-  height: 55vw;
+  height: 105vw;
   left: 50%;
   position: absolute;
   transform: rotate(-1deg);
@@ -185,10 +185,8 @@ a:focus {
 
 @media (min-width: 70em) {
   .home-intro::after {
-    bottom: 20vw;
-    height: 80vw;
-    left: 75%;
-    transform: rotate(2deg);
+    bottom: 1rem;
+    height: 140vw;
   }
 }
 
@@ -328,6 +326,16 @@ a:focus {
   }
 }
 
+@media (min-width: 87.5em) {
+  .home-intro {
+    padding-bottom: 90vw;
+  }
+
+  .home-intro::after {
+    height: 100vw;
+  }
+}
+
 @media (min-width: 101.25em) {
   .home-intro-contents {
     font-size: 1.7vw;
@@ -356,13 +364,12 @@ a:focus {
 @media (min-width: 117.5em) {
   .home-intro {
     margin-top: -9.4rem;
-    padding-bottom: 94rem;
+    padding-bottom: 105.7rem;
     width: 115.5rem;
   }
 
   .home-intro::after {
-    bottom: 23.5rem;
-    height: 94rem;
+    height: 117.44rem;
   }
 
   .home-intro-contents {
