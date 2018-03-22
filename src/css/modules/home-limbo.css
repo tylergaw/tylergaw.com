@@ -46,7 +46,8 @@
 }
 
 .poster-fill-limbo {
-  background: var(--eggshell);
+  background: var(--eggshell) url("/images/home-limbo-bg-tile.svg") repeat;
+  background-size: 1100px;
   --limbo-poster-clip: polygon(0 0, 100% 1.2rem, 100% 100%, 0 100%);
   -webkit-clip-path: var(--limbo-poster-clip);
   clip-path: var(--limbo-poster-clip);
@@ -59,17 +60,18 @@
 }
 
 .limbo-gw-bumper {
-  background: var(--eggshell);
+  background: var(--eggshell) url("/images/home-limbo-bg-tile.svg") repeat;
+  background-size: 1000px;
   color: var(--limbo-red);
   font-size: 0.8rem;
-  padding-top: 50rem;
-  padding-bottom: 40rem;
+  padding-top: 100vw;
+  padding-bottom: 120vw;
   position: relative;
 }
 
 .limbo-gw-bumper::after {
   background-color: var(--limbo-red);
-  bottom: 0;
+  bottom: 1rem;
   --line-clip: polygon(
     0 5px,
     100% 0,
@@ -83,9 +85,8 @@
   clip-path: var(--line-clip);
   content: "";
   height: 100%;
-  left: 50%;
+  left: calc(50% - 2px);
   position: absolute;
-  transform: rotate(1deg);
   width: 4px;
 }
 
