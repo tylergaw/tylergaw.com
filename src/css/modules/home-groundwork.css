@@ -12,7 +12,6 @@
 
 .gw-header {
   margin: 0 auto -35vw auto;
-  max-width: 114rem;
   padding: 0 1rem;
   position: relative;
   width: 95%;
@@ -32,18 +31,19 @@
 }
 
 .poster-groundwork a {
-  color: #fff;
+  color: var(--eggshell);
 
   &:hover,
   &:focus {
-    color: #7BFFFD;
+    color: #E4FF64;
   }
 }
 
 .poster-fill-groundwork {
-  background: var(--gw-blue);
-  color: #fff;
-  --gw-fill-clip: polygon(0 11vw, 12% 2vw, 20% 9vw, 30% 0, 72% 16vw, 70% 0, 82% 9vw, 90% 0, 100% 12vw, 100% 100%, 0 100%);
+  background: var(--gw-blue) url("/images/home-gw-bg-tile.svg") repeat;
+  background-size: 1000px;
+  color: var(--eggshell);
+  --gw-fill-clip: polygon(0 11vw, 12% 2vw, 20% 9vw, 30% 0, 71% 15vw, 69% 0, 82% 9vw, 90% 0, 100% 12vw, 100% 100%, 0 100%);
   -webkit-clip-path: var(--gw-fill-clip);
   clip-path: var(--gw-fill-clip);
   padding-top: 34vw;
@@ -51,4 +51,50 @@
 
 .gw-contents {
   padding-top: 2rem;
+}
+
+@media (min-width: 85em) {
+  .gw-header {
+    margin-bottom: -40vw;
+  }
+
+  .gw-mark {
+    width: 42%;
+  }
+
+  .poster-fill-groundwork {
+    padding-top: 40vw;
+  }
+}
+
+@media (min-width: 117.5em) {
+  .poster-groundwork {
+    margin-top: -45.8rem;
+  }
+
+  .gw-header {
+    margin-bottom: -47rem;
+    max-width: 114rem;
+  }
+
+  .gw-text {
+    margin-top: 3.5rem;
+  }
+
+  .poster-fill-groundwork {
+    --gw-fill-clip: polygon(
+      0 12rem,
+      12% 3rem,
+      15% 9rem,
+      27% 0,
+      69% 20rem,
+      67% 0,
+      82% 10rem,
+      90% 0,
+      100% 13rem,
+      100% 100%,
+      0 100%
+    );
+    padding-top: 49.5rem;
+  }
 }

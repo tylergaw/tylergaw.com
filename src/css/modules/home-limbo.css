@@ -132,6 +132,20 @@
   }
 }
 
+@media (min-width: 87.5em) {
+  .limbo-gw-bumper {
+    padding-bottom: 100vw;
+    padding-top: 60vw;
+  }
+}
+
+@media (min-width: 112.5em) {
+  .limbo-gw-bumper {
+    padding-bottom: 120rem;
+    padding-top: 68rem;
+  }
+}
+
 @media (min-width: 117.5em) {
   .poster-limbo {
     margin-top: -21.13rem;
