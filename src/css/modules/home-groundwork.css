@@ -1,5 +1,10 @@
-.poster-groundwork {
+.poster-groundwork,
+.gw-colorme-bumper {
   --gw-blue: #3B4FCB;
+  --gw-bg: var(--gw-blue) url("/images/home-gw-bg-tile.svg") repeat;
+}
+
+.poster-groundwork {
   background-color: transparent;
   margin-top: -39vw;
   position: relative;
@@ -14,7 +19,7 @@
   margin: 0 auto -35vw auto;
   padding: 0 1rem;
   position: relative;
-  width: 95%;
+  width: 94%;
   z-index: 2;
 }
 
@@ -40,7 +45,7 @@
 }
 
 .poster-fill-groundwork {
-  background: var(--gw-blue) url("/images/home-gw-bg-tile.svg") repeat;
+  background: var(--gw-bg);
   background-size: 1000px;
   color: var(--eggshell);
   --gw-fill-clip: polygon(0 11vw, 12% 2vw, 20% 9vw, 30% 0, 71% 15vw, 69% 0, 82% 9vw, 90% 0, 100% 12vw, 100% 100%, 0 100%);
@@ -51,6 +56,48 @@
 
 .gw-contents {
   padding-top: 2rem;
+}
+
+.gw-colorme-bumper {
+  background: var(--gw-bg);
+  background-size: 1000px;
+  color: var(--limbo-eggshell);
+  font-size: 0.8rem;
+  padding-bottom: 120vw;
+  padding-top: 100vw;
+  position: relative;
+}
+
+.gw-colorme-bumper::after {
+  background-color: var(--eggshell);
+  bottom: 2rem;
+  --line-clip: polygon(
+    0 6px,
+    100% 0,
+    30% 25%,
+    100% 50%,
+    30% 100%,
+    50% 100%,
+    0 99.8%
+  );
+  -webkit-clip-path: var(--line-clip);
+  clip-path: var(--line-clip);
+  content: "";
+  height: 100%;
+  left: calc(50% - 2px);
+  position: absolute;
+  width: 4px;
+}
+
+.gw-colorme-bumper h5 {
+  background-color: var(--gw-blue);
+  display: inline-block;
+  left: 47%;
+  padding-bottom: 0.2rem;
+  position: relative;
+  transform: rotate(-3deg);
+  text-indent: -0.7rem;
+  z-index: 2;
 }
 
 @media (min-width: 85em) {
@@ -64,6 +111,18 @@
 
   .poster-fill-groundwork {
     padding-top: 40vw;
+  }
+
+  .gw-colorme-bumper {
+    padding-bottom: 100vw;
+    padding-top: 60vw;
+  }
+}
+
+@media (min-width: 112.5em) {
+  .gw-colorme-bumper {
+    padding-bottom: 120rem;
+    padding-top: 68rem;
   }
 }
 

@@ -15,6 +15,7 @@
   margin: 15vw auto -15vw auto;
   position: relative;
   padding: 0 1rem;
+  pointer-events: none;
   width: 95%;
 }
 
