@@ -11,6 +11,8 @@
 @import "modules/article";
 @import "modules/about";
 @import "modules/purpose";
+@import "modules/resume";
 @import "modules/contentinfo";
 @import "modules/prism-a11y-dark";
+
 @import "modules/errorpage";

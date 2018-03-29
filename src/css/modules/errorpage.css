@@ -1,5 +1,5 @@
 [data-page="error"] {
-  & [role="main"] {
+  & main {
     padding: 4rem 3rem 6rem 3rem;
     text-align: center;
   }
