@@ -46,6 +46,24 @@
   z-index: 2;
 }
 
+.poster-fill-jxa::before {
+  background-color: #000;
+  display: block;
+  content: "";
+  /* clip-path: polygon(); can do this here. */
+  margin-bottom: -20vw;
+  padding-top: 20%;
+  position: relative;
+  top: -50vw;
+  width: 100%;
+}
+
+@media (min-width: 64em) {
+  .poster-fill-jxa::before {
+    margin-bottom: -25vw;
+  }
+}
+
 @media (min-width: 79em) {
   .jxa-header h2 {
     padding-left: 32%;
@@ -82,21 +100,9 @@
   }
 }
 
-.poster-fill-jxa::before {
-  background-color: #000;
-  display: block;
-  content: "";
-  /* clip-path: polygon(); can do this here. */
-  margin-bottom: -20vw;
-  padding-top: 20%;
-  position: relative;
-  top: -50vw;
-  width: 100%;
-}
-
 @media (min-width: 116.6em) {
   .jxa-header {
-    left: -4rem;
+    left: -5rem;
     top: -8.125rem;
   }
 
@@ -108,5 +114,10 @@
   .poster-fill-jxa::before {
     margin-bottom: -23.3rem;
     top: -58.3rem;
+  }
+
+  .poster-fill-jxa::before {
+    margin-bottom: -30rem;
+    padding-top: 23.125rem;
   }
 }

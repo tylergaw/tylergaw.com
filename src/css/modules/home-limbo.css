@@ -100,15 +100,6 @@
   z-index: 2;
 }
 
-.limbo-gw-bumper sup {
-  display: inline-block;
-  font-family: var(--font-aktiv-ex);
-  font-weight: 900;
-  font-size: 105%;
-  transform: translateY(0.3rem) rotate(1deg);
-  transform-origin: left bottom;
-}
-
 @media (min-width: 70em) {
   .poster-limbo {
     margin-top: -18vw;

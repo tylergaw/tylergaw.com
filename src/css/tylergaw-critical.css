@@ -224,10 +224,6 @@ a:focus {
   color: #ba7f44;
 }
 
-.home-intro-contents a:focus {
-  outline: 2px dashed var(--offwhite);
-}
-
 .home-intro-contents p + p {
   margin-top: 1.3em;
 }

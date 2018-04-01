@@ -93,7 +93,7 @@
 
 .colorme-jxa-bumper::after {
   background-color: var(--cm-red);
-  bottom: 2rem;
+  bottom: 0;
   --line-clip: polygon(
     0 6px,
     100% 0,
@@ -124,6 +124,20 @@
   .colorme-header {
     margin-top: -25%;
     padding: 16% 8%;
+  }
+}
+
+@media (min-width: 85em) {
+  .colorme-jxa-bumper {
+    padding-bottom: 100vw;
+    padding-top: 60vw;
+  }
+}
+
+@media (min-width: 112.5em) {
+  .colorme-jxa-bumper {
+    padding-bottom: 120rem;
+    padding-top: 68rem;
   }
 }
 
