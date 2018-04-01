@@ -50,7 +50,8 @@ i, em {
 body {
   --lightgrey: #CCC;
   --grey: #292929;
-  --accent: #8A7A9C;
+  /* --accent: #8A7A9C; purple*/
+  --accent: #94aca4;
   --offwhite: #F8F8F8;
   --darkerwhite: #D3D3D3;
   --font-aktiv: "aktiv-grotesk", sans-serif;
@@ -123,6 +124,8 @@ a:focus {
   list-style: none;
   margin: 0;
   padding: 0;
+  /* Gives a bit of room for the :focus outline */
+  padding-bottom: 3px;
 }
 
 .navigation a {
@@ -399,10 +402,10 @@ a:focus {
 }
 
 .article-listed time {
+  color: #94aca4;
+  display: block;
   font-size: 1em;
   font-weight: 800;
-  color: var(--darkerwhite);
-  display: block;
   margin-bottom: 0.25em;
 }
 
@@ -442,22 +445,22 @@ a:focus {
 }
 
 .articles-year h3::before {
-  background-color: var(--accent);
-  bottom: 0;
+  background-color: #94aca4;
+  bottom: 0.1em;
   --year-path: polygon(
     0 0.25em,
     25% 0.2em,
     50% 0.15em,
     100% 0.38em,
-    90% 100%,
-    50% 70%,
+    70% 90%,
+    50% 60%,
     0 80%
   );
   -webkit-clip-path: var(--year-path);
   clip-path: var(--year-path);
   content: "";
   display: inline-block;
-  height: 0.4em;
+  height: 0.5em;
   position: absolute;
   width: 90%;
   z-index: -1;
