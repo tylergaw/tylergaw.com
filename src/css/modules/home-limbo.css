@@ -25,7 +25,7 @@
 }
 
 .limbo-header::before {
-  background: transparent url("/images/limbo-owl.png") no-repeat center;
+  background: transparent url("/images/limbo-owl.webp") no-repeat center;
   background-size: contain;
   content: "";
   display: block;
