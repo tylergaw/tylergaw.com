@@ -381,26 +381,15 @@ a:focus {
 
 .article-list {
   margin: 0 auto;
-  max-width: 42em;
-  padding-top: 0.5em;
+  max-width: 42rem;
+  padding: 4rem 0 3rem 0;
 }
 
-.articles-section-title {
-  align-items: center;
-  background-color: var(--accent);
-  color: var(--grey);
-  display: flex;
-  padding: 1.8em;
-}
-
-.articles-section-title p {
-  color: var(--grey);
-}
-
-.articles-section-title h2 {
-  font-family: var(--font-aktiv-ex);
-  font-weight: 900;
-  font-size: 3em;
+@media (min-width: 72.5em) {
+  .article-list {
+    font-size: 1.2em;
+    max-width: 50rem;
+  }
 }
 
 .article-listed {
@@ -421,7 +410,7 @@ a:focus {
   color: var(--offwhite);
   display: inline-block;
   font-family: var(--font-aktiv-ex);
-  font-size: 2.3rem;
+  font-size: 2.3em;
   font-weight: 900;
   line-height: 1.1;
   max-width: 100%;
@@ -443,26 +432,35 @@ a:focus {
 
 .articles-year {
   font-family: var(--font-aktiv-ex);
-  font-size: 1rem;
+  font-size: 1.3em;
   font-weight: 900;
 }
 
 .articles-year h3 {
-  background-color: var(--lightgrey);
-  --h3-clip: polygon(
-    0.1em 0.1em,
-    10% 0,
-    50% 0.2em,
-    99% 0.1em,
-    100% 100%,
-    80% 97%,
-    40% 100%,
-    0 100%
+  padding: 2em 1rem 0 1rem;
+  position: relative;
+}
+
+.articles-year h3::before {
+  background-color: var(--accent);
+  bottom: 0;
+  --year-path: polygon(
+    0 0.25em,
+    25% 0.2em,
+    50% 0.15em,
+    100% 0.38em,
+    90% 100%,
+    50% 70%,
+    0 80%
   );
-  -webkit-clip-path: var(--h3-clip);
-  clip-path: var(--h3-clip);
-  color: var(--grey);
-  padding: 0.1em 0.2em;
+  -webkit-clip-path: var(--year-path);
+  clip-path: var(--year-path);
+  content: "";
+  display: inline-block;
+  height: 0.4em;
+  position: absolute;
+  width: 90%;
+  z-index: -1;
 }
 
 /* About critical styles */
