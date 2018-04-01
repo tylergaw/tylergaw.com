@@ -1,5 +1,7 @@
-.poster-jxa {
+.poster-jxa,
+.jxa-readers-bumper {
   --jxa-accent: #1cff00;
+  --jxa-bg: #000 url("/images/home-jxa-bg-tile.svg") repeat;
   background-color: #000;
   color: #fff;
   overflow: visible;
@@ -46,15 +48,32 @@
   z-index: 2;
 }
 
+.poster-fill-jxa {
+  background: var(--jxa-bg);
+  background-size: 1200px;
+}
+
 .poster-fill-jxa::before {
-  background-color: #000;
+  background: var(--jxa-bg);
+  background-size: 1200px;
   display: block;
   content: "";
-  /* clip-path: polygon(); can do this here. */
+  --jxa-path: polygon(
+    0 12rem,
+    15% 3rem,
+    25% 12rem,
+    40% 8rem,
+    55% 16rem,
+    100% 11rem,
+    100% 100%,
+    0 100%
+  );
+  -webkit-clip-path: var(--jxa-path);
+  clip-path: var(--jxa-path);
   margin-bottom: -20vw;
   padding-top: 20%;
   position: relative;
-  top: -50vw;
+  top: -62vw;
   width: 100%;
 }
 
@@ -112,12 +131,8 @@
   }
 
   .poster-fill-jxa::before {
-    margin-bottom: -23.3rem;
-    top: -58.3rem;
-  }
-
-  .poster-fill-jxa::before {
     margin-bottom: -30rem;
     padding-top: 23.125rem;
+    top: -73.3rem;
   }
 }
