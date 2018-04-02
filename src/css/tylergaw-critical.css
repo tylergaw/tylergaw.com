@@ -82,10 +82,6 @@ a:focus {
   padding: 0.25rem 0.2rem 0.25rem 0.25rem;
 }
 
-.poster-fill-default {
-  background-color: var(--grey);
-}
-
 .banner {
   margin: 0 auto;
   max-width: 109em;
@@ -234,7 +230,6 @@ a:focus {
 .home-intro-graphic {
   display: block;
   overflow: hidden;
-  padding: 0 1rem;
   position: relative;
   width: 100%;
 }
@@ -282,7 +277,7 @@ a:focus {
     position: absolute;
     top: 0;
     transform: translateX(-1vw);
-    width: 95%;
+    width: 98%;
   }
 
   .home-intro-contents {

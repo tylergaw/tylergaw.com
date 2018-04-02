@@ -1,9 +1,9 @@
 [data-page="purpose"] main {
-  padding-top: 1em;
+  padding: 2em 0 6em 0;
 
   & h1 {
     font-family: var(--font-aktiv-ex);
-    font-size: 21vw;
+    font-size: 15vw;
     font-weight: 900;
     text-align: center;
     word-wrap: break-word;
@@ -14,13 +14,13 @@
   }
 
   & p {
-    color: var(--darkerwhite);
+    color: var(--offwhite);
     font-size: 1.2em;
     line-height: 1.5;
     margin: 0 auto;
     max-width: 720px;
-    padding-bottom: 1.4em;
-    width: 93%;
+    padding-bottom: 1.6em;
+    width: 90%;
   }
 
   & .linkback {
@@ -34,9 +34,9 @@
     }
   }
 
-  @media (min-width: 860px) {
+  @media (min-width: 66em) {
     & h1 {
-      font-size: 12em;
+      font-size: 10.5rem;
     }
   }
 }

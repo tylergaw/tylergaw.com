@@ -1,14 +1,11 @@
-.poster-fill-default {
-  background: var(--grey) url("/images/home-intro-bg-tile.svg") repeat;
-  background-size: 1000px;
-
+body {
   /*
     Imagine you’re drawing a line with a purple crayon starting from top-left
     and traveling clockwise to each (x, y) point. You can’t pick up your crayon
     and can only travel in a straight line from point-to-point, no curves.
     That’s how polygon() works.
   */
-  --poster-fill-clip: polygon(
+  --poster-fill-clip-default: polygon(
     /* Starting path at top left */
     0 0.1em,
     6vw 0.25em,
@@ -48,10 +45,25 @@
     0.3em 38%,
     0.1em 14%
   );
-  -webkit-clip-path: var(--poster-fill-clip);
-  clip-path: var(--poster-fill-clip);
 }
 
-.poster-no-bg-img {
+.poster-fill-default {
+  position: relative;
+}
+
+.poster-fill-default::before {
+  background: var(--grey) url("/images/home-intro-bg-tile.svg") repeat;
+  background-size: 1000px;
+  -webkit-clip-path: var(--poster-fill-clip-default);
+  clip-path: var(--poster-fill-clip-default);
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+.poster-no-bg-img::before {
   background-image: none;
 }
