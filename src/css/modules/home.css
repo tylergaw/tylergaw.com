@@ -106,10 +106,15 @@
   color: var(--offwhite);
   font-size: 0.9rem;
   line-height: 1.4;
-  padding: 40rem 2rem 20rem 2rem;
+  padding: 65rem 2rem 15rem 2rem;
   position: relative;
   text-align: center;
   z-index: 2;
+}
+
+.epilogue-poem {
+  margin: 0 auto;
+  max-width: 10rem;
 }
 
 .epilogue::before {
@@ -129,11 +134,11 @@
 
 .epilogue p + p {
   font-size: 1rem;
-  margin-top: 4em;
+  margin-top: 8em;
 }
 
 .epilogue a {
-  color: var(--accent);
+  color: #ba7f44;
   font-weight: 800;
 }
 
@@ -144,17 +149,17 @@
     7px 0,
     6px 25%,
     8px 80%,
-    6px 99.5%,
-    100% 99.5%,
+    6px 99.7%,
+    100% 99.7%,
     100% 100%,
     0 100%,
-    0 99.5%,
-    47% 99.5%
+    0 99.7%,
+    47% 99.7%
   );
   -webkit-clip-path: var(--line-clip);
   clip-path: var(--line-clip);
   content: "";
-  height: 58%;
+  height: 64%;
   left: calc(50% - 10px);
   position: absolute;
   top: 0;
