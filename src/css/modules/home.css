@@ -64,6 +64,14 @@
   display: inline-block;
 }
 
+.project-recognition {
+  font-size: 90%;
+}
+
+.project-recognition li {
+  margin-top: 0.75em;
+}
+
 @media (min-width: 64em) {
   .project-contents {
     display: grid;
