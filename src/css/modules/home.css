@@ -38,6 +38,7 @@
 
 .project-body {
   max-width: 65.94rem;
+  padding-bottom: 1rem;
   padding-top: 2rem;
 }
 
@@ -70,6 +71,31 @@
 
 .project-recognition li {
   margin-top: 0.75em;
+}
+
+.project-body .project-img-link {
+  border-bottom: 0;
+  display: block;
+  text-decoration: none;
+}
+
+.project-img-link img {
+  display: block;
+  width: 100%;
+}
+
+.project-figure {
+  padding-bottom: 3em;
+}
+
+.project-figure figcaption {
+  font-size: 60%;
+  padding: 0.5em;
+}
+
+.project-figure figcaption a {
+  border-bottom: 0;
+  text-decoration: underline;
 }
 
 @media (min-width: 64em) {
