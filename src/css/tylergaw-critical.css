@@ -462,10 +462,6 @@ a:focus {
 }
 
 /* About critical styles */
-[data-page="about"] {
-  --accent-about: #94aca4;
-}
-
 [data-page="about"] h2,
 [data-page="about"] h3 {
   font-family: var(--font-aktiv-ex);
@@ -477,13 +473,13 @@ a:focus {
   flex-wrap: wrap;
   font-size: 1.2rem;
   line-height: 1.6;
-  padding: 0 1rem 2rem 1rem;
+  padding: 0 1rem 0 1rem;
   position: relative;
   z-index: 1;
 }
 
 .about-intro-heading {
-  font-size: 21vw;
+  font-size: 20.25vw;
   line-height: 1.1;
   text-align: left;
 }
@@ -504,7 +500,7 @@ a:focus {
 }
 
 .about-intro-body {
-  padding: 0 1.5rem 2.25rem 1.5rem;
+  padding: 0 1.5rem 2rem 1.5rem;
   position: relative;
 }
 

@@ -1,132 +1,130 @@
-/*------*/
-
-.site-description {
-  font-size: 1em;
-  line-height: 1.5;
-  width: 100%;
-
-  & h3 {
-    font-size: 1.2em;
-    padding: 0.6em 0 0.25em 0;
-  }
-
-  & p {
-    color: var(--darkerwhite);
-    padding-bottom: 1.4em;
-  }
-}
-
-.previous-versions {
-  box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
+.about-site {
+  clear: both;
+  font-size: 1.2rem;
+  line-height: 1.6;
   overflow: hidden;
-  width: 100%;
-
-  & li {
-    display: flex;
-    box-sizing: border-box;
-    padding: 0.6em 0;
-    width: 100%;
-  }
-
-  & a {
-    background-color: var(--grey);
-    background-size: 100%;
-    background-repeat: no-repeat;
-    box-sizing: border-box;
-    display: block;
-    font-family: var(--font-aktiv-ex);
-    font-weight: 900;
-    font-size: 1.1em;
-    min-height: 5em;
-    position: relative;
-    text-decoration: none;
-    width: 100%;
-
-    & b {
-      background-color: var(--accent);
-      color: var(--grey);
-      padding: 0 0.25em;
-    }
-  }
-
-  & .version-1 a {
-    background-image: url('../images/about-versions-1.jpg');
-    background-size: 120%;
-  }
-
-  & .version-2 a {
-    background-image: url('../images/about-versions-2.jpg');
-    background-position: right top;
-  }
-
-  & .version-3 a {
-    background-image: url('../images/about-versions-3.jpg');
-  }
-
-  & .version-4 a {
-    background-image: url('../images/about-versions-4.jpg');
-  }
+  margin: 0 auto;
+  max-width: 86.8125rem;
+  padding-bottom: 5rem;
 }
 
-.am-learning {
-  box-sizing: border-box;
+.about-site-intro {
+  padding: 0 2rem;
+}
+
+.about-site-heading {
+  font-size: 12vw;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+.about-site p {
+  padding-bottom: 1.4em;
+}
+
+.about-versions {
+  max-width: 80rem;
+  padding: 0 0.75rem;
+}
+
+.version {
+  padding: 1rem 0 2rem 0;
+}
+
+.version a {
+  display: block;
+}
+
+.version img {
+  display: block;
+  width: 100%;
+}
+
+.version figure {
+  padding-top: 1em;
+  position: relative;
+}
+
+.version figcaption {
   font-family: var(--font-aktiv-ex);
-  font-size: 4vw;
-  padding: 1rem;
-  text-align: left;
-  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 900;
+  padding: 0 0.5rem;
+  position: absolute;
+  top: 0;
   width: 100%;
 }
 
-@media (min-width: 500px) {
-  .previous-versions {
-    & li {
-      padding: 0.6em;
-      width: 50%;
-    }
+.version figcaption::before {
+  background-color: var(--accent);
+  bottom: 0.25em;
+  --path: polygon(
+    0 0.25em,
+    25% 0.2em,
+    50% 0.15em,
+    100% 0.38em,
+    70% 90%,
+    50% 60%,
+    0 80%
+  );
+  -webkit-clip-path: var(--path);
+  clip-path: var(--path);
+  content: "";
+  display: inline-block;
+  height: 0.4em;
+  position: absolute;
+  width: 100%;
+}
+
+@media (min-width: 40em) {
+  .about-site-heading {
+    font-size: 8.1vw;
   }
 }
 
-@media (min-width: 880px) {
-  .the-site {
-    padding: 1em 1.2em 1em 1.6em;
+@media (min-width: 47em) {
+  .about-site-intro p {
+    padding-left: 10%;
+    padding-right: 6rem;
   }
 
-  .site-description {
-    width: 45%;
-
-    & p {
-      padding-right: 0.8em;
-    }
+  .about-versions {
+    display: grid;
+    grid-column-gap: 1rem;
+    grid-template-columns: 50% 50%;
+    padding: 0;
   }
 
-  .previous-versions {
-    width: 55%;
+  .version {
+    padding-bottom: 1rem;
   }
-}
 
-@media (min-width: 910px) {
-  .the-site {
-    width: 98%;
+  .version figcaption {
+    font-size: 1.4rem;
   }
 }
 
-@media (min-width: 1500px) {
-  .site-description {
-    width: 35%;
+@media (min-width: 76em) {
+  .about-site {
+    font-size: 1.4rem;
   }
 
-  .previous-versions {
-    width: 65%;
+  .about-site-intro {
+    padding: 0 1rem;
+  }
 
-    & li {
-      width: 25%;
-    }
+  .about-site-heading {
+    font-size: 4.8vw;
+  }
 
-    & a {
-      background-size: 165% !important;
-    }
+  .about-site-intro p {
+    padding-left: 22%;
+    padding-right: 7rem;
+  }
+}
+
+@media (min-width: 92.2em) {
+  .about-site-heading {
+    font-size: 4.4rem;
   }
 }
