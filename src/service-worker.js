@@ -1,10 +1,11 @@
-const CACHE_KEY = "22-tylergaw";
+const CACHE_KEY = "23-tylergaw";
 const CACHE_URLS = [
   "/",
   "/index.html",
   "/about/",
   "/articles/",
   "/purpose/",
+  "/resume/",
   "/manifest.json",
   "/css/tylergaw.css",
   "/images/the-work-shape-outside.svg",

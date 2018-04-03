@@ -1,0 +1,65 @@
+[data-page="resume"] body {
+  --accent: #f1f1f1;
+}
+
+[data-page="resume"] .poster-fill-default::before {
+  background-image: none;
+}
+
+.resume {
+  font-size: 1.3rem;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 48rem;
+  padding: 2rem 0 4rem 0;
+  width: 90%;
+}
+
+.resume-intro {
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+.resume-intro::after {
+  background-color: var(--accent);
+  content: "";
+  display: block;
+  height: 0.75rem;
+  margin: 1.5em auto 1.2em auto;
+  text-align: center;
+  width: 25%;
+}
+.resume p {
+  padding-bottom: 1em;
+}
+
+.resume h2 {
+  color: #94aca4;
+  font-family: var(--font-aktiv-ex);
+  font-size: 1em;
+  font-weight: 900;
+  margin: 1.8em 0 0.5em 0;
+}
+
+.resume h3 {
+  font-size: 1.4em;
+  font-weight: 800;
+}
+
+.resume h4 {
+  font-size: 1em;
+}
+
+.resume h5 {
+  color: var(--darkerwhite);
+  font-size: 0.8em;
+  margin-top: 0.5em;
+}
+
+.resume-experience dd + dt {
+  margin-top: 2.6em;
+}
+
+.resume-entry-desc {
+  margin-top: 1.5em;
+}
