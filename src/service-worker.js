@@ -1,4 +1,4 @@
-const CACHE_KEY = "24-tylergaw";
+const CACHE_KEY = "25-tylergaw";
 const CACHE_URLS = [
   "/",
   "/index.html",
@@ -9,7 +9,6 @@ const CACHE_URLS = [
   "/manifest.json",
   "/css/tylergaw.css",
   "/images/the-work-shape-outside.svg",
-  "/images/home-intro-bg-tile.svg",
   "/images/portrait-shape-outside.svg",
   "/images/article-thanks.svg",
   "/images/limbo-owl.png",

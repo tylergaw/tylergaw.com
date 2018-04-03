@@ -1,7 +1,3 @@
-[data-page="resume"] body {
-  --accent: #f1f1f1;
-}
-
 [data-page="resume"] .poster-fill-default::before {
   background-image: none;
 }
@@ -29,12 +25,13 @@
   text-align: center;
   width: 25%;
 }
+
 .resume p {
   padding-bottom: 1em;
 }
 
 .resume h2 {
-  color: #94aca4;
+  color: var(--accent);
   font-family: var(--font-aktiv-ex);
   font-size: 1em;
   font-weight: 900;
