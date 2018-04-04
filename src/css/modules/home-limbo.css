@@ -25,7 +25,7 @@
 }
 
 .limbo-header::before {
-  background: transparent url("/images/limbo-owl.webp") no-repeat center;
+  background: transparent url("/images/limbo-owl.png") no-repeat center;
   background-size: contain;
   content: "";
   display: block;
@@ -35,6 +35,10 @@
   top: -51vw;
   width: 60%;
   z-index: 2;
+}
+
+.webp .limbo-header::before {
+  background-image: url("/images/limbo-owl.webp");
 }
 
 .poster-limbo a {

@@ -36,7 +36,7 @@
 }
 
 .jxa-header::before {
-  background: transparent url("/images/jxa-chip.webp") no-repeat center;
+  background: transparent url("/images/jxa-chip.png") no-repeat center;
   background-size: contain;
   content: "";
   display: block;
@@ -46,6 +46,10 @@
   top: -30vw;
   width: 75%;
   z-index: 2;
+}
+
+.webp .jxa-header::before {
+  background-image: url("/images/jxa-chip.webp");
 }
 
 .poster-fill-jxa {
