@@ -60,3 +60,12 @@
 .resume-entry-desc {
   margin-top: 1.5em;
 }
+
+.resume-entry-desc ul {
+  list-style: disc outside;
+  padding-left: 1rem;
+}
+
+.resume-entry-desc li {
+  padding-left: 1rem;
+}
