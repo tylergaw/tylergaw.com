@@ -1,72 +1,221 @@
-.the-color-of {
-  color: #65e12e;
+[data-page="home"] {
+  --limbo-red: #FF3030;
+  --limbo-dark: #272727;
 }
 
-:root {
-  --statement-border: 0.2em;
+[data-page="home"] .banner {
+  position: relative;
+  z-index: 2;
 }
 
-.bold-statements {
-  @extend %franklin-heading;
-  font-size: 2.4em;
-  font-weight: 900;
-  margin: 0 auto;
-  padding-top: 0.6em;
-  text-align: left;
-  text-transform: uppercase;
-  width: 93%;
+.project {
+  font-size: 1.3rem;
+  max-width: 100%;
+  overflow: hidden;
 
-  & a {
-    display: inline-block;
-    border-bottom: var(--statement-border) solid var(--yellow);
-    position: relative;
-    text-decoration: none;
-    transition: color 0.2s;
-
-    &::after {
-      background-color: var(--offwhite);
-      content: '';
-      display: block;
-      left: 0;
-      opacity: 0;
-      position: absolute;
-      height: var(--statement-border);
-      top: 100%;
-      transition: width 0.2s;
-      width: 1px;
-    }
-
-    &:hover,
-    &:focus {
-      color: var(--offwhite);
-
-      &::after {
-        opacity: 1;
-        width: 100%;
-      }
-    }
+  & h3,
+  & h4 {
+    font-weight: 800;
+    margin-top: 1em;
   }
 
   & p {
-    margin-bottom: 0.8em;
-    word-wrap: break-word;
+    line-height: 1.5;
+    padding: 0.2em 0 1.2em 0;
+  }
+}
+
+.project-header {
+  padding: 4rem 0 0.5rem 0;
+}
+
+.project-contents {
+  margin: 0 auto;
+  max-width: 86.8125rem;
+  padding: 0 1rem 4rem 1rem;
+  width: 95%;
+}
+
+.project-body {
+  max-width: 65.94rem;
+  padding-bottom: 1rem;
+  padding-top: 2rem;
+}
+
+.project-body a {
+  border-bottom: 0.15em solid currentColor;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.project-specs {
+  font-size: 75%;
+  line-height: 1.3;
+}
+
+.project-specs-links {
+  padding-top: 0.5em;
+}
+
+.project-specs-links br {
+  display: none;
+}
+
+.project-specs-links a {
+  display: inline-block;
+}
+
+.project-recognition {
+  font-size: 90%;
+}
+
+.project-recognition li {
+  margin-top: 0.75em;
+}
+
+.project-body .project-img-link {
+  border-bottom: 0;
+  display: block;
+  text-decoration: none;
+}
+
+.project-img-link img {
+  display: block;
+  width: 100%;
+}
+
+.project-figure {
+  padding-bottom: 3em;
+}
+
+.project-figure figcaption {
+  font-size: 60%;
+  padding: 0.5em;
+}
+
+.project-figure figcaption a {
+  border-bottom: 0;
+  text-decoration: underline;
+}
+
+@media (min-width: 64em) {
+  .project-contents {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(100px, 260px));
+    grid-column-gap: 2rem;
+    max-width: 104.13rem;
   }
 
-  @media (min-width: 650px) {
-    font-size: 4.8vw;
-    text-align: center;
-    width: 100%;
-
-    & p {
-      margin-bottom: 0.5em;
-    }
+  .project-contents header {
+    grid-column: 1 / span 5;
   }
 
-  @media (min-width: 1100px) {
-    padding-top: 0.5em;
+  .project-specs {
+    font-size: 65%;
+    grid-column: 1 / span 1;
+    overflow-wrap: break-word;
+    padding-top: 1.1rem;
   }
 
-  @media (min-width: 1700px) {
-    padding-top: 0.25em;
+  .project-body {
+    grid-column: 2 / span 3;
+    padding-top: 0;
+  }
+
+  .project-specs-links br {
+    display: block;
+  }
+}
+
+.project-specs li + li {
+  margin-top: 0.25rem;
+}
+
+.project-intro {
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+.epilogue {
+  color: var(--offwhite);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  padding: 65rem 2rem 15rem 2rem;
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+
+.epilogue-poem {
+  margin: 0 auto;
+  max-width: 10rem;
+}
+
+.epilogue::before {
+  background: var(--grey) url("/images/home-intro-bg-tile.svg") repeat;
+  background-size: 1000px;
+  -webkit-clip-path: var(--poster-fill-clip-default);
+  clip-path: var(--poster-fill-clip-default);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0.25rem;
+  position: absolute;
+  top: 0;
+  width: calc(100% - 0.5rem);
+  z-index: -1;
+}
+
+.epilogue p + p {
+  font-size: 1rem;
+  margin-top: 8em;
+}
+
+.epilogue a {
+  color: #ba7f44;
+  font-weight: 800;
+}
+
+.epilogue::after {
+  background-color: var(--lightgrey);
+  --line-clip: polygon(
+    3px 0,
+    7px 0,
+    6px 25%,
+    8px 80%,
+    6px 99.7%,
+    100% 99.7%,
+    100% 100%,
+    0 100%,
+    0 99.7%,
+    47% 99.7%
+  );
+  -webkit-clip-path: var(--line-clip);
+  clip-path: var(--line-clip);
+  content: "";
+  height: 64%;
+  left: calc(50% - 10px);
+  position: absolute;
+  top: 0;
+  width: 16px;
+}
+
+@media (min-width: 47.5em) {
+  .project {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 98em) {
+  .project {
+    font-size: 1.8rem;
+  }
+
+  .project-specs {
+    font-size: 55%;
+  }
+
+  .project-body {
+    grid-column: 2 / span 4;
   }
 }

@@ -1,44 +1,30 @@
-:root {
-  --contentWidth: 93%;
-  --maxContentWidth: 850px;
-}
-
-%maxedText {
-  margin: 0 auto;
-  max-width: 790px;
-}
-
 .h-entry {
+  --contentWidth: 90%;
+  --maxContentWidth: 70rem;
+  --maxTextWidth: 62.5rem;
   overflow: hidden;
 }
 
 .e-header {
-  box-sizing: border-box;
-  margin: 2.4em 0 2.3em 0;
+  margin: 3rem 0 2.4rem 0;
   text-align: center;
+}
 
-  & .p-name {
-    @extend %franklin-heading;
-    color: var(--offwhite);
-    font-size: 3.2em;
-    font-weight: 900;
-    margin: 0 auto;
-    max-width: 95%;
-  }
+.e-header .p-name {
+  color: var(--offwhite);
+  font-family: var(--font-aktiv-ex);
+  font-size: 12vw;
+  font-weight: 900;
+  line-height: 1.25;
+  margin: 0 auto;
+  max-width: 97%;
+}
 
-  & .dt-published {
-    @extend %franklin-heading;
-    color: var(--yellow);
-    display: block;
-    font-size: 1.2em;
-    font-weight: 500;
-  }
-
-  @media (min-width: 620px) {
-    & .p-name {
-      font-size: 7vw;
-    }
-  }
+.e-header .dt-published {
+  color: var(--darkerwhite);
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 800;
 }
 
 .p-author {
@@ -47,11 +33,12 @@
 }
 
 .e-content {
-  color: var(--darkerwhite);
-  font-size: 1.3em;
+  color: var(--offwhite);
+  font-size: 1.3rem;
   line-height: 1.5;
   margin: 0 auto;
   max-width: var(--maxContentWidth);
+  padding-bottom: 2.5em;
   width: var(--contentWidth);
 
   & h2,
@@ -59,14 +46,16 @@
   & h4,
   & h5,
   & h6 {
-    @extend %maxedText;
     color: var(--offwhite);
-    font-weight: 700;
+    font-weight: 800;
+    margin: 0 auto;
+    max-width: var(--maxTextWidth);
   }
 
   & h2 {
-    @extend %franklin-heading;
+    font-family: var(--font-aktiv-ex);
     font-size: 1.2em;
+    font-weight: 900;
     padding: 0.7em 0 0.25em 0;
   }
 
@@ -75,7 +64,8 @@
   }
 
   & p {
-    @extend %maxedText;
+    margin: 0 auto;
+    max-width: var(--maxTextWidth);
     padding-bottom: 1.4em;
   }
 
@@ -117,7 +107,7 @@
   & .note,
   & .note-special,
   & .note-update {
-    font-size: 0.8em;
+    font-size: 0.75em;
     font-style: italic;
   }
 
@@ -146,8 +136,9 @@
 
   & ul,
   & ol {
-    @extend %maxedText;
     clear: both;
+    margin: 0 auto;
+    max-width: var(--maxTextWidth);
     padding: 0 0.2em 1.4em 0.2em;
   }
 
@@ -167,38 +158,42 @@
   }
 
   & blockquote {
-    border-left: 4px solid var(--darkerwhite);
-    color: var(--offwhite);
+    border-left: 0.25em solid var(--accent);
+    color: var(--darkerwhite);
     font-size: 1em;
     margin-bottom: 1.6em;
-    padding: 0.4em 1em 0 1em;
+    padding: 0.2em 1em 0.2em 1em;
+  }
 
-    & p {
-      font-style: italic;
-      padding-bottom: 0;
-    }
+  & blockquote p {
+    font-style: italic;
+    padding-bottom: 0;
+  }
 
-    & cite {
-      @extend %maxedText;
-      display: block;
-      font-size: 0.9em;
-      margin-top: 1rem;
-      padding-bottom: 0.5rem;
-    }
+  & blockquote cite {
+    display: block;
+    font-size: 0.9em;
+    max-width: var(--maxTextWidth);
+    margin: 1rem auto 0 auto;
+    padding-bottom: 0.5rem;
   }
 }
 
 .entry-intro {
-  color: var(--offwhite);
   font-size: 1.2em;
   line-height: 1.6;
   max-width: 100%;
   padding-bottom: 0;
+}
 
-  &::after {
-    @extend %yellow-divider;
-    margin: 1.5em auto 1.5em auto;
-  }
+.entry-intro::after {
+  background-color: var(--accent);
+  content: "";
+  display: block;
+  height: 0.75rem;
+  margin: 1.5em auto 1.2em auto;
+  text-align: center;
+  width: 25%;
 }
 
 .entry-intro + h2 {
@@ -207,17 +202,53 @@
 
 .entry-intro + p:first-letter,
 .entry-intro + h2 + p:first-letter {
-  @extend %drop-cap;
-  color: var(--offwhite);
-}
-
-@media (min-width: 620px) {
-  .e-content {
-    font-size: 1.4em;
-  }
+  color: var(--accent);
+  float: left;
+  font-family: var(--font-aktiv-ex);
+  font-size: 560%;
+  font-weight: 900;
+  line-height: 0.8;
+  padding-right: 0.07em;
+  margin-top: -0.02em;
 }
 
 .entry-update {
-  font-size: 0.9em;
+  font-size: 1em;
   font-style: italic;
+}
+
+@media (min-width: 48.75em) {
+  .e-header .p-name {
+    font-size: 7vw;
+  }
+
+  .e-header .dt-published {
+    font-size: 1.4rem;
+  }
+
+  .e-content {
+    font-size: 1.8em;
+  }
+}
+
+@media (min-width: 73.125em) {
+  .entry-intro + p:first-letter,
+  .entry-intro + h2 + p:first-letter {
+    margin-left: -0.25em;
+  }
+}
+
+@media (min-width: 108.125em) {
+  .h-entry {
+    --maxContentWidth: 80rem;
+    --maxTextWidth: 70.5rem;
+  }
+
+  .e-header .p-name {
+    font-size: 5vw;
+  }
+
+  .e-content {
+    font-size: 2em;
+  }
 }

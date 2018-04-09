@@ -1,118 +1,44 @@
-@import "modules/setup";
-
-:root {
-  --red: #ff3030;
+body {
+  --grey: #272727;
+  --accent: #ff3030;
+  --offwhite: #ff3030;
+  --darkerwhite: #ff3030;
   --red-light: #ff8d8d;
+  background-color: var(--eggshell);
+  padding: 0;
 }
 
-body {
-  background: #fff;
+.poster-fill-default {
+  background: var(--eggshell);
+}
+
+.logo-base,
+.logo-title {
+  fill: var(--offwhite);
+}
+
+.logo:hover .logo-base,
+.logo:focus .logo-base {
+  fill: var(--grey);
+}
+
+.navigation a:hover,
+.navigation a:focus,
+[data-page="blog"] .nav-blog {
   color: var(--grey);
 }
 
-.article-hero {
-  box-shadow: inset 0 4px 0 var(--red-light);
-}
-
-[role='banner'] {
-  padding-top: 0;
-}
-
-.logo {
-  &::before {
-    background-color: var(--red);
-    content: '';
-    display: block;
-    height: 4px;
-    margin: 0 auto 0.6em auto;
-    width: 70%;
+@media (min-width: 780px) {
+  .e-header .p-name {
+    font-size: 6.1vw;
   }
 }
 
-.logo-name,
-.logo-title {
-  fill: var(--red);
-}
+[role="contentinfo"] .contact a {
+  color: var(--accent);
 
-.logo {
   &:hover,
   &:focus {
-    & .logo-name,
-    & .logo-title {
-      fill: var(--red-light);
-    }
-  }
-}
-
-[role='navigation'] {
-  border-bottom-color: var(--red);
-
-  & a {
-    color: var(--red);
-
-    &:hover,
-    &:focus {
-      color: var(--red-light);
-    }
-  }
-}
-
-[data-page='article'] .nav-articles,
-[data-page='articles'] .nav-articles,
-[data-page='project'] .nav-projects,
-[data-page='projects'] .nav-projects,
-[data-page='about'] .nav-about {
-  color: var(--red-light);
-}
-
-.e-header {
-  & .p-name,
-  & .dt-published {
-    color: var(--red);
-  }
-}
-
-.entry-intro {
-  color: var(--red);
-
-  &::after {
-    background-color: var(--red);
-  }
-}
-
-.entry-intro + p:first-letter {
-  color: var(--red);
-}
-
-.e-content {
-  color: var(--red);
-
-  & h2,
-  & h3,
-  & h4,
-  & h5,
-  & h6 {
-    color: var(--red);
-  }
-}
-
-.h-entry {
-  & a {
-    color: var(--red);
-  }
-}
-
-[role='contentinfo'] {
-  border-top-color: var(--red);
-
-  & .contact {
-    & a {
-      color: var(--red);
-
-      &:hover,
-      &:focus {
-        color: var(--red-light);
-      }
-    }
+    color: var(--grey);
   }
 }

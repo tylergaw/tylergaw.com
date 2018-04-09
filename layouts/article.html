@@ -1,11 +1,12 @@
 <!doctype html>
-<html lang="en" {{#if type}}data-page="{{type}}"{{/if}}>
+<html lang="en" data-page="blog">
   <head>
     {{> head-contents }}
   </head>
-  <body>
-    {{> banner }}
-    <div role="main">
+  <body class="poster-default">
+    <div class="poster-fill-default poster-no-bg-img">
+      {{> banner-detail }}
+      {{> banner }}
       <article class="h-entry">
         <header class="e-header">
           <time class="dt-published" datetime="{{ date }}">
@@ -14,7 +15,7 @@
           <h1 class="p-name">
             {{ title }}
           </h1>
-          <p class="p-author h-card">
+          <p class="p-author h-card" aria-hidden="true">
             By Tyler Gaw
           </p>
         </header>
@@ -23,8 +24,8 @@
         </div>
       </article>
     </div>
-
     {{> footer }}
+    <link rel="stylesheet" href="/css/tylergaw.css">
     {{> scripts }}
   </body>
 </html>

@@ -1,12 +1,12 @@
-<header role="banner">
-  <a href="/" class="logo">
-    {{> logo-svg }}
+<header class="banner">
+  <a href="/" class="logo" aria-label="Go to home/work">
+    {{> tylergaw-logo.svg }}
   </a>
-  <nav role="navigation">
+  <nav class="navigation">
     <ul>
-      <li><a href="/articles" class="nav-articles">Articles</a></li>
-      <li><a href="/projects" class="nav-projects">Projects</a></li>
-      <li><a href="/about" class="nav-about">About</a></li>
+      <li><a href="/" class="nav-work" {{#if currentPage}}aria-current="page"{{/if}}>Work</a></li>
+      <li><a href="/articles" class="nav-blog" {{#if currentPage}}aria-current="page"{{/if}}>Blog</a></li>
+      <li><a href="/about" class="nav-about" {{#if currentPage}}aria-current="page"{{/if}}>About</a></li>
     </ul>
   </nav>
 </header>

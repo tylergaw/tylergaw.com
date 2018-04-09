@@ -1,10 +1,11 @@
-[role='contentinfo'] {
-  border-top: 6px solid var(--yellow);
+.contentinfo {
   box-sizing: border-box;
-  margin: 1em auto 2em auto;
+  clear: both;
+  margin: 0 auto;
   max-width: 720px;
+  line-height: 1.4;
   overflow: hidden;
-  padding: 1em 0 0.8em 0;
+  padding: 2rem 0;
   text-align: center;
   width: 95%;
 
@@ -13,21 +14,18 @@
     max-width: 90px;
     width: 25%;
   }
+}
 
-  & .contact {
-    line-height: 1.2;
+.contentinfo a {
+  color: var(--grey);
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 0.7em;
+}
 
-    & a {
-      @extend %franklin-heading;
-      display: inline-block;
-      font-size: 0.9em;
-      font-weight: 500;
-      padding: 0.7em;
-      text-decoration: none;
-
-      &:hover {
-        color: var(--offwhite);
-      }
-    }
-  }
+.contentinfo a:hover,
+.contentinfo a:focus {
+  background-color: var(--grey);
+  color: var(--lightgrey);
 }

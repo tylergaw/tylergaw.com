@@ -1,17 +1,9 @@
-@import "modules/setup";
-
 :root {
   --red: #ea3333;
 }
 
-.logo-name,
-.logo-title {
-  fill: var(--grey);
-}
-
-.logo:hover .logo-name,
-.logo:focus .logo-name {
-  fill: var(--offwhite);
+.logo svg {
+  fill: #fff;
 }
 
 .article-hero {
@@ -19,13 +11,12 @@
   position: relative;
 }
 
-[role='banner'] {
+.banner {
   position: relative;
   z-index: 5;
 }
 
-[role='navigation'] {
-  border-bottom-color: var(--grey);
+.navigation {
   position: relative;
   z-index: 10;
   margin-bottom: 105%;
@@ -35,12 +26,20 @@
   }
 }
 
+.logo-base {
+  fill: #fff;
+}
+
+.logo-title {
+  fill: #fff;
+}
+
 .e-header {
   background: transparent url('/articles/assets/post-image-colorme-illo.png')
-    no-repeat center 45%;
+    no-repeat center 60%;
   background-size: 85%;
   box-sizing: border-box;
-  padding-top: 100%;
+  padding-top: 130%;
   margin: 0.5rem 0 0 0;
   position: absolute;
   top: 0;
@@ -52,7 +51,7 @@
   }
 
   & .p-name {
-    font-size: 60px;
+    font-size: 11vw;
   }
 }
 
@@ -73,7 +72,7 @@
 }
 
 @media (min-width: 35em) {
-  [role='navigation'] {
+  .navigation {
     margin-bottom: 530px;
   }
 
@@ -84,14 +83,13 @@
 
     & .p-name {
       box-sizing: border-box;
-      font-size: 76px;
       max-width: 46rem;
     }
   }
 }
 
 @media (min-width: 55em) {
-  [role='navigation'] {
+  .navigation {
     margin-bottom: 38vw;
   }
 
@@ -104,9 +102,9 @@
     text-align: left;
 
     & .p-name {
-      font-size: 8.6vw;
+      font-size: 6vw;
       margin: 0;
-      padding-bottom: 1vw;
+      padding-bottom: 2vw;
     }
 
     & .dt-published {
@@ -116,13 +114,13 @@
 }
 
 @media (min-width: 69em) {
-  [role='navigation'] {
+  .navigation {
     margin-bottom: 34.5vw;
   }
 }
 
 @media (min-width: 87em) {
-  [role='navigation'] {
+  .navigation {
     margin-bottom: 30rem;
   }
 
@@ -132,7 +130,7 @@
     max-width: 90rem;
 
     & .p-name {
-      font-size: 7.5rem;
+      font-size: 6.2rem;
       padding-bottom: 2rem;
     }
   }

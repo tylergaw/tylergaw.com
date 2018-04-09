@@ -1,0 +1,14 @@
+.poster-readability {
+  --rdb-red: #990000;
+  background-color: #fff;
+  padding: 0;
+}
+
+.poster-fill-readability {
+  background-color: var(--rdb-red);
+  color: #fff;
+}
+
+.poster-readability a {
+  color: #fff;
+}

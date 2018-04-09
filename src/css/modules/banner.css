@@ -1,33 +1,49 @@
-[role='banner'] {
-  overflow: hidden;
-  padding-top: 0.6em;
+.banner-detail {
+  display: flex;
+  left: 0;
+  min-height: 12rem;
+  margin: 0 auto;
+  max-width: 109em;
+  padding: 0 1rem;
+  justify-content: center;
+  position: absolute;
   text-align: center;
+  width: 100%;
+  z-index: 1;
+}
 
-  & .logo {
-    display: block;
-    margin: 0 auto;
-    max-width: 160px;
-    width: 95%;
+.banner-detail b {
+  display: block;
+  margin: 0 auto;
+  max-width: 210px;
+  width: 82%;
+}
+
+.banner-detail::before,
+.banner-detail::after {
+  background: transparent url("/images/banner-bg.svg") no-repeat center 55%;
+  background-size: 90% auto;
+  content: "";
+  flex: 1 1 0;
+  min-width: 0;
+  top: 0;
+}
+
+@media (min-width: 109em) {
+  .banner-detail {
+    left: calc(50% - 54.5em);
   }
-
-  & svg {
-    display: block;
-    height: 100%;
-    width: 100%;
-  }
 }
 
-.logo:hover .logo-title,
-.logo:focus .logo-title {
-  fill: var(--offwhite);
+.logo:hover .logo-base,
+.logo:focus .logo-base {
+  fill: #fff;
 }
 
-.logo-name {
-  fill: var(--offwhite);
-  transition: fill 0.2s;
-}
-
-.logo-title {
-  fill: var(--yellow);
-  transition: fill 0.2s;
+.navigation a:hover,
+.navigation a:focus,
+[data-page="blog"] .nav-blog,
+[data-page="home"] .nav-work,
+[data-page="about"] .nav-about {
+  color: #fff;
 }

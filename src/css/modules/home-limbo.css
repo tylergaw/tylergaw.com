@@ -1,0 +1,162 @@
+.poster-limbo {
+  background-color: transparent;
+  color: var(--limbo-red);
+  margin-top: -24vw;
+  position: relative;
+  overflow: visible;
+}
+
+.poster-limbo ::selection {
+  background-color: var(--limbo-red);
+  color: var(--eggshell);
+}
+
+.limbo-header {
+  margin: 15vw auto -15vw auto;
+  position: relative;
+  padding: 0 1rem;
+  pointer-events: none;
+  width: 95%;
+}
+
+.limbo-header h2 {
+  position: relative;
+  z-index: 3;
+}
+
+.limbo-header::before {
+  background: transparent url("/images/limbo-owl.png") no-repeat center;
+  background-size: contain;
+  content: "";
+  display: block;
+  left: calc(50% - 30%);
+  padding-top: 100%;
+  position: absolute;
+  top: -51vw;
+  width: 60%;
+  z-index: 2;
+}
+
+.webp .limbo-header::before {
+  background-image: url("/images/limbo-owl.webp");
+}
+
+.poster-limbo a {
+  color: var(--limbo-red);
+}
+
+.poster-limbo a:hover,
+.poster-limbo a:focus {
+  color: var(--limbo-dark);
+}
+
+.poster-fill-limbo {
+  background: var(--eggshell) url("/images/home-limbo-bg-tile.svg") repeat;
+  background-size: 1100px;
+  --limbo-poster-clip: polygon(0 0, 100% 1.2rem, 100% 100%, 0 100%);
+  -webkit-clip-path: var(--limbo-poster-clip);
+  clip-path: var(--limbo-poster-clip);
+  padding-top: 18vw;
+  width: 100%;
+}
+
+.limbo-project-contents {
+  padding-bottom: 0;
+}
+
+.limbo-gw-bumper {
+  background: var(--eggshell) url("/images/home-limbo-bg-tile.svg") repeat;
+  background-size: 1000px;
+  color: var(--limbo-red);
+  font-size: 0.8rem;
+  padding-top: 100vw;
+  padding-bottom: 120vw;
+  position: relative;
+}
+
+.limbo-gw-bumper::after {
+  background-color: var(--limbo-red);
+  bottom: 1rem;
+  --line-clip: polygon(
+    0 5px,
+    100% 0,
+    40% 25%,
+    100% 50%,
+    30% 75%,
+    100% 100%,
+    0 99.8%
+  );
+  -webkit-clip-path: var(--line-clip);
+  clip-path: var(--line-clip);
+  content: "";
+  height: 100%;
+  left: calc(50% - 2px);
+  position: absolute;
+  width: 4px;
+}
+
+.limbo-gw-bumper h5 {
+  background-color: var(--eggshell);
+  display: inline-block;
+  left: 49%;
+  padding: 0.5rem 0 0.8rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 70em) {
+  .poster-limbo {
+    margin-top: -18vw;
+  }
+
+  .limbo-header {
+    margin: 10vw auto -10vw auto;
+  }
+
+  .poster-fill-limbo {
+    padding-top: 13vw;
+  }
+
+  .limbo-header h2 {
+    width: 75%;
+  }
+
+  .limbo-header::before {
+    left: calc(100% - 38%);
+    top: -45vw;
+    width: 40%;
+  }
+}
+
+@media (min-width: 87.5em) {
+  .limbo-gw-bumper {
+    padding-bottom: 100vw;
+    padding-top: 60vw;
+  }
+}
+
+@media (min-width: 112.5em) {
+  .limbo-gw-bumper {
+    padding-bottom: 120rem;
+    padding-top: 68rem;
+  }
+}
+
+@media (min-width: 117.5em) {
+  .poster-limbo {
+    margin-top: -21.13rem;
+  }
+
+  .limbo-header {
+    margin: 11.75rem auto -11.75rem auto;
+    max-width: 114rem;
+  }
+
+  .poster-fill-limbo {
+    padding-top: 15.25rem;
+  }
+
+  .limbo-header::before {
+    top: -53rem;
+  }
+}

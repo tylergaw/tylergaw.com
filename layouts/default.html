@@ -3,13 +3,15 @@
   <head>
     {{> head-contents }}
   </head>
-  <body>
-    {{> banner }}
-    <div role="main">
+  <body class="poster-default">
+    <div class="poster-fill-default">
+      {{> banner-detail }}
+      {{> banner }}
+
       {{{contents}}}
     </div>
-
     {{> footer }}
+    <link rel="stylesheet" href="/css/tylergaw.css">
     {{> scripts }}
   </body>
 </html>

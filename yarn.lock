@@ -1557,13 +1557,6 @@ portscanner@2.1.1:
     async "1.5.2"
     is-number-like "^1.0.3"
 
-postcss-extend-rule@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/postcss-extend-rule/-/postcss-extend-rule-1.1.0.tgz#11e4d590ffe4253b853ef1fc03be7167da607d38"
-  dependencies:
-    postcss "^6.0.11"
-    postcss-nesting "^4.2.1"
-
 postcss-import@11.0.0:
   version "11.0.0"
   resolved "https://registry.yarnpkg.com/postcss-import/-/postcss-import-11.0.0.tgz#a962e2df82d3bc5a6da6a386841747204f41ef5b"
@@ -1573,7 +1566,7 @@ postcss-import@11.0.0:
     read-cache "^1.0.0"
     resolve "^1.1.7"
 
-postcss-nesting@4.2.1, postcss-nesting@^4.2.1:
+postcss-nesting@4.2.1:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/postcss-nesting/-/postcss-nesting-4.2.1.tgz#0483bce338b3f0828ced90ff530b29b98b00300d"
   dependencies:

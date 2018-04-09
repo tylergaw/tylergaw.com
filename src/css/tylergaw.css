@@ -1,14 +1,18 @@
-@import "modules/setup";
-@import "modules/reset";
 @import "modules/general";
 @import "modules/banner";
-@import "modules/navigation";
+
 @import "modules/home";
-@import "modules/articles";
+@import "modules/home-limbo";
+@import "modules/home-groundwork";
+@import "modules/home-colorme";
+@import "modules/home-jxa";
+@import "modules/home-rdb";
+
 @import "modules/article";
-@import "modules/projects";
 @import "modules/about";
 @import "modules/purpose";
+@import "modules/resume";
 @import "modules/contentinfo";
 @import "modules/prism-a11y-dark";
+
 @import "modules/errorpage";
