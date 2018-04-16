@@ -19,6 +19,10 @@
     margin-top: 1em;
   }
 
+  & h4 {
+    font-size: 80%;
+  }
+
   & p {
     line-height: 1.5;
     padding: 0.2em 0 1.2em 0;
@@ -37,9 +41,14 @@
 }
 
 .project-body {
-  max-width: 65.94rem;
   padding-bottom: 1rem;
   padding-top: 2rem;
+}
+
+.project-body p,
+.project-body ul,
+.project-child-capped {
+  max-width: 65.94rem;
 }
 
 .project-body a {
@@ -85,7 +94,7 @@
 }
 
 .project-figure {
-  padding-bottom: 3em;
+  padding-bottom: 1.5em;
 }
 
 .project-figure figcaption {
@@ -96,6 +105,11 @@
 .project-figure figcaption a {
   border-bottom: 0;
   text-decoration: underline;
+}
+
+.poster-limbo .project-img-link {
+  box-shadow: 0 1px 3px #cccaac;
+  overflow: hidden;
 }
 
 @media (min-width: 64em) {
