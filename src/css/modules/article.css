@@ -63,6 +63,10 @@
     margin-top: 1.2em;
   }
 
+  & h3 code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
   & p {
     margin: 0 auto;
     max-width: var(--maxTextWidth);
