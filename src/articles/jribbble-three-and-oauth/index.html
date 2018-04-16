@@ -351,7 +351,7 @@ app.listen(process.env.PORT);</code></pre>
   projects: createApiMethod("user/projects"),
   likes: createApiMethod("user/likes"),
   popular: createApiMethod("popular_shots")
-};</pre></code>
+};</code></pre>
 <p>
   This doesn’t provide any extra functionality. It only makes it so I don’t
   have to repeat as much code when defining methods. <code>createApiMethod</code> returns a function. Let’s look at what’s happening in the body of that function.
