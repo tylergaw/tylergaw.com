@@ -2,15 +2,15 @@
 layout: article.html
 highlightSyntax: true
 title: "Designing Anthologies: Initial Concepts"
-date: "2018-04-20"
+date: "2018-04-21"
 permalink: /articles/designing-anthologies-concepts
 meta:
-  description: Jribbble 3.0 is a rewrite for Dribbble API v2 and I'm doing what I can to help people with the new required OAuth process.
-  image: /articles/assets/post-image-jribbble-three.png
+  description: A look into my thought process while desiging a new project, Anthologies.
+  image: /articles/assets/post-image-designing-anthologies-1-social.png
 ---
 
 <p class="entry-intro">
-  Another day, another side project. My latest is <a href="https://anthologies.co/">Anthologies</a>. It helps you package links to share stories. Or–more accurate–that’s what it will do when I launch it. I bought the domain two months back and now getting work started. I plan to share as much of my design and development process as possible. This post is a look into the first design concepts and insight into how I approach and think about a new design.
+  Another day, another side project. My latest is <a href="https://anthologies.co/">Anthologies</a>. It lets you package links to share stories. Or–more accurate–that’s what it will do when I launch it. I bought the domain two months ago and now I’m getting work started. I plan to share as much of my design and development process as possible. This post is a look at early design concepts and my thoughts on how I approach a new design.
 </p>
 
 <p>
@@ -19,19 +19,29 @@ meta:
 
 <h2>MVP</h2>
 <p>
-  At its core, an Anthology is a title, description, and list of urls or “entries” as I’m referring to them. For the MVP, I’m also going to expand that to include details about each entry as they’re available. Each entry can have a title, excerpt, author, publication, and image. If each entry has those or not will depend on the contents of page at the url. I know from experience that parsing pages for those details is unpredictable.
+  At its core, an Anthology is a title, description, and list of urls or “entries” as I’m referring to them. For the MVP, I’m also going to expand that to include details about each entry as they’re available. Each entry can have a title, excerpt, author, publication, and image. If each entry has those or not will depend on the contents of the page at the url. I know from experience that parsing pages for those details is unpredictable. So my designs need to be flexible.
 </p>
 
 <h2>Systems Check</h2>
 <p>
-  Like a lot of designers, I sit down and get right to work on a new design by staring at fonts for an hour or two. For Anthologies, I wanted what I usually what out of a typeface. I look for sturdiness at small sizes and a good range of weights. I wanted a super heavy weight for stand-out titles. I also had a specific type hang-up; I wanted a typeface with a two-story lowercase “g”. In early logo and UI sketches I kept drawing two-story g’s so I had it stuck in my brain and didn’t see a reason to fight it. I settled on <a href="https://typekit.com/fonts/aaux-next">Aaux Next</a>. So far I’ve used the regular, medium, black, and ultra weights.
+  Like a lot of designers, I sit down and get right to work on a new design by staring at fonts for an hour or two. For Anthologies, I wanted what I usually want from a typeface. I wanted sturdiness at small sizes and a good range of weights. I wanted a super heavy weight for stand-out titles. I also had a specific type hang-up this time around; I wanted a typeface with a two-story lowercase “g”. In early logo and UI sketches I kept drawing two-story g’s so I had it stuck in my brain and didn’t see a reason to fight it. I settled on <a href="https://typekit.com/fonts/aaux-next">Aaux Next</a>. So far I’ve used the regular, medium, black, and ultra weights.
+</p>
+
+<p>
+  Another way I like to put off designing is to fiddle with grid configurations. Sketch makes this way too easy. After the proper amount fiddling I landed on a grid that seems to work well. The grid is seven–191 pixels wide–columns with ten pixel gutters. I set row gutters at twenty pixels, and sometimes every now and then actually place text on them the right way.
 </p>
 <figure>
-  <img src="../assets/post-image-anthology-grid.png" alt="The seven column grid in use for the first anthologies.co concepts.">
+  <img src="../assets/post-image-anthology-grid.png" alt="The seven column grid in use for the first anthologies.co concepts. It's slightly off center to the right. The gap on the left gives room for the branding banner.">
   <figcaption>
     The 7-column grid.
   </figcaption>
 </figure>
+<p>
+  If you’re looking at the grid image you might notice it’s off-center to the right. That’s on purpose. You’ll see later that each mock-up includes a banner with branding on the left. I didn’t want that to use the grid. I only place the primary content on the grid.
+</p>
+<p>
+  With the correct amount of procrastination out of the way, I started designing. For content, I used <a href="https://longform.org/posts/the-longform-guide-to-sad-retired-athletes"><i>The Longform Guide to Sad Retired Athletes</i></a>. Their collections are a perfect match for the type of content I expect will make up most Anthologies.
+</p>
 
 <h2>1. Two-up</h2>
 <figure>
@@ -44,6 +54,32 @@ meta:
     Iteration 1 “Two-up”: The first mock-up I got to a done-enough state.
   </figcaption>
 </figure>
+<p>
+  The first go at it. A lot went into this that you don’t see in the mock-up. Much shuffling of text and images happened to get to this point. I don’t know that this is “good”, but it felt like a complete thought. It felt resolved enough. It displays the Anthology content and provides links to the articles. That’s the goal.
+</p>
+<p>
+  The most valuable artifact of this iteration were the discovered interface patterns and components. These are building blocks for every later iteration. There’s a “cover”–made up of the title, description, and byline. The entries–made up of individual entry elements. And within those are smaller components. I think about these in <a href="http://bradfrost.com/blog/post/atomic-web-design/">Atomic design</a> terms. The cover is a organism. It includes an “intro” molecule. The intro contains title, description, and byline atoms. And so on. These might not be the exact elements I end up with, but they’re a way for me to break down the interface into distinct parts.
+</p>
+<p>
+  Keeping my artboards, groups, and layers organized in Sketch helps me focus. Naming those items helps me get a jump on naming elements in HTML and CSS. The names I use in Sketch, I’ll use for future class names, files, etc.
+</p>
+<p>
+  The name of each design iteration here is the name I gave the artboard in Sketch. Those names might not stick and aren’t very descriptive, but they help me organize my thoughts.
+</p>
+<figure>
+  <picture>
+    <source srcset="../assets/post-image-anthologies-1-sketch-layers.webp" type="image/webp">
+    <source srcset="../assets/post-image-anthologies-1-sketch-layers.png" type="image/png">
+    <img src="../assets/post-image-anthologies-1-sketch-layers.png" alt="A screenshot of the Sketch.app layers palette for these Anthologies designs">
+  </picture>
+  <figcaption>
+    The layers palette of the Sketch file for Anthologies mock-ups.
+  </figcaption>
+</figure>
+
+<p>
+  The first iteration is always the hardest. With it out of the way I started having a lot of fun with the designs. The rest of the mock-ups are me asking; “what if…?” then designing answers. These aren’t meant to be separate themes to choose from. They’re exploration of possibilities. It’s me searching for interesting ways to display the same content. In that searching I find design solutions, but also more what ifs that lead to more design. This was also just good, fast design fun. I could fifty of these and keep going. But, I won’t because I want to ship this thing sooner than later.
+</p>
 
 <h2>2. Grid Dark</h2>
 <figure>

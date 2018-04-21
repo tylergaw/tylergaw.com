@@ -21,9 +21,8 @@
 }
 
 .e-header .dt-published {
-  color: var(--darkerwhite);
   display: block;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 800;
 }
 
@@ -104,15 +103,15 @@
   }
 
   & figcaption {
-    margin-top: 0.5em;
-    text-align: center;
+    color: var(--darkerwhite);
+    padding: 0.7em;
   }
 
   & figcaption,
   & .note,
   & .note-special,
   & .note-update {
-    font-size: 0.5em;
+    font-size: 1rem;
   }
 
   & p {
@@ -224,10 +223,6 @@
 @media (min-width: 48.75em) {
   .e-header .p-name {
     font-size: 7vw;
-  }
-
-  .e-header .dt-published {
-    font-size: 1.4rem;
   }
 
   .e-content {

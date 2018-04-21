@@ -13,11 +13,11 @@
 
 {{#if meta.image }}
 <meta property="og:image" content="{{ site.url }}{{ meta.image }}">
-<meta name="twitter:image:src" content="{{ site.url }}{{ meta.image }}">
+<meta name="twitter:image" content="{{ site.url }}{{ meta.image }}">
 <meta name="twitter:card" content="summary_large_image">
 {{ else }}
 <meta property="og:image" content="{{ site.url }}/images/social-default.png">
-<meta name="twitter:image:src" content="{{ site.url }}/images/social-default.png">
+<meta name="twitter:image" content="{{ site.url }}/images/social-default.png">
 <meta name="twitter:card" content="summary_large_image">
 {{/if}}
 <meta property="og:title" content="{{#if title }}{{ title }}{{else}}Tyler Gaw - Designer & Engineer - Brooklyn, USA{{/if}}">
