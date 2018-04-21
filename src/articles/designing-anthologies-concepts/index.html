@@ -1,0 +1,153 @@
+---
+layout: article.html
+highlightSyntax: true
+title: "Designing Anthologies: Initial Concepts"
+date: "2018-04-20"
+permalink: /articles/designing-anthologies-concepts
+meta:
+  description: Jribbble 3.0 is a rewrite for Dribbble API v2 and I'm doing what I can to help people with the new required OAuth process.
+  image: /articles/assets/post-image-jribbble-three.png
+---
+
+<p class="entry-intro">
+  Another day, another side project. My latest is <a href="https://anthologies.co/">Anthologies</a>. It helps you package links to share stories. Or–more accurate–that’s what it will do when I launch it. I bought the domain two months back and now getting work started. I plan to share as much of my design and development process as possible. This post is a look into the first design concepts and insight into how I approach and think about a new design.
+</p>
+
+<p>
+  First things first. If this idea sounds familiar, it’s because it’s been a thing before. In 2012, when I was on the Readability team, we designed and built <a href="https://web.archive.org/web/20160704152104/http://readlists.com:80/">Readlists</a>. Readlists shut down in 2016. It happens. But I miss it and I know other people do to. I don’t think it’s a huge number of people, and that’s OK. My goal for Anthologies is to build a small tool that does one thing well. If only a few people use it, that’s A-OK with me. And much cheaper. (I plan to write about my approach to building this in a cost-efficient way as soon as I figure out how to do that.)
+</p>
+
+<h2>MVP</h2>
+<p>
+  At its core, an Anthology is a title, description, and list of urls or “entries” as I’m referring to them. For the MVP, I’m also going to expand that to include details about each entry as they’re available. Each entry can have a title, excerpt, author, publication, and image. If each entry has those or not will depend on the contents of page at the url. I know from experience that parsing pages for those details is unpredictable.
+</p>
+
+<h2>Systems Check</h2>
+<p>
+  Like a lot of designers, I sit down and get right to work on a new design by staring at fonts for an hour or two. For Anthologies, I wanted what I usually what out of a typeface. I look for sturdiness at small sizes and a good range of weights. I wanted a super heavy weight for stand-out titles. I also had a specific type hang-up; I wanted a typeface with a two-story lowercase “g”. In early logo and UI sketches I kept drawing two-story g’s so I had it stuck in my brain and didn’t see a reason to fight it. I settled on <a href="https://typekit.com/fonts/aaux-next">Aaux Next</a>. So far I’ve used the regular, medium, black, and ultra weights.
+</p>
+<figure>
+  <img src="../assets/post-image-anthology-grid.png" alt="The seven column grid in use for the first anthologies.co concepts.">
+  <figcaption>
+    The 7-column grid.
+  </figcaption>
+</figure>
+
+<h2>1. Two-up</h2>
+<figure>
+  <picture>
+    <source srcset="../assets/post-image-1-anthology-two-up.webp" type="image/webp">
+    <source srcset="../assets/post-image-1-anthology-two-up.png" type="image/png">
+    <img src="../assets/post-image-1-anthology-two-up.png" alt="A early mock-up of a single Anthology on anthologies.co">
+  </picture>
+  <figcaption>
+    Iteration 1 “Two-up”: The first mock-up I got to a done-enough state.
+  </figcaption>
+</figure>
+
+<h2>2. Grid Dark</h2>
+<figure>
+  <picture>
+    <source srcset="../assets/post-image-2-anthology-grid-dark.webp" type="image/webp">
+    <source srcset="../assets/post-image-2-anthology-grid-dark.png" type="image/png">
+    <img src="../assets/post-image-2-anthology-grid-dark.png" alt="A early mock-up of a single Anthology on anthologies.co">
+  </picture>
+  <figcaption>
+    Iteration 2 “Grid dark”: An iteration on the first mock-up where the entries float on top of the cover image.
+  </figcaption>
+</figure>
+
+<p>
+  At this point I had a view elements I thought were working. Things I could iterate on at least. Both of the first concepts are dark and heavy though. For the next concept I wanted to trying lightening things up. Both in color and in design elements.
+</p>
+
+<h2>3. Text Light</h2>
+<figure>
+  <picture>
+    <source srcset="../assets/post-image-3-anthology-text-light.webp" type="image/webp">
+    <source srcset="../assets/post-image-3-anthology-text-light.png" type="image/png">
+    <img src="../assets/post-image-3-anthology-text-light.png" alt="A early mock-up of a single Anthology on anthologies.co">
+  </picture>
+  <figcaption>
+    Iteration 3 “Text light”: A light-weight, bright concept using mostly text and only a single cover image.
+  </figcaption>
+</figure>
+
+<p>
+  Along with the lighter aesthetic, in this concept I changed my grid usage. In the first two concepts, I gave the cover three columns and the entries four. When I gave the cover image more prominence instead of being a background image, it felt like it needed more room to breathe. With that, I gave it another half a column and also reduced the entries to three-and-a-half columns.
+</p>
+<p>
+  Content-wise I introduced entry excerpts in this concept. From the beginning I had in my head that each entry works better with a excerpt, but those first two concepts worked better without, so I wanted to give it a try. I think they're helpful. The remainder of the concepts include excerpts.
+</p>
+<p>
+  In the future, I might make that a user-configurable item for per Anthology.
+</p>
+
+<h2>4. Text Light Imgs</h2>
+<figure>
+  <picture>
+    <source srcset="../assets/post-image-4-anthology-text-light-imgs.webp" type="image/webp">
+    <source srcset="../assets/post-image-4-anthology-text-light-imgs.png" type="image/png">
+    <img src="../assets/post-image-4-anthology-text-light-imgs.png" alt="A early mock-up of a single Anthology on anthologies.co">
+  </picture>
+  <figcaption>
+    Iteration 4 “Text light imgs”: A tweak on Text light. This time including an image thumbnail with each entry.
+  </figcaption>
+</figure>
+<p>
+  This was the first concept I tried using an thumbnail image for each entry. When I saw them, I felt like the cover image could go away and let the title and description handle the work of being the cover. For this concept I also tried an off-white background color. I pulled this from Readability, Instapaper, Pocket, et al. In those tended to be something like a “sepia” theme.
+</p>
+<p>
+  I explored options for the Anthologies banner here as well. Here, I wanted to see if a stark contrast between banner and content would help the banner kind of detach and fade away. It feels counter-intuitive, but sometimes when an element is so much different than the rest of the design it can make it easier to ignore. Still not sure if it’s working or not, but it’s interesting.
+</p>
+
+<h2>5. Text Light Two</h2>
+<figure>
+  <picture>
+    <source srcset="../assets/post-image-5-anthology-text-light-two.webp" type="image/webp">
+    <source srcset="../assets/post-image-5-anthology-text-light-two.png" type="image/png">
+    <img src="../assets/post-image-5-anthology-text-light-two.png" alt="A early mock-up of a single Anthology on anthologies.co">
+  </picture>
+  <figcaption>
+    Iteration 5 “Text light two”: There's a lot more going on in this one.
+  </figcaption>
+</figure>
+<p>
+  For this concept, I let myself wield more design elements. The scattered orange blocks, a few tech lines, the angle on the cover image, and the background behind the title. For those, I was thinking about something like a 1970s jazz album cover. Or at least how I remembered them looking. I also switched the title and entry headings to the Ultra weight of Aaux Next Ultra. They felt like they needed some extra heft.
+</p>
+<p>
+  With the introduction of more design elements on the cover it felt like the eye needed a break so removed the image thumbnails for each entry.
+</p>
+
+<h2>6. Spartan</h2>
+<figure>
+  <picture>
+    <source srcset="../assets/post-image-6-anthology-spartan.webp" type="image/webp">
+    <source srcset="../assets/post-image-6-anthology-spartan.png" type="image/png">
+    <img src="../assets/post-image-6-anthology-spartan.png" alt="A early mock-up of a single Anthology on anthologies.co">
+  </picture>
+  <figcaption>
+    Iteration 6 “Spartan”: Just text and images-as-content
+  </figcaption>
+</figure>
+
+<p>
+  After iteration five and all its elements, I wanted to try one the other way. For this concept I wanted to use the bare minimum. Text and images as content with no other design elements. One element stayed in place, the subtle border between the cover and entries. You might also notice all the font sizes increased. I wanted to see the title and each entry title take center stage. I was looking at–and taking cues–from the New York Times on this one.
+</p>
+<p>
+  At this point, this concept feels the strongest in terms of practicality and broad use.
+</p>
+
+<h2>7. Party</h2>
+<figure>
+  <picture>
+    <source srcset="../assets/post-image-7-anthology-party-1.webp" type="image/webp">
+    <source srcset="../assets/post-image-7-anthology-party-1.png" type="image/png">
+    <img src="../assets/post-image-7-anthology-party-1.png" alt="A early mock-up of a single Anthology on anthologies.co">
+  </picture>
+  <figcaption>
+    Iteration 7 “Party 1”: Just throwing everything at the wall to see what sticks.
+  </figcaption>
+</figure>
+
+{{> thanks-for-reading }}
