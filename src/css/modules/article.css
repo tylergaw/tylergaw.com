@@ -66,6 +66,10 @@
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   }
 
+  & h4 {
+    font-size: 0.8em;
+  }
+
   & p {
     margin: 0 auto;
     max-width: var(--maxTextWidth);
