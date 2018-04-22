@@ -39,11 +39,14 @@ meta:
 <p>
   If you’re looking at the grid image you might notice it’s off-center to the right. That’s on purpose. You’ll see later that each mock-up includes a banner with branding on the left. I didn’t want that to use the grid. I only place the primary content on the grid.
 </p>
+
+<h2>The Concepts</h2>
+
 <p>
   With the correct amount of procrastination out of the way, I started designing. For content, I used <a href="https://longform.org/posts/the-longform-guide-to-sad-retired-athletes"><i>The Longform Guide to Sad Retired Athletes</i></a>. Their collections are a perfect match for the type of content I expect will make up most Anthologies.
 </p>
 
-<h2>1. Two-up</h2>
+<h3>1. Two-up</h3>
 <figure>
   <picture>
     <source srcset="../assets/post-image-1-anthology-two-up.webp" type="image/webp">
@@ -58,7 +61,7 @@ meta:
   The first go at it. A lot went into this that you don’t see in the mock-up. Much shuffling of text and images happened to get to this point. I don’t know that this is “good”, but it felt like a complete thought. It felt resolved enough. It displays the Anthology content and provides links to the articles. That’s the goal.
 </p>
 <p>
-  The most valuable artifact of this iteration were the discovered interface patterns and components. These are building blocks for every later iteration. There’s a “cover”–made up of the title, description, and byline. The entries–made up of individual entry elements. And within those are smaller components. I think about these in <a href="http://bradfrost.com/blog/post/atomic-web-design/">Atomic design</a> terms. The cover is a organism. It includes an “intro” molecule. The intro contains title, description, and byline atoms. And so on. These might not be the exact elements I end up with, but they’re a way for me to break down the interface into distinct parts.
+  The most valuable artifact of this iteration were the discovered interface patterns. These are building blocks for every later iteration. There’s a “cover”–made up of the title, description, and byline. The entries–made up of individual entry elements. And within those are smaller components. I think about these in <a href="http://bradfrost.com/blog/post/atomic-web-design/">Atomic design</a> terms. The cover is a organism. It includes an “intro” molecule. The intro contains title, description, and byline atoms. And so on. These might not be the exact elements I end up with, but they’re a way for me to break down the interface into distinct parts.
 </p>
 <p>
   Keeping my artboards, groups, and layers organized in Sketch helps me focus. Naming those items helps me get a jump on naming elements in HTML and CSS. The names I use in Sketch, I’ll use for future class names, files, etc.
@@ -81,7 +84,7 @@ meta:
   The first iteration is always the hardest. With it out of the way I started having a lot of fun with the designs. The rest of the mock-ups are me asking; “what if…?” then designing answers. These aren’t meant to be separate themes to choose from. They’re exploration of possibilities. It’s me searching for interesting ways to display the same content. In that searching I find design solutions, but also more what ifs that lead to more design. This was also just good, fast design fun. I could fifty of these and keep going. But, I won’t because I want to ship this thing sooner than later.
 </p>
 
-<h2>2. Grid Dark</h2>
+<h3>2. Grid Dark</h3>
 <figure>
   <picture>
     <source srcset="../assets/post-image-2-anthology-grid-dark.webp" type="image/webp">
@@ -94,10 +97,14 @@ meta:
 </figure>
 
 <p>
-  At this point I had a view elements I thought were working. Things I could iterate on at least. Both of the first concepts are dark and heavy though. For the next concept I wanted to trying lightening things up. Both in color and in design elements.
+  This was a tiny step from the first concept. A little more modern, techy aesthetic. Instead of cropping the cover image, I let it fill the layout. Then let the entries float above the subtle background. A joke name I had for it was “Textflix” because it reminded me of Netflix’s aesthetic.
 </p>
 
-<h2>3. Text Light</h2>
+<p>
+  These first two iterations were dark and felt a bit heavy. For the next concept I wanted to try lightening things up in color and design elements.
+</p>
+
+<h3>3. Text Light</h3>
 <figure>
   <picture>
     <source srcset="../assets/post-image-3-anthology-text-light.webp" type="image/webp">
@@ -105,21 +112,21 @@ meta:
     <img src="../assets/post-image-3-anthology-text-light.png" alt="A early mock-up of a single Anthology on anthologies.co">
   </picture>
   <figcaption>
-    Iteration 3 “Text light”: A light-weight, bright concept using mostly text and only a single cover image.
+    Iteration 3 “Text light”: A light-weight, brighter concept using mostly text and only a cover image.
   </figcaption>
 </figure>
 
 <p>
-  Along with the lighter aesthetic, in this concept I changed my grid usage. In the first two concepts, I gave the cover three columns and the entries four. When I gave the cover image more prominence instead of being a background image, it felt like it needed more room to breathe. With that, I gave it another half a column and also reduced the entries to three-and-a-half columns.
+  Along with a lighter aesthetic, in this concept I changed grid usage. In the first two concepts, I gave the cover three columns and the entries four. In this concept, the cover image is more prominent. When I saw that, it felt like it needed more room to breathe. With that, I gave it another half a column and reduced the entries to three-and-a-half columns.
 </p>
 <p>
-  Content-wise I introduced entry excerpts in this concept. From the beginning I had in my head that each entry works better with a excerpt, but those first two concepts worked better without, so I wanted to give it a try. I think they're helpful. The remainder of the concepts include excerpts.
+  Content-wise, I introduced entry excerpts. The layout of the first two concepts worked better without excerpts. It feels a bit off to exclude them for article entries. It feels like the reader needs a bit more of a hook to decide where they want to start.
 </p>
 <p>
-  In the future, I might make that a user-configurable item for per Anthology.
+  In the future, excerpts could be a curator-configurable per Anthology.
 </p>
 
-<h2>4. Text Light Imgs</h2>
+<h3>4. Text Light Imgs</h3>
 <figure>
   <picture>
     <source srcset="../assets/post-image-4-anthology-text-light-imgs.webp" type="image/webp">
@@ -131,13 +138,16 @@ meta:
   </figcaption>
 </figure>
 <p>
-  This was the first concept I tried using an thumbnail image for each entry. When I saw them, I felt like the cover image could go away and let the title and description handle the work of being the cover. For this concept I also tried an off-white background color. I pulled this from Readability, Instapaper, Pocket, et al. In those tended to be something like a “sepia” theme.
+  This was the first concept I tried using an image for each entry. When I saw them in place, it felt like the cover image could go away. The title and description could shoulder the work of being the cover.
 </p>
 <p>
-  I explored options for the Anthologies banner here as well. Here, I wanted to see if a stark contrast between banner and content would help the banner kind of detach and fade away. It feels counter-intuitive, but sometimes when an element is so much different than the rest of the design it can make it easier to ignore. Still not sure if it’s working or not, but it’s interesting.
+  For this concept I also tried an off-white background color. I pulled this from Readability, Instapaper, Pocket, et al. In those, a similar color tended to be something like a sepia theme.
+</p>
+<p>
+  I explored options for the branding banner here too. I wanted to see if a stark contrast between banner and content could help the banner detach and fade away. Sometimes when an element is so much different than the rest of the design, it can make it easier to consider it, then ignore. I’m still not sure if it’s working or not, but it’s interesting.
 </p>
 
-<h2>5. Text Light Two</h2>
+<h3>5. Text Light Two</h3>
 <figure>
   <picture>
     <source srcset="../assets/post-image-5-anthology-text-light-two.webp" type="image/webp">
@@ -149,13 +159,13 @@ meta:
   </figcaption>
 </figure>
 <p>
-  For this concept, I let myself wield more design elements. The scattered orange blocks, a few tech lines, the angle on the cover image, and the background behind the title. For those, I was thinking about something like a 1970s jazz album cover. Or at least how I remembered them looking. I also switched the title and entry headings to the Ultra weight of Aaux Next Ultra. They felt like they needed some extra heft.
+  In this concept, I let myself toss around more design elements. Scattered orange blocks here, a few tech lines there, an angle on the cover image, on so on. With the orange blocks, I was thinking about something like a 1970s jazz album cover. Or at least how I remembered them looking. I also switched the title and entry headings to the Ultra weight of Aaux Next. They felt like they needed some extra heft.
 </p>
 <p>
-  With the introduction of more design elements on the cover it felt like the eye needed a break so removed the image thumbnails for each entry.
+  With the introduction of more design elements, it felt like the eye needed a little break. To give it that rest, I removed the image thumbnails for each entry.
 </p>
 
-<h2>6. Spartan</h2>
+<h3>6. Spartan</h3>
 <figure>
   <picture>
     <source srcset="../assets/post-image-6-anthology-spartan.webp" type="image/webp">
@@ -168,13 +178,13 @@ meta:
 </figure>
 
 <p>
-  After iteration five and all its elements, I wanted to try one the other way. For this concept I wanted to use the bare minimum. Text and images as content with no other design elements. One element stayed in place, the subtle border between the cover and entries. You might also notice all the font sizes increased. I wanted to see the title and each entry title take center stage. I was looking at–and taking cues–from the New York Times on this one.
+  After Text Light Two with all its fiddly bits, I wanted to try one the other way. For this concept I let the content speak for itself. Text and images as content with–almost–no other design elements. I kept one element in place, the subtle border between the cover and entries. You might also notice I increased all the font sizes. The title and each entry title felt like they needed more oomph to take center stage. I was looking at–and taking cues–from the New York Times on this one.
 </p>
 <p>
-  At this point, this concept feels the strongest in terms of practicality and broad use.
+  At this point, this concept feels the strongest in terms of practicality and broad use. When I start building, I’ll most likely use this as a guide.
 </p>
 
-<h2>7. Party</h2>
+<h3>7. Party</h3>
 <figure>
   <picture>
     <source srcset="../assets/post-image-7-anthology-party-1.webp" type="image/webp">
@@ -185,5 +195,21 @@ meta:
     Iteration 7 “Party 1”: Just throwing everything at the wall to see what sticks.
   </figcaption>
 </figure>
+
+<p>
+  Oooooh shit, here we go! I needed to see one like this. I took about a day break between Spartan and this concept to clear my head. Then I threw everything at the wall. I’ve been reading posts on <a href="https://theoutline.com">The Outline</a> and enjoying the designs they’re doing. I lifted ideas from them on this concept. That’s a fun thing about doing early concepts like this, it’s OK steal. It’s more about serious play than producing a finished piece.
+</p>
+<p>
+  I don’t know if a concept like this will make it to browsers, but it could. I don’t think it’s “bad.” Depending on the tone of the Anthology, something like this could work. I plan to explore this type of aesthetic more as I go.
+</p>
+
+<h2>HTML/CSS Here We Come</h2>
+<p>
+  Designs like this are never “done”, but this one is ready for the next step: browsers. Using Spartan as a base, I’ll build an Anthology page using static-content. As soon as you get in a browser you learn a ton. The design will shift and shimmy from the static mocks here to meet the needs of its ultimate home.
+</p>
+
+<p>
+  As I mentioned before, I have more posts I want to write about my process. When I dive into these projects I let myself get pulled into the weeds in myriad areas of design and web development bits. It’s tons of fun and it’s important to share. Keep an eye out for more.
+</p>
 
 {{> thanks-for-reading }}
