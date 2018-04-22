@@ -21,9 +21,8 @@
 }
 
 .e-header .dt-published {
-  color: var(--darkerwhite);
   display: block;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 800;
 }
 
@@ -67,6 +66,10 @@
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   }
 
+  & h4 {
+    font-size: 0.8em;
+  }
+
   & p {
     margin: 0 auto;
     max-width: var(--maxTextWidth);
@@ -95,7 +98,8 @@
   & figure {
     margin: 0.2em 0 1.8em 0;
 
-    & img {
+    & img,
+    & picture {
       display: block;
       margin: 0 auto;
       width: 100%;
@@ -103,16 +107,15 @@
   }
 
   & figcaption {
-    margin-top: 0.4em;
-    text-align: center;
+    color: var(--darkerwhite);
+    padding: 0.7em;
   }
 
   & figcaption,
   & .note,
   & .note-special,
   & .note-update {
-    font-size: 0.75em;
-    font-style: italic;
+    font-size: 1rem;
   }
 
   & p {
@@ -226,10 +229,6 @@
     font-size: 7vw;
   }
 
-  .e-header .dt-published {
-    font-size: 1.4rem;
-  }
-
   .e-content {
     font-size: 1.8em;
   }
@@ -244,7 +243,7 @@
 
 @media (min-width: 108.125em) {
   .h-entry {
-    --maxContentWidth: 80rem;
+    --maxContentWidth: 86.25rem;
     --maxTextWidth: 70.5rem;
   }
 
