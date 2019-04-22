@@ -48,10 +48,9 @@ i, em {
 }
 
 body {
-  --lightgrey: #CCC;
+  --lightgrey: #fff;
   --grey: #292929;
-  /* --accent: #8A7A9C; purple*/
-  --accent: #94aca4;
+  --accent: #FF607F;
   --offwhite: #F8F8F8;
   --darkerwhite: #D3D3D3;
   --font-aktiv: "aktiv-grotesk", sans-serif;
@@ -142,7 +141,7 @@ a:focus {
 
 /*
   Home intro
-  I include these as inline styles because this first second sits well
+  I include these as inline styles because this sits well
   "above the fold" on many screen sizes. Having these load fast decreases
   the time to first meaningful paint.
 */
@@ -377,34 +376,43 @@ a:focus {
   }
 }
 
-.article-list {
+.article-list,
+.library {
   margin: 0 auto;
   max-width: 42rem;
   padding: 4rem 0 3rem 0;
 }
 
+.library-intro {
+  padding: 0 1em 1em 1em;
+}
+
 @media (min-width: 72.5em) {
-  .article-list {
+  .article-list,
+  .library {
     font-size: 1.2em;
     max-width: 50rem;
   }
 }
 
-.article-listed {
+.article-listed,
+.book-listed {
   box-sizing: border-box;
   margin: 0.5em 0;
   padding: 1.2em 1em;
 }
 
-.article-listed time {
-  color: #94aca4;
+.article-listed time,
+.book-listed time,
+.book-current {
+  color: var(--accent);
   display: block;
   font-size: 1em;
   font-weight: 800;
   margin-bottom: 0.25em;
 }
 
-.article-listed a {
+.listed-item-link {
   color: var(--offwhite);
   display: inline-block;
   font-family: var(--font-aktiv-ex);
@@ -416,12 +424,13 @@ a:focus {
   word-wrap: break-word;
 }
 
-.article-listed a:hover,
-.article-listed a:focus {
+.listed-item-link:hover,
+.listed-item-link:focus {
   color: var(--accent);
 }
 
-.article-listed p {
+.article-listed p,
+.book-listed h4 {
   color: var(--darkerwhite);
   font-size: 1.1em;
   line-height: 1.5;
