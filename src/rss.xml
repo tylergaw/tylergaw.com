@@ -5,7 +5,7 @@
   <managingEditor>me@tylergaw.com.com (Tyler Gaw)</managingEditor>
   <webMaster>me@tylergaw.com.com (Tyler Gaw)</webMaster>
   <description>An account of the work I do as a Web Designer</description>
-  <lastBuildDate>Tue, 19 Feb 2019 09:00:00 EST</lastBuildDate>
+  <lastBuildDate>Sun, 21 Apr 2019 10:30:00 EST</lastBuildDate>
   <language>en</language>
   <generator>Elbow grease</generator>
   <image>
@@ -16,6 +16,49 @@
     <height>180</height>
   </image>
   <atom:link href="https://tylergaw.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>A Library</title>
+      <dc:creator>Tyler Gaw</dc:creator>
+      <link>https://tylergaw.com/articles/a-library</link>
+      <guid>https://tylergaw.com/articles/a-library</guid>
+      <pubDate>Sun, 21 Apr 2019 10:30:00 EST</pubDate>
+      <description>
+        <![CDATA[
+<p>
+  I don’t read enough books. And when I do, I don’t read a wide enough variety
+  of them. I’m working to fix this by doing three things:
+</p>
+
+<ol>
+  <li>I’m reading more books</li>
+  <li>Always having a book I want to read (that I’m actually interested in, if I don’t like it, I put it down and walk away)</li>
+</ol>
+
+<p>
+  For step number two, I either buy two books at once or as soon as I
+  finish a book, I go get another one. Lately, at the excellent
+  <a href="https://www.mcnallyjackson.com/">McNally Jackson</a> on Prince St.
+  near my apartment.
+</p>
+
+<p>
+  The third thing I’m doing is documenting the book I’m reading and the books
+  I’ve read in <a href="https://tylergaw.com/library">Library</a>. Nothing fancy, just a list
+  book titles, authors, and the month and year I read the book. I’m not making
+  an attempt to list books before 2019 right now. Just starting with what’s
+  fresh in my mind.
+</p>
+
+<p>
+  I decided I wanted this after reading
+  <a href="https://austinkleon.com/2019/03/21/how-to-read-more-3/">Austin’s, “How to read more”</a>.
+  In it, he mentions <a href="https://www.artgarfunkel.com/library/list1.html">Art Garfunkel’s</a>
+  list of read books. That list is amazing. I hope to maintain
+  my list for even a portion as long as he as.
+</p>
+        ]]>
+      </description>
+    </item>
     <item>
       <title>No More Google Analytics</title>
       <dc:creator>Tyler Gaw</dc:creator>
