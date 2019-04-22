@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/tylergaw
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://tylergaw.com
+  * I am tylergaw (https://keybase.io/tylergaw) on keybase.
+  * I have a public key ASDUq1i0bxWkQI89mmJ0Occv0SdvX29wx3Lg4JDbWtKU5Qo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120d4ab58b46f15a4408f3d9a627439c72fd1276f5f6f70c772e0e090db5ad294e50a",
+      "host": "keybase.io",
+      "kid": "0120d4ab58b46f15a4408f3d9a627439c72fd1276f5f6f70c772e0e090db5ad294e50a",
+      "uid": "31813236c3d9c35bd89b75bed78f0a19",
+      "username": "tylergaw"
+    },
+    "merkle_root": {
+      "ctime": 1555899362,
+      "hash": "c562b2411385c1d12fbb1e1573c9660e55fe9de91f05e89da5761f8fc153b26b0117bd6a26c874a85d4e3631581de298a0a9357ea0a1b01c3548801098f85fef",
+      "hash_meta": "f55064003ac550c9cc72cb0c50f7dc43bfb8df0c534ee4f9f3028060371c66f0",
+      "seqno": 5215785
+    },
+    "service": {
+      "entropy": "dpuAHr3lubdw2d5lJj87oyzc",
+      "hostname": "tylergaw.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "3.2.2"
+  },
+  "ctime": 1555899382,
+  "expire_in": 504576000,
+  "prev": "0b1bb4a81dd5d817e424c6ee8e6289a221650be94b6e2d347baf1ff6b7453813",
+  "seqno": 11,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg1KtYtG8VpECPPZpidDnHL9Enb19vcMdy4OCQ21rSlOUKp3BheWxvYWTESpcCC8QgCxu0qB3V2BfkJMbujmKJoiFlC+lLbi00e68f9rdFOBPEIB7Tjka5GoNt4uu7ZaJRxUzm1nUIdSIhFblKwpsNZ231AgHCo3NpZ8RAenm0xyVdIA6KbMMoKcWN99EORcxkIge1A+CoiJN4LYDyYzFtzdQuMochlh06jy+wRJksGAC4JaKC6hJoMct9AqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIIQuCY1tHfZFL8f1tqg2kjcu6M132YGYNqQAiU6TELjDo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/tylergaw
+
+==================================================================
