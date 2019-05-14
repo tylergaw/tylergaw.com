@@ -26,6 +26,10 @@ pre[class*="language-"],
   hyphens: none;
 }
 
+.e-content a code {
+  color: var(--accent);
+}
+
 /* Code blocks */
 pre[class*="language-"] {
   border-radius: 2px;

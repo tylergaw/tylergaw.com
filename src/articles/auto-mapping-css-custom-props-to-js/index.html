@@ -1,0 +1,97 @@
+---
+layout: article.html
+highlightSyntax: true
+title: "Auto Mapping CSS Custom Properties to JavaScript"
+date: "2019-05-10"
+permalink: /articles/auto-mapping-css-custom-props-to-js
+meta:
+  description: An exploration automating the process of accessing CSS Custom Properties in JavaScript
+---
+
+<p class="entry-intro">
+  This idea was knocking around in my brain for a while. I finally sat
+  down and worked through it. The goal is to make CSS custom properties
+  available in JavaScript in an automatic and idiomatic way.
+</p>
+<p>
+  In this post I’ll detail different ways to accomplish the goal. And a couple I
+  wanted to work, but didn’t. Along the way I’ll describe my
+  thought process and things I learned.
+</p>
+<p>
+  Here’s a companion
+  <a href="https://glitch.com/edit/#!/chipped-azimuth">Glitch project</a>
+  with working code for each approach I describe in this post.
+</p>
+
+<h2>The Manual Approach</h2>
+<p>
+  Let’s start with the baseline approach to accessing CSS custom prop
+  values in JavaScript. If you’re following along in the demo, this is the
+  <a href="https://chipped-azimuth.glitch.me/basic/">“Basic”</a> example.
+</p>
+<p>
+  There are two native JavaScript methods that do the heavy lifting.
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle"><code>window.getComputedStyle</code></a> and
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/getPropertyValue"><code>getPropertyValue</code></a>. Imagine we have a custom
+  prop <code>--color-accent</code>, declared on the <code>html</code> element.
+</p>
+<pre><code class="language-css">html {
+  --color-accent: #008ef5;
+}</code></pre>
+<p>
+  Now we want that same accent color in JavaScript. The first thing we need
+  to do is get the computed style of the <code>html</code> element using
+  <code>getComputedStyle</code>.
+</p>
+<pre><code class="language-javascript">const rootStyle = getComputedStyle(document.documentElement);</code></pre>
+
+<blockquote>
+  <p>
+    For any non-empty HTML document, document.documentElement will always be an <code>&lt;html&gt;</code> element.
+  </p>
+  <cite>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/documentElement">
+      From MDN web docs “Document.documentElement”
+    </a>
+  </cite>
+</blockquote>
+<!--
+<pre><code class="language-javascript">
+// Store so we don't have to get the computed style every time we want a property
+// Also NOTE: document.documentElement is either :root or html, they're synonymous.
+const rootStyle = getComputedStyle(document.documentElement);
+
+/**
+ * Get the value of a CSS custom property
+ * @param {String} name - A CSS custom property name defined in a stylesheet
+ * @return {Any} - The value of the CSS custom property.
+ */
+const getCustomPropVal = (name, parentEl = rootStyle) => parentEl.getPropertyValue(name);
+
+// We could make individual calls to getCustomPropVal, but to demo a way to make this
+// a bit more efficient, dropping each prop we want in an array looping through.
+//
+// The need to send along a parentElement shows a limitation of this approach. This works
+// great if all your props on on a single element, but if you need access to props spread
+// across selectors, things will get weird. This demo only kinda supports props on other elements.
+const propsAndParents = [
+  ["--color-bg"],
+  ["--color-txt"],
+  ["--color-accent"],
+  ["--gradient-one"],
+  ["--font-sans"],
+  ["--color-special", getComputedStyle(document.querySelector("div"))],
+  ["--color-bg-hello", /* This doesn't work getComputedStyle(document.querySelector("span")) */]
+];
+
+// Here, we loop over propsAndParents to generate the list items. We could also create a map of
+// props/values similar to how other demos do. Leaving it off for brevity.
+document.getElementById("props-list").innerHTML = propsAndParents.reduce((str, arr) => {
+  str += `<li><code>${arr[0]}: ${getCustomPropVal(arr[0], arr[1]) || "Didn't get this value 'cause codes"}</code></li>`;
+  return str;
+}, "");
+</code></pre>
+-->
+
+{{> thanks-for-reading }}
