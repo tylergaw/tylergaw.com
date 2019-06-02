@@ -24,7 +24,7 @@ meta:
   with working code for each approach I describe in this post.
 </p>
 
-<h2>The Manual Approach</h2>
+<h2 id="the-basic-approach">The Basic Approach</h2>
 <p>
   Let’s start with the baseline approach to accessing CSS custom prop
   values in JavaScript. If you’re following along in the demo, this is the
@@ -33,18 +33,22 @@ meta:
 <p>
   There are two native JavaScript methods that do the heavy lifting.
   <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle"><code>window.getComputedStyle</code></a> and
-  <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/getPropertyValue"><code>getPropertyValue</code></a>. Imagine we have a custom
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/getPropertyValue"><code>getPropertyValue</code></a>. We have a custom
   prop <code>--color-accent</code>, declared on the <code>html</code> element.
 </p>
 <pre><code class="language-css">html {
   --color-accent: #008ef5;
 }</code></pre>
 <p>
-  Now we want that same accent color in JavaScript. The first thing we need
+  Now, we want that same accent color in JavaScript. The first thing we need
   to do is get the computed style of the <code>html</code> element using
   <code>getComputedStyle</code>.
 </p>
 <pre><code class="language-javascript">const rootStyle = getComputedStyle(document.documentElement);</code></pre>
+
+<p>
+  And a quick fact about <code>documentElement</code> that I learned:
+</p>
 
 <blockquote>
   <p>
@@ -56,42 +60,111 @@ meta:
     </a>
   </cite>
 </blockquote>
-<!--
-<pre><code class="language-javascript">
-// Store so we don't have to get the computed style every time we want a property
-// Also NOTE: document.documentElement is either :root or html, they're synonymous.
-const rootStyle = getComputedStyle(document.documentElement);
 
-/**
- * Get the value of a CSS custom property
- * @param {String} name - A CSS custom property name defined in a stylesheet
- * @return {Any} - The value of the CSS custom property.
- */
-const getCustomPropVal = (name, parentEl = rootStyle) => parentEl.getPropertyValue(name);
+<p>
+  We stored the computed style of the <code>html</code> element as <code>rootStyle</code>. That’s a <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration"><code>CSSStyleDeclaration</code></a>. With that, we can use <code>getPropertyValue</code> to get and store the value of <code>--color-accent</code>.
+</p>
 
-// We could make individual calls to getCustomPropVal, but to demo a way to make this
-// a bit more efficient, dropping each prop we want in an array looping through.
-//
-// The need to send along a parentElement shows a limitation of this approach. This works
-// great if all your props on on a single element, but if you need access to props spread
-// across selectors, things will get weird. This demo only kinda supports props on other elements.
-const propsAndParents = [
-  ["--color-bg"],
-  ["--color-txt"],
-  ["--color-accent"],
-  ["--gradient-one"],
-  ["--font-sans"],
-  ["--color-special", getComputedStyle(document.querySelector("div"))],
-  ["--color-bg-hello", /* This doesn't work getComputedStyle(document.querySelector("span")) */]
-];
+<pre><code class="language-javascript">const accentColor = rootStyle.getPropertyValue("--color-accent");
+console.log(accentColor); // "#008ef5"</code></pre>
 
-// Here, we loop over propsAndParents to generate the list items. We could also create a map of
-// props/values similar to how other demos do. Leaving it off for brevity.
-document.getElementById("props-list").innerHTML = propsAndParents.reduce((str, arr) => {
-  str += `<li><code>${arr[0]}: ${getCustomPropVal(arr[0], arr[1]) || "Didn't get this value 'cause codes"}</code></li>`;
-  return str;
-}, "");
-</code></pre>
--->
+<p>
+  This shows a single use. To get the value of a second property, we’d need to invoke <code>getPropertyValue</code> again with another property name. It works fine, but can add a lot of code for many properties.
+</p>
+
+<p>
+  We can make it more terse by wrapping it in a function:
+</p>
+
+<pre><code class="language-javascript">const getCustomPropVal = (name, style) => style.getPropertyValue(name);
+const accentColor = getCustomPropVal("--color-accent", rootStyle);</code></pre>
+
+<p>
+  We can slim it down more with a default value for <code>style</code>. This works if we have a common style where we declare custom properties:
+</p>
+
+<pre><code class="language-javascript">const getCustomPropVal = (name, style = rootStyle) => style.getPropertyValue(name);
+const accentColor = getCustomPropVal("--color-accent");</code></pre>
+
+<p>
+  The <code>style</code> parameter gives <code>getCustomPropVal</code> flexibility. For example, say we declared a <code>--max-width</code> property on the <code>main</code> element:
+</p>
+
+<pre><code class="language-javascript">const maxWidth = getCustomPropVal(
+  "--max-width",
+  getComputedStyle(document.querySelector("main"))
+);</code></pre>
+
+<p>
+  Using <code>getCustomPropVal</code> we can take this further. Say we have a bunch of custom props on an element. We can put the prop names in an array and loop over it, invoking <code>getCustomPropVal</code> for each name to get the value. I won’t go into detail here because it’s a bit of a tangent, but <a href="https://chipped-azimuth.glitch.me/basic/">the basic demo</a> has an example.
+</p>
+
+<h3>When I Use This Approach</h3>
+<p>
+  I use this when I need access to only a couple custom CSS properties in JavaScript. The code is a little heavy and it starts to fall down when I need custom props from different elements. Still, it’s a fine approach that gets the job done when the job at hand is small.
+</p>
+<p>
+  But, I wanted to go further. I want an automatic way to make all present and future custom properties available in JavaScript. This basic approach is the foundation for the following more advanced approaches.
+</p>
+
+<h2 id="the-approach-i-wanted">The Approach I Wanted (that doesn’t work)</h2>
+
+<p>
+  If you’re following along in the demo, this is the
+  <a href="https://chipped-azimuth.glitch.me/want/">“Want”</a> example.
+</p>
+
+<p>
+  For this example, we have a few custom props declared on the <code>html</code> element:
+</p>
+
+<pre><code class="language-css">html {
+  --color-bg: 28, 35, 30;
+  --color-txt: #f1f1f1;
+  --color-accent: #ffe000;
+  --font-sans: helvetica, arial, sans-serif;
+}</code></pre>
+
+<p>
+  We begin this approach again with <code>getComputedStyle</code>, like the basic approach:
+</p>
+
+<pre><code class="language-javascript">const rootStyle = getComputedStyle(document.documentElement);</code></pre>
+
+<p>
+  If we log <code>rootStyle</code> we see a <code>CSSStyleDeclaration</code>. It’s an object with a whole lotta keys and values that are CSS properties and values. When I looked at it I thought; “<i>great, here's every computed style for the document, let’s just grab the custom properties and values from there.</i>” Here’s how I thought we’d go about that:
+</p>
+
+<pre><code class="language-javascript">const customProps = Object.keys(rootStyle)
+  .filter(k => k.indexOf("--") === 0);</code></pre>
+
+<p>
+  This creates a new array–<code>customProps</code>–made up of keys of <code>rootStyle</code> that begin with the string <code>"--"</code>.
+</p>
+
+<blockquote>
+  <p>
+    Property names that are prefixed with <code>--</code>, like <code>--example-name</code>, represent custom properties…
+  </p>
+  <cite>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*">
+      From MDN web docs “Custom properties (--*): CSS variables”
+    </a>
+  </cite>
+</blockquote>
+
+<p>
+  From here we’d expect <code>customProps</code> to contain all custom property names we’d declared on the <code>html</code> element. And if we have the names, we’d be able to get the values from <code>rootStyle</code>. Let’s log <code>customProps</code> to see what we have:
+</p>
+
+<pre><code class="language-javascript">console.log(customProps); // []</code></pre>
+
+<p>
+  An empty array? What happened? Unfortunately, I don’t know. For some reason, custom properties are not available in the <code>CSSStyleDeclaration</code> produced by <code>getComputedStyle</code>. This behavior is the same across recent versions of Chrome, Firefox, and Safari at the time of this post.
+</p>
+
+<p>
+  My guess is this is documented in a spec somewhere, but I wasn’t able to track it down. If you know why, <a href="mailto:me@tylergaw.com">let me know</a>. Let’s try another approach.
+</p>
 
 {{> thanks-for-reading }}
