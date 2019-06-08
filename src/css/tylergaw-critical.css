@@ -73,8 +73,9 @@ a {
   color: var(--accent);
 }
 
-a:focus {
-  outline: 3px solid currentColor;
+a:focus,
+pre:focus {
+  outline: 3px solid var(--accent);
 }
 
 .poster-default {
@@ -449,7 +450,7 @@ a:focus {
 }
 
 .articles-year h3::before {
-  background-color: #94aca4;
+  background-color: var(--accent);
   bottom: 0.1em;
   --year-path: polygon(
     0 0.25em,

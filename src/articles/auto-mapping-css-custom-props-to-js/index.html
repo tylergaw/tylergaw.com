@@ -1,9 +1,9 @@
 ---
 layout: article.html
 highlightSyntax: true
-title: "Auto Mapping CSS Custom Properties to JavaScript"
-date: "2019-06-02"
-permalink: /articles/auto-mapping-css-custom-props-to-js
+title: "Mapping CSS Custom Properties to JavaScript"
+date: "2019-06-09"
+permalink: /articles/mapping-css-custom-props-to-js
 meta:
   description: An exploration automating the process of accessing CSS Custom Properties in JavaScript
 ---
@@ -164,7 +164,149 @@ const accentColor = getCustomPropVal("--color-accent");</code></pre>
 </p>
 
 <p>
-  My guess is this is documented in a spec somewhere, but I wasn’t able to track it down. If you know why, <a href="mailto:me@tylergaw.com">let me know</a>. Let’s try another approach.
+  My guess is that this is documented in a spec somewhere, but I wasn’t able to track it down. If you know why, <a href="mailto:me@tylergaw.com">let me know</a>. Let’s try another approach, but first a bit of background on what we’ll need.
+</p>
+
+<h2>document.styleSheets</h2>
+
+<p>
+  A reason I was hopeful that the previous approach would work is because I thought it would help us avoid <a href="https://developer.mozilla.org/en-US/docs/Web/API/DocumentOrShadowRoot/styleSheets"><code>document.styleSheets</code></a>. There’s nothing <i>wrong</i> with it. It provides exactly what’s needed. Using it just adds a lot of code.
+</p>
+
+<blockquote>
+  <p>
+    The styleSheets read-only property…returns a StyleSheetList of CSSStyleSheet objects, for stylesheets explicitly linked into or embedded in a document.
+  </p>
+  <cite>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/DocumentOrShadowRoot/styleSheets">
+      From MDN web docs “Document​OrShadow​Root​.style​Sheets”
+    </a>
+  </cite>
+</blockquote>
+
+<p>
+  Once we access <code>document.styleSheets</code> we need to loop over them, and for each of them, we need to dive in and loop over every rule, and for each rule, iterate over properties, on so on. Again, this works exactly how it’s supposed to, it’s just a lot of…“stuff” to do. I’ve written about using <code>document.styleSheets</code> before in <a href="https://tylergaw.com/articles/reacting-to-media-queries-in-javascript/">“Reacting to Media Queries in JavaScript”</a>.
+</p>
+
+<h3>Security Concerns</h3>
+
+<p>
+  <code>document.styleSheets</code> exposes all <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet"><code>CSSStyleSheet</code>s</a> for a document via the <code>cssRules</code> property. That includes stylesheets that are not on the current domain. This can cause errors because of security issues.
+</p>
+
+<blockquote>
+  <p>
+    In some browsers, if a stylesheet is loaded from a different domain, calling <code>cssRules</code> results in <code>SecurityError</code>.
+  </p>
+  <cite>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet#Notes">
+      From MDN web docs “CSSStyle​Sheet”
+    </a>
+  </cite>
+</blockquote>
+
+<p>
+  For our purposes this is OK. If you use example code from this post on a site that includes stylesheets across domains, you might need to wrap it in a <code>try/catch</code> block. Nothing we can’t work around, but something to keep in mind.
+</p>
+
+<p>
+  All of that’s to say we’ll be using <code>document.styleSheets</code> for the rest of the approaches. It’s how we’ll get access to every custom property for a given page.
+</p>
+
+<h2 id="the-approach-that-works-in-chrome">The Approach That Works in Chrome (and maybe more in the future)</h2>
+
+<p>
+  If you’re following along in the demo, this is the
+  <a href="https://chipped-azimuth.glitch.me/future-maybe/">“Future Maybe”</a> example.
+</p>
+
+<p>
+  Like it says in the title, at the time of this writing, this approach only works in Chrome. Firefox and Safari will catch with a warning error and not display expected results. We’ll look at why later. For now let’s set a foundation for this example and the later example with widest support.
+</p>
+
+<p>
+  Let’s write a function that produces an array of arrays for every custom property for a given page. Each child array will contain a CSS custom property name and value. Building on the previous examples, we have CSS that looks like this:
+</p>
+
+<pre><code class="language-css">html {
+  --color-bg: 28, 35, 30;
+  --color-txt: #f1f1f1;
+  --color-accent: #ffe000;
+  --font-sans: helvetica, arial, sans-serif;
+  --gradient-one: linear-gradient(-20deg, #8900f5, var(--color-accent), #00d8f5);
+}
+
+span {
+  --color-bg-hello: rgba(134, 200, 181, 0.5);
+}
+
+.demo-output {
+  --color-special: #fff5f5;
+}</code></pre>
+
+<p>
+  Notice, we’ve declared custom props across multiple elements. Also that we’ve delcared one custom prop that uses another custom prop. More on that later.
+</p>
+
+<pre><code class="language-javascript">const getCSSCustomPropIndex = () => [...document.styleSheets].reduce((accum, sheet) => {
+  // work will happen here
+  return prev;
+}, []);</code></pre>
+
+<p>
+  Nothing useful is happening yet. If we invoke <code>getCSSCustomPropIndex</code>, we’d get an empty array. What are we doing with <code>[...document.styleSheets]</code>?
+</p>
+<p>
+  <code>document.styleSheets</code> returns a <code>StyleSheetList</code> which is an “an array-like object”. That means it doesn’t have array methods like <code>reduce</code>. With that snippet we’re using spread syntax to put each item of the <code>StyleSheetList</code> into a regular array. This isn’t a requirement, but I prefer to use normal array methods when possible.
+</p>
+<p>
+  It’s also worth pointing out we’re providing an empty array as an initial value to <code>reduce</code>. Let’s set the stage a little more.
+</p>
+
+<pre><code class="language-javascript">const getCSSCustomPropIndex = () => [...document.styleSheets].reduce((accum, sheet) => {
+  try {
+    return accum.concat([/* more work will happen here */]);
+  } catch (err) {
+    console.warn(err);
+    return accum;
+  }
+}, []);</code></pre>
+
+<p>
+  Early we looked at the security concerns when accessing <code>CSSStyleSheet</code>. We’re about to do just that so we start out with a <code>try/catch</code>. That <code>catch</code> here doesn’t do anything useful, only keeps our script from blowing up. That could be enough for production code, because it only means you skip <code>CSSStyleSheet</code>s from other domains.
+</p>
+
+<p>
+  The other new work we’re doing is <code>return accum.concat([])</code>. If we invoke <code>getCSSCustomPropIndex</code> now and the page has a single stylesheet, we’d end up with <code>[[]]</code>. Not the end result we’re after, but a step forward.
+</p>
+
+<p>
+  Before, when I said working with <code>document.styleSheets</code> requires a lot of looping, we’re at that point. Our <code>reduce</code> function gets each <code>CSSStyleSheet</code>. Now we need to look at every CSS rule in every stylesheet. For that, we use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet#Properties"><code>cssRules</code></a> property.
+</p>
+
+<pre><code class="language-javascript">const getCSSCustomPropIndex = () => [...document.styleSheets].reduce((accum, sheet) => {
+  try {
+    return accum.concat(
+      [...sheet.cssRules].reduce((accum, rule) => {
+        /* more work will happen here */
+        console.log(rule);
+        return accum.concat([rule.selectorText]);
+      }, [])
+    );
+  } catch (err) {
+    console.warn(err);
+    return accum;
+  }
+}, []);</code></pre>
+
+<p>
+  What are we doing here? We’re adding the <code>selectorText</code> for every CSS rule–the chunk of properties between selector and braces <code>{}</code>–to an array. If we invoke <code>getCSSCustomPropIndex</code> we have something like this:
+</p>
+
+<pre><code class="language-javascript">["html", "body", "div", "main", ".content", /* the reset of the selectors across all stylesheets */]</code></pre>
+
+<p>
+  The items in that array will be different depending on we run it. OK, still not what we’re after, but this step introduces an interesting new type; <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSRule"><code>CSSRule</code></a>.
 </p>
 
 {{> thanks-for-reading }}
