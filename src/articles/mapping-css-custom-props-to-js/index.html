@@ -9,26 +9,22 @@ meta:
 ---
 
 <p class="entry-intro">
-  This idea was knocking around in my brain for a while. I finally sat
-  down and worked through it. The goal is to make CSS custom properties
-  available in JavaScript in an automatic and idiomatic way.
+  This idea was knocking around in my brain for a while. I wondered how I could make CSS custom properties available in JavaScript in an automatic and idiomatic way.
 </p>
 <p>
-  In this post I’ll detail different ways to accomplish the goal. And a couple I
-  wanted to work, but didn’t. Along the way I’ll describe my
-  thought process and things I learned.
+  In this post I’ll detail different ways to accomplish the goal. Including one approach I wanted to work that doesn’t and one that kinda works today, and might more in the future. Along the way I’ll describe the code, my thought process, and things I learned.
 </p>
 <p>
   Here’s a companion
-  <a href="https://glitch.com/edit/#!/chipped-azimuth">Glitch project</a>
-  with working code for each approach I describe in this post.
+  <a href="https://glitch.com/edit/#!/mapping-css-custom-props-to-js">Glitch project</a>
+  with working code for each approach.
 </p>
 
 <h2 id="the-basic-approach">The Basic Approach</h2>
 <p>
-  Let’s start with the baseline approach to accessing CSS custom prop
-  values in JavaScript. If you’re following along in the demo, this is the
-  <a href="https://chipped-azimuth.glitch.me/basic/">“Basic”</a> example.
+  Let’s start with the baseline approach to accessing CSS custom props
+  in JavaScript. If you’re following along in the demo, this is the
+  <a href="https://mapping-css-custom-props-to-js.glitch.me/basic/">“Basic”</a> example.
 </p>
 <p>
   There are two native JavaScript methods that do the heavy lifting.
@@ -40,14 +36,12 @@ meta:
   --color-accent: #008ef5;
 }</code></pre>
 <p>
-  Now, we want that same accent color in JavaScript. The first thing we need
-  to do is get the computed style of the <code>html</code> element using
-  <code>getComputedStyle</code>.
+  We want that same accent color in JavaScript without repeating it. The first thing we need to do is get the computed style of the <code>html</code> element using <code>getComputedStyle</code>.
 </p>
 <pre><code class="language-javascript">const rootStyle = getComputedStyle(document.documentElement);</code></pre>
 
 <p>
-  And a quick fact about <code>documentElement</code> that I learned:
+  And a thing about <code>documentElement</code> that I learned:
 </p>
 
 <blockquote>
@@ -62,25 +56,25 @@ meta:
 </blockquote>
 
 <p>
-  We stored the computed style of the <code>html</code> element as <code>rootStyle</code>. That’s a <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration"><code>CSSStyleDeclaration</code></a>. With that, we can use <code>getPropertyValue</code> to get and store the value of <code>--color-accent</code>.
+  That means that <code>:root</code> and <code>html</code> are the same for non-empty HTML pages.
+</p>
+
+<p>
+  We stored the computed style of the <code>html</code> element as <code>rootStyle</code>. That’s a <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration"><code>CSSStyleDeclaration</code></a>. With that, we can use <code>getPropertyValue</code> to get the value of <code>--color-accent</code>.
 </p>
 
 <pre><code class="language-javascript">const accentColor = rootStyle.getPropertyValue("--color-accent");
 console.log(accentColor); // "#008ef5"</code></pre>
 
 <p>
-  This shows a single use. To get the value of a second property, we’d need to invoke <code>getPropertyValue</code> again with another property name. It works fine, but can add a lot of code for many properties.
-</p>
-
-<p>
-  We can make it more terse by wrapping it in a function:
+  This shows a single use. To get the value of a second property, we’d need to invoke <code>getPropertyValue</code> again with another property name. This works fine, but can add a lot of code if you need to access a lot of custom props. We can make it more terse by wrapping it in a function:
 </p>
 
 <pre><code class="language-javascript">const getCustomPropVal = (name, style) => style.getPropertyValue(name);
 const accentColor = getCustomPropVal("--color-accent", rootStyle);</code></pre>
 
 <p>
-  We can slim it down more with a default value for <code>style</code>. This works if we have a common style where we declare custom properties:
+  We can slim it down more with a default value for <code>style</code>. This works if we have a common element–like <code>html</code> where we’ve declared custom props:
 </p>
 
 <pre><code class="language-javascript">const getCustomPropVal = (name, style = rootStyle) => style.getPropertyValue(name);
@@ -96,7 +90,7 @@ const accentColor = getCustomPropVal("--color-accent");</code></pre>
 );</code></pre>
 
 <p>
-  Using <code>getCustomPropVal</code> we can take this further. Say we have a bunch of custom props on an element. We can put the prop names in an array and loop over it, invoking <code>getCustomPropVal</code> for each name to get the value. I won’t go into detail here because it’s a bit of a tangent, but <a href="https://chipped-azimuth.glitch.me/basic/">the basic demo</a> has an example.
+  Using <code>getCustomPropVal</code> we can take this further. Say we have a bunch of custom props on an element. We can put the prop names in an array and loop over it, invoking <code>getCustomPropVal</code> for each name to get the value. I won’t go into detail here because it’s a bit of a tangent, but <a href="https://mapping-css-custom-props-to-js.glitch.me/basic/">the basic demo</a> has an example.
 </p>
 
 <h3>When I Use This Approach</h3>
@@ -104,14 +98,14 @@ const accentColor = getCustomPropVal("--color-accent");</code></pre>
   I use this when I need access to only a couple custom CSS properties in JavaScript. The code is a little heavy and it starts to fall down when I need custom props from different elements. Still, it’s a fine approach that gets the job done when the job at hand is small.
 </p>
 <p>
-  But, I wanted to go further. I want an automatic way to make all present and future custom properties available in JavaScript. This basic approach is the foundation for the following more advanced approaches.
+  But, I wanted to go further. I want an automatic way to make all current and future custom properties available in JavaScript. This basic approach is the foundation for the following more advanced approaches.
 </p>
 
 <h2 id="the-approach-i-wanted">The Approach I Wanted (that doesn’t work)</h2>
 
 <p>
   If you’re following along in the demo, this is the
-  <a href="https://chipped-azimuth.glitch.me/want/">“Want”</a> example.
+  <a href="https://mapping-css-custom-props-to-js.glitch.me/want/">“Want”</a> example.
 </p>
 
 <p>
@@ -164,7 +158,7 @@ const accentColor = getCustomPropVal("--color-accent");</code></pre>
 </p>
 
 <p>
-  My guess is that this is documented in a spec somewhere, but I wasn’t able to track it down. If you know why, <a href="mailto:me@tylergaw.com">let me know</a>. Let’s try another approach, but first a bit of background on what we’ll need.
+  My guess is that this is documented in a spec somewhere, but I wasn’t able to track it down. If you know why, <a href="mailto:me@tylergaw.com">let me know</a>. Since that doesn’t work, let’s try another approach, but first a bit of background on what we’ll need.
 </p>
 
 <h2>document.styleSheets</h2>
@@ -185,7 +179,7 @@ const accentColor = getCustomPropVal("--color-accent");</code></pre>
 </blockquote>
 
 <p>
-  Once we access <code>document.styleSheets</code> we need to loop over them, and for each of them, we need to dive in and loop over every rule, and for each rule, iterate over properties, on so on. Again, this works exactly how it’s supposed to, it’s just a lot of…“stuff” to do. I’ve written about using <code>document.styleSheets</code> before in <a href="https://tylergaw.com/articles/reacting-to-media-queries-in-javascript/">“Reacting to Media Queries in JavaScript”</a>.
+  Once we access <code>document.styleSheets</code> we need to loop over them, and for each of them, we need to loop over every rule, and for each rule, loop over it’s properties. Again, this works exactly how it’s supposed to, it’s just a lot of loopin’ to do. I’ve written about using <code>document.styleSheets</code> before in <a href="https://tylergaw.com/articles/reacting-to-media-queries-in-javascript/">“Reacting to Media Queries in JavaScript”</a>.
 </p>
 
 <h3>Security Concerns</h3>
@@ -210,22 +204,22 @@ const accentColor = getCustomPropVal("--color-accent");</code></pre>
 </p>
 
 <p>
-  All of that’s to say we’ll be using <code>document.styleSheets</code> for the rest of the approaches. It’s how we’ll get access to every custom property for a given page.
+  We’ll be using <code>document.styleSheets</code> for the rest of the approaches. It’s how we’ll get access to every custom property for a given page.
 </p>
 
 <h2 id="the-approach-that-works-in-chrome">The Approach That Works in Chrome (and maybe more in the future)</h2>
 
 <p>
   If you’re following along in the demo, this is the
-  <a href="https://chipped-azimuth.glitch.me/future-maybe/">“Future Maybe”</a> example.
+  <a href="https://mapping-css-custom-props-to-js.glitch.me/future-maybe/">“Future Maybe”</a> example.
 </p>
 
 <p>
-  Like it says in the title, at the time of this writing, this approach only works in Chrome. Firefox and Safari will catch with a warning error and not display expected results. We’ll look at why later. For now let’s set a foundation for this example and the later example with widest support.
+  Like it says in the title, at the time of this writing, this approach only works in Chrome. Firefox and Safari will catch with a warning and not display expected results. We’ll look at why later. For now let’s set a foundation for this example and the later example with widest support.
 </p>
 
 <p>
-  Let’s write a function that produces an array of arrays for every custom property for a given page. Each child array will contain a CSS custom property name and value. Building on the previous examples, we have CSS that looks like this:
+  Let’s write a function that produces an array of arrays for every custom property for a given page. Each child array will contain two members; a CSS custom prop name and value. Building on the previous examples, we have CSS that looks like this:
 </p>
 
 <pre><code class="language-css">html {
@@ -245,7 +239,7 @@ span {
 }</code></pre>
 
 <p>
-  Notice, we’ve declared custom props across multiple elements. Also that we’ve delcared one custom prop that uses another custom prop. More on that later.
+  Notice we have custom props declared on multiple elements. Also that we’ve delcared one custom prop that uses another custom prop. More on that later.
 </p>
 
 <pre><code class="language-javascript">const getCSSCustomPropIndex = () => [...document.styleSheets].reduce((accum, sheet) => {
@@ -273,7 +267,7 @@ span {
 }, []);</code></pre>
 
 <p>
-  Early we looked at the security concerns when accessing <code>CSSStyleSheet</code>. We’re about to do just that so we start out with a <code>try/catch</code>. That <code>catch</code> here doesn’t do anything useful, only keeps our script from blowing up. That could be enough for production code, because it only means you skip <code>CSSStyleSheet</code>s from other domains.
+  Earlier I mentioned the security concerns when accessing <code>CSSStyleSheet</code>. We’re about to do just that so we start out with a <code>try/catch</code>. That <code>catch</code> here doesn’t do anything useful, only keeps our script from blowing up. That could be enough for production code, because it only means you skip <code>CSSStyleSheet</code>s from domains other than the one this JavaScript is executed.
 </p>
 
 <p>
@@ -303,10 +297,12 @@ span {
   What are we doing here? We’re adding the <code>selectorText</code> for every CSS rule–the chunk of properties between selector and braces <code>{}</code>–to an array. If we invoke <code>getCSSCustomPropIndex</code> we have something like this:
 </p>
 
-<pre><code class="language-javascript">["html", "body", "div", "main", ".content", /* the reset of the selectors across all stylesheets */]</code></pre>
+<pre><code class="language-javascript">["html", "body", "div", "main", ".content", /* the rest of the selectors across all stylesheets */]</code></pre>
 
 <p>
-  The items in that array will be different depending on we run it. OK, still not what we’re after, but this step introduces an interesting new type; <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSRule"><code>CSSRule</code></a>.
+  The items in that array will be different depending on the page it’s run. OK, still not what we’re after, but this step introduces an interesting new type; <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSRule"><code>CSSRule</code></a>.
 </p>
+
+<h2 id="the-approach-that-works">The Approach That Works</h2>
 
 {{> thanks-for-reading }}
