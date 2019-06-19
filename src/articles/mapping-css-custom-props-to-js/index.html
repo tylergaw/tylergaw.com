@@ -300,8 +300,23 @@ span {
 <pre><code class="language-javascript">["html", "body", "div", "main", ".content", /* the rest of the selectors across all stylesheets */]</code></pre>
 
 <p>
-  The items in that array will be different depending on the page it’s run. OK, still not what we’re after, but this step introduces an interesting new type; <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSRule"><code>CSSRule</code></a>.
+  The items in that array will be different depending on the page the code is run. Still not the results we’re after, but this step introduces a new type; <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSRule"><code>CSSRule</code></a>. This type represents a single CSS rule. Each <code>CSSRule</code> can be one of the available <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSRule#Type_constants">type constants</a>. A few examples of these constants are the media rule <code>CSSMediaRule</code>, supports rule <code>CSSSupportsRule</code>, and the most common, style rule <code>CSSStyleRule</code>. These different types allow us to handle each rule differently based on its unique features.
 </p>
+<p>
+  This is also where Chrome’s current implementation starts to differ from Firefox’s and Safari’s. In the previous block of code, we log each <code>CSSRule</code>. In the example code each of these is of type <code>CSSStyleRule</code>. This is because the CSS doesn’t contain media queries, import statements, or supports rules.
+<p>
+  The <code>CSSStyleRule</code> is the same across browsers. They all have the following properties; <code>cssText</code>, <code>parentRule</code>, <code>parentStyleSheet</code>, <code>selectorText</code>, <code>style</code>, and <code>type</code>. Those properties are expected and documented in the <code>CSSRule</code> and <code>CSSStyleRule</code> MDN pages. Chrome has one property other browsers don’t; <code>styleMap</code>. If we look in the <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleRule#Properties"><code>CSSStyleRule</code> properties list</a>, <code>styleMap</code> is listed.
+</p>
+<blockquote>
+  <p>
+    Returns a <code>StylePropertyMap</code> object which provides access the rule's property-value pairs.
+  </p>
+  <cite>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleRule#Properties">
+      From MDN web docs “CSSStyleRule”, Properties section
+    </a>
+  </cite>
+</blockquote>
 
 <h2 id="the-approach-that-works">The Approach That Works</h2>
 
