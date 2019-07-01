@@ -2,7 +2,7 @@
 layout: article.html
 highlightSyntax: true
 title: "Mapping CSS Custom Properties to JavaScript"
-date: "2019-06-09"
+date: "2019-07-01"
 permalink: /articles/mapping-css-custom-props-to-js
 meta:
   description: An exploration automating the process of accessing CSS Custom Properties in JavaScript
@@ -215,7 +215,7 @@ const accentColor = getCustomPropVal("--color-accent");</code></pre>
 </p>
 
 <p>
-  Like it says in the title, at the time of this writing, this approach only works in Chrome. Firefox and Safari will catch with a warning and not display expected results. We’ll look at why later. For now let’s set a foundation for this example and the later example with widest support.
+  Like it says in the title, at the time of this writing, this approach only works in Chrome. <strong>Firefox and Safari will catch with a warning and not display expected results</strong>. We’ll look at why later. For now let’s set a foundation for this example and the later example with widest support.
 </p>
 
 <p>
@@ -239,73 +239,122 @@ span {
 }</code></pre>
 
 <p>
-  Notice we have custom props declared on multiple elements. Also that we’ve delcared one custom prop that uses another custom prop. More on that later.
+  Notice we have custom props declared on more than one element. Also that we’ve delcared one custom prop that uses another custom prop. More on that later.
 </p>
 
-<pre><code class="language-javascript">const getCSSCustomPropIndex = () => [...document.styleSheets].reduce((accum, sheet) => {
+<pre><code class="language-javascript">const getCSSCustomPropIndex = () => [...document.styleSheets].reduce((outerArr, sheet) => {
   // work will happen here
-  return prev;
+  return outerArr;
 }, []);</code></pre>
 
 <p>
   Nothing useful is happening yet. If we invoke <code>getCSSCustomPropIndex</code>, we’d get an empty array. What are we doing with <code>[...document.styleSheets]</code>?
 </p>
 <p>
-  <code>document.styleSheets</code> returns a <code>StyleSheetList</code> which is an “an array-like object”. That means it doesn’t have array methods like <code>reduce</code>. With that snippet we’re using spread syntax to put each item of the <code>StyleSheetList</code> into a regular array. This isn’t a requirement, but I prefer to use normal array methods when possible.
+  <code>document.styleSheets</code> returns a <a href="https://developer.mozilla.org/en-US/docs/Web/API/StyleSheetList"><code>StyleSheetList</code></a> which is an “an array-like object”. That means it doesn’t have array methods like <code>reduce</code>. With that snippet we’re using spread syntax to put each item of the <code>StyleSheetList</code> into a regular array. This isn’t a requirement, but I prefer to use normal array methods when possible.
 </p>
 <p>
-  It’s also worth pointing out we’re providing an empty array as an initial value to <code>reduce</code>. Let’s set the stage a little more.
+  It’s also worth pointing out we’re providing an empty array as an initial value to <code>reduce</code>. That helps make sure the function always returns something useful. Let’s set the stage a little more.
 </p>
 
-<pre><code class="language-javascript">const getCSSCustomPropIndex = () => [...document.styleSheets].reduce((accum, sheet) => {
+<pre><code class="language-javascript">const getCSSCustomPropIndex = () => [...document.styleSheets].reduce((outerArr, sheet) => {
   try {
-    return accum.concat([/* more work will happen here */]);
+    return outerArr.concat([/* more work will happen here */]);
   } catch (err) {
     console.warn(err);
-    return accum;
+    return outerArr;
   }
 }, []);</code></pre>
 
 <p>
-  Earlier I mentioned the security concerns when accessing <code>CSSStyleSheet</code>. We’re about to do just that so we start out with a <code>try/catch</code>. That <code>catch</code> here doesn’t do anything useful, only keeps our script from blowing up. That could be enough for production code, because it only means you skip <code>CSSStyleSheet</code>s from domains other than the one this JavaScript is executed.
+  Earlier I mentioned the security concerns when accessing <code>CSSStyleSheet</code>. We’re about to do that, so we start out with a <code>try/catch</code>. That <code>catch</code> here doesn’t do anything useful, only keeps our script from blowing up. That could be enough for production code. It only means you skip <code>CSSStyleSheet</code>s from domains other than the one we invoke this JavaScript.
 </p>
 
 <p>
-  The other new work we’re doing is <code>return accum.concat([])</code>. If we invoke <code>getCSSCustomPropIndex</code> now and the page has a single stylesheet, we’d end up with <code>[[]]</code>. Not the end result we’re after, but a step forward.
+  The other new work we’re doing is <code>return outerArr.concat([])</code>. If we invoke <code>getCSSCustomPropIndex</code> now and the page has a single stylesheet, we’d end up with <code>[[]]</code>. Not the end result we’re after, but a step forward.
 </p>
 
 <p>
   Before, when I said working with <code>document.styleSheets</code> requires a lot of looping, we’re at that point. Our <code>reduce</code> function gets each <code>CSSStyleSheet</code>. Now we need to look at every CSS rule in every stylesheet. For that, we use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet#Properties"><code>cssRules</code></a> property.
 </p>
 
-<pre><code class="language-javascript">const getCSSCustomPropIndex = () => [...document.styleSheets].reduce((accum, sheet) => {
+<pre><code class="language-javascript">const getCSSCustomPropIndex = () => [...document.styleSheets].reduce((outerArr, sheet) => {
   try {
-    return accum.concat(
-      [...sheet.cssRules].reduce((accum, rule) => {
+    return outerArr.concat(
+      [...sheet.cssRules].reduce((innerArr, rule) => {
         /* more work will happen here */
-        console.log(rule);
-        return accum.concat([rule.selectorText]);
+        return innerArr.concat([rule.selectorText]);
       }, [])
     );
   } catch (err) {
     console.warn(err);
-    return accum;
+    return outerArr;
   }
 }, []);</code></pre>
 
 <p>
-  What are we doing here? We’re adding the <code>selectorText</code> for every CSS rule–the chunk of properties between selector and braces <code>{}</code>–to an array. If we invoke <code>getCSSCustomPropIndex</code> we have something like this:
+  What are we doing here? We’re adding the <code>selectorText</code> for every CSS rule to an array. The <code>selectorText</code> is the text from the beginning of the rule to the opening brace <code>{</code>. If we invoke <code>getCSSCustomPropIndex</code> we have something like this:
 </p>
 
 <pre><code class="language-javascript">["html", "body", "div", "main", ".content", /* the rest of the selectors across all stylesheets */]</code></pre>
 
 <p>
-  The items in that array will be different depending on the page the code is run. Still not the results we’re after, but this step introduces a new type; <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSRule"><code>CSSRule</code></a>. This type represents a single CSS rule. Each <code>CSSRule</code> can be one of the available <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSRule#Type_constants">type constants</a>. A few examples of these constants are the media rule <code>CSSMediaRule</code>, supports rule <code>CSSSupportsRule</code>, and the most common, style rule <code>CSSStyleRule</code>. These different types allow us to handle each rule differently based on its unique features.
+  The items in that array will be different depending on the document we run the code. Still not the results we’re after.
 </p>
 <p>
-  This is also where Chrome’s current implementation starts to differ from Firefox’s and Safari’s. In the previous block of code, we log each <code>CSSRule</code>. In the example code each of these is of type <code>CSSStyleRule</code>. This is because the CSS doesn’t contain media queries, import statements, or supports rules.
+  This step introduces a new type; <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSRule"><code>CSSRule</code></a>. This type represents a single CSS rule. Each <code>CSSRule</code> can be one of the available <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSRule#Type_constants">type constants</a>. A few examples of these constants are the <code>CSSMediaRule</code>, <code>CSSSupportsRule</code>, and the most common, <code>CSSStyleRule</code>. These types allow us to operate on each rule based on its unique features. In this post we’re only working with the <code>CSSStyleRule</code>.
+</p>
+
 <p>
-  The <code>CSSStyleRule</code> is the same across browsers. They all have the following properties; <code>cssText</code>, <code>parentRule</code>, <code>parentStyleSheet</code>, <code>selectorText</code>, <code>style</code>, and <code>type</code>. Those properties are expected and documented in the <code>CSSRule</code> and <code>CSSStyleRule</code> MDN pages. Chrome has one property other browsers don’t; <code>styleMap</code>. If we look in the <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleRule#Properties"><code>CSSStyleRule</code> properties list</a>, <code>styleMap</code> is listed.
+  Now that we have every rule, we need to get every property. Let’s add another snippet of code to our example.
+</p>
+
+<pre><code class="language-javascript">const getCSSCustomPropIndex = () => [...document.styleSheets].reduce((outerArr, sheet) => {
+  try {
+    return outerArr.concat(
+      [...sheet.cssRules].reduce((innerArr, rule) => {
+        // CSS Custom Props *must* start with a "--"
+        const props = [...rule.styleMap.keys()].filter(
+          p => p.indexOf("--") === 0
+        );
+
+        /* more work will happen here */
+        return innerArr.concat([rule.selectorText]);
+      }, [])
+    );
+  } catch (err) {
+    console.warn(err);
+    return outerArr;
+  }
+}, []);</code></pre>
+
+<p>
+  This the point where this example stops working in Firefox and Safari.
+</p>
+
+<h3>CSSStyleRule.styleMap</h3>
+<p>
+  The wording of the warning is different in each browser, but the problem is the same.
+</p>
+
+<pre><code class="language-javascript">// Firefox
+TypeError: "rule.styleMap is undefined"
+// Safari
+TypeError: undefined is not an object (evaluating 'rule.styleMap.keys')</code></pre>
+
+<p>
+  The problem is that Chrome’s implementation of <code>CSSStyleRule</code> includes a <code>styleMap</code> property. Firefox’s and Safari’s implementations do not. I haven’t been able to track down why this is or the current status of <code>styleMap</code>. It’s unclear to me if it’s on a path to standarization or not.
+</p>
+<p>
+  Other than it existing in Chrome, there are also mentions of <code>styleMap</code> on MDN. In the <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleRule#Properties"><code>CSSStyleRule</code> properties list</a> and on a <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleRule/styleMap">dedicated page</a>. On that page there’s a link to a CSSOM working draft so I’m guessing <code>styleMap</code> was there at some point, then removed. A thing to note is that same CSSOM working defines the type of object <code>styleMap</code> returns. <a href="https://drafts.css-houdini.org/css-typed-om-1/#stylepropertymap"><code>StylePropertyMap</code></a> Maybe a definition that includes <code>styleMap</code> will return in the future?
+</p>
+
+<p>
+  <b>This is a reason to not use this approach in production code today</b>. If you’re looking for that, use <a href="#the-approach-that-works">The Approach That Works</a> later in this post.
+</p>
+
+<p>
+  But, <b>this isn’t a reason to not complete this approach for research purposes</b>. So, let’s continue. What is <code>styleMap</code> and what are we doing with it?
 </p>
 <blockquote>
   <p>
@@ -317,6 +366,66 @@ span {
     </a>
   </cite>
 </blockquote>
+
+<p>
+  In the previous example code, we added the following snippet:
+</p>
+
+<pre><code class="language-javascript">...
+// CSS Custom Props *must* start with a "--"
+const props = [...rule.styleMap.keys()].filter(
+  p => p.indexOf("--") === 0
+);
+...</code></pre>
+
+<p>
+  <code>rule.styleMap</code> returns a <code>StylePropertyMap</code>. That alone doesn’t give us much to work with. If we log one of those objects we get something like:
+</p>
+
+<pre><code class="language-javascript">console.log(rule.styleMap); // StylePropertyMap {size: 28}</code></pre>
+
+<p>
+  We need more. Because <code>StylePropertyMap</code> is an in progress thing, when I got to this point I had to try logging different things to see what was available. From the CSSOM draft I knew that <code>StylePropertyMap</code> is an <code>Iterable</code>. That means it’s another “an array-like object.” This is where a first “ah-ha” moment happened. Again, the spread syntax adds all the members of the array-like object to a regular array:
+</p>
+
+<pre><code class="language-javascript">console.log([...rule.styleMap]);</code></pre>
+
+<p>
+  Logging that revealed the usefulness of <code>StylePropertyMap</code>. Here’s a partial example of one the objects. This isn’t exactly what appears in the console, I modified it to make it easier to follow:
+</p>
+
+<pre><code class="language-javascript">{
+  ["--color-bg", [CSSUnparsedValue]],
+  ["--color-txt", [CSSUnparsedValue]],
+  ["--color-accent", [CSSUnparsedValue]]
+  ...
+}</code></pre>
+
+<p>
+  This is perfect. From this, we can see that we have access to every property-value pair of every rule in the current document. We’ll look closer at <code>CSSUnparsedValue</code> soon. Backing up to our example starting with <code>[...rule.styleMap.keys()]</code>. We’re saying; create an array of every property of this rule. Then, using <code>filter</code> remove any of those properties that do not start with the string <code>"--"</code>. Again, because custom properties have to start with that string.
+</p>
+
+<p>
+  The <code>props</code> variable ends up as an array of strings that are CSS custom property names. Or an empty array if the current rule contains no custom props.
+</p>
+
+<pre><code class="language-javascript">["--color-bg", "--color-txt", "--color-accent", "--font-sans", "--gradient-one"]</pre></code>
+
+<p>
+  Our <code>getCSSCustomPropIndex</code> function still doesn’t produce the results we’re looking for. But we have the first half of the information we need. From earlier:
+</p>
+
+<blockquote>
+  <p>
+    Each child array will contain two members; a CSS custom prop name and value.
+  </p>
+</blockquote>
+
+<p>
+  Now we can focus on getting the second half. The CSS custom property values.
+</p>
+
+<h3>Getting Property Values</h3>
 
 <h2 id="the-approach-that-works">The Approach That Works</h2>
 
