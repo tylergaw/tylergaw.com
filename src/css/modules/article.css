@@ -165,11 +165,13 @@
   }
 
   & blockquote {
-    border-left: 0.25em solid var(--accent);
+    border-left: 0.4em solid var(--accent);
     color: var(--darkerwhite);
     font-size: 1em;
-    margin-bottom: 1.6em;
-    padding: 0.2em 1em 0.2em 1em;
+    padding: 0.2em 1em 0.2em 1.6em;
+
+    margin: 0 auto 1.6em auto;
+    max-width: var(--maxTextWidth);
   }
 
   & blockquote p {
