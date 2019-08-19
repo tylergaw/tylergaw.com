@@ -449,7 +449,7 @@ a:focus {
 }
 
 .articles-year h3::before {
-  background-color: #94aca4;
+  background-color: var(--accent);
   bottom: 0.1em;
   --year-path: polygon(
     0 0.25em,

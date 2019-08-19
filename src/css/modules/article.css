@@ -6,24 +6,25 @@
 }
 
 .e-header {
-  margin: 3rem 0 2.4rem 0;
+  margin: 5rem 0 2.4rem 0;
   text-align: center;
 }
 
 .e-header .p-name {
   color: var(--offwhite);
   font-family: var(--font-aktiv-ex);
-  font-size: 12vw;
+  font-size: 10vw;
   font-weight: 900;
   line-height: 1.25;
   margin: 0 auto;
-  max-width: 97%;
+  max-width: 95%;
 }
 
 .e-header .dt-published {
   display: block;
-  font-size: 1rem;
-  font-weight: 800;
+  font-size: 1.8em;
+  font-weight: 500;
+  margin-bottom: 2em;
 }
 
 .p-author {
@@ -39,6 +40,10 @@
   max-width: var(--maxContentWidth);
   padding-bottom: 2.5em;
   width: var(--contentWidth);
+
+  & a {
+    color: var(--white);
+  }
 
   & h2,
   & h3,
@@ -214,11 +219,11 @@
   color: var(--accent);
   float: left;
   font-family: var(--font-aktiv-ex);
-  font-size: 560%;
+  font-size: 610%;
   font-weight: 900;
-  line-height: 0.8;
-  padding-right: 0.07em;
+  line-height: 0.9;
   margin-top: -0.02em;
+  padding-right: 0.09em;
 }
 
 .entry-update {
@@ -239,7 +244,7 @@
 @media (min-width: 73.125em) {
   .entry-intro + p:first-letter,
   .entry-intro + h2 + p:first-letter {
-    margin-left: -0.25em;
+    margin-left: -0.08em;
   }
 }
 
