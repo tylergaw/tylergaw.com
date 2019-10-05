@@ -1,4 +1,4 @@
-const CACHE_KEY = "34-tylergaw";
+const CACHE_KEY = "35-tylergaw";
 const CACHE_URLS = [
   "/",
   "/index.html",
