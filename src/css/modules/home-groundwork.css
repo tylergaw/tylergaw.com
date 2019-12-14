@@ -1,6 +1,6 @@
 .poster-groundwork,
 .gw-colorme-bumper {
-  --gw-blue: #3B4FCB;
+  --gw-blue: #3b4fcb;
   --gw-bg: var(--gw-blue) url("/images/home-gw-bg-tile.svg") repeat;
 }
 
@@ -13,6 +13,16 @@
 .poster-groundwork ::selection {
   background-color: var(--gw-blue);
   color: #fff;
+}
+
+.project .gw-warning {
+  background-color: var(--offwhite);
+  border-radius: 2px;
+  color: var(--gw-blue);
+  font-size: 0.9em;
+  font-weight: 500;
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
 
 .gw-header {
@@ -40,7 +50,7 @@
 
   &:hover,
   &:focus {
-    color: #E4FF64;
+    color: #e4ff64;
   }
 }
 
@@ -48,7 +58,19 @@
   background: var(--gw-bg);
   background-size: 1000px;
   color: var(--eggshell);
-  --gw-fill-clip: polygon(0 11vw, 12% 2vw, 20% 9vw, 30% 0, 71% 15vw, 69% 0, 82% 9vw, 90% 0, 100% 12vw, 100% 100%, 0 100%);
+  --gw-fill-clip: polygon(
+    0 11vw,
+    12% 2vw,
+    20% 9vw,
+    30% 0,
+    71% 15vw,
+    69% 0,
+    82% 9vw,
+    90% 0,
+    100% 12vw,
+    100% 100%,
+    0 100%
+  );
   -webkit-clip-path: var(--gw-fill-clip);
   clip-path: var(--gw-fill-clip);
   padding-top: 34vw;

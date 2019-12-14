@@ -1,4 +1,4 @@
-const CACHE_KEY = "32-tylergaw";
+const CACHE_KEY = "36-tylergaw";
 const CACHE_URLS = [
   "/",
   "/index.html",
@@ -22,7 +22,8 @@ const CACHE_URLS = [
 
 self.addEventListener("install", event =>
   event.waitUntil(
-    caches.open(CACHE_KEY)
+    caches
+      .open(CACHE_KEY)
       .then(cache => cache.addAll(CACHE_URLS))
       .then(() => self.skipWaiting())
   )
@@ -30,14 +31,17 @@ self.addEventListener("install", event =>
 
 self.addEventListener("activate", event => {
   event.waitUntil(
-    caches.keys().then(cacheNames =>
-      Promise.all(
-        cacheNames
-          .filter(name => name.indexOf(CACHE_KEY) !== 0)
-          .map(name => caches.delete(name))
+    caches
+      .keys()
+      .then(cacheNames =>
+        Promise.all(
+          cacheNames
+            .filter(name => name.indexOf(CACHE_KEY) !== 0)
+            .map(name => caches.delete(name))
+        )
       )
-    ).then(() => self.clients.claim())
-  )
+      .then(() => self.clients.claim())
+  );
 });
 
 self.addEventListener("fetch", event => {
@@ -49,7 +53,8 @@ self.addEventListener("fetch", event => {
     fetch(event.request)
       .then(res => res)
       .catch(err => {
-        return caches.match(event.request)
+        return caches
+          .match(event.request)
           .then(res => res || caches.match("/offline.html"));
       })
   );
