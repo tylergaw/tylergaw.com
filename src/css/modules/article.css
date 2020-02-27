@@ -45,6 +45,12 @@
     color: var(--white);
   }
 
+  & .link--future {
+    cursor: not-allowed;
+    opacity: 0.4;
+    text-decoration: underline;
+  }
+
   & h2,
   & h3,
   & h4,
@@ -68,7 +74,7 @@
   }
 
   & h3 code {
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   }
 
   & h4 {
@@ -85,7 +91,8 @@
     padding-bottom: 0.4em;
 
     & i {
-      background: transparent url('/images/article-thanks.svg') no-repeat left top;
+      background: transparent url("/images/article-thanks.svg") no-repeat left
+        top;
       background-size: 100%;
       display: inline-block;
       height: 70px;
