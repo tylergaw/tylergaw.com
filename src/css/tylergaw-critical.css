@@ -3,12 +3,74 @@
   paint. So we put them directly in the markup instead of blocking page
   load for the entire stylesheet. The main stylesheet loads after the document.
 */
-html, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, cite, code, del, dfn, em, img, q, s, small, strike,
-strong, sub, sup, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form,
-label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside,
-canvas, embed, figure, figcaption, footer, header, nav, section, time, mark,
-audio, video {
+html,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+q,
+s,
+small,
+strike,
+strong,
+sub,
+sup,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+embed,
+figure,
+figcaption,
+footer,
+header,
+nav,
+section,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -17,29 +79,45 @@ audio, video {
   vertical-align: baseline;
 }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
 section {
   display: block;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
-blockquote, q {
+blockquote,
+q {
   quotes: none;
 }
 
-blockquote:before, blockquote:after, q:before, q:after {
-  content: '';
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
   content: none;
 }
 
-b, strong {
+b,
+strong {
   font-weight: 800;
 }
 
-i, em {
+i,
+em {
   font-style: italic;
 }
 
@@ -50,9 +128,9 @@ i, em {
 body {
   --lightgrey: #fff;
   --grey: #292929;
-  --accent: #FF607F;
-  --offwhite: #F8F8F8;
-  --darkerwhite: #D3D3D3;
+  --accent: #ff607f;
+  --offwhite: #f8f8f8;
+  --darkerwhite: #d3d3d3;
   --font-aktiv: "aktiv-grotesk", sans-serif;
   --font-aktiv-ex: "aktiv-grotesk-extended", sans-serif;
   --eggshell: #f6f5e4;
@@ -65,7 +143,8 @@ body {
   vertical-align: baseline;
 }
 
-html, body {
+html,
+body {
   background-color: var(--lightgrey);
 }
 
@@ -154,7 +233,7 @@ a:focus {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: -6vw;
-  padding-bottom: 130vw;
+  padding-bottom: 140vw;
   position: relative;
   z-index: 1;
 }
@@ -260,7 +339,7 @@ a:focus {
     padding: 0.4rem;
   }
 
-  .poster-intro  {
+  .poster-intro {
     padding: 0.4rem 0.4rem 0.1rem 0.4rem;
   }
 }
@@ -280,10 +359,9 @@ a:focus {
   }
 
   .home-intro-contents {
-    font-size: 1.9vw;
-    margin: -7vw 0 0 0;
+    font-size: 2vw;
     max-width: 100%;
-    padding: 0;
+    padding: 0 3rem 0 4rem;
     width: 100%;
     z-index: 2;
   }
@@ -292,23 +370,13 @@ a:focus {
     display: none;
   }
 
-  .home-intro-contents p {
-    padding-right: 2.4rem;
-  }
-
-  .home-intro-contents p:last-child {
-    padding-right: 5em;
-  }
-
   .home-intro-shape {
     float: left;
     display: block;
-    margin-left: -13vw;
-    margin-top: -10vw;
     opacity: 0;
     shape-outside: url("../images/the-work-shape-outside.svg");
     visibility: hidden;
-    width: 123%;
+    width: 100%;
   }
 
   .home-intro-graphic::before {
@@ -321,32 +389,11 @@ a:focus {
 
 @media (min-width: 87.5em) {
   .home-intro {
-    padding-bottom: 90vw;
+    padding-bottom: 110vw;
   }
 
   .home-intro::after {
     height: 100vw;
-  }
-}
-
-@media (min-width: 101.25em) {
-  .home-intro-contents {
-    font-size: 1.7vw;
-    margin-top: 2vw;
-  }
-
-  .home-intro-contents p {
-    padding-right: 5rem;
-  }
-
-  .home-intro-contents p:last-child {
-    padding-right: 6em;
-  }
-
-  .home-intro-shape {
-    margin-left: -3vw;
-    margin-top: -2vw;
-    width: 109%;
   }
 }
 
@@ -366,13 +413,8 @@ a:focus {
   }
 
   .home-intro-contents {
-    font-size: 2rem;
-    margin-top: 2.35rem;
-  }
-
-  .home-intro-shape {
-    margin-left: -3.52rem;
-    margin-top: -2.35rem;
+    font-size: 2.6rem;
+    margin-top: 0;
   }
 }
 
