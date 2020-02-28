@@ -46,9 +46,8 @@
 }
 
 .version figcaption {
-  font-family: var(--font-aktiv-ex);
+  font-family: var(--font-proto-bold);
   font-size: 1.2rem;
-  font-weight: 900;
   padding: 0 0.5rem;
   position: absolute;
   top: 0;

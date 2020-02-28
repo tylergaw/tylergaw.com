@@ -7,8 +7,7 @@
   & h1 {
     font-size: 15vw;
     line-height: 1;
-    font-family: var(--font-aktiv-ex);
-    font-weight: 900;
+    font-family: var(--font-proto-bold);
   }
 
   & h2 {

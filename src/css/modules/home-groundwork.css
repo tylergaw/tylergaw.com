@@ -20,7 +20,7 @@
   border-radius: 2px;
   color: var(--gw-blue);
   font-size: 0.9em;
-  font-weight: 500;
+  font-family: var(--font-proto-regular);
   padding: 1rem;
   margin-bottom: 1rem;
 }

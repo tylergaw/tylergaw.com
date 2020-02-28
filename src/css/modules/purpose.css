@@ -2,9 +2,8 @@
   padding: 2em 0 6em 0;
 
   & h1 {
-    font-family: var(--font-aktiv-ex);
+    font-family: var(--font-proto-bold);
     font-size: 15vw;
-    font-weight: 900;
     text-align: center;
     word-wrap: break-word;
   }

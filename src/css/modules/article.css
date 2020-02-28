@@ -12,9 +12,7 @@
 
 .e-header .p-name {
   color: var(--offwhite);
-  font-family: var(--font-aktiv-ex);
   font-size: 10vw;
-  font-weight: 900;
   line-height: 1.25;
   margin: 0 auto;
   max-width: 95%;
@@ -23,7 +21,6 @@
 .e-header .dt-published {
   display: block;
   font-size: 1.8em;
-  font-weight: 500;
   margin-bottom: 2em;
 }
 
@@ -57,15 +54,14 @@
   & h5,
   & h6 {
     color: var(--offwhite);
-    font-weight: 800;
+    font-family: var(--font-proto-regular);
     margin: 0 auto;
     max-width: var(--maxTextWidth);
   }
 
   & h2 {
-    font-family: var(--font-aktiv-ex);
-    font-size: 1.2em;
-    font-weight: 900;
+    font-family: var(--font-proto-bold);
+    font-size: 1.4em;
     padding: 0.7em 0 0.25em 0;
   }
 
@@ -225,9 +221,8 @@
 .entry-intro + h2 + p:first-letter {
   color: var(--accent);
   float: left;
-  font-family: var(--font-aktiv-ex);
-  font-size: 610%;
-  font-weight: 900;
+  font-family: var(--font-proto-bold);
+  font-size: 670%;
   line-height: 0.9;
   margin-top: -0.02em;
   padding-right: 0.09em;

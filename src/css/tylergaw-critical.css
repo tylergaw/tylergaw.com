@@ -113,7 +113,7 @@ q:after {
 
 b,
 strong {
-  font-weight: 800;
+  font-family: var(--font-proto-regular);
 }
 
 i,
@@ -125,17 +125,38 @@ em {
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "protogrotesk-bold";
+  src: url("/fonts/protogroteskweb-bold.woff2");
+}
+@font-face {
+  font-family: "protogrotesk-extralight";
+  src: url("/fonts/protogroteskweb-extralight.woff2");
+}
+@font-face {
+  font-family: "protogrotesk-light";
+  src: url("/fonts/protogroteskweb-light.woff2");
+}
+@font-face {
+  font-family: "protogrotesk-regular";
+  src: url("/fonts/protogroteskweb-regular.woff2");
+}
+
 body {
   --lightgrey: #fff;
   --grey: #292929;
   --accent: #ff607f;
   --offwhite: #f8f8f8;
   --darkerwhite: #d3d3d3;
-  --font-aktiv: "aktiv-grotesk", sans-serif;
-  --font-aktiv-ex: "aktiv-grotesk-extended", sans-serif;
   --eggshell: #f6f5e4;
+
+  --font-proto-extralight: "protogrotesk-extralight", helvetica, sans-serif;
+  --font-proto-light: "protogrotesk-light", helvetica, sans-serif;
+  --font-proto-regular: "protogrotesk-regular", helvetica, sans-serif;
+  --font-proto-bold: "protogrotesk-bold", helvetica, sans-serif;
+
   color: var(--offwhite);
-  font-family: var(--font-aktiv);
+  font-family: var(--font-proto-light);
   line-height: 1;
   margin: 0;
   border: 0;
@@ -204,10 +225,10 @@ a:focus {
 
 .navigation a {
   display: inline-block;
-  font-family: var(--font-aktiv-ex);
-  font-weight: 900;
+  font-family: var(--font-proto-bold);
   padding: 0.5rem 0.45rem;
   text-decoration: none;
+  text-transform: uppercase;
 }
 
 .banner-detail,
@@ -292,7 +313,6 @@ a:focus {
 .home-intro-contents a {
   border-bottom: 0.15em solid currentColor;
   color: var(--offwhite);
-  font-weight: 800;
   text-decoration: none;
 }
 
@@ -449,17 +469,14 @@ a:focus {
 .book-current {
   color: var(--accent);
   display: block;
-  font-size: 1em;
-  font-weight: 800;
+  font-size: 0.9rem;
   margin-bottom: 0.25em;
 }
 
 .listed-item-link {
   color: var(--offwhite);
   display: inline-block;
-  font-family: var(--font-aktiv-ex);
-  font-size: 2.3em;
-  font-weight: 900;
+  font-size: 2em;
   line-height: 1.1;
   max-width: 100%;
   text-decoration: none;
@@ -480,9 +497,8 @@ a:focus {
 }
 
 .articles-year {
-  font-family: var(--font-aktiv-ex);
+  font-family: var(--font-proto-regular);
   font-size: 1.3em;
-  font-weight: 900;
 }
 
 .articles-year h3 {
@@ -515,8 +531,7 @@ a:focus {
 /* About critical styles */
 [data-page="about"] h2,
 [data-page="about"] h3 {
-  font-family: var(--font-aktiv-ex);
-  font-weight: 900;
+  font-family: var(--font-proto-bold);
 }
 
 .about-intro {
