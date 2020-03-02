@@ -25,11 +25,11 @@ meta:
 <p>
   For this iteration, I wanted that same sturdiness. I also wanted more room to play.
   I wanted to use more weights than I have in the past and, when possible, I wanted
-  to make things weird.
+  to make things strange.
 </p>
 <p>
   After a long search and plenty of playing with different faces, I’ve settled
-  on a font that will serve the design and content well for years to come.
+  on a font that will serve the design and content well for at least a couple years.
 </p>
 
 <h2>
@@ -42,7 +42,7 @@ meta:
   swaths of copy.
 </p>
 <figure>
-  <img src="/articles/assets/post-image-realign-2020-typography-proto-grotesk.png" alt="A sampling of Proto Grotesk in various weights and sizes" />
+  <img src="https://tylergaw.com/articles/assets/post-image-realign-2020-typography-proto-grotesk.png" alt="A sampling of Proto Grotesk in various weights and sizes" />
 </figure>
 <p>
   I’m using the bold weight for certain headings and navigation items. I have
@@ -55,9 +55,9 @@ meta:
 </p>
 
 <p>
-  As I iterate, I’m looking forward experimenting more with
-  weights and sizes and styles. It also has fun alternate numerals and other
-  glyphs that I’m hoping to make use of when appropriate.
+  As I iterate, I’m looking forward to experimenting more with
+  weights and sizes and styles. Proto Grotesk also has fun alternate numerals and other
+  alt glyphs that I’m hoping to make use of when appropriate.
 </p>
 
 <h3>
@@ -65,12 +65,12 @@ meta:
 </h3>
 <p>
   I learned about Proto Grotesk via Bethany Heck’s <a href="https://fontreviewjournal.com/proto-grotesk/">excellent Font Review Journal</a>.
-  A lot of what she detailed in the review is what draws me to it. Its
+  A lot of what she detailed in the review is what draws me to the typeface. Its
   idiosyncrasies stick out enough to make it playful, without reducing
   reading comfort.
 </p>
 <p>
-  The designer’s description is a prefect description of what I’m looking for.
+  The designer’s description is a perfect summary of what I’m looking for.
 </p>
 
 <blockquote>
@@ -86,11 +86,12 @@ meta:
   One detail I really dig are the little “flat feet”, as I’ve been
   referring to them. The lowercase “y” and “a” are the best examples. Something
   about that abrubt, a little too long bit catches my eye. I took cues
-  from it as I was updating my logo. I’ll write more about that in another post.
+  from it as I was updating my logo. I’ll write about that in a future post.
 </p>
 
 <p>
-  Along with all that, I think Proto Grotesk just looks super cool.
+  Along with all that, I think Proto Grotesk just looks super cool. Sometimes
+  that’s enough.
 </p>
 
 <h3>
@@ -98,14 +99,14 @@ meta:
 </h3>
 <p>
   This was the most expensive font I’ve bought for a personal project.
-  My bill was about $400. That bought me all four weights with a desktop and
-  web license. That’s a big buy, but it feels cool to directly support a
-  type design studio.
+  My bill was about $400 USD. That bought me all four weights with a desktop and
+  web license. That’s a big buy for me, but it feels worth it and it’s cool to
+  directly support a type design studio.
 </p>
 <p>
-  Production type offers trial downloads of their fonts. Being able to try the
-  font in Sketch and in browser made all the difference. By the time I clicked
-  “purchase” I’d been using Proto Grotesk in real settings for weeks.
+  Production Type offers trial downloads of their fonts. Being able to try the
+  font in design programs and in browsers made all the difference. By the time I clicked
+  “purchase”. I’d been using Proto Grotesk in real settings for weeks.
 </p>
 <p>
   Those trials also helped me experiment with other fonts and weed out ones that
@@ -120,23 +121,23 @@ meta:
   I’ve used Typekit on this site for about eight years. It’s served me well, but I don’t
   want to load fonts from a third party anymore. I want to self-host. That was a
   smaller reason to go with Proto Grotesk too. Not that it’s the only font I
-  could self-host, but it also checked that box.
+  could self-host, but it checked that box.
 </p>
 <p>
   Because I’m self-hosting, I need to load fonts in a performat way. I spent time
-  reading up on font loading methods. Zach’s post “<a href="https://www.zachleat.com/web/comprehensive-webfonts/">A Comprehensive Guide to Font Loading Strategies</a>”
+  catching up on font loading methods. They move fast. Zach’s post “<a href="https://www.zachleat.com/web/comprehensive-webfonts/">A Comprehensive Guide to Font Loading Strategies</a>”
   is <strong>the</strong> place for that info.
 </p>
 <p>
   I didn’t end up using one of Zach’s gold standards. I wasn’t ready to introduce JavaScript
-  to assist in font loading. Wanted a HTML/CSS only approach for now. I have
-  other performance improvements to make in the future, so I’ll revist
+  to assist in font loading. I wanted an HTML/CSS only approach for now. I have
+  other performance improvements to make in the future, so I’ll revisit
   font loading then.
 </p>
 <p>
   I went with a combination of approaches in the post.
   I’m using; standard <code>@font-face</code>, <code>font-display</code>, and
-  preloading. In the <code>head</code> I preload two of the four weights I use.
+  preloading. In the <code>head</code> of my pages I preload two of the four weights I use.
 </p>
 
 <pre><code class="language-html">&lt;link rel="preload" href="/fonts/protogroteskweb-light.woff2" as="font" type="font/woff2" crossorigin&gt;
@@ -154,7 +155,7 @@ meta:
 </p>
 
 <pre><code class="language-css">/* repeated for each font weight */
-  @font-face {
+@font-face {
   font-display: swap;
   font-family: "protogrotesk-bold";
   src: url("/fonts/protogroteskweb-bold.woff2");
@@ -162,14 +163,14 @@ meta:
 
 <p>
   Using <code>swap</code> for <code>font-display</code> helps avoid a flash of
-  invisible content. There’s a slight shimmy when my custom font loads, but
+  invisible content. There’s a slight shimmy when the custom font loads, but
   I can deal with that.
 </p>
 
 <h3>Custom properties</h3>
 <p>
   I use CSS custom properties for font stacks.
-  Again in my critical inline styles, I have n
+  Again in my critical inline styles, I have a
   property for each font weight.
 </p>
 
@@ -180,18 +181,18 @@ meta:
 
 <p>
   Declaring those stacks as custom props makes it so I don’t have to repeat myself.
-  Also, lets me type less:
+  It also lets me type less when using each weight:
 </p>
 <pre><code class="language-css">font-family: var(--font-proto-bold);</code></pre>
 
 <h2>Next</h2>
 <p>
-  A site’s typography is never “done”, only out there. I’ll continue to make
-  improvements and experiment over time. If you’re interested in a before and
-  after, I archived the site previous to this change at <a href="https://v6.tylergaw.com">v6.tylergaw.com</a>
+  A site’s typography is never “done”, only out there. I’ll keep making
+  improvements and experimenting over time. If you’re interested in a before and
+  after, I archived the site previous to this change at <a href="https://v6.tylergaw.com">v6.tylergaw.com</a>.
 </p>
 <p>
-  I’ll continue this series with “Realign 2020: Logo” in a few days.
+  I’ll continue this series in a few days with “Realign 2020: Logo.”
 </p>
 
 {{> thanks-for-reading }}
