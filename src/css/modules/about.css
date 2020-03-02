@@ -23,7 +23,6 @@
 }
 
 .about-versions {
-  max-width: 80rem;
   padding: 0 0.75rem;
 }
 
@@ -46,33 +45,9 @@
 }
 
 .version figcaption {
-  font-family: var(--font-aktiv-ex);
-  font-size: 1.2rem;
-  font-weight: 900;
+  font-size: 1rem;
   padding: 0 0.5rem;
-  position: absolute;
   top: 0;
-  width: 100%;
-}
-
-.version figcaption::before {
-  background-color: var(--accent);
-  bottom: 0.25em;
-  --path: polygon(
-    0 0.25em,
-    25% 0.2em,
-    50% 0.15em,
-    100% 0.38em,
-    70% 90%,
-    50% 60%,
-    0 80%
-  );
-  -webkit-clip-path: var(--path);
-  clip-path: var(--path);
-  content: "";
-  display: inline-block;
-  height: 0.4em;
-  position: absolute;
   width: 100%;
 }
 
@@ -97,10 +72,6 @@
 
   .version {
     padding-bottom: 1rem;
-  }
-
-  .version figcaption {
-    font-size: 1.4rem;
   }
 }
 

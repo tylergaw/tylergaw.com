@@ -19,9 +19,10 @@
 .contentinfo a {
   color: var(--grey);
   display: inline-block;
+  font-family: var(--font-proto-regular);
   font-size: 0.8rem;
-  font-weight: 800;
   padding: 0.7em;
+  text-transform: uppercase;
 }
 
 .contentinfo a:hover,

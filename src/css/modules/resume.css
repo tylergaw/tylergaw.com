@@ -32,15 +32,14 @@
 
 .resume h2 {
   color: var(--accent);
-  font-family: var(--font-aktiv-ex);
+  font-family: var(--font-proto-regular);
   font-size: 1em;
-  font-weight: 900;
   margin: 1.8em 0 0.5em 0;
+  text-transform: uppercase;
 }
 
 .resume h3 {
   font-size: 1.4em;
-  font-weight: 800;
 }
 
 .resume h4 {
