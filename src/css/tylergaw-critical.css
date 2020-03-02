@@ -507,34 +507,12 @@ a:focus {
 
 .articles-year {
   font-family: var(--font-proto-regular);
-  font-size: 1.3em;
+  font-size: 1.6em;
 }
 
 .articles-year h3 {
   padding: 2em 1rem 0 1rem;
   position: relative;
-}
-
-.articles-year h3::before {
-  background-color: var(--accent);
-  bottom: 0.1em;
-  --year-path: polygon(
-    0 0.25em,
-    25% 0.2em,
-    50% 0.15em,
-    100% 0.38em,
-    70% 90%,
-    50% 60%,
-    0 80%
-  );
-  -webkit-clip-path: var(--year-path);
-  clip-path: var(--year-path);
-  content: "";
-  display: inline-block;
-  height: 0.5em;
-  position: absolute;
-  width: 90%;
-  z-index: -1;
 }
 
 /* About critical styles */
