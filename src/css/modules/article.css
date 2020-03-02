@@ -1,27 +1,26 @@
 .h-entry {
-  --contentWidth: 90%;
-  --maxContentWidth: 70rem;
-  --maxTextWidth: 62.5rem;
+  --width-text-max: 60.5rem;
+  --width-content: 90%;
+  --width-content-max: calc(var(--width-text-max) + 10rem);
   overflow: hidden;
 }
 
 .e-header {
-  margin: 5rem 0 2.4rem 0;
-  text-align: center;
+  margin: 3rem auto 6rem auto;
+  max-width: var(--width-text-max);
+  width: var(--width-content);
 }
 
-.e-header .p-name {
-  color: var(--offwhite);
+.p-name {
+  font-family: var(--font-proto-extralight);
   font-size: 10vw;
   line-height: 1.25;
-  margin: 0 auto;
-  max-width: 95%;
 }
 
-.e-header .dt-published {
+.dt-published {
   display: block;
-  font-size: 1.8em;
-  margin-bottom: 2em;
+  font-size: 1.2rem;
+  margin-top: 1.2em;
 }
 
 .p-author {
@@ -31,12 +30,12 @@
 
 .e-content {
   color: var(--offwhite);
-  font-size: 1.3rem;
-  line-height: 1.5;
+  font-size: 1.6rem;
+  line-height: 1.6;
   margin: 0 auto;
-  max-width: var(--maxContentWidth);
-  padding-bottom: 2.5em;
-  width: var(--contentWidth);
+  max-width: var(--width-content-max);
+  padding-bottom: 5em;
+  width: var(--width-content);
 
   & a {
     color: var(--white);
@@ -52,14 +51,26 @@
   & h3,
   & h4,
   & h5,
+  & h6,
+  & p,
+  & ul,
+  & ol,
+  & blockquote,
+  & blockquote cite {
+    margin: 0 auto;
+    max-width: var(--width-text-max);
+  }
+
+  & h3,
+  & h4,
+  & h5,
   & h6 {
     color: var(--offwhite);
     font-family: var(--font-proto-regular);
-    margin: 0 auto;
-    max-width: var(--maxTextWidth);
   }
 
   & h2 {
+    color: var(--offwhite);
     font-family: var(--font-proto-bold);
     font-size: 1.4em;
     padding: 0.7em 0 0.25em 0;
@@ -70,17 +81,15 @@
   }
 
   & h3 code {
-    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    font-family: var(--font-mono);
   }
 
   & h4 {
-    font-size: 0.8em;
+    font-size: 0.9em;
   }
 
   & p {
-    margin: 0 auto;
-    max-width: var(--maxTextWidth);
-    padding-bottom: 1.4em;
+    padding-bottom: 1.6em;
   }
 
   & .thanks-for-reading {
@@ -152,8 +161,6 @@
   & ul,
   & ol {
     clear: both;
-    margin: 0 auto;
-    max-width: var(--maxTextWidth);
     padding: 0 0.2em 1.4em 0.2em;
   }
 
@@ -175,32 +182,33 @@
   & blockquote {
     border-left: 0.4em solid var(--accent);
     color: var(--darkerwhite);
-    font-size: 1em;
+    font-size: 0.9em;
+    margin-bottom: 2em;
     padding: 0.2em 1em 0.2em 1.6em;
-
-    margin: 0 auto 1.6em auto;
-    max-width: var(--maxTextWidth);
   }
 
   & blockquote p {
-    font-style: italic;
     padding-bottom: 0;
   }
 
   & blockquote cite {
     display: block;
     font-size: 0.9em;
-    max-width: var(--maxTextWidth);
-    margin: 1rem auto 0 auto;
-    padding-bottom: 0.5rem;
+    margin-top: 1.2rem;
+    padding-bottom: 0.2rem;
   }
 }
 
 .entry-intro {
   font-size: 1.2em;
   line-height: 1.6;
-  max-width: 100%;
   padding-bottom: 0;
+}
+
+.entry-intro::first-line {
+  font-size: 75%;
+  font-family: var(--font-proto-bold);
+  text-transform: uppercase;
 }
 
 .entry-intro::after {
@@ -222,45 +230,45 @@
   color: var(--accent);
   float: left;
   font-family: var(--font-proto-bold);
-  font-size: 670%;
+  font-size: 680%;
   line-height: 0.9;
-  margin-top: -0.02em;
+  margin-left: -0.05em;
   padding-right: 0.09em;
 }
 
 .entry-update {
   font-size: 1em;
-  font-style: italic;
 }
 
-@media (min-width: 48.75em) {
-  .e-header .p-name {
-    font-size: 7vw;
+@media (min-width: 46em) {
+  .e-header {
+    margin-bottom: 7rem;
+    margin-top: 6rem;
   }
 
-  .e-content {
-    font-size: 1.8em;
-  }
-}
-
-@media (min-width: 73.125em) {
-  .entry-intro + p:first-letter,
-  .entry-intro + h2 + p:first-letter {
-    margin-left: -0.08em;
-  }
-}
-
-@media (min-width: 108.125em) {
-  .h-entry {
-    --maxContentWidth: 86.25rem;
-    --maxTextWidth: 70.5rem;
-  }
-
-  .e-header .p-name {
-    font-size: 5vw;
+  .p-name {
+    font-size: 4.6rem;
   }
 
   .e-content {
     font-size: 2em;
+  }
+
+  .dt-published {
+    font-size: 1.4em;
+  }
+}
+
+@media (min-width: 100em) {
+  .h-entry {
+    --width-text-max: 78rem;
+  }
+
+  .p-name {
+    font-size: 5.4rem;
+  }
+
+  .e-content {
+    font-size: 2.6em;
   }
 }
