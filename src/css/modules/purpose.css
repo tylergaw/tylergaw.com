@@ -24,7 +24,6 @@
 
   & .linkback {
     font-size: 0.9em;
-    font-style: italic;
   }
 
   @media (min-width: 620px) {

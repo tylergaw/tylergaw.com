@@ -118,7 +118,7 @@ strong {
 
 i,
 em {
-  font-style: italic;
+  font-style: normal;
 }
 
 * {
@@ -126,18 +126,25 @@ em {
 }
 
 @font-face {
+  font-display: swap;
   font-family: "protogrotesk-bold";
   src: url("/fonts/protogroteskweb-bold.woff2");
 }
+
 @font-face {
+  font-display: swap;
   font-family: "protogrotesk-extralight";
   src: url("/fonts/protogroteskweb-extralight.woff2");
 }
+
 @font-face {
+  font-display: swap;
   font-family: "protogrotesk-light";
   src: url("/fonts/protogroteskweb-light.woff2");
 }
+
 @font-face {
+  font-display: swap;
   font-family: "protogrotesk-regular";
   src: url("/fonts/protogroteskweb-regular.woff2");
 }
@@ -154,6 +161,7 @@ body {
   --font-proto-light: "protogrotesk-light", helvetica, sans-serif;
   --font-proto-regular: "protogrotesk-regular", helvetica, sans-serif;
   --font-proto-bold: "protogrotesk-bold", helvetica, sans-serif;
+  --font-mono: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 
   color: var(--offwhite);
   font-family: var(--font-proto-light);
@@ -226,6 +234,7 @@ a:focus {
 .navigation a {
   display: inline-block;
   font-family: var(--font-proto-bold);
+  font-weight: bold;
   padding: 0.5rem 0.45rem;
   text-decoration: none;
   text-transform: uppercase;
