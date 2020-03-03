@@ -202,15 +202,15 @@ a:focus {
 .logo {
   display: block;
   margin: 0 auto;
-  max-width: 210px;
+  max-width: 260px;
   width: 82%;
 }
 
-.logo-base {
+.logo__base {
   fill: var(--lightgrey);
 }
 
-.logo-title {
+.logo__title {
   fill: var(--accent);
 }
 
@@ -240,7 +240,6 @@ a:focus {
   text-transform: uppercase;
 }
 
-.banner-detail,
 .home-intro-graphic,
 .home-intro-shape,
 .about-portrait,
