@@ -587,7 +587,7 @@ a:focus {
 
   .about-intro-heading {
     font-size: 10vw;
-    padding-top: 11vw;
+    padding-top: 8vw;
   }
 
   .about-intro-opening {
@@ -602,6 +602,7 @@ a:focus {
     grid-template-columns: 1fr 1fr;
     padding-left: 12%;
     padding-right: 6rem;
+    width: 100%;
   }
 
   .about-intro-body div p {
@@ -666,8 +667,8 @@ a:focus {
   }
 
   .about-intro-heading {
-    font-size: 5.2vw;
-    padding-top: 16vw;
+    font-size: 9vw;
+    padding-top: 10.5vw;
     text-indent: -0.2em;
   }
 
@@ -700,18 +701,13 @@ a:focus {
   }
 }
 
-@media (min-width: 106.25em) {
+@media (min-width: 94em) {
   .about-intro {
     margin-top: -12.8rem;
   }
 
   .about-intro-heading {
-    padding-top: 17rem;
-  }
-}
-
-@media (min-width: 123.75em) {
-  .about-intro-heading {
-    font-size: 5.94rem;
+    font-size: 7rem;
+    padding-top: 12rem;
   }
 }

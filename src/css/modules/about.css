@@ -16,6 +16,7 @@
   font-size: 12vw;
   line-height: 1.1;
   margin-bottom: 0.75rem;
+  text-align: center;
 }
 
 .about-site p {
@@ -85,7 +86,7 @@
   }
 
   .about-site-heading {
-    font-size: 4.8vw;
+    font-size: 5.2vw;
   }
 
   .about-site-intro p {
@@ -96,6 +97,6 @@
 
 @media (min-width: 92.2em) {
   .about-site-heading {
-    font-size: 4.4rem;
+    font-size: 5rem;
   }
 }
