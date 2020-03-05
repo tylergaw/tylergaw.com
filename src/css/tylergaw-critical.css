@@ -235,28 +235,6 @@ a:focus {
   text-transform: uppercase;
 }
 
-@media (min-width: 46.875em) {
-  .banner {
-    --padding-h: 1.25rem;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .logo {
-    margin: 0;
-    max-width: 320px;
-  }
-
-  .navigation {
-    font-size: 1.5rem;
-    margin-top: 1rem;
-  }
-
-  .navigation li {
-    margin-left: 1rem;
-  }
-}
-
 .home-intro-graphic,
 .home-intro-shape,
 .about-portrait,
@@ -467,19 +445,11 @@ a:focus {
 .library {
   margin: 0 auto;
   max-width: 42rem;
-  padding: 4rem 0 3rem 0;
+  padding: 1.5rem 0 6rem 0;
 }
 
 .library-intro {
   padding: 0 1em 1em 1em;
-}
-
-@media (min-width: 72.5em) {
-  .article-list,
-  .library {
-    font-size: 1.2em;
-    max-width: 50rem;
-  }
 }
 
 .article-listed,
@@ -487,6 +457,11 @@ a:focus {
   box-sizing: border-box;
   margin: 0.5em 0;
   padding: 1.2em 1em;
+}
+
+.article-listed:first-child,
+.book-listed:first-child {
+  margin-top: 0;
 }
 
 .article-listed time,
@@ -639,6 +614,48 @@ a:focus {
     top: 1.2rem;
     width: 45%;
     z-index: -1;
+  }
+}
+
+@media (min-width: 46.875em) {
+  .banner {
+    --padding-h: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .logo {
+    margin: 0;
+    max-width: 320px;
+  }
+
+  .navigation {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .navigation li {
+    margin-left: 1rem;
+  }
+
+  .article-list,
+  .library {
+    padding: 0 0 7rem 0;
+  }
+}
+
+@media (min-width: 72.5em) {
+  .article-list,
+  .library {
+    font-size: 1.2em;
+    max-width: 50rem;
+  }
+}
+
+@media (min-width: 123.75em) {
+  .banner {
+    position: sticky;
+    top: 0;
   }
 }
 
