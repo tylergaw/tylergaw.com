@@ -372,7 +372,7 @@ a:focus {
 .book-listed {
   box-sizing: border-box;
   margin: 0.5em 0;
-  padding: 1.2em 1em;
+  padding: 1.2em 1.5em;
 }
 
 .article-listed:first-child,
@@ -385,14 +385,14 @@ a:focus {
 .book-current {
   color: var(--accent);
   display: block;
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin-bottom: 0.25em;
 }
 
 .listed-item-link {
   color: var(--offwhite);
   display: inline-block;
-  font-size: 2em;
+  font-size: 1.6em;
   line-height: 1.1;
   max-width: 100%;
   text-decoration: none;
@@ -414,12 +414,16 @@ a:focus {
 
 .articles-year {
   font-family: var(--font-proto-regular);
-  font-size: 1.6em;
+  font-size: 2em;
 }
 
 .articles-year h3 {
-  padding: 2em 1rem 0 1rem;
+  padding: 0 1.5rem;
   position: relative;
+}
+
+.article-listed + .articles-year h3 {
+  padding-top: 2em;
 }
 
 /* About critical styles */
