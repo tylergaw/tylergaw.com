@@ -6,7 +6,7 @@
 }
 
 .e-header {
-  margin: 3rem auto 6rem auto;
+  margin: 1.5rem auto 6rem auto;
   max-width: var(--width-text-max);
   width: var(--width-content);
 }
@@ -240,10 +240,10 @@
   font-size: 1em;
 }
 
-@media (min-width: 46em) {
+@media (min-width: 46.875em) {
   .e-header {
     margin-bottom: 7rem;
-    margin-top: 6rem;
+    margin-top: 0;
   }
 
   .p-name {

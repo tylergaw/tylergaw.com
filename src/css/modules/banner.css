@@ -1,6 +1,6 @@
 .logo:hover .logo__title,
 .logo:focus .logo__title {
-  fill: #fff;
+  fill: currentColor;
 }
 
 .navigation a:hover,
@@ -8,5 +8,5 @@
 [data-page="blog"] .nav-blog,
 [data-page="home"] .nav-work,
 [data-page="about"] .nav-about {
-  color: #fff;
+  color: var(--color-white);
 }

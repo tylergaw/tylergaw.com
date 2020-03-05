@@ -150,12 +150,16 @@ em {
 }
 
 body {
+  /* TODO: Consolidate and rename colors */
   --lightgrey: #fff;
   --grey: #292929;
   --accent: #ff607f;
   --offwhite: #f8f8f8;
   --darkerwhite: #d3d3d3;
   --eggshell: #f6f5e4;
+
+  --color-accent-primary: var(--accent);
+  --color-white: #fff;
 
   --font-proto-extralight: "protogrotesk-extralight", helvetica, sans-serif;
   --font-proto-light: "protogrotesk-light", helvetica, sans-serif;
@@ -174,11 +178,11 @@ body {
 
 html,
 body {
-  background-color: var(--lightgrey);
+  background-color: var(--color-white);
 }
 
 a {
-  color: var(--accent);
+  color: var(--color-accent-primary);
 }
 
 a:focus {
@@ -190,54 +194,67 @@ a:focus {
 }
 
 .banner {
-  margin: 0 auto;
-  max-width: 109em;
-  overflow: hidden;
-  padding-top: 1.4rem;
+  --padding-h: 0.75rem;
+  padding: 1.2rem var(--padding-h) 0 var(--padding-h);
   position: relative;
   text-align: center;
   z-index: 100;
 }
 
 .logo {
+  color: var(--color-white);
   display: block;
   margin: 0 auto;
   max-width: 260px;
-  width: 82%;
+  width: 100%;
 }
 
 .logo__base {
-  fill: var(--lightgrey);
+  fill: currentColor;
 }
 
 .logo__title {
-  fill: var(--accent);
+  fill: var(--color-accent-primary);
 }
 
 .navigation {
-  font-size: 1.1rem;
-  margin: 0 auto;
-  width: 83%;
+  font-size: 1.2rem;
 }
 
-.navigation ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  /* Gives a bit of room for the :focus outline */
+.navigation li {
+  display: inline-block;
   padding-bottom: 3px;
 }
 
 .navigation a {
-  display: inline-block;
+  display: block;
   font-family: var(--font-proto-bold);
   font-weight: bold;
   padding: 0.5rem 0.45rem;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+@media (min-width: 46.875em) {
+  .banner {
+    --padding-h: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .logo {
+    margin: 0;
+    max-width: 320px;
+  }
+
+  .navigation {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .navigation li {
+    margin-left: 1rem;
+  }
 }
 
 .home-intro-graphic,
