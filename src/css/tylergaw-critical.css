@@ -357,90 +357,6 @@ a:focus {
   }
 }
 
-@media (min-width: 40em) {
-  .poster-default {
-    padding: 0.4rem;
-  }
-
-  .poster-intro {
-    padding: 0.4rem 0.4rem 0.1rem 0.4rem;
-  }
-}
-
-@media (min-width: 54em) {
-  .home-intro {
-    margin: -8vw auto 0 auto;
-    overflow: hidden;
-  }
-
-  .home-intro-graphic {
-    padding: 0;
-    position: absolute;
-    top: 0;
-    transform: translateX(-1vw);
-    width: 98%;
-  }
-
-  .home-intro-contents {
-    font-size: 2vw;
-    max-width: 100%;
-    padding: 0 3rem 0 4rem;
-    width: 100%;
-    z-index: 2;
-  }
-
-  .home-intro-contents::before {
-    display: none;
-  }
-
-  .home-intro-shape {
-    float: left;
-    display: block;
-    opacity: 0;
-    shape-outside: url("../images/the-work-shape-outside.svg");
-    visibility: hidden;
-    width: 100%;
-  }
-
-  .home-intro-graphic::before {
-    bottom: 6%;
-    left: 30%;
-    font-size: 0.9em;
-    letter-spacing: -0.35em;
-  }
-}
-
-@media (min-width: 87.5em) {
-  .home-intro {
-    padding-bottom: 110vw;
-  }
-
-  .home-intro::after {
-    height: 100vw;
-  }
-}
-
-/*
-  At ~1880px we want to stop using viewport-relative units. This way
-  elements won't scale beyond the proportions we want.
-*/
-@media (min-width: 117.5em) {
-  .home-intro {
-    margin-top: -9.4rem;
-    padding-bottom: 105.7rem;
-    width: 115.5rem;
-  }
-
-  .home-intro::after {
-    height: 117.44rem;
-  }
-
-  .home-intro-contents {
-    font-size: 2.6rem;
-    margin-top: 0;
-  }
-}
-
 .article-list,
 .library {
   margin: 0 auto;
@@ -533,12 +449,6 @@ a:focus {
   padding: 0.75rem 1.5rem 1.5rem 1.5rem;
 }
 
-@media (min-width: 26em) {
-  .about-intro-opening {
-    padding: 0.75rem 2rem 1.2rem 19%;
-  }
-}
-
 .about-intro-opening p + p {
   margin-top: 1.2em;
 }
@@ -568,6 +478,54 @@ a:focus {
 .about-intro-outro {
   font-size: 1.5rem;
   padding: 2.5rem 1.5rem;
+}
+
+@media (min-width: 26em) {
+  .about-intro-opening {
+    padding: 0.75rem 2rem 1.2rem 19%;
+  }
+}
+
+@media (min-width: 40em) {
+  .poster-default {
+    padding: 0.4rem;
+  }
+
+  .poster-intro {
+    padding: 0.4rem 0.4rem 0.1rem 0.4rem;
+  }
+}
+
+@media (min-width: 46.875em) {
+  .banner {
+    --padding-h: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .logo {
+    margin: 0;
+    max-width: 320px;
+  }
+
+  .navigation {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .navigation li {
+    margin-left: 1rem;
+  }
+
+  .article-list,
+  .library {
+    padding: 0 0 7rem 0;
+  }
+
+  .home-intro {
+    margin: -6rem auto 0 auto;
+    overflow: hidden;
+  }
 }
 
 @media (min-width: 47em) {
@@ -618,45 +576,53 @@ a:focus {
   }
 }
 
-@media (min-width: 46.875em) {
-  .banner {
-    --padding-h: 1.25rem;
-    display: flex;
-    justify-content: space-between;
+@media (min-width: 54em) {
+  .home-intro-graphic {
+    padding: 0;
+    position: absolute;
+    top: 0;
+    transform: translateX(-1vw);
+    width: 98%;
   }
 
-  .logo {
-    margin: 0;
-    max-width: 320px;
+  .home-intro-graphic::before {
+    bottom: 6%;
+    left: 30%;
+    font-size: 0.9em;
+    letter-spacing: -0.35em;
   }
 
-  .navigation {
-    font-size: 1.5rem;
-    margin-top: 1rem;
+  .home-intro-contents {
+    font-size: 2vw;
+    max-width: 100%;
+    padding: 0 3rem 0 4rem;
+    width: 100%;
+    z-index: 2;
   }
 
-  .navigation li {
-    margin-left: 1rem;
+  .home-intro-contents::before {
+    display: none;
   }
 
-  .article-list,
-  .library {
-    padding: 0 0 7rem 0;
+  .home-intro-shape {
+    float: left;
+    display: block;
+    opacity: 0;
+    shape-outside: url("../images/the-work-shape-outside.svg");
+    visibility: hidden;
+    width: 100%;
   }
 }
 
 @media (min-width: 72.5em) {
+  .home-intro {
+    margin-top: -8rem;
+  }
+
   .article-list,
   .library {
     font-size: 1.2em;
     max-width: 50rem;
-  }
-}
-
-@media (min-width: 123.75em) {
-  .banner {
-    position: sticky;
-    top: 0;
   }
 }
 
@@ -701,6 +667,16 @@ a:focus {
   }
 }
 
+@media (min-width: 87.5em) {
+  .home-intro {
+    padding-bottom: 110vw;
+  }
+
+  .home-intro::after {
+    height: 100vw;
+  }
+}
+
 @media (min-width: 94em) {
   .about-intro {
     margin-top: -12.8rem;
@@ -709,5 +685,33 @@ a:focus {
   .about-intro-heading {
     font-size: 7rem;
     padding-top: 12rem;
+  }
+}
+
+/*
+  At ~1880px we want to stop using viewport-relative units. This way
+  elements won't scale beyond the proportions we want.
+*/
+@media (min-width: 117.5em) {
+  .home-intro {
+    margin-top: -9.4rem;
+    padding-bottom: 105.7rem;
+    width: 115.5rem;
+  }
+
+  .home-intro::after {
+    height: 117.44rem;
+  }
+
+  .home-intro-contents {
+    font-size: 2.6rem;
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 123.75em) {
+  .banner {
+    position: sticky;
+    top: 0;
   }
 }
