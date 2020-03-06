@@ -6,13 +6,13 @@
 }
 
 .e-header {
-  margin: 1.5rem auto 6rem auto;
+  margin: 1.5rem auto 4rem auto;
   max-width: var(--width-text-max);
   width: var(--width-content);
 }
 
 .p-name {
-  font-family: var(--font-proto-extralight);
+  font-family: var(--font-proto-bold);
   font-size: 10vw;
   line-height: 1.25;
 }
@@ -20,7 +20,7 @@
 .dt-published {
   display: block;
   font-size: 1.2rem;
-  margin-top: 1.2em;
+  margin-top: 0.875em;
 }
 
 .p-author {
