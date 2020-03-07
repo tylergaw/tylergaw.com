@@ -6,13 +6,13 @@
 }
 
 .e-header {
-  margin: 3rem auto 6rem auto;
+  margin: 1.5rem auto 4rem auto;
   max-width: var(--width-text-max);
   width: var(--width-content);
 }
 
 .p-name {
-  font-family: var(--font-proto-extralight);
+  font-family: var(--font-proto-bold);
   font-size: 10vw;
   line-height: 1.25;
 }
@@ -20,7 +20,7 @@
 .dt-published {
   display: block;
   font-size: 1.2rem;
-  margin-top: 1.2em;
+  margin-top: 0.875em;
 }
 
 .p-author {
@@ -77,6 +77,7 @@
   }
 
   & h3 {
+    font-size: 1.1em;
     margin-top: 1.2em;
   }
 
@@ -240,10 +241,10 @@
   font-size: 1em;
 }
 
-@media (min-width: 46em) {
+@media (min-width: 46.875em) {
   .e-header {
     margin-bottom: 7rem;
-    margin-top: 6rem;
+    margin-top: 0;
   }
 
   .p-name {
