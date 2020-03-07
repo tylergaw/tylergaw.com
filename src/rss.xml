@@ -5,7 +5,7 @@
   <managingEditor>me@tylergaw.com.com (Tyler Gaw)</managingEditor>
   <webMaster>me@tylergaw.com.com (Tyler Gaw)</webMaster>
   <description>An account of the work I do as a designer and engineer</description>
-  <lastBuildDate>Mon, 2 Mar 2020 00:05:00 EST</lastBuildDate>
+  <lastBuildDate>Sat, 7 Mar 2020 15:15:00 EST</lastBuildDate>
   <language>en</language>
   <generator>Elbow grease</generator>
   <image>
@@ -16,6 +16,15 @@
     <height>180</height>
   </image>
   <atom:link href="https://tylergaw.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Realign 2020: Logo</title>
+      <dc:creator>Tyler Gaw</dc:creator>
+      <link>https://tylergaw.com/articles/realign-2020-logo</link>
+      <guid>https://tylergaw.com/articles/realign-2020-logo</guid>
+      <pubDate>Sat, 7 Mar 2020 15:15:00 EST</pubDate>
+      <description>
+      </description>
+    </item>
     <item>
       <title>Realign 2020: Typography</title>
       <dc:creator>Tyler Gaw</dc:creator>
