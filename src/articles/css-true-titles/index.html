@@ -12,11 +12,11 @@ date: "2014-02-25"
             </a>
         </figure>
         <p class="entry-intro">
-            The <a href="http://youtu.be/ZRPpCqXYoos">opening titles</a> to the
+            The <a href="https://youtu.be/ZRPpCqXYoos">opening titles</a> to the
             show True Detective are incredible. CSS contains the building
             blocks necessary to create a similar style title sequence. I tried my
             hand it and came up with fun results. Here's the
-            <a href="http://lab.tylergaw.com/css-true-titles/">demo</a> and the
+            <a href="https://lab.tylergaw.com/css-true-titles/">demo</a> and the
             <a href="https://github.com/tylergaw/css-true-titles">source code</a>.
         </p>
         <p>
@@ -24,14 +24,14 @@ date: "2014-02-25"
             experimental project. Things will most likely go wrong when you view
             it. I'm pushing on the browser pretty hard to get it to do things it
             maybe wasn't intended to. Also, due to limited suppport
-            of <a href="http://www.w3.org/TR/css-masking-1">CSS masking</a>
+            of <a href="https://www.w3.org/TR/css-masking-1">CSS masking</a>
             you'll only see the full effect in Chrome, Opera, and possibly Mobile Safari.
             The animations will work in other browsers, but things will look strange.
         </p>
         <h2>The Masking</h2>
         <p>
             There's a whole lot going on in each shot of the TD titles. You should
-            read the write up about it on <a href="http://www.artofthetitle.com/title/true-detective/">Art of the Title</a>.
+            read the write up about it on <a href="https://www.artofthetitle.com/title/true-detective/">Art of the Title</a>.
             The main effect that I wanted to recreate was the use of human silhouettes
             to mask shots. They use video clips for the masks and the content being
             masked, but I stuck with still images to keep things a little easier.
@@ -79,7 +79,7 @@ date: "2014-02-25"
             images applied to them.
         </p>
         <figure>
-            <img src="http://lab.tylergaw.com/css-true-titles/img/opener-human.png"
+            <img src="https://lab.tylergaw.com/css-true-titles/img/opener-human.png"
                 alt="">
             <figcaption>
                 The partially transparent human image, which doubles as the mask
@@ -87,14 +87,14 @@ date: "2014-02-25"
             </figcaption>
         </figure>
         <p>
-            All of the images are from the <a href="http://flickr.com/commons">Flickr Commons</a>.
+            All of the images are from the <a href="https://flickr.com/commons">Flickr Commons</a>.
             I cropped, clipped, and pushed their pixels around in Photoshop until
             they felt right. Some of them have kind of ratty clipping paths, but
             you can't really seen them with everything moving. I was able to bring
             the file size down some because of that.
         </p>
         <figure>
-            <img src="http://lab.tylergaw.com/css-true-titles/img/opener-town.png"
+            <img src="https://lab.tylergaw.com/css-true-titles/img/opener-town.png"
                 alt="">
             <figcaption>
                 The background image for the town element.
@@ -243,10 +243,10 @@ date: "2014-02-25"
                 it is slightly scaled, skewed along the X axis, and translated on the X axis.
             </li>
             <li>
-                <b>street</b>: A <a href="http://lab.tylergaw.com/css-true-titles/img/director-street.png">masked image</a>.
+                <b>street</b>: A <a href="https://lab.tylergaw.com/css-true-titles/img/director-street.png">masked image</a>.
                 Its X and Y positions are changed over 18 seconds using <code>translate</code>.
             </li>
-            <li><b>trees</b>: A <a href="http://lab.tylergaw.com/css-true-titles/img/director-trees.png">masked image</a>.
+            <li><b>trees</b>: A <a href="https://lab.tylergaw.com/css-true-titles/img/director-trees.png">masked image</a>.
                 Its X and Y positions are changed over 18 seconds using <code>translate</code>.
             </li>
             <li>
@@ -257,7 +257,7 @@ date: "2014-02-25"
             <li>
                 <b>pseudo-element</b>: I'm using the <code>::before</code> selector
                 on the trees element to add an additional subtle detail I called a "blip". It is a
-                <a href="http://lab.tylergaw.com/css-true-titles/img/director-blip.png">image of fire</a>
+                <a href="https://lab.tylergaw.com/css-true-titles/img/director-blip.png">image of fire</a>
                 that is displayed shortly to give a little more detail to animation.
             </li>
         </ul>
@@ -266,7 +266,7 @@ date: "2014-02-25"
             elements on X and Y axes instead of using positioning properties like
             left, right, top, bottom. Also try to use it instead of animating
             the <code>background-position</code> property. Using <code>translate</code>
-            gives much smoother animations and uses less CPU. <a href="http://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/">Paul</a>
+            gives much smoother animations and uses less CPU. <a href="https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/">Paul</a>
             explains it better than I can.
         </p>
         <p>
