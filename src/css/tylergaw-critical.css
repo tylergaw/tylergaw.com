@@ -364,10 +364,6 @@ a:focus {
   padding: 1.5rem 0 6rem 0;
 }
 
-.library-intro {
-  padding: 0 1em 1em 1em;
-}
-
 .article-listed,
 .book-listed {
   box-sizing: border-box;
@@ -412,16 +408,19 @@ a:focus {
   margin-top: 0.5em;
 }
 
+.listed-items-heading,
 .articles-year {
   font-family: var(--font-proto-regular);
   font-size: 2em;
 }
 
+.listed-items-heading h3,
 .articles-year h3 {
   padding: 0 1.5rem;
   position: relative;
 }
 
+.book-listed + .listed-items-heading h3,
 .article-listed + .articles-year h3 {
   padding-top: 2em;
 }
