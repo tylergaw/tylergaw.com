@@ -718,4 +718,10 @@ a:focus {
     position: sticky;
     top: 0;
   }
+
+  .article-list,
+  .library {
+    font-size: 1.6em;
+    max-width: 54rem;
+  }
 }

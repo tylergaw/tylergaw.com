@@ -1,0 +1,66 @@
+---
+layout: article.html
+title: "CSS: Flexible Repeating SVG Masks"
+date: "2020-03-12"
+permalink: /articles/css-repeating-svg-masks
+meta:
+  description: A CSS technique for using SVG as repeating masks.
+  image: /articles/assets/post-image-repeating-masks-social.png
+  card: summary
+---
+
+<p class="entry-intro">
+  This is a technique I used recently to create flexible,
+  repeating patterns with SVG with CSS <code>mask</code>. There’s a working demo on
+  <a href="https://codepen.io/tylergaw/pen/mdJpdVm?editors=1100">CodePen</a>.
+  This post describes motivation and implementation details.
+</p>
+
+<p>
+  The need came from something I designed at <a href="https://streetcred.co">work</a>.
+  I gave the bottom of the header on each page a little squiggle to make it a bit
+  more interesting than a straight line. Along with that, I designed a <a href="https://streetcred.co/patterns#color">color system</a>
+  for each type of page. Common pages parade in purple, company content is true blue,
+  blog posts read in red, and contests own orange. With StreetCred I’ve been
+  throwing a rainbow of bright colors to see what’s fun and what sticks.
+</p>
+<figure>
+  <picture>
+    <source srcset="/articles/assets/post-image-repeating-masks-streetcred-banner.webp" type="image/webp">
+    <source srcset="/articles/assets/post-image-repeating-masks-streetcred-banner.png" type="image/jpeg">
+    <img src="/articles/assets/post-image-repeating-masks-streetcred-banner.png" alt="A screenshot of a purple, blue, red, and orange banner from the StreetCred website." />
+  </picture>
+  <figcaption>fig 1: Banner squiggles from <a href="https://streetcred.co">streetcred.co</a></figcaption>
+</figure>
+<p>
+  Along with the current colors, we’re getting ready to ship new features that
+  use even more colors. We’ll make pages for those and they’ll need themed banner
+  squiggles.
+</p>
+
+<h2>How Should this Work?</h2>
+<p>
+  For that design, I needed a seamless, horizontally repeating pattern. I wanted
+  SVG so it was crisp at any size. And I only wanted a single SVG image that
+  I could color using CSS. Because we could have n-number of colors, creating
+  a new SVG for every color wasn’t a good option. The squiggly banner using this
+  approach is live on <a href="https://streetcred.co">streetcred.co</a>. Let’s
+  look at an isolated example to see how the pieces fit together.
+</p>
+
+<h3>Creating the SVG</h3>
+<p>
+  First, I made a quick doodle in Sketch using the vector tool. Because I wanted
+  I little squiggly line, I left the path open. The important part was to make
+  sure it was seamless when repeated horizontally. I did that by making sure
+  the first point and last point were at the same location on the y axis. And
+  that the bezier curve leading to them was flat by the time it reached the
+  edge of the artboard. This is a simple shape, so that’s easy to eyeball.
+  A more complex design would involve more work.
+</p>
+
+<p>
+
+</p>
+
+{{> thanks-for-reading }}
