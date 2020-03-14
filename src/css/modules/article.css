@@ -1,3 +1,7 @@
+.h-entry ::selection {
+  background-color: var(--accent);
+}
+
 .h-entry {
   --width-text-max: 60.5rem;
   --width-content: 90%;
