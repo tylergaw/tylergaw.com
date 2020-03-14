@@ -6,8 +6,7 @@ body {
     That’s how polygon() works.
   */
   --poster-fill-clip-default: polygon(
-    /* Starting path at top left */
-    0 0.1em,
+    /* Starting path at top left */ 0 0.1em,
     6vw 0.25em,
     12vw 0.2em,
     20vw 0.3em,
@@ -16,8 +15,7 @@ body {
     48vw 0.27em,
     70vw 0.1em,
     81vw 0.25em,
-    /* top right, points below here draw the right edge of the path. */
-    100% 0,
+    /* top right, points below here draw the right edge of the path. */ 100% 0,
     /*
       Using calc() here to act like we're drawing from right-to-left. We do this
       because if we draw from the left and use a relative unit, the size of
@@ -25,19 +23,19 @@ body {
       use media queries to customize the shape at different sizes, but calc
       feels more flexible and less work.
     */
-    calc(100% - 0.1em) 4em,
+      calc(100% - 0.1em) 4em,
     100% 14em,
     calc(100% - 0.3em) 28em,
     100% 48em,
     calc(100% - 0.3em) 71em,
-    /* bottom right. points below here draw the bottom edge of the path */
-    100% 100%,
+    /* bottom right. points below here draw the bottom edge of the path */ 100%
+      100%,
     calc(100% - 38vw) calc(100% - 0.2em),
     calc(100% - 68vw) calc(100% - 0.25em),
     calc(100% - 81vw) calc(100% - 0.15em),
     calc(100% - 90vw) calc(100% - 0.3em),
-    /* bottom left. points below here draw the left edge of the path */
-    0 calc(100% - 0.6em),
+    /* bottom left. points below here draw the left edge of the path */ 0
+      calc(100% - 0.6em),
     0.3em 80%,
     0.2em 74%,
     0.1em 64%,
