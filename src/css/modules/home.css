@@ -151,7 +151,7 @@
 }
 
 .epilogue {
-  color: var(--offwhite);
+  color: var(--color-offwhite);
   font-size: 0.9rem;
   line-height: 1.4;
   padding: 65rem 2rem 15rem 2rem;
@@ -166,10 +166,10 @@
 }
 
 .epilogue::before {
-  background: var(--grey) url("/images/home-intro-bg-tile.svg") repeat;
-  background-size: 1000px;
-  -webkit-clip-path: var(--poster-fill-clip-default);
-  clip-path: var(--poster-fill-clip-default);
+  /* background: var(--color-charcoal) url("/images/home-intro-bg-tile.svg") repeat; */
+  /* background-size: 1000px; */
+  /* -webkit-clip-path: var(--poster-fill-clip-default); */
+  /* clip-path: var(--poster-fill-clip-default); */
   content: "";
   display: block;
   height: 100%;
@@ -190,7 +190,7 @@
 }
 
 .epilogue::after {
-  background-color: var(--lightgrey);
+  background-color: var(--color-white);
   --line-clip: polygon(
     3px 0,
     7px 0,

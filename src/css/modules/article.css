@@ -1,5 +1,6 @@
 .h-entry ::selection {
-  background-color: var(--accent);
+  background-color: var(--color-accent-primary);
+  color: var(--color-bg);
 }
 
 .h-entry {
@@ -33,7 +34,7 @@
 }
 
 .e-content {
-  color: var(--offwhite);
+  color: var(--color-text);
   font-size: 1.6rem;
   line-height: 1.6;
   margin: 0 auto;
@@ -42,7 +43,7 @@
   width: var(--width-content);
 
   & a {
-    color: var(--white);
+    color: var(--text);
   }
 
   & .link--future {
@@ -69,12 +70,12 @@
   & h4,
   & h5,
   & h6 {
-    color: var(--offwhite);
+    color: var(--color-text);
     font-family: var(--font-proto-regular);
   }
 
   & h2 {
-    color: var(--offwhite);
+    color: var(--color-text);
     font-family: var(--font-proto-bold);
     font-size: 1.4em;
     padding: 0.7em 0 0.25em 0;
@@ -128,11 +129,6 @@
     }
   }
 
-  & figcaption {
-    color: var(--darkerwhite);
-    padding: 0.7em;
-  }
-
   & figcaption,
   & .note,
   & .note-special,
@@ -146,7 +142,6 @@
       border-width: 1px;
       border-style: solid;
       border-radius: 3px;
-      color: #fff;
       padding: 0.6em 1em;
       margin: 0.1em 0 1.2em 0;
     }
@@ -154,7 +149,6 @@
     &.note-special {
       border-color: #ffad154d;
       background-color: #ffad1526;
-      color: var(--darkerwhite);
     }
 
     &.note-update {
@@ -170,7 +164,6 @@
   }
 
   & li {
-    color: var(--offwhite);
     line-height: 1.5;
     padding-bottom: 0.25em;
     position: relative;
@@ -185,8 +178,7 @@
   }
 
   & blockquote {
-    border-left: 0.4em solid var(--accent);
-    color: var(--darkerwhite);
+    border-left: 0.4em solid var(--color-accent-primary);
     font-size: 0.9em;
     margin-bottom: 2em;
     padding: 0.2em 1em 0.2em 1.6em;
@@ -217,7 +209,7 @@
 }
 
 .entry-intro::after {
-  background-color: var(--accent);
+  background-color: var(--color-accent-primary);
   content: "";
   display: block;
   height: 0.75rem;
@@ -232,7 +224,7 @@
 
 .entry-intro + p:first-letter,
 .entry-intro + h2 + p:first-letter {
-  color: var(--accent);
+  color: var(--color-accent-primary);
   float: left;
   font-family: var(--font-proto-bold);
   font-size: 680%;

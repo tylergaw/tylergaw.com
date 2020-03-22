@@ -17,7 +17,7 @@
 }
 
 .contentinfo a {
-  color: var(--grey);
+  color: var(--color-charcoal);
   display: inline-block;
   font-family: var(--font-proto-regular);
   font-size: 0.8rem;
@@ -27,6 +27,6 @@
 
 .contentinfo a:hover,
 .contentinfo a:focus {
-  background-color: var(--grey);
-  color: var(--lightgrey);
+  background-color: var(--color-charcoal);
+  color: var(--color-white);
 }

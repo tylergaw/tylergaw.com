@@ -46,22 +46,22 @@ body {
 }
 
 .poster-fill-default {
-  position: relative;
+  /* position: relative; */
 }
 
 .poster-fill-default::before {
-  background: var(--grey) url("/images/home-intro-bg-tile.svg") repeat;
-  background-size: 1000px;
-  -webkit-clip-path: var(--poster-fill-clip-default);
-  clip-path: var(--poster-fill-clip-default);
-  content: "";
-  display: block;
+  /* background: var(--color-charcoal) url("/images/home-intro-bg-tile.svg") repeat; */
+  /* background-size: 1000px; */
+  /* -webkit-clip-path: var(--poster-fill-clip-default); */
+  /* clip-path: var(--poster-fill-clip-default); */
+  /* content: ""; */
+  /* display: block;
   height: 100%;
   position: absolute;
   width: 100%;
-  z-index: -1;
+  z-index: -1; */
 }
 
 .poster-no-bg-img::before {
-  background-image: none;
+  /* background-image: none; */
 }

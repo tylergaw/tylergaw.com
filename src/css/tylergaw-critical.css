@@ -149,17 +149,25 @@ em {
   src: url("/fonts/protogroteskweb-regular.woff2");
 }
 
+html,
 body {
-  /* TODO: Consolidate and rename colors */
-  --lightgrey: #fff;
-  --grey: #292929;
-  --accent: #ff607f;
-  --offwhite: #f8f8f8;
-  --darkerwhite: #d3d3d3;
   --eggshell: #f6f5e4;
 
-  --color-accent-primary: var(--accent);
+  /* Accent colors */
+  --color-accent-primary: #00eb9b;
+
+  /* Common colors */
+  --color-charcoal: #292929;
+  --color-mud: #3f3d31;
+  --color-offwhite: #f8f8f8;
   --color-white: #fff;
+
+  /*
+    Scheme color variables: We use these general names to switch colors
+    based on preferred color scheme
+  */
+  --color-bg: var(--color-charcoal);
+  --color-text: var(--color-offwhite);
 
   --font-proto-extralight: "protogrotesk-extralight", helvetica, sans-serif;
   --font-proto-light: "protogrotesk-light", helvetica, sans-serif;
@@ -167,18 +175,15 @@ body {
   --font-proto-bold: "protogrotesk-bold", helvetica, sans-serif;
   --font-mono: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 
-  color: var(--offwhite);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   font-family: var(--font-proto-light);
   line-height: 1;
   margin: 0;
   border: 0;
   font-size: 100%;
+  transition: background-color 0.1s ease;
   vertical-align: baseline;
-}
-
-html,
-body {
-  background-color: var(--color-white);
 }
 
 a {
@@ -187,6 +192,23 @@ a {
 
 a:focus {
   outline: 3px solid currentColor;
+}
+
+@media (prefers-color-scheme: light) {
+  html,
+  body {
+    --color-accent-primary: #a6133b;
+    --color-bg: var(--color-offwhite);
+    --color-text: var(--color-mud);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html,
+  body {
+    --color-bg: var(--color-charcoal);
+    --color-text: var(--color-offwhite);
+  }
 }
 
 .poster-default {
@@ -202,7 +224,7 @@ a:focus {
 }
 
 .logo {
-  color: var(--color-white);
+  color: var(--color-text);
   display: block;
   margin: 0 auto;
   max-width: 260px;
@@ -242,12 +264,6 @@ a:focus {
   display: none;
 }
 
-/*
-  Home intro
-  I include these as inline styles because this sits well
-  "above the fold" on many screen sizes. Having these load fast decreases
-  the time to first meaningful paint.
-*/
 .poster-intro {
   padding: 0.25rem 0.25rem 0 0.25rem;
 }
@@ -263,7 +279,7 @@ a:focus {
 }
 
 .home-intro::after {
-  background-color: var(--lightgrey);
+  background-color: currentColor;
   bottom: 35vw;
   --line-clip: polygon(
     0 5px,
@@ -299,8 +315,8 @@ a:focus {
 }
 
 .home-intro-contents ::selection {
-  background-color: #ba7f44;
-  color: var(--offwhite);
+  background-color: var(--color-accent-primary);
+  color: var(--color-offwhite);
 }
 
 /* On narrow screens this is the diagonal shape of the intro copy. */
@@ -311,17 +327,6 @@ a:focus {
   shape-outside: polygon(0 0, 20% 0, 100% 100%);
   height: 120%;
   width: 15%;
-}
-
-.home-intro-contents a {
-  border-bottom: 0.15em solid currentColor;
-  color: var(--offwhite);
-  text-decoration: none;
-}
-
-.home-intro-contents a:hover,
-.home-intro-contents a:focus {
-  color: #ba7f44;
 }
 
 .home-intro-contents p + p {
@@ -379,14 +384,14 @@ a:focus {
 .article-listed time,
 .book-listed time,
 .book-current {
-  color: var(--accent);
+  color: var(--color-accent-primary);
   display: block;
   font-size: 1rem;
   margin-bottom: 0.25em;
 }
 
 .listed-item-link {
-  color: var(--offwhite);
+  color: var(--color-text);
   display: inline-block;
   font-size: 1.6em;
   line-height: 1.1;
@@ -397,12 +402,11 @@ a:focus {
 
 .listed-item-link:hover,
 .listed-item-link:focus {
-  color: var(--accent);
+  color: var(--color-accent-primary);
 }
 
 .article-listed p,
 .book-listed h4 {
-  color: var(--darkerwhite);
   font-size: 1.1em;
   line-height: 1.5;
   margin-top: 0.5em;
@@ -436,7 +440,7 @@ a:focus {
   flex-wrap: wrap;
   font-size: 1.2rem;
   line-height: 1.6;
-  padding: 0 1rem 0 1rem;
+  padding: 0 1rem;
   position: relative;
   z-index: 1;
 }
@@ -466,7 +470,6 @@ a:focus {
 }
 
 .about-intro-body h3 {
-  color: var(--accent-about);
   font-size: 1.4rem;
   margin: 1.75em 0 0.25em 0;
 }

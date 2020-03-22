@@ -1,5 +1,5 @@
 [data-page="resume"] .poster-fill-default::before {
-  background-image: none;
+  /* background-image: none; */
 }
 
 .resume {
@@ -17,7 +17,7 @@
 }
 
 .resume-intro::after {
-  background-color: var(--accent);
+  background-color: var(--color-accent-primary);
   content: "";
   display: block;
   height: 0.75rem;
@@ -31,7 +31,7 @@
 }
 
 .resume h2 {
-  color: var(--accent);
+  color: var(--color-accent-primary);
   font-family: var(--font-proto-regular);
   font-size: 1em;
   margin: 1.8em 0 0.5em 0;
@@ -47,7 +47,6 @@
 }
 
 .resume h5 {
-  color: var(--darkerwhite);
   font-size: 0.8em;
   margin-top: 0.5em;
 }

@@ -16,7 +16,7 @@
 }
 
 .project .gw-warning {
-  background-color: var(--offwhite);
+  background-color: var(--color-offwhite);
   border-radius: 2px;
   color: var(--gw-blue);
   font-size: 0.9em;

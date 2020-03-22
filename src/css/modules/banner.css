@@ -8,5 +8,5 @@
 [data-page="blog"] .nav-blog,
 [data-page="home"] .nav-work,
 [data-page="about"] .nav-about {
-  color: var(--color-white);
+  color: var(--color-text);
 }
