@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en" {{#if type}}data-page="{{type}}"{{/if}}>
+  <head>
+    {{> head-contents }}
+  </head>
+  <body class="poster-default">
+    <div class="poster-fill-default">
+      <main>
+        {{{contents}}}
+      </main>
+    </div>
+    <link rel="stylesheet" href="/css/tylergaw.css">
+    {{> scripts }}
+  </body>
+</html>
