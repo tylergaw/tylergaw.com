@@ -203,14 +203,6 @@ a:focus {
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  html,
-  body {
-    --color-bg: var(--color-charcoal);
-    --color-text: var(--color-offwhite);
-  }
-}
-
 .poster-default {
   padding: 0.25rem 0.2rem 0.25rem 0.25rem;
 }
