@@ -8,16 +8,15 @@
   padding: 2rem 0;
   text-align: center;
   width: 95%;
+}
 
-  & li {
-    display: inline-block;
-    max-width: 90px;
-    width: 25%;
-  }
+.contentinfo li {
+  display: inline-block;
+  max-width: 90px;
+  width: 25%;
 }
 
 .contentinfo a {
-  color: var(--color-charcoal);
   display: inline-block;
   font-family: var(--font-proto-regular);
   font-size: 0.8rem;
@@ -27,6 +26,5 @@
 
 .contentinfo a:hover,
 .contentinfo a:focus {
-  background-color: var(--color-charcoal);
-  color: var(--color-white);
+  color: var(--color-text);
 }
