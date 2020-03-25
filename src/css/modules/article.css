@@ -46,6 +46,11 @@
     color: var(--text);
   }
 
+  & a:hover,
+  & a:focus {
+    color: var(--color-accent-primary);
+  }
+
   & .link--future {
     cursor: not-allowed;
     opacity: 0.4;
@@ -127,6 +132,11 @@
       margin: 0 auto;
       width: 100%;
     }
+  }
+
+  & figcaption {
+    margin-top: 1.5em;
+    padding-left: 0.5em;
   }
 
   & figcaption,
