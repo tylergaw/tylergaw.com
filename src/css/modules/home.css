@@ -4,7 +4,6 @@
 }
 
 [data-page="home"] .banner {
-  position: relative;
   z-index: 2;
 }
 

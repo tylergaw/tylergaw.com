@@ -154,7 +154,8 @@ body {
   --eggshell: #f6f5e4;
 
   /* Accent colors */
-  --color-accent-primary: #00eb9b;
+  --color-accent-toxic: #00eb9b;
+  --color-accent-wine: #c01458;
 
   /* Common colors */
   --color-charcoal: #292929;
@@ -166,6 +167,7 @@ body {
     Scheme color variables: We use these general names to switch colors
     based on preferred color scheme
   */
+  --color-accent-primary: var(--color-accent-toxic);
   --color-bg: var(--color-charcoal);
   --color-text: var(--color-offwhite);
 
@@ -175,7 +177,8 @@ body {
   --font-proto-bold: "protogrotesk-bold", helvetica, sans-serif;
   --font-mono: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 
-  background-color: var(--color-bg);
+  background: var(--color-bg) url(/images/noise-tile-standard.svg) repeat;
+  background-size: 800px;
   color: var(--color-text);
   font-family: var(--font-proto-light);
   line-height: 1;
@@ -197,7 +200,7 @@ a:focus {
 @media (prefers-color-scheme: light) {
   html,
   body {
-    --color-accent-primary: #a6133b;
+    --color-accent-primary: var(--color-accent-wine);
     --color-bg: var(--color-offwhite);
     --color-text: var(--color-mud);
   }

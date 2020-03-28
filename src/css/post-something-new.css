@@ -8,10 +8,6 @@ body {
   padding: 0;
 }
 
-.poster-fill-default {
-  background: var(--eggshell);
-}
-
 .logo-base,
 .logo-title {
   fill: var(--color-offwhite);
