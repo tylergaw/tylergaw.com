@@ -103,24 +103,10 @@
     padding-bottom: 1.6em;
   }
 
-  & .thanks-for-reading {
-    padding-bottom: 0.4em;
-
-    & i {
-      background: transparent url("/images/article-thanks.svg") no-repeat left
-        top;
-      background-size: 100%;
-      display: inline-block;
-      height: 70px;
-      margin-top: 0.1em;
-      text-indent: -300em;
-      max-width: 250px;
-      width: 95%;
-    }
-
-    & svg {
-      max-width: 250px;
-    }
+  & .thanks-for-reading svg {
+    margin-left: auto;
+    max-width: 15.625rem;
+    transform: translateX(-1rem);
   }
 
   & figure {
