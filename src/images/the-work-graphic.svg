@@ -9,7 +9,7 @@
     @media (prefers-color-scheme: light) {
       :root {
         --base: #4d352e;
-        --the-work: #edf8f2;
+        --the-work: #fff;
         --so-far: #e7f097;
       }
     }

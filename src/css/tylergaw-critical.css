@@ -156,6 +156,9 @@ body {
   /* Accent colors */
   --color-accent-toxic: #00eb9b;
   --color-accent-wine: #c01458;
+  --color-accent-boo: #9db4ff;
+  --color-accent-pank: #f2c0ea;
+  --color-accent-boogers: #c2d838;
 
   /* Common colors */
   --color-charcoal: #292929;
@@ -168,8 +171,12 @@ body {
     based on preferred color scheme
   */
   --color-accent-primary: var(--color-accent-toxic);
+  --color-accent-secondary: var(--color-accent-boo);
   --color-bg: var(--color-charcoal);
   --color-text: var(--color-offwhite);
+
+  /* Crud */
+  --crud-bubble: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Cpath fill="%23000" fill-rule="evenodd" d="M32.533 3.432C12.033 10.596 1 32.789 1 46.508c0 13.718 7.54 47.877 33.467 52.73 25.926 4.85 61.048-14.262 63.743-33.996 2.695-19.733-1.652-38.632-10.834-48.82C78.194 6.234 53.033-3.732 32.533 3.432z"/%3E%3C/svg%3E');
 
   --font-proto-extralight: "protogrotesk-extralight", helvetica, sans-serif;
   --font-proto-light: "protogrotesk-light", helvetica, sans-serif;
@@ -201,6 +208,7 @@ a:focus {
   html,
   body {
     --color-accent-primary: var(--color-accent-wine);
+    --color-accent-secondary: var(--color-accent-boogers);
     --color-bg: var(--color-offwhite);
     --color-text: var(--color-mud);
   }
@@ -223,6 +231,7 @@ a:focus {
   display: block;
   margin: 0 auto;
   max-width: 260px;
+  position: relative;
   width: 100%;
 }
 
@@ -379,14 +388,13 @@ a:focus {
 .article-listed time,
 .book-listed time,
 .book-current {
-  color: var(--color-accent-primary);
   display: block;
   font-size: 1rem;
   margin-bottom: 0.25em;
 }
 
 .listed-item-link {
-  color: var(--color-text);
+  color: var(--color-accent-primary);
   display: inline-block;
   font-size: 1.6em;
   line-height: 1.1;
@@ -397,7 +405,7 @@ a:focus {
 
 .listed-item-link:hover,
 .listed-item-link:focus {
-  color: var(--color-accent-primary);
+  color: var(--color-text);
 }
 
 .article-listed p,

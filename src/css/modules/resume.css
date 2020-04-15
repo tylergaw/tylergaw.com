@@ -13,7 +13,7 @@
 }
 
 .resume-intro::after {
-  background-color: var(--color-accent-primary);
+  background-color: var(--color-accent-secondary);
   content: "";
   display: block;
   height: 0.75rem;
@@ -27,14 +27,14 @@
 }
 
 .resume h2 {
-  color: var(--color-accent-primary);
-  font-family: var(--font-proto-regular);
-  font-size: 1em;
-  margin: 1.8em 0 0.5em 0;
+  font-family: var(--font-proto-bold);
+  font-size: 0.75em;
+  margin: 2.5em 0 0.5em 0;
   text-transform: uppercase;
 }
 
 .resume h3 {
+  font-family: var(--font-proto-regular);
   font-size: 1.4em;
 }
 
@@ -57,9 +57,5 @@
 
 .resume-entry-desc ul {
   list-style: disc outside;
-  padding-left: 1rem;
-}
-
-.resume-entry-desc li {
   padding-left: 1rem;
 }

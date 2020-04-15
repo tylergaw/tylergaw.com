@@ -1,3 +1,17 @@
+.logo::after {
+  --size: 5rem;
+  background-color: var(--color-accent-secondary);
+  content: "";
+  display: block;
+  left: calc(100% - 1.8rem);
+  -webkit-mask-image: var(--crud-bubble);
+  mask-image: var(--crud-bubble);
+  position: absolute;
+  height: var(--size);
+  top: -0.75rem;
+  width: var(--size);
+}
+
 .logo:hover .logo__title,
 .logo:focus .logo__title {
   fill: currentColor;

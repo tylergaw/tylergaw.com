@@ -1,5 +1,5 @@
 .h-entry ::selection {
-  background-color: var(--color-accent-primary);
+  background-color: var(--color-accent-secondary);
   color: var(--color-bg);
 }
 
@@ -174,7 +174,7 @@
   }
 
   & blockquote {
-    border-left: 0.4em solid var(--color-accent-primary);
+    border-left: 0.4em solid var(--color-accent-secondary);
     font-size: 0.9em;
     margin-bottom: 2em;
     padding: 0.2em 1em 0.2em 1.6em;
@@ -205,7 +205,7 @@
 }
 
 .entry-intro::after {
-  background-color: var(--color-accent-primary);
+  background-color: var(--color-accent-secondary);
   content: "";
   display: block;
   height: 0.75rem;
@@ -220,7 +220,7 @@
 
 .entry-intro + p:first-letter,
 .entry-intro + h2 + p:first-letter {
-  color: var(--color-accent-primary);
+  color: var(--color-accent-secondary);
   float: left;
   font-family: var(--font-proto-bold);
   font-size: 680%;
