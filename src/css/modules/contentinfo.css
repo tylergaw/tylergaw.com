@@ -1,30 +1,55 @@
-.contentinfo {
+.footer {
   box-sizing: border-box;
-  clear: both;
   margin: 0 auto;
-  max-width: 720px;
   line-height: 1.4;
+  margin: 0 auto;
+  max-width: 42rem;
   overflow: hidden;
-  padding: 2rem 0;
-  text-align: center;
-  width: 95%;
+  padding: 2rem 1.5rem 8rem 1.5rem;
 }
 
-.contentinfo li {
-  display: inline-block;
-  max-width: 90px;
-  width: 25%;
+.footer__links {
+  display: grid;
+  grid-template-columns: repeat(3, var(--g-col));
 }
 
-.contentinfo a {
+.footer__links div {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__links li {
+  margin: 0.5rem 0.25rem;
+}
+
+.footer a {
+  border-bottom: 1px solid currentColor;
   display: inline-block;
   font-family: var(--font-proto-regular);
-  font-size: 0.8rem;
-  padding: 0.7em;
+  font-size: 0.9rem;
+  text-decoration: none;
   text-transform: uppercase;
 }
 
-.contentinfo a:hover,
-.contentinfo a:focus {
+.footer a:hover,
+.footer a:focus {
   color: var(--color-text);
+}
+
+.thanks {
+  font-family: var(--font-proto-regular);
+  font-size: 0.9rem;
+  margin: calc(var(--g-row) * 6) 0.25rem calc(var(--g-row) * 3) 0.25rem;
+  text-transform: uppercase;
+}
+
+.no-js .theme-toggle {
+  display: none;
+}
+
+@media (min-width: 72.5em) {
+  .footer {
+    font-size: 1.2em;
+    max-width: 50rem;
+  }
 }
