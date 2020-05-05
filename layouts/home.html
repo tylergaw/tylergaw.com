@@ -1,9 +1,10 @@
 <!doctype html>
-<html lang="en" {{#if type}}data-page="{{type}}"{{/if}}>
+<html lang="en" class="no-js" {{#if type}}data-page="{{type}}"{{/if}}>
   <head>
     {{> head-contents }}
   </head>
   <body>
+    {{> scheme.js }}
     <main>
       <section class="poster-intro">
         <div>
@@ -11,7 +12,9 @@
 
           <div class="home-intro">
             <h1 class="home-intro-graphic">
-              <img src="/images/the-work-graphic.svg" alt="" />
+              <svg viewBox="-5 0 2086 2075" class="the-work-graphic">
+                <use xlink:href="/images/the-work-graphic.svg#the-graphic"></use>
+              </svg>
             </h1>
             <div class="home-intro-contents">
               <img class="home-intro-shape" src="/images/the-work-shape-outside.svg" alt="" aria-hidden="true" />

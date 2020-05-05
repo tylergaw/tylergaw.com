@@ -26,7 +26,7 @@
 }
 
 @media (prefers-color-scheme: light) {
-  [data-page="blog"] {
+  html:not([data-user-color-scheme]) [data-page="blog"] {
     --color-atrule: #aa5d00;
     --color-background: #fefefe;
     --color-base: #545454;
@@ -41,6 +41,22 @@
     --color-regex: #d91e18;
     --color-selector: #aa5d00;
   }
+}
+
+[data-user-color-scheme="light"][data-page="blog"] {
+  --color-atrule: #aa5d00;
+  --color-background: #fefefe;
+  --color-base: #545454;
+  --color-boolean: #008000;
+  --color-border: #f3f3f3;
+  --color-comment: #696969;
+  --color-keyword: #d91e18;
+  --color-muted: #818181;
+  --color-operator: #008000;
+  --color-property: #007faa;
+  --color-punctuation: #545454;
+  --color-regex: #d91e18;
+  --color-selector: #aa5d00;
 }
 
 code[class*="language-"],

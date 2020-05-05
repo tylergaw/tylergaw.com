@@ -1,35 +1,34 @@
-<!doctype html>
-<html lang="en" data-page="blog">
+<!DOCTYPE html>
+<html lang="en" class="no-js" data-page="blog">
   <head>
     {{> head-contents }}
   </head>
   <body class="poster-default">
-    <div>
-      <div class="article-hero">
-        {{> banner }}
+    {{> scheme.js }}
+    <div class="article-hero">
+      {{> banner }}
 
-        <header class="e-header">
-          <h1 class="p-name">
-            {{ title }}
-          </h1>
-          <time class="dt-published" datetime="{{ date }}">
-            {{dateFormat date}}
-          </time>
-          <p class="p-author h-card">
-            By Tyler Gaw
-          </p>
-        </header>
-      </div>
-
-      <article class="h-entry">
-        <div class="e-content">
-          {{{contents}}}
-        </div>
-      </article>
+      <header class="e-header">
+        <h1 class="p-name">
+          {{ title }}
+        </h1>
+        <time class="dt-published" datetime="{{ date }}">
+          {{dateFormat date}}
+        </time>
+        <p class="p-author h-card">
+          By Tyler Gaw
+        </p>
+      </header>
     </div>
+
+    <article class="h-entry">
+      <div class="e-content">
+        {{{contents}}}
+      </div>
+    </article>
     {{> footer }}
-    <link rel="stylesheet" href="/css/tylergaw.css">
-    <link rel="stylesheet" href="/css/{{stylesheet}}.css">
+    <link rel="stylesheet" href="/css/tylergaw.css" />
+    <link rel="stylesheet" href="/css/{{stylesheet}}.css" />
     {{> scripts }}
   </body>
 </html>

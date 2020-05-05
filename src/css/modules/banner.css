@@ -1,15 +1,25 @@
 .logo::after {
-  --size: 5rem;
+  --size: 2.25rem;
+  --top: -1rem;
+  --left: calc(100% - 1.75rem);
   background-color: var(--color-accent-secondary);
   content: "";
   display: block;
-  left: calc(100% - 1.8rem);
+  left: var(--left);
   -webkit-mask-image: var(--crud-bubble);
   mask-image: var(--crud-bubble);
   position: absolute;
   height: var(--size);
-  top: -0.75rem;
+  top: var(--top);
   width: var(--size);
+}
+
+@media (min-width: 30em) {
+  .logo::after {
+    --size: 5rem;
+    --top: -0.75rem;
+    --left: calc(100% - 1.8rem);
+  }
 }
 
 .logo:hover .logo__title,

@@ -4,7 +4,7 @@ body {
   --color-offwhite: #ff3030;
   --darkerwhite: #ff3030;
   --red-light: #ff8d8d;
-  background-color: var(--eggshell);
+  background-color: var(--color-eggshell);
   padding: 0;
 }
 

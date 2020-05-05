@@ -151,7 +151,7 @@ em {
 
 html,
 body {
-  --eggshell: #f6f5e4;
+  --color-scheme: "dark";
 
   /* Accent colors */
   --color-accent-toxic: #00eb9b;
@@ -165,6 +165,7 @@ body {
   --color-mud: #3f3d31;
   --color-offwhite: #f8f8f8;
   --color-white: #fff;
+  --color-eggshell: #f6f5e4;
 
   /*
     Scheme color variables: We use these general names to switch colors
@@ -184,6 +185,10 @@ body {
   --font-proto-bold: "protogrotesk-bold", helvetica, sans-serif;
   --font-mono: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 
+  /* Grid */
+  --g-row: 0.625rem;
+  --g-col: 9.75rem;
+
   background: var(--color-bg) url(/images/noise-tile-standard.svg) repeat;
   background-size: 800px;
   color: var(--color-text);
@@ -192,7 +197,6 @@ body {
   margin: 0;
   border: 0;
   font-size: 100%;
-  transition: background-color 0.1s ease;
   vertical-align: baseline;
 }
 
@@ -204,18 +208,48 @@ a:focus {
   outline: 3px solid currentColor;
 }
 
+.the-work-graphic {
+  --base: #222;
+  --the-work: #f8f8f8;
+  --so-far: #f0b67b;
+}
+
 @media (prefers-color-scheme: light) {
   html,
   body {
+    --color-scheme: "light";
+  }
+
+  html:not([data-user-color-scheme]),
+  body:not([data-user-color-scheme]) {
     --color-accent-primary: var(--color-accent-wine);
     --color-accent-secondary: var(--color-accent-boogers);
     --color-bg: var(--color-offwhite);
     --color-text: var(--color-mud);
   }
+
+  html:not([data-user-color-scheme]) .the-work-graphic {
+    --base: #4d352e;
+    --the-work: #fff;
+    --so-far: #e7f097;
+  }
+}
+
+[data-user-color-scheme="light"] {
+  --color-accent-primary: var(--color-accent-wine);
+  --color-accent-secondary: var(--color-accent-boogers);
+  --color-bg: var(--color-offwhite);
+  --color-text: var(--color-mud);
+}
+
+[data-user-color-scheme="light"] .the-work-graphic {
+  --base: #4d352e;
+  --the-work: #fff;
+  --so-far: #e7f097;
 }
 
 .poster-default {
-  padding: 0.25rem 0.2rem 0.25rem 0.25rem;
+  padding: 0.25rem;
 }
 
 .banner {
@@ -730,4 +764,13 @@ a:focus {
     font-size: 1.6em;
     max-width: 54rem;
   }
+}
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
 }

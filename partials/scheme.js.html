@@ -1,0 +1,24 @@
+<script>
+  // Color scheme switch
+  const schemeProp = "--color-scheme";
+  const schemeKey = "user-color-scheme";
+
+  const setScheme = () => {
+    const browserScheme = getComputedStyle(document.documentElement)
+      .getPropertyValue(schemeProp)
+      .replace(/\'|"/g, "")
+      .trim();
+    const userScheme = localStorage.getItem(schemeKey);
+    const currentScheme = userScheme || browserScheme;
+    // Set this as global so we can access it later.
+    window.currentScheme = currentScheme;
+
+    document
+      .querySelectorAll("html, body")
+      .forEach((el) =>
+        el.setAttribute("data-user-color-scheme", currentScheme)
+      );
+  };
+
+  setScheme();
+</script>

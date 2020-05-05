@@ -1,14 +1,13 @@
 <!doctype html>
-<html lang="en" {{#if type}}data-page="{{type}}"{{/if}}>
+<html lang="en" class="no-js" {{#if type}}data-page="{{type}}"{{/if}}>
   <head>
     {{> head-contents }}
   </head>
   <body class="poster-default">
-    <div>
-      <main>
-        {{{contents}}}
-      </main>
-    </div>
+    {{> scheme.js }}
+    <main>
+      {{{contents}}}
+    </main>
     <link rel="stylesheet" href="/css/tylergaw.css">
     {{> scripts }}
   </body>
