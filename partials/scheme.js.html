@@ -1,23 +1,38 @@
 <script>
-  // Color scheme switch
-  const schemeProp = "--color-scheme";
-  const schemeKey = "user-color-scheme";
-
-  const setScheme = () => {
-    const browserScheme = getComputedStyle(document.documentElement)
-      .getPropertyValue(schemeProp)
+  window.schemeKey = "user-color-scheme";
+  const getCSSProp = (name) =>
+    getComputedStyle(document.documentElement)
+      .getPropertyValue(name)
       .replace(/\'|"/g, "")
       .trim();
+  window.getCSSProp = getCSSProp;
+
+  const setScheme = () => {
+    const systemScheme = getCSSProp("--scheme-system");
     const userScheme = localStorage.getItem(schemeKey);
-    const currentScheme = userScheme || browserScheme;
+    const currentScheme = userScheme || systemScheme;
     // Set this as global so we can access it later.
     window.currentScheme = currentScheme;
 
-    document
-      .querySelectorAll("html, body")
-      .forEach((el) =>
-        el.setAttribute("data-user-color-scheme", currentScheme)
+    console.group("Color scheme selection");
+    console.info("The current system color scheme is", systemScheme);
+
+    if (userScheme) {
+      console.info("The current user color scheme is", userScheme);
+      console.info(
+        `User choice takes preference, using the ${userScheme} scheme`
       );
+      console.info("You can clear the user scheme with clearUserScheme()");
+      document
+        .querySelectorAll("html, body")
+        .forEach((el) =>
+          el.setAttribute("data-user-color-scheme", currentScheme)
+        );
+    } else {
+      console.info("No user color scheme chosen, using the system scheme");
+    }
+
+    console.groupEnd();
   };
 
   setScheme();

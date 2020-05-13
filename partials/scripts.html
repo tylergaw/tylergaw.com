@@ -19,18 +19,49 @@
     updateSchemeBtn();
   };
 
-  const updateSchemeBtn = () => {
-    schemeBtn.setAttribute("data-scheme", currentScheme);
+  const updateSchemeBtn = (scheme) => {
+    const useScheme = scheme || currentScheme;
+    schemeBtn.setAttribute("data-scheme", useScheme);
     schemeBtnTxt.textContent = `Use ${
-      currentScheme === "light" ? "dark" : "light"
+      useScheme === "light" ? "dark" : "light"
     } scheme`;
-    schemeStatus.textContent = `Currently using the ${currentScheme} scheme`;
+    schemeStatus.textContent = `Currently using the ${useScheme} scheme`;
   };
 
   schemeBtn.addEventListener("click", toggleScheme);
 
   updateSchemeBtn();
   document.querySelector(".scheme-toggle").removeAttribute("hidden");
+
+  // Set up a media query listener so we know if the user changes their system
+  // level color scheme.
+  const mql = window.matchMedia("(prefers-color-scheme: light)");
+  mql.addListener((event) => {
+    console.group("System color scheme change");
+    const systemScheme = getCSSProp("--scheme-system");
+    const userScheme = localStorage.getItem(schemeKey);
+    console.info("System color scheme changed to", systemScheme);
+
+    if (!userScheme) {
+      console.info("No user color scheme chosen, using the system scheme");
+    } else {
+      console.info(
+        `User choice takes preference, using the ${userScheme} scheme`
+      );
+    }
+
+    updateSchemeBtn(userScheme || systemScheme);
+    console.groupEnd();
+  });
+
+  window.clearUserScheme = () => {
+    const systemScheme = getCSSProp("--scheme-system");
+    localStorage.removeItem(schemeKey);
+    document
+      .querySelectorAll("html, body")
+      .forEach((el) => el.removeAttribute("data-user-color-scheme"));
+    updateSchemeBtn(systemScheme);
+  };
 </script>
 
 {{#if highlightSyntax }}
