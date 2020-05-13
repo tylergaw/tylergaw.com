@@ -3,14 +3,15 @@
   margin: 0 auto;
   line-height: 1.4;
   margin: 0 auto;
-  max-width: 42rem;
+  max-width: calc(var(--g-col) * 9);
   overflow: hidden;
   padding: 2rem 1.5rem 8rem 1.5rem;
 }
 
 .footer__links {
+  --cols: 2;
   display: grid;
-  grid-template-columns: repeat(3, var(--g-col));
+  grid-template-columns: repeat(var(--cols), var(--g-col));
 }
 
 .footer__links div {
@@ -36,7 +37,7 @@
   color: var(--color-text);
 }
 
-.thanks {
+.footer__thanks {
   font-family: var(--font-proto-regular);
   font-size: 0.9rem;
   margin: calc(var(--g-row) * 6) 0.25rem calc(var(--g-row) * 3) 0.25rem;
@@ -65,9 +66,14 @@
   outline: 3px solid currentColor;
 }
 
+@media (min-width: 36.875em) {
+  .footer__links {
+    --cols: 3;
+  }
+}
+
 @media (min-width: 72.5em) {
   .footer {
-    font-size: 1.2em;
-    max-width: 50rem;
+    font-size: 1.25em;
   }
 }
