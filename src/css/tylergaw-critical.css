@@ -151,7 +151,7 @@ em {
 
 html,
 body {
-  --color-scheme: "dark";
+  --scheme-system: "dark";
 
   /* Accent colors */
   --color-accent-toxic: #00eb9b;
@@ -189,8 +189,9 @@ body {
   --g-row: 0.625rem;
   --g-col: 9.75rem;
 
-  background: var(--color-bg) url(/images/noise-tile-standard.svg) repeat;
-  background-size: 800px;
+  --bg-img: url(/images/noise-tile-dark.svg);
+  background: var(--color-bg) var(--bg-img) repeat;
+  background-size: 950px;
   color: var(--color-text);
   font-family: var(--font-proto-light);
   line-height: 1;
@@ -217,11 +218,12 @@ a:focus {
 @media (prefers-color-scheme: light) {
   html,
   body {
-    --color-scheme: "light";
+    --scheme-system: "light";
   }
 
   html:not([data-user-color-scheme]),
   body:not([data-user-color-scheme]) {
+    --bg-img: url(/images/noise-tile-light.svg);
     --color-accent-primary: var(--color-accent-wine);
     --color-accent-secondary: var(--color-accent-boogers);
     --color-bg: var(--color-offwhite);
@@ -236,6 +238,7 @@ a:focus {
 }
 
 [data-user-color-scheme="light"] {
+  --bg-img: url(/images/noise-tile-light.svg);
   --color-accent-primary: var(--color-accent-wine);
   --color-accent-secondary: var(--color-accent-boogers);
   --color-bg: var(--color-offwhite);
