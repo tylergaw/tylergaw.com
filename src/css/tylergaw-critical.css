@@ -188,6 +188,7 @@ body {
   /* Grid */
   --g-row: 0.625rem;
   --g-col: 9.75rem;
+  --g-gutter: 1.625rem;
 
   --bg-img: url(/images/noise-tile-dark.svg);
   background: var(--color-bg) var(--bg-img) repeat;
