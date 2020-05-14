@@ -9,36 +9,85 @@
   Some modifications made for tylergaw.com
  */
 
+[data-page="blog"] {
+  --color-atrule: #ffd700;
+  --color-background: #2b2b2b;
+  --color-base: #f8f8f2;
+  --color-boolean: #00e0e0;
+  --color-border: #383838;
+  --color-comment: #d4d0ab;
+  --color-keyword: #00e0e0;
+  --color-muted: #b6b6b6;
+  --color-operator: #00e0e0;
+  --color-property: #ffa07a;
+  --color-punctuation: #fefefe;
+  --color-regex: #ffd700;
+  --color-selector: #abe338;
+}
+
+@media (prefers-color-scheme: light) {
+  html:not([data-user-color-scheme])[data-page="blog"] {
+    --color-atrule: #aa5d00;
+    --color-background: #fefefe;
+    --color-base: #545454;
+    --color-boolean: #008000;
+    --color-border: #f3f3f3;
+    --color-comment: #696969;
+    --color-keyword: #d91e18;
+    --color-muted: #818181;
+    --color-operator: #008000;
+    --color-property: #007faa;
+    --color-punctuation: #545454;
+    --color-regex: #d91e18;
+    --color-selector: #aa5d00;
+  }
+}
+
+[data-user-color-scheme="light"][data-page="blog"] {
+  --color-atrule: #aa5d00;
+  --color-background: #fefefe;
+  --color-base: #545454;
+  --color-boolean: #008000;
+  --color-border: #f3f3f3;
+  --color-comment: #696969;
+  --color-keyword: #d91e18;
+  --color-muted: #818181;
+  --color-operator: #008000;
+  --color-property: #007faa;
+  --color-punctuation: #545454;
+  --color-regex: #d91e18;
+  --color-selector: #aa5d00;
+}
+
 code[class*="language-"],
 pre[class*="language-"],
 .e-content p code,
 .e-content li code {
-  color: #f8f8f2;
+  color: var(--color-base);
   background: none;
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-family: var(--font-mono);
+  hyphens: none;
+  line-height: 1.5;
+  tab-size: 4;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
-  line-height: 1.5;
-  tab-size: 4;
-  hyphens: none;
 }
 
 /* Code blocks */
 pre[class*="language-"] {
   border-radius: 2px;
-  box-shadow: inset 0 0 0 1px #383838;
+  box-shadow: inset 0 0 0 1px var(--color-border);
   padding: 1em;
   margin-bottom: 1em;
   overflow: auto;
 }
 
 :not(pre) > code[class*="language-"],
-pre[class*="language-"],
-.e-content p code {
-  background: #2b2b2b;
+pre[class*="language-"] {
+  background: var(--color-background);
 }
 
 /* Inline code */
@@ -53,11 +102,11 @@ pre[class*="language-"],
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: #d4d0ab;
+  color: var(--color-comment);
 }
 
 .token.punctuation {
-  color: #fefefe;
+  color: var(--color-punctuation);
 }
 
 .token.property,
@@ -65,12 +114,12 @@ pre[class*="language-"],
 .token.constant,
 .token.symbol,
 .token.deleted {
-  color: #ffa07a;
+  color: var(--color-property);
 }
 
 .token.boolean,
 .token.number {
-  color: #00e0e0;
+  color: var(--color-boolean);
 }
 
 .token.selector,
@@ -79,7 +128,7 @@ pre[class*="language-"],
 .token.char,
 .token.builtin,
 .token.inserted {
-  color: #abe338;
+  color: var(--color-selector);
 }
 
 .token.operator,
@@ -88,22 +137,22 @@ pre[class*="language-"],
 .language-css .token.string,
 .style .token.string,
 .token.variable {
-  color: #00e0e0;
+  color: var(--color-operator);
 }
 
 .token.atrule,
 .token.attr-value,
 .token.function {
-  color: #ffd700;
+  color: var(--color-atrule);
 }
 
 .token.keyword {
-  color: #00e0e0;
+  color: var(--color-keyword);
 }
 
 .token.regex,
 .token.important {
-  color: #ffd700;
+  color: var(--color-regex);
 }
 
 .token.important,
@@ -120,7 +169,7 @@ pre[class*="language-"],
 
 .code-muted,
 .code-muted span {
-  color: #B6B6B6 !important;
+  color: var(--color-muted) !important;
 }
 
 @media screen and (-ms-high-contrast: active) {

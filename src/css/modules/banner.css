@@ -1,3 +1,27 @@
+.logo::after {
+  --size: 2.25rem;
+  --top: -1rem;
+  --left: calc(100% - 1.75rem);
+  background-color: var(--color-accent-secondary);
+  content: "";
+  display: block;
+  left: var(--left);
+  -webkit-mask-image: var(--crud-bubble);
+  mask-image: var(--crud-bubble);
+  position: absolute;
+  height: var(--size);
+  top: var(--top);
+  width: var(--size);
+}
+
+@media (min-width: 30em) {
+  .logo::after {
+    --size: 5rem;
+    --top: -0.75rem;
+    --left: calc(100% - 1.8rem);
+  }
+}
+
 .logo:hover .logo__title,
 .logo:focus .logo__title {
   fill: currentColor;
@@ -8,5 +32,5 @@
 [data-page="blog"] .nav-blog,
 [data-page="home"] .nav-work,
 [data-page="about"] .nav-about {
-  color: var(--color-white);
+  color: var(--color-text);
 }

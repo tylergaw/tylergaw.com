@@ -149,17 +149,35 @@ em {
   src: url("/fonts/protogroteskweb-regular.woff2");
 }
 
+html,
 body {
-  /* TODO: Consolidate and rename colors */
-  --lightgrey: #fff;
-  --grey: #292929;
-  --accent: #ff607f;
-  --offwhite: #f8f8f8;
-  --darkerwhite: #d3d3d3;
-  --eggshell: #f6f5e4;
+  --scheme-system: "dark";
 
-  --color-accent-primary: var(--accent);
+  /* Accent colors */
+  --color-accent-toxic: #00eb9b;
+  --color-accent-wine: #c01458;
+  --color-accent-boo: #9db4ff;
+  --color-accent-pank: #f2c0ea;
+  --color-accent-boogers: #c2d838;
+
+  /* Common colors */
+  --color-charcoal: #292929;
+  --color-mud: #3f3d31;
+  --color-offwhite: #f8f8f8;
   --color-white: #fff;
+  --color-eggshell: #f6f5e4;
+
+  /*
+    Scheme color variables: We use these general names to switch colors
+    based on preferred color scheme
+  */
+  --color-accent-primary: var(--color-accent-toxic);
+  --color-accent-secondary: var(--color-accent-boo);
+  --color-bg: var(--color-charcoal);
+  --color-text: var(--color-offwhite);
+
+  /* Crud */
+  --crud-bubble: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Cpath fill="%23000" fill-rule="evenodd" d="M32.533 3.432C12.033 10.596 1 32.789 1 46.508c0 13.718 7.54 47.877 33.467 52.73 25.926 4.85 61.048-14.262 63.743-33.996 2.695-19.733-1.652-38.632-10.834-48.82C78.194 6.234 53.033-3.732 32.533 3.432z"/%3E%3C/svg%3E');
 
   --font-proto-extralight: "protogrotesk-extralight", helvetica, sans-serif;
   --font-proto-light: "protogrotesk-light", helvetica, sans-serif;
@@ -167,18 +185,23 @@ body {
   --font-proto-bold: "protogrotesk-bold", helvetica, sans-serif;
   --font-mono: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 
-  color: var(--offwhite);
+  /* Grid */
+  --g-row: 0.625rem;
+  --g-col: 9.75rem;
+  --g-gutter: 1.625rem;
+  --g-column-template: repeat(auto-fill, minmax(var(--g-col), 1fr));
+  --g-fixed-max: calc(var(--g-col) * 9);
+
+  --bg-img: url(/images/noise-tile-dark.svg);
+  background: var(--color-bg) var(--bg-img) repeat;
+  background-size: 950px;
+  color: var(--color-text);
   font-family: var(--font-proto-light);
   line-height: 1;
   margin: 0;
   border: 0;
   font-size: 100%;
   vertical-align: baseline;
-}
-
-html,
-body {
-  background-color: var(--color-white);
 }
 
 a {
@@ -189,8 +212,50 @@ a:focus {
   outline: 3px solid currentColor;
 }
 
+.the-work-graphic {
+  --base: #222;
+  --the-work: #f8f8f8;
+  --so-far: #f0b67b;
+}
+
+@media (prefers-color-scheme: light) {
+  html,
+  body {
+    --scheme-system: "light";
+  }
+
+  html:not([data-user-color-scheme]),
+  body:not([data-user-color-scheme]) {
+    --bg-img: url(/images/noise-tile-light.svg);
+    --color-accent-primary: var(--color-accent-wine);
+    --color-accent-secondary: var(--color-accent-boogers);
+    --color-bg: var(--color-offwhite);
+    --color-text: var(--color-mud);
+  }
+
+  html:not([data-user-color-scheme]) .the-work-graphic {
+    --base: #4d352e;
+    --the-work: #fff;
+    --so-far: #e7f097;
+  }
+}
+
+[data-user-color-scheme="light"] {
+  --bg-img: url(/images/noise-tile-light.svg);
+  --color-accent-primary: var(--color-accent-wine);
+  --color-accent-secondary: var(--color-accent-boogers);
+  --color-bg: var(--color-offwhite);
+  --color-text: var(--color-mud);
+}
+
+[data-user-color-scheme="light"] .the-work-graphic {
+  --base: #4d352e;
+  --the-work: #fff;
+  --so-far: #e7f097;
+}
+
 .poster-default {
-  padding: 0.25rem 0.2rem 0.25rem 0.25rem;
+  padding: 0.25rem;
 }
 
 .banner {
@@ -202,10 +267,11 @@ a:focus {
 }
 
 .logo {
-  color: var(--color-white);
+  color: var(--color-text);
   display: block;
   margin: 0 auto;
   max-width: 260px;
+  position: relative;
   width: 100%;
 }
 
@@ -242,12 +308,6 @@ a:focus {
   display: none;
 }
 
-/*
-  Home intro
-  I include these as inline styles because this sits well
-  "above the fold" on many screen sizes. Having these load fast decreases
-  the time to first meaningful paint.
-*/
 .poster-intro {
   padding: 0.25rem 0.25rem 0 0.25rem;
 }
@@ -263,7 +323,7 @@ a:focus {
 }
 
 .home-intro::after {
-  background-color: var(--lightgrey);
+  background-color: currentColor;
   bottom: 35vw;
   --line-clip: polygon(
     0 5px,
@@ -299,8 +359,8 @@ a:focus {
 }
 
 .home-intro-contents ::selection {
-  background-color: #ba7f44;
-  color: var(--offwhite);
+  background-color: var(--color-accent-primary);
+  color: var(--color-offwhite);
 }
 
 /* On narrow screens this is the diagonal shape of the intro copy. */
@@ -311,17 +371,6 @@ a:focus {
   shape-outside: polygon(0 0, 20% 0, 100% 100%);
   height: 120%;
   width: 15%;
-}
-
-.home-intro-contents a {
-  border-bottom: 0.15em solid currentColor;
-  color: var(--offwhite);
-  text-decoration: none;
-}
-
-.home-intro-contents a:hover,
-.home-intro-contents a:focus {
-  color: #ba7f44;
 }
 
 .home-intro-contents p + p {
@@ -357,36 +406,36 @@ a:focus {
   }
 }
 
-.article-list,
-.library {
+.listed-items {
+  display: grid;
+  grid-gap: 0 var(--g-gutter);
+  grid-template-columns: var(--g-column-template);
   margin: 0 auto;
-  max-width: 42rem;
+  max-width: var(--g-fixed-max);
   padding: 1.5rem 0 6rem 0;
 }
 
-.article-listed,
-.book-listed {
+.listed-item {
   box-sizing: border-box;
+  grid-column: 1 / -1;
   margin: 0.5em 0;
-  padding: 1.2em 1.5em;
+  padding: 1.3rem 1.5rem;
 }
 
-.article-listed:first-child,
-.book-listed:first-child {
+.listed-item:first-child {
   margin-top: 0;
 }
 
-.article-listed time,
-.book-listed time,
+.listed-item time,
 .book-current {
-  color: var(--accent);
   display: block;
   font-size: 1rem;
-  margin-bottom: 0.25em;
+  margin-bottom: 0.4em;
 }
 
-.listed-item-link {
-  color: var(--offwhite);
+.listed-item__link {
+  border-bottom: 1px solid currentColor;
+  color: var(--color-accent-primary);
   display: inline-block;
   font-size: 1.6em;
   line-height: 1.1;
@@ -395,33 +444,38 @@ a:focus {
   word-wrap: break-word;
 }
 
-.listed-item-link:hover,
-.listed-item-link:focus {
-  color: var(--accent);
+.listed-item__link:hover,
+.listed-item__link:focus {
+  color: var(--color-text);
 }
 
-.article-listed p,
-.book-listed h4 {
-  color: var(--darkerwhite);
+.listed-item p,
+.listed-item h4 {
   font-size: 1.1em;
   line-height: 1.5;
   margin-top: 0.5em;
 }
 
-.listed-items-heading,
-.articles-year {
+.listed-item p {
+  max-width: 53ch;
+}
+
+.listed-item h4 {
+  display: inline-block;
+}
+
+.listed-items-heading {
+  grid-column: 1 / -1;
   font-family: var(--font-proto-regular);
   font-size: 2em;
 }
 
-.listed-items-heading h3,
-.articles-year h3 {
+.listed-items-heading h3 {
   padding: 0 1.5rem;
   position: relative;
 }
 
-.book-listed + .listed-items-heading h3,
-.article-listed + .articles-year h3 {
+.listed-item + .listed-items-heading h3 {
   padding-top: 2em;
 }
 
@@ -436,13 +490,14 @@ a:focus {
   flex-wrap: wrap;
   font-size: 1.2rem;
   line-height: 1.6;
-  padding: 0 1rem 0 1rem;
+  padding: 0 1rem;
   position: relative;
   z-index: 1;
 }
 
 .about-intro-heading {
   font-size: 20.25vw;
+  letter-spacing: -0.035em;
   line-height: 1.1;
   text-align: left;
 }
@@ -466,7 +521,6 @@ a:focus {
 }
 
 .about-intro-body h3 {
-  color: var(--accent-about);
   font-size: 1.4rem;
   margin: 1.75em 0 0.25em 0;
 }
@@ -521,13 +575,12 @@ a:focus {
     margin-left: 1rem;
   }
 
-  .article-list,
-  .library {
+  .listed-items {
     padding: 0 0 7rem 0;
   }
 
   .home-intro {
-    margin: -6rem auto 0 auto;
+    margin: -7.5rem auto 0 auto;
     overflow: hidden;
   }
 }
@@ -620,13 +673,11 @@ a:focus {
 
 @media (min-width: 72.5em) {
   .home-intro {
-    margin-top: -8rem;
+    margin-top: -9rem;
   }
 
-  .article-list,
-  .library {
+  .listed-items {
     font-size: 1.2em;
-    max-width: 50rem;
   }
 }
 
@@ -700,7 +751,7 @@ a:focus {
   .home-intro {
     margin-top: -9.4rem;
     padding-bottom: 105.7rem;
-    width: 115.5rem;
+    width: 115.75rem;
   }
 
   .home-intro::after {
@@ -719,9 +770,16 @@ a:focus {
     top: 0;
   }
 
-  .article-list,
-  .library {
+  .listed-items {
     font-size: 1.6em;
-    max-width: 54rem;
   }
+}
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
 }

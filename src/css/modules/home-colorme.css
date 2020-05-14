@@ -1,8 +1,8 @@
 .poster-colorme,
 .colorme-jxa-bumper {
-  --cm-red: #b50003;
-  --cm-red-alt: #e00003;
-  --cm-text: #252525;
+  --cm-red: #b42e8b;
+  --cm-red-alt: #9a1f74;
+  --cm-text: #9a1f74;
   --cm-bg: #fff url("/images/home-colorme-bg-tile.svg") repeat;
   color: var(--cm-red);
   overflow: visible;
@@ -31,13 +31,7 @@
 
 .colorme-header::before {
   background-color: var(--cm-red);
-  --path: polygon(
-    0.7rem 2vw,
-    90% 2vw,
-    99% 50%,
-    90% 100%,
-    0.4rem 100%
-  );
+  --path: polygon(0.7rem 2vw, 90% 2vw, 99% 50%, 90% 100%, 0.4rem 100%);
   -webkit-clip-path: var(--path);
   clip-path: var(--path);
   left: 0;
@@ -151,13 +145,7 @@
   }
 
   .colorme-header::before {
-    --path: polygon(
-      0.7rem 2rem,
-      90% 2rem,
-      99% 50%,
-      90% 100%,
-      0.4rem 100%
-    );
+    --path: polygon(0.7rem 2rem, 90% 2rem, 99% 50%, 90% 100%, 0.4rem 100%);
   }
 
   .colorme-header::after {

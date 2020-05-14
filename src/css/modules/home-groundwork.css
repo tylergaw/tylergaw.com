@@ -1,11 +1,12 @@
 .poster-groundwork,
 .gw-colorme-bumper {
-  --gw-blue: #3b4fcb;
+  --gw-blue: #3b6fd8;
   --gw-bg: var(--gw-blue) url("/images/home-gw-bg-tile.svg") repeat;
 }
 
 .poster-groundwork {
   background-color: transparent;
+  color: var(--color-eggshell);
   margin-top: -39vw;
   position: relative;
 }
@@ -16,7 +17,7 @@
 }
 
 .project .gw-warning {
-  background-color: var(--offwhite);
+  background-color: var(--color-offwhite);
   border-radius: 2px;
   color: var(--gw-blue);
   font-size: 0.9em;
@@ -34,7 +35,7 @@
 }
 
 .gw-mark {
-  background-color: var(--eggshell);
+  background-color: var(--color-eggshell);
   border-radius: 50%;
   margin: 0 auto;
   padding: 1%;
@@ -46,7 +47,7 @@
 }
 
 .poster-groundwork a {
-  color: var(--eggshell);
+  color: var(--color-eggshell);
 
   &:hover,
   &:focus {
@@ -57,7 +58,7 @@
 .poster-fill-groundwork {
   background: var(--gw-bg);
   background-size: 1000px;
-  color: var(--eggshell);
+  color: var(--color-eggshell);
   --gw-fill-clip: polygon(
     0 11vw,
     12% 2vw,
@@ -83,7 +84,7 @@
 .gw-colorme-bumper {
   background: var(--gw-bg);
   background-size: 1000px;
-  color: var(--limbo-eggshell);
+  color: var(--color-eggshell);
   font-size: 0.8rem;
   padding-bottom: 120vw;
   padding-top: 100vw;
@@ -91,7 +92,7 @@
 }
 
 .gw-colorme-bumper::after {
-  background-color: var(--eggshell);
+  background-color: var(--color-eggshell);
   bottom: 2rem;
   --line-clip: polygon(
     0 6px,

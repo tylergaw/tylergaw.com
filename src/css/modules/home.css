@@ -4,7 +4,6 @@
 }
 
 [data-page="home"] .banner {
-  position: relative;
   z-index: 2;
 }
 
@@ -151,7 +150,7 @@
 }
 
 .epilogue {
-  color: var(--offwhite);
+  color: var(--color-text);
   font-size: 0.9rem;
   line-height: 1.4;
   padding: 65rem 2rem 15rem 2rem;
@@ -165,32 +164,13 @@
   max-width: 10rem;
 }
 
-.epilogue::before {
-  background: var(--grey) url("/images/home-intro-bg-tile.svg") repeat;
-  background-size: 1000px;
-  -webkit-clip-path: var(--poster-fill-clip-default);
-  clip-path: var(--poster-fill-clip-default);
-  content: "";
-  display: block;
-  height: 100%;
-  left: 0.25rem;
-  position: absolute;
-  top: 0;
-  width: calc(100% - 0.5rem);
-  z-index: -1;
-}
-
 .epilogue p + p {
-  font-size: 1rem;
+  font-size: 1.6rem;
   margin-top: 8em;
 }
 
-.epilogue a {
-  color: #ba7f44;
-}
-
 .epilogue::after {
-  background-color: var(--lightgrey);
+  background-color: var(--color-text);
   --line-clip: polygon(
     3px 0,
     7px 0,
@@ -206,7 +186,7 @@
   -webkit-clip-path: var(--line-clip);
   clip-path: var(--line-clip);
   content: "";
-  height: 64%;
+  height: 60%;
   left: calc(50% - 10px);
   position: absolute;
   top: 0;

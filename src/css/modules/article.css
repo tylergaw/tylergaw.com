@@ -1,5 +1,6 @@
 .h-entry ::selection {
-  background-color: var(--accent);
+  background-color: var(--color-accent-secondary);
+  color: var(--color-bg);
 }
 
 .h-entry {
@@ -18,6 +19,7 @@
 .p-name {
   font-family: var(--font-proto-bold);
   font-size: 10vw;
+  letter-spacing: -0.035em;
   line-height: 1.25;
 }
 
@@ -33,7 +35,7 @@
 }
 
 .e-content {
-  color: var(--offwhite);
+  color: var(--color-text);
   font-size: 1.6rem;
   line-height: 1.6;
   margin: 0 auto;
@@ -42,7 +44,12 @@
   width: var(--width-content);
 
   & a {
-    color: var(--white);
+    color: var(--text);
+  }
+
+  & a:hover,
+  & a:focus {
+    color: var(--color-accent-primary);
   }
 
   & .link--future {
@@ -69,12 +76,12 @@
   & h4,
   & h5,
   & h6 {
-    color: var(--offwhite);
+    color: var(--color-text);
     font-family: var(--font-proto-regular);
   }
 
   & h2 {
-    color: var(--offwhite);
+    color: var(--color-text);
     font-family: var(--font-proto-bold);
     font-size: 1.4em;
     padding: 0.7em 0 0.25em 0;
@@ -97,24 +104,10 @@
     padding-bottom: 1.6em;
   }
 
-  & .thanks-for-reading {
-    padding-bottom: 0.4em;
-
-    & i {
-      background: transparent url("/images/article-thanks.svg") no-repeat left
-        top;
-      background-size: 100%;
-      display: inline-block;
-      height: 70px;
-      margin-top: 0.1em;
-      text-indent: -300em;
-      max-width: 250px;
-      width: 95%;
-    }
-
-    & svg {
-      max-width: 250px;
-    }
+  & .thanks-for-reading svg {
+    margin-left: auto;
+    max-width: 15.625rem;
+    transform: translateX(-1rem);
   }
 
   & figure {
@@ -129,8 +122,8 @@
   }
 
   & figcaption {
-    color: var(--darkerwhite);
-    padding: 0.7em;
+    margin-top: 1.5em;
+    padding-left: 0.5em;
   }
 
   & figcaption,
@@ -146,7 +139,6 @@
       border-width: 1px;
       border-style: solid;
       border-radius: 3px;
-      color: #fff;
       padding: 0.6em 1em;
       margin: 0.1em 0 1.2em 0;
     }
@@ -154,7 +146,6 @@
     &.note-special {
       border-color: #ffad154d;
       background-color: #ffad1526;
-      color: var(--darkerwhite);
     }
 
     &.note-update {
@@ -170,7 +161,6 @@
   }
 
   & li {
-    color: var(--offwhite);
     line-height: 1.5;
     padding-bottom: 0.25em;
     position: relative;
@@ -185,8 +175,7 @@
   }
 
   & blockquote {
-    border-left: 0.4em solid var(--accent);
-    color: var(--darkerwhite);
+    border-left: 0.4em solid var(--color-accent-secondary);
     font-size: 0.9em;
     margin-bottom: 2em;
     padding: 0.2em 1em 0.2em 1.6em;
@@ -217,7 +206,7 @@
 }
 
 .entry-intro::after {
-  background-color: var(--accent);
+  background-color: var(--color-accent-secondary);
   content: "";
   display: block;
   height: 0.75rem;
@@ -232,7 +221,7 @@
 
 .entry-intro + p:first-letter,
 .entry-intro + h2 + p:first-letter {
-  color: var(--accent);
+  color: var(--color-accent-secondary);
   float: left;
   font-family: var(--font-proto-bold);
   font-size: 680%;

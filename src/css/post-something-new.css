@@ -1,31 +1,27 @@
 body {
-  --grey: #272727;
+  --color-charcoal: #272727;
   --accent: #ff3030;
-  --offwhite: #ff3030;
+  --color-offwhite: #ff3030;
   --darkerwhite: #ff3030;
   --red-light: #ff8d8d;
-  background-color: var(--eggshell);
+  background-color: var(--color-eggshell);
   padding: 0;
-}
-
-.poster-fill-default {
-  background: var(--eggshell);
 }
 
 .logo-base,
 .logo-title {
-  fill: var(--offwhite);
+  fill: var(--color-offwhite);
 }
 
 .logo:hover .logo-base,
 .logo:focus .logo-base {
-  fill: var(--grey);
+  fill: var(--color-charcoal);
 }
 
 .navigation a:hover,
 .navigation a:focus,
 [data-page="blog"] .nav-blog {
-  color: var(--grey);
+  color: var(--color-charcoal);
 }
 
 @media (min-width: 780px) {
@@ -35,10 +31,10 @@ body {
 }
 
 [role="contentinfo"] .contact a {
-  color: var(--accent);
+  color: var(--color-accent-primary);
 
   &:hover,
   &:focus {
-    color: var(--grey);
+    color: var(--color-charcoal);
   }
 }

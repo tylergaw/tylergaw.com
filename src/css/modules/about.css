@@ -4,7 +4,7 @@
   line-height: 1.6;
   overflow: hidden;
   margin: 0 auto;
-  max-width: 86.8125rem;
+  max-width: var(--g-fixed-max);
   padding-bottom: 5rem;
 }
 
@@ -66,7 +66,7 @@
 
   .about-versions {
     display: grid;
-    grid-column-gap: 1rem;
+    grid-gap: var(--g-gutter);
     grid-template-columns: 50% 50%;
     padding: 0;
   }

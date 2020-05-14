@@ -1,0 +1,50 @@
+---
+layout: patterns.html
+type: patterns
+title: Design Patterns - Tyler Gaw
+permalink: /patterns
+colorsAccent:
+  - name: --color-accent-primary
+    value: "#00eb9b"
+colorsCommon:
+  - name: --color-charcoal
+    value: "#292929"
+---
+
+<div class="intro">
+  <header>
+    <a href="/" class="logo" aria-label="Go to home/work">
+      {{> tylergaw-logo.svg }}
+    </a>
+    <h2>Design patterns</h2>
+  </header>
+  <h4>Atoms</h4>
+  <ul>
+    <li>
+      <a href="#color">Color</a>
+    </li>
+    <li>
+      <a href="#typography">Typography</a>
+    </li>
+  </ul>
+</div>
+
+<div class="contents">
+  <div class="topic">
+    <h2 id="color">Color</h2>
+
+    <h4 id="color-accent">Accent colors</h4>
+    <ul class="token__list">
+      {{#colorsAccent}}
+        {{> patterns-color }}
+      {{/colorsAccent}}
+    </ul>
+
+    <h4 id="color-common">Common colors</h4>
+    <ul class="token__list">
+      {{#colorsCommon}}
+        {{> patterns-color }}
+      {{/colorsCommon}}
+    </ul>
+  </div>
+</div>
