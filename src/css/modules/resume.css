@@ -1,10 +1,25 @@
 .resume {
+  display: grid;
   font-size: 1.3rem;
+  grid-gap: var(--g-gutter);
+  grid-template-columns: var(--g-column-template);
   line-height: 1.5;
   margin: 0 auto;
-  max-width: 48rem;
-  padding: 2rem 0 4rem 0;
-  width: 90%;
+  max-width: var(--g-fixed-max);
+  padding: 1rem 1.5rem 8rem 1.5rem;
+}
+
+.resume h1 {
+  font-family: var(--font-proto-bold);
+  font-size: 4rem;
+  font-size: clamp(2rem, 10vw + 1rem, 8rem);
+  letter-spacing: -0.035em;
+  line-height: 1.25;
+  text-indent: -0.05em;
+}
+
+.resume__contents {
+  grid-column: 1 / -1;
 }
 
 .resume-intro {
@@ -17,13 +32,14 @@
   content: "";
   display: block;
   height: 0.75rem;
-  margin: 1.5em auto 1.2em auto;
+  margin: 1.5em 0 2.4em 0;
   text-align: center;
   width: 25%;
 }
 
 .resume p {
   padding-bottom: 1em;
+  max-width: 53ch;
 }
 
 .resume h2 {
@@ -58,4 +74,8 @@
 .resume-entry-desc ul {
   list-style: disc outside;
   padding-left: 1rem;
+}
+
+.resume li {
+  max-width: 53ch;
 }

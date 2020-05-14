@@ -497,6 +497,7 @@ a:focus {
 
 .about-intro-heading {
   font-size: 20.25vw;
+  letter-spacing: -0.035em;
   line-height: 1.1;
   text-align: left;
 }

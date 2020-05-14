@@ -19,6 +19,7 @@
 .p-name {
   font-family: var(--font-proto-bold);
   font-size: 10vw;
+  letter-spacing: -0.035em;
   line-height: 1.25;
 }
 
