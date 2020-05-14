@@ -2,11 +2,12 @@
   box-sizing: border-box;
   display: grid;
   grid-gap: var(--g-gutter);
-  grid-template-columns: repeat(auto-fill, minmax(var(--g-col), 1fr));
+  grid-template-columns: var(--g-column-template);
   grid-template-rows: auto 12.5rem 10rem;
-  max-width: calc(var(--g-col) * 9);
+  max-width: var(--g-fixed-max);
   line-height: 1.4;
   margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
 .footer__links {

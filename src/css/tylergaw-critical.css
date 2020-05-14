@@ -189,6 +189,8 @@ body {
   --g-row: 0.625rem;
   --g-col: 9.75rem;
   --g-gutter: 1.625rem;
+  --g-column-template: repeat(auto-fill, minmax(var(--g-col), 1fr));
+  --g-fixed-max: calc(var(--g-col) * 9);
 
   --bg-img: url(/images/noise-tile-dark.svg);
   background: var(--color-bg) var(--bg-img) repeat;
@@ -404,34 +406,35 @@ a:focus {
   }
 }
 
-.article-list,
-.library {
+.listed-items {
+  display: grid;
+  grid-gap: 0 var(--g-gutter);
+  grid-template-columns: var(--g-column-template);
   margin: 0 auto;
-  max-width: 42rem;
+  max-width: var(--g-fixed-max);
   padding: 1.5rem 0 6rem 0;
 }
 
-.article-listed,
-.book-listed {
+.listed-item {
   box-sizing: border-box;
+  grid-column: 1 / -1;
   margin: 0.5em 0;
-  padding: 1.2em 1.5em;
+  padding: 1.3rem 1.5rem;
 }
 
-.article-listed:first-child,
-.book-listed:first-child {
+.listed-item:first-child {
   margin-top: 0;
 }
 
-.article-listed time,
-.book-listed time,
+.listed-item time,
 .book-current {
   display: block;
   font-size: 1rem;
-  margin-bottom: 0.25em;
+  margin-bottom: 0.4em;
 }
 
-.listed-item-link {
+.listed-item__link {
+  border-bottom: 1px solid currentColor;
   color: var(--color-accent-primary);
   display: inline-block;
   font-size: 1.6em;
@@ -441,32 +444,38 @@ a:focus {
   word-wrap: break-word;
 }
 
-.listed-item-link:hover,
-.listed-item-link:focus {
+.listed-item__link:hover,
+.listed-item__link:focus {
   color: var(--color-text);
 }
 
-.article-listed p,
-.book-listed h4 {
+.listed-item p,
+.listed-item h4 {
   font-size: 1.1em;
   line-height: 1.5;
   margin-top: 0.5em;
 }
 
-.listed-items-heading,
-.articles-year {
+.listed-item p {
+  max-width: 53ch;
+}
+
+.listed-item h4 {
+  display: inline-block;
+}
+
+.listed-items-heading {
+  grid-column: 1 / -1;
   font-family: var(--font-proto-regular);
   font-size: 2em;
 }
 
-.listed-items-heading h3,
-.articles-year h3 {
+.listed-items-heading h3 {
   padding: 0 1.5rem;
   position: relative;
 }
 
-.book-listed + .listed-items-heading h3,
-.article-listed + .articles-year h3 {
+.listed-item + .listed-items-heading h3 {
   padding-top: 2em;
 }
 
@@ -565,8 +574,7 @@ a:focus {
     margin-left: 1rem;
   }
 
-  .article-list,
-  .library {
+  .listed-items {
     padding: 0 0 7rem 0;
   }
 
@@ -667,10 +675,8 @@ a:focus {
     margin-top: -9rem;
   }
 
-  .article-list,
-  .library {
+  .listed-items {
     font-size: 1.2em;
-    max-width: 50rem;
   }
 }
 
@@ -763,10 +769,8 @@ a:focus {
     top: 0;
   }
 
-  .article-list,
-  .library {
+  .listed-items {
     font-size: 1.6em;
-    max-width: 54rem;
   }
 }
 
