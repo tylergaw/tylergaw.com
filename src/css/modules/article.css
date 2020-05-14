@@ -20,7 +20,7 @@
   font-family: var(--font-proto-bold);
   font-size: 10vw;
   letter-spacing: -0.035em;
-  line-height: 1.25;
+  line-height: 1.1;
 }
 
 .dt-published {
@@ -36,7 +36,7 @@
 
 .e-content {
   color: var(--color-text);
-  font-size: 1.6rem;
+  font-size: 1.6em;
   line-height: 1.6;
   margin: 0 auto;
   max-width: var(--width-content-max);
@@ -210,7 +210,7 @@
   content: "";
   display: block;
   height: 0.75rem;
-  margin: 1.5em auto 1.2em auto;
+  margin: 1.75em 0 1em 0;
   text-align: center;
   width: 25%;
 }
@@ -241,7 +241,7 @@
   }
 
   .p-name {
-    font-size: 4.6rem;
+    font-size: 4.6em;
   }
 
   .e-content {
@@ -253,9 +253,23 @@
   }
 }
 
-@media (min-width: 100em) {
+@media (min-width: 96.875em) {
   .h-entry {
-    --width-text-max: 78rem;
+    --width-text-max: 73rem;
+  }
+
+  .p-name {
+    font-size: 5em;
+  }
+
+  .e-content {
+    font-size: 2.4em;
+  }
+}
+
+@media (min-width: 115.625em) {
+  .h-entry {
+    --width-text-max: 79rem;
   }
 
   .p-name {
