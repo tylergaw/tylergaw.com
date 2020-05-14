@@ -17,8 +17,88 @@ meta:
   content will evolve through the series and beyond.
 </p>
 
+<p>
+  Going into this, I didn’t know exactly what colors I wanted, but I knew I
+  wanted to use a lot of them. I wanted my color usage to come across as
+  deliberate, but I also wanted to leave the door open for future additions.
+  With this update, I have a design where no hue, shade, nor tint is off limits.
+</p>
+<p>
+  In this interation I’ve added a light color scheme and selector. Along the
+  way, accessiblity was a guiding principle. I’ve put a lot effort into making
+  sure the colors meet WCAG contrast ratios. It’s not perfect, but moving in the
+  right direction.
+</p>
+
+<h2>A working combination</h2>
+<p>
+  I started with what I had in place. A dark grey background
+  <code class="color-swatch-code" style="--color: #292929;">#292929</code>,
+  not-quite-white text
+  <code class="color-swatch-code" style="--color: #f8f8f8;">#f8f8f8</code>, and
+  a pink accent color
+  <code class="color-swatch-code" style="--color: #ff607f;">#ff607f</code>.
+</p>
+<p>
+  I’ve used the dark grey and offwhite on this site since 2018. I’ve played with
+  the accent color over the years. The original was a muted green. Then maybe a
+  purple. I changed it every few months for fun.
+</p>
+<p>
+  The color usage felt a bit trapped with only a single accent color. That's an
+  early thing I worked on for this. I still wanted a primary accent color to
+  highlight links, but I wanted at least one more accent color for
+  embellishment.
+</p>
+<p>
+  My process for picking color combinations is definitely not a science. It’s
+  slow and tedious trail and error. Pick a color. Pick another. See if they work
+  together. Repeat. The first color I got excited about was a new accent color
+  for the dark scheme,
+  <code class="color-swatch-code" style="--color: #00eb9b;">#00eb9b</code>.
+</p>
+<figure>
+  <div class="realign-color-primary-accent"></div>
+  <figcaption>
+    fig 1: The new primary accent color for this site’s dark scheme, #00eb9b
+  </figcaption>
+</figure>
+
+<p>
+  To get to this color I started with emerald green. I didn’t have a hex for it,
+  I just did a image search for “emerald green” and picked the one I thought
+  looked the best. The reason I started with that color? My hair was sorta
+  emerald green/blue at the time. See what I mean by not a science?
+</p>
+
+<p>
+  From there I checked contrast with my dark scheme background color
+  <code class="color-swatch-code" style="--color: #292929;">#292929</code> using
+  the
+  <a href="https://webaim.org/resources/contrastchecker/"
+    >WebAIM contrast checker</a
+  >. I’d use this green for text links so I needed it to have a ratio that met
+  at least WCAG AA for normal text. Using contrast as a guidline for choosing
+  colors like this is super helpful. Choosing colors for a design is a wide-open
+  process, so anything that helps narrow the scope is welcome.
+</p>
+
+<figure>
+  <img
+    src="/articles/assets/post-image-realign-2020-color-contrast-checker.png"
+    alt="A screenshot showing the WebAIM color contrast checker comparing #00eb9b and #292929"
+  />
+
+  <figcaption>
+    fig 2: Checking the contrast of the dark scheme primary accent and
+    background colors
+  </figcaption>
+</figure>
+
+<p></p>
+
+<!--
 <h2>Accessiblility</h2>
-<p>All colors should meet WCAG 2.0 level AA or else</p>
 
 <h2>Equally-considered themes</h2>
 <p>
@@ -40,7 +120,8 @@ meta:
   >.
 </p>
 
-<h2>Future variety</h2>
-<p>Use a lot of colors now so you can use even more colors later.</p>
+<h2>Blog post syntax highlighting</h2>
+
+-->
 
 {{> thanks-for-reading }}

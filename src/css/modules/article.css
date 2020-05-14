@@ -1,5 +1,5 @@
 .h-entry ::selection {
-  background-color: var(--color-accent-secondary);
+  background-color: var(--color-accent-primary);
   color: var(--color-bg);
 }
 
@@ -232,6 +232,24 @@
 
 .entry-update {
   font-size: 1em;
+}
+
+.realign-color-primary-accent {
+  --height: 600px;
+  background-color: #00eb9b;
+  height: var(--height);
+  height: min(var(--height), 50vw);
+}
+
+.color-swatch-code::before {
+  background-color: var(--color);
+  border-radius: 3px;
+  border: 2px solid currentColor;
+  content: "";
+  display: inline-block;
+  height: 0.7em;
+  margin-right: 0.5rem;
+  width: 0.7em;
 }
 
 @media (min-width: 46.875em) {
