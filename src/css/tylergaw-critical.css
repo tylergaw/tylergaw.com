@@ -436,9 +436,8 @@ a:focus {
 .listed-item__link {
   border-bottom: 1px solid currentColor;
   color: var(--color-accent-primary);
-  display: inline-block;
   font-size: 1.6em;
-  line-height: 1.1;
+  line-height: 1.35;
   max-width: 100%;
   text-decoration: none;
   word-wrap: break-word;
