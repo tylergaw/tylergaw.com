@@ -62,6 +62,11 @@
       .forEach((el) => el.removeAttribute("data-user-color-scheme"));
     updateSchemeBtn(systemScheme);
   };
+
+  const inPostSwitch = document.querySelector(".realign-color-scheme-toggle");
+  if (inPostSwitch) {
+    inPostSwitch.addEventListener("click", toggleScheme);
+  }
 </script>
 
 {{#if highlightSyntax }}

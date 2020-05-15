@@ -248,6 +248,26 @@
   background: linear-gradient(90deg, #00eb9b 60%, #9db4ff 40%);
 }
 
+.realign-color-light-scheme {
+  background: linear-gradient(90deg, #3f3d31 20%, #c01458 20% 60%, #c2d838 40%);
+}
+
+.no-js .realign-color-scheme-toggle-invite {
+  display: none;
+}
+
+.realign-color-scheme-toggle {
+  background-color: var(--color-accent-primary);
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  color: var(--color-bg);
+  font-family: var(--font-proto-light);
+  font-size: inherit;
+  font-size: 85%;
+  padding: 0.25rem 0.4rem;
+}
+
 .color-swatch-code::before {
   background-color: var(--color);
   border-radius: 3px;

@@ -126,17 +126,17 @@ meta:
 <figure>
   <div class="realign-color-fig realign-color-primary-secondary-accent"></div>
   <figcaption>
-    fig 2: Primary and secondary accent colors for the dark scheme; #00eb9b,
+    fig 2: Primary and secondary accent colors of the dark scheme; #00eb9b,
     #9db4ff
   </figcaption>
 </figure>
 
 <p>
-  From here it's just color confetti. I starting make a spotted, dusty
-  background texture. At first it was all off-white flecks, but felt like there
-  was room for more. So I started picking colors at almost random to use for the
-  dust. The hue is all over the spectrum, but I tried to keep them in a similar
-  tone. This part was just fun.
+  From here it's color confetti. I starting make a spotted, dusty background
+  texture. At first it was all off-white flecks, but felt like there was room
+  for more. So I started picking colors at almost random to use for the dust.
+  The hue is all over the spectrum, but I tried to keep them in a similar tone.
+  This part was just fun.
 </p>
 
 <p>
@@ -145,29 +145,73 @@ meta:
   opportunities to introduce color as I move along.
 </p>
 
-<!--
-<h2>Equally-considered themes</h2>
+<h2>Light mode</h2>
 <p>
-  Dark and light themes shouldn’t only be inverse of the other. Each should be
-  its own considered, curated experience.
+  In the last year or so it seems almost every site and app has announced their
+  “dark mode.” This site has had light text on a dark background for almost a
+  decade now. With this realign, I also wanted to provide an alternative color
+  scheme. The alternative would be a light version.
 </p>
 
-<h2>Media queries in SVG</h2>
 <p>
-  Embed color themes in your SVG elements so they respect color prefences when
-  they're in the wild.
+  Dark and light schemes shouldn’t only the inverse of the other. They should be
+  fully considered designs that stand on their own. The color selection process
+  was the same as the others. Trial and error. Make sure the colors meet WCAG
+  contrast ratios. Find combinations that work well together.
 </p>
 
-<h2>User preference switch</h2>
+<figure>
+  <div class="realign-color-fig realign-color-light-scheme"></div>
+  <figcaption>
+    fig 3: Text, primary, and secondary colors of the light scheme; #3f3d31,
+    #c01458, c2d838
+  </figcaption>
+</figure>
+
 <p>
+  Like the dark scheme, the light scheme has a textured background. The shape
+  and placement of the flecks are the same, but I chose different colors. Colors
+  that fit the tone of the light accents and worked well on the off-white
+  background.
+</p>
+
+<h3>User’s choice</h3>
+<p>
+  Any color mode you choose at the system level should not be the final say you
+  have in the color mode of a website or app. Preference over text and
+  background color changes with context, time of day, and mood. For this site, I
+  prefer the dark scheme. But, I don’t use the dark mode on my system, macOS.
+  Other folks will have the same preference.
+</p>
+<p>
+  With that, I included a color scheme toggle that remembers your preference.
+  Not across devices, but in browser.
+  <span class="realign-color-scheme-toggle-invite"
+    >There’s a button in the footer, but give it a try:
+    <button class="realign-color-scheme-toggle">Switch scheme</button></span
+  >
+</p>
+<p>
+  The code I used for this is a modified version of
   <a
     href="https://hankchizljaw.com/wrote/create-a-user-controlled-dark-or-light-mode/"
-    >Andy Bell’s post</a
-  >.
+    >Andy Bell’s</a
+  >. The logic for picking a color scheme goes like this. If you haven’t chosen
+  a color scheme using the provided button, go with the system setting. If you
+  have macOS dark appearance set, you’ll see the dark scheme. Light appearance,
+  light scheme.
+</p>
+<p>
+  If you’ve been to this site before and changed the scheme using the toggle
+  button, that will be the scheme you seen. If you have macOS dark appearance
+  set, but you’ve chosen light scheme here, you’ll see the light scheme. The
+  inverse is also true.
 </p>
 
+<!--
 <h2>Blog post syntax highlighting</h2>
-
+<h2>Media queries in SVG</h2>
+<h2>Color naming</h2>
 -->
 
 {{> thanks-for-reading }}
