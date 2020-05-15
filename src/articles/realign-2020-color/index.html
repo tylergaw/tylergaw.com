@@ -1,7 +1,7 @@
 ---
 layout: article.html
 title: "Realign 2020: Color"
-date: "2020-05-14"
+date: "2020-05-15"
 permalink: /articles/realign-2020-color
 highlightSyntax: true
 meta:
@@ -19,87 +19,133 @@ meta:
 
 <p>
   Going into this, I didn’t know exactly what colors I wanted, but I knew I
-  wanted to use a lot of them. I wanted my color usage to come across as
-  deliberate, but I also wanted to leave the door open for future additions.
-  With this update, I have a design where no hue, shade, nor tint is off limits.
+  wanted a lot. I wanted my color usage to come across as deliberate. Planned.
+  But at the same time unbounded. I wanted a design where no hue, shade, or tint
+  is off limits or unwelcome.
 </p>
 <p>
-  In this interation I’ve added a light color scheme and selector. Along the
-  way, accessiblity was a guiding principle. I’ve put a lot effort into making
-  sure the colors meet WCAG contrast ratios. It’s not perfect, but moving in the
-  right direction.
+  Along with new colors, I also added a light color scheme. Or "light mode."
+  Depending on your os color mode, this text is either muddy brown on off-white
+  or off-white on charcoal. There's also an override button in the footer, in
+  case you prefer one scheme over the other. More on that setup later in this
+  post.
 </p>
 
-<h2>A working combination</h2>
+<h2>Choosing colors</h2>
 <p>
-  I started with what I had in place. A dark grey background
+  Choosing colors for a design is a lot of play. With this design I started with
+  what I had in place already. A dark grey background
   <code class="color-swatch-code" style="--color: #292929;">#292929</code>,
-  not-quite-white text
+  off-white text
   <code class="color-swatch-code" style="--color: #f8f8f8;">#f8f8f8</code>, and
   a pink accent color
-  <code class="color-swatch-code" style="--color: #ff607f;">#ff607f</code>.
-</p>
-<p>
-  I’ve used the dark grey and offwhite on this site since 2018. I’ve played with
-  the accent color over the years. The original was a muted green. Then maybe a
-  purple. I changed it every few months for fun.
-</p>
-<p>
-  The color usage felt a bit trapped with only a single accent color. That's an
-  early thing I worked on for this. I still wanted a primary accent color to
-  highlight links, but I wanted at least one more accent color for
-  embellishment.
-</p>
-<p>
-  My process for picking color combinations is definitely not a science. It’s
-  slow and tedious trail and error. Pick a color. Pick another. See if they work
-  together. Repeat. The first color I got excited about was a new accent color
-  for the dark scheme,
-  <code class="color-swatch-code" style="--color: #00eb9b;">#00eb9b</code>.
-</p>
-<figure>
-  <div class="realign-color-primary-accent"></div>
-  <figcaption>
-    fig 1: The new primary accent color for this site’s dark scheme, #00eb9b
-  </figcaption>
-</figure>
-
-<p>
-  To get to this color I started with emerald green. I didn’t have a hex for it,
-  I just did a image search for “emerald green” and picked the one I thought
-  looked the best. The reason I started with that color? My hair was sorta
-  emerald green/blue at the time. See what I mean by not a science?
+  <code class="color-swatch-code" style="--color: #ff607f;">#ff607f</code>. I
+  started there, with the dark scheme. Light mode colors could come later.
 </p>
 
+<h3>Toxic green</h3>
 <p>
-  From there I checked contrast with my dark scheme background color
-  <code class="color-swatch-code" style="--color: #292929;">#292929</code> using
-  the
+  The first color I worked with was the primary accent color. Its job is to make
+  the design come alive. Its also the color of text links. Because of that, the
+  color I used needed to meet a minimum WCAG color contrast ratio. I used high
+  contrast ratios as a guidepost throughout this process.
+</p>
+<p>
+  This primary accent color was important to get just right.
+</p>
+<p>
+  From the beginning, I saw yellows, greens, yellowish greens, and blue greens
+  in my head. I went through the rainbow, but it was clear this small section of
+  the spectrum was where I'd find the right color.
+</p>
+<p>
+  The green couldn't be a lime. That with the off-white and charcoal gave off a
+  campy-horror vibe that didn't feel right. Towards yellow felt stale. I wanted
+  an unnatural green. A weird green.
+</p>
+<p>
+  My hair at the time was a strange mix of blue and emerald green. The result of
+  one of my recent home dye jobs. I thought that could be a place to look. I
+  didn't have a hex value so I did an image search for “emerald green.” When I
+  found one that looked cool, I used an eyedropper to pick a hex. If you haven't
+  noticed, my process for color is not a science.
+</p>
+
+<p>
+  I don’t have the exact hex I started with, but it gave me a solid foundation
+  to work from. It got me a tiny sliver of the color spectrum. I had help
+  getting to the final color. I mentioned before I need colors to meet certain
+  contrast ratios. To do that I used the
   <a href="https://webaim.org/resources/contrastchecker/"
     >WebAIM contrast checker</a
-  >. I’d use this green for text links so I needed it to have a ratio that met
-  at least WCAG AA for normal text. Using contrast as a guidline for choosing
-  colors like this is super helpful. Choosing colors for a design is a wide-open
-  process, so anything that helps narrow the scope is welcome.
+  >. I compared the green with the charcoal background. I adjusted the hue and
+  lightness by tiny amounts until I got the contrast I needed.
 </p>
-
+<p>
+  Letting WCAG contrast ratios influence aesthetic decisions can be a little
+  uncomfortable. As an experienced designer, I have a trained eye that I trust
+  to choose colors that work well and look good. But, that's not the whole
+  story. My instincts towards subtlety often lead to colors that look fantastic,
+  but are low in contrast. Low contrast text can be difficult for people to see.
+  Color needs more than my instincts. So I let go of a bit of control.
+</p>
+<p>
+  Letting go can produce great results. Results that make a design accessible
+  and enjoyable to more people. And in this case, helped me get what I was
+  looking for. This was the first color I got excited about in this process.
+  This unnatural green. This weird green. This toxic green.
+</p>
 <figure>
-  <img
-    src="/articles/assets/post-image-realign-2020-color-contrast-checker.png"
-    alt="A screenshot showing the WebAIM color contrast checker comparing #00eb9b and #292929"
-  />
-
+  <div class="realign-color-fig realign-color-primary-accent"></div>
   <figcaption>
-    fig 2: Checking the contrast of the dark scheme primary accent and
-    background colors
+    fig 1: Primary accent color for the dark scheme, #00eb9b
   </figcaption>
 </figure>
 
-<p></p>
+<h3>Boo</h3>
+<p>
+  The design having a single accent color made me feel like I painted myself
+  into a corner. It felt too formulaic. Also, the design was using the accent
+  color to highlight links, but then sometimes only as accent. I needed to
+  introduce at least one more accent color. One that I'd use only for
+  embellishment. Toxic green would only be for links and other clickable
+  elements.
+</p>
+
+<p>
+  I went through the process again. A slow trial and error. Clicking around on
+  the color picker. Looking for one that worked with that toxic green and the
+  rest of the design. I landed on a muted blue.
+</p>
+
+<p>
+  The blue itself had to look great, but the interplay between it and the other
+  colors was most important.
+</p>
+
+<figure>
+  <div class="realign-color-fig realign-color-primary-secondary-accent"></div>
+  <figcaption>
+    fig 2: Primary and secondary accent colors for the dark scheme; #00eb9b,
+    #9db4ff
+  </figcaption>
+</figure>
+
+<p>
+  From here it's just color confetti. I starting make a spotted, dusty
+  background texture. At first it was all off-white flecks, but felt like there
+  was room for more. So I started picking colors at almost random to use for the
+  dust. The hue is all over the spectrum, but I tried to keep them in a similar
+  tone. This part was just fun.
+</p>
+
+<p>
+  Now that I have a foundation of color in place, I can keep going with it. As I
+  continue developing content, I can also iterate on the design. Finding more
+  opportunities to introduce color as I move along.
+</p>
 
 <!--
-<h2>Accessiblility</h2>
-
 <h2>Equally-considered themes</h2>
 <p>
   Dark and light themes shouldn’t only be inverse of the other. Each should be
