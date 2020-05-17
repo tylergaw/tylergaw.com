@@ -1,7 +1,7 @@
 ---
 layout: article.html
 title: "Realign 2020: Color"
-date: "2020-05-15"
+date: "2020-05-17"
 permalink: /articles/realign-2020-color
 highlightSyntax: true
 meta:
@@ -24,11 +24,11 @@ meta:
   is off limits or unwelcome.
 </p>
 <p>
-  Along with new colors, I also added a light color scheme. Or "light mode."
-  Depending on your os color mode, this text is either muddy brown on off-white
-  or off-white on charcoal. There's also an override button in the footer, in
-  case you prefer one scheme over the other. More on that setup later in this
-  post.
+  Along with new colors, I also added a light color scheme. Or “light mode.”
+  Depending on your system color mode, this text is either muddy brown on
+  off-white or off-white on charcoal. There's also an override button in the
+  footer, in case you prefer one scheme over the other. More on that setup later
+  in this post.
 </p>
 
 <h2>Choosing colors</h2>
@@ -175,7 +175,7 @@ meta:
   background.
 </p>
 
-<h3>User’s choice</h3>
+<h3>Your choice</h3>
 <p>
   Any color mode you choose at the system level should not be the final say you
   have in the color mode of a website or app. Preference over text and
@@ -184,13 +184,14 @@ meta:
   Other folks will have the same preference.
 </p>
 <p>
-  With that, I included a color scheme toggle that remembers your preference.
-  Not across devices, but in browser.
+  With that in mind, I included a color scheme toggle in the footer that
+  remembers your preference. Not across devices, but in browser.
   <span class="realign-color-scheme-toggle-invite"
-    >There’s a button in the footer, but give it a try:
+    >Give it a try with this button:
     <button class="realign-color-scheme-toggle">Switch scheme</button></span
   >
 </p>
+<h3>Mode code</h3>
 <p>
   The code I used for this is a modified version of
   <a
@@ -198,20 +199,151 @@ meta:
     >Andy Bell’s</a
   >. The logic for picking a color scheme goes like this. If you haven’t chosen
   a color scheme using the provided button, go with the system setting. If you
-  have macOS dark appearance set, you’ll see the dark scheme. Light appearance,
+  have a system level dark mode set, you’ll see the dark scheme. Light mode,
   light scheme.
 </p>
 <p>
   If you’ve been to this site before and changed the scheme using the toggle
-  button, that will be the scheme you seen. If you have macOS dark appearance
+  button, that will be the scheme you see. If you have a system level dark mode
   set, but you’ve chosen light scheme here, you’ll see the light scheme. The
   inverse is also true.
 </p>
+<p>
+  An interesting thing I ended up doing with the code for the scheme picker is
+  splitting it into two parts. I include the first part right after the opening
+  <code>body</code> tag. This code’s job is to determine the correct color
+  scheme on page load. It checks <code>localStorage</code> for a
+  <code>user-color-scheme</code> item. The value of that item will be the string
+  <code>"light"</code> or <code>"dark"</code>. If found, that’s the color scheme
+  displayed. If not, the code falls back to the system level color scheme. I’m
+  able to determine the system level scheme from a CSS custom property named
+  <code>"user-color-scheme"</code>. The default of that prop is
+  <code>"dark"</code>. Using the <code>prefers-color-scheme: light</code> media
+  query I set it to <code>"light"</code>. This approach is from Andy’s example.
+</p>
+<p>
+  The reason I include this as an internal script before the document loads is
+  to avoid a flash of the other scheme. If I included this as an external script
+  and waited for document load, you’d see that quick flash of incorrectly styled
+  content. This makes the code a tiny bit harder to maintain, but it works fine
+  for my purposes. I keep the code in
+  <a
+    href="https://github.com/tylergaw/tylergaw.com/blob/346982b2da07b2369b5bd2101c50488dfa246157/partials/scheme.js.html"
+    >a partial</a
+  >
+  that I include in my handlebars templates.
+</p>
+<p>
+  The second part of the code is also in
+  <a
+    href="https://github.com/tylergaw/tylergaw.com/blob/346982b2da07b2369b5bd2101c50488dfa246157/partials/scripts.html#L10"
+    >a partial</a
+  >. I include this before the closing <code>body</code> tag. This code’s job is
+  to make the scheme switcher button work. Because it’s in the footer, it can
+  wait until the document loads.
+</p>
+<p>
+  Something I added to Andy’s example is code that responds to system level mode
+  changes. He mentions it as a potential improvement:
+</p>
+<blockquote>
+  <p>
+    Observe changes to the user’s dark/light mode setting, probably via the
+    prefers-color-scheme media query and update the default state accordingly
+  </p>
+  <cite>
+    “<a
+      href="https://hankchizljaw.com/wrote/create-a-user-controlled-dark-or-light-mode/#heading-wrapping-up"
+      >Create a user controlled dark or light mode</a
+    >”
+  </cite>
+</blockquote>
+<p>
+  This addition makes sure the button stays in sync with the system level
+  setting. Without this code, the CSS-driven parts of the display update, but
+  not the JS-driven parts like the button.
+</p>
+<pre><code class="language-javascript">const mql = window.matchMedia("(prefers-color-scheme: light)");
 
-<!--
-<h2>Blog post syntax highlighting</h2>
-<h2>Media queries in SVG</h2>
+mql.addListener((event) => { 
+  console.group("System color scheme change");
+  const systemScheme = getCSSProp("--scheme-system"); 
+  const userScheme = localStorage.getItem(schemeKey); 
+  console.info("System color scheme changed to", systemScheme); 
+  
+  if (!userScheme) { 
+    console.info("No user color scheme chosen, using the system scheme"); 
+  } else { 
+    console.info(`User choice takes preference, using the ${userScheme} scheme`); 
+  } 
+  
+  updateSchemeBtn(userScheme || systemScheme); 
+  console.groupEnd(); 
+});</code></pre>
+
+<p>
+  I use a
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia"
+    ><code>MediaQueryList</code></a
+  >
+  event to keep an eye on <code>prefers-color-scheme</code>. When it changes,
+  the callback does the same <code>localStorage</code> and custom prop lookup
+  that happens on page load.
+</p>
+
+<p>
+  I left logging in place to announce changes and decisions made. I hadn’t used
+  <code>console.group()</code> and <code>groupEnd()</code> before. They’re super
+  helpful for keeping logs organized.
+</p>
+
+<figure>
+  <picture>
+    <source
+      srcset="
+        /articles/assets/post-image-realign-2020-color-scheme-toggle-static.png
+      "
+      media="(prefers-reduced-motion: reduce)"
+    />
+
+    <img
+      src="/articles/assets/post-image-realign-2020-color-scheme-toggle.gif"
+      alt="A looping animated gif where I’m changing the Appearance setting on macOS from Light to dark while looking at this site with the developer console open to show the logging output."
+    />
+  </picture>
+
+  <figcaption>
+    fig 4: Monitoring the effects of changing the appearance on macOS
+  </figcaption>
+</figure>
+
+<h2>Code color</h2>
+<p>
+  If you’re reading this post on my site, you’ll see syntax highlighted code
+  samples. Like the earlier <code>matchMedia</code> example.
+  <a href="https://prismjs.com/">Prism</a> is my highlighter of choice. I’ve had
+  a modified
+  <a
+    href="https://github.com/ericwbailey/a11y-syntax-highlighting/blob/master/dist/prism/a11y-dark.css"
+    >dark a11y theme by Eric Bailey</a
+  >
+  in place for a couple years. For this update, combined the dark and light
+  themes so they change with the rest of my site scheme. I moved all the theme
+  colors to CSS custom props and used similar selectors to choose the correct
+  theme.
+</p>
+<p>
+  This approach results in a bit a repetition, but gets the job done. You can
+  see the full port on
+  <a
+    href="https://github.com/tylergaw/tylergaw.com/blob/cffe306ca5447e2b17cbe5ac8669a8d909837ee3/src/css/modules/prism-a11y.css"
+    >GitHub in prism-a11y.css</a
+  >.
+</p>
+
 <h2>Color naming</h2>
--->
+<p>
+  I’ll end with another fun one.
+</p>
 
 {{> thanks-for-reading }}

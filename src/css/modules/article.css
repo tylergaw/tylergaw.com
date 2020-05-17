@@ -104,6 +104,10 @@
     padding-bottom: 1.6em;
   }
 
+  & code {
+    font-size: 90%;
+  }
+
   & .thanks-for-reading svg {
     margin-left: auto;
     max-width: 15.625rem;
@@ -259,13 +263,14 @@
 .realign-color-scheme-toggle {
   background-color: var(--color-accent-primary);
   border: 0;
+  border-radius: 3px;
   cursor: pointer;
   display: inline-block;
   color: var(--color-bg);
-  font-family: var(--font-proto-light);
+  font-family: var(--font-proto-regular);
   font-size: inherit;
-  font-size: 85%;
-  padding: 0.25rem 0.4rem;
+  font-size: 65%;
+  padding: 0.5rem 0.6rem;
 }
 
 .color-swatch-code::before {
