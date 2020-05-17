@@ -58,6 +58,7 @@
 .scheme-toggle-btn {
   background-color: var(--color-accent-primary);
   border: 0;
+  border-radius: 3px;
   cursor: pointer;
   display: inline-block;
   color: var(--color-bg);

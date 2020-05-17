@@ -1,4 +1,4 @@
-const CACHE_KEY = "44-tylergaw";
+const CACHE_KEY = "45-tylergaw";
 const CACHE_URLS = [
   "/",
   "/index.html",
@@ -17,45 +17,45 @@ const CACHE_URLS = [
   "/images/jxa-chip.png",
   "/images/jxa-chip.webp",
   "/offline.html",
-  "manifest.json"
+  "manifest.json",
 ];
 
-self.addEventListener("install", event =>
+self.addEventListener("install", (event) =>
   event.waitUntil(
     caches
       .open(CACHE_KEY)
-      .then(cache => cache.addAll(CACHE_URLS))
+      .then((cache) => cache.addAll(CACHE_URLS))
       .then(() => self.skipWaiting())
   )
 );
 
-self.addEventListener("activate", event => {
+self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches
       .keys()
-      .then(cacheNames =>
+      .then((cacheNames) =>
         Promise.all(
           cacheNames
-            .filter(name => name.indexOf(CACHE_KEY) !== 0)
-            .map(name => caches.delete(name))
+            .filter((name) => name.indexOf(CACHE_KEY) !== 0)
+            .map((name) => caches.delete(name))
         )
       )
       .then(() => self.clients.claim())
   );
 });
 
-self.addEventListener("fetch", event => {
+self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") {
     return;
   }
 
   event.respondWith(
     fetch(event.request)
-      .then(res => res)
-      .catch(err => {
+      .then((res) => res)
+      .catch((err) => {
         return caches
           .match(event.request)
-          .then(res => res || caches.match("/offline.html"));
+          .then((res) => res || caches.match("/offline.html"));
       })
   );
 });
