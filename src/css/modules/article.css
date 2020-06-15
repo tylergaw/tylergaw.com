@@ -224,7 +224,8 @@
 }
 
 .entry-intro + p:first-letter,
-.entry-intro + h2 + p:first-letter {
+.entry-intro + h2 + p:first-letter,
+.drop-capped:first-letter {
   color: var(--color-accent-secondary);
   float: left;
   font-family: var(--font-proto-bold);
