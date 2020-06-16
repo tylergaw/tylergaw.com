@@ -214,12 +214,6 @@ a:focus {
   outline: 3px solid currentColor;
 }
 
-.the-work-graphic {
-  --base: #222;
-  --the-work: #f8f8f8;
-  --so-far: #f0b67b;
-}
-
 @media (prefers-color-scheme: light) {
   html,
   body {
@@ -234,12 +228,6 @@ a:focus {
     --color-bg: var(--color-offwhite);
     --color-text: var(--color-mud);
   }
-
-  html:not([data-user-color-scheme]) .the-work-graphic {
-    --base: #4d352e;
-    --the-work: #fff;
-    --so-far: #e7f097;
-  }
 }
 
 [data-user-color-scheme="light"] {
@@ -248,12 +236,6 @@ a:focus {
   --color-accent-secondary: var(--color-accent-boogers);
   --color-bg: var(--color-offwhite);
   --color-text: var(--color-mud);
-}
-
-[data-user-color-scheme="light"] .the-work-graphic {
-  --base: #4d352e;
-  --the-work: #fff;
-  --so-far: #e7f097;
 }
 
 .banner {
@@ -563,16 +545,6 @@ a:focus {
   .about-portrait-shape {
     max-width: 56rem;
     width: 59%;
-  }
-}
-
-@media (min-width: 87.5em) {
-  .home-intro {
-    padding-bottom: 110vw;
-  }
-
-  .home-intro::after {
-    height: 100vw;
   }
 }
 
