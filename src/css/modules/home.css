@@ -11,21 +11,21 @@
   font-size: 1.3rem;
   max-width: 100%;
   overflow: hidden;
+}
 
-  & h3,
-  & h4 {
-    font-family: var(--font-proto-regular);
-    margin-top: 1em;
-  }
+.project h3,
+.project h4 {
+  font-family: var(--font-proto-regular);
+  margin-top: 1em;
+}
 
-  & h4 {
-    font-size: 80%;
-  }
+.project h4 {
+  font-size: 80%;
+}
 
-  & p {
-    line-height: 1.5;
-    padding: 0.2em 0 1.2em 0;
-  }
+.project p {
+  line-height: 1.5;
+  padding: 0.2em 0 1.2em 0;
 }
 
 .project-header {
@@ -147,50 +147,6 @@
 .project-intro {
   font-size: 1.2em;
   line-height: 1.6;
-}
-
-.epilogue {
-  color: var(--color-text);
-  font-size: 0.9rem;
-  line-height: 1.4;
-  padding: 65rem 2rem 15rem 2rem;
-  position: relative;
-  text-align: center;
-  z-index: 2;
-}
-
-.epilogue-poem {
-  margin: 0 auto;
-  max-width: 10rem;
-}
-
-.epilogue p + p {
-  font-size: 1.6rem;
-  margin-top: 8em;
-}
-
-.epilogue::after {
-  background-color: var(--color-text);
-  --line-clip: polygon(
-    3px 0,
-    7px 0,
-    6px 25%,
-    8px 80%,
-    6px 99.7%,
-    100% 99.7%,
-    100% 100%,
-    0 100%,
-    0 99.7%,
-    47% 99.7%
-  );
-  -webkit-clip-path: var(--line-clip);
-  clip-path: var(--line-clip);
-  content: "";
-  height: 60%;
-  left: calc(50% - 10px);
-  position: absolute;
-  top: 0;
-  width: 16px;
 }
 
 @media (min-width: 47.5em) {

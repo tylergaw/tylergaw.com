@@ -64,51 +64,7 @@
   padding-bottom: 0;
 }
 
-.limbo-gw-bumper {
-  background: var(--color-eggshell) url("/images/home-limbo-bg-tile.svg") repeat;
-  background-size: 1000px;
-  color: var(--limbo-red);
-  font-size: 0.8rem;
-  padding-top: 100vw;
-  padding-bottom: 120vw;
-  position: relative;
-}
-
-.limbo-gw-bumper::after {
-  background-color: var(--limbo-red);
-  bottom: 1rem;
-  --line-clip: polygon(
-    0 5px,
-    100% 0,
-    40% 25%,
-    100% 50%,
-    30% 75%,
-    100% 100%,
-    0 99.8%
-  );
-  -webkit-clip-path: var(--line-clip);
-  clip-path: var(--line-clip);
-  content: "";
-  height: 100%;
-  left: calc(50% - 2px);
-  position: absolute;
-  width: 4px;
-}
-
-.limbo-gw-bumper h5 {
-  background-color: var(--color-eggshell);
-  display: inline-block;
-  left: 49%;
-  padding: 0.5rem 0 0.8rem 0;
-  position: relative;
-  z-index: 2;
-}
-
 @media (min-width: 70em) {
-  .poster-limbo {
-    margin-top: -18vw;
-  }
-
   .limbo-header {
     margin: 10vw auto -10vw auto;
   }
@@ -128,25 +84,7 @@
   }
 }
 
-@media (min-width: 87.5em) {
-  .limbo-gw-bumper {
-    padding-bottom: 100vw;
-    padding-top: 60vw;
-  }
-}
-
-@media (min-width: 112.5em) {
-  .limbo-gw-bumper {
-    padding-bottom: 120rem;
-    padding-top: 68rem;
-  }
-}
-
 @media (min-width: 117.5em) {
-  .poster-limbo {
-    margin-top: -21.13rem;
-  }
-
   .limbo-header {
     margin: 11.75rem auto -11.75rem auto;
     max-width: 114rem;
@@ -154,9 +92,5 @@
 
   .poster-fill-limbo {
     padding-top: 15.25rem;
-  }
-
-  .limbo-header::before {
-    top: -53rem;
   }
 }

@@ -1,0 +1,139 @@
+<section class="poster-limbo project" id="limbo">
+  <header class="limbo-header">
+    <h2>
+      {{> limbo-logo.svg }}
+    </h2>
+  </header>
+  <div class="poster-fill-limbo">
+    <div class="project-contents limbo-project-contents">
+      <div class="project-specs">
+        <ul>
+          <li>Co-founder / Design / Frontend</li>
+          <li>2017–2018</li>
+          <li class="project-specs-links">
+            <a href="https://www.limbo.io">limbo.io</a>
+            <br />
+            <a href="https://blog.limbo.io">Unstuck</a>
+          </li>
+        </ul>
+      </div>
+      <div class="project-body">
+        <p class="project-intro">
+          <strong>Limbo is an anonymous job platform</strong>. We made it to
+          make tech recruiting more humane. Chris came to me with the idea and
+          an early prototype and invited me to join him as a partner. I wrote
+          more about our origin story in
+          <a href="/articles/something-new/"><i>Starting Something New</i></a
+          >.
+        </p>
+        <figure class="project-figure">
+          <a href="https://www.limbo.io" class="project-img-link">
+            <picture>
+              <source srcset="/images/home-limbo-1.webp" type="image/webp" />
+              <source srcset="/images/home-limbo-1.jpg" type="image/jpeg" />
+              <img
+                src="/images/home-limbo-1.jpg"
+                alt="A partial screenshot of the Limbo home page"
+              />
+            </picture>
+          </a>
+        </figure>
+        <p>
+          We were trying something different with Limbo. Chris and I were eager
+          to see something in tech recruiting that we hadn’t seen before so we
+          set out to create it. We also wanted to start a business on our terms.
+          A business where
+          <strong>growth for the sake of growth wasn’t the goal.</strong>
+        </p>
+        <p>
+          We don’t have an exact count, but we know we helped many companies
+          find quality candidates that made it to interview processes and a
+          number of hires from those. At the beginning I said I’d be happy if we
+          could help make one hire. We did that and then some.
+        </p>
+        <p>
+          In March 2018 we moved Limbo to side project status to allow us to
+          move on to other opportunities.
+          <a href="https://medium.com/@chrisdary/f9d422d8fdd7">Chris wrote</a>
+          his thoughts about it.
+        </p>
+
+        <h3>Design</h3>
+        <p>
+          Our approach to business allowed us to focus on designing a slow
+          product. Not slow in terms of our speed of production. Slow meaning
+          the product doesn’t beg for customers’ attention every minute. We
+          designed Limbo to encourage candidates to take their time and think
+          about what type of work would make them happy. We designed Limbo to
+          slow hiring managers down to really think what qualities they need to
+          see in a potential team member. Limbo is a tool for accomplishing
+          tasks, not a thing to engage.
+        </p>
+
+        <h4>Pattern Library</h4>
+        <p>
+          From early on, we iterated on the design in browsers. To help that
+          process I built and maintained a
+          <a href="https://www.limbo.io/about/patterns">Pattern Library</a>.
+        </p>
+        <figure class="project-figure project-child-capped">
+          <a
+            href="https://www.limbo.io/about/patterns"
+            class="project-img-link"
+          >
+            <picture>
+              <source srcset="/images/home-limbo-pl.webp" type="image/webp" />
+              <source srcset="/images/home-limbo-pl.jpg" type="image/jpeg" />
+              <img
+                src="/images/home-limbo-1.jpg"
+                alt="A partial screenshot of the Limbo Pattern Library"
+              />
+            </picture>
+          </a>
+          <figcaption>
+            Our pattern library helped us keep consistent design while
+            collaborating and moving fast.
+          </figcaption>
+        </figure>
+        <p>
+          We didn’t use any fancy tech for it. The first iteration of the
+          library was a single html file with no styles. I built it up from
+          there as we moved along and learned more about our needs.
+        </p>
+
+        <h3>Technology</h3>
+        <p>
+          I’m a little old-fashioned when it comes to web tech. From the start,
+          I wanted Limbo to embrace progressive enhancement. I think all
+          sites–or apps–should strive for that. Limbo in particular is a site
+          that can and should function without JavaScript. With that, I worked
+          with Chris to make sure we had backend support for template rendering,
+          form posts, and the like. For each site addition we’d identify the
+          core functionality that had to work without JS and go from there.
+        </p>
+
+        <p>
+          Our JavaScript setup consists of jQuery, Gulp, Rollup.js, Babel, and
+          Prettier. The JS light on-purpose. We wrote the minimum amount to get
+          the task at hand done and not a line more.
+        </p>
+
+        <p>
+          Chris handled the infrastructure and server-side work. Limbo is built
+          with Python/Django and runs on AWS by way of Elasticbeanstalk. We made
+          use of Elasticsearch for our Profile search capabilities.
+        </p>
+
+        <h3>Recognition</h3>
+        <ul class="project-recognition">
+          <li>Featured in NET Magazine issue #300, December 2017</li>
+          <li>
+            <a href="https://www.producthunt.com/posts/limbo-2"
+              >#5 Product of the Day on Product Hunt</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

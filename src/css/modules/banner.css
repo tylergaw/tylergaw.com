@@ -23,9 +23,9 @@
 
 @media (min-width: 30em) {
   .logo::after {
-    --size: 5rem;
+    --size: 4.5rem;
     --top: -0.75rem;
-    --left: calc(100% - 1.8rem);
+    --left: calc(100% - 1.5rem);
   }
 }
 

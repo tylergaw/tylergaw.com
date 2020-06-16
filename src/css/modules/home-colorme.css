@@ -1,5 +1,4 @@
-.poster-colorme,
-.colorme-jxa-bumper {
+.poster-colorme {
   --cm-red: #b42e8b;
   --cm-red-alt: #9a1f74;
   --cm-text: #9a1f74;
@@ -75,41 +74,6 @@
   background-size: 1000px;
 }
 
-.colorme-jxa-bumper {
-  background: var(--cm-bg);
-  background-size: 1000px;
-  font-size: 0.8rem;
-  padding-bottom: 120vw;
-  padding-top: 100vw;
-  position: relative;
-  text-align: center;
-}
-
-.colorme-jxa-bumper::after {
-  background-color: var(--cm-red);
-  bottom: 0;
-  --line-clip: polygon(
-    0 6px,
-    100% 0,
-    30% 25%,
-    100% 50%,
-    30% 100%,
-    50% 100%,
-    0 99.8%
-  );
-  -webkit-clip-path: var(--line-clip);
-  clip-path: var(--line-clip);
-  content: "";
-  height: 100%;
-  left: calc(50% - 6px);
-  position: absolute;
-  width: 5px;
-}
-
-.colorme-jxa-bumper h5 {
-  background-color: #fff;
-}
-
 .bumper h5 {
   display: inline-block;
   padding: 0.2rem 0;
@@ -121,20 +85,6 @@
   .colorme-header {
     margin-top: -25%;
     padding: 16% 8%;
-  }
-}
-
-@media (min-width: 85em) {
-  .colorme-jxa-bumper {
-    padding-bottom: 100vw;
-    padding-top: 60vw;
-  }
-}
-
-@media (min-width: 112.5em) {
-  .colorme-jxa-bumper {
-    padding-bottom: 120rem;
-    padding-top: 68rem;
   }
 }
 

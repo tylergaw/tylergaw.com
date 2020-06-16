@@ -1,5 +1,4 @@
-.poster-groundwork,
-.gw-colorme-bumper {
+.poster-groundwork {
   --gw-blue: #3b6fd8;
   --gw-bg: var(--gw-blue) url("/images/home-gw-bg-tile.svg") repeat;
 }
@@ -81,48 +80,6 @@
   padding-top: 2rem;
 }
 
-.gw-colorme-bumper {
-  background: var(--gw-bg);
-  background-size: 1000px;
-  color: var(--color-eggshell);
-  font-size: 0.8rem;
-  padding-bottom: 120vw;
-  padding-top: 100vw;
-  position: relative;
-}
-
-.gw-colorme-bumper::after {
-  background-color: var(--color-eggshell);
-  bottom: 2rem;
-  --line-clip: polygon(
-    0 6px,
-    100% 0,
-    30% 25%,
-    100% 50%,
-    30% 100%,
-    50% 100%,
-    0 99.8%
-  );
-  -webkit-clip-path: var(--line-clip);
-  clip-path: var(--line-clip);
-  content: "";
-  height: 100%;
-  left: calc(50% - 2px);
-  position: absolute;
-  width: 4px;
-}
-
-.gw-colorme-bumper h5 {
-  background-color: var(--gw-blue);
-  display: inline-block;
-  left: 47%;
-  padding-bottom: 0.2rem;
-  position: relative;
-  transform: rotate(-3deg);
-  text-indent: -0.7rem;
-  z-index: 2;
-}
-
 @media (min-width: 85em) {
   .gw-header {
     margin-bottom: -40vw;
@@ -134,18 +91,6 @@
 
   .poster-fill-groundwork {
     padding-top: 40vw;
-  }
-
-  .gw-colorme-bumper {
-    padding-bottom: 100vw;
-    padding-top: 60vw;
-  }
-}
-
-@media (min-width: 112.5em) {
-  .gw-colorme-bumper {
-    padding-bottom: 120rem;
-    padding-top: 68rem;
   }
 }
 
