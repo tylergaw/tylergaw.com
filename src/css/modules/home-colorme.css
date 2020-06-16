@@ -62,11 +62,11 @@
 
 .poster-colorme a {
   color: var(--cm-red);
+}
 
-  &:hover,
-  &:focus {
-    color: var(--cm-text);
-  }
+.poster-colorme a:hover,
+.poster-colorme a:focus {
+  color: var(--cm-text);
 }
 
 .poster-fill-colorme {

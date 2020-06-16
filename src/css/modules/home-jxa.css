@@ -13,11 +13,11 @@
 
 .poster-jxa a {
   color: #fff;
+}
 
-  &:hover,
-  &:focus {
-    color: var(--jxa-accent);
-  }
+.poster-jxa a:hover,
+.poster-jxa a:focus {
+  color: var(--jxa-accent);
 }
 
 .jxa-header {

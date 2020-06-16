@@ -47,11 +47,11 @@
 
 .poster-groundwork a {
   color: var(--color-eggshell);
+}
 
-  &:hover,
-  &:focus {
-    color: #e4ff64;
-  }
+.poster-groundwork a:hover,
+.poster-groundwork a:focus {
+  color: #e4ff64;
 }
 
 .poster-fill-groundwork {
