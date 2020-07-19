@@ -4,7 +4,7 @@ My personal website since 2006.
 
 ## Local development.
 
-This is static site built with Metalsmith.
+This is static site built with Eleventy.
 
 Install node dependencies:
 
@@ -26,4 +26,4 @@ yarn build
 
 ## Deploying
 
-Since late 2019, this site is hosted on Netlify. Production deploys happen automatically when pushing to `master`.
+Since late 2019, this site is hosted on Netlify. Production deploys happen automatically when pushing to `master`. All pull requests get a preview deploy.
