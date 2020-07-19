@@ -8,8 +8,7 @@
   },
   "scripts": {
     "build": "node scripts/build.js",
-    "start": "yarn build && SERVE=true WATCH=true yarn build",
-    "release": "yarn build && scp -r build tyler@50.56.73.185:/home/tyler/public_html/tylergaw.com/public"
+    "start": "yarn build && SERVE=true WATCH=true yarn build"
   },
   "author": "Tyler Gaw",
   "license": "ISC",
@@ -17,16 +16,5 @@
     "url": "https://github.com/tylergaw/tylergaw.com/issues"
   },
   "homepage": "https://tylergaw.com",
-  "devDependencies": {
-    "handlebars": "4.0.11",
-    "metalsmith": "2.3.0",
-    "metalsmith-browser-sync": "1.1.1",
-    "metalsmith-if": "0.1.1",
-    "metalsmith-in-place": "1.4.4",
-    "metalsmith-layouts": "1.8.1",
-    "metalsmith-postcss": "4.1.1",
-    "moment": "2.20.1",
-    "postcss-import": "11.0.0",
-    "postcss-nesting": "4.2.1"
-  }
+  "devDependencies": {}
 }
