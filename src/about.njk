@@ -1,8 +1,10 @@
 ---
-type: about
 title: About Tyler Gaw and This Site
-permalink: /about
 ---
+
+{% extends "layouts/base.njk" %}
+
+{% block main %}
 
 <div class="about-intro">
   <img class="about-portrait-shape" src="/images/portrait-shape-outside.svg" alt="" aria-hidden="true" />
@@ -53,7 +55,7 @@ permalink: /about
   </p>
 
   <div class="about-portrait">
-    {{> tylergaw-portrait.svg }}
+    {% include "tylergaw-portrait.svg" %}
   </div>
 </div>
 
@@ -141,3 +143,5 @@ permalink: /about
     </li>
   </ol>
 </div>
+
+{% endblock %}

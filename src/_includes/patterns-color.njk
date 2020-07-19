@@ -1,6 +1,6 @@
 <li class="color">
   <div class="color__swatch"
-    style="background-color:{{#if isRgb}}rgba(var({{name}}), 1){{else}}var({{name}}){{/if}}"></div>
+    style="background-color:{% if isRgb %}rgba(var({{name}}), 1){% else %}var({{name}}){% endif %}"></div>
   <div class="token__info">
     <code>{{name}}</code>
     <code>{{value}}</code>

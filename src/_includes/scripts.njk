@@ -1,12 +1,4 @@
 <script>
-  if ("serviceWorker" in navigator && window.location.port !== "8001") {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker
-        .register("/service-worker.js")
-        .catch((err) => console.error("service worker failed to install", err));
-    });
-  }
-
   // Color scheme switch
   const schemeBtn = document.querySelector(".scheme-toggle-btn");
   const schemeBtnTxt = schemeBtn.querySelector(".scheme-toggle-txt");
@@ -69,6 +61,6 @@
   }
 </script>
 
-{{#if highlightSyntax }}
+{% if highlightSyntax %}
 <script src="/js/prism.js" async></script>
-{{/if}}
+{% endif %}

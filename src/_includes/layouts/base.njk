@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" class="no-js" data-page="{% if page.fileSlug %}{{ page.fileSlug }}{% else %}home{% endif %}">
+
+  <head>
+    {% include "head-contents.njk" %}
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/service-worker.js');
+        });
+      }
+    </script>
+  </head>
+  <body>
+    {% include "scheme.njk" %}
+    {% include "banner.njk" %}
+
+    <main>
+      {% block main %}{% endblock %}
+    </main>
+
+    {% include "footer.njk" %}
+    <link rel="stylesheet" href="/css/tylergaw.css">
+    {% include "scripts.njk" %}
+  </body>
+</html>

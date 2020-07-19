@@ -1,31 +1,28 @@
+<meta charset="utf-8" />
 <meta name="theme-color" content="#9A86BF">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{{#if meta.description }}
-<meta name="description" content="{{meta.description}}">
-<meta property="og:description" content="{{meta.description}}">
-<meta name="twitter:description" content="{{meta.description}}">
-{{ else }}
-<meta name="description" content="Tyler draws pictures and writes code to make websites out of those pictures. Not a good dancer.">
-<meta name="og:description" content="Tyler draws pictures and writes code to make websites out of those pictures. Not a good dancer.">
-<meta name="twitter:description" content="Tyler draws pictures and writes code to make websites out of those pictures. Not a good dancer.">
-{{/if}}
+{% set metaTitle = title or "Tyler Gaw - Designer & Engineer - New York City, USA" -%}
+{% set ogDescription = meta.description or "Tyler Gaw is a Designer & Engineer in New York City, USA" -%}
+{% set ogImage = meta.image or "/images/social-default.png" -%}
+{% set ogTitle = title or "/images/social-default.png" -%}
 
-{{#if meta.image }}
-<meta property="og:image" content="{{ site.url }}{{ meta.image }}">
-<meta name="twitter:image" content="{{ site.url }}{{ meta.image }}">
-{{ else }}
-<meta property="og:image" content="{{ site.url }}/images/social-default.png">
-<meta name="twitter:image" content="{{ site.url }}/images/social-default.png">
-{{/if}}
+<title>{{ metaTitle }}</title>
+<meta property="og:title" content="{{ metaTitle }}">
+<meta name="twitter:title" content="{{ metaTitle }}">
 
-<meta name="twitter:card" content="{{#if meta.card }}{{meta.card}}{{ else }}summary_large_image{{/if}}">
+<meta name="description" content="{{ogDescription}}">
+<meta property="og:description" content="{{ogDescription}}">
+<meta name="twitter:description" content="{{ogDescription}}">
 
-<meta property="og:title" content="{{#if title }}{{ title }}{{else}}Tyler Gaw - Designer & Engineer - New York City, USA{{/if}}">
-<meta name="twitter:title" content="{{#if title }}{{ title }}{{else}}Tyler Gaw - Designer & Engineer - New York City, USA{{/if}}">
+<meta property="og:image" content="{{ site.url }}{{ ogImage }}">
+<meta name="twitter:image" content="{{ site.url }}{{ ogImage }}">
 
+<meta name="twitter:card" content="{{ meta.card or 'summary_large_image' }}">
+
+{# FIXME
 <meta property="og:url" content="{{ site.url }}{{#if permalink }}{{ permalink }}{{/if}}">
 <meta name="twitter:url" content="{{ site.url }}{{#if permalink }}{{ permalink }}{{/if}}">
-
+#}
 <meta name="twitter:site" content="@tylergaw">
 <meta property="og:type" content="article">
