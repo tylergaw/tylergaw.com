@@ -7,14 +7,28 @@
     "url": "git+https://github.com/tylergaw/tylergaw.com.git"
   },
   "scripts": {
-    "build": "node scripts/build.js",
-    "start": "yarn build && SERVE=true WATCH=true yarn build"
+    "build": "eleventy",
+    "start": "eleventy --serve",
+    "prettier": "prettier --write src/"
   },
   "author": "Tyler Gaw",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/tylergaw/tylergaw.com/issues"
   },
   "homepage": "https://tylergaw.com",
-  "devDependencies": {}
+  "devDependencies": {
+    "@11ty/eleventy": "0.11.0",
+    "husky": "4.2.5",
+    "lint-staged": "10.2.11",
+    "prettier": "2.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/": "prettier --write"
+  }
 }
