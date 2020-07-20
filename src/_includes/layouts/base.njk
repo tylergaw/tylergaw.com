@@ -3,14 +3,6 @@
 
   <head>
     {% include "head-contents.njk" %}
-
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('/service-worker.js');
-        });
-      }
-    </script>
   </head>
   <body>
     {% include "scheme.njk" %}
