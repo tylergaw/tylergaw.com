@@ -32,9 +32,9 @@ body {
 
 [role="contentinfo"] .contact a {
   color: var(--color-accent-primary);
+}
 
-  &:hover,
-  &:focus {
-    color: var(--color-charcoal);
-  }
+[role="contentinfo"] .contact a:hover,
+[role="contentinfo"] .contact a:focus {
+  color: var(--color-charcoal);
 }

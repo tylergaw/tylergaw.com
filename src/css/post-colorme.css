@@ -7,7 +7,9 @@
 }
 
 .article-hero {
-  background: transparent url('/articles/assets/post-image-colorme-hero-tile.png') repeat-x left bottom;
+  background: transparent
+    url("/articles/assets/post-image-colorme-hero-tile.png") repeat-x left
+    bottom;
   position: relative;
 }
 
@@ -20,10 +22,10 @@
   position: relative;
   z-index: 10;
   margin-bottom: 105%;
+}
 
-  & a {
-    color: var(--color-charcoal);
-  }
+.navigation a {
+  color: var(--color-charcoal);
 }
 
 .logo-base {
@@ -35,7 +37,7 @@
 }
 
 .e-header {
-  background: transparent url('/articles/assets/post-image-colorme-illo.png')
+  background: transparent url("/articles/assets/post-image-colorme-illo.png")
     no-repeat center 60%;
   background-size: 85%;
   box-sizing: border-box;
@@ -45,29 +47,29 @@
   top: 0;
   width: 100%;
   z-index: 1;
+}
 
-  & .dt-published {
-    color: rgba(255, 255, 255, 0.8);
-  }
+.e-header .dt-published {
+  color: rgba(255, 255, 255, 0.8);
+}
 
-  & .p-name {
-    font-size: 11vw;
-  }
+.e-header .p-name {
+  font-size: 11vw;
 }
 
 .h-entry {
   padding-top: 2.5rem;
+}
 
-  & a {
-    color: var(--red);
-  }
+.h-entry a {
+  color: var(--red);
 }
 
 .entry-intro + p:first-letter {
   color: var(--red);
 }
 
-.entry-intro::after  {
+.entry-intro::after {
   background-color: var(--red);
 }
 
@@ -80,11 +82,11 @@
     background-size: 75%;
     margin: 0;
     padding-top: 30rem;
+  }
 
-    & .p-name {
-      box-sizing: border-box;
-      max-width: 46rem;
-    }
+  .e-header .p-name {
+    box-sizing: border-box;
+    max-width: 46rem;
   }
 }
 
@@ -100,16 +102,16 @@
     padding-left: 43%;
     padding-top: 16.5rem;
     text-align: left;
+  }
 
-    & .p-name {
-      font-size: 6vw;
-      margin: 0;
-      padding-bottom: 2vw;
-    }
+  .e-header .p-name {
+    font-size: 6vw;
+    margin: 0;
+    padding-bottom: 2vw;
+  }
 
-    & .dt-published {
-      padding-left: 0.3rem;
-    }
+  .e-header .dt-published {
+    padding-left: 0.3rem;
   }
 }
 
@@ -128,10 +130,10 @@
     left: calc(50% - 45rem);
     padding-left: 39rem;
     max-width: 90rem;
+  }
 
-    & .p-name {
-      font-size: 6.2rem;
-      padding-bottom: 2rem;
-    }
+  .e-header .p-name {
+    font-size: 6.2rem;
+    padding-bottom: 2rem;
   }
 }

@@ -3,6 +3,13 @@
 
   <head>
     {% include "head-contents.njk" %}
+
+    {% set inlineCSS %}
+      {% include "../../css/tylergaw-critical.css" %}
+    {% endset %}
+    <style>
+      {{ inlineCSS | cssmin | safe }}
+    </style>
   </head>
   <body>
     {% include "scheme.njk" %}
