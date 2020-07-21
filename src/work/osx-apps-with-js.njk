@@ -1,7 +1,15 @@
+---
+title: Building OS X Apps with JavaScript Project Details by Tyler Gaw
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block main %}
+
 <section class="poster-jxa project" id="jxa">
   <header class="jxa-header">
     <h2>
-      {{> jxa-logo.svg }}
+      {% include "jxa-logo.svg" %}
     </h2>
   </header>
   <div class="poster-fill-jxa">
@@ -190,3 +198,5 @@
     </div>
   </div>
 </section>
+
+{% endblock %}

@@ -42,159 +42,157 @@
   max-width: var(--width-content-max);
   padding-bottom: 5em;
   width: var(--width-content);
+}
 
-  & a {
-    color: var(--text);
-  }
+.e-content a {
+  color: var(--text);
+}
 
-  & a:hover,
-  & a:focus {
-    color: var(--color-accent-primary);
-  }
+.e-content a:hover,
+.e-content a:focus {
+  color: var(--color-accent-primary);
+}
 
-  & .link--future {
-    cursor: not-allowed;
-    opacity: 0.4;
-    text-decoration: underline;
-  }
+.e-content .link--future {
+  cursor: not-allowed;
+  opacity: 0.4;
+  text-decoration: underline;
+}
 
-  & h2,
-  & h3,
-  & h4,
-  & h5,
-  & h6,
-  & p,
-  & ul,
-  & ol,
-  & blockquote,
-  & blockquote cite {
-    margin: 0 auto;
-    max-width: var(--width-text-max);
-  }
+.e-content h2,
+.e-content h3,
+.e-content h4,
+.e-content h5,
+.e-content h6,
+.e-content p,
+.e-content ul,
+.e-content ol,
+.e-content blockquote,
+.e-content blockquote cite {
+  margin: 0 auto;
+  max-width: var(--width-text-max);
+}
 
-  & h3,
-  & h4,
-  & h5,
-  & h6 {
-    color: var(--color-text);
-    font-family: var(--font-proto-regular);
-  }
+.e-content h3,
+.e-content h4,
+.e-content h5,
+.e-content h6 {
+  color: var(--color-text);
+  font-family: var(--font-proto-regular);
+}
 
-  & h2 {
-    color: var(--color-text);
-    font-family: var(--font-proto-bold);
-    font-size: 1.4em;
-    padding: 0.7em 0 0 0;
-  }
+.e-content h2 {
+  color: var(--color-text);
+  font-family: var(--font-proto-bold);
+  font-size: 1.4em;
+  padding: 0.7em 0 0 0;
+}
 
-  & h3 {
-    font-size: 1.1em;
-    margin-top: 1.2em;
-  }
+.e-content h3 {
+  font-size: 1.1em;
+  margin-top: 1.2em;
+}
 
-  & h3 code {
-    font-family: var(--font-mono);
-  }
+.e-content h3 code {
+  font-family: var(--font-mono);
+}
 
-  & h4 {
-    font-size: 0.9em;
-  }
+.e-content h4 {
+  font-size: 0.9em;
+}
 
-  & p {
-    padding-bottom: 1.6em;
-  }
+.e-content p {
+  padding-bottom: 1.6em;
+}
 
-  & code {
-    font-size: 90%;
-  }
+.e-content code {
+  font-size: 90%;
+}
 
-  & .thanks-for-reading svg {
-    margin-left: auto;
-    max-width: 15.625rem;
-    transform: translateX(-1rem);
-  }
+.e-content .thanks-for-reading svg {
+  margin-left: auto;
+  max-width: 15.625rem;
+  transform: translateX(-1rem);
+}
 
-  & figure {
-    margin: 0.2em 0 2em 0;
+.e-content figure {
+  margin: 0.2em 0 2em 0;
+}
 
-    & img,
-    & picture {
-      display: block;
-      margin: 0 auto;
-      width: 100%;
-    }
-  }
+.e-content img,
+.e-content picture {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
 
-  & figcaption {
-    margin-top: 1em;
-    padding-left: 0.5em;
-  }
+.e-content figcaption {
+  margin-top: 1em;
+  padding-left: 0.5em;
+}
 
-  & figcaption,
-  & .note,
-  & .note-special,
-  & .note-update {
-    font-size: min(0.75em, 1.375rem);
-  }
+.e-content figcaption,
+.e-content .note,
+.e-content .note-special,
+.e-content .note-update {
+  font-size: min(0.75em, 1.375rem);
+}
 
-  & p {
-    &.note-special,
-    &.note-update {
-      border-width: 1px;
-      border-style: solid;
-      border-radius: 3px;
-      padding: 0.6em 1em;
-      margin: 0.1em 0 1.2em 0;
-    }
+.e-content p.note-special,
+.e-content p.note-update {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+  padding: 0.6em 1em;
+  margin: 0.1em 0 1.2em 0;
+}
 
-    &.note-special {
-      border-color: #ffad154d;
-      background-color: #ffad1526;
-    }
+.e-content p.note-special {
+  border-color: #ffad154d;
+  background-color: #ffad1526;
+}
 
-    &.note-update {
-      border-color: #007cff4d;
-      background-color: #007cff26;
-    }
-  }
+.e-content p.note-update {
+  border-color: #007cff4d;
+  background-color: #007cff26;
+}
 
-  & ul,
-  & ol {
-    clear: both;
-    padding: 0 0.2em 1.4em 0.2em;
-  }
+.e-content ul,
+.e-content ol {
+  clear: both;
+  padding: 0 0.2em 1.4em 0.2em;
+}
 
-  & li {
-    line-height: 1.5;
-    padding-bottom: 0.25em;
-    position: relative;
-  }
+.e-content li {
+  line-height: 1.5;
+  padding-bottom: 0.25em;
+  position: relative;
+}
 
-  & ul li {
-    list-style: disc inside;
-  }
+.e-content ul li {
+  list-style: disc inside;
+}
 
-  & ol li {
-    list-style: decimal inside;
-  }
+.e-content ol li {
+  list-style: decimal inside;
+}
 
-  & blockquote {
-    border-left: 0.4em solid var(--color-accent-secondary);
-    font-size: 0.9em;
-    margin-bottom: 2em;
-    padding: 0.2em 1em 0.2em 1.6em;
-  }
+.e-content blockquote {
+  border-left: 0.4em solid var(--color-accent-secondary);
+  font-size: 0.9em;
+  margin-bottom: 2em;
+  padding: 0.2em 1em 0.2em 1.6em;
+}
 
-  & blockquote p {
-    padding-bottom: 0;
-  }
+.e-content blockquote p {
+  padding-bottom: 0;
+}
 
-  & blockquote cite {
-    display: block;
-    font-size: 0.9em;
-    margin-top: 1.2rem;
-    padding-bottom: 0.2rem;
-  }
+.e-content blockquote cite {
+  display: block;
+  font-size: 0.9em;
+  margin-top: 1.2rem;
+  padding-bottom: 0.2rem;
 }
 
 .entry-intro {

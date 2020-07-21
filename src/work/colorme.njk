@@ -1,8 +1,16 @@
+---
+title: ColorMe Project Details by Tyler Gaw
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block main %}
+
 <section class="poster-colorme project" id="colorme">
   <div class="poster-fill-colorme">
     <header class="colorme-header">
       <h2>
-        {{> colorme-logo.svg }}
+        {% include "colorme-logo.svg" %}
       </h2>
     </header>
     <div class="project-contents colorme-contents">
@@ -104,3 +112,5 @@
     </div>
   </div>
 </section>
+
+{% endblock %}

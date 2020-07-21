@@ -1,0 +1,20 @@
+{% extends "layouts/base.njk" %}
+
+{% block main %}
+<article class="h-entry">
+  <header class="e-header">
+    <h1 class="p-name">
+      {{ title }}
+    </h1>
+    <time class="dt-published" datetime="{{ date }}">
+      {{ date }}
+    </time>
+    <p class="p-author h-card" aria-hidden="true">
+      By Tyler Gaw
+    </p>
+  </header>
+  <div class="e-content">
+    {{ content | safe }}
+  </div>
+</article>
+{% endblock %}

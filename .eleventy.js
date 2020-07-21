@@ -5,6 +5,7 @@ module.exports = function (conf) {
 
   conf.setTemplateFormats([
     "njk",
+    "md",
     "gif",
     "jpg",
     "png",

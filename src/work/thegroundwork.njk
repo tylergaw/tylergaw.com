@@ -1,10 +1,18 @@
+---
+title: The Groundwork Project Details by Tyler Gaw
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block main %}
+
 <section class="poster-groundwork project" id="thegroundwork">
   <header class="gw-header">
     <div class="gw-mark">
-      {{> gw-mark.svg }}
+      {% include "gw-mark.svg" %}
     </div>
     <h2 class="gw-text">
-      {{> gw-logo.svg }}
+      {% include "gw-logo.svg" %}
     </h2>
   </header>
   <div class="poster-fill-groundwork">
@@ -126,3 +134,5 @@
     </div>
   </div>
 </section>
+
+{% endblock %}

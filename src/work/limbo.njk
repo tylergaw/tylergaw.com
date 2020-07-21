@@ -1,7 +1,15 @@
+---
+title: Limbo Project Details by Tyler Gaw
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block main %}
+
 <section class="poster-limbo project" id="limbo">
   <header class="limbo-header">
     <h2>
-      {{> limbo-logo.svg }}
+      {% include "limbo-logo.svg" %}
     </h2>
   </header>
   <div class="poster-fill-limbo">
@@ -137,3 +145,5 @@
     </div>
   </div>
 </section>
+
+{% endblock %}
