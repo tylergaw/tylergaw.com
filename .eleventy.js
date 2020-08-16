@@ -26,5 +26,6 @@ module.exports = function (conf) {
       input: "src",
       output: "dist",
     },
+    markdownTemplateEngine: false,
   };
 };
