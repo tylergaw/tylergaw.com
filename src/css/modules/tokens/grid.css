@@ -1,7 +1,18 @@
 html {
   --g-row: 0.625rem;
-  --g-col: 9.75rem;
-  --g-gutter: 1.625rem;
+  --g-col: calc(156 / 16 * 1rem);
+  --g-gutter: calc(25 / 16 * 1rem);
   --g-column-template: repeat(auto-fill, minmax(var(--g-col), 1fr));
   --g-fixed-max: calc(var(--g-col) * 9);
+}
+
+.g-main {
+  display: grid;
+  gap: var(--g-gutter);
+  grid-template-columns: var(--g-column-template);
+}
+
+.g-padded {
+  padding-left: var(--g-gutter);
+  padding-right: var(--g-gutter);
 }
