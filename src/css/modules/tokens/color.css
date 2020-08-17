@@ -1,0 +1,64 @@
+html,
+body {
+  --scheme-system: "dark";
+
+  /* Accent colors */
+  --color-accent-toxic: #00eb9b;
+  --color-accent-wine: #c01458;
+  --color-accent-boo: #9db4ff;
+  --color-accent-pank: #f2c0ea;
+  --color-accent-boogers: #c2d838;
+  --color-accent-mellow: #f1f68e;
+  --color-accent-orange: #e9b581;
+
+  /* Common colors */
+  --color-charcoal: #292929;
+  --color-mud: #3f3d31;
+  --color-offwhite: #f8f8f8;
+  --color-white: #fff;
+  --color-eggshell: #f6f5e4;
+
+  /*
+    Scheme color variables: We use these general names to switch colors
+    based on preferred color scheme
+  */
+  --color-accent-primary: var(--color-accent-toxic);
+  --color-accent-secondary: var(--color-accent-boo);
+  --color-bg: var(--color-charcoal);
+  --color-text: var(--color-offwhite);
+
+  /* Crud */
+  --crud-bubble: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Cpath fill="%23000" fill-rule="evenodd" d="M32.533 3.432C12.033 10.596 1 32.789 1 46.508c0 13.718 7.54 47.877 33.467 52.73 25.926 4.85 61.048-14.262 63.743-33.996 2.695-19.733-1.652-38.632-10.834-48.82C78.194 6.234 53.033-3.732 32.533 3.432z"/%3E%3C/svg%3E');
+  --bg-img: url(/images/noise-tile-dark.svg);
+}
+
+html,
+body {
+  background: var(--color-bg) var(--bg-img) repeat;
+  background-size: 950px;
+  color: var(--color-text);
+}
+
+@media (prefers-color-scheme: light) {
+  html,
+  body {
+    --scheme-system: "light";
+  }
+
+  html:not([data-user-color-scheme]),
+  body:not([data-user-color-scheme]) {
+    --bg-img: url(/images/noise-tile-light.svg);
+    --color-accent-primary: var(--color-accent-wine);
+    --color-accent-secondary: var(--color-accent-boogers);
+    --color-bg: var(--color-offwhite);
+    --color-text: var(--color-mud);
+  }
+}
+
+[data-user-color-scheme="light"] {
+  --bg-img: url(/images/noise-tile-light.svg);
+  --color-accent-primary: var(--color-accent-wine);
+  --color-accent-secondary: var(--color-accent-boogers);
+  --color-bg: var(--color-offwhite);
+  --color-text: var(--color-mud);
+}

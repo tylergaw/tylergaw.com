@@ -5,7 +5,7 @@
     {% include "head-contents.njk" %}
 
     {% set inlineCSS %}
-      {% include "../../css/tylergaw-critical.css" %}
+      {% include "../../css/tylergaw.njk" %}
     {% endset %}
     <style>
       {{ inlineCSS | cssmin | safe }}

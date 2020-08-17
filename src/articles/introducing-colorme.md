@@ -3,7 +3,6 @@ layout: "layouts/article.njk"
 highlightSyntax: true
 title: "Introducing: ColorMe"
 date: "2017-01-05"
-stylesheet: post-colorme
 meta:
   description: ColorMe allows you to visualize The CSS Color Function
   image: /articles/assets/post-image-colorme-social.png

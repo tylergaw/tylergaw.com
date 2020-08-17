@@ -1,0 +1,7 @@
+html {
+  --g-row: 0.625rem;
+  --g-col: 9.75rem;
+  --g-gutter: 1.625rem;
+  --g-column-template: repeat(auto-fill, minmax(var(--g-col), 1fr));
+  --g-fixed-max: calc(var(--g-col) * 9);
+}

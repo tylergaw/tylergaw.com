@@ -1,20 +1,23 @@
----
-permalink: css/tylergaw.css
----
+{% include "./modules/baseline.css" %}
 
-{% include "./modules/banner.css" %}
+{# tokens #}
+{% include "./modules/tokens/color.css" %}
+{% include "./modules/tokens/grid.css" %}
+{% include "./modules/tokens/typography.css" %}
 
-{% include "./modules/home.css" %}
+{# components #}
+{% include "./modules/components/banner.css" %}
+{% include "./modules/components/contentinfo.css" %}
+{% include "./modules/components/listed-items.css" %}
+{% include "./modules/components/prism-a11y.css" %}
+
+{# pages #}
+{% include "./modules/pages/about.css" %}
+{% include "./modules/pages/article.css" %}
+{% include "./modules/pages/home.css" %}
 {% include "./modules/home-limbo.css" %}
 {% include "./modules/home-groundwork.css" %}
 {% include "./modules/home-colorme.css" %}
 {% include "./modules/home-jxa.css" %}
-
-{% include "./modules/article.css" %}
-{% include "./modules/about.css" %}
-{% include "./modules/purpose.css" %}
-{% include "./modules/resume.css" %}
-{% include "./modules/contentinfo.css" %}
-{% include "./modules/prism-a11y.css" %}
-
-{% include "./modules/errorpage.css" %}
+{% include "./modules/pages/purpose.css" %}
+{% include "./modules/pages/resume.css" %}

@@ -2,7 +2,6 @@
 layout: "layouts/article.njk"
 title: "Starting Something New"
 date: "2017-09-25"
-stylesheet: post-something-new
 meta:
   description: On September 13, 2017 Chris Dary and I launched our new business, Limbo.
   image: /articles/assets/post-image-limbo-social.png
