@@ -1,4 +1,4 @@
-.resume {
+div.resume {
   display: grid;
   font-size: 1.3rem;
   grid-gap: var(--g-gutter);

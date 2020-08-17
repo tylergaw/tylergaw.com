@@ -1,39 +1,39 @@
-[data-page="purpose"] main {
+.purpose main {
   padding: 2em 0 6em 0;
+}
 
-  & h1 {
-    font-family: var(--font-proto-bold);
-    font-size: 15vw;
-    text-align: center;
-    word-wrap: break-word;
+.purpose h1 {
+  font-family: var(--font-proto-bold);
+  font-size: 15vw;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.purpose h1 + p {
+  margin-top: 1.1em;
+}
+
+.purpose p {
+  font-size: 1.2em;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 720px;
+  padding-bottom: 1.6em;
+  width: 90%;
+}
+
+.purpose .linkback {
+  font-size: 0.9em;
+}
+
+@media (min-width: 620px) {
+  .purpose p {
+    font-size: 1.4em;
   }
+}
 
-  & h1 + p {
-    margin-top: 1.1em;
-  }
-
-  & p {
-    font-size: 1.2em;
-    line-height: 1.5;
-    margin: 0 auto;
-    max-width: 720px;
-    padding-bottom: 1.6em;
-    width: 90%;
-  }
-
-  & .linkback {
-    font-size: 0.9em;
-  }
-
-  @media (min-width: 620px) {
-    & p {
-      font-size: 1.4em;
-    }
-  }
-
-  @media (min-width: 66em) {
-    & h1 {
-      font-size: 10.5rem;
-    }
+@media (min-width: 66em) {
+  .purpose h1 {
+    font-size: 10.5rem;
   }
 }
