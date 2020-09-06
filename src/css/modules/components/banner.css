@@ -34,7 +34,23 @@
 }
 
 @keyframes rotate {
-  to {
+  0%,
+  25% {
+    transform: rotate3d(0, 0, 1, 0.25turn);
+  }
+
+  25.1%,
+  50% {
+    transform: rotate3d(0, 0, 1, 0.5turn);
+  }
+
+  50.1%,
+  75% {
+    transform: rotate3d(0, 0, 1, 0.75turn);
+  }
+
+  75.1%,
+  100% {
     transform: rotate3d(0, 0, 1, 1turn);
   }
 }
@@ -43,7 +59,7 @@
   --size: 2.75rem;
   --top: 0;
   --right: -1rem;
-  animation: rotate 12s linear infinite;
+  animation: rotate 1s linear infinite;
   background-color: var(--color-accent-secondary);
   content: "";
   display: block;
@@ -75,12 +91,49 @@
 }
 
 .banner__nav a {
-  display: block;
+  display: inline-block;
   font-family: var(--font-proto-bold);
   font-weight: 600;
   padding: 0.5rem 0.75rem;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+@keyframes indicator-dance {
+  0%,
+  25% {
+    transform: scaleX(0.9) translate3d(0, 9px, 0) rotate(181deg);
+  }
+
+  25.1%,
+  50% {
+    transform: scaleX(1) translate3d(0, 8px, 0);
+  }
+
+  50.1%,
+  75% {
+    transform: scaleX(0.8) translate3d(1px, 9px, 0) rotate(-183deg);
+  }
+
+  75.1%,
+  100% {
+    transform: scaleX(1.1) translate3d(0, 7px, 0);
+  }
+}
+
+.banner__nav a svg {
+  animation: indicator-dance linear 0.9s infinite;
+  display: block;
+  margin: 0 auto;
+  opacity: 0;
+  transform: scaleX(0.7) translate3d(0, 8px, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner__logo::after,
+  .banner__nav a svg {
+    animation: none;
+  }
 }
 
 .banner__nav a:hover,
@@ -89,6 +142,12 @@
 [data-page="home"] .nav-work,
 [data-page="about"] .nav-about {
   color: var(--color-text);
+}
+
+[data-page="blog"] .nav-blog svg,
+[data-page="home"] .nav-work svg,
+[data-page="about"] .nav-about svg {
+  opacity: 1;
 }
 
 @media (min-width: 37.5em) {
@@ -113,6 +172,11 @@
   .banner__nav li {
     display: block;
   }
+
+  .banner__nav a svg {
+    margin: 0 0 0 auto;
+    transform: scaleX(1) translate3d(0, 6px, 0);
+  }
 }
 
 @media (min-width: 50em) {
@@ -122,6 +186,10 @@
 
   .banner__nav li {
     display: inline-block;
+  }
+
+  .banner__nav a svg {
+    margin: 0 auto;
   }
 }
 

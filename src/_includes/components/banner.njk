@@ -4,9 +4,24 @@
   </a>
   <nav class="banner__nav">
     <ul>
-      <li><a href="/" class="nav-work">Work</a></li>
-      <li><a href="/articles" class="nav-blog">Blog</a></li>
-      <li><a href="/about" class="nav-about">About</a></li>
+      <li>
+        <a href="/" class="nav-work">
+          Work
+          {% include "src/images/banner-current-indicator.svg" %}
+        </a>
+      </li>
+      <li>
+        <a href="/articles" class="nav-blog">
+          Blog 
+          {% include "src/images/banner-current-indicator.svg" %}
+        </a>
+      </li>
+      <li>
+        <a href="/about" class="nav-about">
+          About 
+          {% include "src/images/banner-current-indicator.svg" %}
+        </a>
+      </li>
     </ul>
   </nav>
 </header>
