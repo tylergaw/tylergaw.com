@@ -7,7 +7,7 @@
     "url": "git+https://github.com/tylergaw/tylergaw.com.git"
   },
   "scripts": {
-    "build": "eleventy",
+    "build": "ELEVENTY_ENV=production eleventy",
     "start": "eleventy --serve",
     "prettier": "prettier --write src/"
   },

@@ -4,12 +4,18 @@
   <head>
     {% include "head-contents.njk" %}
 
-    {% set inlineCSS %}
-      {% include "../../css/tylergaw.njk" %}
-    {% endset %}
-    <style>
-      {{ inlineCSS | cssmin | safe }}
-    </style>
+    {% if site.environment === "production" -%}
+      {% set inlineCSS -%}
+        {% include "../../css/tylergaw.njk" %}
+      {%- endset %}
+
+      <style>
+        {{ inlineCSS | cssmin | safe }}
+      </style>
+
+    {% else %}
+      <link rel="stylesheet" href="/css/tylergaw.css">
+    {%- endif %}
   </head>
   <body>
     {% include "scheme.njk" %}
