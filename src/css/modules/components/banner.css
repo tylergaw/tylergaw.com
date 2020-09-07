@@ -34,23 +34,7 @@
 }
 
 @keyframes rotate {
-  0%,
-  25% {
-    transform: rotate3d(0, 0, 1, 0.25turn);
-  }
-
-  25.1%,
-  50% {
-    transform: rotate3d(0, 0, 1, 0.5turn);
-  }
-
-  50.1%,
-  75% {
-    transform: rotate3d(0, 0, 1, 0.75turn);
-  }
-
-  75.1%,
-  100% {
+  to {
     transform: rotate3d(0, 0, 1, 1turn);
   }
 }
@@ -59,7 +43,7 @@
   --size: 2.75rem;
   --top: 0;
   --right: -1rem;
-  animation: rotate 1s linear infinite;
+  animation: rotate 1s steps(4) infinite;
   background-color: var(--color-accent-secondary);
   content: "";
   display: block;
@@ -108,38 +92,46 @@
 
 @keyframes indicator-frame {
   0%,
-  33% {
+  25% {
     opacity: 1;
   }
 
-  33.001%,
+  25.001%,
   100% {
     opacity: 0;
   }
 }
 
-.banner__nav .frame {
-  --a-dur: 0.33333;
-  --f-num: 3;
-  --offset: 0;
+.nav-indicator-frame {
+  --a-dur: 0.7;
+  --f-num: 4;
   --f-len: calc(var(--a-dur) / var(--f-num));
-  --delay: calc(calc(var(--f-len) * var(--offset)) * 1s);
-  animation: indicator-frame calc(var(--a-dur) * 1s) var(--delay) infinite;
+  --delay: calc(calc(var(--f-len) * var(--offset, 0)) * 1s);
+  animation: indicator-frame calc(var(--a-dur) * 1s) var(--delay) linear
+    infinite;
   opacity: 0;
 }
 
-.banner__nav .frame-2 {
+.nav-indicator-frame:nth-child(2) {
   --offset: 1;
 }
 
-.banner__nav .frame-3 {
+.nav-indicator-frame:nth-child(3) {
   --offset: 2;
+}
+
+.nav-indicator-frame:nth-child(4) {
+  --offset: 3;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .banner__logo::after,
-  .banner__nav .frame {
+  .nav-indicator-frame {
     animation: none;
+  }
+
+  .nav-indicator-frame:nth-child(4) {
+    opacity: 1;
   }
 }
 
