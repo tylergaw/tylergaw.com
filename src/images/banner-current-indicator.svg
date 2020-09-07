@@ -1,3 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" width="77" height="8" viewBox="0 0 77 8">
-  <path stroke="currentColor" stroke-linecap="round" stroke-width="4" d="M2 6c32-7 67 0 73 0" />
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" width="77" height="13" viewBox="0 0 77 13" role="presentation">
+  <path class="frame" d="M2.00049 6.97172C23.5 4.97172 34.5 14.5 75.0004 2.97172" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+  <path class="frame frame-2" d="M2.00049 6.97172C50 17 34.5 -1.5 75.0004 4.97172" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+  <path class="frame frame-3" d="M2.00049 5.97171C34 -0.939638 69 5.97171 75.0004 5.97171" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
 </svg>

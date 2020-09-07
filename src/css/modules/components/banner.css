@@ -99,39 +99,46 @@
   text-transform: uppercase;
 }
 
-@keyframes indicator-dance {
-  0%,
-  25% {
-    transform: scaleX(0.9) translate3d(0, 9px, 0) rotate(181deg);
-  }
-
-  25.1%,
-  50% {
-    transform: scaleX(1) translate3d(0, 8px, 0);
-  }
-
-  50.1%,
-  75% {
-    transform: scaleX(0.8) translate3d(1px, 9px, 0) rotate(-183deg);
-  }
-
-  75.1%,
-  100% {
-    transform: scaleX(1.1) translate3d(0, 7px, 0);
-  }
-}
-
 .banner__nav a svg {
-  animation: indicator-dance linear 0.9s infinite;
   display: block;
   margin: 0 auto;
   opacity: 0;
   transform: scaleX(0.7) translate3d(0, 8px, 0);
 }
 
+@keyframes indicator-frame {
+  0%,
+  33% {
+    opacity: 1;
+  }
+
+  33.001%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.banner__nav .frame {
+  --a-dur: 0.33333;
+  --f-num: 3;
+  --offset: 0;
+  --f-len: calc(var(--a-dur) / var(--f-num));
+  --delay: calc(calc(var(--f-len) * var(--offset)) * 1s);
+  animation: indicator-frame calc(var(--a-dur) * 1s) var(--delay) infinite;
+  opacity: 0;
+}
+
+.banner__nav .frame-2 {
+  --offset: 1;
+}
+
+.banner__nav .frame-3 {
+  --offset: 2;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .banner__logo::after,
-  .banner__nav a svg {
+  .banner__nav .frame {
     animation: none;
   }
 }
