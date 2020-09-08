@@ -24,23 +24,57 @@
   width: 100%;
 }
 
-.home__work a {
-  color: white;
-  place-items: center;
-  display: grid;
-  height: 100%;
-  text-align: center;
-  width: 100%;
-}
-
 .home__project {
   grid-column: 1 / -1;
   grid-row: var(--row-start, auto) / span var(--row-span, auto);
 }
 
+.home__project a {
+  /* color: white; */
+  /* display: block; */
+  /* place-items: center; */
+  /* display: flex; */
+  /* height: 100%; */
+  /* text-align: center; */
+  /* width: 100%; */
+}
+
 .p-streetcred {
   --row-span: 3;
-  background-color: #ab74f6;
+  display: grid;
+}
+
+.p-streetcred a {
+  display: grid;
+}
+
+.p-streetcred .contents {
+  background: #8e42f5 url("/images/projects/streetcred/home-bg-pattern.svg")
+    no-repeat center;
+  background-size: cover;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: 1rem;
+  max-width: 32.1875rem;
+  width: 90%;
+}
+
+.p-streetcred h2 {
+  margin: 0 auto 5rem auto;
+  max-width: 22rem;
+  padding: 0 1.75rem;
+  width: 100%;
+}
+
+.p-streetcred__token {
+  display: block;
+  margin-top: 8rem;
+  max-width: 22.9375rem;
+  transform: translateX(-10rem);
+  width: 100%;
 }
 
 .p-colorme {
