@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "ELEVENTY_ENV=production eleventy",
-    "start": "eleventy --serve",
+    "start": "netlify dev",
     "prettier": "prettier --write src/"
   },
   "author": "Tyler Gaw",
@@ -22,6 +22,7 @@
     "clean-css": "4.2.3",
     "husky": "4.2.5",
     "lint-staged": "10.2.11",
+    "netlify-cli": "2.65.7",
     "prettier": "2.0.5"
   },
   "husky": {
