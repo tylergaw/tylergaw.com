@@ -5,12 +5,13 @@
 }
 
 .home__intro p {
-  font-size: min(7vw, 2.875rem);
-  font-family: var(--font-proto-regular);
+  font-size: min(7vw, 2.75rem);
+  font-family: var(--font-proto-bold);
   grid-column: var(--col-start, 1) / -1;
   letter-spacing: -1px;
   line-height: 2;
   padding-top: calc(var(--g-row) * 6);
+  text-transform: uppercase;
 }
 
 .home__intro p b {
