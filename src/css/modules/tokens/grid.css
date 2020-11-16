@@ -26,6 +26,12 @@ html {
   }
 }
 
+@media (min-width: 77.5em) {
+  .g-main {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
 .g-fixed-max {
   max-width: calc(var(--g-col) * 9);
 }

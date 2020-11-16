@@ -18,7 +18,8 @@
     minmax(calc(78 / 16 * 1rem), max-content)
   );
   margin: calc(var(--g-row) * 8) auto 0 auto;
-  max-width: 156.25rem;
+  max-width: calc(2500 / 16 * 1rem);
+  overflow: hidden;
   width: 100%;
 }
 
@@ -42,16 +43,23 @@
   position: relative;
 }
 
+.p-streetcred__contents::before,
+.p-limbo__link::before,
+.p-colorme__link::before,
+.p-colorme__link::after,
+.p-colorme__title::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
 .p-streetcred__contents::before {
   background: #8e42f5 url("/images/projects/streetcred/home-bg-pattern.svg")
     no-repeat center;
   background-size: cover;
   border-radius: 6px;
-  content: "";
-  display: block;
-  height: 100%;
-  position: absolute;
-  width: 100%;
 }
 
 .p-streetcred__title {
@@ -71,7 +79,39 @@
 
 .p-limbo {
   --row-span: 4;
-  background-color: #dd3535;
+}
+
+.p-limbo__link {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+}
+
+.p-limbo__link::before {
+  --offset: 2rem;
+  background: #dd3535 url("/images/projects/limbo/limbo-dust.svg") repeat;
+  border-radius: 6px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 96%);
+  height: calc(100% - var(--offset));
+  top: var(--offset);
+}
+
+.p-limbo__title {
+  display: block;
+  padding: 0 2.4rem 3.75rem 2.4rem;
+  max-width: calc(340 / 16 * 1rem);
+  position: relative;
+  width: 100%;
+}
+
+.p-limbo__graphic {
+  display: block;
+  margin: 0 auto;
+  max-width: calc(750 / 16 * 1rem);
+  position: relative;
+  width: 85%;
 }
 
 .p-colorme {
@@ -85,18 +125,9 @@
   position: relative;
 }
 
-.p-colorme__link::before,
-.p-colorme__link::after,
-.p-colorme__title::before {
-  content: "";
-  display: block;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-}
-
 .p-colorme__link::before {
   background-color: #b42e8a;
+  border-radius: 6px;
   clip-path: polygon(0 2rem, 100% 0, 100% 100%, 0 100%);
   top: 0;
 }
@@ -169,7 +200,7 @@
 
   .p-streetcred__contents::before {
     clip-path: polygon(1rem 0, 100% 0, 100% 100%, 0.25rem 100%);
-    border-radius: 0 6px 6px 0;
+    border-radius: 6px;
     width: 95%;
   }
 
@@ -185,6 +216,11 @@
     --row-span: 4;
     --row-start: 2;
     grid-column-start: 2;
+  }
+
+  .p-limbo__graphic {
+    transform: translateX(-6%);
+    width: 125%;
   }
 
   .p-colorme__link {
@@ -241,5 +277,34 @@
   .p-experiments {
     --row-span: 5;
     grid-column-end: span 2;
+  }
+}
+
+@media (min-width: 77.5em) {
+  .p-limbo {
+    --row-span: 5;
+    --row-start: 3;
+    grid-column-end: span 3;
+  }
+
+  .p-limbo__link {
+    justify-content: flex-end;
+  }
+
+  .p-limbo__title {
+    padding-left: 3rem;
+    padding-bottom: 4rem;
+  }
+
+  .p-limbo__graphic {
+    bottom: -1rem;
+    transform: translateX(6rem);
+    position: absolute;
+    right: 0;
+    width: 100%;
+  }
+
+  .p-groundwork {
+    --row-start: 8;
   }
 }
