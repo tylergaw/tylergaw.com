@@ -8,13 +8,9 @@
   text-transform: uppercase;
 }
 
-.home__intro p b {
-  color: var(--color-accent-secondary);
-}
-
 .home__work {
   grid-template-rows: repeat(
-    var(--rows, 21),
+    var(--rows, 24),
     minmax(calc(78 / 16 * 1rem), max-content)
   );
   margin: calc(var(--g-row) * 8) auto 0 auto;
@@ -24,11 +20,11 @@
 }
 
 .home__project {
-  grid-row: var(--row-start, auto) / span var(--row-span, auto);
+  grid-column: var(--col-start, auto) / var(--col-end, auto);
+  grid-row: var(--row-start, auto) / var(--row-end, span 4);
 }
 
 .p-streetcred {
-  --row-span: 4;
   display: grid;
 }
 
@@ -56,14 +52,17 @@
 }
 
 .p-streetcred__contents::before {
+  --offset: 2.75rem;
   background: #8e42f5 url("/images/projects/streetcred/home-bg-pattern.svg")
     no-repeat center;
   background-size: cover;
   border-radius: 6px;
+  height: calc(100% - var(--offset));
+  top: var(--offset);
 }
 
 .p-streetcred__title {
-  margin: 0 auto 3.5rem auto;
+  margin: 1rem auto 3rem auto;
   max-width: 22rem;
   position: relative;
   width: 75%;
@@ -72,13 +71,9 @@
 .p-streetcred__token {
   display: block;
   margin: 0 auto;
-  max-width: calc(var(--max-width, 280) / 16 * 1rem);
-  transform: translateY(-2.75rem);
-  width: 80%;
-}
-
-.p-limbo {
-  --row-span: 4;
+  max-width: calc(var(--max-width, 260) / 16 * 1rem);
+  position: relative;
+  width: 75%;
 }
 
 .p-limbo__link {
@@ -90,7 +85,7 @@
 }
 
 .p-limbo__link::before {
-  --offset: 2rem;
+  --offset: 2.5rem;
   background: #dd3535 url("/images/projects/limbo/limbo-dust.svg") repeat;
   border-radius: 6px;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 96%);
@@ -115,7 +110,6 @@
 }
 
 .p-colorme {
-  --row-span: 4;
   display: flex;
 }
 
@@ -169,27 +163,24 @@
 }
 
 .p-groundwork {
-  --row-span: 4;
   background-color: #3b6fd8;
 }
 
 .p-jxa {
-  --row-span: 3;
   background-color: #1c1b1b;
 }
 
 .p-experiments {
-  --row-span: 4;
   background-color: #7ade57;
 }
 
 @media (min-width: 38.75em) {
   .home__work {
-    --rows: 13;
+    --rows: 15;
   }
 
   .p-streetcred {
-    --row-span: 7;
+    --row-end: span 7;
   }
 
   .p-streetcred__link {
@@ -201,6 +192,8 @@
   .p-streetcred__contents::before {
     clip-path: polygon(1rem 0, 100% 0, 100% 100%, 0.25rem 100%);
     border-radius: 6px;
+    height: 100%;
+    top: 0;
     width: 95%;
   }
 
@@ -213,9 +206,9 @@
   }
 
   .p-limbo {
-    --row-span: 4;
+    --col-start: 2;
     --row-start: 2;
-    grid-column-start: 2;
+    --row-end: span 5;
   }
 
   .p-limbo__graphic {
@@ -229,19 +222,24 @@
   }
 
   .p-groundwork {
-    --row-start: 6;
-    grid-column-start: 2;
+    --col-start: 2;
+    --row-start: 7;
+  }
+
+  .p-jxa {
+    --row-start: 12;
   }
 }
 
 @media (min-width: 65em) {
   .home__work {
-    --rows: 18;
+    --rows: 20;
   }
 
   .p-streetcred {
-    --row-span: 9;
-    grid-column-end: span 3;
+    --col-start: 2;
+    --col-end: span 2;
+    --row-end: span 9;
   }
 
   .p-streetcred__contents {
@@ -253,38 +251,41 @@
   }
 
   .p-limbo {
-    --row-span: 6;
-    grid-column: 4 / span 2;
+    --col-start: 4;
+    --col-end: span 3;
+    --row-end: span 6;
   }
 
   .p-colorme {
-    --row-span: 5;
+    --col-end: span 3;
     --row-start: 10;
-    grid-column-end: span 3;
+    --row-end: span 5;
   }
 
   .p-groundwork {
-    --row-span: 8;
+    --col-start: 4;
+    --col-end: span 2;
     --row-start: 8;
-    grid-column: 4 / span 2;
+    --row-end: span 8;
   }
 
   .p-jxa {
-    --row-span: 4;
-    grid-column-end: span 3;
+    --col-end: span 3;
+    --row-start: 15;
+    --row-end: span 4;
   }
 
   .p-experiments {
-    --row-span: 5;
-    grid-column-end: span 2;
+    --col-end: span 2;
+    --row-end: span 5;
   }
 }
 
 @media (min-width: 77.5em) {
   .p-limbo {
-    --row-span: 5;
+    --col-end: span 4;
     --row-start: 3;
-    grid-column-end: span 3;
+    --row-end: span 5;
   }
 
   .p-limbo__link {
@@ -305,6 +306,68 @@
   }
 
   .p-groundwork {
+    --col-end: span 3;
     --row-start: 8;
+  }
+
+  .p-experiments {
+    --col-start: 4;
+  }
+}
+
+@media (min-width: 106.25em) {
+  .p-streetcred {
+    --col-start: 2;
+    --col-end: span 3;
+  }
+
+  .p-limbo {
+    --col-start: 5;
+    --col-end: span 5;
+  }
+
+  .p-colorme {
+    --col-end: span 4;
+  }
+
+  .p-groundwork {
+    --col-start: 5;
+    --col-end: span 4;
+  }
+
+  .p-jxa {
+    --col-end: span 4;
+  }
+
+  .p-experiments {
+    --col-start: 5;
+    --col-end: span 3;
+  }
+}
+
+@media (min-width: 137.5em) {
+  .p-streetcred {
+    --col-start: 3;
+  }
+
+  .p-limbo {
+    --col-start: 6;
+    --col-end: span 6;
+  }
+
+  .p-colorme {
+    --col-start: 2;
+  }
+
+  .p-groundwork {
+    --col-start: 6;
+  }
+
+  .p-jxa {
+    --col-end: span 5;
+  }
+
+  .p-experiments {
+    --col-start: 6;
   }
 }
