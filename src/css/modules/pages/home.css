@@ -24,10 +24,7 @@
   grid-row: var(--row-start, auto) / var(--row-end, span 4);
 }
 
-.p-streetcred {
-  display: grid;
-}
-
+.p-streetcred,
 .p-streetcred__link {
   display: grid;
 }
@@ -62,7 +59,7 @@
 }
 
 .p-streetcred__title {
-  margin: 1rem auto 3rem auto;
+  margin: 1rem auto 4rem auto;
   max-width: 22rem;
   position: relative;
   width: 75%;
@@ -96,7 +93,7 @@
 .p-limbo__title {
   display: block;
   padding: 0 2.4rem 3.75rem 2.4rem;
-  max-width: calc(340 / 16 * 1rem);
+  max-width: calc(var(--max-width, 340) / 16 * 1rem);
   position: relative;
   width: 100%;
 }
@@ -104,7 +101,7 @@
 .p-limbo__graphic {
   display: block;
   margin: 0 auto;
-  max-width: calc(750 / 16 * 1rem);
+  max-width: calc(770 / 16 * 1rem);
   position: relative;
   width: 85%;
 }
@@ -181,20 +178,21 @@
 
   .p-streetcred {
     --row-end: span 7;
+    padding-right: 1.4rem;
   }
 
   .p-streetcred__link {
     margin-left: auto;
-    max-width: calc(500 / 16 * 1rem);
+    max-width: calc(550 / 16 * 1rem);
     width: 100%;
   }
 
   .p-streetcred__contents::before {
-    clip-path: polygon(1rem 0, 100% 0, 100% 100%, 0.25rem 100%);
+    clip-path: polygon(1rem 0, 100% 0, 100% 100%, 0 100%);
     border-radius: 6px;
     height: 100%;
     top: 0;
-    width: 95%;
+    width: 100%;
   }
 
   .p-streetcred__token {
@@ -240,6 +238,7 @@
     --col-start: 2;
     --col-end: span 2;
     --row-end: span 9;
+    padding-right: 2rem;
   }
 
   .p-streetcred__contents {
@@ -326,6 +325,20 @@
     --col-end: span 5;
   }
 
+  .p-limbo__title {
+    --max-width: 420;
+    padding-left: 4.5rem;
+    padding-bottom: 5rem;
+  }
+
+  .p-limbo__graphic {
+    bottom: -1.4rem;
+    left: 40%;
+    right: auto;
+    transform: translateX(0);
+    width: 75%;
+  }
+
   .p-colorme {
     --col-end: span 4;
   }
@@ -353,6 +366,12 @@
   .p-limbo {
     --col-start: 6;
     --col-end: span 6;
+  }
+
+  .p-limbo__graphic {
+    bottom: -2rem;
+    left: auto;
+    right: 4rem;
   }
 
   .p-colorme {
