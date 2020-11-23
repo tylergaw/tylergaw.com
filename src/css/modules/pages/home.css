@@ -38,9 +38,12 @@
 
 .p-streetcred__contents::before,
 .p-limbo__link::before,
+.p-limbo__link::after,
 .p-colorme__link::before,
 .p-colorme__link::after,
-.p-colorme__title::before {
+.p-colorme__title::before,
+.p-jxa__link::before,
+.p-jxa__link::after {
   content: "";
   display: block;
   position: absolute;
@@ -50,8 +53,8 @@
 
 .p-streetcred__contents::before {
   --offset: 2.75rem;
-  background: #8e42f5 url("/images/projects/streetcred/home-bg-pattern.svg")
-    no-repeat center;
+  background: var(--color-streetcred-accent)
+    url("/images/projects/streetcred/home-bg-pattern.svg") no-repeat center;
   background-size: cover;
   border-radius: 6px;
   height: calc(100% - var(--offset));
@@ -59,10 +62,10 @@
 }
 
 .p-streetcred__title {
-  margin: 1rem auto 4rem auto;
+  margin: 2rem auto 4rem auto;
   max-width: 22rem;
   position: relative;
-  width: 75%;
+  width: 82%;
 }
 
 .p-streetcred__token {
@@ -82,12 +85,22 @@
 }
 
 .p-limbo__link::before {
-  --offset: 2.5rem;
-  background: #dd3535 url("/images/projects/limbo/limbo-dust.svg") repeat;
+  --offset: 5rem;
+  --skew-y: 0.025;
+  background: var(--color-limbo-accent)
+    url("/images/projects/limbo/limbo-dust.svg") repeat;
   border-radius: 6px;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 96%);
   height: calc(100% - var(--offset));
+  transform: matrix(1, var(--skew-y), 0, 1, 0, -15);
   top: var(--offset);
+}
+
+.p-limbo__link::after {
+  background: var(--color-limbo-accent);
+  border-radius: 6px 6px 0 0;
+  height: 12%;
+  top: 2rem;
+  z-index: 1;
 }
 
 .p-limbo__title {
@@ -96,6 +109,7 @@
   max-width: calc(var(--max-width, 340) / 16 * 1rem);
   position: relative;
   width: 100%;
+  z-index: 3;
 }
 
 .p-limbo__graphic {
@@ -104,6 +118,7 @@
   max-width: calc(770 / 16 * 1rem);
   position: relative;
   width: 85%;
+  z-index: 2;
 }
 
 .p-colorme {
@@ -117,7 +132,7 @@
 }
 
 .p-colorme__link::before {
-  background-color: #b42e8a;
+  background-color: var(--color-colorme-accent);
   border-radius: 6px;
   clip-path: polygon(0 2rem, 100% 0, 100% 100%, 0 100%);
   top: 0;
@@ -125,7 +140,8 @@
 
 .p-colorme__link::after {
   --mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 690 510'%3E%3Cpath fill='%238C0060' d='M0 0h690S554.7 10.5 414.6 116.2C285.4 213.6 0 510 0 510V0z'/%3E%3C/svg%3E%0A");
-  background-color: #8c0060;
+  background-color: var(--color-colorme-accent-dark);
+  border-radius: 6px 0 0 6px;
   left: 0.8rem;
   -webkit-mask-image: var(--mask);
   -webkit-mask-size: 100%;
@@ -163,8 +179,46 @@
   background-color: #3b6fd8;
 }
 
-.p-jxa {
-  background-color: #1c1b1b;
+.p-jxa__link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.p-jxa__link::before {
+  background-color: #222121;
+  border-radius: 6px;
+  height: 60%;
+  left: 10%;
+  transform: matrix(1, -0.05, var(--skew-y, -0.06), 1, 0, 0);
+  top: 25%;
+  width: 85%;
+}
+
+.p-jxa__link::after {
+  background: transparent url("/images/projects/jxa/jxa-dust.svg") repeat;
+}
+
+.p-jxa__graphic {
+  margin: 0 auto;
+  max-width: calc(var(--max-width, 390) / 16 * 1rem);
+  position: relative;
+  transform: translateY(1rem);
+}
+
+.p-jxa__graphic img,
+.p-jxa__title img {
+  display: block;
+  width: 100%;
+}
+
+.p-jxa__title {
+  margin: 0 auto -2rem auto;
+  max-width: calc(var(--max-width, 415) / 16 * 1rem);
+  position: relative;
+  transform: translateY(-3rem);
+  width: 90%;
 }
 
 .p-experiments {
@@ -274,6 +328,35 @@
     --row-end: span 4;
   }
 
+  .p-jxa__link {
+    flex-direction: row;
+    margin-left: auto;
+    max-width: calc(800 / 16 * 1rem);
+  }
+
+  .p-jxa__link::before {
+    height: 70%;
+    left: 7%;
+    top: 18%;
+    width: 90%;
+  }
+
+  .p-jxa__graphic {
+    margin: 0;
+    position: absolute;
+    transform: none;
+    width: 52%;
+  }
+
+  .p-jxa__title {
+    margin: 0;
+    margin-left: auto;
+    padding-right: 2rem;
+    padding-top: 3rem;
+    transform: none;
+    width: 65%;
+  }
+
   .p-experiments {
     --col-end: span 2;
     --row-end: span 5;
@@ -350,6 +433,11 @@
 
   .p-jxa {
     --col-end: span 4;
+  }
+
+  .p-jxa__title {
+    --max-width: 460;
+    padding-right: 4rem;
   }
 
   .p-experiments {
