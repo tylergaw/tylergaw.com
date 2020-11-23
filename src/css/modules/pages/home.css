@@ -188,6 +188,7 @@
 
 .p-jxa__link::before {
   background-color: #222121;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
   border-radius: 6px;
   height: 60%;
   left: 10%;
@@ -436,8 +437,8 @@
   }
 
   .p-jxa__title {
-    --max-width: 460;
-    padding-right: 4rem;
+    --max-width: 450;
+    padding-right: 3rem;
   }
 
   .p-experiments {
