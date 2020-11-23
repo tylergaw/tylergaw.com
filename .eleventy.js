@@ -9,6 +9,7 @@ module.exports = function (conf) {
     "gif",
     "jpg",
     "png",
+    "avif",
     "webp",
     "svg",
     "woff2",
