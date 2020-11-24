@@ -1,9 +1,21 @@
-.home__intro p {
-  font-size: min(7vw, 2.75rem);
+.home__intro,
+.home__work {
+  max-width: calc(2500 / 16 * 1rem);
+  width: 100%;
+}
+
+.home__intro {
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.intro__contents {
+  font-size: min(7.25vw, 2rem);
   font-family: var(--font-proto-bold);
-  grid-column: var(--col-start, 1) / -1;
+  grid-column: var(--col-start, 1) / var(--col-end, -1);
   letter-spacing: -1px;
-  line-height: 2;
+  line-height: 2.2;
   padding-top: calc(var(--g-row) * 6);
   text-transform: uppercase;
 }
@@ -13,10 +25,9 @@
     var(--rows, 24),
     minmax(calc(78 / 16 * 1rem), max-content)
   );
-  margin: calc(var(--g-row) * 8) auto 0 auto;
-  max-width: calc(2500 / 16 * 1rem);
+  margin: calc(var(--g-row) * var(--margin-top-rows, 8)) auto 0 auto;
+  padding-top: 4px;
   overflow: hidden;
-  width: 100%;
 }
 
 .home__project {
@@ -228,7 +239,9 @@
 
 @media (min-width: 38.75em) {
   .home__work {
+    --margin-top-rows: 0;
     --rows: 15;
+    transform: translateY(var(--trans-y, -2.4rem));
   }
 
   .p-streetcred {
@@ -285,6 +298,11 @@
 }
 
 @media (min-width: 65em) {
+  .intro__contents {
+    --col-start: 2;
+    transform: translateX(-4.5rem);
+  }
+
   .home__work {
     --rows: 20;
   }
@@ -365,6 +383,15 @@
 }
 
 @media (min-width: 77.5em) {
+  .intro__contents {
+    --col-end: span 5;
+    font-size: min(3vw, 2.875rem);
+  }
+
+  .home__work {
+    --trans-y: -3.2rem;
+  }
+
   .p-limbo {
     --col-end: span 4;
     --row-start: 3;
@@ -399,6 +426,12 @@
 }
 
 @media (min-width: 106.25em) {
+  .intro__contents {
+    --col-start: 2;
+    --col-end: span 7;
+    transform: none;
+  }
+
   .p-streetcred {
     --col-start: 2;
     --col-end: span 3;
@@ -448,6 +481,12 @@
 }
 
 @media (min-width: 137.5em) {
+  .intro__contents {
+    --col-start: 3;
+    --col-end: span 7;
+    font-size: 3rem;
+  }
+
   .p-streetcred {
     --col-start: 3;
   }
