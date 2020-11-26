@@ -26,25 +26,13 @@
     minmax(calc(78 / 16 * 1rem), max-content)
   );
   margin: calc(var(--g-row) * var(--margin-top-rows, 8)) auto 0 auto;
-  padding-top: 4px;
+  padding-top: 0.5rem;
   overflow: hidden;
 }
 
 .home__project {
   grid-column: var(--col-start, auto) / var(--col-end, auto);
   grid-row: var(--row-start, auto) / var(--row-end, span 4);
-}
-
-.p-streetcred,
-.p-streetcred__link {
-  display: grid;
-}
-
-.p-streetcred__contents {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
 }
 
 .p-streetcred__contents::before,
@@ -62,6 +50,22 @@
   width: 100%;
 }
 
+.p-streetcred,
+.p-streetcred__link {
+  display: grid;
+}
+
+.p-streetcred__link {
+  padding-top: 0.5rem;
+}
+
+.p-streetcred__contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
 .p-streetcred__contents::before {
   --offset: 2.75rem;
   background: var(--color-streetcred-accent)
@@ -73,10 +77,21 @@
 }
 
 .p-streetcred__title {
-  margin: 2rem auto 4rem auto;
+  margin: 2rem auto 2.5rem auto;
   max-width: 22rem;
   position: relative;
   width: 82%;
+}
+
+.p-streetcred__title::after {
+  background-color: white;
+  border-radius: 3px;
+  content: "";
+  display: block;
+  margin-left: auto;
+  height: 6px;
+  transition: 0.1s ease;
+  width: 0;
 }
 
 .p-streetcred__token {
@@ -84,7 +99,18 @@
   margin: 0 auto;
   max-width: calc(var(--max-width, 260) / 16 * 1rem);
   position: relative;
+  transition: 0.15s ease;
   width: 75%;
+}
+
+.p-streetcred__link:hover .p-streetcred__token,
+.p-streetcred__link:focus .p-streetcred__token {
+  transform: scale3d(1.08, 1.08, 1.08);
+}
+
+.p-streetcred__link:hover .p-streetcred__title::after,
+.p-streetcred__link:focus .p-streetcred__title::after {
+  width: 81.5%;
 }
 
 .p-limbo__link {
@@ -241,7 +267,7 @@
   .home__work {
     --margin-top-rows: 0;
     --rows: 15;
-    transform: translateY(var(--trans-y, -2.4rem));
+    transform: translateY(var(--trans-y, -3.25rem));
   }
 
   .p-streetcred {
@@ -251,7 +277,7 @@
 
   .p-streetcred__link {
     margin-left: auto;
-    max-width: calc(550 / 16 * 1rem);
+    max-width: calc(510 / 16 * 1rem);
     width: 100%;
   }
 
@@ -266,8 +292,10 @@
   .p-streetcred__token {
     --max-width: 350;
     --trans-x: -1.2rem;
+    --trans-y: 6rem;
+    left: var(--trans-x);
     margin: 0;
-    transform: translateX(var(--trans-x)) translateY(4rem);
+    top: var(--trans-y);
     width: 75%;
   }
 
@@ -320,6 +348,7 @@
 
   .p-streetcred__token {
     --trans-x: -5rem;
+    --trans-y: 10rem;
   }
 
   .p-limbo {
@@ -389,7 +418,7 @@
   }
 
   .home__work {
-    --trans-y: -3.2rem;
+    --trans-y: -4rem;
   }
 
   .p-limbo {
