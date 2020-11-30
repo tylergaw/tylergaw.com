@@ -31,6 +31,8 @@
 }
 
 .home__project {
+  --border-color: transparent;
+  --border-width: 6px;
   grid-column: var(--col-start, auto) / var(--col-end, auto);
   grid-row: var(--row-start, auto) / var(--row-end, span 4);
 }
@@ -56,7 +58,13 @@
 }
 
 .p-streetcred__link {
+  color: var(--color-streetcred-accent);
   padding-top: 0.5rem;
+}
+
+.p-streetcred__link:focus,
+.p-limbo__link:focus {
+  outline: none;
 }
 
 .p-streetcred__contents {
@@ -71,6 +79,7 @@
   background: var(--color-streetcred-accent)
     url("/images/projects/streetcred/home-bg-pattern.svg") no-repeat center;
   background-size: cover;
+  border: var(--border-width) solid var(--border-color);
   border-radius: 6px;
   height: calc(100% - var(--offset));
   top: var(--offset);
@@ -83,18 +92,27 @@
   width: 82%;
 }
 
-.p-streetcred__title::after {
-  background-color: white;
-  border-radius: 3px;
+.p-streetcred__link:active .p-streetcred__title,
+.p-limbo__link:active .p-limbo__title {
+  transform: scale3d(0.96, 0.96, 0.96);
+}
+
+.p-streetcred__title::after,
+.p-limbo__title::after {
   content: "";
   display: block;
-  margin-left: auto;
   height: 6px;
   transition: 0.1s ease;
   width: 0;
 }
 
-.p-streetcred__token {
+.p-streetcred__title::after {
+  background-color: white;
+  border-radius: 3px;
+  margin-left: auto;
+}
+
+.p-streetcred__graphic {
   display: block;
   margin: 0 auto;
   max-width: calc(var(--max-width, 260) / 16 * 1rem);
@@ -103,8 +121,15 @@
   width: 75%;
 }
 
-.p-streetcred__link:hover .p-streetcred__token,
-.p-streetcred__link:focus .p-streetcred__token {
+.p-streetcred__link:hover,
+.p-streetcred__link:focus {
+  --border-color: #ffd33d;
+}
+
+.p-streetcred__link:hover .p-streetcred__graphic,
+.p-streetcred__link:focus .p-streetcred__graphic,
+.p-limbo__link:hover .p-limbo__graphic,
+.p-limbo__link:focus .p-limbo__graphic {
   transform: scale3d(1.08, 1.08, 1.08);
 }
 
@@ -114,11 +139,24 @@
 }
 
 .p-limbo__link {
+  color: var(--color-limbo-accent);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
   position: relative;
+}
+
+.p-limbo__link:focus::after,
+.p-limbo__link:hover::after,
+.p-limbo__link:focus::before,
+.p-limbo__link:hover::before {
+  --border-color: #1a1a1a;
+}
+
+.p-limbo__link::after,
+.p-limbo__link::before {
+  border: var(--border-width) solid var(--border-color);
 }
 
 .p-limbo__link::before {
@@ -135,6 +173,7 @@
 .p-limbo__link::after {
   background: var(--color-limbo-accent);
   border-radius: 6px 6px 0 0;
+  border-bottom: 0;
   height: 12%;
   top: 2rem;
   z-index: 1;
@@ -149,12 +188,23 @@
   z-index: 3;
 }
 
+.p-limbo__title::after {
+  background-color: #f6f5e4;
+}
+
+.p-limbo__link:hover .p-limbo__title::after,
+.p-limbo__link:focus .p-limbo__title::after {
+  width: 100%;
+}
+
 .p-limbo__graphic {
   display: block;
   margin: 0 auto;
   max-width: calc(770 / 16 * 1rem);
   position: relative;
-  width: 85%;
+  transition: 0.15s ease;
+  transform-origin: 50% 20%;
+  width: 80%;
   z-index: 2;
 }
 
@@ -282,14 +332,13 @@
   }
 
   .p-streetcred__contents::before {
-    clip-path: polygon(1rem 0, 100% 0, 100% 100%, 0 100%);
     border-radius: 6px;
     height: 100%;
     top: 0;
     width: 100%;
   }
 
-  .p-streetcred__token {
+  .p-streetcred__graphic {
     --max-width: 350;
     --trans-x: -1.2rem;
     --trans-y: 6rem;
@@ -308,6 +357,11 @@
   .p-limbo__graphic {
     transform: translateX(-6%);
     width: 125%;
+  }
+
+  .p-limbo__link:hover .p-limbo__graphic,
+  .p-limbo__link:focus .p-limbo__graphic {
+    transform: translate3d(-6%, -4%, 0);
   }
 
   .p-colorme__link {
@@ -346,7 +400,7 @@
     margin-left: 0;
   }
 
-  .p-streetcred__token {
+  .p-streetcred__graphic {
     --trans-x: -5rem;
     --trans-y: 10rem;
   }
@@ -444,6 +498,11 @@
     width: 100%;
   }
 
+  .p-limbo__link:hover .p-limbo__graphic,
+  .p-limbo__link:focus .p-limbo__graphic {
+    transform: translate3d(4.5rem, 0, 0);
+  }
+
   .p-groundwork {
     --col-end: span 3;
     --row-start: 8;
@@ -483,6 +542,11 @@
     right: auto;
     transform: translateX(0);
     width: 75%;
+  }
+
+  .p-limbo__link:hover .p-limbo__graphic,
+  .p-limbo__link:focus .p-limbo__graphic {
+    transform: translate3d(-1.5rem, 0, 0);
   }
 
   .p-colorme {
