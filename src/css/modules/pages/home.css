@@ -36,7 +36,7 @@
 
 .work__title h2 {
   font-family: var(--font-proto-regular);
-  font-size: 1rem;
+  font-size: 1.1rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -74,7 +74,8 @@
 }
 
 .p-streetcred__link:focus,
-.p-limbo__link:focus {
+.p-limbo__link:focus,
+.p-colorme__link:focus {
   outline: none;
 }
 
@@ -90,10 +91,11 @@
   background: var(--color-streetcred-accent)
     url("/images/projects/streetcred/home-bg-pattern.svg") no-repeat center;
   background-size: cover;
-  border: var(--border-width) solid var(--border-color);
+  box-shadow: inset 0 0 0 var(--border-width) var(--border-color);
   border-radius: 6px;
   height: calc(100% - var(--offset));
   top: var(--offset);
+  transition: 0.1s ease;
 }
 
 .p-streetcred__title {
@@ -104,12 +106,14 @@
 }
 
 .p-streetcred__link:active .p-streetcred__title,
-.p-limbo__link:active .p-limbo__title {
+.p-limbo__link:active .p-limbo__title,
+.p-colorme__link:active .p-colorme__title {
   transform: scale3d(0.96, 0.96, 0.96);
 }
 
 .p-streetcred__title::after,
-.p-limbo__title::after {
+.p-limbo__title::after,
+.p-colorme__title::after {
   content: "";
   display: block;
   height: 6px;
@@ -158,16 +162,14 @@
   position: relative;
 }
 
-.p-limbo__link:focus::after,
-.p-limbo__link:hover::after,
-.p-limbo__link:focus::before,
-.p-limbo__link:hover::before {
+.p-limbo__link:focus,
+.p-limbo__link:hover {
   --border-color: #1a1a1a;
 }
 
-.p-limbo__link::after,
-.p-limbo__link::before {
-  border: var(--border-width) solid var(--border-color);
+.p-limbo__link::before,
+.p-limbo__link::after {
+  transition: 0.1s ease;
 }
 
 .p-limbo__link::before {
@@ -176,6 +178,7 @@
   background: var(--color-limbo-accent)
     url("/images/projects/limbo/limbo-dust.svg") repeat;
   border-radius: 6px;
+  box-shadow: inset 0 0 0 var(--border-width) var(--border-color);
   height: calc(100% - var(--offset));
   transform: matrix(1, var(--skew-y), 0, 1, 0, -15);
   top: var(--offset);
@@ -184,7 +187,9 @@
 .p-limbo__link::after {
   background: var(--color-limbo-accent);
   border-radius: 6px 6px 0 0;
-  border-bottom: 0;
+  box-shadow: inset 0 var(--border-width) 0 var(--border-color),
+    inset var(--border-width) 0 0 var(--border-color),
+    inset calc(var(--border-width) * -1) 0 0 var(--border-color);
   height: 12%;
   top: 2rem;
   z-index: 1;
@@ -223,41 +228,102 @@
   display: flex;
 }
 
+@keyframes colorme-color-main {
+  25% {
+    background-color: #4a3aa8;
+  }
+
+  50% {
+    background-color: #ca5818;
+  }
+
+  75% {
+    background-color: #34a95c;
+  }
+
+  100% {
+    background-color: var(--color-colorme-accent);
+  }
+}
+
+@keyframes colorme-color-secondary {
+  25% {
+    background-color: #291c70;
+  }
+
+  50% {
+    background-color: #a4420a;
+  }
+
+  75% {
+    background-color: #1a7a3a;
+  }
+
+  100% {
+    background-color: var(--color-colorme-accent-dark);
+  }
+}
+
 .p-colorme__link {
+  --ad: 0s;
   display: flex;
   flex: 1;
   position: relative;
 }
 
 .p-colorme__link::before {
+  animation: colorme-color-main var(--ad) infinite;
   background-color: var(--color-colorme-accent);
   border-radius: 6px;
-  clip-path: polygon(0 2rem, 100% 0, 100% 100%, 0 100%);
-  top: 0;
+  box-shadow: inset 0 0 0 var(--border-width) var(--border-color);
+  height: calc(100% - 0.5rem);
+  transition: 0.1s ease;
+  top: 0.5rem;
 }
 
 .p-colorme__link::after {
   --mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 690 510'%3E%3Cpath fill='%238C0060' d='M0 0h690S554.7 10.5 414.6 116.2C285.4 213.6 0 510 0 510V0z'/%3E%3C/svg%3E%0A");
+  animation: colorme-color-secondary var(--ad) infinite;
   background-color: var(--color-colorme-accent-dark);
   border-radius: 6px 0 0 6px;
-  left: 0.8rem;
+  left: 0.75rem;
   -webkit-mask-image: var(--mask);
   -webkit-mask-size: 100%;
+  -webkit-mask-repeat: no-repeat;
   mask-image: var(--mask);
   mask-size: 100%;
   mask-repeat: no-repeat;
-  top: 1rem;
+  top: 0.5rem;
+  transform: skewY(-2deg) skewX(1deg);
   width: 93%;
+}
+
+.p-colorme__link:hover,
+.p-colorme__link:focus {
+  --ad: 8s;
+  --border-color: #610028;
+}
+
+.p-colorme__link:hover .p-colorme__title::after,
+.p-colorme__link:focus .p-colorme__title::after {
+  width: 100%;
 }
 
 .p-colorme__title {
   align-items: flex-end;
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
   padding: 0 2.4rem 2.5rem 2.4rem;
   position: relative;
   width: 100%;
   z-index: 1;
+}
+
+.p-colorme__title::after {
+  background-color: #f8f8f8;
+  max-width: calc(306 / 16 * 1rem);
+  margin-top: 0.3rem;
 }
 
 .p-colorme__title::before {
