@@ -1,5 +1,6 @@
 .home__intro,
-.home__work {
+.home__work,
+.home__more {
   max-width: calc(2500 / 16 * 1rem);
   width: 100%;
 }
@@ -20,7 +21,8 @@
   text-transform: uppercase;
 }
 
-.home__work {
+.home__work,
+.home__more {
   grid-template-rows: repeat(
     var(--rows, 25),
     minmax(calc(78 / 16 * 1rem), max-content)
@@ -29,19 +31,26 @@
   overflow: hidden;
 }
 
-.work__title {
+.home__more {
+  --rows: 10;
+}
+
+.work__title,
+.more__title {
   align-items: center;
   display: flex;
 }
 
-.work__title h2 {
+.work__title h2,
+.more__title h2 {
   font-family: var(--font-proto-regular);
   font-size: 1.1rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
-.home__project {
+.home__project,
+.more__item {
   --border-color: transparent;
   --border-width: 6px;
   grid-column: var(--col-start, auto) / var(--col-end, auto);
@@ -55,7 +64,8 @@
 .p-colorme__link::after,
 .p-colorme__title::before,
 .p-jxa__link::before,
-.p-jxa__link::after {
+.p-jxa__link::after,
+.m-about__link::before {
   content: "";
   display: block;
   position: absolute;
@@ -75,7 +85,9 @@
 
 .p-streetcred__link:focus,
 .p-limbo__link:focus,
-.p-colorme__link:focus {
+.p-colorme__link:focus,
+.m-about__link:focus,
+.m-blog__link:focus {
   outline: none;
 }
 
@@ -348,6 +360,47 @@
 
 .p-experiments {
   background-color: #7ade57;
+}
+
+.m-about__link {
+  display: flex;
+  height: 100%;
+  position: relative;
+  text-decoration: none;
+}
+
+.m-about__link::before {
+  background-color: var(--color-about-accent);
+  border-radius: 6px;
+  height: 60%;
+  transform: matrix(1, 0.025, 0, 1, 0, 10);
+  width: 100%;
+}
+
+.m-about__title {
+  color: var(--color-offwhite);
+  line-height: 1.4;
+  margin-left: auto;
+  padding-top: calc(40 / 16 * 1rem);
+  position: relative;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.m-about__title small {
+  display: block;
+  font-family: var(--font-proto-regular);
+  font-size: calc(18 / 16 * 1rem);
+  letter-spacing: 0.03em;
+  padding-right: calc(4 / 16 * 1rem);
+}
+
+.m-about__title strong {
+  display: block;
+  font-family: var(--font-proto-bold);
+  font-size: calc(30 / 16 * 1rem);
+  margin-top: calc(18 / 16 * 1rem);
+  padding-right: calc(40 / 16 * 1rem);
 }
 
 @media (min-width: 38.75em) {

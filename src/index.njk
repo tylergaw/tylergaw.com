@@ -72,13 +72,25 @@
   </li>
 </ul>
 
-<h2>More</h2>
-<ul class="g-main home__more">
-  <li>
-    <a href="/about">Who am I?</a>
+<ul class="g-main g-padded home__more">
+  <li class="more__title">
+    <h2>More on this site</h2>
   </li>
-  <li>
-    <a href="/articles">What am I writing?</a>
+  <li class="more__item">
+    <a href="/about" class="m-about__link">
+      <div class="m-about__title">
+        <small>
+          The self. Still the<br/> 
+          hardest to right.
+        </small>
+        <strong>Bio</strong>
+      </div>
+    </a>
+  </li>
+  <li class="more__item">
+    <a href="/articles" class="m-blog__link">
+      What am I writing?
+    </a>
   </li>
 </ul>
 {% endblock %}
