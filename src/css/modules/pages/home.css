@@ -129,7 +129,7 @@
   content: "";
   display: block;
   height: 6px;
-  transition: 0.1s ease;
+  transition: 0.15s ease;
   width: 0;
 }
 
@@ -281,6 +281,16 @@
   width: 100%;
 }
 
+.p-colorme__link:hover::after,
+.p-colorme__link:focus::after {
+  background-color: var(--color-colorme-accent);
+}
+
+.p-colorme__link:hover::before,
+.p-colorme__link:focus::before {
+  background-color: var(--color-colorme-accent-dark);
+}
+
 .p-colorme__title {
   align-items: flex-end;
   display: flex;
@@ -296,6 +306,7 @@
   background-color: #f8f8f8;
   max-width: calc(306 / 16 * 1rem);
   margin-top: 0.3rem;
+  transition-duration: 0.25s;
 }
 
 .p-colorme__title::before {
