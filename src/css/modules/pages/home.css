@@ -39,6 +39,7 @@
 .more__title {
   align-items: center;
   display: flex;
+  grid-column: var(--col-start, auto) / var(--col-end, auto);
 }
 
 .work__title h2,
@@ -374,10 +375,13 @@
   background-color: #7ade57;
 }
 
+.m-about {
+  --row-end: span 3;
+}
+
 .m-about__link {
   display: flex;
   flex-direction: column;
-  height: 100%;
   position: relative;
   text-decoration: none;
 }
@@ -392,37 +396,28 @@
   width: 100%;
 }
 
-.m-about__link:hover .m-about__graphic,
-.m-about__link:focus .m-about__graphic {
-  --scale: 1.08;
-}
-
-.m-about__link:hover .m-about__graphic img,
-.m-about__link:focus .m-about__graphic img {
-  --trans-y: 4%;
-}
-
 .m-about__link::before {
   background-color: var(--color-about-accent);
   border-radius: 6px;
   box-shadow: inset 0 0 0 var(--border-width) var(--border-color);
-  height: 60%;
-  left: 8%;
+  height: 65%;
+  left: 7%;
   transform: matrix(1, 0.025, 0, 1, 0, 10);
-  width: 84%;
+  width: 85%;
 }
 
 .m-about__title {
   align-items: flex-end;
   color: var(--color-offwhite);
   display: flex;
-  flex-basis: 40%;
+  flex-basis: 50%;
   line-height: 1.4;
   margin: 0 auto;
-  padding: calc(20 / 16 * 1rem) 0;
+  padding: calc(36 / 16 * 1rem) 0 calc(22 / 16 * 1rem) 0;
   position: relative;
   text-align: center;
   text-transform: uppercase;
+  z-index: 1;
 }
 
 .m-about__title small {
@@ -443,7 +438,7 @@
 }
 
 .m-about__title .the {
-  --offset-x: 12;
+  --offset-x: 8;
 }
 
 .m-about__title .hardest {
@@ -453,8 +448,8 @@
 .m-about__title strong {
   display: inline-block;
   font-family: var(--font-proto-bold);
-  font-size: calc(36 / 16 * 1rem);
-  margin-top: 1rem;
+  font-size: calc(34 / 16 * 1rem);
+  margin-top: 0.5rem;
   padding-left: 2rem;
 }
 
@@ -465,22 +460,26 @@
 
 .m-about__graphic {
   border-radius: 6px;
-  flex-basis: 50%;
   overflow: hidden;
   position: relative;
-  transform: skewY(3deg)
-    scale3d(var(--scale, 1), var(--scale, 1), var(--scale, 1));
+  transform: skewY(3deg) translateY(var(--trans-y, -0.75rem));
   transform-origin: top;
   transition: 0.1s ease;
+  padding-top: 48%;
 }
 
 .m-about__graphic img {
   display: block;
-  position: relative;
-  top: -55%;
-  transform: skewY(-3deg) translate3d(0, var(--trans-y, 0), 0);
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  transform: skewY(-3deg);
   transition: 0.1s ease;
   width: 100%;
+}
+
+.m-blog {
+  background-color: #e0621b;
 }
 
 @media (min-width: 38.75em) {
@@ -492,11 +491,12 @@
 
   .work__title {
     align-items: flex-end;
-    grid-column: 2;
+    --col-start: 2;
   }
 
   .more__title {
-    grid-column: 1 / -1;
+    --col-start: 1;
+    --col-end: -1;
   }
 
   .p-streetcred {
@@ -570,7 +570,7 @@
   }
 
   .work__title {
-    grid-column: 4;
+    --col-start: 4;
   }
 
   .p-streetcred {
@@ -647,6 +647,54 @@
     --col-end: span 2;
     --row-end: span 5;
   }
+
+  .m-about {
+    --col-end: span 3;
+    --row-end: span 4;
+  }
+
+  .m-about__link {
+    flex-direction: row;
+    height: 100%;
+    max-width: calc(680 / 16 * 1rem);
+  }
+
+  .m-about__link::before {
+    height: 70%;
+    left: 0;
+    width: 100%;
+  }
+
+  .m-about__title {
+    align-items: center;
+    flex-basis: 100%;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+  }
+
+  .m-about__title strong {
+    padding-left: 0;
+    padding-right: 2rem;
+  }
+
+  .m-about__graphic {
+    --trans-y: 0.25rem;
+    height: 100%;
+    padding-top: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  .m-about__graphic img {
+    left: min(-55%, 480px);
+    width: min(120%, 800px);
+  }
+
+  .m-blog {
+    --col-end: span 2;
+  }
 }
 
 @media (min-width: 77.5em) {
@@ -700,6 +748,11 @@
   .p-experiments {
     --col-start: 4;
   }
+
+  .more__title,
+  .m-about {
+    --col-start: 2;
+  }
 }
 
 @media (min-width: 106.25em) {
@@ -710,7 +763,7 @@
   }
 
   .work__title {
-    grid-column: 5;
+    --col-start: 5;
   }
 
   .p-streetcred {
@@ -764,6 +817,11 @@
     --col-start: 5;
     --col-end: span 3;
   }
+
+  .more__title,
+  .m-about {
+    --col-start: 3;
+  }
 }
 
 @media (min-width: 137.5em) {
@@ -774,7 +832,7 @@
   }
 
   .work__title {
-    grid-column: 6;
+    --col-start: 6;
   }
 
   .p-streetcred {
@@ -806,5 +864,10 @@
 
   .p-experiments {
     --col-start: 6;
+  }
+
+  .more__title,
+  .m-about {
+    --col-start: 4;
   }
 }
