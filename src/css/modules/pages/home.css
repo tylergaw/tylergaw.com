@@ -22,7 +22,8 @@
 }
 
 .home__work,
-.home__more {
+.home__more,
+.footer {
   grid-template-rows: repeat(
     var(--rows, 25),
     minmax(calc(78 / 16 * 1rem), max-content)
@@ -32,7 +33,7 @@
 }
 
 .home__more {
-  --rows: 10;
+  --rows: 8;
 }
 
 .work__title,
@@ -497,6 +498,10 @@
   .more__title {
     --col-start: 1;
     --col-end: -1;
+  }
+
+  .home__more {
+    --rows: 6;
   }
 
   .p-streetcred {

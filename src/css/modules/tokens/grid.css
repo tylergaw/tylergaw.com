@@ -11,6 +11,11 @@ html {
   grid-template-columns: repeat(var(--num-cols, 1), 1fr);
 }
 
+.g-main__item {
+  grid-column: var(--col-start, auto) / var(--col-end, auto);
+  grid-row: var(--row-start, auto) / var(--row-end, auto);
+}
+
 @media (min-width: 38.75em) {
   .g-main {
     --num-cols: 2;
