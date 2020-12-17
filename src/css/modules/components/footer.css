@@ -2,8 +2,21 @@
   --rows: 3;
 }
 
+.footer__links {
+  display: flex;
+}
+
+.footer__links ul {
+  flex: 1 1 50%;
+  max-width: calc(280 / 16 * 1rem);
+}
+
+.footer__links li {
+  margin: 0.8rem 0;
+}
+
 .footer a {
-  border-bottom: 1px solid currentColor;
+  border-bottom: 2px solid currentColor;
   display: inline-block;
   font-family: var(--font-proto-regular);
   font-size: 1rem;
@@ -20,6 +33,7 @@
   align-self: center;
   font-family: var(--font-proto-regular);
   font-size: 1rem;
+  line-height: 1.2;
   text-transform: uppercase;
 }
 
