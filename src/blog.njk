@@ -7,18 +7,20 @@ pageType: blog
 
 {% block main %}
 
-<h1>Blog</h1>
+<div class="g-main g-padded">
+  <h1>Blog</h1>
+</div>
 
-<ol class="listed-items">
+<ol class="listed-items g-main g-padded">
 {%- for post in collections.posts -%}
 
   {% if post.data.year %}
-    <li class="listed-items__heading" id="{{ post.data.year }}">
+    <li class="g-main__item listed-items__heading" id="{{ post.data.year }}">
       <h2>{{ post.data.year }}</h2>
     </li>
   {% endif %}
 
-  <li class="listed-item">
+  <li class="g-main__item listed-item">
     <time datetime="{{ post.data.date }}">{{ post.data.dateHuman }}</time>
     <a
       class="listed-item__link"
