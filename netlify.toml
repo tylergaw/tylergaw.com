@@ -9,3 +9,15 @@
   # root directory if a base has not been set. This sample publishes the
   # directory located at the absolute path "root/project/build-output"
   publish = "dist/"
+
+[[redirects]]
+  from = "/articles"
+  to = "/blog"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/articles/*"
+  to = "/blog/:splat"
+  status = 301
+  force = true
