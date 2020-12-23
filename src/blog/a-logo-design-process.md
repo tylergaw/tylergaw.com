@@ -1,7 +1,10 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 title: "A Logo Design Process"
 date: "2014-07-17"
+meta:
+  description: I wanted a new logo/branding for a redesign of this site and for other promotional crud. Here's a look into the creation process.
 ---
 
         <p class="entry-intro">

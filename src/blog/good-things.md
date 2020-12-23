@@ -1,4 +1,5 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 title: "Good Things"
 date: "2019-08-04"

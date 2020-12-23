@@ -1,4 +1,5 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 title: "Realign 2020: Typography"
 date: "2020-03-01"

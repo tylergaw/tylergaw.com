@@ -1,7 +1,14 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 title: "Overawe"
 date: "2015-06-25"
+meta:
+  description:
+    For a few months in 2015 I spent my nights and weekends building a strange
+    little art project. I used HTML/CSS/JS to create a world where narration
+    is unreliable, messages are inconsistent, and sometimes it’s all just a
+    joke.
 ---
 
 <p class="entry-intro">

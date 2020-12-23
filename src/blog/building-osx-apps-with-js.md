@@ -1,8 +1,14 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 highlightSyntax: true
 title: "Building OS X Apps with JavaScript"
 date: "2014-09-27"
+meta:
+  description:
+    OS X Yosemite introduced JavaScript for Automation. This makes it possible
+    to build native OS X apps using good ol’ JS. This article covers the
+    basics and walks through building an example app.
 ---
 
 <p class="entry-intro">

@@ -1,7 +1,13 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 title: "You Did What with What?"
 date: "2010-04-06"
+meta:
+  description:
+    It was a silly "pop-in-your-head-in-the-shower" idea. Kinetic type with
+    CSS. Is that possible? Will browsers just die under the stress? I had to
+    find out.
 ---
 
             <figure>

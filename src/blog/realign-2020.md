@@ -1,9 +1,10 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 title: Realign 2020
 date: "2020-02-27"
 meta:
-  description: Content and design realign of my personal site.
+  description: Starting another content and design realign for this site.
   image: /articles/assets/post-image-realign-2020-social.png
 ---
 

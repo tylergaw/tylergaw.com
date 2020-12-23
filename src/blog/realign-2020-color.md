@@ -1,10 +1,11 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 title: "Realign 2020: Color"
 date: "2020-05-17"
 highlightSyntax: true
 meta:
-  description: Improving this site’s color during the 2020 realign.
+  description: After almost a decade, this site now has a light mode. Also just more colorful.
   image: /articles/assets/post-image-realign-2020-color-social.png
 ---
 

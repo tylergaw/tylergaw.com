@@ -1,4 +1,5 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 title: "How to Get All Custom Properties on a Page in JavaScript"
 date: "2020-06-15"

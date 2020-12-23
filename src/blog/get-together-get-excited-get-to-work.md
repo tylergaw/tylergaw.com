@@ -1,14 +1,20 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 title: "Get Together. Get Excited. Get to Work."
 date: "2012-09-24"
+meta:
+  description:
+    Brooklyn is the place to be the second week of October 2012. If you're
+    looking to meet new folks and build an awesome project, we have just the
+    event for you.
 ---
 
-        <figure>
-            <a href="http://brooklynalpha.org/2012">
-                <img src='https://tylergaw.com/articles/assets/post-image-brooklyn-alpha-2012.png' alt='Brooklyn Alpha 2012'>
-            </a>
-        </figure>
+<figure>
+        <a href="http://brooklynalpha.org/2012">
+        <img src='https://tylergaw.com/articles/assets/post-image-brooklyn-alpha-2012.png' alt='Brooklyn Alpha 2012'>
+        </a>
+</figure>
         <p>
             <b>Brass tacks:</b> <em>
                 <a href="http://brooklynalpha.org/2012">

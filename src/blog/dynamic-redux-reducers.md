@@ -1,4 +1,5 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 highlightSyntax: true
 title: "Dynamic Redux Reducers"

@@ -1,4 +1,5 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 title: "Starting Something New"
 date: "2017-09-25"

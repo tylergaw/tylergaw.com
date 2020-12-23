@@ -1,8 +1,14 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 highlightSyntax: true
 title: "WebVTT Cuemarker"
 date: "2013-06-08"
+meta:
+  description:
+    The Web Video Text Track format is easy enough to work with, but marking
+    cue times can be a bit of a chore. I wrote a small tool to make it a
+    little easier.
 ---
 
         <p class="entry-intro">
@@ -26,6 +32,7 @@ This is text that will appear over the video at during the in/out points.
 00:00:05.500 --> 00:00:10.250
 You can use <b>HTML</b> within WebVTT, pretty cool.
 </code></pre>
+
 <p>
 That's an example of a very simple WebVTT file with two cues. We'll
 refer to it as <code>captions.vtt</code>

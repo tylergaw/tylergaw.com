@@ -1,4 +1,5 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 title: "A Library"
 date: "2019-04-21"

@@ -1,8 +1,13 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 highlightSyntax: true
 title: "Papersaver"
 date: "2014-02-03"
+meta:
+  description:
+    I love drawing goofy things with Paper. I wanted a quick way to put all
+    those goofy drawings on the Web.
 ---
 
         <figure>
@@ -93,6 +98,7 @@ date: "2014-02-03"
 // template: paper.html
 // image_path: tylergaw-paper-{date}.jpg
 // save img: image_path.jpg</code></pre>
+
 <h2>Getting rolling</h2>
 <p>
 After a few hours of writing down goals and researching similar

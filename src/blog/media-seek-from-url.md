@@ -1,8 +1,13 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 highlightSyntax: true
 title: "Media Seek from URL"
 date: "2014-09-20"
+meta:
+  description:
+    This is a quick bit of JavaScript to control the time position of audio
+    and video elements via a URL query string.
 ---
 
 <p class="entry-intro">

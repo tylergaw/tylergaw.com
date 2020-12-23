@@ -1,53 +1,59 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 title: "Fun with HTML Form Validation Styles"
 date: "2011-08-23"
+meta:
+  description:
+    HTML form validation is evolving in a big way. In this little ditty I lay
+    out a process for making browser generated validation errors super cool!
 ---
 
-            <p>
-            	<b>Brass tacks:</b> <em>Demos; <a href="http://lab.tylergaw.com/html5forms/errorStyles/01/">Style 01</a>, <a href="http://lab.tylergaw.com/html5forms/errorStyles/02/">Style 02</a>, <a href="http://lab.tylergaw.com/html5forms/errorStyles/03/">Style 03</a> and <a href="https://github.com/tylergaw/html5forms/tree/master/errorStyles">the code</a>.</em>
-            </p>
-            <p class="entry-intro">
-            	If you haven't heard already, the current HTML Living Standard or HTML5 spec has in it some super cool form validation. This is client-side form validation that is meant to remove some of the burden of writing validation with Javascript. If you've ever written form validation with Javascript I think you'll agree that this is a very good thing.
-            </p>
-            <p>
-              Using this new feature of html can be as easy as creating a form and within it creating an input with a <code>required</code> attribute. When the form is submitted, browsers that support validation will take the reigns and make sure that the required input has a value. If it does not, the browser will display a validation error message.
-            </p>
-            <p>
-              In addition to validating required fields, the form validation will also check to make sure inputted values match given input types. New in the Living Standard are quite a few new input types such as; "email", "url", "number" and so on. Check out the full list located at <a href="http://developers.whatwg.org/the-input-element.html#the-input-element">http://developers.whatwg.org/the-input-element.html#the-input-element</a>.
-            </p>
-            <h2>Validation error messages</h2>
-            <p>
-              As of this writing, there are three browsers that both support html form validation and display error messages when needed. Browser support includes; Chrome 10+, Firefox 3.6+, and Opera 11+. Safari doesn't care about validating your forms and I haven't checked any versions of IE, maybe 9 or 10 support this? Each browser handles the styling of validation messages differently.
-            </p>
-            <figure>
-              <img src='https://tylergaw.com/articles/assets/post_image_htmlFormErrors_defaultChrome.jpg' alt='Chrome 12 default error messages'>
-              <figcaption>Chrome 13 default error message</figcaption>
-            </figure>
-            <figure>
-              <img src='https://tylergaw.com/articles/assets/post_image_htmlFormErrors_defaultFirefox.jpg' alt='Firefox 5.0 default error messages'>
-              <figcaption>Firefox 6.0 default error message</figcaption>
-            </figure>
-            <figure>
-              <img src='https://tylergaw.com/articles/assets/post_image_htmlFormErrors_defaultOpera.jpg' alt='Opera 11.5 default error messages'>
-              <figcaption>Opera 11.5 default error message</figcaption>
-            </figure>
-            <p>
-              Of the three, only Chrome currently offers a way to apply custom styles to the message. Through non-standard, Webkit-specific pseudo classes you are able to style the messages in any way that floats your boat. That's what I'm focusing on with this article.
-            </p>
-            <h2>What about the other browsers?</h2>
-            <p>
-              That's a good question. I haven't heard anything about Opera, but it seems that the style and even handling of the error messages is an open discussion with Firefox. I did quite a bit of digging around in <a href="http://www.bugzilla.org/">Bugzilla</a> and in the FF 6 source code, but couldn't find any solid information on what the plan is. My hope is that a standard will emerge for styling the messages, but that could be far off.
-            </p>
-            <h2>The pseudo classes and markup</h2>
-            <p>
-              When I first started looking into if/how the error messages could be styled I quickly came across a "Rosetta Stone" in an article by Peter Gasston, <a href="http://www.broken-links.com/2011/06/16/styling-html5-form-validation-errors/">http://www.broken-links.com/2011/06/16/styling-html5-form-validation-errors</a>. In the post Peter explains the pseudo classes that webkit makes available to target the error message elements. He's done the leg work of digging through the Webkit source code to find this stuff, thanks Peter! To reiterate some of what is in Peter's article, the following are the classes that are available to hook into:
-            </p>
-            <pre><code class="language-css">::-webkit-validation-bubble {}
+<p>
+  <b>Brass tacks:</b> <em>Demos; <a href="http://lab.tylergaw.com/html5forms/errorStyles/01/">Style 01</a>, <a href="http://lab.tylergaw.com/html5forms/errorStyles/02/">Style 02</a>, <a href="http://lab.tylergaw.com/html5forms/errorStyles/03/">Style 03</a> and <a href="https://github.com/tylergaw/html5forms/tree/master/errorStyles">the code</a>.</em>
+</p>
+<p class="entry-intro">
+  If you haven't heard already, the current HTML Living Standard or HTML5 spec has in it some super cool form validation. This is client-side form validation that is meant to remove some of the burden of writing validation with Javascript. If you've ever written form validation with Javascript I think you'll agree that this is a very good thing.
+</p>
+<p>
+  Using this new feature of html can be as easy as creating a form and within it creating an input with a <code>required</code> attribute. When the form is submitted, browsers that support validation will take the reigns and make sure that the required input has a value. If it does not, the browser will display a validation error message.
+</p>
+<p>
+  In addition to validating required fields, the form validation will also check to make sure inputted values match given input types. New in the Living Standard are quite a few new input types such as; "email", "url", "number" and so on. Check out the full list located at <a href="http://developers.whatwg.org/the-input-element.html#the-input-element">http://developers.whatwg.org/the-input-element.html#the-input-element</a>.
+</p>
+<h2>Validation error messages</h2>
+<p>
+  As of this writing, there are three browsers that both support html form validation and display error messages when needed. Browser support includes; Chrome 10+, Firefox 3.6+, and Opera 11+. Safari doesn't care about validating your forms and I haven't checked any versions of IE, maybe 9 or 10 support this? Each browser handles the styling of validation messages differently.
+</p>
+<figure>
+  <img src='https://tylergaw.com/articles/assets/post_image_htmlFormErrors_defaultChrome.jpg' alt='Chrome 12 default error messages'>
+  <figcaption>Chrome 13 default error message</figcaption>
+</figure>
+<figure>
+  <img src='https://tylergaw.com/articles/assets/post_image_htmlFormErrors_defaultFirefox.jpg' alt='Firefox 5.0 default error messages'>
+  <figcaption>Firefox 6.0 default error message</figcaption>
+</figure>
+<figure>
+  <img src='https://tylergaw.com/articles/assets/post_image_htmlFormErrors_defaultOpera.jpg' alt='Opera 11.5 default error messages'>
+  <figcaption>Opera 11.5 default error message</figcaption>
+</figure>
+<p>
+  Of the three, only Chrome currently offers a way to apply custom styles to the message. Through non-standard, Webkit-specific pseudo classes you are able to style the messages in any way that floats your boat. That's what I'm focusing on with this article.
+</p>
+<h2>What about the other browsers?</h2>
+<p>
+  That's a good question. I haven't heard anything about Opera, but it seems that the style and even handling of the error messages is an open discussion with Firefox. I did quite a bit of digging around in <a href="http://www.bugzilla.org/">Bugzilla</a> and in the FF 6 source code, but couldn't find any solid information on what the plan is. My hope is that a standard will emerge for styling the messages, but that could be far off.
+</p>
+<h2>The pseudo classes and markup</h2>
+<p>
+  When I first started looking into if/how the error messages could be styled I quickly came across a "Rosetta Stone" in an article by Peter Gasston, <a href="http://www.broken-links.com/2011/06/16/styling-html5-form-validation-errors/">http://www.broken-links.com/2011/06/16/styling-html5-form-validation-errors</a>. In the post Peter explains the pseudo classes that webkit makes available to target the error message elements. He's done the leg work of digging through the Webkit source code to find this stuff, thanks Peter! To reiterate some of what is in Peter's article, the following are the classes that are available to hook into:
+</p>
+<pre><code class="language-css">::-webkit-validation-bubble {}
 
 ::-webkit-validation-bubble-message {}
 ::-webkit-validation-bubble-arrow {}
 ::-webkit-validation-bubble-arrow-clipper {}</code></pre>
+
 <p>
 Each of those target a <code>&lt;div&gt;</code> element that is inserted into the DOM when a validation error is triggered. The markup looks like this:
 </p>
@@ -130,6 +136,7 @@ margin-left: -15px;
 opacity: 0.9;
 }
 }</pre></code>
+
 <p>
 The named animation is applied to the main message container;
 </p>
@@ -168,6 +175,7 @@ cur.setCustomValidity(errMsg);
 
 }
 }</code></pre>
+
 <p>
 This is a fairly simple block of code, we start by looking at each <code>input</code> element on the page through a <code>for</code> loop, if the <code>input</code> is not a submit button we then use the Constraint API method <code>setCustomValidity</code> to apply the custom message of "!" that we stored in the <code>errMsg</code> variable. In my opinion that should be the end of the work needed, but there is more.
 </p>

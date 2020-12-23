@@ -1,7 +1,12 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 title: "Slenderman"
 date: "2013-07-03"
+meta:
+  description:
+    Branching out and trying something new with this one. I walk through the
+    work that went into creating my first typeface.
 ---
 
         <figure>

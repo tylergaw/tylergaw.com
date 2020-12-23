@@ -1,9 +1,10 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 title: "Realign 2020: Logo"
 date: "2020-03-07"
 meta:
-  description: Updating my logo during the 2020 realign.
+  description: Letting the letters push, kick, and stomp on each other.
   image: /articles/assets/post-image-realign-2020-logo-social.png
 ---
 

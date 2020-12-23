@@ -1,9 +1,10 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 title: "No More Google Analytics"
 date: "2019-02-19"
 meta:
-  description: My personal site doesn’t need it. And everyone could use one less website tracking them.
+  description: This personal site doesn’t need it. And everyone could use one less website tracking them.
 ---
 
 <p>

@@ -1,4 +1,5 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 title: "Using a Custom OAuth Provider with NetlifyCMS"
 highlightSyntax: true

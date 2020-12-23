@@ -1,10 +1,11 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 title: "CSS: Flexible Repeating SVG Masks"
 date: "2020-03-14"
 highlightSyntax: true
 meta:
-  description: A CSS technique for using SVG as repeating masks.
+  description: This started with a literal dream about CSS, then a Sunday morning of messing around.
   image: /articles/assets/post-image-repeating-masks-social.png
   card: summary
 ---

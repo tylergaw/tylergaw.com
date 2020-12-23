@@ -1,4 +1,5 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 title: "The Impact of Flash"
 date: "2017-07-29"

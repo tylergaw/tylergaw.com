@@ -1,7 +1,14 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 title: "How I Start"
 date: "2014-07-10"
+meta:
+  description:
+    Starting a new design is an exciting, weird, and sometimes frustrating
+    process. No two designs start the same way, but for me, they tend to
+    follow similar paths. This is a look into how I'm starting a redesign of
+    my site.
 ---
 
         <p class="entry-intro">

@@ -1,4 +1,5 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 title: "Designing Anthologies: Initial Concepts"
 date: "2018-04-21"

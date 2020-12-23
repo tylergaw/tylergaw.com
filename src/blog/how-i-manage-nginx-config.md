@@ -1,8 +1,14 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 highlightSyntax: true
 title: "How I Manage Nginx Config"
 date: "2014-07-24"
+meta:
+  description:
+    NGINX site configuration is fairly straightforward, but managing the files
+    for it can be a bit cumbersome. I use git and Github to make the process
+    quicker and more comfortable.
 ---
 
         <p class="entry-intro">
@@ -61,6 +67,7 @@ http {
 include /path/to/home/server-conf/prod/\*;
 }
 </code></pre>
+
 <h2>Why the Home Directory?</h2>
 <p>
 Mainly because I can never remember the default location of NGINX config

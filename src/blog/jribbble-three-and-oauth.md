@@ -1,4 +1,5 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 highlightSyntax: true
 title: "Jribbble Three and Helping People OAuth"

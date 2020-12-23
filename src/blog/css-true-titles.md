@@ -1,8 +1,13 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 highlightSyntax: true
 title: "CSS True Titles"
 date: "2014-02-25"
+meta:
+  description:
+    The opening titles of the show True Detective are incredible. I wanted to
+    see if I could create a similar style title sequence using CSS.
 ---
 
         <figure>
@@ -71,6 +76,7 @@ date: "2014-02-25"
 &lt;h1 class="copy animated"&gt;
 &lt;b class="role">This is a&lt;/b&gt; CSS Experiment
 &lt;/h1&gt;</code></pre>
+
 <p>
 The containing <code>div</code> element with the class of "composition"
 houses all the images. I'm using a containing element here so I can move
@@ -186,6 +192,7 @@ opacity: 1;
 transform: translateX(0);
 }
 }</code></pre>
+
 <p>
 I'm going to explain this backwards. Starting at 23% of the main
 timeline length I want the card to be visible and on the screen. It should stay

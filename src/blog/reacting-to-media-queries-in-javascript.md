@@ -1,29 +1,34 @@
 ---
+tags: post
 layout: "layouts/article.njk"
 highlightSyntax: true
 title: "Reacting to Media Queries in JavaScript"
 date: "2012-05-17"
+meta:
+  description: I was looking for a way for Javascript to know when a media query
+    condition was met or not met. While window.matchMedia provides the main
+    functionality, I wanted something that was a little more automatic.
 ---
 
-                        <p>
-                                <b>Brass tacks:</b> <em><a href="http://tylergaw.github.com/media-query-events/">A demo</a> and <a href="https://github.com/tylergaw/media-query-events">some code</a>.</em>
-                        </p>
-                        <p class="entry-intro">
-                                <code>window.matchMedia</code> provides a way for Javascript to react when a media query condition is met or unmet. While the functionality it allows is great, the necessary code duplication required to use it leaves a bit to be desired. I'm going to walk through a work-in-progress approach to getting around that duplication.
-                        </p>
-                        <h2>window.matchMedia</h2>
-                        <p>
-                                The method is simple enough to use and works the way you'd expect it. You give it a media query string it gives you back a <a href="https://developer.mozilla.org/en/DOM/MediaQueryList">MediaQueryList</a> object.
-                        </p>
-                        <pre><code class="language-javascript">var mql = window.matchMedia("(min-width: 480px)");</code></pre>
-                        <p>
-                                That sets the value of <code>mql</code> to a MediaQueryList object with two members, something like:
-                        </p>
-                        <pre><code class="language-javascript">MediaQueryList: {
-    matches: true,
-    media: "(min-width: 480px)"
-
+<p>
+        <b>Brass tacks:</b> <em><a href="http://tylergaw.github.com/media-query-events/">A demo</a> and <a href="https://github.com/tylergaw/media-query-events">some code</a>.</em>
+</p>
+<p class="entry-intro">
+        <code>window.matchMedia</code> provides a way for Javascript to react when a media query condition is met or unmet. While the functionality it allows is great, the necessary code duplication required to use it leaves a bit to be desired. I'm going to walk through a work-in-progress approach to getting around that duplication.
+</p>
+<h2>window.matchMedia</h2>
+<p>
+        The method is simple enough to use and works the way you'd expect it. You give it a media query string it gives you back a <a href="https://developer.mozilla.org/en/DOM/MediaQueryList">MediaQueryList</a> object.
+</p>
+<pre><code class="language-javascript">var mql = window.matchMedia("(min-width: 480px)");</code></pre>
+<p>
+        That sets the value of <code>mql</code> to a MediaQueryList object with two members, something like:
+</p>
+<pre><code class="language-javascript">MediaQueryList: {
+  matches: true,
+  media: "(min-width: 480px)"
 }</code></pre>
+
 <p>
 The boolean value of the <code>matches</code> member will be determined by the width of your browser window at the time.
 </p>
@@ -41,6 +46,7 @@ else {
 // The browser window is less than 480px wide
 }
 }</code></pre>
+
 <p class="note">
 You can find similar code examples and further explanation of MatchMedia on the <a href="https://developer.mozilla.org/en/DOM/window.matchMedia">Mozilla Developer Network</a>
 </p>
@@ -86,6 +92,7 @@ console.log(mql);
     window.mqEvents = mqEvents;
 
 }());</code></pre>
+
 <p>
 I'm going to go through the code here and explain what's happening each step of the way.
 </p>
@@ -106,6 +113,7 @@ if (mediaChangeHandler) {
 mediaChange = mediaChangeHandler;
 }
 </code></pre>
+
 <p>
 If the <code>mediaChangeHandler</code> argument is not passed to <code>mqEvents</code>, a default function, <code>mediaChange</code> will handle each media query event. The default doesn't do much of anything. For the purpose of this script we just want to have something there.
 </p>
@@ -163,6 +171,7 @@ handleMediaChange = function (mql) {
 };
 
 mqEvents(handleMediaChange);</code></pre>
+
 <p>
 Notice the big comment about Firefox there, I still don't know what that is. Like I said, work-in-progress here.
 </p>
