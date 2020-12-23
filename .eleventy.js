@@ -1,5 +1,9 @@
 const CleanCSS = require("clean-css");
 const dayjs = require("dayjs");
+const timezone = require("dayjs/plugin/timezone");
+
+dayjs.extend(timezone);
+dayjs.tz.setDefault("America/New_York");
 
 module.exports = function (conf) {
   conf.addFilter("cssmin", (code) => new CleanCSS({}).minify(code).styles);
@@ -28,7 +32,8 @@ module.exports = function (conf) {
       .getFilteredByTag("post")
       .sort((a, b) => b.date - a.date)
       .reduce((accum, post, i) => {
-        const year = dayjs(post.data.date).year();
+        const date = dayjs(post.data.date);
+        const year = date.year();
         const prevPost = accum[i - 1];
         let addYearData = !prevPost ? true : false;
 
@@ -40,9 +45,10 @@ module.exports = function (conf) {
           }
         }
 
-        if (addYearData) {
-          post.data.year = year;
-        }
+        // Override/add data to post object
+        post.data.year = addYearData ? year : null;
+        post.data.date = date.format("YYYY-MM-DD");
+        post.data.dateHuman = date.format("MMMM D, YYYY");
 
         return accum.concat(post);
       }, []);
