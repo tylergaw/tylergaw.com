@@ -6,7 +6,6 @@
 
 .banner__logo {
   color: var(--color-text);
-  grid-column: span 3;
   margin: 0 auto;
   max-width: 12.5rem;
   position: relative;
@@ -21,15 +20,12 @@
   display: none;
 }
 
-[data-page="home"] .logo__amp,
-[data-page="home"] .logo__title,
-[data-page="resume"] .logo__amp,
-[data-page="resume"] .logo__title {
+.logo--full .logo__amp,
+.logo--full .logo__title {
   display: initial;
 }
 
-[data-page="home"] .banner__logo,
-[data-page="resume"] .banner__logo {
+.logo--full {
   max-width: 17.5rem;
 }
 
@@ -40,9 +36,9 @@
 }
 
 .banner__logo::after {
-  --size: 2.75rem;
+  --size: 2rem;
   --top: 0;
-  --right: -1rem;
+  --right: -0.8rem;
   animation: rotate 1s steps(4) infinite;
   background-color: var(--color-accent-secondary);
   content: "";
@@ -56,6 +52,11 @@
   width: var(--size);
 }
 
+.logo--full::after {
+  --size: 2.75rem;
+  --right: -1rem;
+}
+
 .logo__base,
 .banner__logo:hover .logo__title,
 .banner__logo:focus .logo__title {
@@ -63,10 +64,8 @@
 }
 
 .banner__nav {
-  grid-column: span 3 / -1;
   font-size: 1.2rem;
   text-align: center;
-  transform: translateY(-1.2rem);
 }
 
 .banner__nav li {
@@ -77,13 +76,13 @@
 .banner__nav a {
   display: inline-block;
   font-family: var(--font-proto-bold);
-  font-weight: 600;
   padding: 0.5rem 0.75rem;
+  text-align: center;
   text-decoration: none;
   text-transform: uppercase;
 }
 
-.banner__nav a svg {
+.banner__nav svg {
   display: block;
   margin: 0 auto;
   opacity: 0;
@@ -148,46 +147,51 @@
   opacity: 1;
 }
 
-@media (min-width: 37.5em) {
+@media (min-width: 38.75em) {
   .banner__logo {
-    grid-column: span 2;
     margin: 0;
   }
 
-  .banner__logo::after {
+  .logo--full {
+    width: 85%;
+  }
+
+  .logo--full::after {
     --size: 4.5rem;
     --top: -0.75rem;
     --right: -3rem;
   }
 
   .banner__nav {
-    grid-column-start: span 1;
-    font-size: 1.5rem;
-    text-align: right;
-    transform: none;
+    font-size: 1.3rem;
+    text-align: left;
   }
 
-  .banner__nav li {
-    display: block;
-  }
-
-  .banner__nav a svg {
-    margin: 0 0 0 auto;
-    transform: scaleX(1) translate3d(0, 6px, 0);
+  .banner__nav ul {
+    display: flex;
+    justify-content: flex-end;
   }
 }
 
-@media (min-width: 50em) {
+@media (min-width: 65em) {
+  .banner__logo {
+    --col-end: span 2;
+  }
+
   .banner__nav {
-    grid-column-start: span 2;
+    --col-end: span 3;
   }
+}
 
-  .banner__nav li {
-    display: inline-block;
+@media (min-width: 77.5em) {
+  .banner__nav {
+    --col-end: span 4;
   }
+}
 
-  .banner__nav a svg {
-    margin: 0 auto;
+@media (min-width: 106.25em) {
+  .banner__nav {
+    --col-end: span 7;
   }
 }
 
@@ -195,5 +199,11 @@
   .banner {
     position: sticky;
     top: 0;
+  }
+}
+
+@media (min-width: 137.5em) {
+  .banner__nav {
+    --col-end: span 9;
   }
 }

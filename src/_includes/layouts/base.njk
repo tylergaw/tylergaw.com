@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="no-js" data-page="{% if page.fileSlug %}{{ page.fileSlug }}{% else %}home{% endif %}">
+<html lang="en" class="no-js" data-page="{% if pageType %}{{ pageType }}{% else %}{% if page.fileSlug %}{{ page.fileSlug }}{% else %}home{% endif %}{% endif %}">
 
   <head>
     {% include "head-contents.njk" %}
