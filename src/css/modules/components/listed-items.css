@@ -55,18 +55,18 @@
   display: inline-block;
 }
 
-.listed-items-heading {
+.listed-items__heading {
   grid-column: 1 / -1;
   font-family: var(--font-proto-regular);
   font-size: 2em;
 }
 
-.listed-items-heading h3 {
+.listed-items__heading > * {
   padding: 0 1.5rem;
   position: relative;
 }
 
-.listed-item + .listed-items-heading h3 {
+.listed-item + .listed-items__heading > * {
   padding-top: 2em;
 }
 
