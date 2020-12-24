@@ -7,7 +7,6 @@ html {
   --g-col: calc(var(--g-col-target, 156) / 16 * 1rem);
   display: grid;
   gap: var(--g-gutter);
-  grid-template-columns: 1fr;
   grid-template-columns: repeat(var(--num-cols, 1), 1fr);
 }
 

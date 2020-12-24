@@ -53,7 +53,7 @@
   .listed-items__heading {
     --col-start: 1;
     position: sticky;
-    top: 1.25rem;
+    top: 1.5rem;
   }
 
   .listed-items__heading > * {
@@ -89,6 +89,12 @@
   .listed-item {
     --col-start: 3;
     --col-end: span 5;
+  }
+}
+
+@media (min-width: 123.75em) {
+  .listed-items__heading {
+    top: 2rem;
   }
 }
 
