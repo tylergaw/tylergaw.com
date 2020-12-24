@@ -61,26 +61,33 @@
 }
 
 @media (min-width: 38.75em) {
+  .footer {
+    --num-cols: 3;
+  }
+
   .footer .g-main__item {
     --col-start: 2;
+    --col-end: span 2;
   }
 }
 
 @media (min-width: 65em) {
+  .footer {
+    --num-cols: 5;
+  }
+
   .footer .g-main__item {
-    --col-start: 4;
+    --col-start: 3;
     --col-end: -1;
   }
 }
 
 @media (min-width: 106.25em) {
+  .footer {
+    --num-cols: 9;
+  }
+
   .footer .g-main__item {
     --col-start: 6;
-  }
-}
-
-@media (min-width: 137.5em) {
-  .footer .g-main__item {
-    --col-start: 7;
   }
 }
