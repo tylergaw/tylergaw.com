@@ -43,7 +43,7 @@
   grid-column: var(--col-start, auto) / var(--col-end, auto);
 }
 
-.work__title h2,
+.work__title h1,
 .more__title h2 {
   font-family: var(--font-proto-regular);
   font-size: 1.1rem;
