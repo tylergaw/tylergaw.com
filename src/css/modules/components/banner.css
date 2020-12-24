@@ -197,8 +197,13 @@
 
 @media (min-width: 123.75em) {
   .banner {
+    pointer-events: none;
     position: sticky;
     top: 0;
+  }
+
+  .banner a {
+    pointer-events: auto;
   }
 }
 
