@@ -15,7 +15,7 @@ colorsCommon:
 <div class="intro">
   <header>
     <a href="/" class="logo" aria-label="Go to home/work">
-      {% include "./images/tylergaw-logo.svg" %}
+      {% include "../images/tylergaw-logo.svg" %}
     </a>
     <h2>Design patterns</h2>
   </header>
@@ -37,14 +37,14 @@ colorsCommon:
     <h4 id="color-accent">Accent colors</h4>
     <ul class="token__list">
       {% for color in colorsAccent -%}
-        {% include "patterns-color.njk" %}
+        {% include "./patterns-color.njk" %}
       {% endfor %}
     </ul>
 
     <h4 id="color-common">Common colors</h4>
     <ul class="token__list">
       {% for color in colorsCommon -%}
-        {% include "patterns-color.njk" %}
+        {% include "./patterns-color.njk" %}
       {% endfor %}
     </ul>
   </div>

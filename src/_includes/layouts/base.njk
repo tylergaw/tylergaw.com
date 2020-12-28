@@ -2,7 +2,10 @@
 <html lang="en" class="no-js" data-page="{% if pageType %}{{ pageType }}{% else %}{% if page.fileSlug %}{{ page.fileSlug }}{% else %}home{% endif %}{% endif %}">
 
   <head>
-    {% include "head-contents.njk" %}
+    {% include "components/head-meta.njk" %}
+    {% include "components/head-contents.njk" %}
+
+    <script>document.getElementsByTagName("html")[0].classList.replace("no-js", "js");</script>
 
     {% if site.environment === "production" -%}
       {% set inlineCSS -%}
@@ -18,14 +21,14 @@
     {%- endif %}
   </head>
   <body>
-    {% include "scheme.njk" %}
+    {% include "components/scheme.njk" %}
     {% include "components/banner.njk" %}
 
     <main>
       {% block main %}{% endblock %}
     </main>
 
-    {% include "footer.njk" %}
-    {% include "scripts.njk" %}
+    {% include "components/footer.njk" %}
+    {% include "components/scripts.njk" %}
   </body>
 </html>

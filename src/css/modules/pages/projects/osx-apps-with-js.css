@@ -48,7 +48,7 @@
   z-index: 2;
 }
 
-.webp .jxa-header::before {
+.jxa-header::before {
   background-image: url("/images/jxa-chip.webp");
 }
 
