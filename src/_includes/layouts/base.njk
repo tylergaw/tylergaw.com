@@ -22,7 +22,10 @@
   </head>
   <body>
     {% include "components/scheme.njk" %}
-    {% include "components/banner.njk" %}
+
+    {% block hero %}
+      {% include "components/banner.njk" %}
+    {% endblock %}
 
     <main>
       {% block main %}{% endblock %}

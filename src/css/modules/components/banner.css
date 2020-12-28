@@ -40,7 +40,7 @@
   --top: 0;
   --right: -0.8rem;
   animation: rotate 1s steps(4) infinite;
-  background-color: var(--color-accent-secondary);
+  background-color: var(--color--accent, var(--color-accent-secondary));
   content: "";
   display: block;
   right: var(--right);
@@ -136,8 +136,7 @@
 .banner__nav a:hover,
 .banner__nav a:focus,
 [data-page="blog"] .nav-blog,
-[data-page="home"] .nav-work,
-[data-page="about"] .nav-about {
+[data-page="home"] .nav-work {
   color: var(--color-text);
 }
 

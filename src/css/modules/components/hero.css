@@ -1,0 +1,9 @@
+.hero--w-before::before {
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+.hero__contents {
+  position: relative;
+}

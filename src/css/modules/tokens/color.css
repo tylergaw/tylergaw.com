@@ -11,12 +11,16 @@ body {
   --color-accent-mellow: #f1f68e;
   --color-accent-orange: #e9b581;
 
-  /* Project colors */
+  /* Project and page colors */
   --color-streetcred-accent: #8e42f5;
   --color-limbo-accent: #dd3535;
+
   --color-colorme-accent: #b42e8a;
   --color-colorme-accent-dark: #8c0060;
+
   --color-about-accent: #8a2918;
+  --color-about-accent-dark: #56180d;
+  --color-about-accent-light: #e6816f;
 
   /* Common colors */
   --color-charcoal: #292929;

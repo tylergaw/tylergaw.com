@@ -4,13 +4,24 @@ title: About Tyler Gaw and This Site
 
 {% extends "layouts/base.njk" %}
 
-{% block main %}
+{% block hero %}
+<div class="hero--about hero--w-before">
+  {{ super() }}
 
-<div>
-  <h1>
-    Still trying.
-  </h1>
+  <div class="hero__contents about__hero-contents">
+    <div class="about__portrait">
+      <img src="/images/tyler-gaw-portrait-2020.svg" alt="An illustration portrait of Tyler" width="1100">
+    </div>
+
+    <h1 class="about__title">
+      Still trying.
+    </h1>
+  </div>
 </div>
+{% endblock %}
+
+
+{% block main %}
 
 <div>
   <p>

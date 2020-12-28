@@ -1,1 +1,124 @@
+.hero--about {
+  color: var(--color-offwhite);
+  position: relative;
+}
 
+.hero--about::before {
+  --gutter: 1rem;
+  background-color: var(--color-about-accent);
+  border-radius: 6px;
+  height: var(--height, 75%);
+  left: var(--gutter);
+  top: calc(var(--gutter) * 3);
+  width: calc(100% - var(--gutter) * 2);
+}
+
+.hero--about a {
+  color: var(--color-about-accent-dark);
+}
+
+.hero--about a:hover,
+.hero--about a:focus,
+.hero--about .nav-about {
+  color: var(--color-about-accent-light);
+}
+
+.hero--about .banner__logo {
+  --color--accent: var(--color-about-accent-light);
+}
+
+.hero--about .logo__base {
+  fill: var(--color-about-accent-dark);
+}
+
+.about__hero-contents {
+  margin: 0 auto;
+  max-width: calc(2500 / 16 * 1rem);
+  overflow: hidden;
+  position: relative;
+}
+
+.about__portrait {
+  overflow: hidden;
+}
+
+.about__title {
+  font-family: var(--font-proto-bold);
+  font-size: min(9vw, 5.625rem);
+  left: var(--pos-left, 40%);
+  position: absolute;
+  top: var(--pos-top, 20%);
+  z-index: 1;
+}
+
+.about__portrait img {
+  display: block;
+  max-width: 1100px;
+  transform: translateX(var(--trans-x, -45%));
+  width: 85%;
+}
+
+.site-versions img {
+  display: block;
+  width: 100%;
+}
+
+@media (min-width: 38.75em) {
+  .hero--about::before {
+    left: calc(var(--gutter) * 3);
+    top: calc(var(--gutter) * 3.12);
+    width: calc(100% - var(--gutter) * 6);
+  }
+
+  .about__title {
+    --pos-top: 28%;
+  }
+}
+
+@media (min-width: 75em) {
+  .hero--about::before {
+    --height: 70%;
+  }
+
+  .about__hero-contents {
+    transform: translateY(var(--trans-y, -5%));
+  }
+
+  .about__portrait img {
+    --trans-x: -35%;
+  }
+
+  .about__title {
+    --pos-left: 50%;
+    --pos-top: 32%;
+  }
+}
+
+@media (min-width: 106.25em) {
+  .hero--about::before {
+    --height: 65%;
+  }
+
+  .about__hero-contents {
+    --trans-y: -10%;
+  }
+
+  .about__portrait img {
+    --trans-x: -10%;
+  }
+
+  .about__title {
+    --pos-left: 55%;
+    --pos-top: 35%;
+  }
+}
+
+@media (min-width: 137.5em) {
+  .about__portrait img {
+    --trans-x: 0;
+  }
+
+  .about__title {
+    --pos-left: 50%;
+  }
+}
