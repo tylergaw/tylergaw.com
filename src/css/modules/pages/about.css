@@ -5,30 +5,44 @@
 
 .hero--about::before {
   --gutter: 1rem;
-  background-color: var(--color-about-accent);
+  background: var(--color-about-accent) url("/images/about-dust.svg") repeat;
   border-radius: 6px;
-  height: var(--height, 75%);
+  height: var(--height, 70%);
   left: var(--gutter);
   top: calc(var(--gutter) * 3);
   width: calc(100% - var(--gutter) * 2);
 }
 
 .hero--about a {
-  color: var(--color-about-accent-dark);
+  color: var(--color-about-accent-light);
 }
 
 .hero--about a:hover,
 .hero--about a:focus,
 .hero--about .nav-about {
-  color: var(--color-about-accent-light);
+  color: var(--color-accent);
 }
 
-.hero--about .banner__logo {
-  --color--accent: var(--color-about-accent-light);
+.hero--about .banner__logo::after {
+  background-color: #6c1215;
+}
+
+@media (prefers-color-scheme: light) {
+  :not([data-user-color-scheme]) .hero--about a:hover,
+  :not([data-user-color-scheme]) .hero--about a:focus,
+  :not([data-user-color-scheme]) .hero--about .nav-about {
+    color: var(--color-about-accent-dark);
+  }
+}
+
+[data-user-color-scheme="light"] .hero--about a:hover,
+[data-user-color-scheme="light"] .hero--about a:focus,
+[data-user-color-scheme="light"] .hero--about .nav-about {
+  color: var(--color-about-accent-dark);
 }
 
 .hero--about .logo__base {
-  fill: var(--color-about-accent-dark);
+  fill: var(--color-about-accent-light);
 }
 
 .about__hero-contents {
@@ -44,18 +58,21 @@
 
 .about__title {
   font-family: var(--font-proto-bold);
-  font-size: min(9vw, 5.625rem);
-  left: var(--pos-left, 40%);
+  font-size: min(var(--size-lower, 12vw), 5.625rem);
   margin: 0;
   position: absolute;
-  top: var(--pos-top, 20%);
+  right: 0;
+  text-align: center;
+  top: var(--pos-top, 5%);
+  width: var(--width, 100%);
   z-index: 1;
 }
 
 .about__portrait img {
   display: block;
-  max-width: 1100px;
-  transform: translateX(var(--trans-x, -45%));
+  margin: 0 auto;
+  max-width: calc(1100 / 16 * 1rem);
+  transform: translateX(var(--trans-x, 0));
   width: 85%;
 }
 
@@ -64,40 +81,53 @@
   width: 100%;
 }
 
-@media (min-width: 38.75em) {
-  .hero--about::before {
-    left: calc(var(--gutter) * 3);
-    top: calc(var(--gutter) * 3.12);
-    width: calc(100% - var(--gutter) * 6);
-  }
-
-  .about__title {
-    --pos-top: 28%;
-  }
+.about__bio {
+  font-size: 1.6em;
+  line-height: 1.6;
 }
 
-@media (min-width: 75em) {
+.about__bio h2 {
+  font-family: var(--font-proto-bold);
+  font-size: 1.4em;
+  letter-spacing: -0.025em;
+  margin: 0;
+  padding: 0.7em 0 0 0;
+}
+
+@media (min-width: 38.75em) {
   .hero--about::before {
-    --height: 70%;
+    --height: 65%;
+    left: calc(var(--gutter) * 3);
+    top: calc(var(--gutter) * 3);
+    width: calc(100% - var(--gutter) * 6);
   }
 
   .about__hero-contents {
     transform: translateY(var(--trans-y, -5%));
   }
 
-  .about__portrait img {
-    --trans-x: -35%;
+  .about__title {
+    --pos-top: 28%;
+    --size-lower: 9vw;
+    text-align: left;
+    width: 63%;
   }
 
-  .about__title {
-    --pos-left: 50%;
-    --pos-top: 32%;
+  .about__portrait img {
+    --trans-x: -38%;
+    margin: 0;
   }
 }
 
-@media (min-width: 100em) {
+@media (min-width: 71.25em) {
+  .about__title {
+    width: 55%;
+  }
+}
+
+@media (min-width: 90em) {
   .hero--about::before {
-    --height: 65%;
+    --height: 60%;
   }
 
   .about__hero-contents {
@@ -105,21 +135,21 @@
   }
 
   .about__portrait img {
-    --trans-x: -8%;
+    --trans-x: -15%;
   }
 
   .about__title {
-    --pos-left: 55%;
-    --pos-top: 35%;
+    --pos-top: 33%;
+    width: 45%;
   }
 }
 
-@media (min-width: 137.5em) {
-  .about__portrait img {
-    --trans-x: 0;
+@media (min-width: 106.25em) {
+  .about__hero-contents {
+    max-width: 1835px;
   }
 
-  .about__title {
-    --pos-left: 47%;
+  .about__portrait img {
+    --trans-x: 0;
   }
 }
