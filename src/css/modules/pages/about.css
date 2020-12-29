@@ -94,7 +94,7 @@
   }
 }
 
-@media (min-width: 106.25em) {
+@media (min-width: 100em) {
   .hero--about::before {
     --height: 65%;
   }
@@ -104,7 +104,7 @@
   }
 
   .about__portrait img {
-    --trans-x: -10%;
+    --trans-x: -8%;
   }
 
   .about__title {
@@ -119,6 +119,6 @@
   }
 
   .about__title {
-    --pos-left: 50%;
+    --pos-left: 47%;
   }
 }
