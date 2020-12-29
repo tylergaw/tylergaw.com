@@ -46,6 +46,7 @@
   font-family: var(--font-proto-bold);
   font-size: min(9vw, 5.625rem);
   left: var(--pos-left, 40%);
+  margin: 0;
   position: absolute;
   top: var(--pos-top, 20%);
   z-index: 1;

@@ -6,7 +6,7 @@
 .book-current {
   display: block;
   font-family: var(--font-proto-regular);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   margin-bottom: 0.4em;
   text-transform: uppercase;
 }
