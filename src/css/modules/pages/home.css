@@ -104,7 +104,7 @@
 .p-streetcred__contents::before {
   --offset: 2.75rem;
   background: var(--color-streetcred-accent)
-    url("/images/projects/streetcred/home-bg-pattern.svg") no-repeat center;
+    url("/images/work/streetcred/home-bg-pattern.svg") no-repeat center;
   background-size: cover;
   box-shadow: inset 0 0 0 var(--border-width) var(--border-color);
   border-radius: 6px;
@@ -191,8 +191,8 @@
 .p-limbo__link::before {
   --offset: 5rem;
   --skew-y: 0.025;
-  background: var(--color-limbo-accent)
-    url("/images/projects/limbo/limbo-dust.svg") repeat;
+  background: var(--color-limbo-accent) url("/images/work/limbo/limbo-dust.svg")
+    repeat;
   border-radius: 6px;
   box-shadow: inset 0 0 0 var(--border-width) var(--border-color);
   height: calc(100% - var(--offset));
@@ -314,8 +314,7 @@
 }
 
 .p-colorme__title::before {
-  background: transparent url("/images/projects/colorme/colorme-dust.svg")
-    repeat;
+  background: transparent url("/images/work/colorme/colorme-dust.svg") repeat;
   left: 0;
   top: 0;
 }
@@ -349,7 +348,7 @@
 }
 
 .p-jxa__link::after {
-  background: transparent url("/images/projects/jxa/jxa-dust.svg") repeat;
+  background: transparent url("/images/work/jxa/jxa-dust.svg") repeat;
 }
 
 .p-jxa__graphic {
