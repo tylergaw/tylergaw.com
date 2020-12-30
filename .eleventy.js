@@ -8,6 +8,10 @@ dayjs.tz.setDefault("America/New_York");
 module.exports = function (conf) {
   conf.addFilter("cssmin", (code) => new CleanCSS({}).minify(code).styles);
 
+  conf.addFilter("dateFormat", (dateStr, format) => {
+    return dayjs(dateStr).format(format);
+  });
+
   conf.setTemplateFormats([
     "njk",
     "md",
