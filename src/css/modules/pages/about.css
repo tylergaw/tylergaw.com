@@ -185,7 +185,6 @@
   .hero--about::before {
     --height: 65%;
     left: calc(var(--gutter) * 3);
-    top: calc(var(--gutter) * 3);
     width: calc(100% - var(--gutter) * 6);
   }
 

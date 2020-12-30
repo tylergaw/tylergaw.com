@@ -1,9 +1,27 @@
-.hero--w-before::before {
+.hero--w-before::before,
+.hero--before-standard::before {
   content: "";
   display: block;
   position: absolute;
 }
 
+.hero--before-standard::before {
+  --gutter: 1rem;
+  --offset-v: calc(var(--gutter) * 3);
+  border-radius: 6px;
+  height: calc(100% - var(--offset-v));
+  left: var(--gutter);
+  top: calc(var(--gutter) * 3);
+  width: calc(100% - var(--gutter) * 2);
+}
+
 .hero__contents {
   position: relative;
+}
+
+@media (min-width: 38.75em) {
+  .hero--before-standard::before {
+    left: calc(var(--gutter) * 3);
+    width: calc(100% - var(--gutter) * 6);
+  }
 }

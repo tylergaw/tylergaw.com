@@ -1,34 +1,40 @@
 ---
-title: ColorMe Project Details by Tyler Gaw
+title: ColorMe by Tyler Gaw
 ---
 
 {% extends "layouts/base.njk" %}
 
+{% block hero %}
+<div class="hero--colorme hero--before-standard">
+  {{ super() }}
+
+  <div class="hero__contents">
+    <h1>
+      {% include "../images/work/colorme/colorme-logo.svg" %}
+    </h1>
+  </div>
+</div>
+{% endblock %}
+
 {% block main %}
 
-<section class="poster-colorme project" id="colorme">
-  <div class="poster-fill-colorme">
-    <header class="colorme-header">
-      <h2>
-        {% include "../images/work/colorme/colorme-logo.svg" %}
-      </h2>
-    </header>
-    <div class="project-contents colorme-contents">
-      <div class="project-specs">
-        <ul>
-          <li><b>Personal / OSS</b></li>
-          <li>Research / Design / Frontend</li>
-          <li>2017</li>
-          <li class="project-specs-links">
-            <a href="https://colorme.io">colorme.io</a>
-            <br />
-            <a href="https://github.com/tylergaw/colorme">repo</a>
-          </li>
-        </ul>
-      </div>
+<div>
+  <div class="project__contents">
+    <div class="project__specs">
+      <ul>
+        <li><b>Personal / OSS</b></li>
+        <li>Research / Design / Frontend</li>
+        <li>2017</li>
+        <li class="project-specs-links">
+          <a href="https://colorme.io">colorme.io</a>
+          <br />
+          <a href="https://github.com/tylergaw/colorme">repo</a>
+        </li>
+      </ul>
+    </div>
 
-      <div class="project-body">
-        <p class="project-intro">
+      <div class="project__body">
+        <p class="project__intro">
           <strong>
             ColorMe is a tool to visualize future CSS color manipulation
             functions. It’s also just a fun lil’ color picker.
@@ -110,7 +116,7 @@ title: ColorMe Project Details by Tyler Gaw
         </ul>
       </div>
     </div>
-  </div>
-</section>
+
+</div>
 
 {% endblock %}
