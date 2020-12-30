@@ -43,6 +43,7 @@
 
 .listed-items__heading > * {
   position: relative;
+  margin: 0;
 }
 
 @media (min-width: 38.75em) {
