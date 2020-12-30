@@ -26,9 +26,10 @@ title: About Tyler Gaw and This Site
 <div class="g-main g-padded about__bio">
   <div class="g-main__item bio__intro">
     <p>
-      The ethical, political, and moral implications of the work I choose is
-      everything. Saying; “I’m just doing my job” is not OK for me. The work I do,
-      the work we do as an industry, has real effects on real people.
+      Since 2006 I’ve made a living as a Designer and Software Engineer, creating 
+      world-class digital experiences for humans. In that time, I’ve been 
+      fortunate to work with excellent people at a few companies, as a 
+      freelancer, and for a short time as a founder.
     </p>
     <p>
       I’m trying to use my skills and experience to put good into the world.
@@ -36,7 +37,7 @@ title: About Tyler Gaw and This Site
   </div>
 
   <div class="g-main__item bio__design">
-    <h2>On Design</h2>
+    <h2>On design</h2>
     <p>
       There are plenty of words and acronyms you can put in front of
       “Designer”. Product, Web, Graphic, UX, UI, IA, etc.
@@ -47,7 +48,7 @@ title: About Tyler Gaw and This Site
   </div>
 
   <div class="g-main__item bio__eng">
-    <h2>On Engineering</h2>
+    <h2>On engineering</h2>
     <p>
       Code is a means to an end. I have ideas and use code to bring them to
       life. That doesn’t mean I approach programming
@@ -64,99 +65,46 @@ title: About Tyler Gaw and This Site
   </p>
 </div>
 
-<div>
-  <h3>This is My Corner of The Web</h3>
-  <p>
-    I deployed the first–Flash–version of this site Summer of 2006. I built
-    v1 during the last months of college to help land my first web design job.
-    Fun tidbit, there’s a CD-ROM
-    version of that first site. An interface built with <a href="https://en.wikipedia.org/wiki/Adobe_Director">Macromedia Director</a>
-    on CD-ROM was the required final project deliverable at that time.
-  </p>
-  <p>
-    Since then, I’ve made iterations on the site every few years to accomplish
-    different goals. I’ve changed the design, I’ve changed the work, and most
-    important of all I’ve changed. This site is a lot of things. A portfolio
-    of design work. A blog. A place to experiement. Above all else, this site
-    is a reflection of me.
-  </p>
-  <p>
-    The source for all versions is available <a href="https://github.com/tylergaw/tylergaw.com">on GitHub</a>.
-  </p>
+<div class="g-main g-padded about__site">
+  <div class="g-main__item site__intro">
+    <h2>About this site</h2>
+    <p>
+      I deployed the first Flash version of this site Summer of 2006. I built
+      v1 during the last months of college to help land my first web design job.
+      Fun tidbit, there’s a CD-ROM
+      version of that first site. An interface built with <a href="https://en.wikipedia.org/wiki/Adobe_Director">Macromedia Director</a>
+      on CD-ROM was the required final project deliverable at that time.
+    </p>
+    <p>
+      Since then, I’ve made iterations on the site every few years to accomplish
+      different goals. I’ve changed the design, I’ve changed the work, and most
+      important of all I’ve changed. This site is a lot of things. A portfolio
+      of design work. A blog. A place to experiement. Above all else, this site
+      is a reflection of me.
+    </p>
+    <h3 class="page-intro__title">Version history</h3>
+    <p>
+      The source for all versions is available <a href="https://github.com/tylergaw/tylergaw.com">on GitHub</a>.
+    </p>
+  </div>
 
-  <ol class="site-versions" id="versions">
+  <ol class="g-main__item site__versions" id="versions">
+    {%- for version in site.versions -%}
     <li class="version">
       <figure>
-        <figcaption>Version 6: 2018–2020</figcaption>
-        <a href="https://v6.tylergaw.com">
-          <picture>
-            <source srcset="/images/tylergaw-v5.webp" type="image/webp">
-            <source srcset="/images/tylergaw-v5.jpg" type="image/jpeg">
-            <img src="/images/tylergaw-v5.jpg" alt="A screenshot of version 6 of tylergaw.com">
+        <a class="version__link" href="https://v{{ loop.revindex }}.tylergaw.com" target="_blank" rel="noopener noreferrer">
+          <figcaption class="version__title">
+            <b>Version {{ loop.revindex }}</b> {{ version }}
+          </figcaption>
+          <picture class="version__img">
+            <source srcset="/images/tylergaw-v{{ loop.revindex }}.webp" type="image/webp">
+            <source srcset="/images/tylergaw-v{{ loop.revindex }}.jpg" type="image/jpeg">
+            <img src="/images/tylergaw-v{{ loop.revindex }}.jpg" alt="A screenshot of version {{ loop.revindex }} of tylergaw.com">
           </picture>
         </a>
       </figure>
     </li>
-    <li class="version">
-      <figure>
-        <figcaption>Version 5: 2014–2018</figcaption>
-        <a href="https://v5.tylergaw.com">
-          <picture>
-            <source srcset="/images/tylergaw-v5.webp" type="image/webp">
-            <source srcset="/images/tylergaw-v5.jpg" type="image/jpeg">
-            <img src="/images/tylergaw-v5.jpg" alt="A screenshot of version 5 of tylergaw.com">
-          </picture>
-        </a>
-      </figure>
-    </li>
-    <li class="version">
-      <figure>
-        <figcaption>Version 4: 2011–2014</figcaption>
-        <a href="https://v4.tylergaw.com">
-          <picture>
-            <source srcset="/images/tylergaw-v4.webp" type="image/webp">
-            <source srcset="/images/tylergaw-v4.jpg" type="image/jpeg">
-            <img src="/images/tylergaw-v4.jpg" alt="A screenshot of version 4 of tylergaw.com">
-          </picture>
-        </a>
-      </figure>
-    </li>
-    <li class="version">
-      <figure>
-        <figcaption>Version 3: 2009–2011</figcaption>
-        <a href="https://v3.tylergaw.com">
-          <picture>
-            <source srcset="/images/tylergaw-v3.webp" type="image/webp">
-            <source srcset="/images/tylergaw-v3.jpg" type="image/jpeg">
-            <img src="/images/tylergaw-v3.jpg" alt="A screenshot of version 3 of tylergaw.com">
-          </picture>
-        </a>
-      </figure>
-    </li>
-    <li class="version">
-      <figure>
-        <figcaption>Version 2: 2007–2009</figcaption>
-        <a href="https://v2.tylergaw.com">
-          <picture>
-            <source srcset="/images/tylergaw-v2.webp" type="image/webp">
-            <source srcset="/images/tylergaw-v2.jpg" type="image/jpeg">
-            <img src="/images/tylergaw-v2.jpg" alt="A screenshot of version 2 of tylergaw.com">
-          </picture>
-        </a>
-      </figure>
-    </li>
-    <li class="version">
-      <figure>
-        <figcaption>Version 1: 2006–2007</figcaption>
-        <a href="https://v1.tylergaw.com">
-          <picture>
-            <source srcset="/images/tylergaw-v1.webp" type="image/webp">
-            <source srcset="/images/tylergaw-v1.jpg" type="image/jpeg">
-            <img src="/images/tylergaw-v1.jpg" alt="A screenshot of version 1 of tylergaw.com">
-          </picture>
-        </a>
-      </figure>
-    </li>
+    {%- endfor -%}
   </ol>
 </div>
 
