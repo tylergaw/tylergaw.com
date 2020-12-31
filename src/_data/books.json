@@ -1,7 +1,7 @@
 [
   {
     "current": true,
-    "year": 2020,
+    "year": 2021,
     "title": "The Plaza: The Secret Life of America's Most Famous Hotel",
     "url": "https://www.goodreads.com/book/show/42283773-the-plaza",
     "author": "Julie Satow"
@@ -10,10 +10,11 @@
     "current": true,
     "title": "What Can a Body Do?: How We Meet the Built World",
     "url": "https://www.goodreads.com/book/show/49349641-what-can-a-body-do",
-    "author": "Sara Hendren"
+    "author": "Sara Hendren"  
   },
   {
-    "current": true,
+    "date": "2020-12",
+    "year": 2020,
     "title": "We Were Eight Years in Power: An American Tragedy",
     "url": "https://www.goodreads.com/book/show/33916061-we-were-eight-years-in-power",
     "author": "Ta-Nehisi Coates"
