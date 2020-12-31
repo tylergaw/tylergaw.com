@@ -1,0 +1,9 @@
+.hero--streetcred {
+  color: var(--color-white);
+  position: relative;
+}
+
+.hero--streetcred::before {
+  background: var(--color-streetcred-accent)
+    url("/images/work/streetcred/streetcred-dust.svg") repeat;
+}
