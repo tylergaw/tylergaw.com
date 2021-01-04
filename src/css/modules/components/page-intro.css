@@ -3,14 +3,6 @@
   padding-top: calc(var(--g-row) * var(--rows-top, 4));
 }
 
-.page-intro__title {
-  font-family: var(--font-proto-regular);
-  font-size: 1.2rem;
-  letter-spacing: 0.05em;
-  margin: 0;
-  text-transform: uppercase;
-}
-
 .page-intro__body {
   font-size: 1.2em;
   line-height: 1.5;

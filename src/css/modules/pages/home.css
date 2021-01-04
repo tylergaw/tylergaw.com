@@ -43,15 +43,6 @@
   grid-column: var(--col-start, auto) / var(--col-end, auto);
 }
 
-.work__title h1,
-.more__title h2 {
-  font-family: var(--font-proto-regular);
-  font-size: 1.2rem;
-  letter-spacing: 0.05em;
-  margin: 0;
-  text-transform: uppercase;
-}
-
 .home__project,
 .more__item {
   --border-color: transparent;
@@ -66,6 +57,7 @@
 .p-colorme__link::before,
 .p-colorme__link::after,
 .p-colorme__title::before,
+.p-thegroundwork__link::before,
 .p-jxa__link::before,
 .p-jxa__link::after,
 .m-about__link::before {
@@ -89,6 +81,8 @@
 .p-streetcred__link:focus,
 .p-limbo__link:focus,
 .p-colorme__link:focus,
+.p-thegroundwork__link:focus,
+.p-jxa__link:focus,
 .m-about__link:focus,
 .m-blog__link:focus {
   outline: none;
@@ -122,6 +116,7 @@
 
 .p-streetcred__link:active .p-streetcred__title,
 .p-limbo__link:active .p-limbo__title,
+.p-thegroundwork__link:active .p-thegroundwork__title,
 .p-colorme__link:active .p-colorme__title {
   transform: scale3d(0.96, 0.96, 0.96);
 }
@@ -129,6 +124,7 @@
 .p-streetcred__title::after,
 .p-limbo__title::after,
 .p-colorme__title::after,
+.p-thegroundwork__title:after,
 .m-about__title strong::after {
   content: "";
   display: block;
@@ -325,8 +321,52 @@
   position: relative;
 }
 
-.p-groundwork {
-  background-color: #3b6fd8;
+.p-thegroundwork__link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.p-thegroundwork__link::before {
+  background-color: var(--color-groundwork-accent);
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 var(--border-width) var(--border-color);
+  left: 0;
+  top: 0;
+}
+
+.p-thegroundwork__link:hover,
+.p-thegroundwork__link:focus {
+  --border-color: var(--color-groundwork-accent-dark);
+}
+
+.p-thegroundwork__graphic {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.p-thegroundwork__title {
+  padding: 1.25rem 1.75rem;
+  transform-origin: left top;
+  transform: rotate(90deg) translateY(-100%);
+  width: var(--width, 110%);
+}
+
+.p-thegroundwork__logo {
+  display: block;
+  max-width: calc(var(--max-width, 330) / 16 * 1rem);
+  transform: rotate(-180deg);
+}
+
+.p-thegroundwork__mark {
+  display: block;
+  left: var(--left, 25%);
+  max-width: calc(var(--max-width, 470) / 16 * 1rem);
+  position: absolute;
+  top: -1rem;
+  width: var(--width, 130%);
 }
 
 .p-jxa__link {
@@ -549,14 +589,28 @@
     transform: translate3d(-6%, -4%, 0);
   }
 
+  .p-colorme {
+    --col-start: 1;
+    --row-start: 8;
+  }
+
   .p-colorme__link {
     margin-left: auto;
     max-width: calc(700 / 16 * 1rem);
   }
 
-  .p-groundwork {
-    --col-start: 2;
-    --row-start: 7;
+  .p-thegroundwork__link {
+    width: 90%;
+  }
+
+  .p-thegroundwork__title {
+    padding: 1.5rem 2rem;
+    --width: 140%;
+  }
+
+  .p-thegroundwork__mark {
+    --left: 35%;
+    --width: 145%;
   }
 
   .p-jxa {
@@ -597,7 +651,7 @@
   .p-limbo {
     --col-start: 4;
     --col-end: span 3;
-    --row-end: span 6;
+    --row-end: span 7;
   }
 
   .p-colorme {
@@ -606,11 +660,27 @@
     --row-end: span 5;
   }
 
-  .p-groundwork {
+  .p-thegroundwork {
     --col-start: 4;
     --col-end: span 2;
-    --row-start: 8;
-    --row-end: span 8;
+    --row-start: 9;
+    --row-end: span 7;
+    padding-left: 2rem;
+  }
+
+  .p-thegroundwork__title {
+    padding: 2.5rem 3rem;
+    --width: 160%;
+  }
+
+  .p-thegroundwork__logo {
+    --max-width: 520;
+  }
+
+  .p-thegroundwork__mark {
+    --left: 40%;
+    --max-width: 600;
+    --width: 160%;
   }
 
   .p-jxa {
@@ -745,9 +815,29 @@
     transform: translate3d(4.5rem, 0, 0);
   }
 
-  .p-groundwork {
+  .p-thegroundwork {
     --col-end: span 3;
     --row-start: 8;
+    --row-end: span 8;
+  }
+
+  .p-thegroundwork__link {
+    height: 90%;
+    top: 5%;
+    max-width: calc(600 / 16 * 1rem);
+    width: 92%;
+  }
+
+  .p-thegroundwork__title {
+    padding: 3.5rem 4.5rem;
+  }
+
+  .p-thegroundwork__logo {
+    --max-width: 540;
+  }
+
+  .p-thegroundwork__mark {
+    --max-width: 750;
   }
 
   .p-experiments {
@@ -804,7 +894,7 @@
     --col-end: span 4;
   }
 
-  .p-groundwork {
+  .p-thegroundwork {
     --col-start: 5;
     --col-end: span 4;
   }
@@ -859,7 +949,7 @@
     --col-start: 2;
   }
 
-  .p-groundwork {
+  .p-thegroundwork {
     --col-start: 6;
   }
 

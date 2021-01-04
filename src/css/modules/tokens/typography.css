@@ -47,3 +47,11 @@ a {
 a:focus {
   outline: 3px solid currentColor;
 }
+
+.heading--special {
+  font-family: var(--font-proto-regular);
+  font-size: 1.2rem;
+  letter-spacing: 0.05em;
+  margin: 0;
+  text-transform: uppercase;
+}
