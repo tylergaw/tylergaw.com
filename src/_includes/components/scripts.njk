@@ -1,8 +1,8 @@
 <script>
   // Color scheme switch
-  const schemeBtn = document.querySelector(".scheme-toggle-btn");
-  const schemeBtnTxt = schemeBtn.querySelector(".scheme-toggle-txt");
-  const schemeStatus = document.querySelector(".scheme-toggle-status");
+  const container = document.querySelector(".scheme-toggler");
+  const schemeBtn = container.querySelector(".scheme-toggler__btn");
+  const schemeStatus = container.querySelector(".scheme-toggler__status");
 
   const toggleScheme = () => {
     const nextScheme = currentScheme === "light" ? "dark" : "light";
@@ -14,16 +14,16 @@
   const updateSchemeBtn = (scheme) => {
     const useScheme = scheme || currentScheme;
     schemeBtn.setAttribute("data-scheme", useScheme);
-    schemeBtnTxt.textContent = `Use ${
+    schemeBtn.setAttribute("aria-label", `Use ${
       useScheme === "light" ? "dark" : "light"
-    } scheme`;
+    } scheme`);
     schemeStatus.textContent = `Currently using the ${useScheme} scheme`;
   };
 
   schemeBtn.addEventListener("click", toggleScheme);
 
   updateSchemeBtn();
-  document.querySelector(".scheme-toggle").removeAttribute("hidden");
+  container.removeAttribute("hidden");
 
   // Set up a media query listener so we know if the user changes their system
   // level color scheme.

@@ -64,7 +64,7 @@
 }
 
 .banner__nav {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   text-align: center;
 }
 
@@ -76,13 +76,13 @@
 .banner__nav a {
   display: inline-block;
   font-family: var(--font-proto-bold);
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem var(--padding-h, 0.25rem);
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
 }
 
-.banner__nav svg {
+.banner__nav a svg {
   display: block;
   margin: 0 auto;
   opacity: 0;
@@ -169,6 +169,10 @@
   .banner__nav ul {
     display: flex;
     justify-content: flex-end;
+  }
+
+  .banner__nav a {
+    --padding-h: 0.75rem;
   }
 }
 

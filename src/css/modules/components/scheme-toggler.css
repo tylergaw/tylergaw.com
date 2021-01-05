@@ -1,0 +1,31 @@
+.no-js .scheme-toggler {
+  display: none;
+}
+
+.scheme-toggler {
+  padding-left: 0.3rem;
+}
+
+.scheme-toggler__btn {
+  --size: 2.2rem;
+  background-color: var(--color-bg);
+  border: 0;
+  border-radius: calc(var(--size) / 2);
+  cursor: pointer;
+  display: flex;
+  height: var(--size);
+  padding: 4px;
+  place-items: center;
+  width: var(--size);
+}
+
+[data-scheme="light"] #sun,
+[data-scheme="dark"] #moon {
+  display: none;
+}
+
+.scheme-toggler__btn:hover,
+.scheme-toggler__btn:focus {
+  box-shadow: 0 0 0 3px var(--color-accent-primary);
+  outline: none;
+}

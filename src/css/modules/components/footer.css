@@ -37,29 +37,6 @@
   text-transform: uppercase;
 }
 
-.no-js .scheme-toggle {
-  display: none;
-}
-
-.scheme-toggle-btn {
-  background-color: var(--color-accent-primary);
-  border: 0;
-  border-radius: 3px;
-  cursor: pointer;
-  display: inline-block;
-  color: var(--color-bg);
-  font-family: var(--font-proto-regular);
-  font-size: 1rem;
-  padding: 0.4rem 0.6rem;
-}
-
-.scheme-toggle-btn:hover,
-.scheme-toggle-btn:focus {
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  outline: 3px solid currentColor;
-}
-
 @media (min-width: 38.75em) {
   .footer {
     --num-cols: 3;

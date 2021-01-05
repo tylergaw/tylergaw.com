@@ -2,10 +2,10 @@
 <html lang="en" class="no-js" data-page="{% if pageType %}{{ pageType }}{% else %}{% if page.fileSlug %}{{ page.fileSlug }}{% else %}home{% endif %}{% endif %}">
 
   <head>
+    <meta charset="utf-8" />
+    <script>document.getElementsByTagName("html")[0].classList.replace("no-js", "js");</script>
     {% include "components/head-meta.njk" %}
     {% include "components/head-contents.njk" %}
-
-    <script>document.getElementsByTagName("html")[0].classList.replace("no-js", "js");</script>
 
     {% if site.environment === "production" -%}
       {% set inlineCSS -%}
@@ -21,7 +21,7 @@
     {%- endif %}
   </head>
   <body>
-    {% include "components/scheme.njk" %}
+    {% include "components/scheme-initializer.njk" %}
 
     {% block hero %}
       {% include "components/banner.njk" %}
