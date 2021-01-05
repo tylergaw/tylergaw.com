@@ -205,7 +205,8 @@
     top: 0;
   }
 
-  .banner a {
+  .banner a,
+  .banner button {
     pointer-events: auto;
   }
 }
