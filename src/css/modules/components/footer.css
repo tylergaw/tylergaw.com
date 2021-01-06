@@ -1,5 +1,5 @@
 .footer {
-  --rows: 4;
+  --rows: 5;
 }
 
 .footer__links {
@@ -30,10 +30,13 @@
 }
 
 .footer__thanks {
+  --row-start: 3;
   align-self: center;
+  display: flex;
   font-family: var(--font-proto-regular);
   font-size: 1rem;
-  line-height: 1.2;
+  gap: 0.4em;
+  line-height: 1.25;
   text-transform: uppercase;
 }
 
