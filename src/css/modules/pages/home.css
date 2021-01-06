@@ -124,7 +124,7 @@
 .p-streetcred__title::after,
 .p-limbo__title::after,
 .p-colorme__title::after,
-.p-thegroundwork__title:after,
+.p-thegroundwork__title-underline,
 .m-about__title strong::after {
   content: "";
   display: block;
@@ -322,6 +322,7 @@
 }
 
 .p-thegroundwork__link {
+  color: var(--color-offwhite);
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -329,7 +330,8 @@
 }
 
 .p-thegroundwork__link::before {
-  background-color: var(--color-groundwork-accent);
+  background: var(--color-groundwork-accent)
+    url("/images/work/thegroundwork/gw-dust.svg") repeat;
   border-radius: 6px;
   box-shadow: inset 0 0 0 var(--border-width) var(--border-color);
   left: 0;
@@ -339,6 +341,16 @@
 .p-thegroundwork__link:hover,
 .p-thegroundwork__link:focus {
   --border-color: var(--color-groundwork-accent-dark);
+}
+
+.p-thegroundwork__link:hover .p-thegroundwork__title-underline,
+.p-thegroundwork__link:focus .p-thegroundwork__title-underline {
+  width: 100%;
+}
+
+.p-thegroundwork__link:hover .p-thegroundwork__mark,
+.p-thegroundwork__link:focus .p-thegroundwork__mark {
+  transform: scale3d(1.05, 1.05, 1.05) translate3d(-0.75rem, 0, 0);
 }
 
 .p-thegroundwork__graphic {
@@ -354,10 +366,20 @@
   width: var(--width, 110%);
 }
 
-.p-thegroundwork__logo {
+.p-thegroundwork__logo,
+.p-thegroundwork__title-underline {
   display: block;
   max-width: calc(var(--max-width, 330) / 16 * 1rem);
+}
+
+.p-thegroundwork__logo {
   transform: rotate(-180deg);
+}
+
+.p-thegroundwork__title-underline {
+  background-color: currentColor;
+  margin-bottom: 0.4rem;
+  transition-duration: 0.3s;
 }
 
 .p-thegroundwork__mark {
@@ -366,6 +388,7 @@
   max-width: calc(var(--max-width, 470) / 16 * 1rem);
   position: absolute;
   top: -1rem;
+  transition: 0.15s;
   width: var(--width, 130%);
 }
 
@@ -673,7 +696,8 @@
     --width: 160%;
   }
 
-  .p-thegroundwork__logo {
+  .p-thegroundwork__logo,
+  .p-thegroundwork__title-underline {
     --max-width: 520;
   }
 
@@ -832,7 +856,8 @@
     padding: 3.5rem 4.5rem;
   }
 
-  .p-thegroundwork__logo {
+  .p-thegroundwork__logo,
+  .p-thegroundwork__title-underline {
     --max-width: 540;
   }
 
