@@ -481,7 +481,7 @@
 
 .m-about__link:hover,
 .m-about__link:focus {
-  --border-color: #fb9279;
+  --border-color: var(--color-about-accent-dark);
 }
 
 .m-about__link:hover .m-about__title strong::after,

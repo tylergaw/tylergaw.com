@@ -70,6 +70,7 @@
 
 .about__portrait img {
   display: block;
+  height: auto;
   margin: 0 auto;
   max-width: calc(1100 / 16 * 1rem);
   transform: translateX(var(--trans-x, 0));
