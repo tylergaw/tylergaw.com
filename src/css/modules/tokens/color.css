@@ -28,6 +28,9 @@ body {
   --color-about-accent-dark: #56180d;
   --color-about-accent-light: #e6816f;
 
+  --color-experiments-accent: #66fa32;
+  --color-experiments-accent-dark: #0f9900;
+
   /* Common colors */
   --color-charcoal: #292929;
   --color-mud: #3f3d31;
