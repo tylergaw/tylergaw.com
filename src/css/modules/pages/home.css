@@ -494,7 +494,7 @@
   border-radius: 6px;
   box-shadow: inset 0 0 0 var(--border-width) var(--border-color);
   left: 10%;
-  transform: skewX(var(--skew-x, 3deg));
+  transform: skewX(var(--skew-x, -3deg));
   width: 85%;
 }
 
@@ -766,7 +766,7 @@
   }
 
   .p-experiments__link::before {
-    --skew-x: 1.5deg;
+    --skew-x: -1.5deg;
   }
 
   .p-experiments__title {
