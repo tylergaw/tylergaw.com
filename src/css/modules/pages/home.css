@@ -652,7 +652,24 @@
 }
 
 .m-blog {
-  background-color: #e0621b;
+  --row-end: span 3;
+}
+
+.m-blog__link {
+  background-color: var(--color-blog-accent);
+  border-radius: 6px;
+  display: flex;
+  color: var(--color-charcoal);
+  height: 100%;
+  text-decoration: none;
+}
+
+.m-blog__title {
+  text-transform: uppercase;
+}
+
+.m-blog__title strong {
+  display: block;
 }
 
 @media (min-width: 38.75em) {

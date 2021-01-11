@@ -24,12 +24,15 @@ body {
   --color-groundwork-accent: #3b6fd8;
   --color-groundwork-accent-dark: #1f4ead;
 
+  --color-experiments-accent: #66fa32;
+  --color-experiments-accent-dark: #0f9900;
+
   --color-about-accent: #8a2918;
   --color-about-accent-dark: #56180d;
   --color-about-accent-light: #e6816f;
 
-  --color-experiments-accent: #66fa32;
-  --color-experiments-accent-dark: #0f9900;
+  --color-blog-accent: #ff902b;
+  --color-blog-accent-dark: #b35600;
 
   /* Common colors */
   --color-charcoal: #292929;
