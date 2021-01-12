@@ -1,0 +1,47 @@
+.blog-nav {
+  --col-start: 1;
+  --col-end: -1;
+  --max-width: 60.5rem;
+}
+
+.blog-nav__contents {
+  border-top: 3px solid currentColor;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0 auto;
+  max-width: var(--max-width);
+  padding-bottom: 10rem;
+  padding-top: 2.5rem;
+}
+
+.blog-nav p {
+  flex: 1 1;
+  line-height: 1.33;
+  min-width: 20ch;
+}
+
+.blog-nav p + p {
+  text-align: right;
+}
+
+.blog-nav b {
+  display: block;
+  font-size: 1rem;
+}
+
+.blog-nav a {
+  font-size: 1.4rem;
+}
+
+@media (min-width: 96.875em) {
+  .blog-nav {
+    --max-width: 73rem;
+  }
+}
+
+@media (min-width: 115.625em) {
+  .blog-nav {
+    --max-width: 79rem;
+  }
+}

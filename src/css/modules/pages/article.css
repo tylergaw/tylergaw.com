@@ -41,7 +41,7 @@
   line-height: 1.6;
   margin: 0 auto;
   max-width: var(--width-content-max);
-  padding-bottom: 5em;
+  padding-bottom: 1em;
   width: var(--width-content);
 }
 
