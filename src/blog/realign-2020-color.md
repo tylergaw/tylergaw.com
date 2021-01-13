@@ -266,6 +266,7 @@ meta:
   setting. Without this code, the CSS-driven parts of the display update, but
   not the JS-driven parts, like the button.
 </p>
+
 <pre><code class="language-javascript">const mql = window.matchMedia("(prefers-color-scheme: light)");
 
 mql.addListener((event) => {
@@ -307,14 +308,9 @@ console.groupEnd();
       srcset="
         https://tylergaw.com/articles/assets/post-image-realign-2020-color-scheme-toggle-static.png
       "
-      media="(prefers-reduced-motion: reduce)"
-    />
-
-    <img
-      src="https://tylergaw.com/articles/assets/post-image-realign-2020-color-scheme-toggle.gif"
-      alt="A looping animated gif where I’m changing the Appearance setting on macOS from Light to dark while looking at this site with the developer console open to show the logging output."
-    />
-
+      media="(prefers-reduced-motion: reduce)">
+    <img src="https://tylergaw.com/articles/assets/post-image-realign-2020-color-scheme-toggle.gif"
+      alt="A looping animated gif where I’m changing the Appearance setting on macOS from Light to dark while looking at this site with the developer console open to show the logging output.">
   </picture>
 
   <figcaption>

@@ -272,21 +272,22 @@ meta:
   animation: move 0.6s infinite linear alternate;
 }</code></pre>
 
+<style>
+  @keyframes move {
+    to {
+      --pos: 150%;
+      -webkit-mask-position: var(--pos);
+      mask-position: var(--pos);
+    }
+  }
+
+  .demo-repeater--animated {
+    animation: move 0.6s infinite linear alternate;
+  }
+</style>
+
 <figure>
-  <style>
-    @keyframes move {
-      to {
-        --pos: 150%;
-        -webkit-mask-position: var(--pos);
-        mask-position: var(--pos);
-      }
-    }
-
-    .demo-repeater--animated {
-      animation: move 0.6s infinite linear alternate;
-    }
-
-  </style>
+  
   <div class="demo-repeater demo-repeater--animated"></div>
   <figcaption>fig 8: A live demo of the technique showing that we can animate the mask position.</figcaption>
 </figure>

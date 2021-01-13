@@ -27,18 +27,8 @@ meta:
 </p>
 <figure>
   <picture>
-    <source
-      srcset="
-        https://tylergaw.com/articles/assets/post-image-realign-2020-logo-before-after.svg
-      "
-      media="(min-width: 47.5em)"
-    />
-
-    <img
-      src="https://tylergaw.com/articles/assets/post-image-realign-2020-logo-before-after-vertical.svg"
-      alt="Before and after realign of my logo"
-    />
-
+    <source srcset="https://tylergaw.com/articles/assets/post-image-realign-2020-logo-before-after.svg" media="(min-width: 47.5em)"/>
+    <img src="https://tylergaw.com/articles/assets/post-image-realign-2020-logo-before-after-vertical.svg" alt="Before and after realign of my logo"/>
   </picture>
 
   <figcaption>fig 1: Logo before and after</figcaption>
@@ -90,22 +80,9 @@ meta:
 
 <figure>
   <picture>
-    <source
-      srcset="
-        https://tylergaw.com/articles/assets/post-image-realign-2020-logo-points.webp
-      "
-      type="image/webp"
-    />
-    <source
-      srcset="
-        https://tylergaw.com/articles/assets/post-image-realign-2020-logo-points.jpg
-      "
-      type="image/jpeg"
-    />
-    <img
-      src="https://tylergaw.com/articles/assets/post-image-realign-2020-logo-points.jpg"
-      alt="A screenshot showing the 566 vector points and outline of the logo."
-    />
+    <source srcset="https://tylergaw.com/articles/assets/post-image-realign-2020-logo-points.webp" type="image/webp">
+    <source srcset="https://tylergaw.com/articles/assets/post-image-realign-2020-logo-points.jpg" type="image/jpeg">
+    <img src="https://tylergaw.com/articles/assets/post-image-realign-2020-logo-points.jpg" alt="A screenshot showing the 566 vector points and outline of the logo."/>
   </picture>
 
   <figcaption>fig 2: The 566 points I positioned to make the logo</figcaption>
@@ -142,12 +119,8 @@ meta:
 
 <figure>
   <picture>
-    <img
-      src="https://tylergaw.com/articles/assets/post-image-realign-2020-logo-feet.svg"
-      alt="A detail of the logo highlighting descenders that took inspiration from Proto Grotesk"
-    />
+    <img src="https://tylergaw.com/articles/assets/post-image-realign-2020-logo-feet.svg" alt="A detail of the logo highlighting descenders that took inspiration from Proto Grotesk"/>
   </picture>
-
   <figcaption>fig 3: Proto Grotesk-inspired descenders in the logo</figcaption>
 </figure>
 

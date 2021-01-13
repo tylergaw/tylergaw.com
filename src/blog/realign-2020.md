@@ -90,10 +90,7 @@ meta:
 </p>
 
 <figure>
-  <img
-    src="/articles/assets/post-image-realign-2020-initial-sketch.png"
-    alt="A screenshot of a messy Sketch document showing the current status of this site’s design realign"
-  />
+  <img src="/articles/assets/post-image-realign-2020-initial-sketch.png" alt="A screenshot of a messy Sketch document showing the current status of this site’s design realign"/>
   <figcaption>
     WIP design realign
   </figcaption>

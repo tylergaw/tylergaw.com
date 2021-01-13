@@ -46,10 +46,7 @@ meta:
   feels too heavy for large swaths of copy.
 </p>
 <figure>
-  <img
-    src="https://tylergaw.com/articles/assets/post-image-realign-2020-typography-proto-grotesk.png"
-    alt="A sampling of Proto Grotesk in various weights and sizes"
-  />
+  <img src="https://tylergaw.com/articles/assets/post-image-realign-2020-typography-proto-grotesk.png" alt="A sampling of Proto Grotesk in various weights and sizes" />
 </figure>
 <p>
   I’m using the bold weight for certain headings and navigation items. I have
@@ -72,9 +69,8 @@ meta:
 </h3>
 <p>
   I learned about Proto Grotesk via Bethany Heck’s
-  <a href="https://fontreviewjournal.com/proto-grotesk/"
-    >excellent Font Review Journal</a
-  >. A lot of what she detailed in the review is what draws me to the typeface.
+  <a href="https://fontreviewjournal.com/proto-grotesk/">excellent Font Review Journal</a>. 
+  A lot of what she detailed in the review is what draws me to the typeface.
   Its idiosyncrasies stick out enough to make it playful, without reducing
   reading comfort.
 </p>
@@ -89,9 +85,7 @@ meta:
     steady.
   </p>
   <cite>
-    <a href="https://www.productiontype.com/family/proto_grotesk"
-      >Production Type - Proto Grotesk</a
-    >
+    <a href="https://www.productiontype.com/family/proto_grotesk">Production Type - Proto Grotesk</a>
   </cite>
 </blockquote>
 
@@ -138,10 +132,7 @@ meta:
 </p>
 <p>
   Because I’m self-hosting, I need to load fonts in a performat way. I spent
-  time catching up on font loading methods. They move fast. Zach’s post “<a
-    href="https://www.zachleat.com/web/comprehensive-webfonts/"
-    >A Comprehensive Guide to Font Loading Strategies</a
-  >” is <strong>the</strong> place for that info.
+  time catching up on font loading methods. They move fast. Zach’s post “<a href="https://www.zachleat.com/web/comprehensive-webfonts/">A Comprehensive Guide to Font Loading Strategies</a>” is <strong>the</strong> place for that info.
 </p>
 <p>
   I didn’t end up using one of Zach’s gold standards. I wasn’t ready to

@@ -14,14 +14,14 @@
 }
 
 .e-header {
-  margin: 1.5rem auto 4rem auto;
+  margin: 2.5rem auto 4rem auto;
   max-width: var(--width-text-max);
   width: var(--width-content);
 }
 
 .p-name {
   font-family: var(--font-proto-bold);
-  font-size: 10vw;
+  font-size: 9vw;
   letter-spacing: -0.035em;
   line-height: 1.1;
   margin: 0;
@@ -29,8 +29,8 @@
 
 .dt-published {
   display: block;
-  font-size: 1.2rem;
-  margin-top: 0.875em;
+  font-size: 1.3rem;
+  margin-bottom: 0.875em;
 }
 
 .p-author {
@@ -199,26 +199,16 @@
   padding-bottom: 0.2rem;
 }
 
-.entry-intro {
+.e-content .entry-intro {
   font-size: 1.2em;
   line-height: 1.6;
-  padding-bottom: 0;
+  padding-bottom: 2em;
 }
 
 .entry-intro::first-line {
   font-size: 75%;
   font-family: var(--font-proto-bold);
   text-transform: uppercase;
-}
-
-.entry-intro::after {
-  background-color: var(--color-accent-secondary);
-  content: "";
-  display: block;
-  height: 0.75rem;
-  margin: 1.75em 0 1em 0;
-  text-align: center;
-  width: max(10ch, 30%);
 }
 
 .entry-intro + h2 {
@@ -231,8 +221,8 @@
   color: var(--color-accent-secondary);
   float: left;
   font-family: var(--font-proto-bold);
-  font-size: 680%;
-  line-height: 0.9;
+  font-size: 600%;
+  line-height: 1;
   margin-left: -0.05em;
   padding-right: 0.09em;
 }
@@ -294,15 +284,11 @@
   }
 
   .p-name {
-    font-size: 4.6em;
+    font-size: 4.4em;
   }
 
   .e-content {
     font-size: 2em;
-  }
-
-  .dt-published {
-    font-size: 1.4em;
   }
 }
 
@@ -312,7 +298,7 @@
   }
 
   .p-name {
-    font-size: 5em;
+    font-size: 4.8em;
   }
 
   .e-content {
@@ -323,10 +309,6 @@
 @media (min-width: 115.625em) {
   [data-page="blog"] {
     --width-text-max: 79rem;
-  }
-
-  .p-name {
-    font-size: 5.5rem;
   }
 
   .e-content {
