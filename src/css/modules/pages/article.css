@@ -1,12 +1,15 @@
+[data-page="blog"] {
+  --width-text-max: 60.5rem;
+  --width-content: 90%;
+  --width-content-max: calc(var(--width-text-max) + 10rem);
+}
+
 .h-entry ::selection {
   background-color: var(--color-accent-primary);
   color: var(--color-bg);
 }
 
 .h-entry {
-  --width-text-max: 60.5rem;
-  --width-content: 90%;
-  --width-content-max: calc(var(--width-text-max) + 10rem);
   overflow: hidden;
 }
 
@@ -304,7 +307,7 @@
 }
 
 @media (min-width: 96.875em) {
-  .h-entry {
+  [data-page="blog"] {
     --width-text-max: 73rem;
   }
 
@@ -318,7 +321,7 @@
 }
 
 @media (min-width: 115.625em) {
-  .h-entry {
+  [data-page="blog"] {
     --width-text-max: 79rem;
   }
 

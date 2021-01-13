@@ -1,7 +1,6 @@
 .blog-nav {
   --col-start: 1;
   --col-end: -1;
-  --max-width: 60.5rem;
 }
 
 .blog-nav__contents {
@@ -10,7 +9,7 @@
   flex-wrap: wrap;
   gap: 1rem;
   margin: 0 auto;
-  max-width: var(--max-width);
+  max-width: var(--width-text-max);
   padding-bottom: 10rem;
   padding-top: 2.5rem;
 }
@@ -32,16 +31,4 @@
 
 .blog-nav a {
   font-size: 1.4rem;
-}
-
-@media (min-width: 96.875em) {
-  .blog-nav {
-    --max-width: 73rem;
-  }
-}
-
-@media (min-width: 115.625em) {
-  .blog-nav {
-    --max-width: 79rem;
-  }
 }
