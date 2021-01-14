@@ -84,17 +84,17 @@
 }
 
 .about__bio,
-.about__site {
+.about-section {
   max-width: calc(2400 / 16 * 1rem);
 }
 
 .about__bio p,
-.about__site p {
+.about-section p {
   padding-bottom: 1.6em;
 }
 
 .about__bio h2,
-.about__site h2 {
+.about-section h2 {
   font-family: var(--font-proto-bold);
   font-size: 1.4em;
   letter-spacing: -0.025em;
@@ -119,7 +119,7 @@
   font-size: 82%;
 }
 
-.site__intro {
+.about-section__intro {
   font-size: 1.3em;
   line-height: 1.6;
   margin-top: calc(var(--g-row) * 8);
@@ -207,7 +207,7 @@
     margin: 0;
   }
 
-  .site__intro,
+  .about-section__intro,
   .site__versions {
     --col-end: span 2;
   }
@@ -247,7 +247,7 @@
     --col-end: span 2;
   }
 
-  .site__intro {
+  .about-section__intro {
     --col-start: 2;
     --col-end: span 3;
   }
@@ -274,7 +274,7 @@
     --col-end: span 5;
   }
 
-  .site__intro {
+  .about-section__intro {
     --col-end: span 4;
   }
 
@@ -327,7 +327,7 @@
     --col-end: span 3;
   }
 
-  .site__intro {
+  .about-section__intro {
     --col-start: 3;
   }
 
@@ -348,7 +348,7 @@
   .bio__intro,
   .bio__outro,
   .bio__design,
-  .site__intro {
+  .about-section__intro {
     --col-start: 4;
   }
 

@@ -123,3 +123,9 @@ body {
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap;
 }
+
+.list--normal {
+  list-style: inside;
+  padding-bottom: 2rem;
+  margin-top: 0;
+}
