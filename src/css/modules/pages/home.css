@@ -120,7 +120,9 @@
 .p-limbo__link:active .p-limbo__title,
 .p-colorme__link:active .p-colorme__title,
 .p-thegroundwork__link:active .p-thegroundwork__graphic,
-.p-experiments__link:active .p-experiments__title {
+.p-experiments__link:active .p-experiments__title,
+.m-about__link:active .m-about__title,
+.m-blog__link:active .m-blog__title {
   transform: scale3d(0.96, 0.96, 0.96);
 }
 
@@ -130,7 +132,8 @@
 .p-thegroundwork__title-underline,
 .p-jxa__title::after,
 .p-experiments__title strong::after,
-.m-about__title strong::after {
+.m-about__title strong::after,
+.m-blog__title strong::after {
   content: "";
   display: block;
   height: 6px;
@@ -593,11 +596,15 @@
   z-index: 1;
 }
 
-.m-about__title small {
+.m-about__title small,
+.m-blog__title small {
   display: block;
   font-family: var(--font-proto-regular);
   font-size: calc(18 / 16 * 1rem);
   letter-spacing: 0.03em;
+}
+
+.m-about__title small {
   padding-right: calc(24 / 16 * 1rem);
 }
 
@@ -618,11 +625,15 @@
   --offset-x: -10;
 }
 
-.m-about__title strong {
+.m-about__title strong,
+.m-blog__title strong {
   display: inline-block;
   font-family: var(--font-proto-bold);
   font-size: calc(34 / 16 * 1rem);
   margin-top: 0.5rem;
+}
+
+.m-about__title strong {
   padding-left: 2rem;
 }
 
@@ -656,16 +667,37 @@
 }
 
 .m-blog__link {
-  background-color: var(--color-blog-accent);
+  align-items: center;
+  background: var(--color-blog-accent) url("/images/blog-dust.svg") repeat;
   border-radius: 6px;
+  box-shadow: inset 0 0 0 var(--border-width) var(--border-color);
   display: flex;
   color: var(--color-charcoal);
   height: 100%;
+  justify-content: center;
+  margin: 0 auto;
   text-decoration: none;
+  transition: 0.15s ease;
+  width: 90%;
+}
+
+.m-blog__link:hover,
+.m-blog__link:focus {
+  --border-color: var(--color-blog-accent-dark);
 }
 
 .m-blog__title {
+  padding-bottom: 1.5rem;
   text-transform: uppercase;
+}
+
+.m-blog__title small {
+  line-height: 1.5;
+}
+
+.everything-else {
+  display: block;
+  translate: 1rem;
 }
 
 .m-blog__title strong {
@@ -687,10 +719,6 @@
   .more__title {
     --col-start: 1;
     --col-end: -1;
-  }
-
-  .home__more {
-    --rows: 6;
   }
 
   .p-streetcred {
@@ -788,6 +816,22 @@
 
   .p-experiments__title {
     padding-top: 4rem;
+  }
+
+  .m-blog {
+    --row-end: span 4;
+  }
+
+  .m-blog__link {
+    align-items: flex-end;
+    justify-content: flex-start;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    max-width: calc(320 / 16 * 1rem);
+  }
+
+  .m-blog__title {
+    padding-left: 2rem;
   }
 }
 
@@ -897,6 +941,10 @@
     --col-end: span 2;
   }
 
+  .home__more {
+    --rows: 10;
+  }
+
   .m-about {
     --col-end: span 3;
     --row-end: span 4;
@@ -943,6 +991,7 @@
 
   .m-blog {
     --col-end: span 2;
+    --row-end: span 6;
   }
 }
 
@@ -1026,6 +1075,10 @@
   .more__title,
   .m-about {
     --col-start: 2;
+  }
+
+  .m-blog__link {
+    margin-top: 3rem;
   }
 }
 
