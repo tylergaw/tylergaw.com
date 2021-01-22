@@ -161,11 +161,13 @@
   --border-color: var(--color-streetcred-accent-dark);
 }
 
-.p-streetcred__link:hover .p-streetcred__graphic,
-.p-streetcred__link:focus .p-streetcred__graphic,
-.p-limbo__link:hover .p-limbo__graphic,
-.p-limbo__link:focus .p-limbo__graphic {
-  transform: scale3d(1.08, 1.08, 1.08);
+@media (prefers-reduced-motion: no-preference) {
+  .p-streetcred__link:hover .p-streetcred__graphic,
+  .p-streetcred__link:focus .p-streetcred__graphic,
+  .p-limbo__link:hover .p-limbo__graphic,
+  .p-limbo__link:focus .p-limbo__graphic {
+    transform: scale3d(1.08, 1.08, 1.08);
+  }
 }
 
 .p-streetcred__link:hover .p-streetcred__title::after,
@@ -289,14 +291,16 @@
   width: 100%;
 }
 
-.p-colorme__link:hover::after,
-.p-colorme__link:focus::after {
-  background-color: var(--color-colorme-accent);
-}
+@media (prefers-reduced-motion: no-preference) {
+  .p-colorme__link:hover::after,
+  .p-colorme__link:focus::after {
+    background-color: var(--color-colorme-accent);
+  }
 
-.p-colorme__link:hover::before,
-.p-colorme__link:focus::before {
-  background-color: var(--color-colorme-accent-dark);
+  .p-colorme__link:hover::before,
+  .p-colorme__link:focus::before {
+    background-color: var(--color-colorme-accent-dark);
+  }
 }
 
 .p-colorme__title {
@@ -648,7 +652,6 @@
   position: relative;
   transform: skewY(3deg) translateY(var(--trans-y, -0.75rem));
   transform-origin: top;
-  transition: 0.1s ease;
   padding-top: 48%;
 }
 
@@ -1201,5 +1204,26 @@
   .more__title,
   .m-about {
     --col-start: 4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .p-streetcred__contents::before,
+  .p-streetcred__title::after,
+  .p-limbo__title::after,
+  .p-colorme__title::after,
+  .p-thegroundwork__title-underline,
+  .p-jxa__title::after,
+  .p-experiments__title strong::after,
+  .m-about__title strong::after,
+  .m-blog__title strong::after,
+  .p-limbo__link::before,
+  .p-limbo__link::after,
+  .p-limbo__graphic,
+  .p-colorme__link::before,
+  .p-colorme__title::after,
+  .p-thegroundwork__mark,
+  .p-jxa__graphic {
+    transition-duration: 0s;
   }
 }
