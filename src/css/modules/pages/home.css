@@ -693,6 +693,11 @@
   --border-color: var(--color-blog-accent-dark);
 }
 
+.m-blog__link:hover .m-blog__title strong::after,
+.m-blog__link:focus .m-blog__title strong::after {
+  width: 100%;
+}
+
 .m-blog__title {
   padding-bottom: 1.5rem;
   text-transform: uppercase;
@@ -708,7 +713,11 @@
 }
 
 .m-blog__title strong {
-  display: block;
+  display: inline-block;
+}
+
+.m-blog__title strong::after {
+  background-color: currentColor;
 }
 
 @media (min-width: 38.75em) {
