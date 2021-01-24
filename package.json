@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "ELEVENTY_ENV=production eleventy",
-    "start": "netlify dev",
+    "start": "ELEVENTY_ENV=local netlify dev",
     "prettier": "prettier --write src/"
   },
   "author": "Tyler Gaw",

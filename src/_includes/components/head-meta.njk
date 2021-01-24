@@ -4,24 +4,21 @@
 {% set metaTitle = title or "Tyler Gaw - Designer & Engineer - New York City, USA" -%}
 {% set ogDescription = meta.description or "Tyler Gaw is a Designer & Engineer in New York City, USA" -%}
 {% set ogImage = meta.image or "/images/social-default.png" -%}
-{% set ogTitle = title or "/images/social-default.png" -%}
 
 <title>{{ metaTitle }}</title>
 <meta property="og:title" content="{{ metaTitle }}">
 <meta name="twitter:title" content="{{ metaTitle }}">
 
-<meta name="description" content="{{ogDescription}}">
-<meta property="og:description" content="{{ogDescription}}">
-<meta name="twitter:description" content="{{ogDescription}}">
+<meta name="description" content="{{ ogDescription }}">
+<meta property="og:description" content="{{ ogDescription }}">
+<meta name="twitter:description" content="{{ ogDescription }}">
 
 <meta property="og:image" content="{{ site.url }}{{ ogImage }}">
 <meta name="twitter:image" content="{{ site.url }}{{ ogImage }}">
-
 <meta name="twitter:card" content="{{ meta.card or 'summary_large_image' }}">
 
-{# FIXME
-<meta property="og:url" content="{{ site.url }}{{#if permalink }}{{ permalink }}{{/if}}">
-<meta name="twitter:url" content="{{ site.url }}{{#if permalink }}{{ permalink }}{{/if}}">
-#}
+<meta property="og:url" content="{{ site.url }}{{ page.filePathStem }}">
+<meta name="twitter:url" content="{{ site.url }}{{ page.filePathStem }}">
+
 <meta name="twitter:site" content="@tylergaw">
 <meta property="og:type" content="article">
