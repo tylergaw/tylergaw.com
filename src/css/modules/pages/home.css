@@ -362,9 +362,11 @@
   width: 100%;
 }
 
-.p-thegroundwork__link:hover .p-thegroundwork__mark,
-.p-thegroundwork__link:focus .p-thegroundwork__mark {
-  transform: translate3d(-0.5rem, 0, 0);
+@media (prefers-reduced-motion: no-preference) {
+  .p-thegroundwork__link:hover .p-thegroundwork__mark,
+  .p-thegroundwork__link:focus .p-thegroundwork__mark {
+    transform: translate3d(-0.5rem, 0, 0);
+  }
 }
 
 .p-thegroundwork__graphic {
@@ -419,9 +421,11 @@
   --border-color: #5b5757;
 }
 
-.p-jxa__link:hover .p-jxa__graphic,
-.p-jxa__link:focus .p-jxa__graphic {
-  --scale: 1.06;
+@media (prefers-reduced-motion: no-preference) {
+  .p-jxa__link:hover .p-jxa__graphic,
+  .p-jxa__link:focus .p-jxa__graphic {
+    --scale: 1.06;
+  }
 }
 
 .p-jxa__link:hover .p-jxa__title::after,
@@ -764,9 +768,11 @@
     width: 125%;
   }
 
-  .p-limbo__link:hover .p-limbo__graphic,
-  .p-limbo__link:focus .p-limbo__graphic {
-    transform: translate3d(-6%, -4%, 0);
+  @media (prefers-reduced-motion: no-preference) {
+    .p-limbo__link:hover .p-limbo__graphic,
+    .p-limbo__link:focus .p-limbo__graphic {
+      transform: translate3d(-6%, -4%, 0);
+    }
   }
 
   .p-colorme {
@@ -1037,9 +1043,11 @@
     width: 100%;
   }
 
-  .p-limbo__link:hover .p-limbo__graphic,
-  .p-limbo__link:focus .p-limbo__graphic {
-    transform: translate3d(4.5rem, 0, 0);
+  @media (prefers-reduced-motion: no-preference) {
+    .p-limbo__link:hover .p-limbo__graphic,
+    .p-limbo__link:focus .p-limbo__graphic {
+      transform: translate3d(4.5rem, 0, 0);
+    }
   }
 
   .p-thegroundwork {
@@ -1120,9 +1128,11 @@
     width: 75%;
   }
 
-  .p-limbo__link:hover .p-limbo__graphic,
-  .p-limbo__link:focus .p-limbo__graphic {
-    transform: translate3d(-1.5rem, 0, 0);
+  @media (prefers-reduced-motion: no-preference) {
+    .p-limbo__link:hover .p-limbo__graphic,
+    .p-limbo__link:focus .p-limbo__graphic {
+      transform: translate3d(-1.5rem, 0, 0);
+    }
   }
 
   .p-colorme {
@@ -1216,6 +1226,7 @@
   .p-jxa__title::after,
   .p-experiments__title strong::after,
   .m-about__title strong::after,
+  .m-blog__link,
   .m-blog__title strong::after,
   .p-limbo__link::before,
   .p-limbo__link::after,
