@@ -4,13 +4,8 @@
 }
 
 .hero--about::before {
-  --gutter: 1rem;
   background: var(--color-about-accent) url("/images/about-dust.svg") repeat;
-  border-radius: 6px;
   height: var(--height, 70%);
-  left: var(--gutter);
-  top: calc(var(--gutter) * 3);
-  width: calc(100% - var(--gutter) * 2);
 }
 
 .hero--about a {
@@ -185,8 +180,6 @@
 @media (min-width: 38.75em) {
   .hero--about::before {
     --height: 65%;
-    left: calc(var(--gutter) * 3);
-    width: calc(100% - var(--gutter) * 6);
   }
 
   .about__hero-contents {

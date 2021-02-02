@@ -1,4 +1,3 @@
-.hero--w-before::before,
 .hero--before-standard::before {
   content: "";
   display: block;
