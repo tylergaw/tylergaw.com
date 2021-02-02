@@ -136,12 +136,14 @@
 .banner__nav a:hover,
 .banner__nav a:focus,
 [data-page="blog"] .nav-blog,
-[data-page="home"] .nav-work {
+[data-page="home"] .nav-work,
+[data-page="work"] .nav-work {
   color: var(--color-text);
 }
 
 [data-page="blog"] .nav-blog svg,
 [data-page="home"] .nav-work svg,
+[data-page="work"] .nav-work svg,
 [data-page="about"] .nav-about svg {
   opacity: 1;
 }

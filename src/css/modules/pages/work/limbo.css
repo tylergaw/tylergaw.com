@@ -7,3 +7,31 @@
   background: var(--color-limbo-accent) url("/images/work/limbo/limbo-dust.svg")
     repeat;
 }
+
+.hero--limbo a {
+  color: var(--color-limbo-accent-dark);
+}
+
+.hero--limbo a:hover,
+.hero--limbo a:focus,
+.hero--limbo .nav-work {
+  color: var(--color-accent);
+}
+
+.hero--limbo .banner__logo::after {
+  background-color: #f9c5c5;
+}
+
+@media (prefers-color-scheme: light) {
+  :not([data-user-color-scheme]) .hero--limbo a:hover,
+  :not([data-user-color-scheme]) .hero--limbo a:focus,
+  :not([data-user-color-scheme]) .hero--limbo .nav-work {
+    color: var(--color-limbo-accent-dark);
+  }
+}
+
+[data-user-color-scheme="light"] .hero--limbo a:hover,
+[data-user-color-scheme="light"] .hero--limbo a:focus,
+[data-user-color-scheme="light"] .hero--limbo .nav-work {
+  color: var(--color-limbo-accent-dark);
+}
