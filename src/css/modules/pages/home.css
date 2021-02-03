@@ -539,7 +539,7 @@
 .p-experiments__title small {
   display: block;
   font-family: var(--font-proto-regular);
-  font-size: calc(18 / 16 * 1rem);
+  font-size: var(--font-size-18);
   letter-spacing: 0.03em;
   translate: 0.4em;
 }
@@ -552,7 +552,7 @@
 .p-experiments__title strong {
   display: inline-block;
   font-family: var(--font-proto-bold);
-  font-size: calc(30 / 16 * 1rem);
+  font-size: var(--font-size-30);
 }
 
 .p-experiments__title strong::after {
@@ -608,12 +608,12 @@
 .m-blog__title small {
   display: block;
   font-family: var(--font-proto-regular);
-  font-size: calc(18 / 16 * 1rem);
+  font-size: var(--font-size-18);
   letter-spacing: 0.03em;
 }
 
 .m-about__title small {
-  padding-right: calc(24 / 16 * 1rem);
+  padding-right: var(--font-size-24);
 }
 
 .m-about__title b {
@@ -637,7 +637,7 @@
 .m-blog__title strong {
   display: inline-block;
   font-family: var(--font-proto-bold);
-  font-size: calc(34 / 16 * 1rem);
+  font-size: var(--font-size-34);
   margin-top: 0.5rem;
 }
 
