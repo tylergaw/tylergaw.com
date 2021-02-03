@@ -29,6 +29,16 @@ body {
   --font-proto-regular: "protogrotesk-regular", helvetica, sans-serif;
   --font-proto-bold: "protogrotesk-bold", helvetica, sans-serif;
   --font-mono: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+
+  --font-size-16: 1rem;
+  --font-size-18: calc(18 / 16 * 1rem);
+  --font-size-20: calc(20 / 16 * 1rem);
+  --font-size-24: calc(24 / 16 * 1rem);
+  --font-size-30: calc(30 / 16 * 1rem);
+  --font-size-34: calc(34 / 16 * 1rem);
+  --font-size-36: calc(36 / 16 * 1rem);
+  --font-size-44: calc(44 / 16 * 1rem);
+
   font-family: var(--font-proto-light);
   font-size: 100%;
   line-height: 1;
@@ -36,8 +46,10 @@ body {
 }
 
 b,
-strong {
+strong,
+.font--regular {
   font-family: var(--font-proto-regular);
+  font-weight: normal;
 }
 
 a {
