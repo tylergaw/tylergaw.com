@@ -35,3 +35,27 @@
 [data-user-color-scheme="light"] .hero--limbo .nav-work {
   color: var(--color-limbo-accent-dark);
 }
+
+.project--limbo {
+  --color-link: var(--color-limbo-accent);
+}
+
+.limbo__title {
+  bottom: 10%;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+.limbo__title img {
+  max-width: calc(var(--max-width, 260) / 16 * 1rem);
+  width: 80%;
+}
+
+.limbo__graphic {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  max-width: calc(var(--max-width, 1200) / 16 * 1rem);
+  width: 98%;
+}
