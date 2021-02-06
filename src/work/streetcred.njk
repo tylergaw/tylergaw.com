@@ -1,5 +1,28 @@
 ---
 title: StreetCred from the foggy memory of Tyler Gaw
+pageType: work
+specs: [
+  {
+    "title": "Hats worn", 
+    "desc": "Product, mobile, design, front-end, linchpin"
+  },
+  {
+    "title": "Code used", 
+    "desc": "React, React Native, TypeScript, HTML, CSS, Mapbox GLJS"
+  },
+  {
+    "title": "Platforms", 
+    "desc": "iOS, Android, The Web"
+  },
+  {
+    "title": "Timeframe", 
+    "desc": "2018-2020"
+  },
+  {
+    "title": "Status", 
+    "desc": "<a href='https://techcrunch.com/2021/01/11/snap-acquires-streetcred/' target='_blank' rel='noopener noreferrer'>Acquired by Snap in 2020</a>"
+  }
+]
 ---
 
 {% extends "layouts/base.njk" %}
@@ -9,17 +32,105 @@ title: StreetCred from the foggy memory of Tyler Gaw
   {{ super() }}
 
   <div class="hero__contents">
-    {# FIXME <div class="about__portrait">
-      <img src="/images/tyler-gaw-portrait-2020.svg" alt="An illustration portrait of Tyler" width="1100">
-    </div> #}
+    <div class="streetcred__graphic">
+      <picture class="streetcred__graphic-main">
+        <source srcset="/images/work/streetcred/streetcred-hero-app-screen.avif" type="image/avif" />
+        <source srcset="/images/work/streetcred/streetcred-hero-app-screen.webp" type="image/webp" />
+        <img
+          src="/images/work/streetcred/streetcred-hero-app-screen.jpg"
+          width="455"
+          height="842"
+          alt="A stylized screenshot of the StreetCred app homescreen displaying the game HUD, a map with POIs, and a call to action button to Add a place."
+        />
+      </picture>
 
-    <h1>
-      {% include "../images/work/streetcred/streetcred-logo.svg" %}
+      <div class="streetcred__graphic-poi">
+        <img class="poi__icon" src="/images/work/streetcred/streetcred-poi-marker.svg" alt="" width="50" height="50" />
+        <picture class="poi__main">
+          <source srcset="/images/work/streetcred/streetcred-hero-place-listed.avif" type="image/avif" />
+          <source srcset="/images/work/streetcred/streetcred-hero-place-listed.webp" type="image/webp" />
+          <img
+            src="/images/work/streetcred/streetcred-hero-place-listed.jpg"
+            width="360"
+            height="104"
+            alt="A stylized version of a POI as it's listed in the StreetCred app. The POI details read; Paquito's. Mexican. 40ft. 434 14th St New York, NY."
+          />
+        </picture>
+      </div>
+
+      <picture class="streetcred__graphic-cubes">
+        <source srcset="/images/work/streetcred/streetcred-hero-cubes.avif" type="image/avif" />
+        <source srcset="/images/work/streetcred/streetcred-hero-cubes.webp" type="image/webp" />
+        <img
+          src="/images/work/streetcred/streetcred-hero-cubes.jpg"
+          width="280"
+          height="97"
+          alt="A stylized version of the buy cubes button in the StreetCred app. The button reads; Buy 5 Cubes. 1,500 tokens."
+        />
+      </picture>
+
+      <div class="streetcred__graphic-board">
+        <img class="board__icon" src="/images/work/streetcred/streetcred-trophy.svg" alt="" width="50" height="50" />
+        <picture class="board__main">
+          <source srcset="/images/work/streetcred/streetcred-hero-leaderboard.avif" type="image/avif" />
+          <source srcset="/images/work/streetcred/streetcred-hero-leaderboard.webp" type="image/webp" />
+          <img
+            src="/images/work/streetcred/streetcred-hero-leaderboard.jpg"
+            width="386"
+            height="239"
+            alt="A partial view of a stylized leaderboard in the StreetCred app. The leaderboard lists the 1st through 3rd place players; DrLuigiHorse with 45 cubes awarded 0.02 BTC, maximus with 32 cubes awarded 0.01 BTC, and TJ with 16 cubes awarded 0.005 BTC."
+          />
+        </picture>
+      </div>
+    </div>
+
+    <h1 class="streetcred__title">
+      <img src="/images/work/streetcred/streetcred-logo.svg" alt="StreetCred">
     </h1>
   </div>
 </div>
 {% endblock %}
 
 {% block main %}
-StreetCred
+
+<div class="g-main g-padded project project--streetcred">
+  <div class="g-main__item project__intro">
+    <div class="project__intro__main">
+      <a href="https://streetcred.co" class="project__link font--regular" target="_blank" rel="noopener noreferrer">
+        streetcred.co
+      </a>
+      <h2 class="project__intro__opening font--regular">
+        Can we map every place in the world?
+      </h2>
+      <div class="project__intro__body">
+        <p>
+          What’s a place? What isn’t? Let’s ask that another way. Who cares? 
+          That’s not a rhetorical or flippant question. For something, somewhere 
+          to be a “place”, someone has to <b>care enough</b> to tell people about it. 
+          And, tell them where in the world it is. A nowhere becomes a somewhere 
+          when someone puts it on a map.
+        </p>
+        <div>
+          <p>
+            StreetCred begin in early 2018 with the audacious goal of 
+            crowdsourcing the most complete, most up-to-date, and most open 
+            point of interest dataset in the world. I joined in June 2018 as 
+            the first design and engineering hire. For the next two years I 
+            worked with the team to build towards our lofty vision for what 
+            mapping could be.
+          </p>
+          <p>
+            <strong>Note:</strong> In this case study I refer to work “I” did. 
+            This is to convey my contributions to the product, not to erase 
+            anyone else’s. I didn’t do any of this work alone. My teammates were 
+            with me every step of the way.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {% include "components/project-specs.njk" %}
+  </div>
+</div>
+
 {% endblock %}

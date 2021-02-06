@@ -5,5 +5,142 @@
 
 .hero--streetcred::before {
   background: var(--color-streetcred-accent)
-    url("/images/work/streetcred/streetcred-dust.svg") repeat;
+    url("/images/work/streetcred/streetcred-pattern.svg") no-repeat top center;
+  /* background-size: min(calc(1472 / 16 * 1rem), 100%); FIXME */
+  background-size: cover;
+}
+
+.hero--streetcred a {
+  color: var(--color-streetcred-accent-dark);
+}
+
+.hero--streetcred .banner__logo::after {
+  background-color: #dcc2ff;
+}
+
+.hero--streetcred .banner__nav a:hover,
+.hero--streetcred .banner__nav a:focus,
+.hero--streetcred .nav-work {
+  color: #dcc2ff;
+}
+
+.hero__contents {
+  padding-top: calc(var(--g-row) * 3);
+}
+
+.streetcred__graphic {
+  position: relative;
+}
+
+.streetcred__graphic-main {
+  background-color: white;
+  border-radius: var(--radius, 25px);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
+  display: block;
+  margin: 0 auto;
+  max-width: calc(var(--max-width, 400) / 16 * 1rem);
+  overflow: hidden;
+  width: 78%;
+}
+
+.streetcred__graphic-main img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.streetcred__graphic-poi {
+  max-width: calc(var(--max-width, 280) / 16 * 1rem);
+  right: 52%;
+  top: 46%;
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.streetcred__graphic-poi,
+.streetcred__graphic-cubes,
+.streetcred__graphic-board {
+  animation: enter 0.25s ease;
+  display: none;
+  position: absolute;
+  width: 100%;
+}
+
+.poi__main,
+.streetcred__graphic-cubes,
+.board__main {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.poi__main,
+.board__main {
+  display: block;
+}
+
+.poi__main img,
+.streetcred__graphic-cubes img,
+.board__main img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.poi__icon,
+.board__icon {
+  left: calc(50% - 25px);
+  position: absolute;
+  top: -36px;
+}
+
+.streetcred__graphic-cubes {
+  max-width: calc(var(--max-width, 200) / 16 * 1rem);
+  right: 55%;
+  top: 63%;
+}
+
+.streetcred__graphic-board {
+  max-width: calc(var(--max-width, 280) / 16 * 1rem);
+  right: 4%;
+  top: 17%;
+}
+
+.streetcred__title {
+  padding-top: calc(var(--g-row) * 2);
+  padding-bottom: calc(var(--g-row) * 5);
+  text-align: center;
+}
+
+.streetcred__title img {
+  max-width: calc(var(--max-width, 330) / 16 * 1rem);
+  width: 75%;
+}
+
+.project--streetcred {
+  --color-link: var(--color-streetcred-accent);
+}
+
+@media (min-width: 35em) {
+  .streetcred__graphic-poi,
+  .streetcred__graphic-cubes,
+  .streetcred__graphic-board {
+    display: block;
+  }
+}
+
+@media (min-width: 38.75em) {
+  .streetcred__graphic-main {
+    --radius: 40px;
+    --max-width: 360;
+  }
 }

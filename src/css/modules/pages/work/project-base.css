@@ -21,7 +21,7 @@
 .project__intro__body {
   font-size: var(--font-size-24);
   line-height: 1.6;
-  margin-top: 1.2rem;
+  margin-top: calc(var(--g-row) * 3);
 }
 
 .project__specs {
