@@ -6,7 +6,6 @@
 .hero--streetcred::before {
   background: var(--color-streetcred-accent)
     url("/images/work/streetcred/streetcred-pattern.svg") no-repeat top center;
-  /* background-size: min(calc(1472 / 16 * 1rem), 100%); FIXME */
   background-size: cover;
 }
 
@@ -24,8 +23,9 @@
   color: #dcc2ff;
 }
 
-.hero__contents {
-  padding-top: calc(var(--g-row) * 3);
+.hero--streetcred .hero__contents {
+  max-width: calc(1242 / 16 * 1rem);
+  padding-top: calc(var(--g-row) * var(--p-top-rows, 3));
 }
 
 .streetcred__graphic {
@@ -111,12 +111,12 @@
 
 .streetcred__graphic-board {
   max-width: calc(var(--max-width, 280) / 16 * 1rem);
-  right: 4%;
+  right: 2%;
   top: 17%;
 }
 
 .streetcred__title {
-  padding-top: calc(var(--g-row) * 2);
+  padding-top: calc(var(--g-row) * var(--p-top-rows, 2));
   padding-bottom: calc(var(--g-row) * 5);
   text-align: center;
 }
@@ -142,5 +142,86 @@
   .streetcred__graphic-main {
     --radius: 40px;
     --max-width: 360;
+  }
+}
+
+@media (min-width: 46em) {
+  .streetcred__graphic-board {
+    left: 60%;
+    right: initial;
+  }
+}
+
+@media (min-width: 65em) {
+  .hero--streetcred .hero__contents {
+    --p-top-rows: 6;
+  }
+
+  .streetcred__graphic-main {
+    --max-width: 455;
+  }
+
+  .streetcred__graphic-poi {
+    --max-width: 360;
+    right: 57%;
+    top: 42%;
+  }
+
+  .streetcred__graphic-cubes {
+    --max-width: 280;
+    top: 58%;
+  }
+
+  .streetcred__graphic-board {
+    --max-width: 386;
+    left: 56%;
+    top: 23%;
+  }
+}
+
+@media (min-width: 75em) {
+  .hero--streetcred::before {
+    background-position: var(--bg-pos-h, -40%) 15%;
+    background-size: min(calc(1472 / 16 * 1rem), 110%);
+  }
+
+  .hero--streetcred .hero__contents {
+    display: flex;
+    margin: 0 auto;
+  }
+
+  .streetcred__title {
+    --p-top-rows: 18;
+    order: 1;
+    text-align: right;
+    width: 35%;
+  }
+
+  .streetcred__graphic {
+    order: 2;
+    width: 65%;
+  }
+
+  .streetcred__graphic-board {
+    left: initial;
+    right: 2%;
+  }
+}
+
+@media (min-width: 89.75em) {
+  .hero--streetcred::before {
+    --bg-pos-h: 14vw;
+  }
+}
+
+@media (min-width: 117.5em) {
+  .hero--streetcred::before {
+    --bg-pos-h: 20vw;
+  }
+}
+
+@media (min-width: 150em) {
+  .hero--streetcred::before {
+    --bg-pos-h: 26vw;
   }
 }
