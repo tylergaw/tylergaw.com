@@ -1,17 +1,22 @@
-.hero--before-standard::before {
+.hero--before-standard::before,
+.hero--after-standard::after {
   content: "";
   display: block;
   position: absolute;
 }
 
-.hero--before-standard::before {
+.hero--before-standard::before,
+.hero--after-standard::after {
   --gutter: 1rem;
-  --offset-v: calc(var(--gutter) * 3);
-  border-radius: 6px;
-  height: calc(100% - var(--offset-v));
   left: var(--gutter);
-  top: calc(var(--gutter) * 3);
   width: calc(100% - var(--gutter) * 2);
+}
+
+.hero--before-standard::before {
+  --offset-v: calc(var(--gutter) * 3);
+  border-radius: 6px 6px 0 0;
+  height: calc(100% - var(--offset-v));
+  top: calc(var(--gutter) * 3);
 }
 
 .hero__contents {
@@ -19,7 +24,8 @@
 }
 
 @media (min-width: 38.75em) {
-  .hero--before-standard::before {
+  .hero--before-standard::before,
+  .hero--after-standard::after {
     left: calc(var(--gutter) * 3);
     width: calc(100% - var(--gutter) * 6);
   }

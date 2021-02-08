@@ -9,6 +9,18 @@
   background-size: cover;
 }
 
+.hero--streetcred::after {
+  background-color: var(--color-bg);
+  --mask: url("/images/work/streetcred/streetcred-hero-squiggle.svg") no-repeat
+    center bottom;
+  bottom: -2px;
+  height: 120px;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  -webkit-mask-size: 110%;
+  mask-size: 110%;
+}
+
 .hero--streetcred a {
   color: var(--color-streetcred-accent-dark);
 }
@@ -26,6 +38,7 @@
 .hero--streetcred .hero__contents {
   max-width: calc(1242 / 16 * 1rem);
   padding-top: calc(var(--g-row) * var(--p-top-rows, 3));
+  z-index: 1;
 }
 
 .streetcred__graphic {
@@ -117,7 +130,7 @@
 
 .streetcred__title {
   padding-top: calc(var(--g-row) * var(--p-top-rows, 2));
-  padding-bottom: calc(var(--g-row) * 5);
+  padding-bottom: calc(var(--g-row) * 7);
   text-align: center;
 }
 
@@ -211,6 +224,12 @@
 @media (min-width: 89.75em) {
   .hero--streetcred::before {
     --bg-pos-h: 14vw;
+  }
+}
+
+@media (min-width: 106.25em) {
+  .streetcred__title {
+    text-align: left;
   }
 }
 
