@@ -14,14 +14,15 @@
 
 .project__intro__opening {
   font-size: var(--font-size-44);
+  line-height: 1.15;
   margin-bottom: 0;
   margin-top: calc(10 / 16 * 1rem);
 }
 
 .project__intro__body {
   font-size: var(--font-size-24);
-  line-height: 1.6;
-  margin-top: calc(var(--g-row) * 3);
+  line-height: 1.7;
+  margin-top: calc(var(--g-row) * 2);
 }
 
 .project__specs {

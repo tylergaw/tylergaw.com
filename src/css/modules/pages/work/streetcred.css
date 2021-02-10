@@ -143,6 +143,30 @@
   --color-link: var(--color-streetcred-accent);
 }
 
+.streetcred__intro__2-col {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: calc(var(--g-row) * 6);
+}
+
+.streetcred__intro__extended {
+  flex: 1.9 1;
+  font-size: var(--font-size-20);
+  line-height: 1.6;
+  min-width: 22ch;
+}
+
+.streetcred__intro__note {
+  flex: 1;
+  line-height: 2;
+  min-width: 15ch;
+}
+
+.highlight--streetcred {
+  background-color: #8e42f533;
+}
+
 @media (min-width: 35em) {
   .streetcred__graphic-poi,
   .streetcred__graphic-cubes,
