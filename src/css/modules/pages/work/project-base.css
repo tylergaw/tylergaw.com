@@ -12,9 +12,13 @@
   text-transform: uppercase;
 }
 
-.project__link:hover,
-.project__link:focus {
+a.project__link:hover,
+a.project__link:focus {
   border-bottom-color: currentColor;
+}
+
+span.project__link {
+  opacity: 0.7;
 }
 
 .project__intro__main {
@@ -33,6 +37,12 @@
   font-size: var(--font-size-24);
   line-height: 1.7;
   margin-top: calc(var(--g-row) * 2);
+}
+
+.project__intro__extended {
+  font-size: var(--font-size-20);
+  line-height: 1.6;
+  margin-top: calc(var(--g-row) * 6);
 }
 
 .project__specs {

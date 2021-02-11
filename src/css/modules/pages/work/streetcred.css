@@ -152,9 +152,8 @@
 
 .streetcred__intro__extended {
   flex: 1.9 1;
-  font-size: var(--font-size-20);
-  line-height: 1.6;
   min-width: 22ch;
+  margin-top: 0;
 }
 
 .streetcred__intro__note {

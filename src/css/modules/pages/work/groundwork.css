@@ -8,11 +8,11 @@
     repeat;
 }
 
-.gw-warning {
-  background-color: var(--color-offwhite);
-  border-radius: 2px;
-  font-size: 1rem;
-  font-family: var(--font-proto-regular);
-  padding: 1rem;
-  margin-bottom: 1rem;
+.project--groundwork {
+  --color-link: var(--color-groundwork-accent);
+}
+
+.highlight--groundwork {
+  background-color: #deff00cc;
+  color: #000;
 }

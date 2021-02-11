@@ -1,5 +1,28 @@
 ---
 title: The Groundwork as remembered by Tyler Gaw
+pageType: work
+specs: [
+  {
+    "title": "Hats worn", 
+    "desc": "Leadership, product, design, front-end"
+  },
+  {
+    "title": "Code used", 
+    "desc": "HTML, CSS, JavaScript, React, Python"
+  },
+  {
+    "title": "Continuum", 
+    "desc": "The Web"
+  },
+  {
+    "title": "Timeframe", 
+    "desc": "2014-2017"
+  },
+  {
+    "title": "Status", 
+    "desc": "Disbanded in 2018 and missed dearly."
+  }
+]
 ---
 
 {% extends "layouts/base.njk" %}
@@ -10,8 +33,8 @@ title: The Groundwork as remembered by Tyler Gaw
 
   <div class="hero__contents">
     <h1>
-      {% include "../images/work/thegroundwork/gw-mark.svg" %}
-      {% include "../images/work/thegroundwork/gw-logo.svg" %}
+      <img src="/images/work/thegroundwork/gw-mark.svg" alt="The GW logo made up of a circle around a triangle and digital 'roots'">
+      <img src="/images/work/thegroundwork/gw-logo.svg" alt="The Groundwork">
     </h1>
   </div>
 </div>
@@ -19,122 +42,109 @@ title: The Groundwork as remembered by Tyler Gaw
 
 {% block main %}
 
-<div>
-  <div class="project__contents">
-    <div class="project__specs">
-      <ul>
-        <li><b>Timshel</b></li>
-        <li>Design / Frontend</li>
-        <li>2014–2017</li>
-        <li></li>
-      </ul>
+<div class="g-main g-padded project project--groundwork">
+  <div class="g-main__item project__intro">
+    <div class="project__intro__main">
+      <span class="project__link font--regular">
+        URL lost to time*
+      </span>
+      <h2 class="project__intro__opening font--regular">
+        Can we help elect the President?
+      </h2>
+      <p class="project__intro__body">
+        We had one goal; help make Hillary Clinton the 45<sup>th</sup> President 
+        of the United States of America. You know how that ended. What you might 
+        not know about is the tireless work of a small team of technologists 
+        who dedicated themselves to the <abbr title="Hillary for America">HFA</abbr> campaign. 
+        You don’t know about that because that’s how we designed it.
+        From the beginning, our mantra was, “don’t be the story.”
+      </p>
+      <p class="project__intro__extended highlight--groundwork">
+        <strong>*Warning</strong>: Do not visit any thegroundwork.com domains. 
+        The owner of The Groundwork let the domain lapse and it was taken over by bad actors.
+      </p>
     </div>
 
-    <div class="project__body">
-      <p class="gw-warning">
-        <strong>Warning</strong>: The owner of The Groundwork let the domain
-        lapse and it was taken over by bad actors. It’s best to not visit any
-        *.thegroundwork.com domains.
-      </p>
-      <p class="project__intro">
-        <strong>
-          We had one goal; help elect Hillary Clinton the 45<sup>th</sup>
-          President of the United States of America.
-        </strong>
-        You know how that ended. What you don’t know about is the tireless
-        work of a small team of technologists dedicated themselves to from day
-        one of the <abbr>HFA</abbr> campaign and through the end and then
-        some. You don’t know about that because that’s how we designed it.
-        From the beginning, our mantra was, “<b>don’t be the story</b>.”
-      </p>
+    {% include "components/project-specs.njk" %}
+  </div>
 
-      <h4>hillaryclinton.com</h4>
-      <p>
-        Our team was instrumental in the initial Hillary for America website
-        launch. In the days leading up to the April 12, 2015 launch we helped
-        the HFA tech team and another web development vendor implement a
-        Wagtail CMS, implement designs, squash bugs, and make sure the the
-        site could handle the massive traffic it was about to receive.
-      </p>
-      <p>
-        In the months after launch we continued our work with the growing HFA
-        tech team. We played an instrumental role in interviewing candidates
-        and making recommendations for designer and engineer hires for HFA. We
-        also continued daily work on hillaryclinton.com.
-      </p>
-      <p>
-        Myself along with other members of the Groundwork helped complete the
-        frontend engineering necessary for the HFA launch rally in New York
-        City. Our team also built the events microservice and API that powered
-        the events section of the HFA website.
-      </p>
-      <p>
-        Over 14,000 people RSVP’d for the launch rally using backend and
-        frontend systems built by our team. This was only the beginning.
-      </p>
-      <p>
-        <a href="https://storify.com/hodgesmr/clinton-campaign-tech"
-          >Matt’s Storify</a
-        >
-        is an excellent overview of what we accomplished.
-      </p>
+  <div class="g-main__item project__body">
+    <h3>hillaryclinton.com</h3>
+    <p>
+      Our team was instrumental in the initial Hillary for America website
+      launch. In the days leading up to the April 12, 2015 launch we helped
+      the HFA tech team and another web development vendor implement a
+      Wagtail CMS, implement designs, squash bugs, and make sure the the
+      site could handle the massive traffic it was about to receive.
+    </p>
+    <p>
+      In the months after launch we continued our work with the growing HFA
+      tech team. We played an instrumental role in interviewing candidates
+      and making recommendations for designer and engineer hires for HFA. We
+      also continued daily work on hillaryclinton.com.
+    </p>
+    <p>
+      Myself along with other members of the Groundwork helped complete the
+      frontend engineering necessary for the HFA launch rally in New York
+      City. Our team also built the events microservice and API that powered
+      the events section of the HFA website.
+    </p>
+    <p>
+      Over 14,000 people RSVP’d for the launch rally using backend and
+      frontend systems built by our team. This was only the beginning.
+    </p>
 
-      <h3>Leadership</h3>
-      <p>
-        While I never held the official title, I got to act as a de facto Lead
-        of the Frontend Team at The Groundwork. For a time it was the largest
-        team at seven excellent humans. I see leadership roles as a service
-        position. My primary role during that time was to help make sure each
-        member of the team had everything they needed to do great work. I
-        didn’t always succeed. I made mistakes daily. But I got the
-        opportunity to try, so I did every day.
-      </p>
+    <h3>Leadership</h3>
+    <p>
+      While I never held the official title, I got to act as a de facto Lead
+      of the Frontend Team at The Groundwork. For a time it was the largest
+      team at seven excellent humans. I see leadership roles as a service
+      position. My primary role during that time was to help make sure each
+      member of the team had everything they needed to do great work. I
+      didn’t always succeed. I made mistakes daily. But I got the
+      opportunity to try, so I did every day.
+    </p>
 
-      <h3>Design</h3>
-      <p>
-        Did a bunch of this. Write up a bit on Dev Center process and
-        iteration.
-      </p>
-      <p>
-        <a href="https://imnikkilee.com/work/thegroundwork/">Nikki</a> and
-        <a href="http://shiftsave.com/projects/the-groundwork/">Ivan</a> and
-        <a
-          href="https://jim-nielsen.com/blog/2017/designing-and-engineering-event-management-at-timshel/"
-          >Jim</a
-        >
-        have great write-ups about work they did.
-      </p>
+    <h3>Design</h3>
+    <p>
+      We did a lot of this. Some year I’ll actually write something here about
+      my process and outcomes. In the meantime, other teammates wrote about 
+      their process. You should read these.
+    </p>
+    <ul>
+      <li>
+        <a href="https://imnikkilee.com/work/thegroundwork/" target="_blank" rel="noopener noreferrer">
+          The Groundwork by Nikki Lee
+        </a>
+      </li>
+      <li>
+        <a href="https://jim-nielsen.com/blog/2017/designing-and-engineering-event-management-at-timshel/" target="_blank" rel="noopener noreferrer">
+          Designing and Engineering Event Management for Timshel’s “Admin” Web Application by Jim Nielsen
+        </a>
+      </li>
+    </ul>
 
-      <h3>Technology</h3>
-      <p>
-        React, Redux, Immutable.js, CSS modules, Travis, Immutable
-        infrastructure with AWS, next-level custom tooling for cloud infra
-        management.
-        <a href="https://darrennewton.com/2016/12/21/components-a-la-carte/"
-          >Darren wrote</a
-        >
-        about interesting work we did on the frontend.
-      </p>
+    <h3>Technology</h3>
+    <p>
+      React, Redux, Immutable.js, CSS modules, Travis, Immutable
+      infrastructure with AWS, next-level custom tooling for cloud infra 
+      management.
+      <a href="https://darrennewton.com/2016/12/21/components-a-la-carte/" target="_blank" rel="noopener noreferrer">Darren wrote</a> about some of the interesting work we did on the front-end.
+    </p>
 
-      <h3>Recognition</h3>
-      <ul class="project__recognition">
-        <li>
-          <a
-            href="https://qz.com/520652/groundwork-eric-schmidt-startup-working-for-hillary-clinton-campaign/"
-          >
-            <i
-              >The stealthy, Eric Schmidt-backed startup that’s working to put
-              Hillary Clinton in the White House</i
-            >
-          </a>
-        </li>
-        <li>
-          <a href="https://twitter.com/benjaminws/status/825069468258807808">
-            We made racists mad
-          </a>
-        </li>
-      </ul>
-    </div>
+    <h3>Recognition</h3>
+    <ul>
+      <li>
+        <a href="https://qz.com/520652/groundwork-eric-schmidt-startup-working-for-hillary-clinton-campaign/" target="_blank" rel="noopener noreferrer">
+          The stealthy, Eric Schmidt-backed startup that’s working to put Hillary Clinton in the White House
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/benjaminws/status/825069468258807808" target="_blank" rel="noopener noreferrer">
+          We made racists mad
+        </a>
+      </li>
+    </ul>
   </div>
 </div>
 
