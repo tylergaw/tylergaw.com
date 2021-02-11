@@ -91,7 +91,7 @@
 .about__bio h2,
 .about-section h2 {
   font-family: var(--font-proto-bold);
-  font-size: 1.4em;
+  font-size: var(--font-size-34);
   letter-spacing: -0.025em;
   margin: 0;
   padding: 0.7em 0 0 0;
@@ -112,6 +112,10 @@
 .bio__design,
 .bio__eng {
   font-size: 82%;
+}
+
+.highlight--about {
+  background-color: #8a291833;
 }
 
 .about-section__intro {

@@ -7,3 +7,7 @@
   background: var(--color-colorme-accent)
     url("/images/work/colorme/colorme-dust.svg") repeat;
 }
+
+.project--colorme {
+  --color-link: var(--color-colorme-accent);
+}

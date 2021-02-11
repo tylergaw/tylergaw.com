@@ -1,5 +1,28 @@
 ---
-title: ColorMe by Tyler Gaw
+title: ColorMe. A project by Tyler Gaw
+pageType: work
+specs: [
+  {
+    "title": "Hats worn", 
+    "desc": "Research, design, front-end"
+  },
+  {
+    "title": "Code used", 
+    "desc": "React, ServiceWorker, Web manifest, bad bash scripting"
+  },
+  {
+    "title": "Continuum", 
+    "desc": "The Web"
+  },
+  {
+    "title": "Timeframe", 
+    "desc": "2017-Present(ish)"
+  },
+  {
+    "title": "Repo", 
+    "desc": "<a href='https://github.com/tylergaw/colorme' target='_blank' rel='noopener noreferrer'>tylergaw/colorme</a>"
+  }
+]
 ---
 
 {% extends "layouts/base.njk" %}
@@ -9,8 +32,8 @@ title: ColorMe by Tyler Gaw
   {{ super() }}
 
   <div class="hero__contents">
-    <h1>
-      {% include "../images/work/colorme/colorme-logo.svg" %}
+    <h1 class="colorme__title">
+      <img src="/images/work/colorme/colorme-logo.svg" alt="ColorMe">
     </h1>
   </div>
 </div>
@@ -18,105 +41,89 @@ title: ColorMe by Tyler Gaw
 
 {% block main %}
 
-<div>
-  <div class="project__contents">
-    <div class="project__specs">
-      <ul>
-        <li><b>Personal / OSS</b></li>
-        <li>Research / Design / Frontend</li>
-        <li>2017</li>
-        <li class="project-specs-links">
-          <a href="https://colorme.io">colorme.io</a>
-          <br />
-          <a href="https://github.com/tylergaw/colorme">repo</a>
-        </li>
-      </ul>
+<div class="g-main g-padded project project--colorme">
+  <div class="g-main__item project__intro">
+    <div class="project__intro__main">
+      <a href="https://colorme.io" class="project__link font--regular" target="_blank" rel="noopener noreferrer">
+        colorme.io
+      </a>
+      <h2 class="project__intro__opening font--regular">
+        Can we really do this with CSS?
+      </h2>
+      <p class="project__intro__body">
+        ColorMe was originally a tool to visualize a previous version of 
+        CSS color manipulation functions. Today, it’s just a fun little color picker.
+        Tomorrow, it might again be a tool to visualize in progress CSS color functions.
+      </p>
     </div>
 
-      <div class="project__body">
-        <p class="project__intro">
-          <strong>
-            ColorMe is a tool to visualize future CSS color manipulation
-            functions. It’s also just a fun lil’ color picker.
-          </strong>
-          I’d read about the potential of Sass-like color manipulation coming to
-          CSS. I was also familiar with SassMe–built by a friend and former
-          Co-worker–that made working with color manipulation functions easier.
-          I had a bit of time off from work and wanted a project to tinker with,
-          so I set to build a tool for working with the possible future CSS
-          color functions.
-        </p>
-        <p>
-          In the weeks following the release I added a number features like;
-          rrggbbaa support, a color picker, and a few other things I forgot. For
-          me, the color function aspect has become secondary. ColorMe has turned
-          into my go-to color picker. That wasn’t intended, but is a fun
-          side-effect.
-        </p>
+    {% include "components/project-specs.njk" %}
+  </div>
 
-        <h3>CSS Spec Discussions and OSS contributions</h3>
-        <p>
-          In January 2017, color() was part of an editor’s draft CSS spec
-          (link). Since then, that has changed. It’s unclear what the fate of
-          color modification in CSS is, but the syntax will not be color().
-          That’s being developed in a different specification.
-        </p>
-        <p>
-          I made use of Ian Storm’s css-color-function package for ColorMe. I
-          discovered a couple bugs and needed tweaks to it during development
-          and contributed back to the library. Ian made me a contributor in late
-          2017 to help shephard the project along. After a few lengthy
-          discussions about the library’s future, work as paused for while. It’s
-          not dead, we’re just holding off for a while since the CSS spec is in
-          flux.
-        </p>
+  <div class="g-main__item project__body">
+    <p>
+      I’d read about the potential of Sass-like color manipulation coming to
+      CSS. I was also familiar with SassMe–built by a friend and former
+      Co-worker–that made working with color manipulation functions easier.
+      I had a bit of time off from work and wanted a project to tinker with,
+      so I set to build a tool for working with the possible future CSS
+      color functions.
+    </p>
+    <p>
+      In the weeks following the release I added a number features like;
+      rrggbbaa support, a color picker, and a few other things I forgot. For
+      me, the color function aspect has become secondary. ColorMe has turned
+      into my go-to color picker. That wasn’t intended, but is a fun
+      side-effect.
+    </p>
 
-        <h3>Writing</h3>
-        <p>
-          <a href="/articles/introducing-colorme">
-            <i>Introducing: ColorMe</i> </a
-          >,
-          <a href="/articles/new-colorme-features">
-            <i>New ColorMe Features</i> </a
-          >,
-          <a href="/articles/building-my-first-pwa">
-            <i>Building My First PWA</i>
-          </a>
-        </p>
+    <h3>CSS Spec Discussions and OSS contributions</h3>
+    <p>
+      In January 2017, color() was part of an editor’s draft CSS spec
+      (link). Since then, that has changed. It’s unclear what the fate of
+      color modification in CSS is, but the syntax will not be color().
+      That’s being developed in a different specification.
+    </p>
+    <p>
+      I made use of Ian Storm’s css-color-function package for ColorMe. I
+      discovered a couple bugs and needed tweaks to it during development
+      and contributed back to the library. Ian made me a contributor in late
+      2017 to help shephard the project along. After a few lengthy
+      discussions about the library’s future, work as paused for while. It’s
+      not dead, we’re just holding off for a while since the CSS spec is in
+      flux.
+    </p>
 
-        <h3>Technology</h3>
-        <p>
-          Create React App, Travis, AWS S3, ACM, ServiceWorker, Web manifest,
-          bad bash scripting.
-        </p>
-
-        <h3>Recognition</h3>
-        <ul class="project-recognition">
-          <li>
-            Got a nod from Chris on
-            <a href="https://css-tricks.com/colorme-css-color-level-4">
-              CSS Tricks
-            </a>
-          </li>
-          <li>
-            <a href="https://sidebar.io/?after=2017-01-09&before=2017-01-09">
-              Sidebar.io January 9, 2017
-            </a>
-          </li>
-          <li>
-            <a href="https://tympanus.net/codrops/collective/collective-278">
-              Codrops #278 January 7, 2017
-            </a>
-          </li>
-          <li>
-            <a href=" https://news.ycombinator.com/item?id=13331968">
-              Hacker News front paged 🤔
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
+    <h3>Blog posts</h3>
+    <ul>
+      <li><a href="/blog/introducing-colorme">Introducing: ColorMe</a></li>
+      <li><a href="/blog/new-colorme-features">New ColorMe Features</a></li>
+      <li><a href="/blog/building-my-first-pwa">Building My First PWA</a></li>
+    </ul>
+    <h3>Recognition</h3>
+    <ul>
+      <li>
+        <a href="https://css-tricks.com/colorme-css-color-level-4" target="_blank" rel="noopener noreferrer">
+          Got a nod from CSS Tricks
+        </a>
+      </li>
+      <li>
+        <a href="https://sidebar.io/date/2017-01-10" target="_blank" rel="noopener noreferrer">
+          Sidebar.io January 9, 2017
+        </a>
+      </li>
+      <li>
+        <a href="https://tympanus.net/codrops/collective/collective-278" target="_blank" rel="noopener noreferrer">
+          Codrops #278 January 7, 2017
+        </a>
+      </li>
+      <li>
+        <a href=" https://news.ycombinator.com/item?id=13331968" target="_blank" rel="noopener noreferrer">
+          Hacker News front paged 🤔
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>
 
 {% endblock %}
