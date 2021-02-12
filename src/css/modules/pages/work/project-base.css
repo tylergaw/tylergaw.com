@@ -3,7 +3,7 @@
 }
 
 .project a {
-  color: var(--color-link);
+  color: var(--color-link, var(--color-accent-primary));
 }
 
 .project__link {
