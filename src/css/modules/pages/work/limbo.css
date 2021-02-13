@@ -1,4 +1,5 @@
 .hero--limbo {
+  --color-limbo-accent-light: #f9c5c5;
   color: var(--color-eggshell);
   position: relative;
 }
@@ -6,42 +7,40 @@
 .hero--limbo::before {
   background: var(--color-limbo-accent) url("/images/work/limbo/limbo-dust.svg")
     repeat;
+  height: calc(90% - var(--offset-v));
+}
+
+.hero--limbo::after {
+  background: var(--color-limbo-accent) url("/images/work/limbo/limbo-dust.svg")
+    repeat;
+  bottom: 2rem;
+  border-radius: 6px;
+  height: 30%;
+  transform: skewY(1.75deg);
+}
+
+.hero--limbo .hero__contents {
+  margin: 0 auto;
+  max-width: calc(1720 / 16 * 1rem);
+  z-index: 1;
 }
 
 .hero--limbo a {
   color: var(--color-limbo-accent-dark);
 }
 
-.hero--limbo a:hover,
-.hero--limbo a:focus,
+.hero--limbo .banner__nav a:hover,
+.hero--limbo .banner__nav a:focus,
 .hero--limbo .nav-work {
-  color: var(--color-accent);
+  color: var(--color-limbo-accent-light);
 }
 
 .hero--limbo .banner__logo::after {
-  background-color: #f9c5c5;
-}
-
-@media (prefers-color-scheme: light) {
-  :not([data-user-color-scheme]) .hero--limbo a:hover,
-  :not([data-user-color-scheme]) .hero--limbo a:focus,
-  :not([data-user-color-scheme]) .hero--limbo .nav-work {
-    color: var(--color-limbo-accent-dark);
-  }
-}
-
-[data-user-color-scheme="light"] .hero--limbo a:hover,
-[data-user-color-scheme="light"] .hero--limbo a:focus,
-[data-user-color-scheme="light"] .hero--limbo .nav-work {
-  color: var(--color-limbo-accent-dark);
-}
-
-.project--limbo {
-  --color-link: var(--color-limbo-accent);
+  background-color: var(--color-limbo-accent-light);
 }
 
 .limbo__title {
-  bottom: 10%;
+  bottom: var(--pos-bottom, 15%);
   position: absolute;
   text-align: center;
   width: 100%;
@@ -53,9 +52,54 @@
 }
 
 .limbo__graphic {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.limbo__graphic img {
   display: block;
   height: auto;
   margin: 0 auto;
   max-width: calc(var(--max-width, 1200) / 16 * 1rem);
+  position: relative;
   width: 98%;
+}
+
+.project--limbo {
+  --color-link: var(--color-limbo-accent);
+}
+
+@media (min-width: 46.25em) {
+  .limbo__title {
+    --pos-bottom: 10%;
+    text-align: left;
+    text-indent: 13%;
+  }
+
+  .limbo__graphic img {
+    left: var(--pos-left, 25%);
+    margin: 0;
+    width: 87%;
+  }
+}
+
+@media (min-width: 73.125em) {
+  .hero--limbo::after {
+    bottom: 2.75rem;
+  }
+
+  .limbo__title {
+    --pos-bottom: 15%;
+    text-indent: 10%;
+  }
+
+  .limbo__title img {
+    --max-width: 330;
+  }
+
+  .limbo__graphic img {
+    --pos-left: 29%;
+    width: 80%;
+  }
 }

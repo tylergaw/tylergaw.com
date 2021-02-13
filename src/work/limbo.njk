@@ -28,14 +28,16 @@ specs: [
 {% extends "layouts/base.njk" %}
 
 {% block hero %}
-<div class="hero--limbo hero--before-standard">
+<div class="hero--limbo hero--before-standard hero--after-standard">
   {{ super() }}
 
   <div class="hero__contents">
-    <img class="limbo__graphic"
-      src="/images/work/limbo/limbo-elephant.svg" 
-      alt="An illustration of an elephant."
-      width="1200" height="901">
+    <div class="limbo__graphic">
+      <img
+        src="/images/work/limbo/limbo-elephant.svg" 
+        alt="An illustration of an elephant."
+        width="1200" height="901">
+    </div>
 
     <h1 class="limbo__title">
       <img src="/images/work/limbo/limbo-logo.svg" alt="Limbo">

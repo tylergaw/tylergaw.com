@@ -14,7 +14,7 @@
 
 .hero--before-standard::before {
   --offset-v: calc(var(--gutter) * 3);
-  border-radius: 6px 6px 0 0;
+  border-radius: 6px;
   height: calc(100% - var(--offset-v));
   top: calc(var(--gutter) * 3);
 }

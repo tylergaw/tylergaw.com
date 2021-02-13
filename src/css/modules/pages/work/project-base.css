@@ -23,7 +23,7 @@ span.project__link {
 
 .project__intro__main {
   max-width: calc(880 / 16 * 1rem);
-  padding-top: calc(var(--g-row) * 8);
+  padding-top: calc(var(--g-row) * var(--padding-top-rows, 2));
 }
 
 .project__intro__opening {
@@ -120,6 +120,10 @@ span.project__link {
 }
 
 @media (min-width: 65em) {
+  .project__intro__main {
+    --padding-top-rows: 6;
+  }
+
   .project__intro,
   .project__body {
     --col-start: 2;
