@@ -21,7 +21,7 @@
     100% 0,
     100% 100%,
     0 100%,
-    2rem var(--path-point, 62%)
+    3rem var(--path-point, 62%)
   );
   height: calc(100% - var(--offset-v));
   left: initial;
@@ -29,6 +29,20 @@
   top: calc(var(--gutter) * 3);
   transform: rotate(1deg);
   width: calc(var(--width-target, 62%) - var(--gutter) * 2);
+}
+
+.hero--colorme a {
+  color: #5c003f;
+}
+
+.hero--colorme .banner__logo::after {
+  background-color: #eaaed7;
+}
+
+.hero--colorme .banner__nav a:hover,
+.hero--colorme .banner__nav a:focus,
+.hero--colorme .nav-work {
+  color: #5c003f;
 }
 
 .colorme__title {
