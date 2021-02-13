@@ -21,3 +21,9 @@
   to = "/blog/:splat"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/library"
+  to = "/bookshelf"
+  status = 301
+  force = true

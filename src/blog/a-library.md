@@ -8,6 +8,10 @@ meta:
 ---
 
 <p>
+  <b>Update, early 2021:</b> A changed the name and URL to <a href="/bookshelf">Bookshelf</a>. Just seemed like a better fit.
+</p>
+
+<p>
   I don’t read enough books. And when I do, I don’t read a wide enough variety
   of them. I’m working to fix this by doing three things:
 </p>
