@@ -18,18 +18,21 @@ body {
   /* Project and page colors */
   --color-streetcred-accent: #8e42f5;
   --color-streetcred-accent-dark: #400099;
+  --color-streetcred-accent-light: #dcc2ff;
 
   --color-limbo-accent: #dd3535;
   --color-limbo-accent-dark: #800000;
+  --color-limbo-accent-light: #f9c5c5;
 
   --color-colorme-accent: #b42e8a;
   --color-colorme-accent-dark: #8c0060;
 
   --color-groundwork-accent: #3b6fd8;
-  --color-groundwork-accent-dark: #1f4ead;
+  --color-groundwork-accent-dark: #1a4293;
+  --color-groundwork-accent-light: #a4bff4;
 
   --color-experiments-accent: #66fa32;
-  --color-experiments-accent-dark: #0f9900;
+  --color-experiments-accent-dark: #2d8f22;
 
   --color-about-accent: #8a2918;
   --color-about-accent-dark: #56180d;

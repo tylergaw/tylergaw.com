@@ -107,6 +107,12 @@ span.project__link {
   max-width: 100%;
 }
 
+.project__shout {
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  padding: 1rem 1.2rem;
+}
+
 @media (min-width: 38.75em) {
   .project__intro,
   .project__body {

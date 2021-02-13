@@ -4,15 +4,133 @@
 }
 
 .hero--groundwork::before {
-  background: var(--color-groundwork-accent) url("/images/about-dust.svg")
-    repeat;
+  background: var(--color-groundwork-accent)
+    url("/images/work/thegroundwork/gw-dust.svg") repeat;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 72%,
+    97% 78%,
+    95% 75%,
+    85% 88%,
+    84% 78%,
+    77% 94%,
+    76% 88%,
+    72% 97%,
+    71% 90%,
+    65% 99%,
+    64.5% 93%,
+    63% 98%,
+    58% 90%,
+    57.5% 100%,
+    53% 93%,
+    52.5% 98%,
+    44% 90%,
+    43% 96%,
+    38% 92%,
+    35% 95%,
+    28% 89%,
+    20% 93%,
+    15% 87%,
+    12% 90%,
+    5% 80%,
+    0 82%
+  );
+  z-index: 1;
+}
+
+.hero--groundwork::after {
+  background-color: var(--color-groundwork-accent-dark);
+  bottom: 0;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 63%,
+    96% 80%,
+    95% 72%,
+    84.5% 90%,
+    84% 77%,
+    76.5% 96%,
+    76% 88%,
+    72% 98%,
+    71% 91%,
+    65% 99%,
+    64.5% 92%,
+    63% 98%,
+    58% 91%,
+    57.5% 100%,
+    53% 95%,
+    52.5% 97.5%,
+    44% 90%,
+    43% 96%,
+    38% 92%,
+    35% 95%,
+    28% 89%,
+    20% 93%,
+    15% 87%,
+    12% 90%,
+    5% 75%,
+    0 76%
+  );
+  height: 70%;
+}
+
+.hero--groundwork a {
+  color: var(--color-groundwork-accent-dark);
+}
+
+.hero--groundwork .banner__logo::after {
+  background-color: var(--color-groundwork-accent-light);
+}
+
+.hero--groundwork .banner__nav a:hover,
+.hero--groundwork .banner__nav a:focus,
+.hero--groundwork .nav-work {
+  color: var(--color-groundwork-accent-light);
+}
+
+.groundwork__title {
+  margin: 0 auto;
+  max-width: calc(750 / 16 * 1rem);
+  padding-top: 1rem;
+  padding-bottom: 9rem;
+  position: relative;
+  width: 72%;
+}
+
+.groundwork__title img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.groundwork__mark {
+  filter: drop-shadow(
+    0 var(--shadow-x, 8px) 0 var(--color-groundwork-accent-dark)
+  );
+  margin: 0 auto 0.75rem auto;
+  max-width: calc(var(--width-max, 130) / 16 * 1rem);
 }
 
 .project--groundwork {
   --color-link: var(--color-groundwork-accent);
 }
 
-.highlight--groundwork {
-  background-color: #deff00cc;
-  color: #000;
+@media (min-width: 38.75em) {
+  .groundwork__title {
+    padding-top: min(5vw, 4rem);
+    padding-bottom: min(19vw, 17rem);
+    width: 68%;
+  }
+
+  .groundwork__mark {
+    --shadow-x: 12px;
+    --width-max: 180;
+  }
+}
+
+@media (min-width: 106.25em) {
+  .groundwork__mark {
+    --width-max: 220;
+  }
 }

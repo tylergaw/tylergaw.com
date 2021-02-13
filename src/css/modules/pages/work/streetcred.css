@@ -26,13 +26,13 @@
 }
 
 .hero--streetcred .banner__logo::after {
-  background-color: #dcc2ff;
+  background-color: var(--color-streetcred-accent-light);
 }
 
 .hero--streetcred .banner__nav a:hover,
 .hero--streetcred .banner__nav a:focus,
 .hero--streetcred .nav-work {
-  color: #dcc2ff;
+  color: var(--color-streetcred-accent-light);
 }
 
 .hero--streetcred .hero__contents {

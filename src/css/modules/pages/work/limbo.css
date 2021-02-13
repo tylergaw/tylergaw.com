@@ -1,5 +1,4 @@
 .hero--limbo {
-  --color-limbo-accent-light: #f9c5c5;
   color: var(--color-eggshell);
   position: relative;
 }

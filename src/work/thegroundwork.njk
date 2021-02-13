@@ -28,13 +28,16 @@ specs: [
 {% extends "layouts/base.njk" %}
 
 {% block hero %}
-<div class="hero--groundwork hero--before-standard">
+<div class="hero--groundwork hero--before-standard hero--after-standard">
   {{ super() }}
 
   <div class="hero__contents">
-    <h1>
-      <img src="/images/work/thegroundwork/gw-mark.svg" alt="The GW logo made up of a circle around a triangle and digital 'roots'">
-      <img src="/images/work/thegroundwork/gw-logo.svg" alt="The Groundwork">
+    <h1 class="groundwork__title">
+      <img class="groundwork__mark" src="/images/work/thegroundwork/gw-mark.svg" 
+        alt="The GW logo made up of a circle around a triangle and digital 'roots'"
+        width="214" height="214">
+      <img src="/images/work/thegroundwork/gw-logo.svg" alt="The Groundwork" 
+        width="1209" height="115">
     </h1>
   </div>
 </div>
@@ -59,9 +62,9 @@ specs: [
         You don’t know about that because that’s how we designed it.
         From the beginning, our mantra was, “don’t be the story.”
       </p>
-      <p class="project__intro__extended highlight--groundwork">
+      <p class="project__intro__extended project__shout">
         <strong>*Warning</strong>: Do not visit any thegroundwork.com domains. 
-        The owner of The Groundwork let the domain lapse and it was taken over by bad actors.
+        The owner of the domain let it lapse years ago and it was taken over by bad actors.
       </p>
     </div>
 
