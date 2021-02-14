@@ -114,6 +114,11 @@ span.project__link {
 }
 
 @media (min-width: 38.75em) {
+  .project {
+    padding-left: calc(var(--g-gutter) * 2.25);
+    padding-right: calc(var(--g-gutter) * 2.25);
+  }
+
   .project__intro,
   .project__body {
     --col-start: 1;
