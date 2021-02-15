@@ -59,8 +59,8 @@
 .p-colorme__title::before,
 .p-thegroundwork__link::before,
 .p-jxa__link::before,
-.p-experiments__link::before,
-.p-experiments__link::after,
+.p-archive__link::before,
+.p-archive__link::after,
 .m-about__link::before {
   content: "";
   display: block;
@@ -84,7 +84,7 @@
 .p-colorme__link:focus,
 .p-thegroundwork__link:focus,
 .p-jxa__link:focus,
-.p-experiments__link:focus,
+.p-archive__link:focus,
 .m-about__link:focus,
 .m-blog__link:focus {
   outline: none;
@@ -120,7 +120,7 @@
 .p-limbo__link:active .p-limbo__title,
 .p-colorme__link:active .p-colorme__title,
 .p-thegroundwork__link:active .p-thegroundwork__graphic,
-.p-experiments__link:active .p-experiments__title,
+.p-archive__link:active .p-archive__title,
 .m-about__link:active .m-about__title,
 .m-blog__link:active .m-blog__title {
   transform: scale3d(0.96, 0.96, 0.96);
@@ -131,7 +131,7 @@
 .p-colorme__title::after,
 .p-thegroundwork__title-underline,
 .p-jxa__title::after,
-.p-experiments__title strong::after,
+.p-archive__title strong::after,
 .m-about__title strong::after,
 .m-blog__title strong::after {
   content: "";
@@ -481,11 +481,11 @@
   max-width: 68%;
 }
 
-.p-experiments {
+.p-archive {
   --row-end: span 3;
 }
 
-.p-experiments__link {
+.p-archive__link {
   align-items: center;
   color: var(--color-charcoal);
   display: flex;
@@ -494,15 +494,15 @@
   text-decoration: none;
 }
 
-.p-experiments__link::before,
-.p-experiments__link::after {
+.p-archive__link::before,
+.p-archive__link::after {
   background: var(--color-archive-accent)
-    url("/images/work/experiments/experiments-dust.svg") repeat;
+    url("/images/work/archive/archive-dust.svg") repeat;
   height: 100%;
   transition: 0.1s ease;
 }
 
-.p-experiments__link::before {
+.p-archive__link::before {
   border-radius: 6px;
   box-shadow: inset 0 0 0 var(--border-width) var(--border-color);
   left: 10%;
@@ -510,7 +510,7 @@
   width: 85%;
 }
 
-.p-experiments__link::after {
+.p-archive__link::after {
   border-radius: 6px 0 0 6px;
   box-shadow: inset var(--border-width) var(--border-width) 0
       var(--border-color),
@@ -519,17 +519,17 @@
   width: 15%;
 }
 
-.p-experiments__link:focus,
-.p-experiments__link:hover {
+.p-archive__link:focus,
+.p-archive__link:hover {
   --border-color: var(--color-archive-accent-dark);
 }
 
-.p-experiments__link:hover .p-experiments__title strong::after,
-.p-experiments__link:focus .p-experiments__title strong::after {
+.p-archive__link:hover .p-archive__title strong::after,
+.p-archive__link:focus .p-archive__title strong::after {
   width: 100%;
 }
 
-.p-experiments__title {
+.p-archive__title {
   line-height: 1.4;
   margin: 0 auto;
   position: relative;
@@ -537,7 +537,7 @@
   z-index: 1;
 }
 
-.p-experiments__title small {
+.p-archive__title small {
   display: block;
   font-family: var(--font-proto-regular);
   font-size: var(--font-size-18);
@@ -550,13 +550,13 @@
   translate: 0.8em;
 }
 
-.p-experiments__title strong {
+.p-archive__title strong {
   display: inline-block;
   font-family: var(--font-proto-bold);
   font-size: var(--font-size-30);
 }
 
-.p-experiments__title strong::after {
+.p-archive__title strong::after {
   background-color: currentColor;
 }
 
@@ -820,20 +820,20 @@
     --row-start: 12;
   }
 
-  .p-experiments {
+  .p-archive {
     --row-end: span 5;
   }
 
-  .p-experiments__link {
+  .p-archive__link {
     align-items: flex-start;
     max-width: calc(370 / 16 * 1rem);
   }
 
-  .p-experiments__link::before {
+  .p-archive__link::before {
     --skew-x: -1.5deg;
   }
 
-  .p-experiments__title {
+  .p-archive__title {
     padding-top: 4rem;
   }
 
@@ -956,7 +956,7 @@
     width: 65%;
   }
 
-  .p-experiments {
+  .p-archive {
     --col-end: span 2;
   }
 
@@ -1088,7 +1088,7 @@
     --width: 120%;
   }
 
-  .p-experiments {
+  .p-archive {
     --col-start: 4;
     --row-end: span 6;
   }
@@ -1163,7 +1163,7 @@
     padding-right: 3rem;
   }
 
-  .p-experiments {
+  .p-archive {
     --col-start: 5;
     --col-end: span 3;
   }
@@ -1216,7 +1216,7 @@
     --col-end: span 5;
   }
 
-  .p-experiments {
+  .p-archive {
     --col-start: 6;
     --row-end: span 7;
   }
@@ -1234,7 +1234,7 @@
   .p-colorme__title::after,
   .p-thegroundwork__title-underline,
   .p-jxa__title::after,
-  .p-experiments__title strong::after,
+  .p-archive__title strong::after,
   .m-about__title strong::after,
   .m-blog__link,
   .m-blog__title strong::after,
