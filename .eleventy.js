@@ -1,11 +1,14 @@
 const CleanCSS = require("clean-css");
 const dayjs = require("dayjs");
 const timezone = require("dayjs/plugin/timezone");
+const pluginRSS = require("@11ty/eleventy-plugin-rss");
 
 dayjs.extend(timezone);
 dayjs.tz.setDefault("America/New_York");
 
 module.exports = function (conf) {
+  conf.addPlugin(pluginRSS);
+
   conf.addFilter("cssmin", (code) => new CleanCSS({}).minify(code).styles);
 
   conf.addFilter("dateFormat", (dateStr, format) => {
