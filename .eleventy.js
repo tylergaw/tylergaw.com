@@ -27,6 +27,7 @@ module.exports = function (conf) {
     "woff2",
     "ico",
     "js",
+    "pdf",
   ]);
   conf.addPassthroughCopy("./src/manifest.webmanifest");
   conf.addPassthroughCopy("./src/keybase.txt");
