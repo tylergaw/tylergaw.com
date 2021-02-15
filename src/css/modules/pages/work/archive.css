@@ -1,9 +1,0 @@
-.hero--experiments {
-  color: var(--color-charcoal);
-  position: relative;
-}
-
-.hero--experiments::before {
-  background: var(--color-archives-accent)
-    url("/images/work/experiments/experiments-dust.svg") repeat;
-}
