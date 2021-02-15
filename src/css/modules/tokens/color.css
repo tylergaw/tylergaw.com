@@ -32,9 +32,10 @@ body {
   --color-groundwork-accent-light: #a4bff4;
 
   --color-jxa-accent: #151414;
+  --color-jxa-accent-light: #5b5757;
 
-  --color-experiments-accent: #66fa32;
-  --color-experiments-accent-dark: #2d8f22;
+  --color-archive-accent: #66fa32;
+  --color-archive-accent-dark: #2d8f22;
 
   --color-about-accent: #8a2918;
   --color-about-accent-dark: #56180d;

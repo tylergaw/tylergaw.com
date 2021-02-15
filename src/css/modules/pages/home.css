@@ -418,7 +418,7 @@
 
 .p-jxa__link:hover,
 .p-jxa__link:focus {
-  --border-color: #5b5757;
+  --border-color: var(--color-jxa-accent-light);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -496,7 +496,7 @@
 
 .p-experiments__link::before,
 .p-experiments__link::after {
-  background: var(--color-experiments-accent)
+  background: var(--color-archive-accent)
     url("/images/work/experiments/experiments-dust.svg") repeat;
   height: 100%;
   transition: 0.1s ease;
@@ -521,7 +521,7 @@
 
 .p-experiments__link:focus,
 .p-experiments__link:hover {
-  --border-color: var(--color-experiments-accent-dark);
+  --border-color: var(--color-archive-accent-dark);
 }
 
 .p-experiments__link:hover .p-experiments__title strong::after,

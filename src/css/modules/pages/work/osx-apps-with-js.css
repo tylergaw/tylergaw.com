@@ -47,7 +47,7 @@
 }
 
 .project--jxa {
-  --color-link: var(--color-jxa-accent);
+  --color-link: var(--color-jxa-accent-light);
 }
 
 @media (min-width: 38.75em) {
