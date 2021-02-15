@@ -15,124 +15,15 @@ title: Books I’m reading and books I’ve Read - Tyler Gaw
   </div>
 </div>
 
-<ol class="listed-items" reversed>
-  <li class="listed-items-heading">
-    <h3>2021</h3>
-  </li>
-  <li class="g-main__item listed-item">
-    <span class="book-current">Currently Reading</span>
-    <a
-      class="listed-item__link"
-      href="https://www.goodreads.com/book/show/472331.Watchmen"
-      >Watchmen</a
-    >
-    <h4>by Alan Moore, Dave Gibbons</h4>
-  </li>
-  <li class="listed-item">
-    <span class="book-current">Currently Reading</span>
-    <a
-      class="listed-item__link"
-      href="https://www.goodreads.com/book/show/49349641-what-can-a-body-do"
-      >What Can a Body Do?: How We Meet the Built World</a
-    >
-    <h4>by Sara Hendren</h4>
-  </li>
-  <li class="listed-item">
-    <time datetime="2021-02">February, 2021</time>
-    <a
-      class="listed-item__link"
-      href="https://www.goodreads.com/book/show/42283773-the-plaza"
-      >The Plaza: The Secret Life of America's Most Famous Hotel</a
-    >
-    <h4>by Julie Satow</h4>
-  </li>
-  <li class="listed-items-heading">
-    <h3>2020</h3>
-  </li>
-  <li class="g-main__item listed-item">
-    <span class="book-current">Currently Reading</span>
-    <a
-      class="listed-item__link"
-      href="https://www.goodreads.com/book/show/33916061-we-were-eight-years-in-power"
-      >We Were Eight Years in Power: An American Tragedy</a
-    >
-    <p>by Ta-Nehisi Coates</p>
-  </li>
-  <li class="g-main__item listed-item">
-    <span class="book-current">July, 2020</span>
-    <a
-      class="listed-item__link"
-      href="https://www.goodreads.com/book/show/37004370-the-memory-police"
-      >The Memory Police</a
-    >
-    <p>by Yōko Ogawa</p>
-  </li>
-  <li class="g-main__item listed-item">
-    <time datetime="2020-03">March, 2020</time>
-    <a
-      class="listed-item__link"
-      href="https://www.goodreads.com/book/show/27876376-networks-of-new-york"
-      >Networks of New York</a
-    >
-    <p>by Ingrid Burrington</p>
-  </li>
-  <li class="g-main__item listed-item">
-    <time datetime="2020-01">January, 2020</time>
-    <a
-      class="listed-item__link"
-      href="https://www.goodreads.com/book/show/44573628-super-pumped"
-      >Super Pumped</a
-    >
-    <p>by Mike Isaac</p>
-  </li>
-  <li class="g-main__item listed-items__heading">
-    <h2>2019</h2>
-  </li>
-  <li class="g-main__item listed-item">
-    <time datetime="2019-09">September, 2019</time>
-    <a
-      class="listed-item__link"
-      href="https://www.goodreads.com/book/show/32585.Hunger"
-      >Hunger</a
-    >
-    <p>by Knut Hamsun</p>
-  </li>
-  <li class="g-main__item listed-item">
-    <time datetime="2019-07">July, 2019</time>
-    <a
-      class="listed-item__link"
-      href="https://www.goodreads.com/book/show/41552709-the-uninhabitable-earth"
-      >The Uninhabitable Earth: Life After Warming</a
-    >
-    <p>by David Wallace-Wells</p>
-  </li>
-  <li class="g-main__item listed-item">
-    <time datetime="2019-05">May, 2019</time>
-    <a
-      class="listed-item__link"
-      href="https://www.goodreads.com/book/show/428.Play_It_as_It_Lays"
-      >Play It As It Lays</a
-    >
-    <p>by Joan Didion</p>
-  </li>
-  <li class="g-main__item listed-item">
-    <time datetime="2019-04">April, 2019</time>
-    <a
-      class="listed-item__link"
-      href="https://www.goodreads.com/book/show/37976541-bad-blood"
-      >Bad Blood</a
-    >
-    <p>by John Carreyrou</p>
-  </li>
-  <li class="g-main__item listed-item">
-    <time datetime="2019-04">April, 2019</time>
-    <a
-      class="listed-item__link"
-      href="https://www.goodreads.com/book/show/7815.The_Year_of_Magical_Thinking"
-      >The Year of Magical Thinking</a
-    >
-    <p>by Joan Didion</p>
-  </li>
+<ol class="listed-items g-main g-padded">
+{% for book in books %}
+
+  {% if book.year %}
+    <li class="g-main__item listed-items__heading" id="{{ book.year }}">
+      <h2>{{ book.year }}</h2>
+    </li>
+  {% endif %}
+
   <li class="g-main__item listed-item">
 
     {% if book.current %}
