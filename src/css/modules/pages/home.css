@@ -439,7 +439,8 @@
 }
 
 .p-jxa__link::before {
-  background: #151414 url("/images/work/jxa/jxa-dust.svg") repeat;
+  background: var(--color-jxa-accent) url("/images/work/jxa/jxa-dust.svg")
+    repeat;
   border-radius: 6px;
   box-shadow: inset 0 0 0 var(--border-width) var(--border-color);
   height: 80%;
@@ -474,7 +475,7 @@
 .p-jxa__title::after {
   background-color: currentColor;
   border-radius: 2px;
-  box-shadow: 0 0 0 var(--shadow-spread, 0) #151414;
+  box-shadow: 0 0 0 var(--shadow-spread, 0) var(--color-jxa-accent);
   margin-left: auto;
   margin-right: 1.5rem;
   max-width: 68%;

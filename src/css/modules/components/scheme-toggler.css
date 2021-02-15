@@ -7,14 +7,14 @@
 }
 
 .scheme-toggler__btn {
-  --size: 2.2rem;
+  --size: 1.5rem;
   background-color: var(--color-bg);
   border: 0;
   border-radius: calc(var(--size) / 2);
   cursor: pointer;
   display: flex;
   height: var(--size);
-  padding: 4px;
+  padding: var(--padding, 2px);
   place-items: center;
   width: var(--size);
 }
@@ -28,4 +28,11 @@
 .scheme-toggler__btn:focus {
   box-shadow: 0 0 0 3px var(--color-accent-primary);
   outline: none;
+}
+
+@media (min-width: 38.75em) {
+  .scheme-toggler__btn {
+    --size: 2.2rem;
+    --padding: 4px;
+  }
 }
