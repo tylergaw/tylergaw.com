@@ -89,6 +89,10 @@ span.project__link {
   font-size: var(--font-size-20);
 }
 
+.project__body p {
+  max-width: 70ch;
+}
+
 .project__body li {
   list-style: disc inside;
   margin-top: 0.75rem;
@@ -114,8 +118,61 @@ span.project__link {
   margin-top: 1rem;
 }
 
+.project__graphics {
+  --padding-v: calc(var(--g-row) * 6);
+  padding-top: var(--padding-v);
+  padding-bottom: var(--padding-v);
+}
+
+.project__figure {
+  display: block;
+  max-width: calc(1760 / 16 * 1rem);
+}
+
 .project__figure img {
+  display: block;
+  height: auto;
   max-width: 100%;
+  width: 100%;
+}
+
+.figure--browser {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 12px 30px rgba(0, 0, 0, var(--browser-shadow, 0.12));
+  overflow: hidden;
+  position: relative;
+}
+
+.figure--browser::before {
+  background: white
+    url("data:image/svg+xml,%3Csvg width='62' height='14' viewBox='0 0 62 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 7C14 10.866 10.866 14 7 14C3.13401 14 0 10.866 0 7C0 3.13401 3.13401 0 7 0C10.866 0 14 3.13401 14 7Z' fill='%23E1EBED'/%3E%3Cpath d='M38 7C38 10.866 34.866 14 31 14C27.134 14 24 10.866 24 7C24 3.13401 27.134 0 31 0C34.866 0 38 3.13401 38 7Z' fill='%23E1EBED'/%3E%3Cpath d='M55 14C58.866 14 62 10.866 62 7C62 3.13401 58.866 0 55 0C51.134 0 48 3.13401 48 7C48 10.866 51.134 14 55 14Z' fill='%23E1EBED'/%3E%3C/svg%3E")
+    no-repeat 0.8rem center;
+  border-bottom: 2px solid #e1ebed;
+  content: "";
+  display: block;
+  height: calc(46 / 16 * 1rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-user-color-scheme]) .figure--browser,
+  body:not([data-user-color-scheme]) .figure--browser {
+    background-color: var(--color-charcoal);
+    --browser-shadow: 0.7;
+  }
+}
+
+[data-user-color-scheme="dark"] .figure--browser {
+  --browser-shadow: 0.7;
+  background-color: var(--color-charcoal);
+}
+
+[data-user-color-scheme="dark"] .figure--browser::before {
+  opacity: 0.85;
+}
+
+[data-user-color-scheme="dark"] .figure--browser img {
+  opacity: 0.85;
 }
 
 .project__shout {
@@ -131,7 +188,8 @@ span.project__link {
   }
 
   .project__intro,
-  .project__body {
+  .project__body,
+  .project__graphics {
     --col-start: 1;
     --col-end: -1;
   }
@@ -147,18 +205,24 @@ span.project__link {
   }
 
   .project__intro,
-  .project__body {
+  .project__body,
+  .project__graphics {
     --col-start: 2;
   }
 
   .project__body {
     --col-end: -2;
   }
+
+  .figure--browser {
+    transform: translateX(calc(20 / 16 * -1rem));
+  }
 }
 
 @media (min-width: 137.5em) {
   .project__intro,
-  .project__body {
+  .project__body,
+  .project__graphics {
     --col-start: 3;
   }
 
