@@ -1,4 +1,5 @@
-.page-intro {
+.page-intro,
+.resume-intro {
   padding-bottom: calc(var(--g-row) * var(--rows-btm, 8));
   padding-top: calc(var(--g-row) * var(--rows-top, 4));
 }
@@ -7,6 +8,14 @@
   font-size: 1.2em;
   line-height: 1.5;
   margin: 0.5rem 0 0 0;
+}
+
+.page-intro__body p {
+  max-width: 62ch;
+}
+
+.page-intro__body p + p {
+  padding-top: 1.4rem;
 }
 
 @media (min-width: 38.75em) {
