@@ -11,48 +11,48 @@ meta:
     quicker and more comfortable.
 ---
 
-        <p class="entry-intro">
-            I host my personal sites–this one, <a href="http://lab.tylergaw.com/">my lab</a>, <a href="http://againwiththis.com/">my quips</a>,
-            <a href="http://listentoslayer.com/">nonsense</a>, and others–on a
-            Rackspace <a href="http://en.wikipedia.org/wiki/Virtual_private_server">VPS</a>.
-            <a href="http://nginx.com">NGINX</a> is my web server of choice. Each site
-            has its own configuration file. I’m definitely not Mr. Sys Admin,
-            but I have an easy way of organizing those config files to help me make quick
-            updates and additions.
-        </p>
+<p class="entry-intro">
+    I host my personal sites–this one, <a href="http://lab.tylergaw.com/">my lab</a>, <a href="http://againwiththis.com/">my quips</a>,
+    <a href="http://listentoslayer.com/">nonsense</a>, and others–on a
+    Rackspace <a href="http://en.wikipedia.org/wiki/Virtual_private_server">VPS</a>.
+    <a href="http://nginx.com">NGINX</a> is my web server of choice. Each site
+    has its own configuration file. I’m definitely not Mr. Sys Admin,
+    but I have an easy way of organizing those config files to help me make quick
+    updates and additions.
+</p>
 
-        <p>
-            I’m assuming some knowledge with this post. Folks who have middle ground knowledge
-            of NGINX will get the most out of this. It’s not a how-to NGINX post, so beginners may not find it useful.
-            It also may not be helpful if you have advanced NGINX knowledge as you likely
-            have a better way to handle these things.
-        </p>
+<p>
+    I’m assuming some knowledge with this post. Folks who have middle ground knowledge
+    of NGINX will get the most out of this. It’s not a how-to NGINX post, so beginners may not find it useful.
+    It also may not be helpful if you have advanced NGINX knowledge as you likely
+    have a better way to handle these things.
+</p>
 
-        <h2>What I Do</h2>
-        <p>
-            I keep my config files in a private Github repo called “server-conf”. In it
-            I have two directories; “local” and “prod”. Local for the NGINX install
-            on my developement machine and prod for my VPS. I have different sites
-            locally than I do production. Each site whether local or prod has its
-            own config file.
-        </p>
-        <figure>
-            <img src="https://tylergaw.com/articles/assets/post-image-nginx-conf-editor.jpg" alt="The server-conf repo opened in a text editor">
-            <figcaption>
-                server-conf in my current preferred text editor, Atom. Being able to use it instead of something
-                like Vim is much more comfortable for me
-            </figcation>
-        </figure>
-        <p>
-            Both locally and in production, I clone the server-conf repo to my home directory.
-            To tell NGINX where the config files are, I use <code>include</code>
-            in the <code>http</code> block of the main NGINX config file, <code>nginx.conf</code>.
-            The location of this file is different for each install. Locally, mine is at
-            <code>/usr/local/etc/nginx</code>. I can never remeber where it is
-            on my VPS, I just have to peck around until I find it. Here are
-            the relevant snippets from my local and prod <code>nginx.conf</code>.
-        </p>
-        <pre><code class="language-clike"># local
+<h2>What I Do</h2>
+<p>
+    I keep my config files in a private Github repo called “server-conf”. In it
+    I have two directories; “local” and “prod”. Local for the NGINX install
+    on my developement machine and prod for my VPS. I have different sites
+    locally than I do production. Each site whether local or prod has its
+    own config file.
+</p>
+<figure>
+    <img src="https://tylergaw.com/articles/assets/post-image-nginx-conf-editor.jpg" alt="The server-conf repo opened in a text editor">
+    <figcaption>
+        server-conf in my current preferred text editor, Atom. Being able to use it instead of something
+        like Vim is much more comfortable for me
+    </figcation>
+</figure>
+<p>
+    Both locally and in production, I clone the server-conf repo to my home directory.
+    To tell NGINX where the config files are, I use <code>include</code>
+    in the <code>http</code> block of the main NGINX config file, <code>nginx.conf</code>.
+    The location of this file is different for each install. Locally, mine is at
+    <code>/usr/local/etc/nginx</code>. I can never remeber where it is
+    on my VPS, I just have to peck around until I find it. Here are
+    the relevant snippets from my local and prod <code>nginx.conf</code>.
+</p>
+<pre><code class="language-clike"># local
 
 http {
 ...
@@ -60,13 +60,11 @@ include /path/to/home/server-conf/local/\*;
 }
 </code></pre>
 
-        <pre><code class="language-clike"># production
-
+<pre><code class="language-clike"># production
 http {
 ...
 include /path/to/home/server-conf/prod/\*;
-}
-</code></pre>
+}</code></pre>
 
 <h2>Why the Home Directory?</h2>
 <p>
@@ -135,6 +133,6 @@ and Vim as I am a graphical text editor. Having this setup in place
 makes it as easy as updating any other files associated with my sites.
 </p>
 
-        <p>
-            <i>Thanks for reading</i>
-        </p>
+<p>
+    <i>Thanks for reading</i>
+</p>

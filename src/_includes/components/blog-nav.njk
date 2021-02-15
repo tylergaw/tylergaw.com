@@ -6,14 +6,14 @@
     <div class="blog-nav__contents">
       <p>
       {% if previousPost %}
-        <b class="heading--special">Older</b> 
+        <b class="heading--special">Older post</b> 
         <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>
       {% endif %}
       </p>
 
       <p>
       {% if nextPost %}
-        <b class="heading--special">Newer</b> 
+        <b class="heading--special">Newer post</b> 
         <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>
       {% endif %}
       </p>
