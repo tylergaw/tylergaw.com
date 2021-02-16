@@ -69,20 +69,20 @@ specs: [
     {% include "components/project-specs.njk" %}
   </div>
 
-  <div class="g-main__item project__body">
-    <figure class="project__figure">
-      <a href="https://www.limbo.io" class="project-img-link">
-        <picture>
-          <source srcset="/images/home-limbo-1.webp" type="image/webp" />
-          <source srcset="/images/home-limbo-1.jpg" type="image/jpeg" />
-          <img
-            src="/images/home-limbo-1.jpg"
-            alt="A partial screenshot of the Limbo home page"
-          />
-        </picture>
-      </a>
+  <div class="g-main__item project__graphics">
+    <figure class="project__figure figure--browser">
+      <picture>
+        <source srcset="/images/home-limbo-1.webp" type="image/webp" />
+        <source srcset="/images/home-limbo-1.jpg" type="image/jpeg" />
+        <img
+          src="/images/home-limbo-1.jpg"
+          alt="A partial screenshot of the Limbo home page"
+        />
+      </picture>
     </figure>
+  </div>
 
+  <div class="g-main__item project__body">
     <p>
       We were trying something different with Limbo. Chris and I were eager
       to see something in tech recruiting that we hadn’t seen before so we
@@ -114,32 +114,27 @@ specs: [
       see in a potential team member. Limbo is a tool for accomplishing
       tasks, not a thing to engage.
     </p>
+  </div>
 
+  <div class="g-main__item project__graphics">
+    <figure class="project__figure figure--browser">
+      <picture>
+        <source srcset="/images/home-limbo-pl.webp" type="image/webp" />
+        <source srcset="/images/home-limbo-pl.jpg" type="image/jpeg" />
+        <img
+          src="/images/home-limbo-1-pl.jpg"
+          alt="A partial screenshot of the Limbo Pattern Library"
+        />
+      </picture>
+    </figure>
+  </div>
+
+  <div class="g-main__item project__body">
     <h3>Pattern Library</h3>
     <p>
       From early on, we iterated on the design in browsers. To help that
-      process I built and maintained a
-      <a href="https://www.limbo.io/about/patterns">Pattern Library</a>.
+      process we built and maintained a pattern and component library.
     </p>
-    <figure class="project__figure">
-      <a
-        href="https://www.limbo.io/about/patterns"
-        class="project-img-link"
-      >
-        <picture>
-          <source srcset="/images/home-limbo-pl.webp" type="image/webp" />
-          <source srcset="/images/home-limbo-pl.jpg" type="image/jpeg" />
-          <img
-            src="/images/home-limbo-1.jpg"
-            alt="A partial screenshot of the Limbo Pattern Library"
-          />
-        </picture>
-      </a>
-      <figcaption>
-        Our pattern library helped us keep consistent design while
-        collaborating and moving fast.
-      </figcaption>
-    </figure>
     <p>
       We didn’t use any fancy tech for it. The first iteration of the
       library was a single HTML file with no styles. We built it up from
