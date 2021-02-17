@@ -9,6 +9,7 @@
   margin: 0 auto;
   max-width: 12.5rem;
   position: relative;
+  width: 80%;
 }
 
 .logo__title {
@@ -53,8 +54,8 @@
 }
 
 .logo--full::after {
-  --size: 2.75rem;
-  --right: -1rem;
+  --size: 3rem;
+  --right: -1.5rem;
 }
 
 .logo__base,

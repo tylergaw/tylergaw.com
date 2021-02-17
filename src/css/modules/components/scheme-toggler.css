@@ -19,6 +19,10 @@
   width: var(--size);
 }
 
+.scheme-toggler__btn svg {
+  width: 100%;
+}
+
 [data-scheme="light"] #sun,
 [data-scheme="dark"] #moon {
   display: none;
