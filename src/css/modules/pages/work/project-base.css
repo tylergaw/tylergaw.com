@@ -118,7 +118,12 @@ span.project__link {
   margin-top: 1.5em;
 }
 
-.project__body h3 + * {
+.project__body h4 {
+  margin-top: 1.25em;
+}
+
+.project__body h3 + *,
+.project__body h4 + * {
   margin-top: 1rem;
 }
 
@@ -126,6 +131,10 @@ span.project__link {
   --padding-v: calc(var(--g-row) * 6);
   padding-top: var(--padding-v);
   padding-bottom: var(--padding-v);
+}
+
+.project__graphics--tight {
+  padding-top: calc(var(--g-row) * 1);
 }
 
 .project__figure {
@@ -219,6 +228,10 @@ span.project__link {
 
   .figure-grid {
     --grid-cols: 2;
+  }
+
+  .figure-grid--3 {
+    --grid-cols: 3;
   }
 }
 

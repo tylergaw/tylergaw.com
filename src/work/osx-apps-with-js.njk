@@ -50,6 +50,20 @@ midwestSlides: [
     alt: "A slide with the title; 'starstuff.js, A UI Library for JXA' over a black and white photo of a space shuttle in space that I Photoshopped to be all wobbly and grainy."
   }
 ]
+jerseySlides: [
+  {
+    key: "title",
+    alt: "A slide with the title; 'Building OS X Apps with JavaScript'. The 'OS X Apps' is in block lettering with photos of New Jersey filling them in. with 'Tyler Gaw' in cursive handwriting at the top and 'JerseyScript • Nov 11 2014' at the bottom. This slide is an homage to Bruce Springsteen's album; Welcome to Asbury Park."
+  },
+  {
+    key: "run",
+    alt: "A slide with the title; 'JavaScript for Automation' and subtitle 'How to Run'. This slide is an homage to Bruce Springsteen's album; Born to Run."
+  },
+  {
+    key: "thanks",
+    alt: "A slide with the title; 'Jerscript U.S.A/Thank You'. This slide is an homage to Bruce Springsteen's album; Born in the U.S.A."
+  }
+]
 ---
 
 {% extends "layouts/base.njk" %}
@@ -130,25 +144,23 @@ midwestSlides: [
     </p>
   </div>
   
-  {# FIXME: All this stuff. <a href="https://github.com/tylergaw/starstuff">
-    Starstuff
-  </a> #}
-  {# <a href="https://www.youtube.com/watch?v=UcU2VqRs6DA">MidwestJS 2015</a>
-  <p>
-    This was my first proper conference talk. I’ve had plenty of proposals
-    rejected over the years, but this one made it in.
-  </p> #}
-
-  {# <a href="https://twitter.com/jerseyscriptusa/status/532337129050099712">JeseryScript, November 11 2014</a>
+  <div class="g-main__item project__body">
+    <h4 class="heading--special">MidwestJS 2015</h4>
     <p>
-      In the early days of Jenn’s EXTREMELY CHILL social gathering, 
-      she invited folks to give short talks. I used that as an excuse to 
-      make Springsteen-themed slides.
-    </p> #}
+      This was my first proper conference talk. I’ve had plenty of proposals
+      rejected over the years, but this one made it in. As I was developing this
+      talk, I started a small UI library project. I never did anything with it
+      after the talk, but I called it <a href="https://github.com/tylergaw/starstuff" target="_black" rel="noopener noreferrer">Starstuff</a>
+      and it’s still available on GitHub. Maybe I’ll have a reason to revive it
+      one day.
+    </p>
+    <p>
+      There’s a video of the talk on <a href="https://www.youtube.com/watch?v=UcU2VqRs6DA" target="_black" rel="noopener noreferrer">YouTube</a>.
+      I’ve been told it’s good, but still can’t bring myself to hear my own voice so I’ve never seen it.
+    </p>
+  </div>
 
-    {# <a href="https://speakerdeck.com/tylergaw/building-os-x-apps-with-javascript">Slides on Speaker Deck</a> #}
-
-  <div class="g-main__item project__graphics">
+  <div class="g-main__item project__graphics project__graphics--tight">
     <figure class="project__figure">
       <div class="figure-grid">
         {% for slide in midwestSlides %}
@@ -167,6 +179,37 @@ midwestSlides: [
       <figcaption>
         A few slides from my MidwestJS 2015 talk on the topic. The full slide deck is available
         on <a href="https://speakerdeck.com/tylergaw/building-os-x-apps-with-javascript-1" target="_black" rel="noopener noreferrer">Speaker Deck</a>.
+      </figcaption>
+    </figure>
+  </div>
+  <div class="g-main__item project__body">
+    <h4 class="heading--special">JerseyScript, November 2014</h4>
+    <p>
+      In the early days of Jenn’s <a href="https://twitter.com/jerseyscriptusa/status/532337129050099712" target="_black" rel="noopener noreferrer">EXTREMELY CHILL social gathering</a>, 
+      she invited folks to give short talks. I used this as a wonderful excuse to 
+      make Springsteen-themed slides. Something I hope to get to do again.
+    </p>
+  </div>
+
+  <div class="g-main__item project__graphics project__graphics--tight">
+    <figure class="project__figure">
+      <div class="figure-grid figure-grid--3">
+        {% for slide in jerseySlides %}
+          <picture>
+            <source srcset="/images/work/jxa/jxa-jerseyscript-{{ slide.key }}.avif" type="image/avif" />
+            <source srcset="/images/work/jxa/jxa-jerseyscript-{{ slide.key }}.webp" type="image/webp" />
+            <img
+              src="/images/work/jxa/jxa-jerseyscript-{{ slide.key }}.jpg"
+              width="1024"
+              height="768"
+              alt="{{ slide.alt }}"
+            />
+          </picture>
+        {% endfor %}
+      </div>
+      <figcaption>
+        A few slides from my JerseyScript 2014 talk on the topic. The full slide deck is available
+        on <a href="https://speakerdeck.com/tylergaw/building-os-x-apps-with-javascript" target="_black" rel="noopener noreferrer">Speaker Deck</a>.
       </figcaption>
     </figure>
   </div>
