@@ -24,6 +24,32 @@ specs: [
     "desc": "<a href='https://github.com/tylergaw/js-osx-app-examples' target='_blank' rel='noopener noreferrer'>tylergaw/js-osx-app-examples</a>"
   }
 ]
+midwestSlides: [
+  {
+    key: "objc-bridge",
+    alt: "A slide with the title; 'The Objective-C Bridge' over a black and white photo of a bridge over a river that I morphed and skewed."
+  },
+  {
+    key: "better-way",
+    alt: "A slide with the title; 'There's Got to Be a Better Way' over a black and white photo of a man's face that I Photoshopped to look like it's melting."
+  },
+  {
+    key: "build-process",
+    alt: "A slide showing a representation of a JS to Browserify to osacompile to OS X App build process."
+  },
+  {
+    key: "demo",
+    alt: "A slide with the title; 'Demo' and a black and white photo of a hyena that I Photoshopped to be all wobbly and blurry."
+  },
+  {
+    key: "syntax",
+    alt: "A slide showing Chip thinking about data type conversion between 'JS Land' and 'Obj-C Land'. Has a subtitle of 'Syntax' at the bottom."
+  },
+  {
+    key: "starstuff",
+    alt: "A slide with the title; 'starstuff.js, A UI Library for JXA' over a black and white photo of a space shuttle in space that I Photoshopped to be all wobbly and grainy."
+  }
+]
 ---
 
 {% extends "layouts/base.njk" %}
@@ -47,6 +73,8 @@ specs: [
 
     <h1 class="jxa__title">
       <img src="/images/work/jxa/building-osx-apps-with-javascript-logo.svg" 
+        width="412"
+        height="336"
         alt="Building OS X Apps with JavaScript">
     </h1>
   </div>
@@ -76,10 +104,6 @@ specs: [
   </div>
 
   <div class="g-main__item project__body">
-  {# FIXME <a href="https://github.com/tylergaw/starstuff">
-    Starstuff
-  </a> #}
-
     <p>
       After I proved to myself that I could produce a working native app
       with JavaScript I set out to share what I found with other people. For
@@ -104,118 +128,70 @@ specs: [
       fresh eyes and come up with new things I couldn’t before because I
       was too deep in.
     </p>
-        <ul>
-          <li>
-            <a href="https://www.youtube.com/watch?v=UcU2VqRs6DA">MidwestJS 2015</a>
-            <p>
-              This was my first proper conference talk. I’ve had plenty of proposals
-              rejected over the years, but this one made it in.
-            </p>
-
-            <figure class="project__figure">
-              <a href="https://www.youtube.com/watch?v=UcU2VqRs6DA">
-                <picture>
-                  <source srcset="/images/jxa-video-thumb.webp" type="image/webp"/>
-                  <source srcset="/images/jxa-video-thumb.png" type="image/png"/>
-                  <img
-                    src="/images/jxa-video-thumb.png"
-                    alt="A screenshot of a YouTube video of my talk on Building OS X Apps with JavaScript at JerseyScript November 2014."
-                  />
-                </picture>
-              </a>
-              <figcaption>
-                <a href="https://www.youtube.com/watch?v=UcU2VqRs6DA">Video of the talk</a>
-              </figcaption>
-            </figure>
-
-            <figure class="project__figure">
-              <a href="https://www.youtube.com/watch?v=UcU2VqRs6DA"
-              >
-                <picture>
-                  <source
-                    srcset="/images/jxa-midwestjs-slides.webp"
-                    type="image/webp"
-                  />
-                  <source
-                    srcset="/images/jxa-midwestjs-slides.png"
-                    type="image/png"
-                  />
-                  <img
-                    src="/images/jxa-midwestjs-slides.png"
-                    alt="A collage of slides from my talk at MidwestJS 2015 Building OS X Apps with JavaScript at JerseyScript November 2014."
-                  />
-                </picture>
-              </a>
-              <figcaption>
-                <a href="https://speakerdeck.com/tylergaw/building-os-x-apps-with-javascript-1">Slides on Speaker Deck</a>
-              </figcaption>
-            </figure>
-          </li>
-
-          <li>
-            <a href="https://twitter.com/jerseyscriptusa/status/532337129050099712">JeseryScript, November 11 2014</a>
-            <p>
-              In the early days of Jenn’s EXTREMELY CHILL social gathering, 
-              she invited folks to give short talks. I used that as an excuse to 
-              make Springsteen-themed slides.
-            </p>
-
-            <figure class="project__figure">
-              <a href="https://speakerdeck.com/tylergaw/building-os-x-apps-with-javascript">
-                <picture>
-                  <source
-                    srcset="/images/jxa-jerseyscript-slides.webp"
-                    type="image/webp"
-                    media="(min-width: 650px)"
-                  />
-                  <source
-                    srcset="/images/jxa-jerseyscript-slides.png"
-                    type="image/png"
-                    media="(min-width: 650px)"
-                  />
-                  <source
-                    srcset="/images/jxa-jerseyscript-slides-narrow.webp"
-                    type="image/webp"
-                  />
-                  <source
-                    srcset="/images/jxa-jerseyscript-slides-narrow.png"
-                    type="image/png"
-                  />
-                  <img
-                    src="/images/jxa-jerseyscript-slides.png"
-                    alt="A collage of Bruce Springsteen-themed slides from my talk on Building OS X Apps with JavaScript at JerseyScript November 2014."
-                  />
-                </picture>
-              </a>
-              <figcaption>
-                <a href="https://speakerdeck.com/tylergaw/building-os-x-apps-with-javascript">
-                  Slides on Speaker Deck
-                </a>
-              </figcaption>
-            </figure>
-          </li>
-        </ul>
-
-        <h3>Recognition</h3>
-        <ul>
-          <li>
-            An email from former Apple automation product manager,
-            <a href="https://en.wikipedia.org/wiki/Sal_Soghoian">Sal</a>. He
-            sent me a short note to say he saw the post and thought it was cool
-            and thanks for working with the technology. Of all the recognition I
-            got for this project, this felt the best.
-          </li>
-          <li>
-            <a href="https://twitter.com/horse_js/status/516264252332470273">Got horse_js’d</a>
-          </li>
-          <li>
-            <a href="https://news.ycombinator.com/item?id=8379247">
-              Hacker News front paged 🤔
-            </a>
-          </li>
-        </ul>
-
   </div>
+  
+  {# FIXME: All this stuff. <a href="https://github.com/tylergaw/starstuff">
+    Starstuff
+  </a> #}
+  {# <a href="https://www.youtube.com/watch?v=UcU2VqRs6DA">MidwestJS 2015</a>
+  <p>
+    This was my first proper conference talk. I’ve had plenty of proposals
+    rejected over the years, but this one made it in.
+  </p> #}
+
+  {# <a href="https://twitter.com/jerseyscriptusa/status/532337129050099712">JeseryScript, November 11 2014</a>
+    <p>
+      In the early days of Jenn’s EXTREMELY CHILL social gathering, 
+      she invited folks to give short talks. I used that as an excuse to 
+      make Springsteen-themed slides.
+    </p> #}
+
+    {# <a href="https://speakerdeck.com/tylergaw/building-os-x-apps-with-javascript">Slides on Speaker Deck</a> #}
+
+  <div class="g-main__item project__graphics">
+    <figure class="project__figure">
+      <div class="figure-grid">
+        {% for slide in midwestSlides %}
+          <picture>
+            <source srcset="/images/work/jxa/jxa-midwest-js-{{ slide.key }}.avif" type="image/avif" />
+            <source srcset="/images/work/jxa/jxa-midwest-js-{{ slide.key }}.webp" type="image/webp" />
+            <img
+              src="/images/work/jxa/jxa-midwest-js-{{ slide.key }}.jpg"
+              width="1024"
+              height="768"
+              alt="{{ slide.alt }}"
+            />
+          </picture>
+        {% endfor %}
+      </div>
+      <figcaption>
+        A few slides from my MidwestJS 2015 talk on the topic. The full slide deck is available
+        on <a href="https://speakerdeck.com/tylergaw/building-os-x-apps-with-javascript-1" target="_black" rel="noopener noreferrer">Speaker Deck</a>.
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="g-main__item project__body">
+    <h3>Recognition</h3>
+    <ul>
+      <li class="project__list-item-p">
+        An email from former Apple automation product manager,
+        <a href="https://en.wikipedia.org/wiki/Sal_Soghoian">Sal</a>. He
+        sent me a short note to say he saw the post and thought it was cool
+        and thanks for working with the technology. Of all the recognition I
+        got for this project, this felt the best.
+      </li>
+      <li>
+        <a href="https://twitter.com/horse_js/status/516264252332470273">Got horse_js’d</a>
+      </li>
+      <li>
+        <a href="https://news.ycombinator.com/item?id=8379247">
+          Hacker News front paged 🤔
+        </a>
+      </li>
+    </ul>
+  </div>
+
 </div>
 
 {% include "components/work-nav.njk" %}

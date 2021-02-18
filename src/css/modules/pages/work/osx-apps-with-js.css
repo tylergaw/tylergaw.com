@@ -46,6 +46,11 @@
   transform: translateY(var(--offset));
 }
 
+.jxa__title img {
+  height: auto;
+  width: 100%;
+}
+
 .project--jxa {
   --color-link: var(--color-jxa-accent-light);
 }
