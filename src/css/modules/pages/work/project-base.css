@@ -174,8 +174,13 @@ span.project__link {
 
 .figure-grid {
   display: grid;
-  gap: 1rem;
+  gap: var(--g-gutter);
   grid-template-columns: repeat(var(--grid-cols, 1), 1fr);
+  padding-top: var(--g-gutter);
+}
+
+.figure-grid--uneven {
+  align-items: flex-start;
 }
 
 .figure-grid img {
