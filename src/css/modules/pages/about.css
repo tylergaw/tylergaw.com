@@ -186,6 +186,11 @@
   width: 100%;
 }
 
+.about__photo {
+  border-radius: 2px;
+  overflow: hidden;
+}
+
 @media (min-width: 38.75em) {
   .hero--about::before {
     --height: 65%;
@@ -306,17 +311,13 @@
   }
 
   .bio__intro,
-  .bio__outro,
-  .bio__design,
-  .bio__eng,
-  .about-section__intro,
-  .site__versions {
-    --col-start: 3;
-  }
-
-  .bio__intro,
   .bio__outro {
     --col-end: span 6;
+  }
+
+  .bio__design,
+  .bio__eng {
+    --col-end: span 3;
   }
 
   .version {
@@ -334,7 +335,7 @@
   .bio__design,
   .about-section__intro,
   .site__versions {
-    --col-start: 4;
+    --col-start: 3;
   }
 
   .bio__design,

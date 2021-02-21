@@ -2,6 +2,20 @@
 title: About Tyler Gaw and This Site
 meta:
   image: /images/social-about.png
+photos: [
+  {
+    key: "skateboarding",
+    alt: "A Polaroid photo of my skateboard laying on a rug in my apartment"
+  },
+  {
+    key: "records",
+    alt: "A Polaroid photo of my record collection in the 9 travel cases I store them"
+  },
+  {
+    key: "nyc",
+    alt: "A Polaroid photo the lower Manhattan skyline looking Southeast on East Broadway in Chinatown"
+  }
+]
 ---
 
 {% extends "layouts/base.njk" %}
@@ -105,6 +119,27 @@ meta:
         </p>
       </li>
     </ul>
+  </div>
+
+  <div class="g-main__item project__graphics project__graphics--tight">
+    <figure class="project__figure">
+      <div class="figure-grid figure-grid--3">
+        {% for photo in photos %}
+          <picture>
+            <source srcset="/images/about/about-{{ photo.key }}.avif" type="image/avif" />
+            <source srcset="/images/about/about-{{ photo.key }}.webp" type="image/webp" />
+            <img
+              class="about__photo"
+              src="/images/about/about-{{ photo.key }}.jpg"
+              width="1500"
+              height="1789"
+              alt="{{ photo.alt }}"
+              loading="lazy"
+            />
+          </picture>
+        {% endfor %}
+      </div>
+    </figure>
   </div>
 </div>
 
