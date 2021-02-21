@@ -24,6 +24,12 @@ specs: [
     "desc": "Disbanded in 2018 and missed dearly."
   }
 ]
+paymentblockImgs: [
+  "A screenshot of a stepped Groundwork Payment block showing step 1, donation about selection",
+  "A screenshot of a stepped Groundwork Payment block showing step 2, FIXME",
+  "A screenshot of a stepped Groundwork Payment block showing step 3, FIXME",
+  "A screenshot of a stepped Groundwork Payment block showing step 1, FIXME",
+]
 ---
 
 {% extends "layouts/base.njk" %}
@@ -72,26 +78,30 @@ specs: [
     {% include "components/project-specs.njk" %}
   </div>
 
-  <div class="g-main__item project__body">
+  <div class="g-main__item project__body project__body--initial">
     <h3>Hillary for America</h3>
     <p>
-      Our team was instrumental in the initial Hillary for America website
+      Our web services for collecting donations, email subscriptions, identity,
+      and event creation were the foundation of the Hillary for America
+      technology.
+    </p>
+    <p>
+      Along with our microservice APIs, our team was also instrumental in the initial Hillary for America website
       launch. In the days leading up to the April 12, 2015 launch we helped
-      the HFA tech team and another web development vendor implement a
+      the HFA tech team and another web development vendor stand up a
       Wagtail CMS, implement designs, squash bugs, and make sure the the
       site could handle the massive traffic it was about to receive.
     </p>
     <p>
       In the months after launch we continued our work with the growing HFA
-      tech team. We played an instrumental role in interviewing candidates
+      tech team. We played a key role in interviewing candidates
       and making recommendations for designer and engineer hires for HFA. We
-      also continued daily work on hillaryclinton.com.
+      also continued daily work on the website.
     </p>
     <p>
       Myself along with other members of the Groundwork helped complete the
-      frontend engineering necessary for the HFA launch rally in New York
-      City. Our team also built the events microservice and API that powered
-      the events section of the HFA website.
+      front-end engineering necessary for the HFA kickoff rally in New York
+      City in early summer 2015.
     </p>
     <p>
       Over 14,000 people RSVP’d for the launch rally using backend and
@@ -102,7 +112,11 @@ specs: [
   <div class="g-main__item project__body">
     <h3>The Developer Center</h3>
     <p>
-      This was one of my babies during my tenure.
+      This was one of my babies during my tenure. Our web services not only
+      powered the Hillary for America tech, they were also available for non-profit
+      organizations to build with. The Developer Center was the documentation portal for
+      all users of The Groundwork services. Over the 3 years I worked at
+      The Groundwork, I got have a lot of fun designing and building this website.
     </p>
   </div>
 
@@ -151,13 +165,38 @@ specs: [
   </div>
 
   <div class="g-main__item project__body">
-    <h3>Technology</h3>
+    <h3>Blocks</h3>
     <p>
-      React, Redux, Immutable.js, CSS modules, Travis, Immutable
-      infrastructure with AWS, next-level custom tooling for cloud infra 
-      management.
-      <a href="https://darrennewton.com/2016/12/21/components-a-la-carte/" target="_blank" rel="noopener noreferrer">Darren wrote</a> about some of the interesting work we did on the front-end.
+      The Groundwork Blocks were highly configurable drop-in widgets for collecting
+      payments and email subscriptions. We built them to allow our customers
+      a way to quickly implement donation collections and email subscriptions
+      with little to no engineering resources. With a single <code>div</code>
+      and a <code>script</code> tag, customers had full access to our APIs.
     </p>
+  </div>
+
+  <div class="g-main__item project__graphics project__graphics--tight">
+    <figure class="project__figure">
+      <div class="figure-grid figure-grid--4">
+        {% for img in paymentblockImgs %}
+          <picture>
+            <source srcset="/images/work/thegroundwork/gw-payment-block-step-{{ loop.index }}.avif" type="image/avif" />
+            <source srcset="/images/work/thegroundwork/gw-payment-block-step-{{ loop.index }}.webp" type="image/webp" />
+            <img
+              src="/images/work/thegroundwork/gw-payment-block-step-{{ loop.index }}.png"
+              width="712"
+              height="1059"
+              alt="{{ img }}"
+              loading="lazy"
+            />
+          </picture>
+        {% endfor %}
+      </div>
+    </figure>
+  </div>
+
+  <div class="g-main__item project__body">
+    
 
     <h3>The Humans</h3>
     <p>
@@ -170,7 +209,16 @@ specs: [
       opportunity to try, so I did every day.
     </p>
 
-    {# FIXME <h3>Design</h3>
+    {# FIXME 
+    <h3>Technology</h3>
+    <p>
+      React, Redux, Immutable.js, CSS modules, Travis, Immutable
+      infrastructure with AWS, next-level custom tooling for cloud infra 
+      management.
+      <a href="https://darrennewton.com/2016/12/21/components-a-la-carte/" target="_blank" rel="noopener noreferrer">Darren wrote</a> about some of the interesting work we did on the front-end.
+    </p>
+    
+    <h3>Design</h3>
     <p>
       In the meantime, other teammates wrote about 
       their process. You should read these.

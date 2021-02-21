@@ -83,6 +83,10 @@ span.project__link {
   max-width: 20ch;
 }
 
+.project__body--initial {
+  padding-top: calc(var(--g-row) * 16);
+}
+
 .project__body p,
 .project__body ul,
 .project__body ol {
@@ -257,6 +261,10 @@ span.project__link {
 
   .figure--browser {
     transform: translateX(calc(20 / 16 * -1rem));
+  }
+
+  .figure-grid--4 {
+    --grid-cols: 4;
   }
 }
 
