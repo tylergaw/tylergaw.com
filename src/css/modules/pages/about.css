@@ -191,6 +191,21 @@
   overflow: hidden;
 }
 
+.about__polaroids picture:nth-child(1) img {
+  rotate: 1deg;
+  translate: 0 -0.4rem;
+}
+
+.about__polaroids picture:nth-child(2) img {
+  rotate: -1.1deg;
+  translate: 0.2rem 0.4rem;
+}
+
+.about__polaroids picture:nth-child(3) img {
+  rotate: 1deg;
+  translate: -0.2rem 0.8rem;
+}
+
 @media (min-width: 38.75em) {
   .hero--about::before {
     --height: 65%;
