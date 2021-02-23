@@ -10,9 +10,7 @@ meta:
 ---
 
 <p class="entry-intro">
-  This is part of my “<a href="https://tylergaw.com/articles/realign-2020"
-    >Realign 2020</a
-  >” series. In it, I document my process during a content and design realign of
+  This is part of my “<a href="/blog/realign-2020">Realign 2020</a>” series. In it, I document my process during a content and design realign of
   this site. I’ll update the site piece-by-piece as I post. The design and
   content will evolve through the series and beyond.
 </p>
@@ -267,23 +265,24 @@ meta:
   not the JS-driven parts, like the button.
 </p>
 
+<!-- prettier-ignore-start -->
 <pre><code class="language-javascript">const mql = window.matchMedia("(prefers-color-scheme: light)");
-
 mql.addListener((event) => {
-console.group("System color scheme change");
-const systemScheme = getCSSProp("--scheme-system");
-const userScheme = localStorage.getItem(schemeKey);
-console.info("System color scheme changed to", systemScheme);
+  console.group("System color scheme change");
+  const systemScheme = getCSSProp("--scheme-system");
+  const userScheme = localStorage.getItem(schemeKey);
+  console.info("System color scheme changed to", systemScheme);
 
-if (!userScheme) {
-console.info("No user color scheme chosen, using the system scheme");
-} else {
-console.info(`User choice takes preference, using the ${userScheme} scheme`);
-}
+  if (!userScheme) {
+    console.info("No user color scheme chosen, using the system scheme");
+  } else {
+    console.info(`User choice takes preference, using the ${userScheme} scheme`);
+  }
 
-updateSchemeBtn(userScheme || systemScheme);
-console.groupEnd();
+  updateSchemeBtn(userScheme || systemScheme);
+  console.groupEnd();
 });</code></pre>
+<!-- prettier-ignore-end -->
 
 <p>
   I use a

@@ -10,7 +10,7 @@ meta:
 ---
 
 <p class="entry-intro">
-  This is part of my “<a href="https://tylergaw.com/articles/realign-2020"
+  This is part of my “<a href="/blog/realign-2020"
     >Realign 2020</a
   >” series. In it, I document my process during a content and design realign of
   this site. I’ll update the site piece-by-piece as I post. The design and
@@ -46,7 +46,7 @@ meta:
   feels too heavy for large swaths of copy.
 </p>
 <figure>
-  <img src="https://tylergaw.com/articles/assets/post-image-realign-2020-typography-proto-grotesk.png" alt="A sampling of Proto Grotesk in various weights and sizes" />
+  <img src="/blog/assets/post-image-realign-2020-typography-proto-grotesk.png" alt="A sampling of Proto Grotesk in various weights and sizes" />
 </figure>
 <p>
   I’m using the bold weight for certain headings and navigation items. I have
@@ -200,7 +200,7 @@ meta:
 </p>
 <p>
   I’ll continue this series in a few days with “<a
-    href="https://tylergaw.com/articles/realign-2020-logo"
+    href="/blog/realign-2020-logo"
     >Realign 2020: Logo</a
   >.”
 </p>

@@ -376,26 +376,32 @@ get(path + args.query, args.callback);</code></pre>
 <p>
   To show its usefulness, consider the following usage examples:
 </p>
+
+<!-- prettier-ignore-start -->
 <pre><code class="language-javascript">jribbble.shots(
   "456789",
-  {token: "12345"},
+  { token: "12345" },
   function(shotObject) { /* Work with JSON */ }
 );
 
-jribbble.shots(
-{token: "12345", page: 3, per*page: 5},
-function(shotsArray) { /* Work with JSON\_/}
+jribbble.shots({
+    token: "12345",
+    page: 3,
+    perPage: 5
+  },
+  function(shotsArray) { /* Work with JSON */ }
 );
 
 jribbble.projects(
-function(projectsArray) { /_ Work with JSON _/ },
-{token: "12345"}
+  function(projectsArray) { /* Work with JSON */ },
+  { token: "12345" }
 );
 
 jribbble.user(
-function(userObject) { /_ Work with JSON _/ }
-);
-</code></pre>
+  function(userObject) { /* Work with JSON */ }
+);</code></pre>
+
+<!-- prettier-ignore-end -->
 
 <p>
   Notice in each I’m providing a different number of arguments of different types. And in the case of <code>projects</code> I’m providing the arguments in a different order. This type of flexibility isn’t possible with a typical method signature. One where I define each parameter when I create the method.

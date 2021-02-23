@@ -9,7 +9,7 @@ meta:
 ---
 
 <p class="entry-intro">
-  This is part of my “<a href="https://tylergaw.com/articles/realign-2020"
+  This is part of my “<a href="/blog/realign-2020"
     >Realign 2020</a
   >” series. In it, I document my process during a content and design realign of
   this site. I’ll update the site piece-by-piece as I post. The design and
@@ -27,8 +27,8 @@ meta:
 </p>
 <figure>
   <picture>
-    <source srcset="https://tylergaw.com/articles/assets/post-image-realign-2020-logo-before-after.svg" media="(min-width: 47.5em)"/>
-    <img src="https://tylergaw.com/articles/assets/post-image-realign-2020-logo-before-after-vertical.svg" alt="Before and after realign of my logo"/>
+    <source srcset="/blog/assets/post-image-realign-2020-logo-before-after.svg" media="(min-width: 47.5em)"/>
+    <img src="/blog/assets/post-image-realign-2020-logo-before-after-vertical.svg" alt="Before and after realign of my logo"/>
   </picture>
 
   <figcaption>fig 1: Logo before and after</figcaption>
@@ -47,12 +47,12 @@ meta:
 <h2>The Work</h2>
 <p>
   I’ve written about this process before. In “<a
-    href="https://tylergaw.com/articles/a-logo-design-process/"
+    href="/blog/a-logo-design-process/"
     >A Logo Design Process</a
   >” I wrote about iterating 2011’s logo into 2014’s logo. I went through a
   similar process progressing 2014’s logo to 2018’s, but didn’t write about it.
   My logo is like this site. I wrote in
-  <a href="https://tylergaw.com/articles/realign-2020/">this series’ opener</a>;
+  <a href="/blog/realign-2020/">this series’ opener</a>;
   “…I remember thinking this would be my last site…that I had a solid foundation
   that I could build on for a long time.” I feel the same about the logo. Since
   the 2011 version, I’ve worked with the same vectors and morphed them into the
@@ -80,9 +80,9 @@ meta:
 
 <figure>
   <picture>
-    <source srcset="https://tylergaw.com/articles/assets/post-image-realign-2020-logo-points.webp" type="image/webp">
-    <source srcset="https://tylergaw.com/articles/assets/post-image-realign-2020-logo-points.jpg" type="image/jpeg">
-    <img src="https://tylergaw.com/articles/assets/post-image-realign-2020-logo-points.jpg" alt="A screenshot showing the 566 vector points and outline of the logo."/>
+    <source srcset="/blog/assets/post-image-realign-2020-logo-points.webp" type="image/webp">
+    <source srcset="/blog/assets/post-image-realign-2020-logo-points.jpg" type="image/jpeg">
+    <img src="/blog/assets/post-image-realign-2020-logo-points.jpg" alt="A screenshot showing the 566 vector points and outline of the logo."/>
   </picture>
 
   <figcaption>fig 2: The 566 points I positioned to make the logo</figcaption>
@@ -110,7 +110,7 @@ meta:
 
 <h3>Little Flat Feet</h3>
 <p>
-  In “<a href="https://tylergaw.com/articles/realign-2020-typography/"
+  In “<a href="/blog/realign-2020-typography/"
     >Realign 2020: Typography</a
   >” I said I took inspiration from Proto Grotesk for parts of the logo. The
   descenders of Proto Grotesk on the “y” and “j” are what I pulled into the
@@ -119,7 +119,7 @@ meta:
 
 <figure>
   <picture>
-    <img src="https://tylergaw.com/articles/assets/post-image-realign-2020-logo-feet.svg" alt="A detail of the logo highlighting descenders that took inspiration from Proto Grotesk"/>
+    <img src="/blog/assets/post-image-realign-2020-logo-feet.svg" alt="A detail of the logo highlighting descenders that took inspiration from Proto Grotesk"/>
   </picture>
   <figcaption>fig 3: Proto Grotesk-inspired descenders in the logo</figcaption>
 </figure>
@@ -145,8 +145,5 @@ meta:
 </p>
 
 <p>
-  I’ll continue this series in a few days with “<a
-    href="https://tylergaw.com/articles/realign-2020-color"
-    >Realign 2020: Color</a
-  >.”
+  I’ll continue this series in a few days with “<a href="/blog/realign-2020-color">Realign 2020: Color</a>.”
 </p>

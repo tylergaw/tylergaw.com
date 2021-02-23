@@ -62,7 +62,7 @@ meta:
   missing.
 </p>
 
-<h2>The Problem</h2>
+<h2>The problem</h2>
 <p>
   When I tried to log in to the NetlifyCMS on our
   deployed site, I would hit a 404. So I knew I was missing some piece, but
@@ -71,7 +71,7 @@ meta:
   in the NetlifyCMS Gitter room, but didn’t find help there.
 </p>
 
-<h2>The Solution</h2>
+<h2>The solution</h2>
 <p>
   <strong>To use a GitHub backend with NetlifyCMS, you have to have your own server
     to handle OAuth</strong>. This is a requirement of GitHub’s authentication
@@ -79,7 +79,7 @@ meta:
     bad news about that, is that it’s a standard OAuth flow.
 </p>
 
-<h3>Prior Art</h3>
+<h3>Prior art</h3>
 
 <p>
   <a href="https://github.com/vencax/netlify-cms-github-oauth-provider">vencax/netlify-cms-github-oauth-provider</a>
@@ -97,7 +97,7 @@ meta:
   post is.
 </p>
 
-<h3>The Server</h3>
+<h3>The server</h3>
 
 <p>
   I went with <a href="https://glitch.com">Glitch</a> for this example. For me
@@ -127,6 +127,7 @@ meta:
   NetlifyCMS needs is this;
 </p>
 
+<!-- prettier-ignore-start -->
 <pre><code class="language-javascript">const postMsgContent = {
   token: body.access_token,
   provider: "github"
@@ -149,6 +150,7 @@ const script = `
       window.opener.postMessage("authorizing:github", "*");
   })()
 &lt;/script&gt;`;</code></pre>
+<!-- prettier-ignore-end -->
 
 <p>
   A couple bits of formatting aside, I took this from <a href="https://github.com/vencax/netlify-cms-github-oauth-provider/blob/master/index.js#L74">vencax/netlify-cms-github-oauth-provider</a>.
@@ -164,7 +166,7 @@ const script = `
   access token a different way, but this a way to make short work of it.
 </p>
 
-<h3>The Client</h3>
+<h3>The client</h3>
 
 <p>
   There’s a single customization needed to make this work with the standard
@@ -175,9 +177,7 @@ const script = `
 name: github
 branch: master
 repo: tylergaw/netlify-cms-github-oauth-provider-client-example # change this to your repo
-base_url: https://netlify-cms-github-oauth-provider-example.glitch.me # change this to your OAuth server
-
-</pre></code>
+base_url: https://netlify-cms-github-oauth-provider-example.glitch.me # change this to your OAuth server</pre></code>
 
 <p>
   The other items in <code>config.yml</code> are standard NetlifyCMS config
@@ -191,7 +191,7 @@ base_url: https://netlify-cms-github-oauth-provider-example.glitch.me # change t
   that this is a no frills NetlifyCMS setup.
 </p>
 
-<h2>That’s All</h2>
+<h2>That’s all</h2>
 
 <p>
   We’re a similar setup at <a href="https://streetcred.co">StreetCred</a> on

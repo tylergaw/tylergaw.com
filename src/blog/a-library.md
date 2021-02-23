@@ -8,7 +8,7 @@ meta:
 ---
 
 <p>
-  <b>Update, early 2021:</b> A changed the name and URL to <a href="/bookshelf">Bookshelf</a>. Just seemed like a better fit.
+  <b>Update, early 2021:</b> I changed the name and URL to <a href="/bookshelf">Bookshelf</a>. Just seemed like a better fit.
 </p>
 
 <p>

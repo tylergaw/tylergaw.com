@@ -174,6 +174,8 @@ export default initializeStore;</code></pre>
   object. I had clues though. In my entry point file <code>/index.js</code> I
   use the <code>Provider</code> component. This is standard for React / Redux projects.
 </p>
+
+<!-- prettier-ignore-start -->
 <pre><code class="language-javascript">import React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
@@ -182,11 +184,12 @@ import App from "./App";
 
 const store = initializeStore();
 render(
-&lt;Provider store={store}&gt;
-&lt;App /&gt;
-&lt;/Provider&gt;,
-document.getElementById("root")
+  &lt;Provider store={store}&gt;
+    &lt;App /&gt;
+  &lt;/Provider&gt;,
+  document.getElementById("root")
 );</code></pre>
+<!-- prettier-ignore-end -->
 
 <p>
   Giving the <code>store</code> to <code>Provider</code> makes it available to
@@ -349,17 +352,21 @@ const Extended = (props, context) => {
   To further show the results in the demo, I <code>connect</code>ed the record
   route to display record data from the store.
 </p>
+
+<!-- prettier-ignore-start -->
 <pre><code class="language-javascript">...
 const mapStateToProps = (state, props) => {
   const { match: { params: { id } } } = props;
 
-return {
-recordId: id,
-record: state.records[id] || {}
-};
+  return {
+    recordId: id,
+    record: state.records[id] || {}
+  };
 };
 
 export default connect(mapStateToProps)(Record);</code></pre>
+
+<!-- prettier-ignore-end -->
 
 <p>
   The full code is in <code>/routes/Records/routes/Record.js</code>.
