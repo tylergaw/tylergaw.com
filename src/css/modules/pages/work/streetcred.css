@@ -166,6 +166,60 @@
   background-color: #8e42f533;
 }
 
+.streetcred__intro-graphics,
+.streetcred__intro-content {
+  --col-start: 1;
+  --col-end: -1;
+}
+
+.streetcred__intro-graphics {
+  margin-top: calc(var(--g-row) * var(--margin-t-rows, 10));
+}
+
+.streetcred__graphics-container {
+  background-image: url("/images/work/streetcred/streetcred-hexagon-green.svg"),
+    url("/images/work/streetcred/streetcred-hexagon-yellow.svg");
+  background-repeat: no-repeat;
+  background-position: left bottom, top right;
+  background-size: min(var(--bg-size-min, 65%), 500px);
+  margin: 0 auto;
+  max-width: calc(720 / 16 * 1rem);
+  padding-top: calc(var(--g-row) * var(--padding-t-rows, 6));
+  padding-bottom: calc(var(--g-row) * var(--padding-b-rows, 5));
+  width: 100%;
+}
+
+.streetcred__intro-demo {
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+  display: block;
+  margin: 0 auto;
+  max-width: calc(414 / 16 * 1rem);
+  overflow: hidden;
+  padding-top: min(156%, 733px);
+  position: relative;
+  width: 88%;
+}
+
+.streetcred__intro-demo img {
+  display: block;
+  height: auto;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.streetcred__intro-container {
+  margin: 0 auto;
+  max-width: calc(565 / 16 * 1rem);
+}
+
+.streetcred__intro-container h3 {
+  margin-top: 0;
+}
+
 @media (min-width: 35em) {
   .streetcred__graphic-poi,
   .streetcred__graphic-cubes,
@@ -213,6 +267,24 @@
     left: 56%;
     top: 23%;
   }
+
+  .streetcred__intro-graphics {
+    --margin-t-rows: 18;
+    --col-end: 3;
+  }
+
+  .streetcred__intro-content {
+    --col-start: 3;
+    --col-end: -1;
+    align-items: center;
+    display: flex;
+  }
+
+  .streetcred__graphics-container {
+    --bg-size-min: 85%;
+    --padding-t-rows: 12;
+    --padding-b-rows: 14;
+  }
 }
 
 @media (min-width: 75em) {
@@ -244,6 +316,16 @@
   }
 }
 
+@media (min-width: 77.5em) {
+  .streetcred__intro-graphics {
+    --col-end: 4;
+  }
+
+  .streetcred__intro-content {
+    --col-start: 4;
+  }
+}
+
 @media (min-width: 89.75em) {
   .hero--streetcred::before {
     --bg-pos-h: 14vw;
@@ -254,11 +336,35 @@
   .streetcred__title {
     text-align: left;
   }
+
+  .streetcred__intro-graphics {
+    --col-end: 6;
+  }
+
+  .streetcred__intro-content {
+    --col-start: 6;
+  }
+
+  .streetcred__intro-container {
+    margin: 0;
+  }
 }
 
 @media (min-width: 117.5em) {
   .hero--streetcred::before {
     --bg-pos-h: 20vw;
+  }
+}
+
+@media (min-width: 137.5em) {
+  .streetcred__intro-graphics {
+    --col-start: 2;
+    --col-end: 6;
+  }
+
+  .streetcred__intro-content {
+    --col-start: 6;
+    --col-end: 10;
   }
 }
 

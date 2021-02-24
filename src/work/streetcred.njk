@@ -24,6 +24,32 @@ specs: [
     "desc": "<a href='https://techcrunch.com/2021/01/11/snap-acquires-streetcred/' target='_blank' rel='noopener noreferrer'>Acquired by Snap in 2020</a>"
   }
 ]
+introScreens: [
+  {
+    key: "pois",
+    alt: "Screenshot from the app intro showing empty map and prompting the user to tap a button to Show nearby places."
+  },
+  {
+    key: "dropCubes",
+    alt: "Screenshot from the app intro showing nearby places available for points on the map and prompting the user to tap a button to Show dropped cubes."
+  },
+  {
+    key: "cubes",
+    alt: "Screenshot from the app intro showing places the user has dropped cubes on the map and prompting the user to tap a button to Show a leaderboard."
+  },
+  {
+    key: "leaderboard",
+    alt: "Screenshot from the app intro showing a stylized leaderboard. The map has zoomed to the user's local tile to show the available award amount. There's a button prompting the user to Show the tile they're in."
+  },
+  {
+    key: "jackpots",
+    alt: "Screenshot from the app intro with a zoomed out map to show the surrounding tiles and available reward amounts. There's a button prompting the user to Join the competition."
+  },
+  {
+    key: "add",
+    alt: "Screenshot from the app intro showing the full game UI. There's a button prompting the user to Add a place for 10 tokens."
+  }
+]
 ---
 
 {% extends "layouts/base.njk" %}
@@ -129,6 +155,42 @@ specs: [
     </div>
 
     {% include "components/project-specs.njk" %}
+  </div>
+
+  <div class="g-main__item streetcred__intro-graphics">
+    <div class="streetcred__graphics-container">
+      <figure class="streetcred__intro-demo">
+        {% for screen in introScreens %}
+          <picture>
+            <source srcset="/images/work/streetcred/streetcred-intro-{{ screen.key }}.avif" type="image/avif" />
+            <source srcset="/images/work/streetcred/streetcred-intro-{{ screen.key }}.webp" type="image/webp" />
+            <img
+              src="/images/work/streetcred/streetcred-intro-{{ screen.key }}.jpg"
+              width="414"
+              height="736"
+              alt="{{ screen.alt }}"
+              loading="lazy"
+            />
+          </picture>
+        {% endfor %}
+      </figure>
+    </div>
+  </div>
+
+  <div class="g-main__item project__body streetcred__intro-content">
+    <div class="streetcred__intro-container">
+      <h3>Show them the foundation</h3>
+      <p>
+        A hard part of any app is the onboarding. You want to help folks 
+        understand the object and expectations, but you don’t want to over explain. 
+        People are smart. With StreetCred we needed a quick, interactive way to 
+        explain the game mechanics, without slowing down first run momentum. 
+      </p>
+      <p>
+        I designed and built the game intro that progressively displays real UI 
+        elements to show how the pieces fit together. 
+      </p>
+    </div>
   </div>
 </div>
 
