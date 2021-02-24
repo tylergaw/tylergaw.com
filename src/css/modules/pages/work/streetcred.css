@@ -202,13 +202,54 @@
   width: 88%;
 }
 
-.streetcred__intro-demo img {
+.intro-demo__frame img {
   display: block;
   height: auto;
   left: 0;
   position: absolute;
   top: 0;
   width: 100%;
+}
+
+@keyframes demo-frames {
+  0%,
+  16.6% {
+    opacity: 1;
+  }
+
+  20%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.intro-demo__frame {
+  --a-dur: 15;
+  --f-num: 6;
+  --f-len: calc(var(--a-dur) / var(--f-num));
+  --delay: calc(calc(var(--f-len) * var(--offset, 0)) * 1s);
+  animation: demo-frames calc(var(--a-dur) * 1s) var(--delay) infinite;
+  opacity: 0;
+}
+
+.intro-demo__frame:nth-of-type(2) {
+  --offset: 1;
+}
+
+.intro-demo__frame:nth-of-type(3) {
+  --offset: 2;
+}
+
+.intro-demo__frame:nth-of-type(4) {
+  --offset: 3;
+}
+
+.intro-demo__frame:nth-of-type(5) {
+  --offset: 4;
+}
+
+.intro-demo__frame:nth-of-type(6) {
+  --offset: 5;
 }
 
 .streetcred__intro-container {

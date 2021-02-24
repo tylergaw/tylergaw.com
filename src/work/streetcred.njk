@@ -161,7 +161,7 @@ introScreens: [
     <div class="streetcred__graphics-container">
       <figure class="streetcred__intro-demo">
         {% for screen in introScreens %}
-          <picture>
+          <picture class="intro-demo__frame">
             <source srcset="/images/work/streetcred/streetcred-intro-{{ screen.key }}.avif" type="image/avif" />
             <source srcset="/images/work/streetcred/streetcred-intro-{{ screen.key }}.webp" type="image/webp" />
             <img
