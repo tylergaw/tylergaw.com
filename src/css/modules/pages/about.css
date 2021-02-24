@@ -9,35 +9,17 @@
 }
 
 .hero--about a {
-  color: var(--color-about-accent-light);
-}
-
-.hero--about a:hover,
-.hero--about a:focus,
-.hero--about .nav-about {
-  color: var(--color-accent);
-}
-
-.hero--about .banner__logo::after {
-  background-color: #6c1215;
-}
-
-@media (prefers-color-scheme: light) {
-  :not([data-user-color-scheme]) .hero--about a:hover,
-  :not([data-user-color-scheme]) .hero--about a:focus,
-  :not([data-user-color-scheme]) .hero--about .nav-about {
-    color: var(--color-about-accent-dark);
-  }
-}
-
-[data-user-color-scheme="light"] .hero--about a:hover,
-[data-user-color-scheme="light"] .hero--about a:focus,
-[data-user-color-scheme="light"] .hero--about .nav-about {
   color: var(--color-about-accent-dark);
 }
 
-.hero--about .logo__base {
-  fill: var(--color-about-accent-light);
+.hero--about .banner__nav a:hover,
+.hero--about .banner__nav a:focus,
+.hero--about .nav-about {
+  color: var(--color-about-accent-light);
+}
+
+.hero--about .banner__logo::after {
+  background-color: var(--color-about-accent-light);
 }
 
 .about__hero-contents {
@@ -115,7 +97,7 @@
 }
 
 .highlight--about {
-  background-color: #8a291833;
+  background-color: #c91c3331;
 }
 
 .about-section__intro {
