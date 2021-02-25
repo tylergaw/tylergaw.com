@@ -173,7 +173,10 @@ introScreens: [
             />
           </picture>
         {% endfor %}
+        <button class="intro-demo__btn" id="intro-demo-btn">Next screen</button>
       </figure>
+      <div class="tap-indicator"></div>
+      <button class="intro-demo__reset" id="intro-demo-reset">Reset</button>
     </div>
   </div>
 
@@ -196,4 +199,31 @@ introScreens: [
 
 {% include "components/work-nav.njk" %}
 
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+  const el = document.querySelector(".streetcred__graphics-container");
+  const btn = document.getElementById("intro-demo-btn");
+  const btnReset = document.getElementById("intro-demo-reset");
+  const frames = document.querySelectorAll(".intro-demo__frame");
+  let currentFrame = 0;
+  
+  btn.addEventListener("click", () => {
+    if (currentFrame !== frames.length - 1) {
+      currentFrame += 1;
+      frames[currentFrame].classList.add("current");
+    }
+
+    if (currentFrame === frames.length - 1) {
+      el.classList.add("ended");
+    }
+  });
+
+  btnReset.addEventListener("click", () => {
+    currentFrame = 0;
+    frames.forEach((el) => el.classList.remove("current"));
+    el.classList.remove("ended");
+  });
+</script>
 {% endblock %}
