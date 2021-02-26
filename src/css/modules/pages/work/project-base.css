@@ -256,6 +256,11 @@ span.project__link {
     --col-start: 2;
   }
 
+  .project__graphics--inset {
+    max-width: 100ch;
+  }
+
+  .project__graphics--inset,
   .project__body {
     --col-end: -2;
   }
