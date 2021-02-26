@@ -1,0 +1,10 @@
+<div class="project__specs">
+  <ul>
+    {% for spec in specs %}
+    <li>
+      <h3 class="spec__title font--regular">{{ spec.title }}</h3>
+      <p class="spec__desc">{{ spec.desc | safe }}</h3>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

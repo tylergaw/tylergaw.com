@@ -1,0 +1,48 @@
+---
+title: Design and Engineering articles by Tyler Gaw
+pageType: blog
+meta:
+  image: /images/social-blog.png
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block main %}
+
+<div class="page-intro g-main g-padded">
+  <div class="page-intro__contents g-main__item">
+    <h1 class="heading--special">Blog</h1>
+    <p class="page-intro__body">
+      Since 2009, this has been the place for me to write about the work I do.
+    </p>
+  </div>
+</div>
+
+<ol class="listed-items g-main g-padded">
+{%- for post in collections.posts -%}
+
+  {% if post.data.year %}
+    <li class="g-main__item listed-items__heading" id="{{ post.data.year }}">
+      <h2>{{ post.data.year }}</h2>
+    </li>
+  {% endif %}
+
+  <li class="g-main__item listed-item">
+    <time datetime="{{ post.data.date }}">{{ post.data.dateHuman }}</time>
+    <a
+      class="listed-item__link"
+      href="{{ post.url }}"
+    >
+      {{ post.data.title }}
+    </a>
+
+    {%- if post.data.meta.description -%}
+    <p>
+      {{ post.data.meta.description }}
+    </p>
+    {%- endif -%}
+  </li>
+{%- endfor -%}
+</ol>
+
+{% endblock %}

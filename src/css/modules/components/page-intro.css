@@ -1,0 +1,53 @@
+.page-intro,
+.resume-intro {
+  padding-bottom: calc(var(--g-row) * var(--rows-btm, 8));
+  padding-top: calc(var(--g-row) * var(--rows-top, 4));
+}
+
+.page-intro__body {
+  font-size: 1.2em;
+  line-height: 1.5;
+  margin: 0.5rem 0 0 0;
+}
+
+.page-intro__body p {
+  max-width: 62ch;
+}
+
+.page-intro__body p + p {
+  padding-top: 1.4rem;
+}
+
+@media (min-width: 38.75em) {
+  .page-intro {
+    --num-cols: 3;
+    --rows-top: 6;
+    --rows-btm: 10;
+  }
+
+  .page-intro__contents {
+    --col-start: 2;
+    --col-end: span 2;
+  }
+}
+
+@media (min-width: 65em) {
+  .page-intro {
+    --num-cols: 5;
+  }
+
+  .page-intro__contents {
+    --col-end: span 3;
+  }
+}
+
+@media (min-width: 106.25em) {
+  .page-intro {
+    --num-cols: 9;
+  }
+
+  .page-intro__contents {
+    --col-start: 3;
+    --col-end: span 5;
+  }
+}

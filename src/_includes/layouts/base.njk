@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" class="no-js" data-page="{% if pageType %}{{ pageType }}{% else %}{% if page.fileSlug %}{{ page.fileSlug }}{% else %}home{% endif %}{% endif %}">
+
+  <head>
+    <meta charset="utf-8" />
+    <script>document.getElementsByTagName("html")[0].classList.replace("no-js", "js");</script>
+    {% include "components/head-meta.njk" %}
+    {% include "components/head-contents.njk" %}
+
+    {% if site.environment === "production" -%}
+      {% set inlineCSS -%}
+        {% include "../../css/tylergaw.njk" %}
+      {%- endset %}
+
+      <style>
+        {{ inlineCSS | cssmin | safe }}
+      </style>
+
+    {% else %}
+      <link rel="stylesheet" href="/css/tylergaw.css">
+    {%- endif %}
+  </head>
+  <body>
+    {% include "components/scheme-initializer.njk" %}
+
+    {% block hero %}
+      {% include "components/banner.njk" %}
+    {% endblock %}
+
+    <main>
+      {% block main %}{% endblock %}
+    </main>
+
+    {% include "components/footer.njk" %}
+    {% include "components/scripts.njk" %}
+    {% block pageScripts %}{% endblock %}
+  </body>
+</html>

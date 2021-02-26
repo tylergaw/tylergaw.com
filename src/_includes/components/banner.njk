@@ -1,0 +1,30 @@
+<header class="g-main g-padded banner">
+  <a href="/" class="banner__logo {% if logoFull %}logo--full{% endif %} g-main__item" aria-label="Go to home/work page">
+    {% include "../../images/tylergaw-logo.svg" %}
+  </a>
+  <nav class="banner__nav g-main__item">
+    <ul>
+      <li>
+        <a href="/" class="nav-work">
+          Work
+          {% include "src/images/banner-current-indicator.svg" %}
+        </a>
+      </li>
+      <li>
+        <a href="/blog" class="nav-blog">
+          Blog 
+          {% include "src/images/banner-current-indicator.svg" %}
+        </a>
+      </li>
+      <li>
+        <a href="/about" class="nav-about" aria-label="More info about me, my career, and history of this site.">
+          About 
+          {% include "src/images/banner-current-indicator.svg" %}
+        </a>
+      </li>
+      <li>
+        {% include "components/scheme-toggler.njk" %}
+      </li>
+    </ul>
+  </nav>
+</header>

@@ -1,0 +1,138 @@
+---
+logoFull: true
+meta:
+  image: /images/social-home-02-2021.png
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block main %}
+<div class="g-main g-padded home__intro">
+  <p class="intro__contents">
+    The questions we choose to ask shape lives. Why is this the way it is? Can’t we 
+    change it? Can we do better? Can we be better? How do we want to be remembered? All the 
+    things I’ve done in my silly little career. The most simple? And most difficult? 
+    That most important thing I’ve done and continue to do is choose to ask the questions.
+  </p>
+</div>
+
+<ul class="g-main g-padded home__work">
+  <li class="work__title">
+    <h1 class="heading--special">Select work</h1>
+  </li>
+  <li class="home__project p-streetcred">
+    <a href="/work/streetcred" class="p-streetcred__link">
+      <div class="contents p-streetcred__contents">
+        <img class="p-streetcred__graphic" 
+          src="/images/work/streetcred/streetcred-token.svg" 
+          alt="An illustrated yellow coin with a shiny spot on it.">
+        <div class="p-streetcred__title">
+          <img src="/images/work/streetcred/streetcred-logo.svg" 
+            alt="The StreetCred logo made up of a stylized checkmark and the wordmark in bubbly letters."
+            loading="lazy">
+        </div>
+      </div>
+    </a>
+  </li>
+  <li class="home__project p-limbo">
+    <a href="/work/limbo" class="p-limbo__link">
+      <img class="p-limbo__graphic" 
+        src="/images/work/limbo/limbo-elephant.svg" 
+        alt="An illustration of an elephant."
+        loading="lazy">
+      <div class="p-limbo__title">
+        <img src="/images/work/limbo/limbo-logo.svg" 
+          alt="The Limbo wordmark set in Work Sans"
+          loading="lazy">
+      </div>
+    </a>
+  </li>
+  <li class="home__project p-colorme">
+    <a href="/work/colorme" class="p-colorme__link">
+      <div class="p-colorme__title">
+        <img src="/images/work/colorme/colorme-logo.svg" 
+          alt="The ColorMe wordmark." loading="lazy">
+      </div>
+    </a>
+  </li>
+  <li class="home__project p-thegroundwork">
+    <a href="/work/thegroundwork" class="p-thegroundwork__link">
+      <div class="p-thegroundwork__graphic">
+        <div class="p-thegroundwork__title">
+          <b class="p-thegroundwork__title-underline"></b>
+          <img class="p-thegroundwork__logo" src="/images/work/thegroundwork/gw-logo.svg"  
+            alt="The Groundwork logo" loading="lazy">
+        </div>
+        <img class="p-thegroundwork__mark" 
+          src="/images/work/thegroundwork/gw-mark.svg"  
+          alt="The Groundwork mark" loading="lazy">
+      </div>
+    </a>
+  </li>
+  <li class="home__project p-jxa">
+    <a href="/work/osx-apps-with-js" class="p-jxa__link">
+      <picture class="p-jxa__graphic">
+        <source srcset="/images/work/jxa/jxa-chip-mini.avif" type="image/avif" />
+        <source srcset="/images/work/jxa/jxa-chip-mini.webp" type="image/webp" />
+        <img
+          src="/images/work/jxa/jxa-chip-mini.png"
+          alt="A photo illustration of ram in a suit that's all skewed, blurred, and melty looking. I call him; 'Chip'"
+          loading="lazy"
+        />
+      </picture>
+      <div class="p-jxa__title">
+        <img
+          src="/images/work/jxa/building-osx-apps-with-javascript-logo.svg"
+          alt="Building OS X Apps with JavaScript illustrated title"
+          loading="lazy"
+        />
+      </div>
+    </a>
+  </li>
+  <li class="home__project p-archive">
+    <a href="/work/archive" class="p-archive__link">
+      <p class="p-archive__title">
+        <small>
+          And a place for<br/> 
+          <b class="silly">the rest of it.</b>
+        </small>
+        <strong>Archive</strong>
+      </p>
+    </a>
+  </li>
+</ul>
+
+<ul class="g-main g-padded home__more">
+  <li class="more__title">
+    <h2 class="heading--special">Other than work</h2>
+  </li>
+  <li class="more__item m-about">
+    <a href="/about" class="m-about__link">
+      <div class="m-about__title">
+        <p>
+          <small>
+            The self. Still <b class="the">the</b><br/> 
+            <b class="hardest">hardest</b> to write.
+          </small>
+          <strong>Bio</strong>
+        </p>
+      </div>
+      <div class="m-about__graphic">
+        <img src="/images/tyler-gaw-portrait-2020.svg" 
+          alt="An illustrated portrait of Tyler" width="990" loading="lazy">
+      </div>
+    </a>
+  </li>
+  <li class="more__item m-blog">
+    <a href="/blog" class="m-blog__link">
+      <p class="m-blog__title">
+        <small>
+          Except for<br/> 
+          <b class="everything-else">Everything else.</b>
+        </small>
+        <strong>Blog</strong>
+      </p>
+    </a>
+  </li>
+</ul>
+{% endblock %}

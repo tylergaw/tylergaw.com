@@ -1,0 +1,27 @@
+---
+pageType: blog
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block main %}
+<article class="h-entry">
+  <header class="e-header">
+    <time class="dt-published heading--special" datetime="{{ date }}">
+      {{ dateHuman }}
+    </time>
+    <h1 class="p-name">
+      {{ title }}
+    </h1>
+    <p class="p-author h-card" aria-hidden="true">
+      By Tyler Gaw
+    </p>
+  </header>
+  <div class="e-content">
+    {{ content | safe }}
+  </div>
+</article>
+
+{% include "components/blog-nav.njk" %}
+
+{% endblock %}

@@ -1,0 +1,315 @@
+---
+title: StreetCred from the foggy memory of Tyler Gaw
+pageType: work
+project: streetcred
+specs: [
+  {
+    "title": "Hats worn", 
+    "desc": "Product, mobile, design, front-end, linchpin"
+  },
+  {
+    "title": "Code used", 
+    "desc": "React, React Native, TypeScript, HTML, CSS, Mapbox GLJS"
+  },
+  {
+    "title": "Platforms", 
+    "desc": "iOS, Android, The Web"
+  },
+  {
+    "title": "Timeframe", 
+    "desc": "2018-2020"
+  },
+  {
+    "title": "Status", 
+    "desc": "<a href='https://techcrunch.com/2021/01/11/snap-acquires-streetcred/' target='_blank' rel='noopener noreferrer'>Acquired by Snap in 2020</a>"
+  }
+]
+introScreens: [
+  {
+    key: "pois",
+    alt: "Screenshot from the app intro showing empty map and prompting the user to tap a button to Show nearby places."
+  },
+  {
+    key: "dropCubes",
+    alt: "Screenshot from the app intro showing nearby places available for points on the map and prompting the user to tap a button to Show dropped cubes."
+  },
+  {
+    key: "cubes",
+    alt: "Screenshot from the app intro showing places the user has dropped cubes on the map and prompting the user to tap a button to Show a leaderboard."
+  },
+  {
+    key: "leaderboard",
+    alt: "Screenshot from the app intro showing a stylized leaderboard. The map has zoomed to the user's local tile to show the available award amount. There's a button prompting the user to Show the tile they're in."
+  },
+  {
+    key: "jackpots",
+    alt: "Screenshot from the app intro with a zoomed out map to show the surrounding tiles and available reward amounts. There's a button prompting the user to Join the competition."
+  },
+  {
+    key: "add",
+    alt: "Screenshot from the app intro showing the full game UI. There's a button prompting the user to Add a place for 10 tokens."
+  }
+]
+addScreens: [
+  {
+    key: "name",
+    alt: "The Name screen of the Add Place flow"
+  },
+  {
+    key: "location",
+    alt: "The Location screen of the Add Place flow"
+  },
+  {
+    key: "category",
+    alt: "The Category screen of the Add Place flow"
+  },
+  {
+    key: "photo",
+    alt: "The Photo screen of the Add Place flow"
+  }
+]
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block hero %}
+<div class="hero--streetcred hero--before-standard hero--after-standard">
+  {{ super() }}
+
+  <div class="hero__contents">
+    <div class="streetcred__graphic">
+      <picture class="streetcred__graphic-main">
+        <source srcset="/images/work/streetcred/streetcred-hero-app-screen.avif" type="image/avif" />
+        <source srcset="/images/work/streetcred/streetcred-hero-app-screen.webp" type="image/webp" />
+        <img
+          src="/images/work/streetcred/streetcred-hero-app-screen.jpg"
+          width="455"
+          height="842"
+          alt="A stylized screenshot of the StreetCred app homescreen displaying the game HUD, a map with POIs, and a call to action button to Add a place."
+        />
+      </picture>
+
+      <div class="streetcred__graphic-poi">
+        <img class="poi__icon" src="/images/work/streetcred/streetcred-poi-marker.svg" alt="" width="50" height="50" />
+        <picture class="poi__main">
+          <source srcset="/images/work/streetcred/streetcred-hero-place-listed.avif" type="image/avif" />
+          <source srcset="/images/work/streetcred/streetcred-hero-place-listed.webp" type="image/webp" />
+          <img
+            src="/images/work/streetcred/streetcred-hero-place-listed.jpg"
+            width="360"
+            height="104"
+            alt="A stylized version of a POI as it's listed in the StreetCred app. The POI details read; Paquito's. Mexican. 40ft. 434 14th St New York, NY."
+          />
+        </picture>
+      </div>
+
+      <picture class="streetcred__graphic-cubes">
+        <source srcset="/images/work/streetcred/streetcred-hero-cubes.avif" type="image/avif" />
+        <source srcset="/images/work/streetcred/streetcred-hero-cubes.webp" type="image/webp" />
+        <img
+          src="/images/work/streetcred/streetcred-hero-cubes.jpg"
+          width="280"
+          height="97"
+          alt="A stylized version of the buy cubes button in the StreetCred app. The button reads; Buy 5 Cubes. 1,500 tokens."
+        />
+      </picture>
+
+      <div class="streetcred__graphic-board">
+        <img class="board__icon" src="/images/work/streetcred/streetcred-trophy.svg" alt="" width="50" height="50" />
+        <picture class="board__main">
+          <source srcset="/images/work/streetcred/streetcred-hero-leaderboard.avif" type="image/avif" />
+          <source srcset="/images/work/streetcred/streetcred-hero-leaderboard.webp" type="image/webp" />
+          <img
+            src="/images/work/streetcred/streetcred-hero-leaderboard.jpg"
+            width="386"
+            height="239"
+            alt="A partial view of a stylized leaderboard in the StreetCred app. The leaderboard lists the 1st through 3rd place players; DrLuigiHorse with 45 cubes awarded 0.02 BTC, maximus with 32 cubes awarded 0.01 BTC, and TJ with 16 cubes awarded 0.005 BTC."
+          />
+        </picture>
+      </div>
+    </div>
+
+    <h1 class="streetcred__title">
+      <img src="/images/work/streetcred/streetcred-logo.svg" alt="StreetCred">
+    </h1>
+  </div>
+</div>
+{% endblock %}
+
+{% block main %}
+
+<div class="g-main g-padded project project--streetcred">
+  <div class="g-main__item project__intro">
+    <div class="project__intro__main">
+      <a href="https://streetcred.co" class="project__link font--regular" target="_blank" rel="noopener noreferrer">
+        streetcred.co
+      </a>
+      <h2 class="project__intro__opening font--regular">
+        Can we map every place in the world?
+      </h2>
+      <p class="project__intro__body">
+        What’s a place? What isn’t? Let’s ask that another way. Who cares? 
+        That’s not a rhetorical or flippant question. For something, somewhere 
+        to be a “place”, someone has to <b class="highlight--streetcred">care enough</b> to tell people about it. 
+        And, tell them where in the world it is. A nowhere becomes a somewhere 
+        when someone puts it on a map.
+      </p>
+      <div class="streetcred__intro__2-col">
+        <p class="project__intro__extended streetcred__intro__extended">
+          StreetCred begin in early 2018 with the audacious goal of 
+          crowdsourcing the most complete, most up-to-date, and most open 
+          point of interest dataset in the world. I joined in June 2018 as 
+          the first design and engineering hire. For the next two years I 
+          worked with the team to build towards our lofty vision for what 
+          mapping POIs could be.
+        </p>
+        <p class="streetcred__intro__note">
+          <strong>Note:</strong> In this case study I refer to work “I” did. 
+          This is to convey my contributions to the product, not to erase 
+          anyone else’s. I didn’t do any of this work alone. My teammates were 
+          with me every step of the way.
+        </p>
+      </div>
+    </div>
+
+    {% include "components/project-specs.njk" %}
+  </div>
+
+  <div class="g-main__item streetcred__intro-graphics">
+    <div class="streetcred__graphics-container">
+      <figure class="streetcred__intro-demo streetcred__phone-stylee">
+        {% for screen in introScreens %}
+          <picture class="intro-demo__frame">
+            <source srcset="/images/work/streetcred/streetcred-intro-{{ screen.key }}.avif" type="image/avif" />
+            <source srcset="/images/work/streetcred/streetcred-intro-{{ screen.key }}.webp" type="image/webp" />
+            <img
+              src="/images/work/streetcred/streetcred-intro-{{ screen.key }}.jpg"
+              width="414"
+              height="736"
+              alt="{{ screen.alt }}"
+              loading="lazy"
+            />
+          </picture>
+        {% endfor %}
+        <button class="intro-demo__btn" id="intro-demo-btn">Next screen</button>
+      </figure>
+      <div class="tap-indicator"></div>
+      <button class="intro-demo__reset" id="intro-demo-reset">Reset</button>
+    </div>
+  </div>
+
+  <div class="g-main__item project__body streetcred__intro-content">
+    <div class="streetcred__intro-container">
+      <h3>Show them the foundation</h3>
+      <p>
+        A hard part of any app is the onboarding. You want to help folks 
+        understand the object and expectations, but you don’t want to over explain. 
+        People are smart. With StreetCred we needed a quick, interactive way to 
+        explain the game mechanics, without slowing down first run momentum. 
+      </p>
+      <p>
+        I designed and built the game intro that progressively displays real UI 
+        elements to show how the pieces fit together. 
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="g-main project--streetcred">
+  <div class="g-main__item streetcred__add">
+    <img class="streetcred__add-steps" 
+      src="/images/work/streetcred/streetcred-place-add-steps.svg" alt="">
+
+    <div class="streetcred__add-graphics">
+    {% for screen in addScreens %}
+      <figure class="streetcred__add-screen streetcred__phone-stylee add-screen--{{ screen.key }}">
+        <picture>
+          <source srcset="/images/work/streetcred/streetcred-place-add-{{ screen.key }}.avif" type="image/avif" />
+          <source srcset="/images/work/streetcred/streetcred-place-add-{{ screen.key }}.webp" type="image/webp" />
+          <img
+            src="/images/work/streetcred/streetcred-place-add-{{ screen.key }}.jpg"
+            width="414"
+            height="736"
+            alt="{{ screen.alt }}"
+            loading="lazy"
+          />
+        </picture>
+      </figure>
+    {% endfor %}
+    </div>
+
+    <div class="streetcred__add-content-container">
+      <div class="streetcred__add-content project__body">
+        <div class="add-content__main">
+          <h3>Places make the map</h3>
+          <p>
+            Adding places was the heart of the app. Making this flow fast and fun
+            was something that took iteration. We started out with something
+            a couple steps removed from data entry. A winding form with enough
+            questions that by the time you got to the end you forgot where you were.
+          </p>
+          <p>
+            By the fourth iteration (if my memory is correct) we landed on this
+            snappy four step process. In under two years, our small but
+            enthusiastic community used this flow to add over 100,000 points of interest 
+            throughout the world.
+          </p>
+        </div>
+        <picture>
+          <source srcset="/images/work/streetcred/streetcred-place-add-stack.avif" type="image/avif" />
+          <source srcset="/images/work/streetcred/streetcred-place-add-stack.webp" type="image/webp" />
+          <img
+            class="add-content__graphic"
+            src="/images/work/streetcred/streetcred-place-add-stack.png"
+            width="502"
+            height="386"
+            alt=""
+            loading="lazy"
+          />
+        </picture>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="g-main g-padded project project--streetcred">
+  <div class="g-main__item project__body">
+    <h3>Anything else?</h3>
+    <p>
+      Yes. God yes, there’s so much more. We packed 5 years of design and engineering into 2.
+      I have a bazillion screens, icons, sketchs, map styles, React Native hacks, and on and on.
+      Like everything on this site, this is a living document. More soonish.
+    </p>
+  </div>
+</div>
+
+{% include "components/work-nav.njk" %}
+
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+  const el = document.querySelector(".streetcred__graphics-container");
+  const btn = document.getElementById("intro-demo-btn");
+  const btnReset = document.getElementById("intro-demo-reset");
+  const frames = document.querySelectorAll(".intro-demo__frame");
+  let currentFrame = 0;
+  
+  btn.addEventListener("click", () => {
+    if (currentFrame < frames.length - 1) {
+      currentFrame += 1;
+      frames[currentFrame].classList.add("current");
+    }
+
+    if (currentFrame === frames.length - 1) {
+      el.classList.add("ended");
+    }
+  });
+
+  btnReset.addEventListener("click", () => {
+    currentFrame = 0;
+    frames.forEach((el) => el.classList.remove("current"));
+    el.classList.remove("ended");
+  });
+</script>
+{% endblock %}

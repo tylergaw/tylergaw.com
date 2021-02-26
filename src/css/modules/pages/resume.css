@@ -1,0 +1,113 @@
+.resume-intro__contents,
+.resume__experience,
+.resume__aside {
+  --col-start: 1;
+  --col-end: -1;
+}
+
+.resume {
+  padding-bottom: calc(var(--g-row) * 16);
+}
+
+.resume h2 {
+  font-family: var(--font-proto-regular);
+  font-size: var(--font-size-30);
+  font-weight: normal;
+  margin-bottom: 0;
+  margin-top: 1.5em;
+}
+
+.resume ul {
+  list-style: disc inside;
+}
+
+.job {
+  margin-top: calc(var(--g-row) * 8);
+}
+
+.job__timeline,
+.education__timeline {
+  display: block;
+  font-family: var(--font-proto-regular);
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-bottom: 0.2em;
+  text-transform: uppercase;
+}
+
+.job__title,
+.education__degree {
+  font-size: var(--font-size-24);
+  font-weight: 400;
+  line-height: 1.35;
+  margin: 0;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+.job__org,
+.education__school {
+  font-size: var(--font-size-18);
+  margin-top: 0.25rem;
+}
+
+.job__details,
+.skills ul {
+  font-size: var(--font-size-18);
+  line-height: 1.5;
+  margin-top: calc(var(--g-row) * 3);
+}
+
+.education__timeline {
+  margin-top: calc(var(--g-row) * 3);
+}
+
+@media (min-width: 38.75em) {
+  .resume-intro__contents,
+  .resume__experience {
+    max-width: 70ch;
+  }
+
+  .skills ul {
+    column-count: var(--col-count, 2);
+    column-gap: 1rem;
+  }
+}
+
+@media (min-width: 65em) {
+  .resume-intro__contents,
+  .resume__experience,
+  .resume__aside {
+    --col-start: 2;
+    --col-end: span 3;
+  }
+}
+
+@media (min-width: 77.5em) {
+  .resume-intro__contents,
+  .resume__experience,
+  .resume__aside {
+    --col-end: span 4;
+  }
+
+  .skills ul {
+    --col-count: 3;
+  }
+}
+
+@media (min-width: 106.25em) {
+  .resume-intro__contents,
+  .resume__experience,
+  .resume__aside {
+    --col-start: 3;
+    --col-end: span 5;
+  }
+}
+
+@media (min-width: 137.5em) {
+  .resume-intro__contents,
+  .resume__experience,
+  .resume__aside {
+    --col-start: 4;
+  }
+}

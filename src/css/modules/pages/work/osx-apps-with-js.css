@@ -1,0 +1,93 @@
+.hero--jxa {
+  color: white;
+  position: relative;
+}
+
+.hero--jxa::before {
+  background: var(--color-jxa-accent) url("/images/work/jxa/jxa-dust.svg")
+    repeat;
+  height: calc(var(--height-target, 85%) - var(--offset-v));
+  transform: skewY(-1.5deg);
+}
+
+.hero--jxa a {
+  color: #757070;
+}
+
+.hero--jxa .banner__logo::after {
+  background-color: #cdcbcb;
+}
+
+.hero--jxa .banner__nav a:hover,
+.hero--jxa .banner__nav a:focus,
+.hero--jxa .nav-work {
+  color: #cdcbcb;
+}
+
+.hero--jxa .hero__contents {
+  padding-top: 1rem;
+}
+
+.jxa__graphic,
+.jxa__title {
+  margin: 0 auto;
+  max-width: 38.75rem;
+  width: 96%;
+}
+
+.jxa__graphic {
+  display: block;
+  height: auto;
+}
+
+.jxa__title {
+  --offset: -5rem;
+  margin-bottom: calc(var(--offset) + 0.5rem);
+  transform: translateY(var(--offset));
+}
+
+.jxa__title img {
+  height: auto;
+  width: 100%;
+}
+
+.project--jxa {
+  --color-link: var(--color-jxa-accent-light);
+}
+
+@media (min-width: 38.75em) {
+  .hero--jxa .hero__contents {
+    padding-top: 0;
+  }
+}
+
+@media (min-width: 65em) {
+  .hero--jxa::before {
+    --height-target: 100%;
+  }
+
+  .hero--jxa .hero__contents {
+    transform: translateY(-4rem);
+    margin: 0 auto;
+    max-width: calc(1070 / 16 * 1rem);
+    width: 98%;
+  }
+
+  .jxa__graphic {
+    max-width: 44rem;
+    position: absolute;
+    transform: translateY(-2.5rem) translateX(-3rem);
+    width: auto;
+  }
+
+  .jxa__title {
+    --offset: 0;
+    margin: 0 0 0 auto;
+    transform: translateY(7rem);
+    width: auto;
+  }
+
+  .project--jxa .project__intro__main {
+    --padding-top-rows: 12;
+  }
+}

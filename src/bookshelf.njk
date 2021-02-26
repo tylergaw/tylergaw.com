@@ -1,0 +1,49 @@
+---
+title: Books I’m reading and books I’ve Read - Tyler Gaw
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block main %}
+
+<div class="page-intro g-main g-padded">
+  <div class="page-intro__contents g-main__item">
+    <h1 class="heading--special">Bookshelf</h1>
+    <p class="page-intro__body">
+      Books I’m reading and books I’ve read. Since 2019.
+    </p>
+  </div>
+</div>
+
+<ol class="listed-items g-main g-padded">
+{% for book in books %}
+
+  {% if book.year %}
+    <li class="g-main__item listed-items__heading" id="{{ book.year }}">
+      <h2>{{ book.year }}</h2>
+    </li>
+  {% endif %}
+
+  <li class="g-main__item listed-item">
+
+    {% if book.current %}
+      <span class="book-current">Currently reading</span>
+    {% else %}
+      <time datetime="{{ book.date }}">{{ book.date | dateFormat("MMMM, YYYY") }}</time>
+    {% endif %}
+    
+    <a
+      class="listed-item__link"
+      href="{{ book.url }}"
+    >
+      {{ book.title }}
+    </a>
+
+    <p>
+      by {{ book.author }}
+    </p>
+  </li>
+{%- endfor -%}
+</ol>
+
+{% endblock %}

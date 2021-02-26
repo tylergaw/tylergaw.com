@@ -1,0 +1,33 @@
+.hero--before-standard::before,
+.hero--after-standard::after {
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+.hero--before-standard::before,
+.hero--after-standard::after {
+  --gutter: 1rem;
+  --offset-v: calc(var(--gutter) * 3);
+  left: var(--gutter);
+  width: calc(100% - var(--gutter) * 2);
+}
+
+.hero--before-standard::before {
+  border-radius: 6px;
+  height: calc(100% - var(--offset-v));
+  top: calc(var(--gutter) * 3);
+}
+
+.hero__contents {
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 38.75em) {
+  .hero--before-standard::before,
+  .hero--after-standard::after {
+    left: calc(var(--gutter) * 3);
+    width: calc(100% - var(--gutter) * 6);
+  }
+}

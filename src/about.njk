@@ -1,0 +1,203 @@
+---
+title: About Tyler Gaw and this Site
+meta:
+  image: /images/social-about.png
+photos: [
+  {
+    key: "skateboarding",
+    alt: "A Polaroid photo of my skateboard laying on a rug in my apartment"
+  },
+  {
+    key: "records",
+    alt: "A Polaroid photo of my record collection in the 9 travel cases I store them"
+  },
+  {
+    key: "nyc",
+    alt: "A Polaroid photo the lower Manhattan skyline looking Southeast on East Broadway in Chinatown"
+  }
+]
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block hero %}
+<div class="hero--about hero--before-standard">
+  {{ super() }}
+
+  <div class="hero__contents about__hero-contents">
+    <div class="about__portrait">
+      <img src="/images/tyler-gaw-portrait-2020.svg" alt="An illustration portrait of Tyler" width="1246" height="1106">
+    </div>
+
+    <h1 class="about__title">
+      Still trying.
+    </h1>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block main %}
+
+<div class="g-main g-padded about__bio">
+  <div class="g-main__item bio__intro">
+    <p>
+      Since 2006 I’ve made a living as a Designer and Software Engineer, creating 
+      world-class digital experiences for humans. In that time, I’ve been 
+      fortunate to work with excellent people at a few companies, as a 
+      freelancer, and for a short time as a founder.
+    </p>
+    <p>
+      I’m trying to use my skills and experience to put good into the world.
+    </p>
+  </div>
+
+  <div class="g-main__item bio__design">
+    <h2>On design</h2>
+    <p>
+      There are plenty of words and acronyms you can put in front of
+      “Designer”. Product, Web, Graphic, UX, UI, IA, etc.
+      The lines between each are blurry, and the titles go in and out of
+      fashion. Depending on the project and team I’m working alongside, I
+      practice them all to varying degrees. I prefer to call myself; “A Designer.”
+    </p>
+  </div>
+
+  <div class="g-main__item bio__eng">
+    <h2>On engineering</h2>
+    <p>
+      Code is a means to an end. I have ideas and use code to bring them to
+      life. That doesn’t mean I approach programming
+      as a craft with any less enthusiasm or care as Design. I push myself
+      to learn new languages, understand new patterns, and keep growing as an engineer.
+      No language is off limits and I don’t avoid trying to learn difficult concepts.
+    </p>
+  </div>
+
+  <p class="g-main__item bio__outro">
+    Being a better designer makes me a better engineer and being a better
+    engineer makes me a better designer. I get asked a lot which I want to do
+    more; design or write code? I answer, “yes.”
+  </p>
+</div>
+
+<div class="g-main g-padded about-section">
+  <div class="g-main__item about-section__intro">
+    <h2>About me</h2>
+    <p>
+      Designing and writing code get me money so I can have food so they get a lot of my attention.
+      This is a non-exhaustive list of other things I love;
+    </p>
+    <ul>
+      <li>
+        <p>
+          <strong id="skateboarding" class="highlight--about">Skateboarding</strong>. I got my first board in 1997 for my 12th
+          birthday. In 24 years the longest I've ever gone without it was 7 months.
+          That was due to knee surgery after a torn ACL and meniscus. Your first
+          assumption about how I did that will be correct. Skateboarding altered
+          my trajectory in life. I would be a completely different person without it.
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong id="records" class="highlight--about">Vinyl records</strong>. I adore music of all types. Having them
+          in a physical form is good for my soul. <a href="https://www.discogs.com/user/thegaw/collection">My collection (this isn’t all of it)</a>
+          grows at a comical pace. Spending an hour digging through bins in a record
+          store is one of my favorite ways to clear my head. And then spend too much money.
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong id="nyc" class="highlight--about">New York City</strong>. This is my Home. I’m a part of it and it’s
+          a part of me. I moved here in 2008. I’ve lived in 8 different apartments
+          in Manhattan and Brooklyn. I’ve been here through multiple hurricanes, an 
+          earthquake, blizzards, breakups, tickets, an arrest, court dates, jury duty (twice),
+          bar fights, terrorist attacks, and most recently, the deafening quiet, 
+          eerie stillness, reefer trucks full of bodies on 2nd AVE, and the brain
+          altering trauma of a global pandemic. I love this city and 
+          it allows me to exist here. That’s the most anyone can ask of it.
+        </p>
+      </li>
+    </ul>
+  </div>
+
+  <div class="g-main__item project__graphics project__graphics--tight">
+    <figure class="project__figure">
+      <div class="figure-grid figure-grid--3 about__polaroids">
+        {% for photo in photos %}
+          <picture>
+            <source srcset="/images/about/about-{{ photo.key }}.avif" type="image/avif" />
+            <source srcset="/images/about/about-{{ photo.key }}.webp" type="image/webp" />
+            <img
+              class="about__photo"
+              src="/images/about/about-{{ photo.key }}.jpg"
+              width="1500"
+              height="1789"
+              alt="{{ photo.alt }}"
+              loading="lazy"
+            />
+          </picture>
+        {% endfor %}
+      </div>
+    </figure>
+  </div>
+</div>
+
+<div class="g-main g-padded about-section">
+  <div class="g-main__item about-section__intro">
+    <h2>About this site</h2>
+    <p>
+      I deployed the first Flash version of this site Summer of 2006. I built
+      v1 during the last months of college to help land my first web design job.
+      Fun tidbit, there’s a CD-ROM
+      version of that first site. An interface built with <a href="https://en.wikipedia.org/wiki/Adobe_Director">Macromedia Director</a>
+      on CD-ROM was the required final project deliverable at that time.
+    </p>
+    <p>
+      Since then, I’ve made iterations on the site every few years to accomplish
+      different goals. I’ve changed the design, I’ve changed the work, and most
+      important of all I’ve changed. This site is a lot of things. A portfolio
+      of design work. A blog. A place to experiement. Above all else, this site
+      is a reflection of me.
+    </p>
+    <p>
+      For this current iteration I’m using;
+    </p>
+
+    <ul class="list--normal">
+      <li><a href="https://www.11ty.dev/">Eleventy</a></li>
+      <li><a href="https://www.netlify.com/">Netlify</a></li>
+      <li>CSS: The kind that comes in the browser</li>
+      <li>JavaScript: The regular kind that comes in the browser and very little of it</li>
+      <li>Set in <a href="https://www.productiontype.com/family/proto_grotesk">Proto Grotesk</a></li>
+    </ul>
+
+    <h3 class="heading--special" id="versions">Version history</h3>
+    <p>
+      The source for all versions is available <a href="https://github.com/tylergaw/tylergaw.com">on GitHub</a>.
+    </p>
+  </div>
+
+  <ol class="g-main__item site__versions" id="versions">
+    {%- for version in site.versions -%}
+    <li class="version">
+      <figure>
+        <a class="version__link" href="https://v{{ loop.revindex }}.tylergaw.com" target="_blank" rel="noopener noreferrer">
+          <figcaption class="version__title">
+            <b>Version {{ loop.revindex }}</b> {{ version }}
+          </figcaption>
+          <picture class="version__img">
+            <source srcset="/images/tylergaw-v{{ loop.revindex }}.webp" type="image/webp">
+            <source srcset="/images/tylergaw-v{{ loop.revindex }}.jpg" type="image/jpeg">
+            <img src="/images/tylergaw-v{{ loop.revindex }}.jpg" 
+              alt="A screenshot of version {{ loop.revindex }} of tylergaw.com"
+              loading="lazy">
+          </picture>
+        </a>
+      </figure>
+    </li>
+    {%- endfor -%}
+  </ol>
+</div>
+
+{% endblock %}

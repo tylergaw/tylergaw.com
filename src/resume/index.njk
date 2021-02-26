@@ -1,0 +1,166 @@
+---
+title: Tyler Gaw’s Resume
+jobs: [
+  {
+    "title": "Director of Engineering", 
+    "org": "<a href='https://rokt.com' target='_blank' rel='noopener noreferrer'>Rokt</a>",
+    "timeline": "February 2021 – Present"
+  },
+  {
+    "title": "Lead Front-end Engineer / Lead Designer", 
+    "org": "<a href='/work/streetcred'>StreetCred</a>",
+    "timeline": "June 2018 – May 2020",
+    "details": [
+      "Pitched, nurtured and executed product features to help grow and support our community of players",
+      "Led the design and development of our iOS/Android application built in React Native",
+      "Established high quality design and engineering best practices to grow our team"
+    ]
+  },
+  {
+    "title": "Co-Founder / Designer / Front-end Engineer", 
+    "org": "<a href='/work/limbo'>Limbo</a>",
+    "timeline": "February 2017 – June 2018",
+    "details": [
+      "Partnered on product vision, concept, strategy, and business model",
+      "Designed and built a slow-on-purpose profile form to help candidates take their time and think in-depth about their ideal work",
+      "Built an intentionally minimal, progressively-enhanced JS scaffold using Gulp, Rollup.JS, and ES2015",
+      "Produced a pattern library for consistent and collaborative design"
+    ]
+  },
+  {
+    "title": "Senior Software Engineer", 
+    "org": "<a href='/work/thegroundwork'>The Groundwork</a>",
+    "timeline": "September 2014 – September 2017",
+    "details": [
+      "Built software that powered Hillary Clinton’s 2016 Presidential Campaign responsible for 9MM donations totalling $600MM",
+      "Led a remote team of 7 engineers and designers. Conducted team meetings, helped define and clarify OKRs, and set expectations",
+      "Built the front-end event system for hillaryclinton.com used by over 14,000 to RSVP for the campaign kick-off rally in NYC",
+      "Designed products to serve dozens of  nonprofits and NGOs including UNHCR and NYCHA"
+    ]
+  },
+  {
+    "title": "Designer & Engineer", 
+    "org": "<a href='https://longform.org' target='_blank' rel='noopener noreferrer'>Longform (freelance)</a>",
+    "timeline": "March 2014 – September 2014",
+    "details": [
+      "Designed the second version of their popular iOS app",
+      "Designed and built a mini marketing site to announce the app"
+    ]
+  },
+  {
+    "title": "Product & Design Lead", 
+    "org": "Readability (at Arc90)",
+    "timeline": "November 2011 – February 2014",
+    "details": [
+      "Led a team of five engineers and designers. Held 1-on-1s, set and kept project pace. Worked with the CEO to define and execute product vision",
+      "Oversaw a redesign and rebuild of our iOS app, web site, and Chrome extension"
+    ]
+  },
+  {
+    "title": "Designer & Engineer", 
+    "org": "Arc90",
+    "timeline": "September 2008 – February 2014"
+  },
+  {
+    "title": "Designer & Engineer", 
+    "org": "Freelance",
+    "timeline": "September 2007 – September 2008"
+  },
+  {
+    "title": "Web Designer", 
+    "org": "Digi Craft Productions",
+    "timeline": "September 2006 – September 2007"
+  }
+]
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block main %}
+<div class="resume-intro g-main g-padded">
+  <div class="page-intro__contents g-main__item resume-intro__contents">
+    <h1 class="heading--special">Resume</h1>
+    <div class="page-intro__body">
+      <p>
+        I’m a multifaceted designer & engineer. I have deep knowledge and expertise 
+        earned through 14 years of client and product work.
+      </p>
+      <p>
+        <strong>Currently, Director of Engineering at <a href="https://rokt.com" target="_blank" rel="noopener noreferrer">Rokt</a>.</strong>
+      </p>
+      <p>
+        <a href="mailto:me@tylergaw.com">me@tylergaw.com</a> •
+        <a href="https://github.com/tylergaw">github.com/tylergaw</a> •
+        <a href="/resume/tylergaw-resume.pdf">tylergaw-resume.pdf</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="g-main g-padded resume">
+  <div class="g-main__item resume__experience">
+    <h2>Experience</h2>
+
+    <ol>
+      {% for job in jobs %}
+      <li class="job">
+        <p class="job__timeline">{{ job.timeline }}</p>
+        <h3 class="job__title">{{ job.title }}</h3>
+        <p class="job__org">{{ job.org | safe }}</p>
+
+        {% if job.details %}
+        <ul class="job__details">
+          {% for detail in job.details %}
+            <li>{{ detail }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+
+  <div class="g-main__item resume__aside">
+    <div class="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>Design of all variety; product, UX, UI, graphic, and more qualifiers</li>
+        <li>Writing</li>
+        <li>Producing and using pattern libraries and design systems</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Old timey JavaScript</li>
+        <li>New-fangled JavaScript</li>
+        <li>Sass</li>
+        <li>PostCSS</li>
+        <li>React</li>
+        <li>React Native</li>
+        <li>Redux</li>
+        <li>Webpack</li>
+        <li>Rollup.JS</li>
+        <li>Gulp</li>
+        <li>So many JS build tools</li>
+        <li>Python</li>
+        <li>Flask</li>
+        <li>Django</li>
+        <li>Ruby on Rails</li>
+        <li>PHP</li>
+        <li>Consuming RESTful and GraphQL APIs</li>
+        <li>Working with CI tools; Travis, Circle, GitHub Actions</li>
+        <li>Asking hard questions</li>
+        <li>Written communication</li>
+        <li>User stories</li>
+        <li>Meticulour project documentation</li>
+      </ul>
+    </div>
+
+    <div class="education">
+      <h2>Education</h2>
+      <p class="education__timeline">November 2004 - September 2006</p>
+      <p class="education__degree">Bachelor of Science in Digital Arts and Design</p>
+      <p class="education__school">Full Sail University, Orlando Florida</p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

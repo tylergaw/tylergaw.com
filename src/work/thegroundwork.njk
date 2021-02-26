@@ -1,0 +1,242 @@
+---
+title: The Groundwork as remembered by Tyler Gaw
+pageType: work
+project: thegroundwork
+specs: [
+  {
+    "title": "Hats worn", 
+    "desc": "Leadership, product, writing, design, front-end"
+  },
+  {
+    "title": "Code used", 
+    "desc": "HTML, CSS, JavaScript, React, Python"
+  },
+  {
+    "title": "Continuum", 
+    "desc": "The Web"
+  },
+  {
+    "title": "Timeframe", 
+    "desc": "2014-2017"
+  },
+  {
+    "title": "Status", 
+    "desc": "Disbanded in 2018 and missed dearly."
+  }
+]
+paymentblockImgs: [
+  "A screenshot of the Payment block donation amount selection.",
+  "A screenshot of the Payment block contact info step",
+  "A screenshot of the Payment block billing address step",
+  "A screenshot of the Payment block credit card info step",
+]
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block hero %}
+<div class="hero--groundwork hero--before-standard hero--after-standard">
+  {{ super() }}
+
+  <div class="hero__contents">
+    <h1 class="groundwork__title">
+      <img class="groundwork__mark" src="/images/work/thegroundwork/gw-mark.svg" 
+        alt="The GW logo made up of a circle around a triangle and digital 'roots'"
+        width="214" height="214">
+      <img src="/images/work/thegroundwork/gw-logo.svg" alt="The Groundwork" 
+        width="1209" height="115">
+    </h1>
+  </div>
+</div>
+{% endblock %}
+
+{% block main %}
+
+<div class="g-main g-padded project project--groundwork">
+  <div class="g-main__item project__intro">
+    <div class="project__intro__main">
+      <span class="project__link font--regular">
+        URL lost to time*
+      </span>
+      <h2 class="project__intro__opening font--regular">
+        Can we help elect the President?
+      </h2>
+      <p class="project__intro__body">
+        We had one goal; help make Hillary Clinton the 45<sup>th</sup> President 
+        of the United States of America. You know how that ended. What you might 
+        not know about is the tireless work of a small team of technologists 
+        who dedicated themselves to the <abbr title="Hillary for America">HFA</abbr> campaign. 
+        You don’t know about that because that’s how we designed it.
+        From the beginning, our mantra was, “don’t be the story.”
+      </p>
+      <p class="project__intro__extended project__shout">
+        <strong>*Warning</strong>: Do not visit any thegroundwork.com domains. 
+        The owner of the domain let it lapse years ago and it was taken over by bad actors.
+      </p>
+    </div>
+
+    {% include "components/project-specs.njk" %}
+  </div>
+
+  <div class="g-main__item project__body project__body--initial">
+    <h3>Hillary for America</h3>
+    <p>
+      Our web services for collecting donations, email subscriptions, identity,
+      and event creation were the foundation of the Hillary for America
+      technology.
+    </p>
+    <p>
+      Along with our microservice APIs, our team was also instrumental in the initial Hillary for America website
+      launch. In the days leading up to the April 12, 2015 launch we helped
+      the HFA tech team and another web development vendor stand up a
+      Wagtail CMS, implement designs, squash bugs, and make sure the the
+      site could handle the massive traffic it was about to receive.
+    </p>
+    <p>
+      In the months after launch we continued our work with the growing HFA
+      tech team. We played a key role in interviewing candidates
+      and making recommendations for designer and engineer hires for HFA. We
+      also continued daily work on the website.
+    </p>
+    <p>
+      Myself along with other members of the Groundwork helped complete the
+      front-end engineering necessary for the HFA kickoff rally in New York
+      City in early summer 2015.
+    </p>
+    <p>
+      Over 14,000 people RSVP’d for the launch rally using backend and
+      frontend systems built by our team. This was only the beginning.
+    </p>
+  </div>
+
+  <div class="g-main__item project__body">
+    <h3>The Developer Center</h3>
+    <p>
+      This was one of my babies during my tenure. Our web services not only
+      powered the Hillary for America tech, they were also available for non-profit
+      organizations to build with. The Developer Center was the documentation portal for
+      all users of The Groundwork services. Over the 3 years I worked at
+      The Groundwork, I got have a lot of fun designing and building this website.
+    </p>
+  </div>
+
+  <div class="g-main__item project__graphics project__graphics--tight">
+    <figure class="project__figure figure--browser">
+      <picture>
+        <source srcset="/images/work/thegroundwork/gw-dev-center-home.webp" type="image/webp" />
+        <img
+          src="/images/work/thegroundwork/gw-dev-center-home.jpg"
+          width="2000"
+          height="3965"
+          alt="A screenshot of the home page of developer.thegroundwork.com"
+          loading="lazy"
+        />
+      </picture>
+    </figure>
+
+    <div class="project__figure figure-grid figure-grid--uneven">
+      <figure class="project__figure figure--browser">
+        <picture>
+          <source srcset="/images/work/thegroundwork/gw-dev-center-gwjs.avif" type="image/avif" />
+          <source srcset="/images/work/thegroundwork/gw-dev-center-gwjs.webp" type="image/webp" />
+          <img
+            src="/images/work/thegroundwork/gw-dev-center-gwjs.jpg"
+            width="1500"
+            height="2288"
+            alt="A screenshot of the GroundworkJS page of developer.thegroundwork.com"
+            loading="lazy"
+          />
+        </picture>
+      </figure>
+      <figure class="project__figure figure--browser">
+        <picture>
+          <source srcset="/images/work/thegroundwork/gw-dev-center-blocks.avif" type="image/avif" />
+          <source srcset="/images/work/thegroundwork/gw-dev-center-blocks.webp" type="image/webp" />
+          <img
+            src="/images/work/thegroundwork/gw-dev-center-blocks.jpg"
+            width="1500"
+            height="1408"
+            alt="A screenshot of the Blocks page of developer.thegroundwork.com"
+            loading="lazy"
+          />
+        </picture>
+      </figure>
+    </div>
+  </div>
+
+  <div class="g-main__item project__body">
+    <h3>Blocks</h3>
+    <p>
+      The Groundwork Blocks were highly configurable drop-in widgets for collecting
+      payments and email subscriptions. We built them to allow our customers
+      a way to quickly implement donation collections and email subscriptions
+      with little to no engineering resources. With a single <code>div</code>
+      and a <code>script</code> tag, customers had full access to our APIs.
+    </p>
+  </div>
+
+  <div class="g-main__item project__graphics project__graphics--tight">
+    <figure class="project__figure">
+      <div class="figure-grid figure-grid--4">
+        {% for img in paymentblockImgs %}
+          <picture>
+            <source srcset="/images/work/thegroundwork/gw-payment-block-step-{{ loop.index }}.avif" type="image/avif" />
+            <source srcset="/images/work/thegroundwork/gw-payment-block-step-{{ loop.index }}.webp" type="image/webp" />
+            <img
+              src="/images/work/thegroundwork/gw-payment-block-step-{{ loop.index }}.png"
+              width="712"
+              height="1059"
+              alt="{{ img }}"
+              loading="lazy"
+            />
+          </picture>
+        {% endfor %}
+      </div>
+    </figure>
+  </div>
+
+  <div class="g-main__item project__body">
+    
+
+    <h3>The Humans</h3>
+    <p>
+      While I never held the official title, I got to act as a de facto Lead
+      of the Frontend Team at The Groundwork. For a time it was the largest
+      team at seven excellent humans. I see leadership roles as a service
+      position. My primary role during that time was to help make sure each
+      member of the team had everything they needed to do great work. I
+      didn’t always succeed. I made mistakes daily. But I got the
+      opportunity to try, so I did every day.
+    </p>
+    <p>
+      My teammates were the best group of humans I’ve ever worked with. I’m
+      proud to still be able to count them as friends years after it all ended.
+    </p>
+    <p class="project__shout">
+      <strong>Note</strong>: What I have here is a sliver of the
+      work we did. One day I'll make a static archive of as much of the
+      front-end that we built as possible. Because it was just too good to not
+      be online to share.
+    </p>
+  </div>
+
+  <div class="g-main__item project__body">
+    <h3>Recognition</h3>
+    <ul>
+      <li>
+        <a href="https://qz.com/520652/groundwork-eric-schmidt-startup-working-for-hillary-clinton-campaign/" target="_blank" rel="noopener noreferrer">
+          The stealthy, Eric Schmidt-backed startup that’s working to put Hillary Clinton in the White House
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/benjaminws/status/825069468258807808" target="_blank" rel="noopener noreferrer">
+          We made racists mad
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+{% include "components/work-nav.njk" %}
+
+{% endblock %}

@@ -1,0 +1,82 @@
+.hero--colorme {
+  color: var(--color-offwhite);
+  position: relative;
+}
+
+.hero--colorme::before {
+  background: var(--color-colorme-accent)
+    url("/images/work/colorme/colorme-dust.svg") repeat;
+  clip-path: polygon(0 0, 100% 0.3rem, 100% 98.5%, 0 100%);
+  height: calc(95% - var(--offset-v));
+  top: calc(var(--gutter) * 3.3);
+  width: calc(99% - var(--gutter) * 2);
+}
+
+.hero--colorme::after {
+  background: var(--color-colorme-accent-dark)
+    url("/images/work/colorme/colorme-dust.svg") repeat;
+  border-radius: 6px;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    0 100%,
+    3rem var(--path-point, 62%)
+  );
+  height: calc(100% - var(--offset-v));
+  left: initial;
+  right: var(--gutter);
+  top: calc(var(--gutter) * 3);
+  transform: rotate(1deg);
+  width: calc(var(--width-target, 62%) - var(--gutter) * 2);
+}
+
+.hero--colorme a {
+  color: #5c003f;
+}
+
+.hero--colorme .banner__logo::after {
+  background-color: #eaaed7;
+}
+
+.hero--colorme .banner__nav a:hover,
+.hero--colorme .banner__nav a:focus,
+.hero--colorme .nav-work {
+  color: #5c003f;
+}
+
+.colorme__title {
+  margin: 0 auto;
+  max-width: calc(550 / 16 * 1rem);
+  padding-bottom: 6rem;
+  padding-top: 2rem;
+  width: 70%;
+}
+
+.colorme__title img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.project--colorme {
+  --color-link: var(--color-colorme-accent);
+}
+
+@media (min-width: 38.75em) {
+  .hero--colorme::before {
+    width: calc(99% - var(--gutter) * 6);
+  }
+
+  .hero--colorme::after {
+    --path-point: 53%;
+    right: calc(var(--gutter) * 3);
+    width: calc(52% - var(--gutter) * 3);
+  }
+
+  .colorme__title {
+    padding-bottom: min(19vw, 23rem);
+    padding-top: min(13vw, 16rem);
+    width: 65%;
+  }
+}
