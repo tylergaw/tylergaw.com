@@ -190,14 +190,17 @@
   width: 100%;
 }
 
-.streetcred__intro-demo {
+.streetcred__phone-stylee {
   background-color: white;
   border-radius: 30px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
-  display: block;
-  margin: 0 auto;
+  box-shadow: 0 10px var(--shadow-blur, 30px) rgba(0, 0, 0, 0.22);
   max-width: calc(414 / 16 * 1rem);
   overflow: hidden;
+}
+
+.streetcred__intro-demo {
+  display: block;
+  margin: 0 auto;
   padding-top: min(156%, 733px);
   position: relative;
   width: 88%;
@@ -245,6 +248,7 @@
   background: transparent url("/images/tap-indicator.svg") no-repeat center
     bottom;
   opacity: 0.9;
+  pointer-events: none;
   position: absolute;
   left: var(--pos-left, 67%);
   height: var(--size);
@@ -288,6 +292,60 @@
 .ended .intro-demo__reset {
   opacity: 1;
   translate: 0 0.75rem;
+}
+
+.streetcred__add {
+  --col-start: 1;
+  --col-end: -1;
+  background: transparent
+    url("/images/work/streetcred/streetcred-marker-big-bird.svg") no-repeat
+    var(--bg-pos-h, right 1%) top 0;
+  background-size: var(--bg-size, 205%);
+  margin-top: calc(var(--g-row) * var(--margin-t-rows, 15));
+  padding-top: calc(var(--g-row) * 18);
+  padding-bottom: calc(var(--g-row) * 20);
+}
+
+.streetcred__add-steps {
+  display: block;
+  margin: 0 auto;
+  width: min(1160px, var(--width, 85%));
+}
+
+.streetcred__add-screen {
+  margin: 0 auto;
+  transform: scale(var(--scale, 1)) translateY(var(--offset-y, 0))
+    translateX(var(--offset-x, 0));
+  width: 85%;
+}
+
+.add-screen--name {
+  --shadow-blur: 8px;
+  --scale: 0.85;
+}
+
+.add-screen--location {
+  --shadow-blur: 13px;
+  --offset-y: -70%;
+  --scale: 0.9;
+  margin-bottom: -70%;
+}
+
+.add-screen--category {
+  --shadow-blur: 18px;
+  --offset-y: -60%;
+  --scale: 0.95;
+  margin-bottom: -60%;
+}
+
+.add-screen--photo {
+  --offset-y: -58%;
+}
+
+.streetcred__add-screen img {
+  display: block;
+  height: auto;
+  width: 100%;
 }
 
 @keyframes pulse {
@@ -342,6 +400,53 @@
   .streetcred__graphic-main {
     --radius: 40px;
     --max-width: 360;
+  }
+
+  .streetcred__add {
+    --bg-pos-h: right -50%;
+    --bg-size: 150%;
+  }
+
+  .streetcred__add-graphics {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: calc(414 * var(--num-screens-h, 2) / 16 * 1rem);
+    padding-top: calc(var(--g-row) * var(--padding-t-rows, 5));
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .streetcred__add-screen {
+    margin: 0;
+    width: var(--width, 50%);
+  }
+
+  .add-screen--name,
+  .add-screen--location,
+  .add-screen--category,
+  .add-screen--photo {
+    --shadow-blur: initial;
+    --scale: 1;
+    margin-bottom: 0;
+  }
+
+  .add-screen--name {
+    --offset-y: 0;
+  }
+
+  .add-screen--location {
+    --offset-x: calc(20 / 16 * -1.5rem);
+    --offset-y: calc(var(--g-row) * 5);
+  }
+
+  .add-screen--category {
+    --offset-x: calc(20 / 16 * 1rem);
+    --offset-y: calc(var(--g-row) * -5);
+  }
+
+  .add-screen--photo {
+    --offset-y: 0;
   }
 }
 
@@ -422,12 +527,49 @@
 
   .streetcred__graphic {
     order: 2;
-    width: 65%;
+    width: 70%;
   }
 
   .streetcred__graphic-board {
     left: initial;
     right: 2%;
+  }
+
+  .streetcred__add {
+    --bg-pos-h: left -270%;
+    --bg-size: min(1375px, 85%);
+    --margin-t-rows: 24;
+  }
+
+  .streetcred__add-steps {
+    --width: 65%;
+  }
+
+  .streetcred__add-graphics {
+    --num-screens-h: 4;
+    --padding-t-rows: 8;
+  }
+
+  .streetcred__add-screen {
+    --width: 25%;
+  }
+
+  .add-screen--name {
+    --offset-x: calc(20 / 16 * 1.5rem);
+  }
+
+  .add-screen--location {
+    --offset-x: 0;
+  }
+
+  .add-screen--category {
+    --offset-x: calc(20 / 16 * -1rem);
+    --offset-y: calc(var(--g-row) * 1);
+  }
+
+  .add-screen--photo {
+    --offset-x: calc(20 / 16 * -2.5rem);
+    --offset-y: calc(var(--g-row) * 7);
   }
 }
 
@@ -449,6 +591,12 @@
 @media (min-width: 89.75em) {
   .hero--streetcred::before {
     --bg-pos-h: 14vw;
+  }
+}
+
+@media (min-width: 101em) {
+  .streetcred__add {
+    --bg-pos-h: right 950px;
   }
 }
 
@@ -474,6 +622,10 @@
   .hero--streetcred::before {
     --bg-pos-h: 20vw;
   }
+
+  .streetcred__add {
+    --bg-pos-h: right 1200px;
+  }
 }
 
 @media (min-width: 137.5em) {
@@ -491,5 +643,9 @@
 @media (min-width: 150em) {
   .hero--streetcred::before {
     --bg-pos-h: 26vw;
+  }
+
+  .streetcred__add {
+    --bg-pos-h: right 1400px;
   }
 }

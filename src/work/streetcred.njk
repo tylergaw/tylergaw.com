@@ -50,6 +50,24 @@ introScreens: [
     alt: "Screenshot from the app intro showing the full game UI. There's a button prompting the user to Add a place for 10 tokens."
   }
 ]
+addScreens: [
+  {
+    key: "name",
+    alt: "The Name screen of the Add Place flow"
+  },
+  {
+    key: "location",
+    alt: "The Location screen of the Add Place flow"
+  },
+  {
+    key: "category",
+    alt: "The Category screen of the Add Place flow"
+  },
+  {
+    key: "photo",
+    alt: "The Photo screen of the Add Place flow"
+  }
+]
 ---
 
 {% extends "layouts/base.njk" %}
@@ -159,7 +177,7 @@ introScreens: [
 
   <div class="g-main__item streetcred__intro-graphics">
     <div class="streetcred__graphics-container">
-      <figure class="streetcred__intro-demo">
+      <figure class="streetcred__intro-demo streetcred__phone-stylee">
         {% for screen in introScreens %}
           <picture class="intro-demo__frame">
             <source srcset="/images/work/streetcred/streetcred-intro-{{ screen.key }}.avif" type="image/avif" />
@@ -196,6 +214,30 @@ introScreens: [
     </div>
   </div>
 </div>
+<div class="g-main project--streetcred">
+  <div class="g-main__item streetcred__add">
+    <img class="streetcred__add-steps" 
+      src="/images/work/streetcred/streetcred-place-add-steps.svg" alt="">
+
+    <div class="streetcred__add-graphics">
+    {% for screen in addScreens %}
+      <figure class="streetcred__add-screen streetcred__phone-stylee add-screen--{{ screen.key }}">
+        <picture>
+          <source srcset="/images/work/streetcred/streetcred-place-add-{{ screen.key }}.avif" type="image/avif" />
+          <source srcset="/images/work/streetcred/streetcred-place-add-{{ screen.key }}.webp" type="image/webp" />
+          <img
+            src="/images/work/streetcred/streetcred-place-add-{{ screen.key }}.jpg"
+            width="414"
+            height="736"
+            alt="{{ screen.alt }}"
+            loading="lazy"
+          />
+        </picture>
+      </figure>
+    {% endfor %}
+    </div>
+  </div>
+</div>
 
 {% include "components/work-nav.njk" %}
 
@@ -210,7 +252,7 @@ introScreens: [
   let currentFrame = 0;
   
   btn.addEventListener("click", () => {
-    if (currentFrame !== frames.length - 1) {
+    if (currentFrame < frames.length - 1) {
       currentFrame += 1;
       frames[currentFrame].classList.add("current");
     }
