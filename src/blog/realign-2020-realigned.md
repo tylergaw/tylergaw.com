@@ -22,7 +22,7 @@ the results. I didn't write all the posts I wanted to, but that's OK. Here's the
 - [Realign 2020: Logo](/blog/realign-2020-logo)
 - [Realign 2020: Color](/blog/realign-2020-color)
 
-and the the posts I planned, but didn’t write
+and the posts I planned, but didn’t write
 
 - Realign 2020: Content
 - Realign 2020: Netlify
@@ -46,6 +46,7 @@ This is me making another declaration of intent. In 2021 I want to keep working 
 - How I created a little design world of structured chaos on the home page. I'm using classic grid design techniques to set rules. And then bending and breaking those rules to make things interesting. I’m also using [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout) extensively and will describe my approach to it
 - Accessibility (a11y) efforts. This is fancy, funky design, but it still needs to be accessible. I still have issues to work through, but I’ve taken a lot of care and code to make this site accessible
 - All the details! There's so many fun little things. I want to keep a ongoing series called; "Look at this!" or similar, to highlight specific areas of the design and how I built them
+- The illustrations! My portait and the Limbo elephant where huge efforts. I’ll share details about my process creating those
 - More about my approach to being creative. I'm constantly thinking about and struggling with serious vs solemn, as [Paula Scher](https://youtu.be/atn22-bmTPU) so eloquently described
 
 and two archival efforts I've started and want to continue
@@ -53,4 +54,4 @@ and two archival efforts I've started and want to continue
 - The Groundwork static archive. None of the work we did is still online. I’m going to archive as much of it as I can at [theground.work](https://theground.work) and invite the team to contribute
 - Limbo static archive. When we shut down Limbo, we took the site offline. Same as The Groundwork, I'm going to build a static archive of the site for Chris and I
 
-That's not everything, but that's a lot. Here's to another year of enjoying the act of tending to a personal website.
+That's not everything, but that's a lot. Here's to another year of enjoying the process of tending to a personal website.
