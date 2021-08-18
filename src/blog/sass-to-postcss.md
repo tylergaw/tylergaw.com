@@ -135,7 +135,7 @@ meta:
 
 <h2>cssnext</h2>
 <p>
-  <a href="http://cssnext.io/">cssnext</a> is a PostCSS plugin for compiling future CSS syntax to syntax that works today. It's important to note that it's not a different language like Sass or Less. The features it offers are in-progress CSS specs. Some for features already showing up in browsers today. Others in beginning stages of the specification process.
+  <a href="https://cssnext.github.io/">cssnext</a> is a PostCSS plugin for compiling future CSS syntax to syntax that works today. It's important to note that it's not a different language like Sass or Less. The features it offers are in-progress CSS specs. Some for features already showing up in browsers today. Others in beginning stages of the specification process.
 </p>
 <p>
   I used cssnext to fill in the rest of the gaps left by missing Sass features.
@@ -258,7 +258,7 @@ a {
   Basic nesting requires the leading <code>&</code>. Pseudo classes and selectors are the same in Sass and CSS. Media queries don't need a leading <code>&</code>.
 </p>
 <p>
-  Also worth noting is <code>@nest</code>. As mentioned in the <a href="http://cssnext.io/features/#nesting">docs</a>, complex nesting requires <code>@nest</code> instead of <code>&</code>. I didn't have any use cases for it on this project, but may in the future.
+  Also worth noting is <code>@nest</code>. As mentioned in the <a href="https://cssnext.github.io/features/#nesting">docs</a>, complex nesting requires <code>@nest</code> instead of <code>&</code>. I didn't have any use cases for it on this project, but may in the future.
 </p>
 
 <h3>Extend and Placeholder classes</h3>
