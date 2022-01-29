@@ -1,0 +1,48 @@
+---
+title: Paintings, drawings, and various creations of Tyler Gaw
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block main %}
+
+<div class="page-intro g-main g-padded">
+  <div class="page-intro__contents g-main__item">
+    <h1 class="heading--special">Art</h1>
+    <p class="page-intro__body">
+      Some of my earliest memories were of drawing. As a kid I spent hours 
+      sketching hundreds of weird characters, redrawing panes from comics, and 
+      just doodling whatever was in my head. As an adult, my sketching shifted
+      from a creative outlet to a tool of work.
+      App screens, brand logos, and system diagrams. But, I still have
+      that itch to create for for the sake of creation. 
+      These are the results of the scratching.
+    </p>
+  </div>
+</div>
+
+<div class="g-padded">
+  <ul>
+    <li class="art-preview-impulse">
+      <a href="/art/impulse" class="art__link">
+        <picture>
+          <source srcset="/images/art/impulse.avif" type="image/avif" />
+          <source srcset="/images/art/impulse.webp" type="image/webp" />
+          <img
+            src="/images/art/impulse.jpg"
+            width="2500"
+            height="3333"
+            alt="A painting of a human-looking, green-skinned being with 11 eyes, buck teeth. The painting is on a skateboard deck, so the character's head is elongated. He's wearing a blue dress shirt with a white collar and a red tie with white dots."
+            loading="lazy"
+          />
+        </picture>
+      </a>
+      <p class="art__label">
+        <strong>Impulse</strong> <time datetime="2018-11">November, 2018</time>
+        <br/>Acrylic on wood skateboard deck, resin sealed
+      </p>
+    </li>
+  </ul>
+</div>
+
+{% endblock %}

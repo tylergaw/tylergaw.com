@@ -1,0 +1,35 @@
+---
+title: Impulse
+meta:
+  description: Acrylic on wood skateboard deck, resin sealed. November 2018
+  image: /images/art/impulse-social.jpg
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block main %}
+  <div class="page-intro g-main g-padded">
+    <div class="page-intro__contents g-main__item">
+      <h1 class="heading--special">Impulse</h1>
+      <p class="page-intro__body">
+        <time datetime="2018-11">November, 2018</time>
+        <br/>Acrylic on wood skateboard deck, resin sealed
+        <br/><br/><a href="/art">Back to list</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="g-padded">
+    <picture class="art-full-size">
+      <source srcset="/images/art/impulse.avif" type="image/avif" />
+      <source srcset="/images/art/impulse.webp" type="image/webp" />
+      <img
+        src="/images/art/impulse.jpg"
+        width="2500"
+        height="3333"
+        alt="A painting of a human-looking, green-skinned being with 11 eyes, buck teeth. The painting is on a skateboard deck, so the character's head is elongated. He's wearing a blue dress shirt with a white collar and a red tie with white dots."
+        loading="lazy"
+      />
+    </picture>
+  </div>
+{% endblock %}

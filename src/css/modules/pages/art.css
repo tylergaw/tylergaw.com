@@ -1,0 +1,25 @@
+.art__link {
+  display: block;
+  width: 100%;
+}
+
+.art__link img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.art__label {
+  line-height: 1.5;
+  margin-top: 0.5rem;
+}
+
+.art-preview-impulse {
+  max-width: 480px;
+}
+
+.art-full-size img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
