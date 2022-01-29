@@ -2,15 +2,6 @@
   --rows: 5;
 }
 
-.footer__links {
-  display: flex;
-}
-
-.footer__links ul {
-  flex: 1 1 50%;
-  max-width: calc(280 / 16 * 1rem);
-}
-
 .footer__links li {
   margin: 0.8rem 0;
 }
@@ -38,6 +29,17 @@
   gap: 0.4em;
   line-height: 1.25;
   text-transform: uppercase;
+}
+
+@media (min-width: 420px) {
+  .footer__links {
+    display: flex;
+  }
+
+  .footer__links ul {
+    flex: 1 1 50%;
+    max-width: calc(280 / 16 * 1rem);
+  }
 }
 
 @media (min-width: 38.75em) {
