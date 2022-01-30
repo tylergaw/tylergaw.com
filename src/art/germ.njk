@@ -1,0 +1,36 @@
+---
+title: Germ
+meta:
+  description: Acrylic on canvas. 42x22
+  image: /images/art/germ-social.jpg
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block main %}
+  <div class="page-intro g-main g-padded">
+    <div class="page-intro__contents g-main__item">
+      <h1 class="heading--special">Germ</h1>
+      <p class="page-intro__body">
+        <time datetime="2022-01">January, 2022</time>
+        <br/>Acrylic on canvas
+        <br/>42x22in (6 individual 14x11in canvases)
+        <br/><br/><a href="/art">Back to list</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="g-padded">
+    <picture class="art-full-size">
+      <source srcset="/images/art/germ.avif" type="image/avif" />
+      <source srcset="/images/art/germ.webp" type="image/webp" />
+      <img
+        src="/images/art/germ.jpg"
+        width="2500"
+        height="1351"
+        alt="An abstract painting with heavy, boxy brush strokes. Colors are cool going from light green/turquoise on the left, turning to a dark blue, then to near black on the far right."
+        loading="lazy"
+      />
+    </picture>
+  </div>
+{% endblock %}

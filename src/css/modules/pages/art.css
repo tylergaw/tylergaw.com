@@ -11,15 +11,34 @@
 
 .art__label {
   line-height: 1.5;
-  margin-top: 0.5rem;
-}
-
-.art-preview-impulse {
-  max-width: 480px;
+  padding: 0.5rem;
 }
 
 .art-full-size img {
   display: block;
   height: auto;
   width: 100%;
+}
+
+.art-list {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 530px) {
+  .art-list li {
+    flex: 1;
+    width: 100%;
+  }
+
+  .art-preview-germ {
+    max-width: 1000px;
+    min-width: 500px;
+  }
+
+  .art-preview-impulse {
+    max-width: 480px;
+    min-width: 320px;
+  }
 }
