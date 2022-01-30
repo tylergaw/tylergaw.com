@@ -1,16 +1,16 @@
 [
   {
     "current": true,
-    "year": 2021,
-    "title": "The Most Fun Thing",
-    "url": "https://www.grandcentralpublishing.com/titles/kyle-beachy/the-most-fun-thing/9781538754108/",
-    "author": "Kyle Beachy"
+    "year": 2022,
+    "title": "A Country of Ghosts",
+    "url": "https://www.goodreads.com/book/show/20610031-a-country-of-ghosts",
+    "author": "Margaret Killjoy"
   },
   {
     "current": true,
-    "title": "Watchmen",
-    "url": "https://www.goodreads.com/book/show/472331.Watchmen",
-    "author": "Alan Moore, Dave Gibbons"
+    "title": "The Most Fun Thing",
+    "url": "https://www.grandcentralpublishing.com/titles/kyle-beachy/the-most-fun-thing/9781538754108/",
+    "author": "Kyle Beachy"
   },
   {
     "current": true,
@@ -20,6 +20,7 @@
   },
   {
     "date": "2021-11",
+    "year": 2021,
     "title": "The Final Day",
     "url": "https://www.goodreads.com/book/show/26114149-the-final-day",
     "author": "William R. Forstchen"
