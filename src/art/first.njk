@@ -1,0 +1,37 @@
+---
+title: First - A painting by Tyler Gaw
+meta:
+  description: Acrylic on canvas. 36x36
+  image: /images/art/first-social.jpg
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block main %}
+  <div class="page-intro g-main g-padded">
+    <div class="page-intro__contents g-main__item">
+      <h1 class="heading--special">First</h1>
+      <p class="page-intro__body">
+        <time datetime="2022-01">January, 2022</time>
+        <br/>Acrylic on canvas
+        <br/>36x36in, oak frame
+        <br/><br/><a href="/art">Back to list</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="g-padded">
+    <picture>
+      <source srcset="/images/art/first.avif" type="image/avif" />
+      <source srcset="/images/art/first.webp" type="image/webp" />
+      <img
+        class="art-full-size full-size-first"
+        src="/images/art/first.jpg"
+        width="2500"
+        height="2512"
+        alt="A geometric painting with heavy outlines and various rectangles in shades of red with neon red accents. Some rectangles are filled in with red, others are only outlined in red. There's a neon red circle in one of the outlined rectangles."
+        loading="lazy"
+      />
+    </picture>
+  </div>
+{% endblock %}

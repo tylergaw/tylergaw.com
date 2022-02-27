@@ -14,10 +14,23 @@
   padding: 0.5rem;
 }
 
-.art-full-size img {
+.art-full-size {
   display: block;
   height: auto;
+  margin: 0 auto;
   width: 100%;
+}
+
+.full-size-first {
+  max-width: 1200px;
+}
+
+.full-size-germ {
+  max-width: 1600px;
+}
+
+.full-size-impulse {
+  max-width: 960px;
 }
 
 .art-list {
@@ -30,6 +43,11 @@
   .art-list li {
     flex: 1;
     width: 100%;
+  }
+
+  .art-preview-first {
+    max-width: 600px;
+    min-width: 350px;
   }
 
   .art-preview-germ {
