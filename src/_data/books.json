@@ -2,12 +2,6 @@
   {
     "current": true,
     "year": 2022,
-    "title": "A Country of Ghosts",
-    "url": "https://www.goodreads.com/book/show/20610031-a-country-of-ghosts",
-    "author": "Margaret Killjoy"
-  },
-  {
-    "current": true,
     "title": "The Most Fun Thing",
     "url": "https://www.grandcentralpublishing.com/titles/kyle-beachy/the-most-fun-thing/9781538754108/",
     "author": "Kyle Beachy"
@@ -17,6 +11,12 @@
     "title": "What Can a Body Do?: How We Meet the Built World",
     "url": "https://www.goodreads.com/book/show/49349641-what-can-a-body-do",
     "author": "Sara Hendren"  
+  },
+  {
+    "current": 2022-03,
+    "title": "A Country of Ghosts",
+    "url": "https://www.goodreads.com/book/show/20610031-a-country-of-ghosts",
+    "author": "Margaret Killjoy"
   },
   {
     "date": "2021-11",
