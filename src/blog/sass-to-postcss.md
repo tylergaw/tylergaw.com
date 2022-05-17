@@ -143,7 +143,7 @@ meta:
 
 <h3>Vendor prefixes</h3>
 <p>
-  I built this site before I knew about <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a>. I used <a href="https://github.com/tylergaw/tylergaw.com/blob/pre-postcss/src/css/scss/modules/_prefixed.scss">custom Sass mixins</a> to handle adding the needed prefixes. cssnext includes Autoprefixer, so I was able to remove that entire mixins module.
+  I built this site before I knew about <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a>, autoprefixer now has an [online version](https://goonlinetools.com/autoprefixer/) that allows you to enter your non-prefixed CSS and gives you a prefix-added CSS. I used <a href="https://github.com/tylergaw/tylergaw.com/blob/pre-postcss/src/css/scss/modules/_prefixed.scss">custom Sass mixins</a> to handle adding the needed prefixes. cssnext includes Autoprefixer, so I was able to remove that entire mixins module.
 </p>
 
 <h3>Variables</h3>
