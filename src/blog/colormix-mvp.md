@@ -22,7 +22,7 @@ meta:
 </p>
 <figure>
   <picture>
-    <img src="/articles/assets/post-image-colormix-mvp-screenshot.jpg" alt="A screenshot of colormix.site" />
+    <img src="https://tylergaw.com/blog/articles/assets/post-image-colormix-mvp-screenshot.jpg" alt="A screenshot of colormix.site" />
   </picture>
   <figcaption>fig 1: <a href="https://www.colormix.site">colormix.site</a> MVP</figcaption>
 </figure>
