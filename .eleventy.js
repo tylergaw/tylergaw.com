@@ -32,6 +32,7 @@ module.exports = function (conf) {
   conf.addPassthroughCopy("./src/manifest.webmanifest");
   conf.addPassthroughCopy("./src/keybase.txt");
   conf.addPassthroughCopy("./src/rss.xml");
+  conf.addPassthroughCopy("./src/.well-known");
 
   conf.addWatchTarget("./src/**/*.css");
 
