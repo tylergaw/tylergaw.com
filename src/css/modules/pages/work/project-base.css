@@ -84,7 +84,7 @@ span.project__link {
 }
 
 .project__body--initial {
-  padding-top: calc(var(--g-row) * 10);
+  padding-top: calc(var(--g-row) * 6);
 }
 
 .project__body p,
@@ -160,6 +160,8 @@ span.project__link {
 }
 
 .figure--browser {
+  --toolbar-height: 24;
+  --stoplight-size: 38px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 12px 30px rgba(0, 0, 0, var(--browser-shadow, 0.12));
@@ -171,10 +173,11 @@ span.project__link {
   background: white
     url("data:image/svg+xml,%3Csvg width='62' height='14' viewBox='0 0 62 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 7C14 10.866 10.866 14 7 14C3.13401 14 0 10.866 0 7C0 3.13401 3.13401 0 7 0C10.866 0 14 3.13401 14 7Z' fill='%23E1EBED'/%3E%3Cpath d='M38 7C38 10.866 34.866 14 31 14C27.134 14 24 10.866 24 7C24 3.13401 27.134 0 31 0C34.866 0 38 3.13401 38 7Z' fill='%23E1EBED'/%3E%3Cpath d='M55 14C58.866 14 62 10.866 62 7C62 3.13401 58.866 0 55 0C51.134 0 48 3.13401 48 7C48 10.866 51.134 14 55 14Z' fill='%23E1EBED'/%3E%3C/svg%3E")
     no-repeat 0.8rem center;
+  background-size: var(--stoplight-size);
   border-bottom: 2px solid #e1ebed;
   content: "";
   display: block;
-  height: calc(46 / 16 * 1rem);
+  height: calc(var(--toolbar-height) / 16 * 1rem);
 }
 
 .figure-grid {
@@ -219,7 +222,7 @@ span.project__link {
   opacity: 0.85;
 }
 
-@media (min-width: 38.75em) {
+@media (min-width: 620px) {
   .project {
     padding-left: calc(var(--g-gutter) * 2.25);
     padding-right: calc(var(--g-gutter) * 2.25);
@@ -236,6 +239,11 @@ span.project__link {
     width: calc(33% - 1rem);
   }
 
+  .figure--browser {
+    --toolbar-height: 40;
+    --stoplight-size: auto;
+  }
+
   .figure-grid {
     --grid-cols: 2;
   }
@@ -245,7 +253,7 @@ span.project__link {
   }
 }
 
-@media (min-width: 65em) {
+@media (min-width: 1040px) {
   .project__intro__main {
     --padding-top-rows: 6;
   }
