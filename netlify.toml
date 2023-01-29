@@ -10,6 +10,11 @@
   # directory located at the absolute path "root/project/build-output"
   publish = "dist/"
 
+# This should go away when/if I update to a more recent version of eleventy
+# netlify dev, by default, just runs `eleventy`, which is not what we want.
+[dev]
+  command = "eleventy --serve"
+
 [[redirects]]
   from = "/articles"
   to = "/blog"

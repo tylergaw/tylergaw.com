@@ -1,5 +1,5 @@
 .work-nav {
-  padding-top: calc(var(--g-row) * 30);
+  padding-top: calc(var(--g-row) * 8);
 }
 
 .work-nav__items {
