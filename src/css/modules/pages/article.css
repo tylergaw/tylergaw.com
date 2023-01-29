@@ -277,7 +277,7 @@
   width: 0.7em;
 }
 
-@media (min-width: 46.875em) {
+@media (min-width: 750px) {
   .e-header {
     margin-bottom: 7rem;
     margin-top: 4rem;
@@ -288,26 +288,26 @@
   }
 
   .e-content {
-    font-size: 2em;
+    font-size: 1.875em;
   }
 }
 
-@media (min-width: 96.875em) {
+@media (min-width: 1550px) {
   [data-page="blog"] {
     --width-text-max: 73rem;
   }
 
   .e-content {
-    font-size: 2.4em;
+    font-size: 2.2em;
   }
 }
 
-@media (min-width: 115.625em) {
+@media (min-width: 1850px) {
   [data-page="blog"] {
     --width-text-max: 79rem;
   }
 
   .e-content {
-    font-size: 2.6em;
+    font-size: 2.4em;
   }
 }
