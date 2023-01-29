@@ -4,3 +4,6 @@ node_modules
 package-lock.json
 
 tylergaw.code-workspace
+
+# Local Netlify folder
+.netlify
