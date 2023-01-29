@@ -22,7 +22,7 @@ With AVIF support, iOS started recognizing and loading AVIF images. I could conf
 
 Re-encode any AVIF images. For me, this meant; tracking down original images and graphics in Figma, exporting has PNG or JPG, then converting those to AVIF using [Squoosh](https://squoosh.app/). Once I did that, AVIF images loaded and displayed as expected.
 
-I had trouble finding details on this. What led me to even try re-encoding was [Jen Simmon's comment](https://github.com/Fyrd/caniuse/issues/6505#issuecomment-1289471190) on a related issue:
+I had trouble finding details on this. What led me to even try re-encoding was [Jen Simmons' comment](https://github.com/Fyrd/caniuse/issues/6505#issuecomment-1289471190) on a related issue:
 
 > Please do create new images for your tests. The specs for AVIF changed since the early days. Image encoders have been updated — including in Sept 2022, when AVIF bugs in several of the common encoders were found.
 
