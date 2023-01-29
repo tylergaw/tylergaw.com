@@ -84,7 +84,7 @@ span.project__link {
 }
 
 .project__body--initial {
-  padding-top: calc(var(--g-row) * 16);
+  padding-top: calc(var(--g-row) * 10);
 }
 
 .project__body p,
