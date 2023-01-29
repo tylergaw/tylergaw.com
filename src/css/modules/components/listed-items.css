@@ -39,7 +39,7 @@
 
 .listed-items__heading {
   font-family: var(--font-proto-regular);
-  font-size: 2rem;
+  font-size: 1.25rem;
 }
 
 .listed-items__heading > * {
@@ -47,13 +47,14 @@
   margin: 0;
 }
 
-@media (min-width: 38.75em) {
+@media (min-width: 620px) {
   .listed-items {
     --num-cols: 3;
   }
 
   .listed-items__heading {
     --col-start: 1;
+    padding-left: 1.5rem;
     position: sticky;
     top: 1.5rem;
   }
@@ -68,7 +69,7 @@
   }
 }
 
-@media (min-width: 65em) {
+@media (min-width: 1040px) {
   .listed-items {
     --num-cols: 5;
     font-size: 1.2em;
@@ -79,7 +80,7 @@
   }
 }
 
-@media (min-width: 106.25em) {
+@media (min-width: 1700px) {
   .listed-items {
     --num-cols: 9;
   }
@@ -94,13 +95,13 @@
   }
 }
 
-@media (min-width: 123.75em) {
+@media (min-width: 1980px) {
   .listed-items__heading {
     top: 2rem;
   }
 }
 
-@media (min-width: 137.5em) {
+@media (min-width: 2200px) {
   .listed-items {
     font-size: 1.4em;
   }
