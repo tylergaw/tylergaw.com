@@ -6,4 +6,5 @@ date: "2023-05-15"
 meta:
   description: Iterating colormix.style beyond an MVP.
   card: summary
+  image: /blog/assets/post-image-colormix-refresh-social.png
 ---
