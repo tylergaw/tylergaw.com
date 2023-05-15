@@ -4,16 +4,31 @@ jobs: [
   {
     "title": "Director of Engineering", 
     "org": "<a href='https://rokt.com' target='_blank' rel='noopener noreferrer'>Rokt</a>",
-    "timeline": "February 2021 – Present"
+    "timeline": "February 2021 – April 2023",
+    "details": [
+      "Built a work culture that attracts talent and kept long term team members from leaving",
+      "Managed engineers and engineering managers across teams responsible for core product development and internal experimentation platform",
+      "Helped grow the NYC engineer team from 3 to ~60",
+      "Led the Product Design team of 9 split between New York and Sydney"
+    ]
   },
   {
-    "title": "Lead Front-end Engineer / Lead Designer", 
+    "title": "Lead Engineer and Designer (contract)", 
+    "org": "<a href='/work/streetcred'>ideas42 Ventures</a>",
+    "timeline": "May 2020 – January 2021",
+    "details": [
+      "Built a technology and design foundation for the budding venture studio"
+    ]
+  },
+  {
+    "title": "Lead Front-end Engineer and Design Lead", 
     "org": "<a href='/work/streetcred'>StreetCred</a>",
     "timeline": "June 2018 – May 2020",
     "details": [
       "Pitched, nurtured and executed product features to help grow and support our community of players",
       "Led the design and development of our iOS/Android application built in React Native",
-      "Established high quality design and engineering best practices to grow our team"
+      "Established high quality design and engineering best practices to grow our team",
+      "StreetCred was <a href='https://techcrunch.com/2021/01/11/snap-acquires-streetcred/'>acquired by Snap</a> in 2020"
     ]
   },
   {
@@ -85,7 +100,7 @@ jobs: [
         Engineering and design leader with over 15 years experience building products and nurturing teams.
       </p>
       <p>
-        <strong>Currently, Director of Engineering at <a href="https://rokt.com" target="_blank" rel="noopener noreferrer">Rokt</a>.</strong>
+        <strong>Open to opportunities</strong>
       </p>
       <p>
         <a href="mailto:me@tylergaw.com">me@tylergaw.com</a> •
@@ -110,7 +125,7 @@ jobs: [
         {% if job.details %}
         <ul class="job__details">
           {% for detail in job.details %}
-            <li>{{ detail }}</li>
+            <li>{{ detail | safe }}</li>
           {% endfor %}
         </ul>
         {% endif %}
@@ -151,7 +166,7 @@ jobs: [
         <li>Asking hard questions</li>
         <li>Written communication</li>
         <li>User stories</li>
-        <li>Meticulour project documentation</li>
+        <li>Meticulous project documentation</li>
       </ul>
     </div>
 
