@@ -15,7 +15,7 @@ For the MVP, I was focused on building the bare minimum to get the idea across. 
 
 With all that, I’m taking the time to iterate [colormix.style](https://www.colormix.style) beyond an MVP into a more robust, more useful tool.
 
-## What’s changed
+## What’s new?
 
 To be able to make the larger functionality and usable improvements I wanted, the first thing I needed to do was take another stab at the overall UI. I had an idea for what I wanted when I designed the MVP, a spartan UI where every bit of the UI was part of the tool. That idea can work, but I didn't execute on it well enough. It also felt like my original design had put too much emphasis on the color input vs the output. The two color inputs, while important, aren't the main idea. The output of `color-mix` is.
 
@@ -40,3 +40,23 @@ The basic utility was there, but it just wasn't what I knew it could be. As I us
   </picture>
   <figcaption>fig 2: <a href="https://www.colormix.style">colormix.style</a> Improved design</figcaption>
 </figure>
+
+First, just aesthetically, this is better to look at. Part of that is just due to me spending more time to get details right. Next, the focus is now clearly on the output color. And output space. Both of which are the stars of this tool. I have more to do there, but this refresh is setting up future improvements.
+
+I let go of trying to have every pixel be part of the functionality. There's whitespace in the header and footer and around the color output container. It's not a ton, but just enough to push focus to the interactive elements on the page.
+
+This is a utility so the focus needs to be on functionality, but I also let myself get away with a couple design flourishes with the plus and arrow icons. A copule tiny details to break up the matter-of-factness of the rest of the design.
+
+#### Removing the percentage slider
+
+Something I removed was the slider to control the mix percentage. Now, the number input is the only way to control mix percentage. We'll see if this ends up being the right decision. I took inspiration from design tools for this. I noticed that in Figma when controlling percentages like opacity, the only control is the text input. I've never once wanted a slider. I think that's partially because we don't tend to make large up or down changes. If we do need to go from say 100% to 10%, it's faster to just type "10".
+
+One improvement I'll add here is the ability to hold the shift key with the up and down arrow keys to increment by 10. That's something I reach for in Figma and other similar tools and feels necessary here.
+
+## What’s next?
+
+This UI refresh is a first and largely cosmetic step for improving this tool. I have a list of new functionality I'm working on already and will continue to work on in the coming weeks/months.
+
+The most important addition is to allow for all color spaces in color inputs. Right now I only have rgb via hex. This drastically reduces the functionality and kills the future-looking nature of the tool. The introduction of new color spaces in CSS is huge and exciting. So, this tool will provide a way to work with them.
+
+You can follow the full list of what I'm up to on [Github issues](https://github.com/tylergaw/colormix.site/issues). If you see something broken or have an idea, feel free to add an issue there to discuss.
