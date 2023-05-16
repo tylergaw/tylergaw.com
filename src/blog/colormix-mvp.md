@@ -9,7 +9,7 @@ meta:
 ---
 
 <p>
-  TL;DR: <a href="https://www.colormix.site">colormix.site</a> and <a href="https://github.com/tylergaw/colormix.site"> github.com/tylergaw/colormix.site</a>
+  TL;DR: <a href="https://www.colormix.style">colormix.style</a> and <a href="https://github.com/tylergaw/colormix.site"> github.com/tylergaw/colormix.site</a>
 </p>
 <p>
   Way back in 2017, I <a href="https://tylergaw.com/blog/introducing-colorme/">built ColorMe</a> for working with a proposed CSS color function. That proposal didn't end up sticking, so that <code>color</code> function is no longer valid. ColorMe is still a useful color picker though.
@@ -18,13 +18,13 @@ meta:
   Now, in 2022, there's a proposal for a new CSS color function. This version is named <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix"><code>color-mix</code></a>. It's part of the <a href="https://drafts.csswg.org/css-color-5/#color-mix">CSS Color Module Level 5</a> spec. It allows you to mix two colors in a given colorspace in CSS. That's very cool.
 </p>
 <p>
-  Similar to the deprecated color function, I wanted a quick way to see the results and code snippet for <code>color-mix</code>. <strong>So I built a new tool to do just that; <a href="https://www.colormix.site">colormix.site</a></strong>. 
+  Similar to the deprecated color function, I wanted a quick way to see the results and code snippet for <code>color-mix</code>. <strong>So I built a new tool to do just that; <a href="https://www.colormix.style">colormix.style</a></strong>. 
 </p>
 <figure>
   <picture>
-    <img src="https://tylergaw.com/blog/assets/post-image-colormix-mvp-screenshot.jpg" alt="A screenshot of colormix.site" />
+    <img src="https://tylergaw.com/blog/assets/post-image-colormix-mvp-screenshot.jpg" alt="A screenshot of colormix.style" />
   </picture>
-  <figcaption>fig 1: <a href="https://www.colormix.site">colormix.site</a> MVP</figcaption>
+  <figcaption>fig 1: <a href="https://www.colormix.style">colormix.style</a> MVP</figcaption>
 </figure>
 
 <h2>What does it do?</h2>
