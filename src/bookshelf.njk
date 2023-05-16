@@ -29,7 +29,7 @@ title: Books I’m reading and books I’ve Read - Tyler Gaw
     {% if book.current %}
       <span class="book-current">Currently reading</span>
     {% else %}
-      <time datetime="{{ book.date }}">{{ book.date | dateFormat("MMMM, YYYY") }}</time>
+      <time datetime="{{ book.date }}">{{ book.date | dateFormat("MMMM, YYYY") }} {% if book.note %}{{ book.note }}{% endif %}</time>
     {% endif %}
     
     <a
