@@ -59,4 +59,8 @@ This UI refresh is a first and largely cosmetic step for improving this tool. I 
 
 The most important addition is to allow for all color spaces in color inputs. Right now I only have rgb via hex. This drastically reduces the functionality and kills the future-looking nature of the tool. The introduction of new color spaces in CSS is huge and exciting. So, this tool will provide a way to work with them.
 
-You can follow the full list of what I'm up to on [Github issues](https://github.com/tylergaw/colormix.site/issues). If you see something broken or have an idea, feel free to add an issue there to discuss.
+You can follow the full list of what I'm up to on [Github issues](https://github.com/tylergaw/colormix.site/issues). If you see something broken or have an idea, feel free to add an issue there.
+
+## Credits
+
+I've been taking heavy UI and functionality inspiration from Adam Argyle’s [gradient.style](https://gradient.style) and learning a ton about new CSS color capabilities from his article ["High Definition CSS Color Guide"](https://developer.chrome.com/articles/high-definition-css-color-guide/).
