@@ -129,3 +129,98 @@ body {
   padding-bottom: 2rem;
   margin-top: 0;
 }
+
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+@keyframes slideToRight {
+  from {
+    transform: translateX(-100vw);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideToLeft {
+  from {
+    transform: translateX(100vw);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100vh);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    scale: 0;
+  }
+
+  to {
+    scale: 1;
+  }
+}
+
+[data-page="home"]::view-transition-new(root) {
+  animation: slideToRight 0.5s;
+}
+
+[data-page="blog"]::view-transition-new(root) {
+  animation: slideToLeft 0.5s;
+}
+
+[data-page="about"]::view-transition-new(root) {
+  animation: slideUp 0.5s;
+}
+
+[data-page="work"]::view-transition-new(root) {
+  animation: scaleUp 0.5s;
+}
+
+@keyframes heroIn {
+  0%,
+  50% {
+    scale: 0;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes heroOut {
+  0% {
+    scale: 1;
+  }
+
+  50% {
+    scale: 2;
+  }
+
+  100% {
+    scale: 0;
+  }
+}
+
+::view-transition-old(hero-contents) {
+  animation: heroOut 0.75s;
+}
+
+::view-transition-new(hero-contents) {
+  animation: heroIn 1s;
+}

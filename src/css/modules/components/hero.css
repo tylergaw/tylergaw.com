@@ -22,6 +22,7 @@
 .hero__contents {
   position: relative;
   z-index: 1;
+  view-transition-name: hero-contents;
 }
 
 @media (min-width: 38.75em) {
