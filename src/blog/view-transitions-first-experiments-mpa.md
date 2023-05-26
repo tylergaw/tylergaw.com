@@ -121,7 +121,7 @@ If an element with that name is present on both the current page and the page yo
 This is a little tough to explain in words, [here's an example](https://mpa-view-transitions-sandbox.netlify.app/grid-item-view/). And again, a video in case these aren't working for you yet.
 
 <figure>
-<video src="https://p197.p4.n0.cdn.getcloudapp.com/items/JruejBeP/b38a000f-102d-4147-a0c5-34e311fc2043.mp4?source=viewer&v=80324ae5755f4a11b3e1c97f989e499a" controls></video>
+<video src="https://p197.p4.n0.cdn.getcloudapp.com/items/ApugQ4b1/69486edd-3fd5-4398-b8a2-9115f14837d4.mp4?source=viewer&v=401646be1fbea0cbcdf5bdbb8641d9a6" controls></video>
   <figcaption>fig 3: Live example available <a href="https://mpa-view-transitions-sandbox.netlify.app/unique-page-slide/">mpa-view-transitions-sandbox.netlify.app/grid-item-view</a></figcaption>
 </figure>
 
