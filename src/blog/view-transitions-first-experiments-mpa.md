@@ -5,9 +5,9 @@ title: "First Experiments with View Transitions for Multi-page Apps"
 date: "2023-05-26"
 highlightSyntax: true
 meta:
-  description: Iterating colormix.style beyond an MVP.
+  description: Experimenting and learning about view transitions for multi-page apps
   card: summary
-  image: /blog/assets/post-image-colormix-refresh-social.png
+  image: /images/social-summary.png
 ---
 
 Like a lot of other people right now, I'm excited about the in-development [View Transitions API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API). I'm extra excited about using it without JavaScript for multi-page sites. [Dave's excellent post](https://daverupert.com/2023/05/getting-started-view-transitions/) got me set up with the basics. I've spent the last day or so experimenting, playing, and learning as much about the topic as I can.
@@ -141,9 +141,4 @@ Then, in the CSS, we create a custom animation and apply it to our `-new` elemen
 
 This gives a lot of control over how elements transition or, as I think about it, how they enter and exit the stage. [Full code](https://github.com/tylergaw/mpa-view-transitions-sandbox/tree/main/grid-item-view) for this example on Github.
 
----
-
-- Can transition to an element with a named transition that isn't on the previous page
-- Sequencing is tricky
-  - animation-delay doesn't quite work because
-  - but you can use keyframes percentages to delay animation
+## What’s next?
