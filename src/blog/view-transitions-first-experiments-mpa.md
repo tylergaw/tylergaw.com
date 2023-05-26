@@ -110,6 +110,37 @@ Scoping isn't limited to the `root` transition. The same concept works for named
 
 I haven't explored scoping named transitions much yet, but it feels like it opens up a lot of possibilities.
 
+### Elements don't have to be on both pages to transition
+
+This is a “that's interesting”. This is one that's maybe a “duh” in hindsight, but took me a bit to figure out. To get an element to transition or “morph” between two pages, you give that element a transition name:
+
+<pre><code class="language-html">&lt;div style="view-transition-name: content" /&gt;</code></pre>
+
+If an element with that name is present on both the current page and the page you’re navigating to, the element will morph between the elements’ shape, size, color, etc. I thought this was the only way to transition elements. To have the element be on both pages and morph. That's not the case. You can transition an element in and out that only exists on the page you're navigating.
+
+This is a little tough to explain in words, [here's an example](https://mpa-view-transitions-sandbox.netlify.app/grid-item-view/). And again, a video in case these aren't working for you yet.
+
+<figure>
+<video src="https://p197.p4.n0.cdn.getcloudapp.com/items/JruejBeP/b38a000f-102d-4147-a0c5-34e311fc2043.mp4?source=viewer&v=80324ae5755f4a11b3e1c97f989e499a" controls></video>
+  <figcaption>fig 3: Live example available <a href="https://mpa-view-transitions-sandbox.netlify.app/unique-page-slide/">mpa-view-transitions-sandbox.netlify.app/grid-item-view</a></figcaption>
+</figure>
+
+The title, description, and graphic for each item exists on both the list and single item page. So, those elements morph between each page. The “All items” button is only on the single item pages. But, we're still able to give it a transition name and, in this case, a custom animation. A custom animation isn't required, but you likely don't want the default for something like this.
+
+To do this, we set a `view-transition-name` in the HTML. This is a normal CSS property, so we could also set this on the `small` element in CSS. I just chose inline because I wasn't applying any other styles to it.
+
+<pre><code class="language-html">&lt;small style="view-transition-name: all-items-link"&gt;
+  &lt;a href="./"&gt;&lt; All items&lt;/a&gt;
+&lt;/small&gt;</code></pre>
+
+Then, in the CSS, we create a custom animation and apply it to our `-new` element for the transition name:
+
+<pre><code class="language-css">::view-transition-new(all-items-link) {
+  animation: itemsLinkIn 0.3s;
+}</code></pre>
+
+This gives a lot of control over how elements transition or, as I think about it, how they enter and exit the stage. [Full code](https://github.com/tylergaw/mpa-view-transitions-sandbox/tree/main/grid-item-view) for this example on Github.
+
 ---
 
 - Can transition to an element with a named transition that isn't on the previous page
