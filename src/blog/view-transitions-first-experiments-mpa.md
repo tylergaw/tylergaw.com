@@ -142,3 +142,18 @@ Then, in the CSS, we create a custom animation and apply it to our `-new` elemen
 This gives a lot of control over how elements transition or, as I think about it, how they enter and exit the stage. [Full code](https://github.com/tylergaw/mpa-view-transitions-sandbox/tree/main/grid-item-view) for this example on Github.
 
 ## What’s next?
+
+This is early days for this. I only have a few hours of tinkering so far. It’s already clear just how powerful these can be and how well designed a feature this is. A couple oddities aside, things just kind of work as expected.
+
+Building these [isolated examples](https://mpa-view-transitions-sandbox.netlify.app/) is helpful to get the feel of things, and good for sharing what's possible. What will really open this up is to have specific design choices to go after. Meaning, having pages designed with transitions in mind and then layering those transitions on. You can only learn so much with contrived examples.
+
+I’ve started exploring these ideas on this site. I have a lot of detailed layouts and graphics thoughout this site. I’m working on designing transitions that aren’t just standard fades and wipes per page, but ones tailored to the contents of individual pages. I don't have anything live yet, but this short video shows some of the early ideas I've been playing with. Nothing sticking so far, I'm doing kinda out-there, garish things right now to see what might work.
+
+<figure>
+  <video src="https://p197.p4.n0.cdn.getcloudapp.com/items/2NupJ4mG/66ea8402-dd8b-460b-b3da-6fc7aba4f2b2.mp4?source=viewer&v=4f8a9c5dd92462027ef492faac87f7d9" controls></video>
+  <figcaption>fig 4: Early transition design exploration on tylergaw.com</figcaption>
+</figure>
+
+It's easy to see how far we can push this. And all of this is with HTML and CSS. No JavaScript. As with all design elements, it will take restraint to design compelling transitions that aren't annoying.
+
+Lastly, this is all additive. With every new web technology, we get the chorus of; “Yeah, but when will it be supported?” Today. If you look at any of the examples on a browser that does not support them, the pages still function just fine. The transitions are an extra that's layered on top if and when your browser supports them. Another concrete example of progressive enhancement in practice.
