@@ -10,7 +10,7 @@ meta:
   image: /images/social-summary.png
 ---
 
-Like a lot of other people right now, I'm excited about the in-development [View Transitions API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API). I'm extra excited about using it without JavaScript for multi-page sites. [Dave's excellent post](https://daverupert.com/2023/05/getting-started-view-transitions/) got me set up with the basics. I've spent the last day or so experimenting, playing, and learning as much about the topic as I can.
+Like a lot of other people right now, I'm excited about the in-development [View Transitions API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API). I'm extra excited about using it without JavaScript for multi-page apps (sites, whatever). [Dave's excellent post](https://daverupert.com/2023/05/getting-started-view-transitions/) got me set up with the basics. I've spent the last day or so experimenting, playing, and learning as much about the topic as I can.
 
 As I'm learning, I'm putting together a [repo of example transitions](https://github.com/tylergaw/mpa-view-transitions-sandbox) and a [site with the live examples](https://mpa-view-transitions-sandbox.netlify.app/).
 
@@ -25,18 +25,17 @@ If you're looking for an intro to view transitions or details on initial setup, 
 
 ### You can scope transition selectors
 
-Pseudo-elements are the CSS hook to customize transitions. There are five of them in a tree structure:
+Pseudo-elements are the CSS hook to customize transitions. There are five of them in a tree structure. <a href="https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API#the_view_transition_process">Source</a>.
 
-<figure>
 <pre><code class="language-css">::view-transition
 └─ ::view-transition-group()
    └─ ::view-transition-image-pair()
       ├─ ::view-transition-old()
       └─ ::view-transition-new()</code></pre>
-  <figcaption>fig 1: Source <a href="https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API#the_view_transition_process">developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API#the_view_transition_process</a></figcaption>
-</figure>
 
-Browsers generate this set of elements for the root and all named view transitions. I haven't done anything with `::view-transition-group` or `::view-transition-image-pair` yet so I can't speak to what's possible with them. So far, I've used `::view-transition-old` and `::view-transition-new`. From the MDN docs:
+Browsers generate this set of pseudo-elements for the root and all named view transitions. I haven't done anything with `::view-transition-group` or `::view-transition-image-pair` yet so I can't speak to what's possible with them. So far, I've used `::view-transition-old` and `::view-transition-new`.
+
+From the MDN docs:
 
 > `::view-transition-old` is the screenshot of the old page view, and `::view-transition-new` is the live representation of the new page view.
 
@@ -45,15 +44,15 @@ In examples, I'd only seen those selectors used by themselves like:
 <pre><code class="language-css">::view-transition-old(root),
 ::view-transition-new(root) {/*...*/}</code></pre>
 
-I wondered, "can I scope these further?". Turns out, yes, I can. You can use any id, class, or other valid attribute selector for more specific targeting. This was an “ah-ha!”. I guess it shouldn't have been. These are standard pseudo elements like `::before` or `::after`. Something about new additions to CSS that gives them a bit of mysterious vibe to me. Takes me a bit to realize I can work with them in familiar, standard ways.
+I wondered, “can these be scoped?”. Yeah they can. We can use any id, class, or other valid attribute selector for more specific scoping/targeting. This was an “ah-ha!” I guess it shouldn't have been. These are standard pseudo-elements, like `::before` or `::after`. Something about new additions to CSS gives them a bit of mysterious vibe to me. Takes me a bit to realize I can work with them in familiar, standard ways.
 
 So, why is scoping cool? In short, you can use scoping to have unique transitions. Could be unique per-page, per-project, per-brand, and so on. Unique transitions per-page was the first one I tried.
 
-For this example, I wanted each of four pages to all slide in and out of the screen from a different direction. From right to left, bottom to top, left to right, and top to bottom. You can see a live example at [mpa-view-transitions-sandbox.netlify.app/unique-page-slide/](https://mpa-view-transitions-sandbox.netlify.app/unique-page-slide/). If you haven't enabled the feature flags to see that, here's a video:
+For this example, I wanted each of four pages to all slide in and out of the screen from and to a different direction. From right to left, bottom to top, left to right, and top to bottom. You can see a live example at [mpa-view-transitions-sandbox.netlify.app/unique-page-slide/](https://mpa-view-transitions-sandbox.netlify.app/unique-page-slide/). If you haven't enabled the feature flags to see that, here's a video:
 
 <figure>
 <video src="https://p197.p4.n0.cdn.getcloudapp.com/items/JruejBeP/b38a000f-102d-4147-a0c5-34e311fc2043.mp4?source=viewer&v=80324ae5755f4a11b3e1c97f989e499a" controls></video>
-  <figcaption>fig 2: Live example available <a href="https://mpa-view-transitions-sandbox.netlify.app/unique-page-slide/">mpa-view-transitions-sandbox.netlify.app/unique-page-slide</a></figcaption>
+  <figcaption>fig 1: Live example available <a href="https://mpa-view-transitions-sandbox.netlify.app/unique-page-slide/">mpa-view-transitions-sandbox.netlify.app/unique-page-slide</a></figcaption>
 </figure>
 
 This is a toy example, but it shows how powerful scoping transitions can be. Let's look at the HTML and CSS to make this happen. The [full code](https://github.com/tylergaw/mpa-view-transitions-sandbox/tree/main/unique-page-slide) is on Github.
@@ -67,7 +66,7 @@ After initial setup of adding the transitions `meta` tag to every page `<meta na
 
 This doesn't have to be a data attribute, only my preference. Could be a class or id or any other attribute. These will use the `root` transition, so the attribute does need to be on the `html`, or root, element.
 
-With the data attributes in place, we can use them in CSS to scope our `-old` and `-new` pseudo elements for each page:
+With the data attributes in place, we can use them in CSS to scope our `-old` and `-new` pseudo-elements for each page:
 
 <pre><code class="language-css">[data-page="home"]::view-transition-old(root) {...}
 [data-page="home"]::view-transition-new(root) {...}
@@ -96,7 +95,7 @@ When we navigate away from Page 1, we want to see it continue on its path by sli
 
 Again, `slideOutUp` is a `@keyframes` declaration. I'll leave the code out for brevity. The [full stylesheet](https://github.com/tylergaw/mpa-view-transitions-sandbox/blob/main/unique-page-slide/unique-page-slide.css) is on Github.
 
-We follow this same pattern for the other pages. For each, we set a custom animation on the `view-transition-new` and `view-transition-old` pseudo elements. The animations use a different `transform` and different values to get the transition we're after.
+We follow this same pattern for the other pages. For each, we set a custom animation on the `view-transition-new` and `view-transition-old` pseudo-elements. The animations use a different `transform` and different values to get the transition we're after.
 
 Scoping isn't limited to the `root` transition. The same concept works for named transitions. I don't have a working example, but lets say we have a content element on each page that we want to transition. The transition is the same on most pages, but we have certain ones we want a different transition. It might look something like this:
 
@@ -122,7 +121,7 @@ This is a little tough to explain in words, [here's an example](https://mpa-view
 
 <figure>
 <video src="https://p197.p4.n0.cdn.getcloudapp.com/items/ApugQ4b1/69486edd-3fd5-4398-b8a2-9115f14837d4.mp4?source=viewer&v=401646be1fbea0cbcdf5bdbb8641d9a6" controls></video>
-  <figcaption>fig 3: Live example available <a href="https://mpa-view-transitions-sandbox.netlify.app/unique-page-slide/">mpa-view-transitions-sandbox.netlify.app/grid-item-view</a></figcaption>
+  <figcaption>fig 2: Live example available <a href="https://mpa-view-transitions-sandbox.netlify.app/unique-page-slide/">mpa-view-transitions-sandbox.netlify.app/grid-item-view</a></figcaption>
 </figure>
 
 The title, description, and graphic for each item exists on both the list and single item page. So, those elements morph between each page. The “All items” button is only on the single item pages. But, we're still able to give it a transition name and, in this case, a custom animation. A custom animation isn't required, but you likely don't want the default for something like this.
@@ -151,7 +150,7 @@ I’ve started exploring these ideas on this site. I have a lot of detailed layo
 
 <figure>
   <video src="https://p197.p4.n0.cdn.getcloudapp.com/items/2NupJ4mG/66ea8402-dd8b-460b-b3da-6fc7aba4f2b2.mp4?source=viewer&v=4f8a9c5dd92462027ef492faac87f7d9" controls></video>
-  <figcaption>fig 4: Early transition design exploration on tylergaw.com</figcaption>
+  <figcaption>fig 3: Early transition design exploration on tylergaw.com</figcaption>
 </figure>
 
 It's easy to see how far we can push this. And all of this is with HTML and CSS. No JavaScript. As with all design elements, it will take restraint to design compelling transitions that aren't annoying.
