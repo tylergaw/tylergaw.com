@@ -121,12 +121,12 @@ This is a little tough to explain in words, [here's an example](https://mpa-view
 
 <figure>
 <video src="https://p197.p4.n0.cdn.getcloudapp.com/items/ApugQ4b1/69486edd-3fd5-4398-b8a2-9115f14837d4.mp4?source=viewer&v=401646be1fbea0cbcdf5bdbb8641d9a6" controls></video>
-  <figcaption>fig 2: Live example available <a href="https://mpa-view-transitions-sandbox.netlify.app/unique-page-slide/">mpa-view-transitions-sandbox.netlify.app/grid-item-view</a></figcaption>
+  <figcaption>fig 2: Live example available <a href="https://mpa-view-transitions-sandbox.netlify.app/grid-item-view/">mpa-view-transitions-sandbox.netlify.app/grid-item-view</a></figcaption>
 </figure>
 
 The title, description, and graphic for each item exists on both the list and single item page. So, those elements morph between each page. The “All items” button is only on the single item pages. But, we're still able to give it a transition name and, in this case, a custom animation. A custom animation isn't required, but you likely don't want the default for something like this.
 
-To do this, we set a `view-transition-name` in the HTML. This is a normal CSS property, so we could also set this on the `small` element in CSS. I just chose inline because I wasn't applying any other styles to it.
+To do this, we set a `view-transition-name` in the HTML. This is a normal CSS property, so we could also set this on the `small` element in CSS. I just chose inline because I wasn't applying any other styles.
 
 <pre><code class="language-html">&lt;small style="view-transition-name: all-items-link"&gt;
   &lt;a href="./"&gt;&lt; All items&lt;/a&gt;
