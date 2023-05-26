@@ -21,7 +21,7 @@ As I'm learning, I'm putting together a [repo of example transitions](https://gi
 
 ## What am I learning?
 
-If you're looking for details on initial setup, see [Dave's post](https://daverupert.com/2023/05/getting-started-view-transitions/) and [Jeremy's post](https://adactio.com/journal/20195). What I'll share here are the “ah-ha!” or “that's interesting” moments. Things that I could only get to by getting in and playing around with different use cases. For new features like this you have to get your hands on it to get a feel for what you can do.
+If you're looking for an intro to view transitions or details on initial setup, see [Dave's post](https://daverupert.com/2023/05/getting-started-view-transitions/) and [Jeremy's post](https://adactio.com/journal/20195). I'm assuming some prior knowledge with this post. What I'll share here are the “ah-ha!” or “that's interesting” moments. Things that I could only get to by getting in and playing around with different use cases. For new features like this you have to get your hands on it to get a feel for what you can do.
 
 ### You can scope transition selectors
 
@@ -75,7 +75,7 @@ With the data attribute in place, we can use it to scope our `-old` and `-new` p
 [data-page="one"]::view-transition-new(root) {...}
 /* And so on for the other pages */</code></pre>
 
-What that let's use do is customize the transition for in and out for every page. For page one, we want to see the page slide in from the bottom to the top:
+This let's us customize the transition in and out for every page. Let's look at Page 1. When we navigate to Page 1, we want to see the entire page slide in from the bottom to the top. We target the `-new` element for this:
 
 <pre><code class="language-css">[data-page="one"]::view-transition-new(root) {
   animation: slideUp 0.3s;
@@ -87,6 +87,16 @@ What that let's use do is customize the transition for in and out for every page
   from { transform: translateY(100vh) }
   to { transform: translateY(0) }
 }</code></pre>
+
+When we navigate away from Page 1, we want to see it continue on its path by sliding out to the top. We target the `-old` element for this:
+
+<pre><code class="language-css">[data-page="one"]::view-transition-old(root) {
+  animation: slideOutUp 0.3s;
+}</code></pre>
+
+Again, the `slideOutUp` is a `@keyframes` declaration. I'll leave the code out for brevity. The [full stylesheet](https://github.com/tylergaw/mpa-view-transitions-sandbox/blob/main/unique-page-slide/unique-page-slide.css) is on Github.
+
+We follow this same pattern for the other pages. For each, we set a custom animation on the `view-transition-new` and `view-transition-old` pseudo elements. The animations use a different `transform` and different values to get the transition we're after.
 
 ---
 
