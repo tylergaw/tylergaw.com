@@ -111,7 +111,7 @@ I haven't explored scoping named transitions much yet, but it feels like it open
 
 ### Elements don't have to be on both pages to transition
 
-This is a “that's interesting”. This is one that's maybe a “duh” in hindsight, but took me a bit to figure out. To get an element to transition or “morph” between two pages, you give that element a transition name:
+This is a “that's interesting”. Also maybe a “duh” in hindsight, but took me a bit to figure out. To get an element to transition or “morph” between two pages, you give that element a transition name:
 
 <pre><code class="language-html">&lt;div style="view-transition-name: content" /&gt;</code></pre>
 
@@ -142,17 +142,17 @@ This gives a lot of control over how elements transition or, as I think about it
 
 ## What’s next?
 
-This is early days for this. I only have a few hours of tinkering so far. It’s already clear just how powerful these can be and how well designed a feature this is. A couple oddities aside, things just kind of work as expected.
+It’s early days for this. I only have a few hours of tinkering so far. It’s already clear just how powerful these can be and how well designed a spec and feature it is. A couple oddities aside, things just kind of work as expected.
 
-Building these [isolated examples](https://mpa-view-transitions-sandbox.netlify.app/) is helpful to get the feel of things, and good for sharing what's possible. What will really open this up is to have specific design choices to go after. Meaning, having pages designed with transitions in mind and then layering those transitions on. You can only learn so much with contrived examples.
+Building these [isolated examples](https://mpa-view-transitions-sandbox.netlify.app/) is helpful to get the feel of things, and good for sharing what’s possible. But what will really open this up is to have specific design choices to go after. Meaning, having pages designed with transitions in mind and then trying to execute on those designs. You can only learn so much with contrived examples.
 
-I’ve started exploring these ideas on this site. I have a lot of detailed layouts and graphics thoughout this site. I’m working on designing transitions that aren’t just standard fades and wipes per page, but ones tailored to the contents of individual pages. I don't have anything live yet, but this short video shows some of the early ideas I've been playing with. Nothing sticking so far, I'm doing kinda out-there, garish things right now to see what might work.
+I’ve started exploring ideas on this site. I have a lot of detailed layouts and graphics thoughout. I’m working on designing transitions that aren’t just standard fades and wipes per page, but ones tailored to the contents of individual pages. I don’t have anything live yet, but this video shows some of the early ideas I've been playing with. Nothing sticking so far, I'm doing kinda out-there, garish things right now to stress test and see what works and what doesn’t.
 
 <figure>
   <video src="https://p197.p4.n0.cdn.getcloudapp.com/items/2NupJ4mG/66ea8402-dd8b-460b-b3da-6fc7aba4f2b2.mp4?source=viewer&v=4f8a9c5dd92462027ef492faac87f7d9" controls></video>
   <figcaption>fig 3: Early transition design exploration on tylergaw.com</figcaption>
 </figure>
 
-It's easy to see how far we can push this. And all of this is with HTML and CSS. No JavaScript. As with all design elements, it will take restraint to design compelling transitions that aren't annoying.
+It’s easy to see how far we can push this. And all of this is with <strong>HTML and CSS, no JavaScript</strong>. As with all design elements, it will take restraint to design compelling transitions that aren’t annoying. I’m certain we’ll go too far and have to reel it back it. So it goes.
 
-Lastly, this is all additive. With every new web technology, we get the chorus of; “Yeah, but when will it be supported?” Today. If you look at any of the examples on a browser that does not support them, the pages still function just fine. The transitions are an extra that's layered on top if and when your browser supports them. Another concrete example of progressive enhancement in practice.
+Lastly, this is all additive. With every new web technology, we get the chorus of; “Yeah, but when will it be supported?” Today, it’s supported today in some browsers, but not all. If you look at any of the examples on a browser that does not support them, the pages still function just fine. The transitions are an extra that’s layered on top if and when your browser supports them. Another concrete example of progressive enhancement in practice.
