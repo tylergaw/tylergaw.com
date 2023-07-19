@@ -25,6 +25,7 @@
   letter-spacing: -0.035em;
   line-height: 1.1;
   margin: 0;
+  text-wrap: balance;
 }
 
 .dt-published {
@@ -154,6 +155,7 @@
 .e-content p.note-special {
   border-color: #ffad154d;
   background-color: #ffad1526;
+  margin-bottom: 1em;
 }
 
 .e-content p.note-update {
@@ -275,6 +277,10 @@
   height: 0.7em;
   margin-right: 0.5rem;
   width: 0.7em;
+}
+
+.cp_embed_wrapper {
+  margin-bottom: 1em;
 }
 
 @media (min-width: 750px) {
