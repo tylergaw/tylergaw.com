@@ -14,7 +14,7 @@ meta:
   <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll-driven_animations">CSS scroll-driven animations</a> are a new feature that's in early days of rolling out to browsers. In short, they’re everything we love about CSS animations, but with a timeline based on scroll position instead of automatic timeline.
 </p>
 
-This is my first time tinkering with them and so far they’re super fun. Being able to accomplish these effects with zero JavaScript is huge. This write-on text effect is something I’ve <a href="https://archive.tylergaw.com/css-write-on">experimented with before</a>. Trying it with scroll animations was one of the first things that popped into my head.
+This is my first time tinkering with them and so far they’re super fun. Being able to accomplish these effects with zero JavaScript is huge. This type of text write-on effect is very common in animation. Trying it with scroll animations was one of the first things that popped into my head.
 
 <p class="note-special">
   <strong>Note:</strong> At the time of this post, CSS scroll-driven animations support is limited to Chrome 116+ which is only in Chrome Canary.
