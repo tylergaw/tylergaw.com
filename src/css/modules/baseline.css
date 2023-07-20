@@ -129,3 +129,10 @@ body {
   padding-bottom: 2rem;
   margin-top: 0;
 }
+
+/* Disable default view transitions, will add custom ones as needed. */
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation: none;
+  mix-blend-mode: normal;
+}
