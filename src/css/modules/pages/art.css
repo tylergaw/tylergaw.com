@@ -9,11 +9,6 @@
   width: 100%;
 }
 
-.art__label {
-  line-height: 1.5;
-  padding: 0.5rem;
-}
-
 .art-full-size {
   display: block;
   height: auto;
@@ -55,6 +50,7 @@
     min-width: 500px;
   }
 
+  .art-preview-carve,
   .art-preview-impulse {
     max-width: 480px;
     min-width: 320px;

@@ -1,0 +1,37 @@
+---
+title: Carve - A painting by Tyler Gaw
+meta:
+  description: Acrylic and ink on 30x40in canvas
+  image: /images/art/carve-social.jpg
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block main %}
+  <div class="page-intro g-main g-padded">
+    <div class="page-intro__contents g-main__item">
+      <h1 class="heading--special">Carve</h1>
+      <p class="page-intro__body">
+        <time datetime="2023-07">July, 2023</time>
+        <br/>Acrylic and ink on canvas
+        <br/>30x40in
+        <br/><br/><a href="/art">Back to list</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="g-padded">
+    <picture>
+      <source srcset="/images/art/carve.avif" type="image/avif" />
+      <source srcset="/images/art/carve.webp" type="image/webp" />
+      <img
+        class="art-full-size full-size-impulse"
+        src="/images/art/carve.jpg"
+        width="1366"
+        height="1807"
+        alt="A dark abstract painting with rectangular strokes created from using a paint scraper. The main colors are black, dark grey, with flecks of dark purple and light grey."
+        loading="lazy"
+      />
+    </picture>
+  </div>
+{% endblock %}
