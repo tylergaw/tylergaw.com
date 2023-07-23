@@ -46,7 +46,10 @@
 }
 
 .streetcred__graphic-main {
-  background-color: white;
+  background: var(--color-streetcred-accent)
+    url("/images/work/streetcred/streetcred-logo-mark.svg") no-repeat center
+    center;
+  background-size: 30%;
   border-radius: var(--radius, 25px);
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
   display: block;
@@ -57,8 +60,10 @@
 }
 
 .streetcred__graphic-main img {
+  border-radius: var(--radius, 25px);
   display: block;
   height: auto;
+  view-transition-name: streetcred-graphic-main-img;
   width: 100%;
 }
 
@@ -102,6 +107,7 @@
   max-width: calc(var(--max-width, 280) / 16 * 1rem);
   right: 45%;
   top: 50%;
+  view-transition-name: streetcred-graphic-poi;
 }
 
 .streetcred__graphic-cubes {
@@ -109,12 +115,14 @@
   right: 49%;
   top: 65%;
   width: 44%;
+  view-transition-name: streetcred-graphic-cubes;
 }
 
 .streetcred__graphic-board {
   max-width: calc(var(--max-width, 280) / 16 * 1rem);
   right: var(--right, 3%);
   top: var(--top, 20%);
+  view-transition-name: streetcred-graphic-board;
 }
 
 .streetcred__title {
@@ -124,8 +132,25 @@
   view-transition-name: streetcred-title;
 }
 
-::view-transition-old(streetcred-title) {
+::view-transition-old(streetcred-title),
+::view-transition-old(streetcred-graphic-main-img),
+::view-transition-old(streetcred-graphic-board),
+::view-transition-old(streetcred-graphic-poi),
+::view-transition-old(streetcred-graphic-cubes) {
   display: none;
+}
+
+@keyframes fadeIn {
+  0%,
+  70% {
+    opacity: 0;
+    scale: 0.9;
+  }
+
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
 }
 
 @keyframes slideUp {
@@ -155,8 +180,15 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  ::view-transition-new(streetcred-title) {
+  ::view-transition-new(streetcred-title),
+  ::view-transition-new(streetcred-graphic-board),
+  ::view-transition-new(streetcred-graphic-poi),
+  ::view-transition-new(streetcred-graphic-cubes) {
     animation: slideUp 0.6s ease-out;
+  }
+
+  ::view-transition-new(streetcred-graphic-main-img) {
+    animation: fadeIn 0.4s ease;
   }
 }
 
