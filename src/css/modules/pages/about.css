@@ -45,12 +45,60 @@
   z-index: 1;
 }
 
+.about__title span {
+  display: inline-block;
+}
+
+.about-still {
+  view-transition-name: about-still;
+}
+
+.about-trying {
+  view-transition-name: about-trying;
+}
+
+::view-transition-old(about-still),
+::view-transition-old(about-trying),
+::view-transition-old(about-portrait) {
+  display: none;
+}
+
+@keyframes aboutTitle {
+  0%,
+  50% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-new(about-still),
+  ::view-transition-new(about-trying),
+  ::view-transition-new(about-portrait) {
+    animation: aboutTitle 0.9s ease;
+  }
+
+  ::view-transition-new(about-portrait) {
+    animation-duration: 0.7s;
+  }
+
+  ::view-transition-new(about-trying) {
+    animation-duration: 1.2s;
+  }
+}
+
 .about__portrait img {
   display: block;
   height: auto;
   margin: 0 auto;
   max-width: calc(1100 / 16 * 1rem);
   transform: translateX(var(--trans-x, 0));
+  view-transition-name: about-portrait;
   width: 85%;
 }
 
