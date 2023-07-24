@@ -42,6 +42,7 @@
   bottom: var(--pos-bottom, 15%);
   position: absolute;
   text-align: center;
+  view-transition-name: limbo-title;
   width: 100%;
 }
 
@@ -53,6 +54,7 @@
 .limbo__graphic {
   overflow: hidden;
   position: relative;
+  view-transition-name: limbo-graphic;
   width: 100%;
 }
 
@@ -69,11 +71,69 @@
   --color-link: var(--color-limbo-accent);
 }
 
-@media (min-width: 46.25em) {
+::view-transition-old(limbo-title),
+::view-transition-old(limbo-graphic) {
+  display: none;
+}
+
+@keyframes limboTitleSmall {
+  0%,
+  80% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes limboTitleLarge {
+  0%,
+  70% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes limboGraphic {
+  0%,
+  50% {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-new(limbo-title) {
+    animation: limboTitleSmall 0.7s ease;
+  }
+
+  ::view-transition-new(limbo-graphic) {
+    animation: limboGraphic 0.5s ease;
+  }
+}
+
+@media (min-width: 740px) {
   .limbo__title {
     --pos-bottom: 10%;
     text-align: left;
     text-indent: 13%;
+  }
+
+  ::view-transition-new(limbo-title) {
+    animation-name: limboTitleLarge;
   }
 
   .limbo__graphic img {
