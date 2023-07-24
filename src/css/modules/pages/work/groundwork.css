@@ -96,6 +96,7 @@
   padding-bottom: 9rem;
   position: relative;
   width: 72%;
+  view-transition-name: gw-title;
 }
 
 .groundwork__title img {
@@ -110,10 +111,52 @@
   );
   margin: 0 auto 0.75rem auto;
   max-width: calc(var(--width-max, 130) / 16 * 1rem);
+  view-transition-name: gw-mark;
 }
 
 .project--groundwork {
   --color-link: var(--color-groundwork-accent);
+}
+
+::view-transition-old(gw-title),
+::view-transition-old(gw-mark) {
+  display: none;
+}
+
+@keyframes gwMark {
+  0%,
+  20% {
+    opacity: 0;
+    transform: translateY(75%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gwTitle {
+  0%,
+  50% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-new(gw-title) {
+    animation: gwTitle 1.3s ease;
+  }
+
+  ::view-transition-new(gw-mark) {
+    animation: gwMark 1.2s ease;
+  }
 }
 
 @media (min-width: 38.75em) {
