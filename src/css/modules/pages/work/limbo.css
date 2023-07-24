@@ -91,7 +91,7 @@
 
 @keyframes limboTitleLarge {
   0%,
-  70% {
+  60% {
     opacity: 0;
     transform: translateX(100px);
   }
@@ -104,7 +104,7 @@
 
 @keyframes limboGraphic {
   0%,
-  50% {
+  40% {
     opacity: 0;
     transform: translateX(50%);
   }
@@ -117,11 +117,11 @@
 
 @media (prefers-reduced-motion: no-preference) {
   ::view-transition-new(limbo-title) {
-    animation: limboTitleSmall 0.7s ease;
+    animation: limboTitleSmall 1s ease;
   }
 
   ::view-transition-new(limbo-graphic) {
-    animation: limboGraphic 0.5s ease;
+    animation: limboGraphic 0.8s ease;
   }
 }
 
