@@ -38,12 +38,15 @@
 .jxa__graphic {
   display: block;
   height: auto;
+  transform-origin: bottom center;
+  view-transition-name: jxa-graphic;
 }
 
 .jxa__title {
   --offset: -5rem;
   margin-bottom: calc(var(--offset) + 0.5rem);
   transform: translateY(var(--offset));
+  view-transition-name: jxa-title;
 }
 
 .jxa__title img {
@@ -55,13 +58,80 @@
   --color-link: var(--color-jxa-accent-light);
 }
 
-@media (min-width: 38.75em) {
+::view-transition-old(jxa-title),
+::view-transition-old(jxa-graphic) {
+  display: none;
+}
+
+@keyframes jxaTitleSmall {
+  0%,
+  50% {
+    opacity: 0;
+    transform: translateY(35%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes jxaTitleLarge {
+  0%,
+  40% {
+    opacity: 0;
+    transform: translateX(35%) translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes jxaGraphicSmall {
+  0%,
+  50% {
+    opacity: 0;
+    transform: translateY(55%) scale(0.7);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes jxaGraphicLarge {
+  0%,
+  40% {
+    opacity: 0;
+    transform: translateX(-20%) translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-new(jxa-title) {
+    animation: jxaTitleSmall 0.9s ease;
+  }
+
+  ::view-transition-new(jxa-graphic) {
+    animation: jxaGraphicSmall 1.1s ease;
+  }
+}
+
+@media (min-width: 620px) {
   .hero--jxa .hero__contents {
     padding-top: 0;
   }
 }
 
-@media (min-width: 65em) {
+@media (min-width: 1040px) {
   .hero--jxa::before {
     --height-target: 100%;
   }
@@ -89,5 +159,15 @@
 
   .project--jxa .project__intro__main {
     --padding-top-rows: 12;
+  }
+
+  ::view-transition-new(jxa-title) {
+    animation-name: jxaTitleLarge;
+    animation-duration: 0.5s;
+  }
+
+  ::view-transition-new(jxa-graphic) {
+    animation-name: jxaGraphicLarge;
+    animation-duration: 0.7s;
   }
 }

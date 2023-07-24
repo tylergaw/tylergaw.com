@@ -46,45 +46,33 @@
 }
 
 .streetcred__graphic-main {
-  background-color: white;
+  background: var(--color-streetcred-accent)
+    url("/images/work/streetcred/streetcred-logo-mark.svg") no-repeat center
+    center;
+  background-size: 30%;
   border-radius: var(--radius, 25px);
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
   display: block;
   margin: 0 auto;
-  max-width: calc(var(--max-width, 400) / 16 * 1rem);
+  max-width: calc(var(--max-width, 375) / 16 * 1rem);
   overflow: hidden;
-  width: 78%;
+  view-transition-name: streetcred-graphic-main;
+  width: 68%;
 }
 
 .streetcred__graphic-main img {
+  border-radius: var(--radius, 25px);
   display: block;
   height: auto;
+  view-transition-name: streetcred-graphic-main-img;
   width: 100%;
-}
-
-.streetcred__graphic-poi {
-  max-width: calc(var(--max-width, 280) / 16 * 1rem);
-  right: 52%;
-  top: 46%;
-}
-
-@keyframes enter {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
 }
 
 .streetcred__graphic-poi,
 .streetcred__graphic-cubes,
 .streetcred__graphic-board {
-  animation: enter 0.25s ease;
-  display: none;
   position: absolute;
-  width: 100%;
+  width: 55%;
 }
 
 .poi__main,
@@ -116,22 +104,135 @@
   top: -36px;
 }
 
+.streetcred__graphic-poi {
+  max-width: calc(var(--max-width, 280) / 16 * 1rem);
+  right: 45%;
+  top: 50%;
+  view-transition-name: streetcred-graphic-poi;
+}
+
 .streetcred__graphic-cubes {
   max-width: calc(var(--max-width, 200) / 16 * 1rem);
-  right: 55%;
-  top: 63%;
+  right: 49%;
+  top: 65%;
+  width: 44%;
+  view-transition-name: streetcred-graphic-cubes;
 }
 
 .streetcred__graphic-board {
   max-width: calc(var(--max-width, 280) / 16 * 1rem);
-  right: 2%;
-  top: 17%;
+  right: var(--right, 3%);
+  top: var(--top, 20%);
+  view-transition-name: streetcred-graphic-board;
 }
 
 .streetcred__title {
   padding-top: calc(var(--g-row) * var(--p-top-rows, 2));
   padding-bottom: calc(var(--g-row) * 7);
   text-align: center;
+  view-transition-name: streetcred-title;
+}
+
+::view-transition-old(streetcred-title),
+::view-transition-old(streetcred-graphic-main),
+::view-transition-old(streetcred-graphic-main-img),
+::view-transition-old(streetcred-graphic-board),
+::view-transition-old(streetcred-graphic-poi),
+::view-transition-old(streetcred-graphic-cubes) {
+  display: none;
+}
+
+@keyframes graphicMain {
+  0%,
+  50% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes graphicMainImg {
+  0%,
+  75% {
+    opacity: 0;
+    scale: 0.9;
+  }
+
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes graphicDetail {
+  0%,
+  80% {
+    opacity: 0;
+    transform: scale(0.5) translateY(180px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes graphicTitleSmall {
+  0%,
+  80% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes graphicTitleLarge {
+  0%,
+  80% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-new(streetcred-title) {
+    animation: graphicTitleSmall 1.8s ease;
+  }
+
+  ::view-transition-new(streetcred-graphic-main) {
+    animation: graphicMain 0.5s ease;
+  }
+
+  ::view-transition-new(streetcred-graphic-main-img) {
+    animation: graphicMainImg 0.9s ease;
+  }
+
+  ::view-transition-new(streetcred-graphic-board),
+  ::view-transition-new(streetcred-graphic-poi),
+  ::view-transition-new(streetcred-graphic-cubes) {
+    animation: graphicDetail var(--duration, 1.2s) ease;
+  }
+
+  ::view-transition-new(streetcred-graphic-poi) {
+    --duration: 1.4s;
+  }
+
+  ::view-transition-new(streetcred-graphic-cubes) {
+    --duration: 1.6s;
+  }
 }
 
 .streetcred__title img {
@@ -419,18 +520,14 @@
   width: var(--size);
 }
 
-@media (min-width: 35em) {
-  .streetcred__graphic-poi,
-  .streetcred__graphic-cubes,
-  .streetcred__graphic-board {
-    display: block;
-  }
-}
-
-@media (min-width: 38.75em) {
+@media (min-width: 620px) {
   .streetcred__graphic-main {
     --radius: 40px;
     --max-width: 360;
+  }
+
+  .streetcred__graphic-board {
+    --right: 10%;
   }
 
   .streetcred__add {
@@ -485,14 +582,14 @@
   }
 }
 
-@media (min-width: 46em) {
+@media (min-width: 736px) {
   .streetcred__graphic-board {
-    left: 60%;
+    left: var(--left, 50%);
     right: initial;
   }
 }
 
-@media (min-width: 59.375em) {
+@media (min-width: 950px) {
   .streetcred__add-content {
     --padding-t-rows: 12;
     margin: 0 auto;
@@ -510,7 +607,7 @@
   }
 }
 
-@media (min-width: 65em) {
+@media (min-width: 1040px) {
   .hero--streetcred .hero__contents {
     --p-top-rows: 6;
   }
@@ -521,18 +618,19 @@
 
   .streetcred__graphic-poi {
     --max-width: 360;
-    right: 57%;
-    top: 42%;
+    right: 56%;
+    top: 44%;
   }
 
   .streetcred__graphic-cubes {
     --max-width: 280;
-    top: 58%;
+    right: 52%;
+    top: 60%;
   }
 
   .streetcred__graphic-board {
     --max-width: 386;
-    left: 56%;
+    --left: 53%;
     top: 23%;
   }
 
@@ -560,7 +658,7 @@
   }
 }
 
-@media (min-width: 75em) {
+@media (min-width: 1200px) {
   .hero--streetcred::before {
     background-position: var(--bg-pos-h, -40%) 15%;
     background-size: min(calc(1472 / 16 * 1rem), 110%);
@@ -576,6 +674,10 @@
     order: 1;
     text-align: right;
     width: 35%;
+  }
+
+  ::view-transition-new(streetcred-title) {
+    animation-name: graphicTitleLarge;
   }
 
   .streetcred__graphic {
@@ -631,7 +733,7 @@
   }
 }
 
-@media (min-width: 77.5em) {
+@media (min-width: 1240px) {
   .streetcred__intro-graphics {
     --col-end: 4;
   }
@@ -646,19 +748,19 @@
   }
 }
 
-@media (min-width: 89.75em) {
+@media (min-width: 1436px) {
   .hero--streetcred::before {
     --bg-pos-h: 14vw;
   }
 }
 
-@media (min-width: 101em) {
+@media (min-width: 1616px) {
   .streetcred__add {
     --bg-pos-h: right 950px;
   }
 }
 
-@media (min-width: 106.25em) {
+@media (min-width: 1700px) {
   .streetcred__title {
     text-align: left;
   }
@@ -676,7 +778,7 @@
   }
 }
 
-@media (min-width: 117.5em) {
+@media (min-width: 1880px) {
   .hero--streetcred::before {
     --bg-pos-h: 20vw;
   }
@@ -686,7 +788,7 @@
   }
 }
 
-@media (min-width: 137.5em) {
+@media (min-width: 2200px) {
   .streetcred__intro-graphics {
     --col-start: 2;
     --col-end: 6;
@@ -698,7 +800,7 @@
   }
 }
 
-@media (min-width: 150em) {
+@media (min-width: 2400px) {
   .hero--streetcred::before {
     --bg-pos-h: 26vw;
   }
