@@ -1,7 +1,19 @@
 [
   {
-    "date": "2023-06",
+    "current": true,
     "year": 2023,
+    "title": "New Dark Age: Technology and the End of the Future",
+    "url": "https://www.goodreads.com/book/show/36696533-new-dark-age",
+    "author": "James Bridle"
+  },
+  {
+    "date": "2023-07",
+    "title": "The Most Fun Thing: Dispatches from a Skateboard Life",
+    "url": "https://www.goodreads.com/book/show/56222218-the-most-fun-thing",
+    "author": "Kyle Beachy"
+  },
+  {
+    "date": "2023-06",
     "title": "Exhalation",
     "url": "https://www.goodreads.com/book/show/41160292-exhalation",
     "author": "Ted Chiang"
