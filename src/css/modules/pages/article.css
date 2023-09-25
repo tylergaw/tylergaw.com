@@ -106,12 +106,14 @@
   font-size: 0.9em;
 }
 
-.e-content p {
-  padding-bottom: 1.6em;
+.e-content p:not([class]) + p:not([class]),
+.e-content :where(h2, h3, h4) + p:not([class]),
+:where(.note-special, .note-update) + p {
+  text-indent: 1.5em;
 }
 
 .e-content code {
-  font-size: 90%;
+  font-size: 80%;
 }
 
 .e-content .thanks-for-reading svg {
@@ -161,6 +163,10 @@
 .e-content p.note-update {
   border-color: #007cff4d;
   background-color: #007cff26;
+}
+
+.e-content p + :where(.note-special, .note-update) {
+  margin-top: 1.5em;
 }
 
 .e-content ul,
