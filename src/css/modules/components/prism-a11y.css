@@ -85,6 +85,10 @@ pre[class*="language-"] {
   overflow: auto;
 }
 
+.e-content p + pre[class*="language-"] {
+  margin-top: 1.6rem;
+}
+
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
   background: var(--color-background);
