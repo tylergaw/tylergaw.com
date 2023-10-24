@@ -107,9 +107,8 @@
 }
 
 .e-content p:not([class]) + p:not([class]),
-.e-content :where(h2, h3, h4) + p:not([class]),
 :where(.note-special, .note-update) + p {
-  text-indent: 1.5em;
+  text-indent: 1.6em;
 }
 
 .e-content code {
@@ -124,6 +123,10 @@
 
 .e-content figure {
   margin: 0.2em 0 2em 0;
+}
+
+.e-content p + figure {
+  margin-top: 1.5em;
 }
 
 .e-content img,
@@ -211,6 +214,7 @@
   font-size: 1.2em;
   line-height: 1.6;
   padding-bottom: 2em;
+  text-indent: 0;
 }
 
 .entry-intro::first-line {
