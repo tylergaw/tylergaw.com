@@ -175,6 +175,7 @@
 .e-content ul,
 .e-content ol {
   clear: both;
+  margin-top: 1.5em;
   padding: 0 0.2em 1.4em 0.2em;
 }
 
@@ -195,6 +196,7 @@
 .e-content blockquote {
   border-left: 0.4em solid var(--color-accent-secondary);
   font-size: 0.9em;
+  margin-top: 1.5em;
   margin-bottom: 2em;
   padding: 0.2em 1em 0.2em 1.6em;
 }
