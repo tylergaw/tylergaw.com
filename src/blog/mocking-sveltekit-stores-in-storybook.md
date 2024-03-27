@@ -70,7 +70,7 @@ That makes sense, because in `MyComponent` we’re trying to access members of `
 
 We could update `MyComponent` to guard against throwing an error by making sure these objects exist before trying to use them, but then we wouldn’t have an `href` or `text` value visible in `MyComponent` stories.
 
-What we need is for the stories to have access to a `$page` object similar to what it happens in regular usage.
+What we need is for the stories to have access to a `$page` object in the same way it does in regular usage.
 
 ## Use Context
 
@@ -117,8 +117,8 @@ The keys are what we’re interested in, and with the exception of the storybook
 //...
 </code></pre>
 
-The second parameter of `setContext` takes any value and assigns it to `$page`. In our case, `MyComponent` expects a `data` object with `href` and `text` members. Here we manually create that which makes `$page.data.*` work as expected in `MyComponent` stories. If we reload the `MyComponent` story we see the expected link.
+The second parameter of `setContext` takes any value and assigns it to `$page`. In our case, `MyComponent` expects a `data` object with `href` and `text` members. Here, we manually create the object so accessing `$page.data.*` works as expected in `MyComponent` stories. If we reload the `MyComponent` story we see the expected link.
 
 ## What else?
 
-This example is specific to issues I’d been running into for weeks [at work](https://www.summer.io/), but I’m sure this approach of using context for mocking has many more uses.
+This example is specific to issues I’d been running into for weeks [at work](https://www.summer.io/), but I’m sure this approach of using context for mocking has more uses.
