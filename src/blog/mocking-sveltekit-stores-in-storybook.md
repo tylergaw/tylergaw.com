@@ -2,7 +2,7 @@
 tags: post
 layout: "layouts/article.njk"
 title: "Mocking SvelteKit Stores in Storybook"
-date: "2024-03-24"
+date: "2024-03-27"
 highlightSyntax: true
 meta:
   description: An example of how to mock built in SvelteKit stores for components in Storybook
