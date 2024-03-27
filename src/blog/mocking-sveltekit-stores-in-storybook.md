@@ -6,7 +6,7 @@ date: "2024-03-24"
 highlightSyntax: true
 meta:
   description: An example of how to mock built in SvelteKit stores for components in Storybook
-  image: /blog/assets/post-image-complex-view-transitions-social.jpg
+  image: /blog/assets/post-image-mocking-svelte-stores-storybook.jpg
 ---
 
 If you’re using SvelteKit with Storybook and the [Svelte Story Format addon](https://github.com/storybookjs/addon-svelte-csf) and need a way to mock built in `$app/stores` in stories, this post is for you. This was written using the following versions:
