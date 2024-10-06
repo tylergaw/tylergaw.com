@@ -130,6 +130,11 @@ body {
   margin-top: 0;
 }
 
+/* Opt-in to view transitions */
+@view-transition {
+  navigation: auto;
+}
+
 /* Disable default view transitions, will add custom ones as needed. */
 ::view-transition-old(*),
 ::view-transition-new(*) {
