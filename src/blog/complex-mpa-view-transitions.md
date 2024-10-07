@@ -9,6 +9,10 @@ meta:
   image: /blog/assets/post-image-complex-view-transitions-social.jpg
 ---
 
+<p class="note-update">
+  <strong>Update October 6, 2024:</strong> Some of this is outdated. See “<a href="https://tylergaw.com/blog/view-transition-at-rule/">CSS View Transition At-Rule</a>”.
+</p>
+<p></p>
 <p class="note-special">
   <strong>Note:</strong> At the time of this post, view transitions are still an emerging standard. Examples may not work for you. To use in Chrome or Arc, enable two feature flags:
   <code>chrome://flags#view-transition</code> and <code>chrome://flags#view-transition-on-navigation</code>
