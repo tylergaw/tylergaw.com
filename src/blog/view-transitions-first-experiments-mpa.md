@@ -10,6 +10,10 @@ meta:
   image: /images/social-summary.png
 ---
 
+<p class="note-update">
+  <strong>Update October 6, 2024:</strong> Some of this is outdated. See “<a href="https://tylergaw.com/blog/view-transition-at-rule/">CSS View Transition At-Rule</a>”.
+</p>
+
 Like a lot of other people right now, I'm excited about the in-development [View Transitions API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API). I'm extra excited about using it without JavaScript for multi-page apps (sites, whatever). [Dave's excellent post](https://daverupert.com/2023/05/getting-started-view-transitions/) got me set up with the basics. I've spent the last day or so experimenting, playing, and learning as much about the topic as I can.
 
 As I'm learning, I'm putting together a [repo of example transitions](https://github.com/tylergaw/mpa-view-transitions-sandbox) and a [site with the live examples](https://mpa-view-transitions-sandbox.netlify.app/).

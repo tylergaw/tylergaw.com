@@ -166,6 +166,7 @@
 .e-content p.note-update {
   border-color: #007cff4d;
   background-color: #007cff26;
+  margin-bottom: 1em;
 }
 
 .e-content p + :where(.note-special, .note-update) {
