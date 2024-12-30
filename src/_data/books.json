@@ -1,13 +1,20 @@
 [
   {
-    "year": 2024,
+    "year": 2025,
     "current": true,
+    "title": "I Never Did Like Politics: How Fiorello La Guardia Became America's Mayor, and Why He Still Matters",
+    "url": "https://www.goodreads.com/book/show/126918885-i-never-did-like-politics",
+    "author": "Terry Golway"
+  },
+  {
+    "year": "2024",
+    "date": "2024-12",
     "title": "The Message",
     "url": "https://www.goodreads.com/book/show/210943364-the-message",
     "author": "Ta-Nehisi Coates"
   },
   {
-    "current": true,
+    "date": "2024-11,
     "title": "Seeing Is Forgetting the Name of the Thing One Sees: Expanded Edition",
     "url": "https://www.goodreads.com/book/show/144306740-seeing-is-forgetting-the-name-of-the-thing-one-sees",
     "author": "Lawrence Weschler"
