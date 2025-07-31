@@ -1,6 +1,12 @@
 [
   {
     "year": 2025,
+    "current": true,
+    "title": "The Warmth of Other Suns: The Epic Story of America's Great Migration",
+    "url": "https://www.goodreads.com/book/show/8171378-the-warmth-of-other-suns",
+    "author": "Isabel Wilkerson"
+  },
+  {
     "date": "2025-07",
     "title": "James",
     "url": "https://www.goodreads.com/book/show/173754979-james",
