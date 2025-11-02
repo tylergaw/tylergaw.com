@@ -61,7 +61,11 @@ Something to keep in mind as you’re watching. On film, every spot looks smalle
 
 ## Jesse Plemons’ Iconic Characters
 
-There are tons of these are they’re always fun to watch. Getting to hear stories about how an actor approaches their work makes the work that much more fun. Plemons’ episode is an extra fun one because he’s not just giving safe, practiced responses. He’s giving real insight into his approach and experiences. He’s also a great actor so maybe he’s just, you know, acting. Either way, it’s enjoyable. I also just love his outfit.
+There are tons of these are they’re always fun to watch. Getting to hear stories about how an actor approaches their work makes the work that much more enjoyable.
+
+Plemons’ episode is ideal because he’s not just giving safe, practiced responses like some others do. He’s giving real insight into his approach and experiences. You can see his gears turning while he’s looking for what he wants to say. He’s also a great actor so maybe he’s just, you know, acting. Either way, it’s enjoyable.
+
+I also love the shirt he’s wearing.
 
 <figure>
   <iframe class="e-iframe-full" width="560" height="315" src="https://www.youtube.com/embed/Vl4qT3l-mo8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
