@@ -9,7 +9,7 @@ meta:
   image: /blog/assets/post-image-fairweather-ride-2025.jpg
 ---
 
-<p class="entry-intro">For 2025 I set a goal to ride 1,000 miles on my bike. I’ve been biking with some regularity for a little over a decade now. In that time, I’ve never set a yearly milage goal. Only small monthly goals. Which, before this year, I only hit once. Early this year, I decided it would be fun to work towards a goal way beyond what I’d ever done. Just to see if I could do it. And, of course, if I’m doing something like this, I’m gonna build a website for it.</p>
+<p class="entry-intro">For 2025 I set a goal to ride 1,000 miles on my bike. I’ve been biking with some regularity for a little over a decade now. In that time, I’ve never set a yearly mileage goal. Only small monthly goals. Which, before this year, I only hit once. Early this year, I decided it would be fun to work towards a goal way beyond what I’d ever done. Just to see if I could do it. And, of course, if I’m doing something like this, I’m gonna build a website for it.</p>
 
 <figure>
   <picture>
@@ -26,7 +26,7 @@ meta:
 
 ## HTML, CSS, and JS
 
-Build processes have their place. I’m a fan of a lot of that tooling for other projects. This project setup though, is, on purpose, as bare bones as possible. This is a single page made with;
+Build processes have their place. I’m a fan of a lot of that tooling for other projects. This project setup, though, is on purpose, as bare bones as possible. This is a single page made with;
 
 - <code>index.html</code>
 - <code>site.css</code>
@@ -35,11 +35,11 @@ Build processes have their place. I’m a fan of a lot of that tooling for other
 - <code>splitting.js</code>
 - and a handful of fonts, images, and a video.
 
-I **almost** got away without a <code>package.json</code>/no external JS dependencies. I use a single dependency to make local development easier, <code>live-server</code>. Outside of that, these files get plopped on Netlify and run as they are. Just a good ole webpage. That is still 100% acceptable and good in 2025! Don’t let anyone tell you any different. The source is at [github.com/tylergaw/fairweather-ride](https://github.com/tylergaw/fairweather-ride).
+I **almost** got away without a <code>package.json</code> and no external JS dependencies. I use a single dependency to make local development easier, <code>live-server</code>. Outside of that, these files get plopped on Netlify and run as they are. Just a good ole webpage. That is still 100% acceptable and good in 2025! Don’t let anyone tell you any different. The source is at [github.com/tylergaw/fairweather-ride](https://github.com/tylergaw/fairweather-ride).
 
 ## Typography
 
-From the start, I knew I wanted a design that used a lot of fonts. Too many fonts. Fonts that clashed. I ended up using four; [Optic](https://www.futurefonts.com/loveletters/optic), [Method](https://www.futurefonts.com/typeji/method), [ADHD](https://capitalics.wtf/en/font/adhd), and [Macabre](https://www.futurefonts.com/dave-coleman/macabre).
+Like many designs, the backbone of this one is its typography. From the start, I knew I wanted a design that used a lot of fonts. Too many fonts. Fonts that clashed. I ended up using four; [Optic](https://www.futurefonts.com/loveletters/optic), [Method](https://www.futurefonts.com/typeji/method), [ADHD](https://capitalics.wtf/en/font/adhd), and [Macabre](https://www.futurefonts.com/dave-coleman/macabre).
 
 Three of the four came from [Future Fonts](https://www.futurefonts.com/). It’s my go-to when starting a new project. The fourth, ADHD, is from [capitalics](https://capitalics.wtf/). Can’t remember how I found them, but they do fantastic work. If you visit their site, and compulsively buy fonts, prepare to spend some money.
 
@@ -104,15 +104,15 @@ To illustrate what’s happening further, here’s a divider with the transform 
   <picture>
     <img
       src="https://stuff.tylergaw.com/post-fairweather-ride-2025/fairweather-section-divider-disabled.png"
-      alt=""
+      alt="A screenshot showing a section divider with CSS transforms and filters off to reveal it’s just text."
     />
   </picture>
   <figcaption>fig 4. An example of a section divider without being transformed and filtered.</figcaption>
 </figure>
 
-I saw Macabre on Future Fonts and bought it immediately without a use in mind. I tried it out in early designs for this, but it didn’t seem too work. Felt too much at home in a horror movie poster for what I was going for. Then I started working on section headings and, similar to the dividers, the fonts I was trying felt too boring. I pulled in Macabre because it felt so far away from the rest of the design. This is a helpful way to break out of a design rut.
+I saw Macabre on Future Fonts and bought it immediately without a use in mind. I tried it out in early designs for this, but it didn’t seem to work. Felt too much at home in a horror movie poster for what I was going for. Then I started working on section headings and, similar to the dividers, the fonts I was trying felt too boring. I pulled in Macabre because it felt so far away from the rest of the design. This is a helpful way to break out of a design rut.
 
-On it’s own, Macabre wasn’t doing exactly what I wanted it to for the headings. So I started breaking some rules. Stretched it vertically with a transform. Squeezed it horizontally with another. Then applied the, now familiar, svg filters to rough it up and animate it. The falloff isn’t anything tricky. It’s the heading text repeated a few times, then manually sized, scaled, rotated, and transformed using <code>nth-of-type</code> to move each repetition into place.
+On its own, Macabre wasn’t doing exactly what I wanted it to for the headings. So I started breaking some rules. Stretched it vertically with a transform. Squeezed it horizontally with another. Then applied the, now familiar, svg filters to rough it up and animate it. The falloff isn’t anything tricky. It’s the heading text repeated a few times, then manually sized, scaled, rotated, and transformed using <code>nth-of-type</code> to move each repetition into place.
 
 <figure>
   <video autoplay muted loop playsinline>
@@ -124,9 +124,23 @@ On it’s own, Macabre wasn’t doing exactly what I wanted it to for the headin
   <figcaption>fig 5. A section heading set in Macabre, then poked, prodded, and animated with CSS</figcaption>
 </figure>
 
-## Hero Video
+## The Hero Loop
 
-About that big ass video
+Somehow I’ve never design or built a site that uses the common full width, full height hero video. As I was looking around for design ideas, I came across [Gander’s beautiful site](https://takeagander.com). It has one of those big videos on the homepage. That convinced me I needed one for this.
+
+The immediate question was; “what’s the video of?”. I didn’t just want random clips of myself riding around Manhattan in jorts. Maybe that’s for a future project. I went to the Interet Archive and quickly found some fun clips of kids riding bikes, from some PSA from the 80s. That helped set the tone. I tracked down a handful more videos of various lengths of bicycle-related material mostly from the 80s and 90s. I restrained my search older video clips to help keep a worn feel to everything.
+
+I used After Effects to piece things together. There’s only a few “effects” in the ~25 second clip. I mostly used it has a non-linear editor. Largely because I’m most familiar and fastest with it. It was also nice to have the effects tools handy in the few cases where I needed them.
+
+<figure>
+  <picture>
+    <img
+      src="https://stuff.tylergaw.com/post-fairweather-ride-2025/fairweather-ae.jpg"
+      alt="A screenshot of the hero video After Effects workspace."
+    />
+  </picture>
+  <figcaption>fig 5. Piecing together the hero video in After Effects</figcaption>
+</figure>
 
 ## Strava Data
 
