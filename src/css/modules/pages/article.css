@@ -132,6 +132,10 @@
   margin-top: 1.5em;
 }
 
+.e-content .entry-intro + figure {
+  margin-top: 0;
+}
+
 .e-content img,
 .e-content picture,
 .e-content video {
@@ -177,6 +181,7 @@
 }
 
 .e-content .e-reply {
+  clear: both;
   font-size: 75%;
   margin-top: 4em;
 }
