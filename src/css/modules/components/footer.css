@@ -6,6 +6,11 @@
   margin: 0.8rem 0;
 }
 
+.footer__links li:has(a[href^="https"])::after {
+  content: "↗";
+  color: var(--color-accent-primary);
+}
+
 .footer a {
   border-bottom: 2px solid currentColor;
   display: inline-block;
