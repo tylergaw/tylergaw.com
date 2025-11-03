@@ -31,7 +31,7 @@ Build processes have their place. I’m a fan of a lot of that tooling for other
 - <code>index.html</code>
 - <code>site.css</code>
 - <code>site.js</code>
-- <code>data.json</code>
+- <code>rides.json</code>
 - <code>splitting.js</code>
 - and a handful of fonts, images, and a video.
 
@@ -139,12 +139,20 @@ I used After Effects to piece things together. There’s only a few “effects�
       alt="A screenshot of the hero video After Effects workspace."
     />
   </picture>
-  <figcaption>fig 5. Piecing together the hero video in After Effects</figcaption>
+  <figcaption>fig 6. Piecing together the hero video in After Effects</figcaption>
 </figure>
 
 ## Strava Data
 
-About that good dat-er
+I track my rides with Strava. Most of them with the iPhone app, but I finally caved and got a Garmin Forerunner 255 a few months back. As I was doing longer rides, I realized quick my iPhone 13 battery couldn’t last more than about 45 miles.
+
+For my stats, I get data from the Strava API. It works, but it kinda sucks. To request personal ride data from the API, you have to use a Bearer token. The only way to get that is to do an OAuth process. Strava doesn’t offer any type of app token that you can just plug in and use. A pain in the ass I had no interest in working up a programmatic solution for for this project. So, I do it manually. I use Insomnia to generate the authorization URL. Go to it in a browser. Log in. Then copy the needed code from the callback URL. Once I have that, I plop it back in Insomnia where I make the request to <code>/athlete/activities</code>. It’s dumb, but it works.
+
+Once I have the data as JSON, I manually copy and paste it into the <code>rides.json</code> file. Instead of using <code>fetch</code> to get the data, I use a JSON module import assertion in <code>site.js</code>.
+
+<pre><code class="language-js">import dataRaw from "./data/rides.json" with { type: "json" };</code></pre>
+
+A request to get the data would work just as well here. I just reached for the import assertion first because it was a few less characters. From there it’s nothing fancy. Some data cleanup, summing, formatting, and HTML string building. You can see everything that’s happening in <code>[site.js](https://github.com/tylergaw/fairweather-ride/blob/main/static/site.js)</code>.
 
 ## Static Maps
 
