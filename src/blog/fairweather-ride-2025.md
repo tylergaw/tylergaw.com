@@ -21,7 +21,7 @@ meta:
 </figure>
 
 <p class="drop-capped">
-  Side projects are an exercise in fun. An opportunity to try out new things. Things that are slow, don’t scale, manual. Many things that would be deemed “not best practice” in day-to-day work. That’s where I was starting from with this. I started work on it back in March and slowly picked at it for about five months. It’s been live since mid August. I started this post then to share a few of the interesting bits about it, but just getting back to finish it now, in November. So it goes.
+  Side projects are an exercise in fun. An opportunity to try out new things. Things that are slow, don’t scale, manual. Many things that would be deemed “not best practice” in day-to-day work. Following that, I started work on it back in March and slowly picked at it for about five months. It’s been live since mid August. I started this post then to share a few of the interesting bits about it, but just getting back to finish it now, in November. So it goes.
 </p>
 
 ## HTML, CSS, and JS
@@ -49,14 +49,14 @@ Three of the four came from [Future Fonts](https://www.futurefonts.com/). It’s
       <img src="https://stuff.tylergaw.com/post-fairweather-ride-2025/fairweather-fonts.png" alt="A sample of the four fonts used on the site. Each font represented by it’s name set in the font/variant." />
     </a>
   </picture>
-  <figcaption>fig 2. Looks at these beauties. Optic, Macabre, Method, and ADHD</figcaption>
+  <figcaption>fig 2. Look at these beauties. Optic, Macabre, Method, and ADHD</figcaption>
 </figure>
 
 For the title, I wanted to do an ink-bleed style. Where edges of characters bleed into each other when they’re close, so I needed a chunky font. Optic has that nice balance of chunk, with just a touch of blobbiness to set the foundation. More on the ink-bleed SVG effect below.
 
 Method is just a solid sans-serif. I use both the book and regular variants. It provides a balance to the surrounding chaos of the other, ultra-processed type and graphics. It doesn’t get away fully untreated though. For the intro text I apply an SVG filter to give it a worn, blobby look.
 
-ADHD! What an oddball. I love it. In most cases, I cycle through three of its four variants; “hyperactive”, “distracted”, and “impulsive” with an <code>@keyframes</code> animation. Either always or on hover/focus to had to the overall movement of the design.
+ADHD! What an oddball. I love it. In most cases, I cycle through three of its four variants; “hyperactive”, “distracted”, and “impulsive” with an <code>@keyframes</code> animation. Either always or on hover/focus to add to the overall movement of the design.
 
 <pre><code class="language-css">@keyframes adhd {
   0% { font-family: "adhd-hyperactive"; }
@@ -86,7 +86,7 @@ These started as solid, grey lines. **How boring**. I didn’t want to use an im
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
-I use some base layout styles on the parent <code>div</code> to get the overall shape. Then use a combination a transform and svg filters to morph the text into semi-random, animated blobs.
+I use some base layout styles on the parent <code>div</code> to get the overall shape. Then use a combination of a transform and SVG filters to morph the text into semi-random, animated blobs.
 
 <pre><code class="language-css">.divider-content {
   filter: url("#heading-blur") url("#edge-noise-animated");
@@ -96,7 +96,7 @@ I use some base layout styles on the parent <code>div</code> to get the overall 
   white-space: nowrap;
 }</code></pre>
 
-ADHD focused works well here because it’s chunky. That way, as the transform and filters are mangling the text, it stays intact enough to still be visible. A thinner font would break down too much. More on the svg filters below.
+ADHD focused works well here because it’s chunky. That way, as the transform and filters are mangling the text, it stays intact enough to still be visible. A thinner font would break down too much. More on the SVG filters below.
 
 To illustrate what’s happening further, here’s a divider with the transform and filters disabled.
 
@@ -112,7 +112,7 @@ To illustrate what’s happening further, here’s a divider with the transform 
 
 I saw Macabre on Future Fonts and bought it immediately without a use in mind. I tried it out in early designs for this, but it didn’t seem to work. Felt too much at home in a horror movie poster for what I was going for. Then I started working on section headings and, similar to the dividers, the fonts I was trying felt too boring. I pulled in Macabre because it felt so far away from the rest of the design. This is a helpful way to break out of a design rut.
 
-On its own, Macabre wasn’t doing exactly what I wanted it to for the headings. So I started breaking some rules. Stretched it vertically with a transform. Squeezed it horizontally with another. Then applied the, now familiar, svg filters to rough it up and animate it. The falloff isn’t anything tricky. It’s the heading text repeated a few times, then manually sized, scaled, rotated, and transformed using <code>nth-of-type</code> to move each repetition into place.
+On its own, Macabre wasn’t doing exactly what I wanted it to for the headings. So I started breaking some rules. Stretched it vertically with a transform. Squeezed it horizontally with another. Then applied the, now familiar, SVG filters to rough it up and animate it. The falloff isn’t anything tricky. It’s the heading text repeated a few times, then manually sized, scaled, rotated, and transformed using <code>nth-of-type</code> to move each repetition into place.
 
 <figure>
   <video autoplay muted loop playsinline>
@@ -126,11 +126,11 @@ On its own, Macabre wasn’t doing exactly what I wanted it to for the headings.
 
 ## The Hero Loop
 
-Somehow I’ve never design or built a site that uses the common full width, full height hero video. As I was looking around for design ideas, I came across [Gander’s beautiful site](https://takeagander.com). It has one of those big videos on the homepage. That convinced me I needed one for this.
+Somehow I’ve never designed or built a site that uses the common full width, full height hero video. As I was looking around for design ideas, I came across [Gander’s beautiful site](https://takeagander.com). It has one of those big videos on the homepage. That convinced me I needed one for this.
 
-The immediate question was; “what’s the video of?”. I didn’t just want random clips of myself riding around Manhattan in jorts. Maybe that’s for a future project. I went to the Interet Archive and quickly found some fun clips of kids riding bikes, from some PSA from the 80s. That helped set the tone. I tracked down a handful more videos of various lengths of bicycle-related material mostly from the 80s and 90s. I restrained my search older video clips to help keep a worn feel to everything.
+The immediate question was; “what’s the video of?”. I didn’t just want random clips of myself riding around Manhattan in jorts. Maybe that’s for a future project. I went to the Internet Archive and quickly found some fun clips of kids riding bikes, from some PSA from the 80s. That helped set the tone. I tracked down a handful more videos of various lengths of bicycle-related material mostly from the 80s and 90s. I restrained my search to older video clips to help keep a worn feel to everything.
 
-I used After Effects to piece things together. There’s only a few “effects” in the ~25 second clip. I mostly used it has a non-linear editor. Largely because I’m most familiar and fastest with it. It was also nice to have the effects tools handy in the few cases where I needed them.
+I used After Effects to piece things together. There’s only a few “effects” in the ~25 second clip. I mostly used it as a non-linear editor. Largely because I’m most familiar and fastest with it. It was also nice to have the effects tools handy in the few cases where I needed them.
 
 <figure>
   <picture>
@@ -144,9 +144,9 @@ I used After Effects to piece things together. There’s only a few “effects�
 
 ## Strava Data
 
-I track my rides with Strava. Most of them with the iPhone app, but I finally caved and got a Garmin Forerunner 255 a few months back. As I was doing longer rides, I realized quick my iPhone 13 battery couldn’t last more than about 45 miles.
+I track my rides with Strava. Most of them with the iPhone app, but I finally caved and got a Garmin Forerunner 255 a few months back. As I was doing longer rides, I realized quickly my iPhone 13 battery couldn’t last more than about 45 miles.
 
-For my stats, I get data from the Strava API. It works, but it kinda sucks. To request personal ride data from the API, you have to use a Bearer token. The only way to get that is to do an OAuth process. Strava doesn’t offer any type of app token for programmatic access, at least that I could find. There are ways to use their refresh tokens to make it work, but wasn’t worth it for this project. So, I do it manually. It only takes about 2 mins. I use Insomnia to generate the authorization URL. Go to it in a browser. Log in. Then copy the needed code from the callback URL. Once I have that, I plop it back in Insomnia where I make the request to <code>/athlete/activities</code>. It’s dumb, but it works.
+For my stats, I get data from the Strava API. It works, but it kinda sucks. To request personal ride data from the API, you have to use a Bearer token. The only way to get that is to do an OAuth process. Strava doesn’t offer any type of app token for programmatic access, at least that I could find. There are ways to use their refresh tokens to make it work, but it wasn’t worth it for this project. So, I do it manually. It only takes about 2 mins. I use Insomnia to generate the authorization URL. Go to it in a browser. Log in. Then copy the needed code from the callback URL. Once I have that, I plop it back in Insomnia where I make the request to <code>/athlete/activities</code>. It’s dumb, but it works.
 
 Once I have the data as JSON, I manually copy and paste it into the <code>rides.json</code> file. Instead of using <code>fetch</code> to get the data, I use a JSON module import assertion in <code>site.js</code>.
 
@@ -156,7 +156,7 @@ A request to get the data would work just as well here. I just reached for the i
 
 ## Ride Maps
 
-The most interesting data about each ride is where I went. Luckily, the Strava API returns a polyline for each ride. The polyline contains the coordinates for the route I took, so I wanted a map. These don’t need to be interactive—zoomable, pannable—maps. They just need to show the route. Mapbox offers just the thing for this, the [Static Images API](https://docs.mapbox.com/api/maps/static-images/). You set the <code>src</code> of an <code>img</code> element to the static API URL and include a few parameters, including an encoded polyline, and it returns a image. I knew this was a thing, but I hadn’t had a need for it until this. Pretty fun.
+The most interesting data about each ride is where I went. Luckily, the Strava API returns a polyline for each ride. The polyline contains the coordinates for the route I took, so I wanted a map. These don’t need to be interactive—zoomable, pannable—maps. They just need to show the route. Mapbox offers just the thing for this, the [Static Images API](https://docs.mapbox.com/api/maps/static-images/). You set the <code>src</code> of an <code>img</code> element to the static API URL and include a few parameters, including an encoded polyline, and it returns an image. I knew this was a thing, but I hadn’t had a need for it until this. Pretty fun.
 
 <pre><code class="language-js">`https://api.mapbox.com/styles/v1/mapbox/${style}/static/path-${strokeWidth}+${strokeColor}-1(${encodedPolyline})/auto/${size}?attribution=false&padding=${padding}&access_token=${mapboxToken}`;</code></pre>
 
@@ -176,7 +176,7 @@ The date and mileage aren’t part of the static map, they’re text elements st
 
 OK, this stuff is very cool. If you can’t tell, I’m not a fan of straight lines or smooth edges. Just in general, but with this design I wanted the absolute minimum of them. The last thing I’d want is for someone to describe the design as “simple and clean”. That is at best a boring compliment and at worst an active put down.
 
-To avoid yucky straight lines, I’m using svg filters to rough stuff up and in some cases animate it in a kind of squigglevision style. I started down this path while figuring out the ink-bleed for the title. I won’t go into the full background of filters here. It’s a deep pool that I don’t even fully understand. I know just enough to piece a few together and fiddle with the knobs to get what I’m after. Basically, they let you do cool shit to HTML elements via SVG and CSS that you otherwise can’t.
+To avoid yucky straight lines, I’m using SVG filters to rough stuff up and in some cases animate it in a kind of squigglevision style. I started down this path while figuring out the ink-bleed for the title. I won’t go into the full background of filters here. It’s a deep pool that I don’t even fully understand. I know just enough to piece a few together and fiddle with the knobs to get what I’m after. Basically, they let you do cool shit to HTML elements via SVG and CSS that you otherwise can’t.
 
 For the title, I start with standard-ish markup.
 
@@ -240,7 +240,7 @@ I have a few different blur filters for different text. They use the same filter
 
 **The above code is not real**. As far as I know, there’s no way to do this. You just have to make a copy of each filter with different values.
 
-I have similar filters applied to text, the bike illustrations, and element containers. It helps give an overall hand made feel that I’m after. And it’s very cool to not have to make one of graphics or introduce JS to make it happen.
+I have similar filters applied to text, the bike illustrations, and element containers. It helps give an overall handmade feel that I’m after. And it’s very cool to not have to make one of graphics or introduce JS to make it happen.
 
 <p class="offset-no-indent">
   As I hit publish on this, I’m at 940 miles for the year. The weather is turning cold quickly in NYC. My plan is to knock out the last 60 miles within the next week to make sure I get it done. 🤞
