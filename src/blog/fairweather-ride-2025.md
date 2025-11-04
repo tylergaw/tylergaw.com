@@ -146,18 +146,102 @@ I used After Effects to piece things together. There’s only a few “effects�
 
 I track my rides with Strava. Most of them with the iPhone app, but I finally caved and got a Garmin Forerunner 255 a few months back. As I was doing longer rides, I realized quick my iPhone 13 battery couldn’t last more than about 45 miles.
 
-For my stats, I get data from the Strava API. It works, but it kinda sucks. To request personal ride data from the API, you have to use a Bearer token. The only way to get that is to do an OAuth process. Strava doesn’t offer any type of app token that you can just plug in and use. A pain in the ass I had no interest in working up a programmatic solution for for this project. So, I do it manually. I use Insomnia to generate the authorization URL. Go to it in a browser. Log in. Then copy the needed code from the callback URL. Once I have that, I plop it back in Insomnia where I make the request to <code>/athlete/activities</code>. It’s dumb, but it works.
+For my stats, I get data from the Strava API. It works, but it kinda sucks. To request personal ride data from the API, you have to use a Bearer token. The only way to get that is to do an OAuth process. Strava doesn’t offer any type of app token for programmatic access, at least that I could find. There are ways to use their refresh tokens to make it work, but wasn’t worth it for this project. So, I do it manually. It only takes about 2 mins. I use Insomnia to generate the authorization URL. Go to it in a browser. Log in. Then copy the needed code from the callback URL. Once I have that, I plop it back in Insomnia where I make the request to <code>/athlete/activities</code>. It’s dumb, but it works.
 
 Once I have the data as JSON, I manually copy and paste it into the <code>rides.json</code> file. Instead of using <code>fetch</code> to get the data, I use a JSON module import assertion in <code>site.js</code>.
 
 <pre><code class="language-js">import dataRaw from "./data/rides.json" with { type: "json" };</code></pre>
 
-A request to get the data would work just as well here. I just reached for the import assertion first because it was a few less characters. From there it’s nothing fancy. Some data cleanup, summing, formatting, and HTML string building. You can see everything that’s happening in <code>[site.js](https://github.com/tylergaw/fairweather-ride/blob/main/static/site.js)</code>.
+A request to get the data would work just as well here. I just reached for the import assertion first because it was a few less characters. From there it’s nothing fancy. Some data cleanup, summing, formatting, and HTML string building. Everything happens in <code>[site.js](https://github.com/tylergaw/fairweather-ride/blob/main/static/site.js)</code>.
 
-## Static Maps
+## Ride Maps
 
-Neat little maps that should just be static images, but whatever
+The most interesting data about each ride is where I went. Luckily, the Strava API returns a polyline for each ride. The polyline contains the coordinates for the route I took, so I wanted a map. These don’t need to be interactive—zoomable, pannable—maps. They just need to show the route. Mapbox offers just the thing for this, the [Static Images API](https://docs.mapbox.com/api/maps/static-images/). You set the <code>src</code> of an <code>img</code> element to the static API URL and include a few parameters, including an encoded polyline, and it returns a image. I knew this was a thing, but I hadn’t had a need for it until this. Pretty fun.
+
+<pre><code class="language-js">`https://api.mapbox.com/styles/v1/mapbox/${style}/static/path-${strokeWidth}+${strokeColor}-1(${encodedPolyline})/auto/${size}?attribution=false&padding=${padding}&access_token=${mapboxToken}`;</code></pre>
+
+The date and mileage aren’t part of the static map, they’re text elements styled and layered on top of the <code>img</code>.
+
+<figure>
+  <picture>
+    <img
+      src="https://stuff.tylergaw.com/post-fairweather-ride-2025/fairweather-maps.jpg"
+      alt="A screenshot of part of the ride maps."
+    />
+  </picture>
+  <figcaption>fig 7. A static map for each ride via the Mapbox API</figcaption>
+</figure>
 
 ## SVG Filters
 
-Make all the things a mess
+OK, this stuff is very cool. If you can’t tell, I’m not a fan of straight lines or smooth edges. Just in general, but with this design I wanted the absolute minimum of them. The last thing I’d want is for someone to describe the design as “simple and clean”. That is at best a boring compliment and at worst an active put down.
+
+To avoid yucky straight lines, I’m using svg filters to rough stuff up and in some cases animate it in a kind of squigglevision style. I started down this path while figuring out the ink-bleed for the title. I won’t go into the full background of filters here. It’s a deep pool that I don’t even fully understand. I know just enough to piece a few together and fiddle with the knobs to get what I’m after. Basically, they let you do cool shit to HTML elements via SVG and CSS that you otherwise can’t.
+
+For the title, I start with standard-ish markup.
+
+<pre><code class="language-html">&lt;div class="title-effected"&gt;
+  &lt;span class="title-fair"&gt;Fairweather&lt;/span&gt;
+  &lt;span class="title-ride"&gt;Ride&lt;/span&gt;
+&lt;/div&gt;</pre></code>
+
+The extra <code>span</code>s are in place for other styling. I apply the filters to the parent <code>div</code>.
+
+<pre><code class="language-css">.title-effected {
+  filter: url("#title-blobs") url("#edge-noise-animated");
+}</pre></code>
+
+The filters themselves are in <code>index.html</code> within a <code>defs</code> element. This creates the ink-bleed style:
+
+<pre><code class="language-html">&lt;filter id="title-blobs"&gt;
+  &lt;feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" /&gt;
+  &lt;feColorMatrix
+    in="blur"
+    mode="matrix"
+    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 12 -5"
+    result="title-blobs"
+  /&gt;
+  &lt;feBlend in="SourceGraphic" in2="title-blobs" /&gt;
+&lt;/filter&gt;</pre></code>
+
+When I was reading about the filters in this one, I needed to play around quite a bit. I ended up building a [collection of CodePens](https://codepen.io/collection/rBNGEK) for them if you’re interested in seeing different ways to do this and a few other cool effects.
+
+With a few value tweaks and different layering of filters you can quickly build up very interesting effects. [Ana](https://thebabydino.github.io/) is the go-to for knowledge and examples on how to use filters.
+
+For the squigglevision, in the title and throughout, I’m using <code>feTurbulence</code>, along with <code>animate</code> and <code>feDisplacementMap</code>. I use this same one for most of it.
+
+<pre><code class="language-html">&lt;filter id="edge-noise-animated"&gt;
+  &lt;feTurbulence
+    type="turbulence"
+    baseFrequency="0.05"
+    numOctaves="3"
+    result="turbulence"
+    seed="0"
+  &gt;
+    &lt;animate
+      attributeName="seed"
+      values="0;20"
+      dur="2s"
+      repeatCount="indefinite"
+    /&gt;
+  &lt;/feTurbulence&gt;
+  &lt;feDisplacementMap
+    in="SourceGraphic"
+    in2="turbulence"
+    scale="3"
+    xChannelSelector="R"
+    yChannelSelector="B"
+  /&gt;
+&lt;/filter&gt;</pre></code>
+
+I have a few different blur filters for different text. They use the same filters, but with different values, depending on the size of the text. Larger text needs blurred more, smaller less. This is one detail of filters I wish was a bit smoother. I wish I could pass attribute values to a filter via query param (or any other mechanism). Something like this:
+
+<pre><code class="language-css">filter: url("#general-blur?stdDeviation=5&type=discrete")</pre></code>
+
+**The above code is not real**. As far as I know, there’s no way to do this. You just have to make a copy of each filter with different values.
+
+I have similar filters applied to text, the bike illustrations, and element containers. It helps give an overall hand made feel that I’m after. And it’s very cool to not have to make one of graphics or introduce JS to make it happen.
+
+<p class="offset-no-indent">
+  As I hit publish on this, I’m at 940 miles for the year. The weather is turning cold quickly in NYC. My plan is to knock out the last 60 miles within the next week to make sure I get it done. 🤞
+</p>

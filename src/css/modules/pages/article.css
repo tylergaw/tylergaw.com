@@ -110,8 +110,12 @@
 }
 
 .e-content p:not([class]) + p:not([class]),
-:where(.note-special, .note-update) + p {
+:where(.note-special, .note-update, .offset-no-indent) + p {
   text-indent: 1.6em;
+}
+
+.e-content .offset-no-indent {
+  margin-top: 2em;
 }
 
 .e-content code {
@@ -145,7 +149,7 @@
 }
 
 .e-content figcaption {
-  margin-top: 1em;
+  margin-top: 0.5em;
   padding-left: 0.5em;
 }
 
