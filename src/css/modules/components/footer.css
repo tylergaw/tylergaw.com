@@ -6,7 +6,7 @@
   margin: 0.8rem 0;
 }
 
-.footer__links li:has(a[href^="https"])::after {
+.footer__links li:has([href^="https"])::after {
   content: "↗";
   color: var(--color-accent-primary);
 }
