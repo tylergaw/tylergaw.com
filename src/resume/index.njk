@@ -2,9 +2,14 @@
 title: Tyler Gaw’s Resume
 jobs: [
   {
-    "title": "Principal Front-end Engineer",
+    "title": "Founder",
+    "org": "Latchbolt",
+    "timeline": "August 2025 - Present"
+  },
+  {
+    "title": "Founding Engineer",
     "org": "<a href='https://summer.io' target='_blank' rel='noopener noreferrer'>Summer</a>",
-    "timeline": "November 2023 - Present",
+    "timeline": "November 2023 - July 2025",
     "details": [
       "Building something"
     ]
@@ -102,10 +107,10 @@ jobs: [
 {% block main %}
 <div class="resume-intro g-main g-padded">
   <div class="page-intro__contents g-main__item resume-intro__contents">
-    <h1 class="heading--special">Resume</h1>
+    <h1 class="heading--special">Resumé</h1>
     <div class="page-intro__body">
       <p>
-        Engineering and design leader with nearly two decades of experience building products and nurturing teams.
+        Engineering and design leader with two decades of experience building products and helping people enjoy their work.
       </p>
       <p>
         <a href="mailto:me@tylergaw.com">me@tylergaw.com</a> •
@@ -126,13 +131,13 @@ jobs: [
         <h3 class="job__title">{{ job.title }}</h3>
         <p class="job__org">{{ job.org | safe }}</p>
 
-        {% if job.details %}
+        {# {% if job.details %}
         <ul class="job__details">
           {% for detail in job.details %}
             <li>{{ detail | safe }}</li>
           {% endfor %}
         </ul>
-        {% endif %}
+        {% endif %} #}
       </li>
       {% endfor %}
     </ol>
@@ -140,19 +145,27 @@ jobs: [
 
   <div class="g-main__item resume__aside">
     <div class="skills">
-      <h2>Skills</h2>
+      <h2>Things I Know and Do</h2>
+      <p>
+        An ever-growing list of buzzwords and phrases.
+      </p>
       <ul>
         <li>Design of all variety; product, UX, UI, graphic, and more qualifiers</li>
         <li>Writing</li>
         <li>Producing and using pattern libraries and design systems</li>
         <li>People leadership</li>
         <li>Hiring</li>
+        <li>Figuring things out</li>
+        <li>Asking hard questions</li>
+        <li>Meticulous project documentation</li>
+        <li>User stories</li>
         <li>HTML</li>
         <li>CSS</li>
         <li>Old timey JavaScript</li>
         <li>New-fangled JavaScript</li>
         <li>Sass</li>
         <li>PostCSS</li>
+        <li>Svelte</li>
         <li>React</li>
         <li>React Native</li>
         <li>Redux</li>
@@ -165,12 +178,8 @@ jobs: [
         <li>Django</li>
         <li>Ruby on Rails</li>
         <li>PHP</li>
-        <li>Consuming RESTful and GraphQL APIs</li>
+        <li>Working with RESTful and GraphQL APIs</li>
         <li>CI tools; Travis, Circle, Buildkite, GitHub Actions</li>
-        <li>Asking hard questions</li>
-        <li>Written communication</li>
-        <li>User stories</li>
-        <li>Meticulous project documentation</li>
       </ul>
     </div>
 

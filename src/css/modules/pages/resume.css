@@ -17,12 +17,17 @@
   margin-top: 1.5em;
 }
 
+.resume h2 + p {
+  font-size: var(--font-size-18);
+  margin-top: 0.25em;
+}
+
 .resume ul {
   list-style: disc inside;
 }
 
 .job {
-  margin-top: calc(var(--g-row) * 8);
+  margin-top: calc(var(--g-row) * 4);
 }
 
 .job__timeline,

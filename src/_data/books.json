@@ -2,6 +2,12 @@
   {
     "year": 2025,
     "current": true,
+    "title": "The Handmaid’s Tale",
+    "url": "https://app.thestorygraph.com/books/e30b24d8-2191-4085-a4d3-2088f87522bd",
+    "author": "Margaret Atwood"
+  },
+  {
+    "current": true,
     "title": "The Warmth of Other Suns: The Epic Story of America's Great Migration",
     "url": "https://app.thestorygraph.com/books/314a978c-5efa-41d9-9cb8-a5140967ca2b",
     "author": "Isabel Wilkerson"
