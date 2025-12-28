@@ -37,6 +37,6 @@ Most of that was busy work. Which is exactly what I needed at the time. Having t
 
 ## How’s That Going?
 
-My company is named Latchbolt Inc. I let myself nerd out on a holding page at [latchbolt.tech](https://latchbolt.tech). My plan right now is to follow the model of a company like [Panic](https://www.panic.com/). I’m not building a single product or even products of the same genre. Latchbolt is a place where I can build any software that I’m inspired to. What I’m inspired to build right now are things for niche audiences. Things that are made with care for caring people.
+My company is named Latchbolt Inc. I let myself nerd out on a holding page at [latchbolt.tech](https://latchbolt.tech). My plan right now is to follow the model of a company like [Panic](https://www.panic.com/). I’m not building a single product or even products of the same genre. Latchbolt is a place where I can build any software that I’m inspired to. What I’m inspired to build right now is software for niche audiences. Software that’s made with care for caring people. Software that, hopefully, brings even the smallest joy. I need that. We need that.
 
 The first thing I’m building is an iOS app for collage. I also decided to learn Swift/SwiftUI for this so it’s moving along slow, but it’s moving. I’ll have details and a build ready for initial testing next month.
