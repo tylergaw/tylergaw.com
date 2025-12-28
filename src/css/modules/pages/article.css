@@ -111,11 +111,11 @@
 
 .e-content p:not([class]) + p:not([class]),
 :where(.note-special, .note-update, .offset-no-indent) + p {
-  text-indent: 1.6em;
+  margin-top: 1em;
 }
 
 .e-content .offset-no-indent {
-  margin-top: 2em;
+  margin-top: 4em;
 }
 
 .e-content code {
@@ -240,7 +240,6 @@
   font-size: 1.2em;
   line-height: 1.6;
   padding-bottom: 2em;
-  text-indent: 0;
 }
 
 .entry-intro::first-line {
@@ -259,10 +258,10 @@
   color: var(--color-accent-secondary);
   float: left;
   font-family: var(--font-proto-bold);
-  font-size: 600%;
-  line-height: 1;
+  font-size: 555%;
+  line-height: 0.85;
   margin-left: -0.05em;
-  padding-right: 0.09em;
+  padding-right: 0.07em;
 }
 
 .entry-update {
