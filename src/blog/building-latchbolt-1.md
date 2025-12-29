@@ -20,11 +20,11 @@ meta:
 - Google Workspace: Email, Drive (leave all the Gemini bullshit off)
 - GitHub: Team plan, one license
 - Notion: Where I put words about things
-- Buttondown: The **best** email platform
+- [Buttondown](https://buttondown.email): The **best** email platform
 - [Apple Developer Program](https://developer.apple.com/programs/): To publish apps to the App Store
-- A [D-U-N-S Number](https://www.dnb.com/en-us/smb/duns.html): Required for setting up an organization in the Apple App Store
+- [D-U-N-S Number](https://www.dnb.com/en-us/smb/duns.html): Required for setting up an organization in the Apple App Store
 - Cloudflare: Using the Images and R2 products so far
-- Namecheap: So many domain names
+- Namecheap: So many domains
 
 ## How Much Did it Cost?
 
