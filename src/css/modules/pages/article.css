@@ -252,8 +252,8 @@
   padding-top: 0;
 }
 
-.entry-intro + p:first-letter,
-.entry-intro + h2 + p:first-letter,
+.entry-intro + p:not(.no-drop-cap):first-letter,
+.entry-intro + h2 + p:not(.no-drop-cap):first-letter,
 .drop-capped:first-letter {
   color: var(--color-accent-secondary);
   float: left;
