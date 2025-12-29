@@ -56,4 +56,6 @@ When I put apps in the App Store, I want the listed developer to be Latchbolt In
 
 If you’re applying for a D-U-N-S number, heads up, they will likely call the company number. Mentioned above, I use my personal number. But, I block all unknown numbers because my phone is a daily hell of spam calls. So missed their call to verify the company was a real thing. Which, they then proceeded to end the application. Luckily they sent a follow-up email and I was able to verify everything that way. Another nudge for me to get a dedicated company number.
 
-So far, so good. This process has become very easy to do. Granted, this is the most bare-bones corporation possible, but still I’ve been impressed by how smooth things have been.
+<p class="offset-no-indent">
+  So far, so good. This process has become very easy to do. Granted, this is the most bare-bones corporation possible, but still I’ve been impressed by how smooth things have been.
+</p>
