@@ -203,6 +203,12 @@
   padding: 0 0.2em 1.4em 0.2em;
 }
 
+.e-content h2 + :where(ul, ol),
+.e-content h3 + :where(ul, ol),
+.e-content h4 + :where(ul, ol) {
+  margin-top: 0.75em;
+}
+
 .e-content li {
   line-height: 1.5;
   padding-bottom: 0.25em;
