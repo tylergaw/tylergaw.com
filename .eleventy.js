@@ -1,8 +1,10 @@
 const CleanCSS = require("clean-css");
 const dayjs = require("dayjs");
+const utc = require("dayjs/plugin/utc");
 const timezone = require("dayjs/plugin/timezone");
 const pluginRSS = require("@11ty/eleventy-plugin-rss");
 
+dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.tz.setDefault("America/New_York");
 
@@ -13,6 +15,17 @@ module.exports = function (conf) {
 
   conf.addFilter("dateFormat", (dateStr, format) => {
     return dayjs(dateStr).format(format);
+  });
+
+  conf.addFilter("getRSSDate", (dateStr) => {
+    // Parse the date string in UTC and set to noon
+    // This prevents the date from shifting to the previous day in feed readers
+    let date = dayjs.utc(dateStr).hour(12).toISOString().split(".");
+
+    // Remove milliseconds (RFC 3339 requirement)
+    date.pop();
+
+    return date.join("") + "Z";
   });
 
   conf.setTemplateFormats([
