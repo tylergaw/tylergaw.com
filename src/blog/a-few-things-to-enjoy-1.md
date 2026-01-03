@@ -6,7 +6,7 @@ date: "2025-11-01"
 highlightSyntax: false
 meta:
   description: These are things I enjoyed recently. Maybe you’ll enjoy them too.
-  image: /blog/assets/post-image-things-to-enjoy.jpg
+  image: /blog/assets/post-image-things-to-enjoy-1.jpg
 ---
 
 These are a few things I enjoyed recently. Maybe you’ll enjoy them too.
