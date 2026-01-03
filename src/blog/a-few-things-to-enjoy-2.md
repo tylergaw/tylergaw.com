@@ -13,7 +13,7 @@ These are a few things I enjoyed recently. Maybe you’ll enjoy them too.
 
 ## Personal Business
 
-A wonderfuly well-written reminder that not everything needs to scale. Not everything needs to be automated to the nth degree. Doing things slowly, by hand, for niche groups of people is always an option.
+A wonderfully well-written reminder that not everything needs to scale. Not everything needs to be automated to the nth degree. Doing things slowly, by hand, for niche groups of people is always an option.
 
 <a href="https://www.are.na/editorial/personal-business">“Personal Business” by Charles Broskoski on Are.na</a>.
 
@@ -23,7 +23,7 @@ This is how I’m approaching my work on [Latchbolt](https://latchbolt.tech).
 
 ## Victor Jones
 
-At first glance it seems like it could be a gag. That thought dissappears nearly as soon as it appears though. You realize this is very serious and very good. Absurd? Definitely. Odd? You betcha. But that’s exactly why this music fun and interesting. I can’t wait to yell-sing these songs back at Victor in a cramped room with a bunch of other sweaty people as soon as possible.
+At first glance it seems like it could be a gag. That thought disappears nearly as soon as it appears though. You realize this is very serious and very good. Absurd? Definitely. Odd? You betcha. But that’s exactly why this music is fun and interesting. I can’t wait to yell-sing these songs back at Victor in a cramped room with a bunch of other sweaty people as soon as possible.
 
 <figure>
   <iframe class="e-iframe-full" width="560" height="315" src="https://www.youtube.com/embed/cZirSkxX3QA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -45,11 +45,11 @@ This app has gotten a lot of attention. I’m happy to give it more because I’
 
 ## Converge - Audiotree From Nothing
 
-Even if this isn’t your type of music, watch the interviews. They talk about their creative process over the last 30 years as a band. This in particular stood out to me as someone who, in my younger years, has not always been so patient when working with others:
+Even if this isn’t your type of music, watch the interviews. They talk about their creative process over the last 30 years as a band. This in particular stood out to me as someone who, in my younger years, was not always been so patient when working with others:
 
 > The art of compromise has not felt so world-ending as it did when we were creating music when we were younger.
 
-While they’re talking music, the same things are true of any creative endeavour. If this is your type of music, you’ve already watched this five times because these versions of the songs rule.
+While they’re talking music, the same things are true of any creative endeavor. If this is your type of music, you’ve already watched this five times because these versions of the songs rule.
 
 <figure>
   <iframe class="e-iframe-full" width="560" height="315" src="https://www.youtube.com/embed/c-6OT-lNtBE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
