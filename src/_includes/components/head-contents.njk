@@ -5,6 +5,14 @@
   type="application/rss+xml"
   title="An account of the work I do as a designer and engineer"
 />
+{% if tags and "post" in tags %}
+<link
+  rel="alternate"
+  href="{{ site.url }}/blog/{{ page.fileSlug }}.md"
+  type="text/markdown"
+  title="{{ title }}"
+/>
+{% endif %}
 <link rel="icon" href="/images/favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="/images/favicon.png" type="image/png" />
 

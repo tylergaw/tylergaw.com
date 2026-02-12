@@ -1,0 +1,17 @@
+/* HUMAN */
+Name: Tyler Gaw
+Site: tylergaw.com
+Location: New York City
+Contact: me@tylergaw.com
+GitHub: tylergaw
+Bluesky: @tylergaw.com
+
+/* SITE */
+Built with: Eleventy
+Hosted on: Netlify
+Typeface: Proto Grotesk by Production Type
+Language: English
+Standards: HTML, CSS, JavaScript
+
+/* THANKS */
+Thank you for visiting a personal website in 2026.
