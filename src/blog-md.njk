@@ -8,4 +8,6 @@ eleventyExcludeFromCollections: true
 ---
 # {{ post.data.title }}
 
+## Published {{ post.data.date }}
+
 {{ post.inputPath | rawMarkdown | safe }}
