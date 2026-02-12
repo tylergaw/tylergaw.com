@@ -1,3 +1,4 @@
+const fs = require("fs");
 const CleanCSS = require("clean-css");
 const dayjs = require("dayjs");
 const utc = require("dayjs/plugin/utc");
@@ -12,6 +13,11 @@ module.exports = function (conf) {
   conf.addPlugin(pluginRSS);
 
   conf.addFilter("cssmin", (code) => new CleanCSS({}).minify(code).styles);
+
+  conf.addFilter("rawMarkdown", (inputPath) => {
+    const content = fs.readFileSync(inputPath, "utf-8");
+    return content.replace(/^---\n[\s\S]*?\n---\n/, "").trim();
+  });
 
   conf.addFilter("dateFormat", (dateStr, format) => {
     return dayjs(dateStr).format(format);
@@ -44,6 +50,9 @@ module.exports = function (conf) {
   ]);
   conf.addPassthroughCopy("./src/manifest.webmanifest");
   conf.addPassthroughCopy("./src/keybase.txt");
+  conf.addPassthroughCopy("./src/robots.txt");
+  conf.addPassthroughCopy("./src/humans.txt");
+  conf.addPassthroughCopy("./src/llms.txt");
   conf.addPassthroughCopy("./src/rss.xml");
   conf.addPassthroughCopy("./src/.well-known");
 

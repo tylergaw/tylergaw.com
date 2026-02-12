@@ -1,0 +1,50 @@
+# Tyler Gaw
+
+> Designer and software engineer since 2006. Building human-focused experiences. Based in New York City.
+
+Tyler Gaw is a designer and software engineer who has worked professionally since 2006. He practices across product design, UX, UI, graphic design, illustration, and full-stack engineering. He describes himself simply as "A Designer" and answers the question "design or code?" with "yes."
+
+He is the founder of Latchbolt, an independent human-focused software practice. Latchbolt's first product offering is Pezzos, it's the iOS app for modern collage, released in February 2026. Previously, he was a founding engineer at Summer, Director of Engineering at Rokt, co-founder of Limbo, and an engineer and designer at The Groundwork where he helped build the technology that powered Hillary Clinton's 2016 presidential campaign.
+
+His approach to building software prioritizes humans over engagement metrics. He values progressive enhancement, the principle of least power, and designing products that respect people's time and attention.
+
+This site is built with Eleventy, hosted on Netlify, set in Proto Grotesk, using browser-native CSS and minimal JavaScript. The source is available on GitHub. Tyler has maintained versions of this site since 2006.
+
+## Now
+
+Right now, February 2026, Tyler is focused on shipping Pezzos, the iOS app for modern collage. He has it nearly ready to go and is working tirelessly to get the last few must-haves done enough to get it into the App Store.
+
+## Work
+
+- [Pezzos](https://pezzos.app/): The iOS app for modern collage. A native iPhone and iPad app built with SwiftUI. His first offering under the Latchbolt banner
+- [Summer](https://summer.io): Svelte front end for the all-in-one data platform.
+- [StreetCred](https://tylergaw.com/work/streetcred): React Native mapping app for crowdsourcing points of interest. First design and engineering hire. Acquired by Snap in 2020.
+- [Limbo](https://tylergaw.com/work/limbo): Anonymous job platform designed to make tech recruiting more humane. Co-founder. Built with HTML, CSS, JavaScript, Python/Django.
+- [ColorMe](https://tylergaw.com/work/colorme): Tool for visualizing the CSS color function. Built with React and ServiceWorker.
+- [The Groundwork](https://tylergaw.com/work/thegroundwork): Web services powering the Hillary for America campaign. Responsible for 9MM donations totalling $600MM. Built with HTML, CSS, JavaScript, React, Python.
+- [Building OS X Apps with JavaScript](https://tylergaw.com/work/osx-apps-with-js): Exploration of using JavaScript for native OS X app development.
+- [Work Archive](https://tylergaw.com/work/archive): Additional projects and experiments.
+
+## Writing
+
+- [Blog](https://tylergaw.com/blog): Long-running blog covering CSS, JavaScript, design, web development, and personal projects.
+- [Something to Latch Onto](https://tylergaw.com/blog/something-to-latch-onto.md): On starting Latchbolt and getting back to independent work.
+- [Building Latchbolt #1](https://tylergaw.com/blog/building-latchbolt-1.md): Setting up the corporation, banking, and tools for an independent practice.
+- [Failing at Using a Local LLM for Vinyl Record Color Extraction](https://tylergaw.com/blog/failing-at-local-models-for-wax.md): Experimenting with local models for a side project and learning from failure.
+- [Complex MPA View Transitions](https://tylergaw.com/blog/complex-mpa-view-transitions.md): Deep dive into CSS view transitions for multi-page apps.
+- [CSS Scroll-Driven Write-on Text Effect](https://tylergaw.com/blog/css-scroll-driven-write-on.md): Using CSS scroll-driven animations to produce a write-on text effect.
+- [First Experiments with View Transitions for Multi-page Apps](https://tylergaw.com/blog/view-transitions-first-experiments-mpa.md): Early experiments and learning with the View Transition API.
+
+## Side projects
+
+- [Fairweather Ride](https://bikes.tylergaw.com): A silly single pager about me and the miles I put on my bike.
+- [Wax](https://wax.tylergaw.com): A better display for my Discogs record collection. Uses an LLM to determine vinyl color.
+
+## Other
+
+- [About](https://tylergaw.com/about): Bio, personal interests, and site history.
+- [Resume](https://tylergaw.com/resume): A more complete work history and skills.
+- [RSS Feed](https://tylergaw.com/rss.xml): Atom feed of all blog posts.
+- [GitHub](https://github.com/tylergaw): Open source projects and site source code.
+- [Bookshelf](https://tylergaw.com/bookshelf): Books Tyler has read.
+- [Art](https://tylergaw.com/art): Visual art Tyler does for fun.
