@@ -5,7 +5,7 @@ title: The Old Internet is Still Here
 date: "2026-03-20"
 highlightSyntax: false
 meta:
-  description: The “old” Internet isn’t gone, our expectations have just changed (not for the better)
+  description: The “old” Internet isn’t gone, our expectations have changed.
   image: /blog/assets/post-image-old-internet.jpg
 ---
 
