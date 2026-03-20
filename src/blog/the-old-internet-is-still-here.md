@@ -43,4 +43,4 @@ The Internet in 2026 is, for sure, full of horrors. The signal to noise ratio is
 
 But Good Internet is still here. We’re still making stuff we care about and sharing that stuff on our websites. We’re making it for ourselves first, but we’re also making it for you.
 
-This Good Internet Stuff may take effort to find. You probably won’t see it in a feed. It will not have likes and RTs. It might be months old by the time you see it. But, it’ll be there. Waiting.
+This Good Internet Stuff may take effort to find. You probably won’t see it in a feed. It will not have likes and RTs. It might be months old by the time you see it. But, it’ll be here. Waiting.
