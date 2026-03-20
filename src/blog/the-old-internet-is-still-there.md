@@ -1,12 +1,12 @@
 ---
 tags: post
 layout: "layouts/article.njk"
-title: The Old Internet is Still There
+title: The Old Internet is Still Here
 date: "2026-03-20"
 highlightSyntax: false
 meta:
-  description: The “old” Internet isn’t gone, our expectations have changed (not for the better)
-  image: /blog/assets/post-image-pezzos.png
+  description: The “old” Internet isn’t gone, our expectations have just changed (not for the better)
+  image: /blog/assets/post-image-old-internet.jpg
 ---
 
 There’s a frequent lament of missing the “old” Internet. It’s different for every person that thinks it, but it’s usually a feeling of loss for things like personal websites, blogs, RSS feeds, quirky sites for special interests and hobbies, forums, etc. A feeling that they don’t exist. That they’ve disappeared from the Internet.
@@ -23,12 +23,24 @@ I don’t consider myself an outlier here. I would wager (without any data) that
 
 Jim has a one-off site for [his pies](https://pies.jim-nielsen.com/). I have one for [my records](https://wax.tylergaw.com/). [Anh](https://anhvn.com/) has pages for all kinds of fun stuff.
 
-Again, not outliers.
+And it doesn’t get much more “old” Internet than [this](https://thehtml.review/05/).
 
-What’s changed is our expectations. And not in a good way.
+I’ve been paying for [Feedbin](https://feedbin.com/) for years. There are tons of other good RSS reader options, paid and otherwise. Terry just released a killer new UI that sits on top of other RSS services, [Current](https://www.terrygodier.com/current).
 
-Social media trained us to expect a constant stream. Good stuff, delivered to us, every hour of every day. We stopped looking for it because we didn’t have to. The algorithm would handle that.
+A few thousand degen skateboarders (myself included) have been talking shit about skateboarding on the [Slap Magazine forums](https://www.slapmagazine.com/) non-stop for the last two decades. The front page and the big subreddits are mostly horseshit these days, but there are still [niche](https://www.reddit.com/r/collage/), [strange](https://www.reddit.com/r/WeirdEggs/) subreddits to be found where real people share and discuss real things, and sometimes real weird things.
 
-On the old Internet, you surfed. You followed links from one site to the next for hours. You found weird, wonderful stuff because you went looking for it.
+What’s changed is our expectations.
 
-That’s still there too. You can still find unique, genuinely good Internet. But you have to go looking again. You have to use old Internet techniques.
+Years of streams and feeds have trained us to expect non-stop new stuff. Stuff delivered directly to our eyeballs. Stuff delivered in dizzying quantities. With each new delivery better than the last. Why go to the stuff when the stuff can come to you?
+
+Part of what made the “old” Internet so good was the process of discovery. There were no streams or feeds. No “For You pages”. No “Discover” tab. When you found something good, it was usually after hours idly clicking between loosely connected websites. That’s what made every discovery feel so special. That’s why those first websites you went to are seared into your memory.
+
+We used to surf the Web.
+
+We can still surf the Web.
+
+The Internet in 2026 is, for sure, full of horrors. The signal to noise ratio is pegged to noise. It’s only gonna get worse from here.
+
+But Good Internet is still here. We’re still making stuff we care about and sharing that stuff on our websites. We’re making it for ourselves first, but we’re also making it for you.
+
+This Good Internet Stuff may take effort to find. You probably won’t see it in a feed. It will not have likes and RTs. It might be months old by the time you see it. But, it’ll be there. Waiting.
