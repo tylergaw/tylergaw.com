@@ -2,7 +2,7 @@
 tags: post
 layout: "layouts/article.njk"
 title: Browsers Should Have a Native Control for Per-Site Color Scheme
-date: "2026-03-24"
+date: "2026-03-25"
 highlightSyntax: true
 meta:
   description: A proposal for browsers to offer a per-site color scheme control.
@@ -32,7 +32,7 @@ Right now, every site with multiple color schemes has to implement a custom cont
 
 Both of those feel wrong.
 
-Sites with multiple themes, at least light and dark, is widespread enough that it feels standard. But, as a user, having to track down the custom color scheme control on every site is a pain. Sometimes it’s in the header. Sometimes it’s in a sidebar. Sometimes it’s tucked away in a settings menu or page. And some psychos even put it at the very bottom of an incredibly long page.
+Sites with multiple themes, at least light and dark, is widespread enough that it feels standard. But, as a user, having to track down the custom color scheme control on every site is a pain. Sometimes it’s in the header. Sometimes it’s in a sidebar. Sometimes it’s tucked away in a settings menu or page. And some of you psychos put it at the very bottom of an incredibly long page, I think because you’re out to get me.
 
 Relying only on the OS-level appearance is less than ideal. Using dark mode at the OS-level, but then light mode for certain websites is common. Which scheme a user wants could depend on the content, the time of day, the quality of the scheme design, or maybe just how their eyes are feeling that day. There’s no one correct setting.
 
@@ -133,7 +133,7 @@ Example: if OS is set to `auto`, browser is set to `dark`, and site is set to `l
 A few things that came up, but I didn’t dive deep into:
 
 - Scheme storage by origin: the preference is per-origin, not per-page. Subdomains are separate.
-- Sync across devices: preference should probably sync via existing browser sync infrastructure (Chrome Sync, Firefox Sync). Though it maybe **shouldn’t** sync between desktop and mobile.
+- Sync across devices: preference should probably sync via existing browser sync infrastructure (Chrome Sync, Firefox Sync). Though maybe it **shouldn’t** sync between desktop and mobile.
 - Incognito/private browsing: doesn't read or write per-site scheme preferences.
 - Reset behavior: Selecting “System” clears the per-site preference entirely, back to the default. Just like setting zoom to 100%.
 - Dynamic meta tag changes: If JS changes the meta tag without a navigation, the browser should re-read it and update the control. If the stored preference is no longer in the list, fall back to system.
@@ -170,7 +170,7 @@ The sepia theme would then be available in the color scheme control:
 
 ## More examples
 
-In Chrome, the scheme button would slot in with all other possible contextual buttons. Would work the same. Here’s the URL bar of an installable site that’s zoomed in and has available color schemes:
+In Chrome and Firefox, the scheme button would slot in with any other possible contextual buttons. Would work the same. Here’s the URL bar of an installable site that’s zoomed in and has available color schemes:
 
 <figure>
   <picture>
@@ -178,3 +178,38 @@ In Chrome, the scheme button would slot in with all other possible contextual bu
   </picture>
   <figcaption>fig 4: The Chrome URL bar displaying buttons for: Install, Zoom, Scheme, and Bookmark</figcaption>
 </figure>
+
+Firefox is nearly the same as Chrome, with a scheme popover that includes a select for available schemes. This mock up isn’t as complete, but this is the idea.
+
+<figure>
+  <picture>
+      <img src="https://stuff.tylergaw.com/post-color-scheme-browser-native-control/firefox-color-scheme-control.webp" alt="Firefox Color scheme control demo with a dropdown from the toolbar's color scheme icon shows three options — System (currently selected, checkmark), Light, and Dark." />
+  </picture>
+  <figcaption>fig 5: Firefox Color Scheme control</figcaption>
+</figure>
+
+Zen uses a sidebar for URL and tabs. It also has contextual buttons in the URL bar. That’s where the scheme control would go. I don’t have a mock up of the selection UI, but Zen uses pretty standard popovers and selects.
+
+<figure>
+  <picture>
+      <img src="https://stuff.tylergaw.com/post-color-scheme-browser-native-control/zen-color-scheme-control.webp" alt="Zen browser address bar showing localhost:8000, with three icons to the right: color scheme toggle, copy link, and settings." />
+  </picture>
+  <figcaption>fig 6: Zen Color Scheme control placement in the URL bar</figcaption>
+</figure>
+
+Safari is interesting. It doesn’t really do contextual buttons in the URL bar. It has a reading list and I think read view, but I didn’t see any others. I don’t see any future where Apple gives up URL bar real estate for this. That means this one would be a bit less discoverable. What it does have is a Site settings button. That opens a popover and one of the items in there is page zoom. Not my favorite, but the scheme control could slot right in there.
+
+<figure>
+  <picture>
+      <img src="https://stuff.tylergaw.com/post-color-scheme-browser-native-control/safari-color-scheme-control.webp" alt="Proposed location for the scheme control in Safari in the Site settings menu" />
+  </picture>
+  <figcaption>fig 7: Proposed scheme control placement in Safari site settings menu</figcaption>
+</figure>
+
+<p class="offset-no-indent">
+
+This fits nicely with the trajectory and current status of `color-scheme`, `light-dark()`, and related specs. This wouldn’t have been a good idea, say, 2 years ago. We just didn’t know enough yet. But now, feels like we have a solid foundation to build on.
+
+I don’t know what the processes are for getting a feature like this in various browsers. I’m sure it’s different for them all. The first step is this, just getting it written down and in front of people. I know I’d use this many times a day every day. Now to see if anyone else would too.
+
+</p>
