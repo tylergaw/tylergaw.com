@@ -1,6 +1,12 @@
 [
   {
-    "year": 2025,
+    "year": 2026,
+    "current": true,
+    "title": "The Left Hand of Darkness",
+    "url": "https://app.thestorygraph.com/books/1a4fdf6a-07c3-42c9-bd90-412fbe5913c8",
+    "author": "Ursula K. Le Guin"
+  },
+  {
     "current": true,
     "title": "The Warmth of Other Suns: The Epic Story of America's Great Migration",
     "url": "https://app.thestorygraph.com/books/314a978c-5efa-41d9-9cb8-a5140967ca2b",
