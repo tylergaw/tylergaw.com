@@ -150,7 +150,7 @@ So, again, the color scheme control proposal isn’t 1:1, but it’s also not co
 
 ## Custom schemes
 
-Right now, the `color-scheme` property and meta tag only support `light` and `dark`. But the spec is open-ended. The definition includes a `<custom-ident>` as a placeholder for custom schemes. That’s only a proposal though, so don’t get too excited. Bramus wrote about this in “[The Future of CSS: Easy Light-Dark Mode Color Switching with `light-dark()`](https://www.bram.us/2023/10/09/the-future-of-css-easy-light-dark-mode-color-switching-with-light-dark/#schemed-value)”
+Right now, the `color-scheme` property and meta tag only support `light` and `dark`. But the spec is open-ended. The definition includes a `<custom-ident>` as a placeholder for custom schemes. That’s only a proposal though, so don’t get too excited. Bramus wrote about this in “[The Future of CSS: Easy Light-Dark Mode Color Switching with `light-dark()`](https://www.bram.us/2023/10/09/the-future-of-css-easy-light-dark-mode-color-switching-with-light-dark/#schemed-value).”
 
 There’s no reason this feature can’t follow the same path. Say a site has a custom sepia scheme it wants to make available. The author declares it with the `color-scheme` meta:
 
@@ -170,7 +170,7 @@ The sepia theme would then be available in the color scheme control:
 
 ## More examples
 
-In Chrome and Firefox, the scheme button would slot in with any other possible contextual buttons. Would work the same. Here’s the URL bar of an installable site that’s zoomed in and has available color schemes:
+In Chrome and Firefox, the scheme button would slot in with any other contextual buttons. Would work the same. Here’s the URL bar of an installable site that’s zoomed in and has available color schemes:
 
 <figure>
   <picture>
@@ -197,7 +197,7 @@ Zen uses a sidebar for URL and tabs. It also has contextual buttons in the URL b
   <figcaption>fig 6: Zen Color Scheme control placement in the URL bar</figcaption>
 </figure>
 
-Safari is interesting. It doesn’t really do contextual buttons in the URL bar. It has a reading list and I think read view, but I didn’t see any others. I don’t see any future where Apple gives up URL bar real estate for this. That means this one would be a bit less discoverable. What it does have is a Site settings button. That opens a popover and one of the items in there is page zoom. Not my favorite, but the scheme control could slot right in there.
+Safari is interesting. It doesn’t really do contextual buttons in the URL bar. It has a reading list and I think reader view, but I didn’t see any others. I don’t see any future where Apple gives up URL bar real estate for this. That means this one would be a bit less discoverable. What it does have is a Site settings button. That opens a popover and one of the items in there is page zoom. Not my favorite, but the scheme control could slot right in there.
 
 <figure>
   <picture>
