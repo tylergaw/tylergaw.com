@@ -14,7 +14,7 @@ meta:
 </p>
 
 <p class="note-update">
-  <strong>Update:</strong> Even though I thought I’d done an extensive search for existing posts on this, my searching didn’t turn up any posts on the topic. But knew there had to be already. And of course, Bramus has already written <a href="https://www.bram.us/2022/05/25/dark-mode-toggles-should-be-a-browser-feature/">about this</a>, and <a href="https://www.bram.us/2024/04/13/what-if-you-had-real-control-over-light-mode-dark-mode-on-a-per-site-basis/">more</a>, years ago. You should read those.
+  <strong>Update:</strong> Even though I thought I’d done an extensive search for existing posts on this, my searching didn’t turn up any posts on the topic. But knew there had to be already. And of course, there already is. I swear I know how to Google, I think? Bramus has already written <a href="https://www.bram.us/2022/05/25/dark-mode-toggles-should-be-a-browser-feature/">about this</a>, and <a href="https://www.bram.us/2024/04/13/what-if-you-had-real-control-over-light-mode-dark-mode-on-a-per-site-basis/">more</a>. <a href="https://blog.jim-nielsen.com/2022/browser-level-color-scheme-preference/">Jim too</a>. You should read those.
 </p>
 
 Best place to start is a demo. Here’s how this would work in Chrome:
