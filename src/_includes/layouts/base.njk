@@ -7,18 +7,7 @@
     {% include "components/head-meta.njk" %}
     {% include "components/head-contents.njk" %}
 
-    {% if site.environment === "production" -%}
-      {% set inlineCSS -%}
-        {% include "../../css/tylergaw.njk" %}
-      {%- endset %}
-
-      <style>
-        {{ inlineCSS | cssmin | safe }}
-      </style>
-
-    {% else %}
-      <link rel="stylesheet" href="/css/tylergaw.css">
-    {%- endif %}
+    <link rel="stylesheet" href="/css/tylergaw.css">
   </head>
   <body>
     {% include "components/scheme-initializer.njk" %}

@@ -1,22 +1,17 @@
-const fs = require("fs");
-const CleanCSS = require("clean-css");
-const dayjs = require("dayjs");
-const utc = require("dayjs/plugin/utc");
-const timezone = require("dayjs/plugin/timezone");
-const pluginRSS = require("@11ty/eleventy-plugin-rss");
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc.js";
+import timezone from "dayjs/plugin/timezone.js";
+import pluginRSS from "@11ty/eleventy-plugin-rss";
+import pluginWebc from "@11ty/eleventy-plugin-webc";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.tz.setDefault("America/New_York");
 
-module.exports = function (conf) {
+export default function (conf) {
   conf.addPlugin(pluginRSS);
-
-  conf.addFilter("cssmin", (code) => new CleanCSS({}).minify(code).styles);
-
-  conf.addFilter("rawMarkdown", (inputPath) => {
-    const content = fs.readFileSync(inputPath, "utf-8");
-    return content.replace(/^---\n[\s\S]*?\n---\n/, "").trim();
+  conf.addPlugin(pluginWebc, {
+    components: "src/_components/**/*.webc",
   });
 
   conf.addFilter("dateFormat", (dateStr, format) => {
@@ -34,30 +29,17 @@ module.exports = function (conf) {
     return date.join("") + "Z";
   });
 
-  conf.setTemplateFormats([
-    "njk",
-    "md",
-    "gif",
-    "jpg",
-    "png",
-    "avif",
-    "webp",
-    "svg",
-    "woff2",
-    "ico",
-    "js",
-    "pdf",
-    "mp4",
-  ]);
-  conf.addPassthroughCopy("./src/manifest.webmanifest");
-  conf.addPassthroughCopy("./src/keybase.txt");
-  conf.addPassthroughCopy("./src/robots.txt");
-  conf.addPassthroughCopy("./src/humans.txt");
-  conf.addPassthroughCopy("./src/llms.txt");
-  conf.addPassthroughCopy("./src/rss.xml");
-  conf.addPassthroughCopy("./src/.well-known");
-
-  conf.addWatchTarget("./src/**/*.css");
+  conf.addPassthroughCopy("src/manifest.webmanifest");
+  conf.addPassthroughCopy("src/keybase.txt");
+  conf.addPassthroughCopy("src/robots.txt");
+  conf.addPassthroughCopy("src/humans.txt");
+  conf.addPassthroughCopy("src/llms.txt");
+  conf.addPassthroughCopy("src/rss.xml");
+  conf.addPassthroughCopy("src/.well-known");
+  conf.addPassthroughCopy("src/fonts");
+  conf.addPassthroughCopy("src/images");
+  conf.addPassthroughCopy("src/css");
+  conf.addPassthroughCopy("src/js");
 
   conf.addCollection("posts", (collections) => {
     const posts = collections
@@ -95,4 +77,4 @@ module.exports = function (conf) {
     },
     markdownTemplateEngine: false,
   };
-};
+}
