@@ -47,6 +47,7 @@ module.exports = function (conf) {
     "ico",
     "js",
     "pdf",
+    "mp4",
   ]);
   conf.addPassthroughCopy("./src/manifest.webmanifest");
   conf.addPassthroughCopy("./src/keybase.txt");
