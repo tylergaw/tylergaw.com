@@ -22,49 +22,53 @@ If you’re using newer versions, there’s a chance the examples here won’t w
 
 Say we have a small component that gets data from the `page` store.
 
-<pre><code class="language-javascript">// MyComponent.svelte
-&lt;script&gt;
+```javascript
+// MyComponent.svelte
+<script>
   import { page } from '$app/stores'
-&lt;/script&gt;
+</script>
 
-&lt;a href={$page.data.href}&gt;{$page.data.text}&lt;/a&gt;
-</code></pre>
+<a href={$page.data.href}>{$page.data.text}</a>
+```
 
 To create Stories for it, we use the following reduced example from the `svelte-csf` docs:
 
-<pre><code class="language-javascript">// MyComponent.stories.svelte
-&lt;script context="module"&gt;
+```javascript
+// MyComponent.stories.svelte
+<script context="module">
   import MyComponent from './MyComponent.svelte'
 
   export const meta = {
-    title: 'MyComponent',
-    component: MyComponent
+  title: 'MyComponent',
+  component: MyComponent
   }
-&lt;/script&gt;
+</script>
 
-&lt;script&gt;
+<script>
   import { Story, Template } from '@storybook/addon-svelte-csf'
-&lt;/script&gt;
+</script>
 
-&lt;Template let:args&gt;
-  &lt;MyComponent {...args} /&gt;
-&lt;/Template&gt;
+<Template let:args>
+  <MyComponent {...args} />
+</Template>
 
-&lt;Story name="Default" /&gt;
-</code></pre>
+<Story name="Default" />
+```
 
 If we start up Storybook and try to view `MyComponent`, we’ll get a big error.
 
 <figure>
   <picture>
-    <img src="https://stuff.tylergaw.com/post-mocking-sveltekit-stores/storybook-error.jpg" alt="Screenshot of an error in Storybook when trying to view MyComponent" />
+  <img src="https://stuff.tylergaw.com/post-mocking-sveltekit-stores/storybook-error.jpg" alt="Screenshot of an error in Storybook when trying to view MyComponent" />
   </picture>
   <figcaption>fig 1: The error we see on first run</figcaption>
 </figure>
 
 There’s a lot of error stuff there, but the key part is right at the top.
 
-<pre><code class="language-html">Cannot read properties of undefined (reading 'data')</code></pre>
+```html
+Cannot read properties of undefined (reading 'data')
+```
 
 That makes sense, because in `MyComponent` we’re trying to access members of `$page.data` in two places. In this context, `$page` is `undefined`, so that means `data` is also `undefined`.
 
@@ -78,44 +82,46 @@ This took me a while to track down and I never found full example of it, but I w
 
 We’ll use the `setContext` function to manually define `$page.data`. First we need to know what name Svelte uses for page context. In `MyComponent.stories.svelte` use `getAllContexts` to see what’s available:
 
-<pre><code class="language-javascript">// MyComponent.stories.svelte
+```javascript
+// MyComponent.stories.svelte
 //...
-&lt;script&gt;
+<script>
   import { Story, Template } from '@storybook/addon-svelte-csf'
   // Note: we can only use Svelte context functions in scripts without context="module"
   import { getAllContexts } from 'svelte'
   console.log(getAllContexts())
-&lt;/script&gt;
+</script>
 //...
-</code></pre>
+```
 
 This gives us a `Map` of all the contexts we have access to in `MyComponent`.
 
 <figure>
   <picture>
-    <img src="https://stuff.tylergaw.com/post-mocking-sveltekit-stores/all-contexts.jpg" alt="Screenshot from Chrome devtools showing the Map logged from invoking getAllContexts()" />
+  <img src="https://stuff.tylergaw.com/post-mocking-sveltekit-stores/all-contexts.jpg" alt="Screenshot from Chrome devtools showing the Map logged from invoking getAllContexts()" />
   </picture>
   <figcaption>fig 2: The Map showing all available contexts</figcaption>
 </figure>
 
 The keys are what we’re interested in, and with the exception of the storybook keys, they should look familiar. Each one matches an available [`$app/stores` module](https://kit.svelte.dev/docs/modules#$app-stores). We need to mock the page store, so we’ll use "page-ctx" as our context. We do that in `MyComponent.stories`:
 
-<pre><code class="language-javascript">// MyComponent.stories.svelte
+```javascript
+// MyComponent.stories.svelte
 //...
-&lt;script&gt;
+<script>
   import { Story, Template } from '@storybook/addon-svelte-csf'
   // Note: we can only use Svelte context functions in scripts without context="module"
   import { setContext } from 'svelte'
-  
+
   setContext('page-ctx', {
-    data: {
+  data: {
       href: '/some/href/we/want',
       text: 'My Link Text'
-    }
+  }
   })
-&lt;/script&gt;
+</script>
 //...
-</code></pre>
+```
 
 The second parameter of `setContext` takes any value and assigns it to `$page`. In our case, `MyComponent` expects a `data` object with `href` and `text` members. Here, we manually create the object so accessing `$page.data.*` works as expected in `MyComponent` stories. If we reload the `MyComponent` story we see the expected link.
 

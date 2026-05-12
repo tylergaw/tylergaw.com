@@ -10,53 +10,19 @@
  */
 
 [data-page="blog"] {
-  --color-atrule: #ffd700;
-  --color-background: #2b2b2b;
-  --color-base: #f8f8f2;
-  --color-boolean: #00e0e0;
-  --color-border: #383838;
-  --color-comment: #d4d0ab;
-  --color-keyword: #00e0e0;
-  --color-muted: #b6b6b6;
-  --color-operator: #00e0e0;
-  --color-property: #ffa07a;
-  --color-punctuation: #fefefe;
-  --color-regex: #ffd700;
-  --color-selector: #abe338;
-}
-
-@media (prefers-color-scheme: light) {
-  html:not([data-user-color-scheme])[data-page="blog"] {
-    --color-atrule: #aa5d00;
-    --color-background: #fefefe;
-    --color-base: #545454;
-    --color-boolean: #008000;
-    --color-border: #f3f3f3;
-    --color-comment: #696969;
-    --color-keyword: #d91e18;
-    --color-muted: #818181;
-    --color-operator: #008000;
-    --color-property: #007faa;
-    --color-punctuation: #545454;
-    --color-regex: #d91e18;
-    --color-selector: #aa5d00;
-  }
-}
-
-[data-user-color-scheme="light"][data-page="blog"] {
-  --color-atrule: #aa5d00;
-  --color-background: #fefefe;
-  --color-base: #545454;
-  --color-boolean: #008000;
-  --color-border: #f3f3f3;
-  --color-comment: #696969;
-  --color-keyword: #d91e18;
-  --color-muted: #818181;
-  --color-operator: #008000;
-  --color-property: #007faa;
-  --color-punctuation: #545454;
-  --color-regex: #d91e18;
-  --color-selector: #aa5d00;
+  --color-atrule: light-dark(#aa5d00, #ffd700);
+  --color-background: light-dark(#fefefe, #2b2b2b);
+  --color-base: light-dark(#545454, #f8f8f2);
+  --color-boolean: light-dark(#008000, #00e0e0);
+  --color-border: light-dark(#f3f3f3, #383838);
+  --color-comment: light-dark(#696969, #d4d0ab);
+  --color-keyword: light-dark(#d91e18, #00e0e0);
+  --color-muted: light-dark(#818181, #b6b6b6);
+  --color-operator: light-dark(#008000, #00e0e0);
+  --color-property: light-dark(#007faa, #ffa07a);
+  --color-punctuation: light-dark(#545454, #fefefe);
+  --color-regex: light-dark(#d91e18, #ffd700);
+  --color-selector: light-dark(#aa5d00, #abe338);
 }
 
 code[class*="language-"],

@@ -27,34 +27,34 @@ meta:
 </p>
 <figure>
   <a
-    href="https://css-tricks.com/how-to-get-all-custom-properties-on-a-page-in-javascript/"
+  href="https://css-tricks.com/how-to-get-all-custom-properties-on-a-page-in-javascript/"
   >
-    <picture>
+  <picture>
       <source
-        srcset="
+  srcset="
           https://tylergaw.com/articles/assets/post-image-how-to-get-all-custom-props-1.webp
-        "
-        type="image/webp"
+  "
+  type="image/webp"
       />
       <source
-        srcset="
+  srcset="
           https://tylergaw.com/articles/assets/post-image-how-to-get-all-custom-props-1.png
-        "
-        type="image/jpeg"
+  "
+  type="image/jpeg"
       />
       <img
-        src="https://tylergaw.com/articles/assets/post-image-how-to-get-all-custom-props-1.png"
-        alt="A screenshot of my article on CSS-Tricks.com"
+  src="https://tylergaw.com/articles/assets/post-image-how-to-get-all-custom-props-1.png"
+  alt="A screenshot of my article on CSS-Tricks.com"
       />
-    </picture>
+  </picture>
   </a>
 
   <figcaption>
-    fig 1: How to Get All Custom Properties on a Page in JavaScript
-    <a
+  fig 1: How to Get All Custom Properties on a Page in JavaScript
+  <a
       href="https://css-tricks.com/how-to-get-all-custom-properties-on-a-page-in-javascript/"
       >on CSS-Tricks.com</a
-    >
+  >
   </figcaption>
 </figure>
 
@@ -72,7 +72,7 @@ meta:
 <p>
   Months later, I was listening to an
   <a href="https://longform.org/posts/longform-podcast-387-eva-holland"
-    >interview with Eva Holland</a
+  >interview with Eva Holland</a
   >
   on the Longform Podcast. In it, she talked about how during her career she’d
   cold pitched articles to editors at publications. This wasn’t the first time
@@ -92,7 +92,7 @@ meta:
   <a href="https://css-tricks.com/guest-posting/">pitch form</a> available to
   everyone.
   <a href="https://chriscoyier.net/"
-    >Chris even asks you to write a guest post on his site.</a
+  >Chris even asks you to write a guest post on his site.</a
   >
 </p>
 <p>
@@ -121,40 +121,62 @@ meta:
 
 We can use JavaScript to get the value of a CSS custom property. Robin wrote up a detailed explanation about this in [Get a CSS Custom Property Value with JavaScript](https://css-tricks.com/get-a-css-custom-property-value-with-javascript/). To review, let’s say we’ve declared a single custom property on the HTML element:
 
-<pre><code class="language-css">html {
+```css
+html {
   --color-accent: #00eb9b;
-}</code></pre>
+}
+```
 
 In JavaScript, we can access the value with `getComputedStyle` and `getPropertyValue`:
 
-<pre><code class="language-javascript">const colorAccent = getComputedStyle(document.documentElement)
-  .getPropertyValue('--color-accent'); // #00eb9b</code></pre>
+```javascript
+const colorAccent = getComputedStyle(document.documentElement).getPropertyValue(
+  "--color-accent",
+); // #00eb9b
+```
 
 Perfect. Now we have access to our accent color in JavaScript. You know what’s cool? If we change that color in CSS, it updates in JavaScript as well! Handy.
 
 What happens, though, when it’s not just one property we need access to in JavaScript, but a whole bunch of them?
 
-<pre><code class="language-css">html {
+```css
+html {
   --color-accent: #00eb9b;
   --color-accent-secondary: #9db4ff;
   --color-accent-tertiary: #f2c0ea;
   --color-text: #292929;
   --color-divider: #d7d7d7;
-}</code></pre>
+}
+```
 
 We end up with JavaScript that looks like this:
 
-<pre><code class="language-javascript">const colorAccent = getComputedStyle(document.documentElement).getPropertyValue('--color-accent'); // #00eb9b
-const colorAccentSecondary = getComputedStyle(document.documentElement).getPropertyValue('--color-accent-secondary'); // #9db4ff
-const colorAccentTertiary = getComputedStyle(document.documentElement).getPropertyValue('--color-accent-tertiary'); // #f2c0ea
-const colorText = getComputedStyle(document.documentElement).getPropertyValue('--color-text'); // #292929
-const colorDivider = getComputedStyle(document.documentElement).getPropertyValue('--color-text'); // #d7d7d7</code></pre>
+```javascript
+const colorAccent = getComputedStyle(document.documentElement).getPropertyValue(
+  "--color-accent",
+); // #00eb9b
+const colorAccentSecondary = getComputedStyle(
+  document.documentElement,
+).getPropertyValue("--color-accent-secondary"); // #9db4ff
+const colorAccentTertiary = getComputedStyle(
+  document.documentElement,
+).getPropertyValue("--color-accent-tertiary"); // #f2c0ea
+const colorText = getComputedStyle(document.documentElement).getPropertyValue(
+  "--color-text",
+); // #292929
+const colorDivider = getComputedStyle(
+  document.documentElement,
+).getPropertyValue("--color-text"); // #d7d7d7
+```
 
 We’re repeating ourselves a lot. We could shorten each one of these lines by abstracting the common tasks to a function.
 
-<pre><code class="language-javascript">const getCSSProp = (element, propName) => getComputedStyle(element).getPropertyValue(propName);
-const colorAccent = getCSSProp(document.documentElement, '--color-accent'); // #00eb9b
-// repeat for each custom property...</code></pre>
+```javascript
+const getCSSProp = (element, propName) =>
+  getComputedStyle(element).getPropertyValue(propName);
+const colorAccent = getCSSProp(document.documentElement, "--color-accent"); // #00eb9b
+// repeat for each custom property...
+```
 
 That helps reduce code repetition, but we still have a less-than-ideal situation. Every time we add a custom property in CSS, we have to write another line of JavaScript to access it. This can and does work fine if we only have a few custom properties. I’ve used this setup on production projects before. But, it’s also possible to automate this.
 
@@ -168,14 +190,16 @@ Here’s the [complete demo](https://codepen.io/tylergaw/pen/57ccb4a5dfbadc7b32a
 
 <figure>
   <picture>
-    <img src="https://stuff.tylergaw.com/post-get-custom-properties-js/fig1.webp" alt="A preview of our CSS custom property-driven color palette. Showing six cards, one for each color, including the custom property name and hex value in each card." />
+  <img src="https://stuff.tylergaw.com/post-get-custom-properties-js/fig1.webp" alt="A preview of our CSS custom property-driven color palette. Showing six cards, one for each color, including the custom property name and hex value in each card." />
   </picture>
   <figcaption>fig 1: Here's what we're aiming for.</figcaption>
 </figure>
 
 Let’s set the stage. We’ll use an unordered list to display our palette. Each swatch is a `<li>` element that we’ll render with JavaScript.
 
-<pre><code class="language-html">&lt;ul class="colors"&gt;&lt;/ul&gt;</code></pre>
+```html
+<ul class="colors"></ul>
+```
 
 The CSS for the grid layout isn’t pertinent to the technique in this post, so we won’t look at in detail. It’s available in the [CodePen demo](https://codepen.io/tylergaw/pen/57ccb4a5dfbadc7b32a225272994dc3d).
 
@@ -195,11 +219,15 @@ Let’s get to it.
 
 The first thing we need to do is get all external and internal stylesheets on the current page. Stylesheets are available as members of the global document.
 
-<pre><code class="language-javascript">document.styleSheets</code></pre>
+```javascript
+document.styleSheets;
+```
 
 That returns an array-like object. We want to use array methods, so we’ll convert it to an array. Let’s also put this in a function that we’ll use throughout this post.
 
-<pre><code class="language-javascript">const getCSSCustomPropIndex = () => [...document.styleSheets];</code></pre>
+```javascript
+const getCSSCustomPropIndex = () => [...document.styleSheets];
+```
 
 [Demo on CodePen](https://codepen.io/tylergaw/pen/2163695e55e0ab5e339675582cbb2462)
 
@@ -207,7 +235,7 @@ When we invoke getCSSCustomPropIndex, we see an array of [CSSStyleSheet](https:/
 
 <figure>
   <picture>
-    <img src="https://stuff.tylergaw.com/post-get-custom-properties-js/fig2.webp" alt="The output of getCSSCustomPropIndex, an array of CSSStyleSheet objects" />
+  <img src="https://stuff.tylergaw.com/post-get-custom-properties-js/fig2.webp" alt="The output of getCSSCustomPropIndex, an array of CSSStyleSheet objects" />
   </picture>
   <figcaption>fig 2: The output of getCSSCustomPropIndex</figcaption>
 </figure>
@@ -224,18 +252,22 @@ CSSStyleSheet objects have an href property. Its value is the full URL to the st
 
 Let’s write a function that discards third-party stylesheets. We’ll do that by comparing the stylesheet’s href value to the current `location.origin`.
 
-<pre><code class="language-javascript">const isSameDomain = (styleSheet) => {
+```javascript
+const isSameDomain = (styleSheet) => {
   if (!styleSheet.href) {
-    return true;
+  return true;
   }
 
   return styleSheet.href.indexOf(window.location.origin) === 0;
-};</code></pre>
+};
+```
 
 Now we use `isSameDomain` as a filter on `document.styleSheets`.
 
-<pre><code class="language-javascript">const getCSSCustomPropIndex = () => [...document.styleSheets]
-  .filter(isSameDomain);</code></pre>
+```javascript
+const getCSSCustomPropIndex = () =>
+  [...document.styleSheets].filter(isSameDomain);
+```
 
 [Demo on CodePen](https://codepen.io/tylergaw/pen/35351c6c426ecbdfd3669d7d3ce03ab6)
 
@@ -245,9 +277,12 @@ With the third-party stylesheets discarded, we can inspect the contents of those
 
 Our goal for `getCSSCustomPropIndex` is to produce an array of arrays. To get there, we’ll use a combination of array methods to loop through, find values we want, and combine them. Let’s take a first step in that direction by producing an array containing every style rule.
 
-<pre><code class="language-javascript">const getCSSCustomPropIndex = () => [...document.styleSheets]
+```javascript
+const getCSSCustomPropIndex = () =>
+  [...document.styleSheets]
   .filter(isSameDomain)
-  .reduce((finalArr, sheet) => finalArr.concat(...sheet.cssRules), []);</code></pre>
+  .reduce((finalArr, sheet) => finalArr.concat(...sheet.cssRules), []);
+```
 
 [Demo on CodePen](https://codepen.io/tylergaw/pen/c99c6be39b1ff5f429e06f3cd7aecc11)
 
@@ -259,7 +294,7 @@ Each CSS rule is the selector, braces, and property declarations. We use the spr
 
 <figure>
   <picture>
-    <img src="https://stuff.tylergaw.com/post-get-custom-properties-js/fig3.webp" alt="Example output of getCSSCustomPropIndex producing an array of CSSRule objects" />
+  <img src="https://stuff.tylergaw.com/post-get-custom-properties-js/fig3.webp" alt="Example output of getCSSCustomPropIndex producing an array of CSSRule objects" />
   </picture>
   <figcaption>fig 3: Example output of getCSSCustomPropIndex producing an array of CSSRule objects</figcaption>
 </figure>
@@ -274,15 +309,22 @@ We’re only interested in rules where we define custom properties and, for the 
 
 To narrow our focus to style rules, we’ll write another array filter:
 
-<pre><code class="language-javascript">const isStyleRule = (rule) => rule.type === 1;</code></pre>
+```javascript
+const isStyleRule = (rule) => rule.type === 1;
+```
 
 Every `CSSRule` has a type property that returns the integer for that type constant. We use `isStyleRule` to filter `sheet.cssRules`.
 
-<pre><code class="language-javascript">const getCSSCustomPropIndex = () => [...document.styleSheets]
+```javascript
+const getCSSCustomPropIndex = () =>
+  [...document.styleSheets]
   .filter(isSameDomain)
-  .reduce((finalArr, sheet) => finalArr.concat(
-    [...sheet.cssRules].filter(isStyleRule)
-  ), []);</code></pre>
+  .reduce(
+      (finalArr, sheet) =>
+  finalArr.concat([...sheet.cssRules].filter(isStyleRule)),
+      [],
+  );
+```
 
 [Demo on CodePen](https://codepen.io/tylergaw/pen/729393ada1807162d223c47e4207f3e3)
 
@@ -294,34 +336,40 @@ Our stylesheet only had `CSSStyleRules` so the demo results are the same as befo
 
 Now that we have the rules we want, we can get the properties that make them up. `CSSStyleRule` objects have a style property that is a [`CSSStyleDeclaration`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration) object. It’s made up of standard CSS properties, like `color`, `font-family`, and `border-radius`, plus custom properties. Let’s add that to our `getCSSCustomPropIndex` function so that it looks at every rule, building an array of arrays along the way:
 
-<pre><code class="language-javascript">const getCSSCustomPropIndex = () => [...document.styleSheets]
-  .filter(isSameDomain)
-  .reduce((finalArr, sheet) => finalArr.concat(
-    [...sheet.cssRules]
-      .filter(isStyleRule)
-      .reduce((propValArr, rule) => {
-        const props = []; /* TODO: more work needed here */
-        return [...propValArr, ...props];
-      }, [])
-  ), []);</code></pre>
+```javascript
+const getCSSCustomPropIndex = () =>
+  [...document.styleSheets].filter(isSameDomain).reduce(
+  (finalArr, sheet) =>
+      finalArr.concat(
+  [...sheet.cssRules].filter(isStyleRule).reduce((propValArr, rule) => {
+          const props = []; /* TODO: more work needed here */
+          return [...propValArr, ...props];
+  }, []),
+      ),
+  [],
+  );
+```
 
 If we invoke this now, we get an empty array. We have more work to do, but this lays the foundation. Because we want to end up with an array, we start with an empty array by using the accumulator, which is the second parameter of reduce. In the body of the reduce callback function, we have a placeholder variable, props, where we’ll gather the properties. The return statement combines the array from the previous iteration — the accumulator — with the current `props` array.
 
 Right now, both are empty arrays. We need to use `rule.style` to populate props with an array for every property/value in the current rule:
 
-<pre><code class="language-javascript">const getCSSCustomPropIndex = () => [...document.styleSheets]
-  .filter(isSameDomain)
-  .reduce((finalArr, sheet) => finalArr.concat(
-    [...sheet.cssRules]
-      .filter(isStyleRule)
-      .reduce((propValArr, rule) => {
-        const props = [...rule.style].map((propName) => [
-          propName.trim(),
-          rule.style.getPropertyValue(propName).trim()
-        ]);
-        return [...propValArr, ...props];
-      }, [])
-  ), []);</code></pre>
+```javascript
+const getCSSCustomPropIndex = () =>
+  [...document.styleSheets].filter(isSameDomain).reduce(
+  (finalArr, sheet) =>
+      finalArr.concat(
+  [...sheet.cssRules].filter(isStyleRule).reduce((propValArr, rule) => {
+          const props = [...rule.style].map((propName) => [
+      propName.trim(),
+      rule.style.getPropertyValue(propName).trim(),
+          ]);
+          return [...propValArr, ...props];
+  }, []),
+      ),
+  [],
+  );
+```
 
 [Demo on CodePen](https://codepen.io/tylergaw/pen/8ee326b200560bc5d77fe63d90b32e80)
 
@@ -333,7 +381,7 @@ Now when we invoke `getCSSCustomPropIndex`, we get an array of arrays. Every chi
 
 <figure>
   <picture>
-    <img src="https://stuff.tylergaw.com/post-get-custom-properties-js/fig4.webp" alt="Output of getCSSCustomPropIndex showing an array of arrays containing every property name and value" />
+  <img src="https://stuff.tylergaw.com/post-get-custom-properties-js/fig4.webp" alt="Output of getCSSCustomPropIndex showing an array of arrays containing every property name and value" />
   </picture>
   <figcaption>fig 4: Output of getCSSCustomPropIndex showing an array of arrays containing every property name and value</figcaption>
 </figure>
@@ -344,27 +392,31 @@ This is what we’re looking for! Well, almost. We’re getting every property i
 
 To determine if a property is custom, we can look at the name. We know custom properties must start with two dashes (`--`). That’s unique in the CSS world, so we can use that to write a filter function:
 
-<pre><code class="language-javascript">([propName]) => propName.indexOf("--") === 0)</code></pre>
+```javascript
+([propName]) => propName.indexOf("--") === 0)
+```
 
 Then we use it as a filter on the props array:
 
-<pre><code class="language-javascript">const getCSSCustomPropIndex = () =>
+```javascript
+const getCSSCustomPropIndex = () =>
   [...document.styleSheets].filter(isSameDomain).reduce(
-    (finalArr, sheet) =>
+  (finalArr, sheet) =>
       finalArr.concat(
-        [...sheet.cssRules].filter(isStyleRule).reduce((propValArr, rule) => {
+  [...sheet.cssRules].filter(isStyleRule).reduce((propValArr, rule) => {
           const props = [...rule.style]
-            .map((propName) => [
+      .map((propName) => [
               propName.trim(),
-              rule.style.getPropertyValue(propName).trim()
-            ])
-            .filter(([propName]) => propName.indexOf("--") === 0);
+              rule.style.getPropertyValue(propName).trim(),
+      ])
+      .filter(([propName]) => propName.indexOf("--") === 0);
 
           return [...propValArr, ...props];
-        }, [])
+  }, []),
       ),
-    []
-  );</code></pre>
+  [],
+  );
+```
 
 [Demo on CodePen](https://codepen.io/tylergaw/pen/c2b59c4754925b1ab2119515db9bd732)
 
@@ -374,16 +426,18 @@ When we log the result, we have the exact output we’re looking for: An array o
 
 <figure>
   <picture>
-    <img src="https://stuff.tylergaw.com/post-get-custom-properties-js/fig5.webp" alt="The output of getCSSCustomPropIndex showing an array of arrays containing every custom property and its value" />
+  <img src="https://stuff.tylergaw.com/post-get-custom-properties-js/fig5.webp" alt="The output of getCSSCustomPropIndex showing an array of arrays containing every custom property and its value" />
   </picture>
   <figcaption>fig 5: Output of getCSSCustomPropIndex showing an array of arrays containing every custom property and its value</figcaption>
 </figure>
 
 Looking more toward the future, creating the property/value map doesn’t have to require so much code. There’s an alternative in the [CSS Typed Object Model Level 1](https://drafts.css-houdini.org/css-typed-om-1/%23the-stylepropertymap) draft that uses [`CSSStyleRule.styleMap`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleRule/styleMap). The `styleMap` property is an array-like object of every property/value of a CSS rule. We don’t have it yet, but If we did, we could shorten our above code by removing the map:
 
-<pre><code class="language-javascript">// ...
+```javascript
+// ...
 const props = [...rule.styleMap.entries()].filter(/*same filter*/);
-// ...</code></pre>
+// ...
+```
 
 [Demo on CodePen](https://codepen.io/tylergaw/pen/5061057013e6ddef39cf6b54a8d6bc1f)
 
@@ -395,23 +449,30 @@ We have the data structure we want. Now let’s use the data to display color sw
 
 Getting the data into the exact shape we needed was the hard work. We need one more bit of JavaScript to render our beautiful color swatches. Instead of logging the output of `getCSSCustomPropIndex`, let’s store it in variable.
 
-<pre><code class="language-javascript">const cssCustomPropIndex = getCSSCustomPropIndex();</code></pre>
+```javascript
+const cssCustomPropIndex = getCSSCustomPropIndex();
+```
 
 Here’s the HTML we used to create our color swatch at the start of this post:
 
-<pre><code class="language-html">&lt;ul class="colors"&gt;&lt;/ul&gt;</code></pre>
+```html
+<ul class="colors"></ul>
+```
 
 We’ll use `innerHTML` to populate that list with a list item for each color:
 
-<pre><code class="language-javascript">document.querySelector(".colors").innerHTML = cssCustomPropIndex.reduce(
-  (str, [prop, val]) => `${str}&lt;li class="color"&gt;
-    &lt;b class="color__swatch" style="--color: ${val}"&gt;&lt;/b&gt;
-    &lt;div class="color__details"&gt;
-      &lt;input value="${prop}" readonly /&gt;
-      &lt;input value="${val}" readonly /&gt;
-    &lt;/div&gt;
-   &lt;/li&gt;`,
-  "");</code></pre>
+```javascript
+document.querySelector(".colors").innerHTML = cssCustomPropIndex.reduce(
+  (str, [prop, val]) => `${str}<li class="color">
+  <b class="color__swatch" style="--color: ${val}"></b>
+  <div class="color__details">
+      <input value="${prop}" readonly />
+      <input value="${val}" readonly />
+  </div>
+   </li>`,
+  "",
+);
+```
 
 [Demo on CodePen](https://codepen.io/tylergaw/pen/57ccb4a5dfbadc7b32a225272994dc3d)
 
@@ -421,18 +482,24 @@ I want to highlight a couple specific bits of code. In the `reduce` callback sig
 
 To show the example of each color, we use a `b` element with an inline style:
 
-<pre><code class="language-javascript">&lt;b class="color__swatch" style="--color: ${val}"&gt;</b></code></pre>
+```javascript
+<b class="color__swatch" style="--color: ${val}"></b>
+```
 
 That means we end up with HTML that looks like:
 
-<pre><code class="language-html">&lt;b class="color__swatch" style="--color: #00eb9b"&gt;&lt;/b&gt;</code></pre>
+```html
+<b class="color__swatch" style="--color: #00eb9b"></b>
+```
 
 But how does that set a background color? In the [full CSS](https://codepen.io/tylergaw/pen/57ccb4a5dfbadc7b32a225272994dc3d.css) we use the custom property `--color` as the value of background-color for each `.color__swatch`. Because external CSS rules inherit from inline styles, `--color` is the value we set on the `b` element.
 
-<pre><code class="language-css">.color__swatch {
+```css
+.color__swatch {
   background-color: var(--color);
   /* other properties */
-}</code></pre>
+}
+```
 
 We now have an HTML display of color swatches representing our CSS custom properties!
 

@@ -210,7 +210,8 @@
 .p-limbo__link::after {
   background: var(--color-limbo-accent);
   border-radius: 6px 6px 0 0;
-  box-shadow: inset 0 var(--border-width) 0 var(--border-color),
+  box-shadow:
+    inset 0 var(--border-width) 0 var(--border-color),
     inset var(--border-width) 0 0 var(--border-color),
     inset calc(var(--border-width) * -1) 0 0 var(--border-color);
   height: 12%;
@@ -536,8 +537,8 @@
 
 .p-archive__link::after {
   border-radius: 6px 0 0 6px;
-  box-shadow: inset var(--border-width) var(--border-width) 0
-      var(--border-color),
+  box-shadow:
+    inset var(--border-width) var(--border-width) 0 var(--border-color),
     inset 0 calc(var(--border-width) * -1) 0 var(--border-color);
   left: 5%;
   width: 15%;

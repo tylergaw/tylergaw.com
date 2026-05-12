@@ -29,13 +29,24 @@ meta:
   The other big change is the shape of Jribbble’s public API methods. Here’s a 2.x vs 3.x example of a user getting their own shots with Jribbble:
 </p>
 
-<pre><code class="language-javascript">// Jribbble 2.x
-$.jribbble.setToken("&lt;access_token&gt;");
-$.jribbble.users("tylergaw").shots().then(function(shots) { /* Work with shots JSON */ });</code></pre>
+```javascript
+// Jribbble 2.x
+$.jribbble.setToken("<access_token>");
+$.jribbble
+  .users("tylergaw")
+  .shots()
+  .then(function (shots) {
+  /* Work with shots JSON */
+  });
+```
 
-<pre><code class="language-javascript">// Jribbble 3.x
-jribbble.setToken("&lt;access_token&gt;");
-jribbble.shots(function(shots) { /* Work with shots JSON */ });</code></pre>
+```javascript
+// Jribbble 3.x
+jribbble.setToken("<access_token>");
+jribbble.shots(function (shots) {
+  /* Work with shots JSON */
+});
+```
 
 <p>
   The Jribbble API is no longer chainable or promise-based. Again, I detail more of the code decisions later in this post. We can still do the same thing, but now in a more concise way.
@@ -154,54 +165,54 @@ app.get("/", (req, res) => {
   // In index.html any time you see {{thing}} or {% %}, we're referencing
   // a variable we set here.
   res.render("index.html", {
-    authUrl,
-    accessToken: access_token,
-    clientId: client_id,
-    // Just in case we've hit an authentication error we'll use this to display a message in the template
-    error: req.query.error,
-    // We create new boolean value here so we don't send the actual secret to the template.
-    // Note: I–Tyler–am not sure this is 100% necessary, but it felt best to be overly
-    // cautious when our app secret. You don't want anyone to have that.
-    hasClientSecret: client_secret.length,
+  authUrl,
+  accessToken: access_token,
+  clientId: client_id,
+  // Just in case we've hit an authentication error we'll use this to display a message in the template
+  error: req.query.error,
+  // We create new boolean value here so we don't send the actual secret to the template.
+  // Note: I–Tyler–am not sure this is 100% necessary, but it felt best to be overly
+  // cautious when our app secret. You don't want anyone to have that.
+  hasClientSecret: client_secret.length,
 
-    pageUrl,
-    isRemix: pageUrl !== ogGlitchUrl,
-    callbackUrl,
+  pageUrl,
+  isRemix: pageUrl !== ogGlitchUrl,
+  callbackUrl,
   });
 });
 
 // This is where our Dribbble applications will come back to after a GET to authUrl
 app.get(callbackUrl, async (req, res) => {
   const data = {
-    code: req.query.code,
-    client_id,
-    client_secret,
+  code: req.query.code,
+  client_id,
+  client_secret,
   };
 
   try {
-    // We required `tiny` above in tiny-json-http
-    // That's a small http library I preferred to use https://github.com/brianleroux/tiny-json-http
-    // It's not the only way to make requests, there are many different was to accomplish
-    // this http post request to Dribbble
-    // Note we are using async/await here. If you're unfamiliar, that's OK. The number one thing
-    // to know is `await` makes this code act like it's pausing here and waiting for the http
-    // request to complete before moving on to the following lines of code.
-    const { body } = await tiny.post({ url: tokenUrl, data });
+  // We required `tiny` above in tiny-json-http
+  // That's a small http library I preferred to use https://github.com/brianleroux/tiny-json-http
+  // It's not the only way to make requests, there are many different was to accomplish
+  // this http post request to Dribbble
+  // Note we are using async/await here. If you're unfamiliar, that's OK. The number one thing
+  // to know is `await` makes this code act like it's pausing here and waiting for the http
+  // request to complete before moving on to the following lines of code.
+  const { body } = await tiny.post({ url: tokenUrl, data });
 
-    // As mentioned above, here we're assigning access_token a new value that is your
-    // shiny oauth access token that gives you public read access to your Dribbble account
-    access_token = body.access_token;
+  // As mentioned above, here we're assigning access_token a new value that is your
+  // shiny oauth access token that gives you public read access to your Dribbble account
+  access_token = body.access_token;
 
-    // NOTE: Setting a cookie want be required in your uses of Jribbble, because you will
-    // include the access_token in your JavaScript.
-    res.cookie("access_token", access_token);
+  // NOTE: Setting a cookie want be required in your uses of Jribbble, because you will
+  // include the access_token in your JavaScript.
+  res.cookie("access_token", access_token);
 
-    // We don't want to stay on the /oauth_callback page, so redirect back home.
-    res.redirect("/");
+  // We don't want to stay on the /oauth_callback page, so redirect back home.
+  res.redirect("/");
   } catch (err) {
-    // If we hit an error we'll handle that here
-    console.log(err);
-    res.redirect("/?error=😡");
+  // If we hit an error we'll handle that here
+  console.log(err);
+  res.redirect("/?error=😡");
   }
 });
 
@@ -265,12 +276,18 @@ app.listen(process.env.PORT);
   <code>setToken</code> is the same as in 2.0. It’s how users give Jribbble
   their access tokens.
 </p>
-<pre><code class="language-javascript">jribbble.setToken("12345");</code></pre>
+
+```javascript
+jribbble.setToken("12345");
+```
+
 <p>
   For 3.0 I decided to also allow users to provide their token as an option when calling any of the other methods. For example:
 </p>
 
-<pre><code class="language-javascript">jribbble.shots({token: "12345"}, callback);</code></pre>
+```javascript
+jribbble.shots({ token: "12345" }, callback);
+```
 
 <p>
   That accomplishes the same thing as <code>setToken</code> in a more concise way.
@@ -285,39 +302,40 @@ app.listen(process.env.PORT);
 <p>
   All Jribbble requests have the same requirements so I was able to abstract the functionality to a common function. I use the internal <code>get</code> function for all requests to the Dribbble API:
 </p>
-<pre><code class="language-javascript">var get = function(path, callback) {
+
+```javascript
+var get = function (path, callback) {
   var url = "https://api.dribbble.com/v2/" + path;
   var req = new XMLHttpRequest();
-  req.addEventListener("load", function() {
-    if (callback) {
+  req.addEventListener("load", function () {
+  if (callback) {
       if (typeof callback === "function") {
-        var ret = {};
+  var ret = {};
 
-        if (this.status < 400) {
+  if (this.status < 400) {
           try {
-            ret = JSON.parse(this.responseText);
+      ret = JSON.parse(this.responseText);
           } catch (err) {
-            ret = {
-              error: "There was an error parsing the server response as JSON"
-            };
+      ret = {
+              error: "There was an error parsing the server response as JSON",
+      };
           }
-        } else {
+  } else {
           ret = {
-            error:
-              "There was an error making the request to api.dribble.com.",
-            status: this.status
+      error: "There was an error making the request to api.dribble.com.",
+      status: this.status,
           };
-        }
+  }
 
-        callback(ret);
+  callback(ret);
       }
-    }
-
-});
-req.open("GET", url);
-req.setRequestHeader("Authorization", "Bearer " + accessToken);
-req.send();
-};</code></pre>
+  }
+  });
+  req.open("GET", url);
+  req.setRequestHeader("Authorization", "Bearer " + accessToken);
+  req.send();
+};
+```
 
 <p>
   Not bad. It’s a standard <code>XMLHttpRequest</code> GET request with an Authorization header. The bulk of the function is guard code to protect against type errors, JSON parsing problems, and network errors. It does what it can to fail with grace if there is a problem.
@@ -337,31 +355,43 @@ req.send();
 <p>
   Because they’re all similar, I didn’t want to have to repeat the same code when defining each method. Instead, I abstracted the functionality to <code>createApiMethod</code>.
 </p>
-<pre><code class="language-javascript">var createApiMethod = function(path) {
-  return function() {
-    var args = processArguments.apply(null, arguments);
-    get(path + args.query, args.callback);
+
+```javascript
+var createApiMethod = function (path) {
+  return function () {
+  var args = processArguments.apply(null, arguments);
+  get(path + args.query, args.callback);
   };
-};</code></pre>
+};
+```
+
 <p>
   The <code>path</code> parameter is passed along to <code>get</code> to build the URL to the Dribbble API.
 </p>
 <p>
   I then define each public method as a member of the <code>api</code> object. Each is a function with a unique path based on its needs.
 </p>
-<pre><code class="language-javascript">var api = {
+
+```javascript
+var api = {
   ...
   user: createApiMethod("user"),
   projects: createApiMethod("user/projects"),
   likes: createApiMethod("user/likes"),
   popular: createApiMethod("popular_shots")
-};</code></pre>
+};
+```
+
 <p>
   This doesn’t provide any extra functionality. It only makes it so I don’t
   have to repeat as much code when defining methods. <code>createApiMethod</code> returns a function. Let’s look at what’s happening in the body of that function.
 </p>
-<pre><code class="language-javascript">var args = processArguments.apply(null, arguments);
-get(path + args.query, args.callback);</code></pre>
+
+```javascript
+var args = processArguments.apply(null, arguments);
+get(path + args.query, args.callback);
+```
+
 <p>
   The first line is the heavy lifting. It’s function number three that I’ll write about next. For now, it’s important to know that it returns an object with <code>query</code>, <code>callback</code>, and <code>resourceId</code> keys.
 </p>
@@ -378,16 +408,18 @@ get(path + args.query, args.callback);</code></pre>
 </p>
 
 <!-- prettier-ignore-start -->
-<pre><code class="language-javascript">jribbble.shots(
+
+```javascript
+jribbble.shots(
   "456789",
   { token: "12345" },
   function(shotObject) { /* Work with JSON */ }
 );
 
 jribbble.shots({
-    token: "12345",
-    page: 3,
-    perPage: 5
+  token: "12345",
+  page: 3,
+  perPage: 5
   },
   function(shotsArray) { /* Work with JSON */ }
 );
@@ -399,7 +431,8 @@ jribbble.projects(
 
 jribbble.user(
   function(userObject) { /* Work with JSON */ }
-);</code></pre>
+);
+```
 
 <!-- prettier-ignore-end -->
 
@@ -409,7 +442,12 @@ jribbble.user(
 <p>
   For example, imagine a method signature for <code>jribbble.shots</code> like this:
 </p>
-<pre><code class="language-javascript">var shots = function(shotId, options, callback) { /* Do the work */ };</code></pre>
+
+```javascript
+var shots = function (shotId, options, callback) {
+  /* Do the work */
+};
+```
 
 <p>
   That would work for the first usage example, but what about the second? What if I don’t need a single shot and I don’t need to provide an <code>options</code> argument?
@@ -421,19 +459,28 @@ jribbble.user(
 <p>
   First, notice when I call the function in <code>createApiMethod</code> I use <code>apply</code>:
 </p>
-<pre><code class="language-javascript">var args = processArguments.apply(null, arguments);</code></pre>
+
+```javascript
+var args = processArguments.apply(null, arguments);
+```
 
 <p>
   This took me a few minutes to get my head around. It’s also hard to write about, but here goes. I need the function that <code>createApiMethod</code> returns to take zero to
   three arguments. The Jribbble user, provides those. Using <code>apply</code> let me pass along the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments"><code>arguments</code></a> object received from calls to public API methods. Then, within
   <code>processArguments</code> I have access to that original <code>arguments</code> object. Once I have it, I convert it to an array for manipulation:
 </p>
-<pre><code class="language-javascript">var args = [].slice.call(arguments);</code></pre>
+
+```javascript
+var args = [].slice.call(arguments);
+```
 
 <p>
   An important thing to note is <code>processArguments</code> doesn’t define parameters:
 </p>
-<pre><code class="language-javascript">var processArguments = function() {...};</code></pre>
+
+```javascript
+var processArguments = function() {...};
+```
 
 <p>
   Again, that’s not something I can define ahead of time. This whole dance lets
@@ -452,24 +499,28 @@ jribbble.user(
 <p>
   I use that knowledge to inspect each item in the <code>args</code> array I created from the <code>arguments</code> object. Depending on the type I assign the item’s value to a local variable.
 </p>
-<pre><code class="language-javascript">...
+
+```javascript
+...
 var resourceId = null;
 var opts = {};
 var callback = function() {};
 ...
 for (var i = 0; i < args.length; i += 1) {
   switch (typeof args[i]) {
-    case "string":
-    case "number":
+  case "string":
+  case "number":
       resourceId = args[i];
       break;
-    case "object":
+  case "object":
       opts = args[i];
       break;
-    case "function":
+  case "function":
       callback = args[i];
   }
-}</code></pre>
+}
+```
+
 <p>
   That snippet sets two out of three variables this function needs to return. <code>resourceId</code> and <code>callback</code> are ready to to go. I only use <code>resourceId</code> in <code>jribbble.shots</code>. The Dribbble API has different paths if you’re requesting a single shot or a list of shots. I use the value–or lack of a value–of <code>resourceId</code> to <a href="https://github.com/tylergaw/jribbble/blob/3.0.0/src/jribbble.js#L104">determine the path</a>.
 </p>
@@ -479,38 +530,54 @@ for (var i = 0; i < args.length; i += 1) {
 <p>
   In earlier examples, I showed providing an object with token, page, and per_page keys to public methods. Token is the most important one. If a user doesn’t provide an access token, they can’t make requests. After the for loop I check for a token key on the <code>opts</code> object:
 </p>
-<pre><code class="language-javascript">if (opts.token) {
+
+```javascript
+if (opts.token) {
   accessToken = opts.token;
-}</code></pre>
+}
+```
+
 <p>
   I define <code>accessToken</code> at the root level of the main Jribbble function. This is how I provide the flexibility of setting token with the <code>setToken</code> method or via an options object.
 </p>
 <p>
   At this point in <code>processArguments</code>, if there’s no value for <code>accessToken</code> there’s no reason to continue. I throw an error and let the user know they need to update their code.
 </p>
-<pre><code class="language-javascript">if (!accessToken) {
+
+```javascript
+if (!accessToken) {
   throw new Error(
-    "jribbble needs a valid access token. You can either include this as an option: jribbble.shots({token: '1234'}) or with jribbble.setToken('1234')"
+  "jribbble needs a valid access token. You can either include this as an option: jribbble.shots({token: '1234'}) or with jribbble.setToken('1234')",
   );
-}</code></pre>
+}
+```
+
 <p>
   If the user provided <code>page</code> or <code>per_page</code>, those keys will also be on the <code>opts</code> object. <code>query</code> needs to be a string that I can append to the URL of any request. So, I need to create that string if necessary. I know that “page” and “per_page” are the only query parameters allowed because they’re <a href="http://developer.dribbble.com/v2/#pagination">documented</a>. I can use that knowledge to build the string based on the user-provided values.
 </p>
-<pre><code class="language-javascript">var params = ["page", "per_page"]
-  .map(function(p) {
-    return opts[p] ? p + "=" + opts[p] : null;
+
+```javascript
+var params = ["page", "per_page"]
+  .map(function (p) {
+  return opts[p] ? p + "=" + opts[p] : null;
   })
-  .filter(function(i) {
-    return i;
+  .filter(function (i) {
+  return i;
   })
-  .join("&");</code></pre>
+  .join("&");
+```
+
 <p>
   For each item in the array check to see if that key exists in <code>opts</code>. If it does, return a string beginning with the item plus an equals sign plus the value in <code>opts</code>. If the key isn’t in <code>opts</code> return <code>null</code>.
 </p>
 <p>
   At this point, we could have an array that looks like:
 </p>
-<pre><code class="language-javascript">["page=4", null]</code></pre>
+
+```javascript
+["page=4", null];
+```
+
 <p>
   That’s if the user set a <code>page</code>, but not a <code>per_page</code> value.
 </p>
@@ -521,11 +588,13 @@ for (var i = 0; i < args.length; i += 1) {
   <code>processArguments</code> is ready to return an object with the three keys needed. I also need to do one last thing for <code>query</code>. If the user doesn’t need a query, return an empty string. If they do, prefix the <code>params</code> string with a “?” so it’s ready to append to a URL.
 </p>
 
-<pre><code class="language-javascript">return {
+```javascript
+return {
   resourceId: resourceId,
   callback: callback,
-  query: params ? "?" + params : ""
-};</code></pre>
+  query: params ? "?" + params : "",
+};
+```
 
 <p>
   And that’s <code>processArguments</code>. Syntax and even code-wise it’s not fancy, but it does a job and does it in what I think is a clear way.

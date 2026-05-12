@@ -27,12 +27,9 @@ meta:
   <figcaption>The cover of Charles Bukowski's "Women" was a main source of inspiration for the aesthetics.</figcaption>
 </figure>
 <figure>
-    <img class="image-vertical" src='https://tylergaw.com/articles/assets/post_image_tgaw2009sketch.jpg' alt='tgaw2009 Sketch'>
-    <figcaption>Starting a design with paper and pencil allows for quick iteration and time to really nail down the overall vision.</figcaption>
+  <img class="image-vertical" src='https://tylergaw.com/articles/assets/post_image_tgaw2009sketch.jpg' alt='tgaw2009 Sketch'>
+  <figcaption>Starting a design with paper and pencil allows for quick iteration and time to really nail down the overall vision.</figcaption>
   </figure>
   <p>
-    I'm a big fan of organic textures and knew that I wanted to incorporate some into the design. When I sat down in Photoshop to start turning my sketch into a working design, I realized quickly that I was going to need some real-world help getting the organic look and feel that I was going for. When it's time for real-world textures I just start grabbing <a href='https://tylergaw.com/articles/assets/post_image_art01.jpg'>anything</a>, and I mean <a href='https://tylergaw.com/articles/assets/post_image_samich.jpg'>anything</a>, and throw it on the scanner. You never know what you might use that scan of an old broken toothbrush for. Just to be sure, scan it!
-  </p>
-  <p>
-    <i>Thanks for reading</i>
+  I'm a big fan of organic textures and knew that I wanted to incorporate some into the design. When I sat down in Photoshop to start turning my sketch into a working design, I realized quickly that I was going to need some real-world help getting the organic look and feel that I was going for. When it's time for real-world textures I just start grabbing <a href='https://tylergaw.com/articles/assets/post_image_art01.jpg'>anything</a>, and I mean <a href='https://tylergaw.com/articles/assets/post_image_samich.jpg'>anything</a>, and throw it on the scanner. You never know what you might use that scan of an old broken toothbrush for. Just to be sure, scan it!
   </p>

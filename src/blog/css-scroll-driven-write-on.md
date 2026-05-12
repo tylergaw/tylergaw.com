@@ -16,10 +16,6 @@ meta:
 
 This is my first time tinkering with them and so far they’re super fun. Being able to accomplish these effects with zero JavaScript is huge. This type of text write-on effect is very common in animation. Trying it with scroll animations was one of the first things that popped into my head.
 
-<p class="note-special">
-  <strong>Note:</strong> At the time of this post, CSS scroll-driven animations support is limited to Chrome 116+ which is only in Chrome Canary.
-</p>
-
 Here’s the demo. It’s not perfect, but workable. A proper write-on text effect would
 have the actual stroke of the letters written out instead of just a reveal like this.
 
@@ -45,9 +41,14 @@ While it takes time to figure out the nuances of how scroll animations work, thi
 
 The full code is available in the [CodePen](https://codepen.io/tylergaw/pen/dyQeJwJ), the core bits are as follows:
 
-<pre><code class="language-css">@keyframes write {
-  0% { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); }
-  100% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+```css
+@keyframes write {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
 }
 
 main p {
@@ -56,7 +57,8 @@ main p {
   view-timeline-axis: block;
   animation-timeline: --written-text;
   animation-range: entry-crossing 30% contain 45%;
-}</code></pre>
+}
+```
 
 1. Declare a `@keyframes` animation named `write` that increases the width of a `clip-path` from 0 to 100%.
 2. Apply the `write` animation to each `p`

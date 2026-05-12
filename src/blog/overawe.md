@@ -103,6 +103,3 @@ meta:
   <br>
   <a href="https://github.com/tylergaw/overawe">https://github.com/tylergaw/overawe</a>
 </p>
-<p>
-  <i>Thanks for reading</i>
-</p>

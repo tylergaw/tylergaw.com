@@ -22,13 +22,15 @@ meta:
 <figure>
   <img src="https://tylergaw.com/articles/assets/post-image-colorme-updates-touch-support.png" alt="A screenshot of touch device use of color adjusters on ColorMe" />
   <figcaption>
-    The new size of an inactive and an active thumb on touch devices. It looks odd here, but easier to see and handle when you’re using a finger instead of a mouse pointer.
+  The new size of an inactive and an active thumb on touch devices. It looks odd here, but easier to see and handle when you’re using a finger instead of a mouse pointer.
   </figcation>
 </figure>
 <p>
   By default the CSS targets all devices. The range slider thumb is large. Almost comical in size and off center vertically when active. It looks strange in a screenshot, but the larger size and y-offset make it easier to control when using a finger.
 </p>
-<pre><code class="language-css">.adjusterValRange::-webkit-slider-thumb {
+
+```css
+.adjusterValRange::-webkit-slider-thumb {
   ...
   height: 1.6rem;
   margin-top: -0.8rem;
@@ -40,17 +42,20 @@ meta:
 margin-top: -1.8rem;
 height: 2.5rem;
 width: 2.5rem;
-}</code></pre>
+}
+```
 
 <p>
   To decrease the thumb size on devices with <code>hover</code> support , I used the <code>hover</code> media query available in <a href="https://www.w3.org/TR/mediaqueries-4/#hover">Media Queries Level 4</a>.
 </p>
-<pre><code class="language-css">@media (hover) {
+
+```css
+@media (hover) {
   .adjusterValRange::-webkit-slider-thumb {
-    ...
-    height: 0.75rem;
-    margin-top: -0.3rem;
-    width: 0.75rem;
+  ...
+  height: 0.75rem;
+  margin-top: -0.3rem;
+  width: 0.75rem;
   }
 
 .adjusterValRange::-webkit-slider-thumb:hover,
@@ -59,7 +64,8 @@ margin-top: -0.5rem;
 height: 1.1rem;
 width: 1.1rem;
 }
-}</code></pre>
+}
+```
 
 <p>
   I’m a huge fan of using the <code>hover</code> media query instead of relying on screen size. The issue isn’t caused because the screen is too narrow. It’s caused by not having the fine control a mouse and cursor provide. The new media query isn’t available in all browsers yet, but support is good enough for these purposes.
@@ -75,7 +81,7 @@ width: 1.1rem;
 <figure>
   <img src="https://tylergaw.com/articles/assets/post-image-colorme-updates-rgb-adjusters.gif" alt="An animated gif showing red, green, and blue color adjusters ColorMe" />
   <figcaption>
-    Adjust the red, green, and blue channels.
+  Adjust the red, green, and blue channels.
   </figcation>
 </figure>
 <p>
@@ -86,7 +92,7 @@ width: 1.1rem;
 <figure>
   <img src="https://tylergaw.com/articles/assets/post-image-colorme-updates-formats.gif" alt="An animated gif showing new format inputs in ColorMe" />
   <figcaption>
-    <code>hsl(a)</code> and <code>rrggbbaa</code> formats now supported.
+  <code>hsl(a)</code> and <code>rrggbbaa</code> formats now supported.
   </figcation>
 </figure>
 <p>
@@ -100,7 +106,7 @@ width: 1.1rem;
 <figure>
   <img src="https://tylergaw.com/articles/assets/post-image-colorme-updates-format-select.gif" alt="An animated gif showing new format selection in ColorMe" />
   <figcaption>
-    You can now choose the output color format.
+  You can now choose the output color format.
   </figcation>
 </figure>
 <p>
@@ -123,15 +129,27 @@ width: 1.1rem;
 <p>
   When using the <code>alpha</code> adjuster with the <code>tint</code>, <code>shade</code>, or <code>contrast</code> adjusters, the alpha value was wrong. For example, this code;
 </p>
-<pre><code class="language-css">color(red a(10%) tint(50%))</code></pre>
+
+```css
+color(red a(10%) tint(50%))
+```
+
 <p>
   produced:
 </p>
-<pre><code class="language-css">rgba(255, 128, 128, 0.19999999999999996)</code></pre>
+
+```css
+rgba(255, 128, 128, 0.19999999999999996)
+```
+
 <p>
   when I expected it to produce:
 </p>
-<pre><code class="language-css">rgba(255, 128, 128, 0.1)</code></pre>
+
+```css
+rgba(255, 128, 128, 0.1)
+```
+
 <p>
   First I made sure my code wasn't up to anything fishy. Then started looking at my dependencies. The unexpected results were coming from the the <a href="https://github.com/ianstormtaylor/css-color-function">css-color-function</a> package. To complicate things more, the problematic code didn't end in css-color-function. It was its use of another <a href="https://github.com/Qix-/color">color package</a>.
 </p>
@@ -140,31 +158,34 @@ width: 1.1rem;
 </p>
 <blockquote>
   <p>
-    The opacity of the colors is also considered when weighting the components.
+  The opacity of the colors is also considered when weighting the components.
   </p>
   <cite>
-    <a href="http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method">
+  <a href="http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method">
       From the Sass docs on the <code>mix</code> function
-    </a>
+  </a>
   </cite>
 </blockquote>
 <p>
   As far as I can tell, this isn't the intended behavior of the color function adjusters. For ColorMe, I forked css-color-function and modified its <code>blend</code> method. The problematic adjusters use that method. What I did was take the alpha value out of play before mixing colors. Then put it back when finished. Here's my updated version of the <code>blend</code> method:
 </p>
-<pre><code class="language-javascript">exports.blend = function (color, args) {
+
+```javascript
+exports.blend = function (color, args) {
   var targetAlpha = color.alpha();
 
-// Reset the alpha value to one. This is required because color.mix mixes
-// the alpha value as well as rgb values. For blend() purposes, that's not
-// what we want.
-color.alpha(1);
+  // Reset the alpha value to one. This is required because color.mix mixes
+  // the alpha value as well as rgb values. For blend() purposes, that's not
+  // what we want.
+  color.alpha(1);
 
-var other = new Color(args[0].value);
-var percentage = 1 - parseInt(args[1].value, 10) / 100;
+  var other = new Color(args[0].value);
+  var percentage = 1 - parseInt(args[1].value, 10) / 100;
 
-// Finally set the alpha value of the mixed color to the target value.
-color.mix(other, percentage).alpha(targetAlpha);
-};</code></pre>
+  // Finally set the alpha value of the mixed color to the target value.
+  color.mix(other, percentage).alpha(targetAlpha);
+};
+```
 
 <p>
   ColorMe is now using <a href="https://github.com/tylergaw/css-color-function/tree/tg-ignore-alpha-on-mix">my fork</a> of css-color-function. I opened a <a href="https://github.com/ianstormtaylor/css-color-function/pull/26">pull request</a> to get the changes the original fork. I also added more detail about the cause and solution in the description of that PR.

@@ -26,10 +26,10 @@ meta:
 
 <figure>
   <a href="https://www.limbo.io">
-    <img src="https://tylergaw.com/articles/assets/post-image-limbo-1.png" alt="">
+  <img src="https://tylergaw.com/articles/assets/post-image-limbo-1.png" alt="">
   </a>
   <figcaption>
-    Limbo is an anonymous job platform
+  Limbo is an anonymous job platform
   </figcation>
 </figure>
 

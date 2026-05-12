@@ -36,9 +36,9 @@ This app has gotten a lot of attention. I’m happy to give it more because I’
 
 <figure>
   <picture>
-    <a href="https://theartof.app/fauna/">
+  <a href="https://theartof.app/fauna/">
       <img src="https://stuff.tylergaw.com/post-things-to-enjoy/art-of-fauna-app.jpg" alt="Five animal cards stack on each other. Left to right: Plains Zebra, Black Iguana, Mandarin Duck, Giant Anteater, Eurasian Hoopoe on a background that's the same image, but enlarged and blurred." />
-    </a>
+  </a>
   </picture>
   <figcaption>fig 2: <a href="https://theartof.app/fauna/">The Art of Fauna</a></figcaption>
 </figure>

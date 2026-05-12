@@ -48,14 +48,14 @@ meta:
 </p>
 <ol>
   <li>
-    I wrote the original code for a specific project. The code I’ll be showing
-    here is a modified version of that project’s code. The main difference
-    is that there are no links to separate pages. I left that out because I
-    felt like the interesting thing is not the navigation between pages.
+  I wrote the original code for a specific project. The code I’ll be showing
+  here is a modified version of that project’s code. The main difference
+  is that there are no links to separate pages. I left that out because I
+  felt like the interesting thing is not the navigation between pages.
   </li>
   <li>
-    The examples only show <code>audio</code> elements, but you can use the same code
-    with <code>video</code> elements.
+  The examples only show <code>audio</code> elements, but you can use the same code
+  with <code>video</code> elements.
   </li>
 </ol>
 <p>
@@ -64,14 +64,16 @@ meta:
   the string “t=”. This determines if we need to bother trying to parse
   a time from the URL. This check is by no means fool-proof, but it gets the job done.
 </p>
-<pre><code class="language-javascript">function seekIfNeeded () {
+
+```javascript
+function seekIfNeeded() {
   var q = window.location.search;
 
-if (q.indexOf('t=') > -1) {
-// Do parsing stuff
+  if (q.indexOf("t=") > -1) {
+  // Do parsing stuff
+  }
 }
-}
-</code></pre>
+```
 
 <p>
   Once it’s determined there’s a time to parse the fun code starts.
@@ -80,42 +82,41 @@ if (q.indexOf('t=') > -1) {
   We convert the query string to seconds and then update <code>currentTime</code>
   property of the <code>audio</code> element.
 </p>
-<pre><code class="language-javascript">function seekIfNeeded () {
+
+```javascript
+function seekIfNeeded() {
   var q = window.location.search;
 
-if (q.indexOf('t=') > -1) {
-// Store the "1h34m27s" part of the query string
-var timeString = q.split('=')[1],
-
+  if (q.indexOf("t=") > -1) {
+  // Store the "1h34m27s" part of the query string
+  var timeString = q.split("=")[1],
       // Store a reference to the audio element with an id of "media"
-      media = document.getElementById('media'),
-
+      media = document.getElementById("media"),
       // Have we updated the time of the media element from the URL before?
       seekedFromURL = false;
 
-    // We can only interact with audio elements when they are ready.
-    // Listen for the "canplay" event to know when that is.
-    media.addEventListener('canplay', function () {
-
+  // We can only interact with audio elements when they are ready.
+  // Listen for the "canplay" event to know when that is.
+  media.addEventListener("canplay", function () {
       // The "canplay" event is triggered every time the audio element
       // is able to play. We only want to change the currentTime of
       // the audio the first time this event fires.
       if (!seekedFromURL) {
+  // The currentTime property seeks to a value of seconds in
+  // the media element.
+  media.currentTime = secondsFromTimeParts(
+          partsFromTimeString(timeString),
+  );
 
-        // The currentTime property seeks to a value of seconds in
-        // the media element.
-        media.currentTime = secondsFromTimeParts(partsFromTimeString(timeString));
-
-        // We've done the seeking, don't do this again.
-        seekedFromURL = true;
+  // We've done the seeking, don't do this again.
+  seekedFromURL = true;
       }
-    });
+  });
 
-    media.play();
-
+  media.play();
+  }
 }
-}
-</code></pre>
+```
 
 <h2>Converting a String to Time</h2>
 <p>
@@ -133,30 +134,28 @@ var timeString = q.split('=')[1],
   That function converts the string into an object of key/value pairs. In the object, the
   keys represent a part of the time and the values the amount of time for each part.
 </p>
-<pre><code class="language-javascript">function partsFromTimeString (str) {
-  var parts = {h: 0, m: 0, s: 0};
 
-// Wrapping in a try to avoid an error in case someone gives the 't='
-// query string with no time. It'll just default to zero without it.
-try {
+```javascript
+function partsFromTimeString(str) {
+  var parts = { h: 0, m: 0, s: 0 };
 
-    // The regex match breaks the string into an array
-    // like ["1h", "32m", "6s"]
-    str.match(/[0-9]+[hms]+/g).forEach(function (val) {
-
+  // Wrapping in a try to avoid an error in case someone gives the 't='
+  // query string with no time. It'll just default to zero without it.
+  try {
+  // The regex match breaks the string into an array
+  // like ["1h", "32m", "6s"]
+  str.match(/[0-9]+[hms]+/g).forEach(function (val) {
       // Creates an array with two elements, the time and part
       // key like ["32", "m"]
       var part = val.match(/[hms]+|[0-9]+/g);
       parts[part[1]] = parseInt(part[0], 10);
-    });
+  });
+  } catch (e) {}
 
+  return parts;
 }
-catch (e) {}
+```
 
-return parts;
-}
-
-</pre></code>
 <p>
   My first idea wasn’t to use a regular expression. I tend to avoid them because
   I only have a cursory knowledge of them. But the query string posed a problem
@@ -201,7 +200,9 @@ return parts;
   The next step in <code>seekIfNeeded</code> is to get seconds from those parts.
   For that, we use the <code>secondsFromTimeParts</code> function.
 </p>
-<pre><code class="language-javascript">function secondsFromTimeParts (parts) {
+
+```javascript
+function secondsFromTimeParts (parts) {
   var seconds = 0;
 
 seconds += parts.s;
@@ -210,8 +211,8 @@ seconds += parts.h _ 3600;
 
 return seconds;
 }
+```
 
-</pre></code>
 <p>
   <code>secondsFromTimeParts</code> adds up the values of the time parts object to
   get a total number of seconds. To get the number of seconds from
@@ -234,24 +235,29 @@ return seconds;
   For that we’ll follow the previous process in reverse. We’ll get an object of
   time parts from the seconds and then a time string from the parts.
 </p>
-<pre><code class="language-javascript">var timeStr = timeStringFromParts(timePartsFromSeconds(media.currentTime));
-</pre></code>
+
+```javascript
+var timeStr = timeStringFromParts(timePartsFromSeconds(media.currentTime));
+```
+
 <p>
   Again, from the inside out, let’s look at the <code>timePartsFromSeconds</code>
   function.
 </p>
-<pre><code class="language-javascript">function timePartsFromSeconds (seconds) {
+
+```javascript
+function timePartsFromSeconds(seconds) {
   var parts = {},
-    secondsInt = Math.floor(seconds);
+  secondsInt = Math.floor(seconds);
 
-parts.h = Math.floor((secondsInt / 3600) % 24);
-parts.m = Math.floor(secondsInt / 60);
-parts.s = secondsInt % 60;
+  parts.h = Math.floor((secondsInt / 3600) % 24);
+  parts.m = Math.floor(secondsInt / 60);
+  parts.s = secondsInt % 60;
 
-return parts;
+  return parts;
 }
+```
 
-</pre></code>
 <p>
   We start by creating the empty parts object where we’ll store the key/value pairs.
   <code>media.currentTime</code> gives the number of seconds and milliseconds
@@ -273,19 +279,21 @@ return parts;
   to convert into a time string. We’ll do that with the <code>timeStringFromParts</code>
   function.
 </p>
-<pre><code class="language-javascript">function timeStringFromParts (parts) {
-  var str = '';
 
-for (key in parts) {
-if (parts[key] > 0) {
-str += parts[key] + key;
-}
-}
+```javascript
+function timeStringFromParts(parts) {
+  var str = "";
 
-return str;
-}
+  for (key in parts) {
+  if (parts[key] > 0) {
+      str += parts[key] + key;
+  }
+  }
 
-</pre></code>
+  return str;
+}
+```
+
 <p>
   This small function iterates over the keys in the parts object. For each key,
   if the value is greater than zero we add the value followed by the key to the
@@ -330,8 +338,4 @@ return str;
   This was a fun problem to solve. Both from the UX view and from the code. I’m
   sure there are quite a few similar implementations, but I’m sure there are
   none just like this one.
-</p>
-
-<p>
-  <i>Thanks for reading</i>
 </p>

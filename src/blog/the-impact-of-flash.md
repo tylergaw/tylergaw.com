@@ -62,7 +62,7 @@ meta:
 
 <blockquote>
   <p>
-    a sentimental longing or wistful affection for the past, typically for a period or place with happy personal associations.
+  a sentimental longing or wistful affection for the past, typically for a period or place with happy personal associations.
   </p>
 </blockquote>
 

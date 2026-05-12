@@ -32,30 +32,36 @@ meta:
 <p>
   This was the beginning file structure:
 </p>
-<pre><code class="language-none">css/
+
+```text
+css/
   scss/
-    modules/
+  modules/
       _module.scss
       ...
-    partials/
+  partials/
       _partial.scss
       ...
-    tylergaw.scss
-</code></pre>
+  tylergaw.scss
+```
+
 <p>
   Each Sass partial gets imported in <code>tylergaw.scss</code>.
 </p>
 
-<pre><code class="language-scss">@import "modules/setup";
+```scss
+@import "modules/setup";
 @import "modules/reset";
 @import "modules/fonts";
-</code></pre>
+```
 
 <p>
   I reorganized and renamed the files. I first changed the extension from <code>scss</code> to <code>css</code>. Instead of doing it a file at a time, I used a Bash script:
 </p>
-<pre><code class="language-bash">for f in *.scss; do git mv -- "$f" "${f%.scss}.css"; done;
-</code></pre>
+
+```bash
+for f in *.scss; do git mv -- "$f" "${f%.scss}.css"; done;
+```
 
 <p>
   Because the leading underscore is from the Sass world I also removed that. I couldn't figure a way to do it with Bash so I removed it from each file by hand. <i>(note to self; learn how to Bash better)</i>
@@ -68,20 +74,28 @@ meta:
 <p>
   I started with the <a href="https://github.com/postcss/postcss-cli">PostCSS CLI</a>. I added a temporary build script to <code>package.json</code>:
 </p>
-<pre><code class="language-json">"scripts": {
+
+```json
+"scripts": {
   "postcss": "postcss -o public/css/tylergaw.css src/css/tylergaw.css"
-}</code></pre>
+}
+```
+
 <p>
   Without changing any styles I compiled the CSS:
 </p>
-<pre><code class="language-json">npm run postcss</code></pre>
+
+```json
+npm run postcss
+```
+
 <p>
   It worked! Sorta. I didn't get errors in the console, but it left me with a naked page on the <a href="http://css-naked-day.github.io/">wrong day</a>.
 </p>
 <figure>
   <img src="https://tylergaw.com/articles/assets/post-image-postcss-1.png" alt="A screenshot of tylergaw.com missing all styles" />
   <figcaption>
-    Results of the first PostCSS build
+  Results of the first PostCSS build
   </figcation>
 </figure>
 <p>
@@ -101,9 +115,12 @@ meta:
   To get Sass-style <code>@import</code>s I used the <code>postcss-import</code> plugin. After installing the module via npm I updated the build script to use it:
 </p>
 
-<pre><code class="language-json">"scripts": {
+```json
+"scripts": {
   "postcss": "postcss -u postcss-import -o public/css/tylergaw.css src/css/tylergaw.css"
-}</code></pre>
+}
+```
+
 <p>
   And ran the script again with <code>npm run postcss</code>. The single CSS file contains all the modules and the site now has partial styling.
 </p>
@@ -111,7 +128,7 @@ meta:
 <figure>
   <img src="https://tylergaw.com/articles/assets/post-image-postcss-2.png" alt="A screenshot of tylergaw.com with partial styles" />
   <figcaption>
-    Results of the PostCSS build using postcss-import plugin
+  Results of the PostCSS build using postcss-import plugin
   </figcation>
 </figure>
 
@@ -124,12 +141,12 @@ meta:
 </p>
 <blockquote>
   <p>
-    This plugin should probably be used as the first plugin of your list. This way, other plugins will work on the AST as if there were only a single file to process, and will probably work as you can expect.
+  This plugin should probably be used as the first plugin of your list. This way, other plugins will work on the AST as if there were only a single file to process, and will probably work as you can expect.
   </p>
   <cite>
-    <a href="https://github.com/postcss/postcss-import#postcss-import">
+  <a href="https://github.com/postcss/postcss-import#postcss-import">
       postcss-import
-    </a>
+  </a>
   </cite>
 </blockquote>
 
@@ -150,10 +167,14 @@ meta:
 <p>
   Next I changed the Sass variables to CSS custom properties. In <a href="https://github.com/tylergaw/tylergaw.com/blob/pre-postcss/src/css/scss/modules/_setup.scss">_setup.scss</a> I had:
 </p>
-<pre><code class="language-scss">$grey: #1e1e1d;
+
+```scss
+$grey: #1e1e1d;
 $yellow: #ffad15;
 $offwhite: #f8f8f8;
-$darkerwhite: darken($offwhite, 15);</code></pre>
+$darkerwhite: darken($offwhite, 15);
+```
+
 <p>
   This isn't all the Sass vars I was using, but it's the main ones. The rest are in individual modules.
 </p>
@@ -163,19 +184,26 @@ $darkerwhite: darken($offwhite, 15);</code></pre>
 <p>
   The updated <code>setup.css</code>:
 </p>
-<pre><code class="language-css">:root {
+
+```css
+:root {
   --white: #fff;
   --grey: #1e1e1d;
   --yellow: #ffad15;
   --offwhite: #f8f8f8;
   ...
-}</code></pre>
+}
+```
+
 <p>
   and an example of updated usage:
 </p>
-<pre><code class="language-css">a {
+
+```css
+a {
   color: var(--yellow);
-}</code></pre>
+}
+```
 
 <p>
   Apart from syntax, CSS custom properties work the same as Sass variables. Because of limited browser support, properties are still compiled out. In the above example, the compiled value is <code>color: #ffad15</code>.
@@ -185,20 +213,31 @@ $darkerwhite: darken($offwhite, 15);</code></pre>
 <p>
   In the previous example, I left out one variable; <code>$darkerwhite: darken($offwhite, 15);</code>. This is another Sass feature I needed a replacement for. There's a <a href="https://drafts.csswg.org/css-color/#modifying-colors">draft spec</a> for a CSS <code>color</code> function. cssnext includes this function today and it's super cool. Here's <code>setup.css</code> with a <code>darkerwhite</code> custom property created with the <code>color</code> function and <code>shade</code> adjuster:
 </p>
-<pre><code class="language-css">:root {
+
+```css
+:root {
   ...
   --offwhite: #f8f8f8;
   --darkerwhite: color(var(--offwhite) shade(20%));
   ...
-}</code></pre>
+}
+```
+
 <p>
   The <code>color</code> function provides a bunch of <a href="https://github.com/postcss/postcss-color-function#list-of-color-adjuster">adjusters</a>. You can use multiple adjusters in a single usage:
 </p>
-<pre><code class="language-css">background-color: color(#d32c3f shade(40%) alpha(40%));</code></pre>
+
+```css
+background-color: color(#d32c3f shade(40%) alpha(40%));
+```
+
 <p>
   compiles to:
 </p>
-<pre><code class="language-css">background-color: rgba(127, 26, 38, 0.4);</code></pre>
+
+```css
+background-color: rgba(127, 26, 38, 0.4);
+```
 
 <p>
   To reiterate. Right now cssnext compiles the result of <code>color()</code> to hex or rgba values. When the <code>color</code> function arrives in browsers, the compilation won't be necessary. The color manipulation can happen at runtime.
@@ -211,7 +250,9 @@ $darkerwhite: darken($offwhite, 15);</code></pre>
 <p>
   This was mostly legwork. The CSS syntax for nesting includes a leading <code>&</code> before nested blocks. For example, the following is a Sass snippet from my Projects page:
 </p>
-<pre><code class="language-scss">.projects-list {
+
+```scss
+.projects-list {
   ...
 
 li {
@@ -221,20 +262,23 @@ li {
 a {
 ...
 
-    &:hover,
-    &:focus {...}
+  &:hover,
+  &:focus {...}
 
-    &::after {...}
+  &::after {...}
 
 }
 
 @media (min-width: 640px) {...}
-}</code></pre>
+}
+```
 
 <p>
   For CSS nesting, I changed that to:
 </p>
-<pre><code class="language-css">.projects-list {
+
+```css
+.projects-list {
   ...
 
 & li {
@@ -244,15 +288,16 @@ a {
 & a {
 ...
 
-    &:hover,
-    &:focus {...}
+  &:hover,
+  &:focus {...}
 
-    &::after {...}
+  &::after {...}
 
 }
 
 @media (min-width: 640px) {...}
-}</code></pre>
+}
+```
 
 <p>
   Basic nesting requires the leading <code>&</code>. Pseudo classes and selectors are the same in Sass and CSS. Media queries don't need a leading <code>&</code>.
@@ -266,23 +311,29 @@ a {
 <p>
   I was using Sass <code>@extend</code> and placeholder classes for common styles. Here's an example usage responsible for styling Futura headings:
 </p>
-<pre><code class="language-scss">%futura {
-  font-family: 'futura-pt', helvetica, sans-serif;
+
+```scss
+%futura {
+  font-family: "futura-pt", helvetica, sans-serif;
 }
 
 %futura-heading {
-@extend %futura;
-font-weight: 700;
-line-height: 1.1;
-text-transform: uppercase;
-}</code></pre>
+  @extend %futura;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+```
 
 <p>
   and an example usage:
 </p>
-<pre><code class="language-scss">.my-heading {
+
+```scss
+.my-heading {
   @extend %futura-heading;
-}</code></pre>
+}
+```
 
 <p>
   We looked at CSS custom properties usage earlier. There's a related in-progress <a href="http://tabatkins.github.io/specs/css-apply-rule/">spec</a> for the <code>@apply</code> rule. <code>@apply</code> allows you to store a set of properties and reference them in selectors. I used <code>@apply</code> in place of Sass's <code>extend</code>.
@@ -291,28 +342,32 @@ text-transform: uppercase;
   Back in <code>setup.css</code> I added the updated Futura heading properties:
 </p>
 
-<pre><code class="language-css">:root {
+```css
+:root {
   ...
 
   --franklin: {
-    font-family: 'futura-pt', helvetica, sans-serif;
-  };
+  font-family: "futura-pt", helvetica, sans-serif;
+  }
 
   --franklin-heading: {
-    @apply --franklin;
-    font-weight: 700;
-    line-height: 1.1;
-    text-transform: uppercase;
+  @apply --franklin;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
   };
-}</code></pre>
+}
+```
 
 <p>
   and an example usage:
 </p>
 
-<pre><code class="language-scss">.my-heading {
+```scss
+.my-heading {
   @apply --franklin-heading;
-}</code></pre>
+}
+```
 
 <p>
   <code>@apply</code> is not <code>extend</code>. In the current form in cssnext, <code>@apply</code> copies the properties and values to each rule. This is a small project so that's OK. On larger projects the extra properties may cause too much bloat. At that time it would probably be best to use a common class name to get similar results.
@@ -325,7 +380,7 @@ text-transform: uppercase;
 <figure>
   <img src="https://tylergaw.com/articles/assets/post-image-postcss-3.png" alt="A screenshot of tylergaw.com/projects" />
   <figcaption>
-    The colorful tiles of the Projects page
+  The colorful tiles of the Projects page
   </figcation>
 </figure>
 
@@ -335,24 +390,30 @@ text-transform: uppercase;
   To make writing the projects styles easier I used a Sass mixin. The mixin took a single argument, the color for the tile. Here's the <code>project-block</code> mixin:
 </p>
 
-<pre><code class="language-scss">@mixin project-block ($c) {
+```scss
+@mixin project-block ($c) {
   background-color: $c;
 
   a {
-    color: $c;
+  color: $c;
 
-    &:hover {
+  &:hover {
       background-color: $c;
       color: $offwhite);
-    }
   }
-}</code></pre>
+  }
+}
+```
+
 <p>
   and example usage:
 </p>
-<pre><code class="language-scss">.p-jribbble {
+
+```scss
+.p-jribbble {
   @include project-block(#ff0066);
-}</code></pre>
+}
+```
 
 <p>
   At the time of this writing, I couldn't find a way to mimic this functionality in CSS. Custom property sets with <code>@apply</code> aren't functions, so you can't pass them arguments. In the future, it might be possible to use custom selectors for argument magic. The <a href="https://drafts.csswg.org/css-extensions/#declarative-custom-selector">draft spec</a> has a complex example that looks promising. Right now, I'll admit, I don't fully understand how it works.
@@ -365,29 +426,35 @@ text-transform: uppercase;
 <p>
   Here's an example of the CSS replacement for the <code>project-block</code> mixin:
 </p>
-<pre><code class="language-css">.p-jribbble,
+
+```css
+.p-jribbble,
 .p-jribbble a:matches(:hover, :focus) {
   background-color: var(--color-jrb);
 
-& a {
-color: var(--color-jrb);
+  & a {
+  color: var(--color-jrb);
+  }
 }
-}</code></pre>
+```
 
 <p>
   The color variables are in a <code>:root</code> scope earlier in the file. cssnext compiles the above CSS to:
 </p>
-<pre><code class="language-css">.p-jribbble,
+
+```css
+.p-jribbble,
 .p-jribbble a:hover,
 .p-jribbble a:focus {
-  background-color: #ff0066
+  background-color: #ff0066;
 }
 
 .p-jribbble a,
 .p-jribbble a:hover a,
 .p-jribbble a:focus a {
-color: #ff0066;
-}</code></pre>
+  color: #ff0066;
+}
+```
 
 <p>
   The last two selectors <code>...a a:hover</code> and <code>...a a:focus</code> won't match any elements. They're unecessary, but aside from a few more bytes they don't hurt anything. I preferred nesting the <code>a</code> selector for code readability.

@@ -10,72 +10,72 @@ meta:
     see if I could create a similar style title sequence using CSS.
 ---
 
-        <figure>
-            <a href="http://lab.tylergaw.com/css-true-titles/">
-                <img src="https://tylergaw.com/articles/assets/post-image-true-titles-intro.jpg"
-                    alt="Image of the title cards from the True Titles demo">
-            </a>
-        </figure>
-        <p class="entry-intro">
-            The <a href="https://youtu.be/ZRPpCqXYoos">opening titles</a> to the
-            show True Detective are incredible. CSS contains the building
-            blocks necessary to create a similar style title sequence. I tried my
-            hand it and came up with fun results. Here's the
-            <a href="https://lab.tylergaw.com/css-true-titles/">demo</a> and the
-            <a href="https://github.com/tylergaw/css-true-titles">source code</a>.
-        </p>
-        <p>
-            The first thing I have to do is issue the disclaimer. This is an
-            experimental project. Things will most likely go wrong when you view
-            it. I'm pushing on the browser pretty hard to get it to do things it
-            maybe wasn't intended to. Also, due to limited suppport
-            of <a href="https://www.w3.org/TR/css-masking-1">CSS masking</a>
-            you'll only see the full effect in Chrome, Opera, and possibly Mobile Safari.
-            The animations will work in other browsers, but things will look strange.
-        </p>
-        <h2>The Masking</h2>
-        <p>
-            There's a whole lot going on in each shot of the TD titles. You should
-            read the write up about it on <a href="https://www.artofthetitle.com/title/true-detective/">Art of the Title</a>.
-            The main effect that I wanted to recreate was the use of human silhouettes
-            to mask shots. They use video clips for the masks and the content being
-            masked, but I stuck with still images to keep things a little easier.
-        </p>
-        <figure>
-            <img src="https://tylergaw.com/articles/assets/post-image-true-titles-mask-example.jpg"
-                alt="">
-            <figcaption>
-                An example of using a human to mask footage in the True Detective titles
-            </figcaption>
-        </figure>
-        <p>
-            I'm accomplishing masking using the CSS <code>mask</code>
-            property. As I mentioned, browser support for it is currently
-            limited. I'm going to break down the first title
-            card to explain how the masking is
-            implemented.
-        </p>
-        <figure>
-            <img src="https://tylergaw.com/articles/assets/post-image-true-titles-opener-card.jpg"
-                alt="">
-            <figcaption>
-                A still of the first title card.
-            </figcaption>
-        </figure>
-        <p>
-            Each title card is an <code>li</code> element. They contain base
-            styles like width, height, position, etc. Within each <code>li</code>
-            is markup specific to that card. Below is the markup for the elements
-            that make up the opening card.
-        </p>
-        <pre><code class="language-markup">&lt;div class="composition animated"&gt;
+  <figure>
+      <a href="http://lab.tylergaw.com/css-true-titles/">
+    <img src="https://tylergaw.com/articles/assets/post-image-true-titles-intro.jpg"
+          alt="Image of the title cards from the True Titles demo">
+      </a>
+  </figure>
+  <p class="entry-intro">
+      The <a href="https://youtu.be/ZRPpCqXYoos">opening titles</a> to the
+      show True Detective are incredible. CSS contains the building
+      blocks necessary to create a similar style title sequence. I tried my
+      hand it and came up with fun results. Here's the
+      <a href="https://lab.tylergaw.com/css-true-titles/">demo</a> and the
+      <a href="https://github.com/tylergaw/css-true-titles">source code</a>.
+  </p>
+  <p>
+      The first thing I have to do is issue the disclaimer. This is an
+      experimental project. Things will most likely go wrong when you view
+      it. I'm pushing on the browser pretty hard to get it to do things it
+      maybe wasn't intended to. Also, due to limited suppport
+      of <a href="https://www.w3.org/TR/css-masking-1">CSS masking</a>
+      you'll only see the full effect in Chrome, Opera, and possibly Mobile Safari.
+      The animations will work in other browsers, but things will look strange.
+  </p>
+  <h2>The Masking</h2>
+  <p>
+      There's a whole lot going on in each shot of the TD titles. You should
+      read the write up about it on <a href="https://www.artofthetitle.com/title/true-detective/">Art of the Title</a>.
+      The main effect that I wanted to recreate was the use of human silhouettes
+      to mask shots. They use video clips for the masks and the content being
+      masked, but I stuck with still images to keep things a little easier.
+  </p>
+  <figure>
+      <img src="https://tylergaw.com/articles/assets/post-image-true-titles-mask-example.jpg"
+    alt="">
+      <figcaption>
+    An example of using a human to mask footage in the True Detective titles
+      </figcaption>
+  </figure>
+  <p>
+      I'm accomplishing masking using the CSS <code>mask</code>
+      property. As I mentioned, browser support for it is currently
+      limited. I'm going to break down the first title
+      card to explain how the masking is
+      implemented.
+  </p>
+  <figure>
+      <img src="https://tylergaw.com/articles/assets/post-image-true-titles-opener-card.jpg"
+    alt="">
+      <figcaption>
+    A still of the first title card.
+      </figcaption>
+  </figure>
+  <p>
+      Each title card is an <code>li</code> element. They contain base
+      styles like width, height, position, etc. Within each <code>li</code>
+      is markup specific to that card. Below is the markup for the elements
+      that make up the opening card.
+  </p>
 
-&lt;div class="town animated">&lt;/div&gt;
-&lt;div class="human">&lt;/div&gt;
-&lt;/div&gt;
-&lt;h1 class="copy animated"&gt;
-&lt;b class="role">This is a&lt;/b&gt; CSS Experiment
-&lt;/h1&gt;</code></pre>
+```html
+<div class="composition animated">
+  <div class="town animated"></div>
+  <div class="human"></div>
+</div>
+<h1 class="copy animated"><b class="role">This is a</b> CSS Experiment</h1>
+```
 
 <p>
 The containing <code>div</code> element with the class of "composition"
@@ -87,7 +87,7 @@ images applied to them.
 </p>
 <figure>
 <img src="https://lab.tylergaw.com/css-true-titles/img/opener-human.png"
-                alt="">
+    alt="">
 <figcaption>
 The partially transparent human image, which doubles as the mask
 for the opening card.
@@ -102,7 +102,7 @@ the file size down some because of that.
 </p>
 <figure>
 <img src="https://lab.tylergaw.com/css-true-titles/img/opener-town.png"
-                alt="">
+    alt="">
 <figcaption>
 The background image for the town element.
 </figcaption>
@@ -118,11 +118,15 @@ portions of an image, I can reuse the human image as the mask for the
 opaque portions will be visible, those under transparent portions will
 be invisible.
 </p>
-<pre><code class="language-css">.opener .composition {
+
+```css
+.opener .composition {
 ...
 -webkit-mask: url("opener-human.png") top left/cover no-repeat;
 mask: url("opener-human.png") top left/cover no-repeat;
-}</code></pre>
+}
+```
+
 <p>
 The shorthand <code>mask</code> has similar properties as <code>background</code>.
 URL, position, size, repeat. It was important that all of the images and mask
@@ -149,7 +153,7 @@ elements.
 </p>
 <figure>
 <img src="https://tylergaw.com/articles/assets/post-image-true-titles-ani-diagram.jpg"
-                alt="Sketch showing the length of the main timelime is seconds and the length of each sub timeline as a percentage.">
+    alt="Sketch showing the length of the main timelime is seconds and the length of each sub timeline as a percentage.">
 <figcaption>
 A diagram showing the main and sub timelines of the sequence.
 </figcaption>
@@ -181,17 +185,24 @@ to be longer than the others.
 Each card needs keyframes at multiple positions. I'm going to show
 the second title card–the director card–as an example, because they get a little strange.
 </p>
-<pre><code class="language-css">@keyframes director {
-0%, 22.9%, 46%, 100% {
-opacity: 0;
-transform: translateX(-100%);
-}
 
-23%, 45.9% {
-opacity: 1;
-transform: translateX(0);
+```css
+@keyframes director {
+  0%,
+  22.9%,
+  46%,
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  23%,
+  45.9% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
-}</code></pre>
+```
 
 <p>
 I'm going to explain this backwards. Starting at 23% of the main
@@ -222,7 +233,7 @@ the full scss for the main timeline animation
 <h3>A sub timeline example</h3>
 <figure>
 <img src="https://tylergaw.com/articles/assets/post-image-true-titles-director-card.jpg"
-                alt="">
+    alt="">
 <figcaption>
 A still of the director title card.
 </figcaption>
@@ -231,15 +242,19 @@ A still of the director title card.
 The director card is the most complex card with five separate animations happening
 simultaneously. Here's the markup for the card.
 </p>
-<pre><code class="language-markup">&lt;div class="composition animated"&gt;
-&lt;div class="street animated">&lt;/div&gt;
-&lt;div class="trees animated">&lt;/div&gt;
-&lt;div class="human">&lt;/div&gt;
-&lt;/div&gt;
-&lt;h2 class="copy animated"&gt;
-&lt;b class="role">Directed by&lt;/b&gt;
-&lt;a href="https://tylergaw.com">Tyler Gaw&lt;/a&gt;
-&lt;/h2&gt;</code></pre>
+
+```html
+<div class="composition animated">
+  <div class="street animated"></div>
+  <div class="trees animated"></div>
+  <div class="human"></div>
+</div>
+<h2 class="copy animated">
+  <b class="role">Directed by</b>
+  <a href="https://tylergaw.com">Tyler Gaw</a>
+</h2>
+```
+
 <p>
 Anything with the class of "animated"–you guessed it–has an animation
 applied to it. The fifth animation is on a pseudo-element. Below is
@@ -294,11 +309,15 @@ In the markup there is a class of "animated" applied to any animated
 element. I'm using that as way to pause and unpause all of the
 animations using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-play-state"><code>animation-play-state</code></a>.
 </p>
-<pre><code class="language-css">.paused .animated,
+
+```css
+.paused .animated,
 .paused .title-card .animated {
--webkit-animation-play-state: paused;
-animation-play-state: paused;
-}</code></pre>
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+```
+
 <p>
 There is some <a href="https://github.com/tylergaw/css-true-titles/blob/master/js/controls.js">light JavaScript</a> to allow the pause/play
 button to add and remove the class of "paused" from the
@@ -313,7 +332,4 @@ words—what I did was difficult. If you read this far I hope there's a
 useful technique or trick that you picked up along the way. If not,
 I hope it was an interesting look into what goes on in my brain when
 building this type of thing.
-</p>
-<p>
-<i>Thanks for reading</i>
 </p>

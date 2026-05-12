@@ -28,13 +28,16 @@ In section 2.1.1. “Activation” of [CSS View Transitions Module Level 2](http
 
 This is a small change. For both pages, this rule needs to be in the CSS:
 
-<pre><code class="language-css">@view-transition {
+```css
+@view-transition {
   navigation: auto;
-}</code></pre>
+}
+```
 
 Right now, the value of `navigation` can be `auto` or `none`. Unclear if the possible values will change in the future, but it’s possible. The spec mentions that `@view-transition` can be nested inside other at-rules like `@media` or `@supports`. I haven’t tried this yet, but that could be a good way to only enable or disable transitions under certain conditions. For example, we could default to not having transitions and only enable them if the user has not opted for reduced-motion:
 
-<pre><code class="language-css">/* Default to no transitions, (you could also just leave this rule out) */
+```css
+/* Default to no transitions, (you could also just leave this rule out) */
 @view-transition {
   navigation: none;
 }
@@ -43,13 +46,14 @@ Right now, the value of `navigation` can be `auto` or `none`. Unclear if the pos
   @view-transition {
     navigation: auto;
   }
-}</code></pre>
+}
+```
 
 This is likely preferable to putting a bunch of view transition pseudo selectors in `@media (prefers-reduced-motion: no-preference)` blocks like I’m [currently doing](https://tylergaw.com/blog/complex-mpa-view-transitions/).
 
 ## Browser Support Improvements
 
-Previously, two feature flags were required in Chrome/Arc to enable multi-page transitions. `chrome://flags#view-transition` and `chrome://flags#view-transition-on-navigation`. It seems `view-transition` has been removed. I don’t have details on why or when, but it doesn’t show up anymore. `view-transition-on-navigation` now defaults to being on, so if you’re in Chrome, transitions should just work.
+Previously, two feature flags were required in Chrome/Arc to enable multi-page transitions. `chrome://flags#view-transition` and `chrome://flags#view-transition-on-navigation`. <s>It seems `view-transition` has been removed. I don’t have details on why or when, but it doesn’t show up anymore.</s> It’s because the spec was still in progress at the time. `view-transition-on-navigation` now defaults to being on, so if you’re in Chrome, transitions should just work.
 
 Overall support is still limited. In my testing these still only work in Chrome and Arc. No Firefox or Safari. I did get [an issue](https://github.com/tylergaw/mpa-view-transitions-sandbox/issues/2) about my transitions demos being broken that said transitions work in Safari Tech Preview 18, but I haven’t tested there yet.
 

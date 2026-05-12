@@ -31,11 +31,13 @@ If you're looking for an intro to view transitions or details on initial setup, 
 
 Pseudo-elements are the CSS hook to customize transitions. There are five of them in a tree structure. <a href="https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API#the_view_transition_process">Source</a>.
 
-<pre><code class="language-css">::view-transition
+```css
+::view-transition
 └─ ::view-transition-group()
    └─ ::view-transition-image-pair()
       ├─ ::view-transition-old()
-      └─ ::view-transition-new()</code></pre>
+      └─ ::view-transition-new()
+```
 
 Browsers generate this set of pseudo-elements for the root and all named view transitions. I haven't done anything with `::view-transition-group` or `::view-transition-image-pair` yet so I can't speak to what's possible with them. So far, I've used `::view-transition-old` and `::view-transition-new`.
 
@@ -45,8 +47,12 @@ From the MDN docs:
 
 In examples, I'd only seen those selectors used by themselves like:
 
-<pre><code class="language-css">::view-transition-old(root),
-::view-transition-new(root) {/*...*/}</code></pre>
+```css
+::view-transition-old(root),
+::view-transition-new(root) {
+  /*...*/
+}
+```
 
 I wondered, “can these be scoped?”. Yeah they can. We can use any id, class, or other valid attribute selector for more specific scoping/targeting. This was an “ah-ha!” I guess it shouldn't have been. These are standard pseudo-elements, like `::before` or `::after`. Something about new additions to CSS gives them a bit of mysterious vibe to me. Takes me a bit to realize I can work with them in familiar, standard ways.
 
@@ -63,39 +69,61 @@ This is a toy example, but it shows how powerful scoping transitions can be. Let
 
 After initial setup of adding the transitions `meta` tag to every page `<meta name="view-transition" content="same-origin" />`, we need an attribute to use for scoping.
 
-<pre><code class="language-html">&lt;html data-page="home"&gt;...&lt;/html&gt;
-&lt;html data-page="one"&gt;...&lt;/html&gt;
-&lt;html data-page="two"&gt;...&lt;/html&gt;
-&lt;html data-page="three"&gt;...&lt;/html&gt;</code></pre>
+```html
+<html data-page="home">
+  ...
+</html>
+<html data-page="one">
+  ...
+</html>
+<html data-page="two">
+  ...
+</html>
+<html data-page="three">
+  ...
+</html>
+```
 
 This doesn't have to be a data attribute, only my preference. Could be a class or id or any other attribute. These will use the `root` transition, so the attribute does need to be on the `html`, or root, element.
 
 With the data attributes in place, we can use them in CSS to scope our `-old` and `-new` pseudo-elements for each page:
 
-<pre><code class="language-css">[data-page="home"]::view-transition-old(root) {...}
+```css
+[data-page="home"]::view-transition-old(root) {...}
 [data-page="home"]::view-transition-new(root) {...}
 [data-page="one"]::view-transition-old(root) {...}
 [data-page="one"]::view-transition-new(root) {...}
-/* ...and so on for the other pages */</code></pre>
+/* ...and so on for the other pages */
+```
 
 This lets us customize the transition in and out for every page. Let's look at Page 1. When we navigate to Page 1, we want to see the entire page slide in from the bottom to the top. We target the `-new` element for this:
 
-<pre><code class="language-css">[data-page="one"]::view-transition-new(root) {
+```css
+[data-page="one"]::view-transition-new(root) {
   animation: slideUp 0.3s;
-}</code></pre>
+}
+```
 
 `slideUp` is a `@keyframes` declaration that starts the page off the screen to the bottom and then animates it to the top:
 
-<pre><code class="language-css">@keyframes slideUp {
-  from { transform: translateY(100vh) }
-  to { transform: translateY(0) }
-}</code></pre>
+```css
+@keyframes slideUp {
+  from {
+  transform: translateY(100vh);
+  }
+  to {
+  transform: translateY(0);
+  }
+}
+```
 
 When we navigate away from Page 1, we want to see it continue on its path by sliding out to the top. We target the `-old` element for this:
 
-<pre><code class="language-css">[data-page="one"]::view-transition-old(root) {
+```css
+[data-page="one"]::view-transition-old(root) {
   animation: slideOutUp 0.3s;
-}</code></pre>
+}
+```
 
 Again, `slideOutUp` is a `@keyframes` declaration. I'll leave the code out for brevity. The [full stylesheet](https://github.com/tylergaw/mpa-view-transitions-sandbox/blob/main/unique-page-slide/unique-page-slide.css) is on Github.
 
@@ -103,13 +131,15 @@ We follow this same pattern for the other pages. For each, we set a custom anima
 
 Scoping isn't limited to the `root` transition. The same concept works for named transitions. I don't have a working example, but lets say we have a content element on each page that we want to transition. The transition is the same on most pages, but we have certain ones we want a different transition. It might look something like this:
 
-<pre><code class="language-css">::view-transition-new(content) {
+```css
+::view-transition-new(content) {
   animation: standard 0.2s;
 }
 
 .special-page::view-transition-new(content) {
   animation: special 0.4s;
-}</code></pre>
+}
+```
 
 I haven't explored scoping named transitions much yet, but it feels like it opens up a lot of possibilities.
 
@@ -117,7 +147,9 @@ I haven't explored scoping named transitions much yet, but it feels like it open
 
 This is a “that's interesting”. Also maybe a “duh” in hindsight, but took me a bit to figure out. To get an element to transition or “morph” between two pages, you give that element a transition name:
 
-<pre><code class="language-html">&lt;div style="view-transition-name: content" /&gt;</code></pre>
+```html
+<div style="view-transition-name: content" />
+```
 
 If an element with that name is present on both the current page and the page you’re navigating to, the element will morph between the elements’ shape, size, color, etc. I thought this was the only way to transition elements. To have the element be on both pages and morph. That's not the case. You can transition an element in and out that only exists on the page you're navigating.
 
@@ -132,15 +164,19 @@ The title, description, and graphic for each item exists on both the list and si
 
 To do this, we set a `view-transition-name` in the HTML. This is a normal CSS property, so we could also set this on the `small` element in CSS. I just chose inline because I wasn't applying any other styles.
 
-<pre><code class="language-html">&lt;small style="view-transition-name: all-items-link"&gt;
-  &lt;a href="./"&gt;&lt; All items&lt;/a&gt;
-&lt;/small&gt;</code></pre>
+```html
+<small style="view-transition-name: all-items-link">
+  <a href="./">< All items</a>
+</small>
+```
 
 Then, in the CSS, we create a custom animation and apply it to our `-new` element for the transition name:
 
-<pre><code class="language-css">::view-transition-new(all-items-link) {
+```css
+::view-transition-new(all-items-link) {
   animation: itemsLinkIn 0.3s;
-}</code></pre>
+}
+```
 
 This gives a lot of control over how elements transition or, as I think about it, how they enter and exit the stage. [Full code](https://github.com/tylergaw/mpa-view-transitions-sandbox/tree/main/grid-item-view) for this example on Github.
 

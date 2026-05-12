@@ -30,10 +30,10 @@ meta:
 </p>
 <figure>
   <a href="https://github.com/tylergaw/day-player">
-    <img src="https://d3vv6lp55qjaqc.cloudfront.net/items/0o1M3n07223o223D2C3R/Screen%20Recording%202016-11-13%20at%2003.23%20PM.gif" alt="Animated gif showing new Day Player functionality" />
+  <img src="https://d3vv6lp55qjaqc.cloudfront.net/items/0o1M3n07223o223D2C3R/Screen%20Recording%202016-11-13%20at%2003.23%20PM.gif" alt="Animated gif showing new Day Player functionality" />
   </a>
   <figcaption>
-    Placing an image with the same dimensions and position as an existing layer
+  Placing an image with the same dimensions and position as an existing layer
   </figcation>
 </figure>
 <p>
@@ -59,20 +59,25 @@ meta:
 <p>
   For example, here's the code required to create a text label using regular Cocoa:
 </p>
-<pre><code class="language-javascript">const textField = NSTextField.alloc().initWithFrame(NSMakeRect(0, 0, 350, 16));
+
+```javascript
+const textField = NSTextField.alloc().initWithFrame(NSMakeRect(0, 0, 350, 16));
 textField.setDrawsBackground(false);
 textField.setEditable(false);
 textField.setBezeled(false);
 textField.setSelectable(true);
-textField.setStringValue('My Label:');
-</code></pre>
+textField.setStringValue("My Label:");
+```
+
 <p>
   and the code required using the <code>Label</code> <a href="https://github.com/tylergaw/day-player/blob/3.0.0/src/components/Label.js">component</a>:
 </p>
-<pre><code class="language-javascript">new Label({
-  value: 'My Label:'
+
+```javascript
+new Label({
+  value: "My Label:",
 });
-</code></pre>
+```
 
 <p>
   Each image service has similar options. Because of this, I was able to abstract common setup code to a few functions. Those functions live in <a href="https://github.com/tylergaw/day-player/blob/3.0.0/src/utils.js">utils.js</a>. Utils.js also includes comments describing my learning process with the excellent and in-progress <a href="http://developer.sketchapp.com/reference/api/">Sketch JS API</a>.
@@ -90,7 +95,7 @@ textField.setStringValue('My Label:');
 <figure>
   <img src="https://tylergaw.com/articles/assets/post-image-dayplayer-process.png" alt="An illustration showing the steps of the Day Player release process">
   <figcaption>
-    A diagram showing the steps of the release process
+  A diagram showing the steps of the release process
   </figcation>
 </figure>
 
@@ -102,21 +107,24 @@ textField.setStringValue('My Label:');
 </p>
 <figure>
   <a href="https://github.com/tylergaw/day-player/blob/3.0.0/scripts/release.js">
-    <img src="https://cl.ly/2p0j2O0Q1a3p/Screen%20Shot%202016-12-18%20at%208.18.39%20PM.png" alt="A screenshot of a command prompt confirming the release of Day Player" />
+  <img src="https://cl.ly/2p0j2O0Q1a3p/Screen%20Shot%202016-12-18%20at%208.18.39%20PM.png" alt="A screenshot of a command prompt confirming the release of Day Player" />
   </a>
   <figcaption>
-    The friendly prompt I see when releasing Day Player
+  The friendly prompt I see when releasing Day Player
   </figcation>
 </figure>
 <p>
   Travis CI now takes over. In <a href="https://github.com/tylergaw/day-player/blob/3.0.0/.travis.yml">travis.yml</a> we have the following:
 </p>
-<pre><code class="language-javascript">deploy:
+
+```javascript
+deploy:
 - provider: script
   script: make publish
   on:
-    tags: true
-</code></pre>
+  tags: true
+```
+
 <p>
   This tells Travis to watch for builds that create new Git tags. When it sees a tag it should run <code>make publish</code> after all other tasks are complete.
 </p>
@@ -126,9 +134,12 @@ textField.setStringValue('My Label:');
 <p>
   Interacting with AWS CLI in this way requires extra setup. First, we install the tool during the Travis <a href="https://github.com/tylergaw/day-player/blob/3.0.0/.travis.yml#L13">install step</a>.
 </p>
-<pre><code class="language-javascript">install:
+
+```javascript
+install:
 - pip install --user -U awscli
-</code></pre>
+```
+
 <p>
   The next steps ensure Travis can make safe requests to AWS on my behalf. I set two environment variables in the <a href="https://github.com/tylergaw/day-player/blob/3.0.0/.travis.yml#L24">travis conf</a>. <code>AWS_ACCESS_KEY_ID</code> and an encrypted value for the <code>secure</code> key. The encrypted key:value is for the <code>AWS_SECRET_ACCESS_KEY</code>. The access key is not sensitive, so it's OK to be out in the open. The secret is for my eyes only. I used the Travis CLI tool to encrypt that value. You can read about that process in the <a href="https://docs.travis-ci.com/user/environment-variables/#Encrypting-environment-variables">Travis docs</a>.
 </p>

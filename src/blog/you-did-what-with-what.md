@@ -12,10 +12,10 @@ meta:
 
 <figure>
   <a href='https://lab.tylergaw.com/themanfromhollywood'>
-    <img src='https://tylergaw.com/articles/assets/post_image_hollywood.jpg' alt='View the demo'>
+  <img src='https://tylergaw.com/articles/assets/post_image_hollywood.jpg' alt='View the demo'>
    </a>
 </figure>
-            
+      
 ## Stuff You'll Most Likely Do Before Reading Any of This Post
 
 <a href='https://lab.tylergaw.com/themanfromhollywood'>View the demo</a> <a href='https://github.com/tylergaw/themanfromhollywood'>Fork it</a>
@@ -36,5 +36,3 @@ So I have my excitement over a new feature set, and inspiration from Mr. Moody, 
 No, not really, but it's not really supposed to be. My goals were to teach myself the ins and outs of a new feature set, make something fun to look at, and hopefully help and/or inspire others to work on their own CSS3 awesomeness.
 
 If you enjoy it, you should <a href="http://twitter.com/home?status=@thegaw is the awesomest dude on the planet because of this: http://bit.ly/9rOtd4">Tweet it</a> or share it on your blog or just whisper the URL into a co-worker's ear. That last one would definitely be the best.
-
-<i>Thanks for reading</i>

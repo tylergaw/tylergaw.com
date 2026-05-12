@@ -23,12 +23,12 @@ meta:
 
 <blockquote>
   <ol>
-    <li>switch over to HTTPS,</li>
-    <li>add a JSON manifest file with your metacrap, and</li>
-    <li>add a service worker.</li>
+  <li>switch over to HTTPS,</li>
+  <li>add a JSON manifest file with your metacrap, and</li>
+  <li>add a service worker.</li>
   </ol>
   <cite>
-    <a href="https://adactio.com/journal/12461">Jeremy Keith, “Progressing the Web.”</a>
+  <a href="https://adactio.com/journal/12461">Jeremy Keith, “Progressing the Web.”</a>
   </cite>
 </blockquote>
 
@@ -38,7 +38,7 @@ meta:
 
 <blockquote>
   <p>
-    That last step can be tricky if you’re new to service workers, but it’s not unsurmountable.
+  That last step can be tricky if you’re new to service workers, but it’s not unsurmountable.
   </p>
 </blockquote>
 <p>
@@ -74,7 +74,7 @@ meta:
 <figure>
   <img src="https://tylergaw.com/articles/assets/post-image-pwa-audit-before.png" alt="">
   <figcaption>
-    A pre-pwa audit of colorme.io
+  A pre-pwa audit of colorme.io
   </figcation>
 </figure>
 
@@ -82,13 +82,16 @@ meta:
   With the audit report as a starting point, I hit each item on the list. Most important, I referenced the manifest in the <code>head</code> of <code>index.html</code>. This uses the CRA-specific <code>%PUBLIC_URL%</code>.
 </p>
 
-<pre><code class="language-javascript">&lt;link rel="manifest" href="%PUBLIC_URL%/manifest.json"&gt;</code></pre>
+```javascript
+<link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+```
 
 <p>
   Most items in the manifest are straightforward enough so I won’t go line-by-line. But I will call out a couple items that took a bit more work. You can see the complete file <a href="https://github.com/tylergaw/colorme/blob/develop/public/manifest.json">on GitHub</a> and below:
 </p>
 
-<pre><code class="language-javascript">{
+```javascript
+{
   "background_color": "#ffffff",
   "theme_color": "#B50003",
   "display": "standalone",
@@ -96,38 +99,39 @@ meta:
   "name": "ColorMe",
   "start_url": "/",
   "icons": [
-    {
+  {
       "src": "launcher-icon-48x48.png",
       "type": "image/png",
       "sizes": "48x48"
-    },
-    {
+  },
+  {
       "src": "launcher-icon-96x96.png",
       "type": "image/png",
       "sizes": "96x96"
-    },
-    {
+  },
+  {
       "src": "launcher-icon-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
-    },
-    {
+  },
+  {
       "src": "launcher-icon-256x256.png",
       "type": "image/png",
       "sizes": "256x256"
-    },
-    {
+  },
+  {
       "src": "launcher-icon-384x384.png",
       "type": "image/png",
       "sizes": "384x384"
-    },
-    {
+  },
+  {
       "src": "launcher-icon-512x512.png",
       "type": "image/png",
       "sizes": "512x512"
-    }
+  }
   ]
-}</code></pre>
+}
+```
 
 <h3>Icon sizes</h3>
 <p>
@@ -142,11 +146,13 @@ meta:
   A requirement–per the audit–was to add a <code>theme-color</code> meta tag to <code>index.html</code>:
 </p>
 
-<pre><code class="language-javascript">&lt;meta name="theme-color" content="#B50003"&gt;</code></pre>
+```javascript
+<meta name="theme-color" content="#B50003">
+```
 
 <blockquote>
   <p>
-    The theme-color meta tag ensures that the address bar is branded when a user visits your site as a normal webpage.
+  The theme-color meta tag ensures that the address bar is branded when a user visits your site as a normal webpage.
   </p>
 </blockquote>
 
@@ -171,7 +177,7 @@ meta:
 
 <blockquote>
   <p>
-    Failures: Site does not register a Service Worker, Manifest start_url is not cached by a Service Worker.
+  Failures: Site does not register a Service Worker, Manifest start_url is not cached by a Service Worker.
   </p>
 </blockquote>
 
@@ -187,13 +193,13 @@ meta:
 <h3>The goals of ColorMe’s service worker:</h3>
 <ul>
   <li>
-    Store the site’s static files–HTML, CSS, JavaScript, and images–in the <code>window.caches</code> object
+  Store the site’s static files–HTML, CSS, JavaScript, and images–in the <code>window.caches</code> object
   </li>
   <li>
-    Intercept all network requests. If the name of the requested file is in <code>window.caches</code>, respond with the cached file instead of making a request to the server
+  Intercept all network requests. If the name of the requested file is in <code>window.caches</code>, respond with the cached file instead of making a request to the server
   </li>
   <li>
-    Delete stale caches when the cache key changes
+  Delete stale caches when the cache key changes
   </li>
 </ul>
 
@@ -204,7 +210,12 @@ meta:
 <p>
   Here’s a quick example of <code>caches</code>. Go to <a href="https://colorme.io">colorme.io</a>. Open the developer console and run this snippet:
 </p>
-<pre><code class="language-javascript">caches.keys().then(names => {console.log(names)});</code></pre>
+
+```javascript
+caches.keys().then((names) => {
+  console.log(names);
+});
+```
 
 <p>
   That should output <code>["colorme-v7"]</code> (the version number might be different). Not much to look at, but you can see that <code>window.caches</code> is a thing in this context. That means you can access caches from any client side JavaScript, not only service workers. That’s pretty cool.
@@ -221,7 +232,8 @@ meta:
   I created <code>service-worker.js</code> in the <code>public</code> directory. The full file is available <a href="https://github.com/tylergaw/colorme/blob/03946e9540a031075f3f691356d7aa3f4e457a2d/public/service-worker.js">on GitHub</a>.
 </p>
 
-<pre><code class="language-javascript">const STATIC_CACHE_NAME = "colorme-v1";
+```javascript
+const STATIC_CACHE_NAME = "colorme-v1";
 const STATIC_URLS = [
   "/",
   "/index.html",
@@ -229,15 +241,19 @@ const STATIC_URLS = [
   "/static/css/main.css",
   "/static/js/main.js",
   "/static/media/bgTransparent.svg",
-  "https://fonts.googleapis.com/css?family=Cousine:400|Karla:400,700"
+  "https://fonts.googleapis.com/css?family=Cousine:400|Karla:400,700",
 ];
-self.addEventListener("install", event => {
+self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(STATIC_CACHE_NAME).then(cache => {
-      return cache.addAll(STATIC_URLS);
-    }).then(() => self.skipWaiting())
+  caches
+      .open(STATIC_CACHE_NAME)
+      .then((cache) => {
+  return cache.addAll(STATIC_URLS);
+      })
+      .then(() => self.skipWaiting()),
   );
-});</code></pre>
+});
+```
 
 <p>
   <code>STATIC_CACHE_NAME</code> is a unique key for this cache. <code>STATIC_URLS</code> is the list of files to cache. I’ll explain how I update this list later to account for dynamic file names.
@@ -269,12 +285,15 @@ self.addEventListener("install", event => {
   Putting static files in <code>caches</code> isn’t enough on its own. For ColorMe to work offline, we need to tell the browser to look in the cache for those files.
 </p>
 
-<pre><code class="language-javascript">self.addEventListener("fetch", event => {
+```javascript
+self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request)
-      .then(response => response || fetch(event.request))
+  caches
+      .match(event.request)
+      .then((response) => response || fetch(event.request)),
   );
-});</code></pre>
+});
+```
 
 <p>
   This snippet listens for all HTTP requests from the user’s browser. <code>event.respondWith</code> prevents the browser’s default <code>fetch</code> handling. That allows us to check if the requested URL–<code>event.request</code>–is in the cache. If it is, respond with the cached file. If it’s not cached, continue with the request to the server using <code>fetch()</code>.
@@ -287,7 +306,7 @@ self.addEventListener("install", event => {
 <figure>
   <img src="https://tylergaw.com/articles/assets/post-image-pwa-audit-100-percent.png" alt="">
   <figcaption>
-    A post-pwa audit of colorme.io
+  A post-pwa audit of colorme.io
   </figcation>
 </figure>
 
@@ -295,18 +314,26 @@ self.addEventListener("install", event => {
 <p>
   If I stopped here ColorMe works offline, but I’d have no way to release updates to users. Cached items have to be deleted, they never expire. The service worker should remove stale caches.
 </p>
-<pre><code class="language-javascript">self.addEventListener("activate", event => {
+
+```javascript
+self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames
-          .filter(name => name.includes("colorme") && name !== STATIC_CACHE_NAME)
-          .map(name => caches.delete(name))
+  caches
+      .keys()
+      .then((cacheNames) => {
+  return Promise.all(
+          cacheNames
+      .filter(
+              (name) => name.includes("colorme") && name !== STATIC_CACHE_NAME,
       )
-    }).then(() => self.clients.claim())
+      .map((name) => caches.delete(name)),
+  );
+      })
+      .then(() => self.clients.claim()),
   );
 });
-</code></pre>
+```
+
 <p>
   This is the most involved-looking code in the service worker, but it doesn’t do much.
 </p>
@@ -333,13 +360,13 @@ self.addEventListener("install", event => {
 
 <ul>
   <li>
-    <code>"/static/css/main.css"</code>
+  <code>"/static/css/main.css"</code>
   </li>
   <li>
-    <code>"/static/js/main.js"</code>
+  <code>"/static/js/main.js"</code>
   </li>
   <li>
-    <code>"/static/media/bgTransparent.svg"</code>
+  <code>"/static/media/bgTransparent.svg"</code>
   </li>
 </ul>
 
@@ -349,13 +376,13 @@ self.addEventListener("install", event => {
 
 <ul>
   <li>
-    <code>"/static/css/main.2ebebc14.css"</code>
+  <code>"/static/css/main.2ebebc14.css"</code>
   </li>
   <li>
-    <code>"/static/js/main.7e7a1a8f.js"</code>
+  <code>"/static/js/main.7e7a1a8f.js"</code>
   </li>
   <li>
-    <code>"/static/media/bgTransparent.e6317315.svg"</code>
+  <code>"/static/media/bgTransparent.e6317315.svg"</code>
   </li>
 </ul>
 
@@ -382,19 +409,23 @@ self.addEventListener("install", event => {
   The default CRA build script builds the project according to the baked in webpack config. I can’t change the config–without ejecting–but I can add to the build script in <code>package.json</code>. I’d already modified the script to include <code>NODE_PATH=src</code>. That makes it easier to import modules without referencing the full path. ColorMe’s starting build script looked like:
 </p>
 
-<pre><code class="language-javascript">NODE_PATH=src react-scripts build</code></pre>
+```javascript
+NODE_PATH=src react-scripts build
+```
 
 <p>
   I knew a couple things. I knew the build process creates a file named <code>asset-manifest.json</code>. The contents of that file include the full fingerprinted names of all static assets used in the site. Example contents of the manifest file:
 </p>
 
-<pre><code class="language-javascript">{
+```javascript
+{
   "main.css": "static/css/main.2ebebc14.css",
   "main.css.map": "static/css/main.2ebebc14.css.map",
   "main.js": "static/js/main.7e7a1a8f.js",
   "main.js.map": "static/js/main.7e7a1a8f.js.map",
   "static/media/bgTransparent.svg": "static/media/bgTransparent.e6317315.svg"
-}</code></pre>
+}
+```
 
 <p>
   Those are the full filenames I need to cache with my service worker. I need to get those filenames into the service worker file.
@@ -403,13 +434,17 @@ self.addEventListener("install", event => {
   The first thing I did was add to the build script. Back in <code>package.json</code> I updated the script to look like:
 </p>
 
-<pre><code class="language-javascript">NODE_PATH=src react-scripts build && npm run generate-sw</code></pre>
+```javascript
+NODE_PATH=src react-scripts build && npm run generate-sw
+```
 
 <p>
   This says; “run the normal build process, when you’re done with that run this other npm script”. That script looks like:
 </p>
 
-<pre><code class="language-javascript">"generate-sw": "node scripts/generate-sw.js"</code></pre>
+```javascript
+"generate-sw": "node scripts/generate-sw.js"
+```
 
 <p>
   To make sure that worked, I created <code>/scripts/generate-sw.js</code> and added a single line; <code>console.log('hello')</code>. Then I ran the build script <code>npm run build</code> to make sure the project built and I saw “hello” in my terminal output. So far so good.
@@ -425,20 +460,24 @@ self.addEventListener("install", event => {
   The full file is available <a href="https://github.com/tylergaw/colorme/blob/03946e9540a031075f3f691356d7aa3f4e457a2d/scripts/generate-sw.js">on GitHub</a> and I’ll go through the code in detail here.
 </p>
 
-<pre><code class="language-javascript">const manifest = require("../build/asset-manifest.json");
+```javascript
+const manifest = require("../build/asset-manifest.json");
 const fs = require("fs");
-const swPath = "build/service-worker.js";</code></pre>
+const swPath = "build/service-worker.js";
+```
 
 <p>
   First is setup. <code>asset-manifest</code> is JSON so I <code>require</code> it here for use as an object. I’ll use the <code>fs</code> package for reading and writing files. I store the path of the service worker for convenience.
 </p>
 
-<pre><code class="code-muted">const manifest = require("../build/asset-manifest.json");
+```javascript
+const manifest = require("../build/asset-manifest.json");
 const fs = require("fs");
-const swPath = "build/service-worker.js";</code>
-<code class="language-javascript">const urlsCSV = Object.keys(manifest)
-  .filter(k => !k.includes(".map"))
-  .map(k => manifest[k]);</code></pre>
+const swPath = "build/service-worker.js";
+const urlsCSV = Object.keys(manifest)
+  .filter((k) => !k.includes(".map"))
+  .map((k) => manifest[k]);
+```
 
 <p>
   Getting more interesting, but still not fancy. The goal of this chunk of code is to build an array of filenames. First, use <code>Object.keys</code> to get the keys from the manifest JSON to loop over an array.
@@ -450,11 +489,13 @@ const swPath = "build/service-worker.js";</code>
   Now that we only have keys for the files we want to cache, use <code>map</code> to create the array of filenames stored as <code>urlsCSV</code>;
 </p>
 
-<pre><code class="language-javascript">[
+```javascript
+[
   "static/css/main.2ebebc14.css",
   "static/js/main.7e7a1a8f.js",
-  "static/media/bgTransparent.e6317315.svg"
-]</code></pre>
+  "static/media/bgTransparent.e6317315.svg",
+];
+```
 
 <p>
   <strong>A short tangent.</strong> Given the code above, you might be asking; <em>“why didn’t you just use <code>Object.values</code> instead of <code>Object.keys</code> plus <code>map</code>?”</em> That’s a great question with a quick answer. As of this writing, I’m running Node.js version 6.9.1. <code>Object.values</code> is not supported without the <code>--harmony</code> flag until version <code>7.0.0</code>. I didn’t want to upgrade Node.js for this. I’ll do that another time. That’s all.
@@ -464,22 +505,28 @@ const swPath = "build/service-worker.js";</code>
   I need to get that array of filenames into the service worker file. Again, this isn’t meant to be fancy or scalable. It’s meant to do the work.
 </p>
 
-<pre><code class="code-muted">const manifest = require('../build/asset-manifest.json');
-const fs = require('fs');
-const swPath = 'build/service-worker.js';
+```javascript
+const manifest = require("../build/asset-manifest.json");
+const fs = require("fs");
+const swPath = "build/service-worker.js";
 const urlsCSV = Object.keys(manifest)
-  .filter(k => !k.includes('.map'))
-  .map(k => manifest[k]);</code>
+  .filter((k) => !k.includes(".map"))
+  .map((k) => manifest[k]);
 
-<code class="language-javascript">fs.readFile(swPath, "utf8", (err, data) => {
-  if (err) { return console.log("Error trying to read SW file", err); }
+fs.readFile(swPath, "utf8", (err, data) => {
+  if (err) {
+  return console.log("Error trying to read SW file", err);
+  }
 
   const result = data.replace("%MANIFESTURLS%", JSON.stringify(urlsCSV));
 
-  fs.writeFile(swPath, result, "utf8", err => {
-    if (err) { return console.log("Error trying to write SW file", err); }
+  fs.writeFile(swPath, result, "utf8", (err) => {
+  if (err) {
+      return console.log("Error trying to write SW file", err);
+  }
   });
-});</code></pre>
+});
+```
 
 <p>
   Let’s break this down. First, open the service worker file (<code>swPath</code>) for reading. The error condition isn’t important. I included it to be nice to myself in case something odd happens during a build.
@@ -493,23 +540,29 @@ const urlsCSV = Object.keys(manifest)
 <p>
   As mentioned above the generate script needs to find <code>“%MANIFESTURLS%”</code> in <code>service-worker.js</code>. I went back and updated the script to account for that.
 </p>
-<pre><code class="language-javascript">const STATIC_CACHE_NAME = "colorme-v1";
+
+```javascript
+const STATIC_CACHE_NAME = "colorme-v1";
 const BASE_STATIC_URLS = [
   "/",
   "/index.html",
   "/manifest.json",
-  "https://fonts.googleapis.com/css?family=Cousine:400|Karla:400,700"
+  "https://fonts.googleapis.com/css?family=Cousine:400|Karla:400,700",
 ];
-const STATIC_URLS = BASE_STATIC_URLS.concat(JSON.parse('%MANIFESTURLS%'));
+const STATIC_URLS = BASE_STATIC_URLS.concat(JSON.parse("%MANIFESTURLS%"));
 
 // The install handler is the same as when we started.
-self.addEventListener("install", event => {
-event.waitUntil(
-caches.open(STATIC_CACHE_NAME).then(cache => {
-return cache.addAll(STATIC_URLS);
-}).then(() => self.skipWaiting())
-);
-});</code></pre>
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+  caches
+      .open(STATIC_CACHE_NAME)
+      .then((cache) => {
+  return cache.addAll(STATIC_URLS);
+      })
+      .then(() => self.skipWaiting()),
+  );
+});
+```
 
 <p>
   Here’s what I've done. I moved the filenames I know about to <code>BASE_STATIC_URLS</code>. I don’t fingerprint those file names, so they’re safe to hard-code. The important change is next. <code>STATIC_URLS</code> still ends up being an array of filenames, but now it’s a combination of two arrays. The filenames we know about and the generated array of filenames written to this file.
@@ -517,15 +570,19 @@ return cache.addAll(STATIC_URLS);
 <p>
   <code>STATIC_URLS</code> ends up looking something like this;
 </p>
-<pre><code class="language-javascript">[
+
+```javascript
+[
   "/",
   "/index.html",
   "/manifest.json",
   "https://fonts.googleapis.com/css?family=Cousine:400|Karla:400,700",
   "static/css/main.2ebebc14.css",
   "static/js/main.7e7a1a8f.js",
-  "static/media/bgTransparent.e6317315.svg"
-]</code></pre>
+  "static/media/bgTransparent.e6317315.svg",
+];
+```
+
 <p>
   When the project builds the fingerprinted filenames and <code>asset-manifest</code> changes. Then the service worker gets updated with the new filenames.
 </p>

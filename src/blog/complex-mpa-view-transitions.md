@@ -28,7 +28,7 @@ Before getting into it, here’s a video showing all the transitions.
 
 <figure>
   <video src="https://stuff.tylergaw.com/post-complex-view-transitions/view-transitions-preview.mp4" controls></video>
-    <figcaption>fig 1: A preview of each page’s transitions.</figcaption>
+  <figcaption>fig 1: A preview of each page’s transitions.</figcaption>
 </figure>
 
 As you can see in the video, the transitions are on the hero section of each page. Those hero sections are some of the most visually interesting sections of the site, and since they’re at the top, it makes them an ideal candidate for layering on view transitions.
@@ -39,15 +39,19 @@ Full page transitions are OK, but they also make a site feel like a PowerPoint. 
 
 First, we need to enable view transitions by adding the `meta` element to the `head` of all pages:
 
-<pre><code class="language-html">&lt;meta name="view-transition" content="same-origin"&gt;</code></pre>
+```html
+<meta name="view-transition" content="same-origin" />
+```
 
 Next, since we want don’t want the default full-page fades, we turn them off with this CSS:
 
-<pre><code class="language-css">::view-transition-old(*),
+```css
+::view-transition-old(*),
 ::view-transition-new(*) {
   animation: none;
   mix-blend-mode: normal;
-}</code></pre>
+}
+```
 
 That snippet clears the browser defaults for both the old and new transition snapshots. This gets us to a baseline where we’ve enabled transitions, but they don’t have a visual effect. I see this snippet, or one very near it, ending up in most of our normalize or reset styles.
 
@@ -57,7 +61,7 @@ Looking at the StreetCred page hero, we can already see opportunities for motion
 
 <figure>
   <picture>
-    <img src="https://stuff.tylergaw.com/post-complex-view-transitions/streetcred-transitions-overview.jpg" alt="The hero section of tylergaw.com/work/streetcred showing the elements we'll animate." />
+  <img src="https://stuff.tylergaw.com/post-complex-view-transitions/streetcred-transitions-overview.jpg" alt="The hero section of tylergaw.com/work/streetcred showing the elements we'll animate." />
   </picture>
   <figcaption>fig 2: The StreetCred hero at rest.</figcaption>
 </figure>
@@ -66,10 +70,12 @@ Let’s get the styles in place that will allow us to animate each element when 
 
 For each of those rulesets, we’ll apply a unique `view-transition-name`. For example:
 
-<pre><code class="language-css">.streetcred__graphic-main {
+```css
+.streetcred__graphic-main {
   ...
   view-transition-name: streetcred-graphic-main;
-}</code></pre>
+}
+```
 
 We repeat that for each element. I’ll leave out the other elements here for brevity. The full stylesheet is [available on Github](https://github.com/tylergaw/tylergaw.com/blob/main/src/css/modules/pages/work/streetcred.css).
 
@@ -77,7 +83,8 @@ When adding motion, it’s important to work in a way where the motion isn’t r
 
 To get a foundation in place, let’s add a basic fade-in for all elements by targeting the `view-transition-new` pseudo element.
 
-<pre><code class="language-css">@keframes fadeIn {
+```css
+@keframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
@@ -89,12 +96,13 @@ To get a foundation in place, let’s add a basic fade-in for all elements by ta
   ::view-transition-new(streetcred-graphic-board),
   ::view-transition-new(streetcred-graphic-poi),
   ::view-transition-new(streetcred-graphic-cubes) {
-    animation: fadeIn 0.5s ease;
-}</code></pre>
+  animation: fadeIn 0.5s ease;
+}
+```
 
 <figure>
   <video src="https://stuff.tylergaw.com/post-complex-view-transitions/work-transitions-0.mp4" controls></video>
-    <figcaption>fig 3: The foundation, a basic fade-in transition.</figcaption>
+  <figcaption>fig 3: The foundation, a basic fade-in transition.</figcaption>
 </figure>
 
 Nothing spectacular, but we have a working transition for each element. Now, we can break this up by element to create a composition. We’ll do this in parts.
@@ -109,73 +117,83 @@ Here’s the completed animation with all other elements hidden.
 
 <figure>
   <video src="https://stuff.tylergaw.com/post-complex-view-transitions/work-transitions-1.mp4" controls></video>
-    <figcaption>fig 4: The main device and app screen animation.</figcaption>
+  <figcaption>fig 4: The main device and app screen animation.</figcaption>
 </figure>
 
 That looks solid. Notice we navigated to the StreetCred page from another page. Look at what happens if we refresh the page though.
 
 <figure>
   <video src="https://stuff.tylergaw.com/post-complex-view-transitions/work-transitions-1-refresh.mp4" controls></video>
-    <figcaption>fig 5: The main device and app screen animation on page refresh looking wrong.</figcaption>
+  <figcaption>fig 5: The main device and app screen animation on page refresh looking wrong.</figcaption>
 </figure>
 
 Wait, that’s not right. See how the device and app screen are already visible. It’s like they’re at the end of their animation. We can see some movement, so we know the animation is still happening. So what’s the problem? We’re animating the `view-transition-new` snapshot, but the `view-transition-old` snapshot is still visible in its final position. This is a common problem. Here’s a trick I use to fix it that we’ll use on all the pages. When we have animations like this, where elements aren’t visible on the screen and then transition in, we have to hide the old view transition snapshot. To do that, we target the `::view-transition-old` selector for each of our named view transitions.
 
-<pre><code class="language-css">::view-transition-old(streetcred-graphic-main),
+```css
+::view-transition-old(streetcred-graphic-main),
 ::view-transition-old(streetcred-graphic-main-img) {
   display: none;
-}</code></pre>
+}
+```
 
 We need to hide the old snapshot for all six elements. The complete ruleset ends up being:
 
-<pre><code class="language-css">::view-transition-old(streetcred-title),
+```css
+::view-transition-old(streetcred-title),
 ::view-transition-old(streetcred-graphic-main),
 ::view-transition-old(streetcred-graphic-main-img),
 ::view-transition-old(streetcred-graphic-board),
 ::view-transition-old(streetcred-graphic-poi),
 ::view-transition-old(streetcred-graphic-cubes) {
   display: none;
-}</code></pre>
+}
+```
 
 It’s repetitive, but we set it once and forget it. This isn’t to say the old snapshot in `::view-transition-old` is useless, only that I don’t have a use for it in these transitions. I’m still figuring out exactly how to use them. I **think** they could be useful if I decided I wanted some type of outro transition when leaving the page.
 
 Back to the rest of the animation. In our `prefers-reduced-motion` media query, we apply new animations to the `streetcred-graphic-main` and `streetcred-graphic-main-img` view transitions.
 
-<pre><code class="language-css">@media (prefers-reduced-motion: no-preference) {
-   ::view-transition-new(streetcred-graphic-main) {
-    animation: graphicMain 0.5s ease;
-   }
+```css
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-new(streetcred-graphic-main) {
+  animation: graphicMain 0.5s ease;
+  }
 
-   ::view-transition-new(streetcred-graphic-main-img) {
-     animation: graphicMainImg 0.9s ease;
-   }
-}</code></pre>
+  ::view-transition-new(streetcred-graphic-main-img) {
+  animation: graphicMainImg 0.9s ease;
+  }
+}
+```
 
 And the `graphicMain` and `graphicMainImg` keyframes:
 
-<pre><code class="language-css">@keyframes graphicMain {
-  0%, 50% {
-    opacity: 0;
-    translate: 0 100px;
+```css
+@keyframes graphicMain {
+  0%,
+  50% {
+  opacity: 0;
+  translate: 0 100px;
   }
 
   100% {
-    opacity: 1;
-    translate: 0;
+  opacity: 1;
+  translate: 0;
   }
 }
 
 @keyframes graphicMainImg {
-  0%, 75% {
-    opacity: 0;
-    scale: 0.9;
+  0%,
+  75% {
+  opacity: 0;
+  scale: 0.9;
   }
 
   100% {
-    opacity: 1;
-    scale: 1;
+  opacity: 1;
+  scale: 1;
   }
-}</code></pre>
+}
+```
 
 These are both typical `keyframes` rulesets, with a small timing trick that I’ll explain shortly. `graphicMain` animates the opacity and Y translation of the main device to make it appear. `graphicMainImg` animates the opacity and scale of the app screen to give that splash-screen-to-app-initialized effect.
 
@@ -189,32 +207,35 @@ Next up, we’ll transition the three smaller app details that sit above the mai
 
 <figure>
   <video src="https://stuff.tylergaw.com/post-complex-view-transitions/work-transitions-2.mp4" controls></video>
-    <figcaption>fig 6: The leaderboard detail transitioning into place.</figcaption>
+  <figcaption>fig 6: The leaderboard detail transitioning into place.</figcaption>
 </figure>
 
 We follow a similar pattern as with the previous elements. Again, in our `prefers-reduce-motion` media query we apply a keyframe animation to the new snapshot:
 
-<pre><code class="language-css">@media (prefers-reduced-motion: no-preference) {
-   ...
-  ::view-transition-new(streetcred-graphic-board) {
-    animation: graphicDetail var(--duration, 1.2s) ease;
+```css
+@media (prefers-reduced-motion: no-preference) {
+  ... ::view-transition-new(streetcred-graphic-board) {
+  animation: graphicDetail var(--duration, 1.2s) ease;
   }
-}</code></pre>
+}
+```
 
 Notice this time we’re using a custom property, `--duration`, to set the animation duration. We’ll take advantage of that for later elements. Then, the `graphicDetails` animation is:
 
-<pre><code class="language-css">@keyframes graphicDetail {
+```css
+@keyframes graphicDetail {
   0%,
   80% {
-    opacity: 0;
-    transform: scale(0.5) translateY(180px);
+  opacity: 0;
+  transform: scale(0.5) translateY(180px);
   }
 
   100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
+  opacity: 1;
+  transform: scale(1) translateY(0);
   }
-}</code></pre>
+}
+```
 
 Again, we’re using the `0%,80` timing trick. The property changes get our fade in, scale, and float up into place. Notice the order. The element starts scaled and translated down, then transitions to normal scale and translation. Here’s a tangent about how I think about these types of animations. Imagine you have a bowling ball attached to a rope that’s tied to a rafter in the ceiling. Then the bowling ball is hoisted up to the ceiling while keeping the rope taut and the ball is fastend to the ceiling with another piece of rope. That’s the `0% to 80%` position of the animation. To start the animation, we cut the second piece of rope that had the ball secured to the ceiling, allowing the bowling ball to swing down until comes to a resting or, `100%`, position.
 
@@ -222,25 +243,26 @@ From here, we can transition the other two app details. They’re similar to the
 
 <figure>
   <video src="https://stuff.tylergaw.com/post-complex-view-transitions/work-transitions-3.mp4" controls></video>
-    <figcaption>fig 7: The POI and cubes details transitioning into place.</figcaption>
+  <figcaption>fig 7: The POI and cubes details transitioning into place.</figcaption>
 </figure>
 
 Notice they don’t all transition in at the same time, and they don’t wait for each other to finish before starting. That helps sell it. We want that slight overlap in timing to make the compisition more interesting. To do that, we apply the same `graphicDetail` animation to the POI and cubes details, but we customize the `--duration` custom property.
 
-<pre><code class="language-css">@media (prefers-reduced-motion: no-preference) {
-   ...
-  ::view-transition-new(streetcred-graphic-board),
+```css
+@media (prefers-reduced-motion: no-preference) {
+  ... ::view-transition-new(streetcred-graphic-board),
   ::view-transition-new(streetcred-graphic-poi),
   ::view-transition-new(streetcred-graphic-cubes) {
-    animation: graphicDetail var(--duration, 1.2s) ease;
+  animation: graphicDetail var(--duration, 1.2s) ease;
   }
   ::view-transition-new(streetcred-graphic-poi) {
-    --duration: 1.4s;
+  --duration: 1.4s;
   }
   ::view-transition-new(streetcred-graphic-cubes) {
-    --duration: 1.6s;
+  --duration: 1.6s;
   }
-}</code></pre>
+}
+```
 
 Since we’re using the same `0%,80%` stops on the `graphicDetail` keyframes, setting a different duration on each snapshot causes them to start and end at different times.
 
@@ -248,7 +270,7 @@ The last element we need to transition is the StreetCred title. It’s the endin
 
 <figure>
   <video src="https://stuff.tylergaw.com/post-complex-view-transitions/work-transitions-4.mp4" controls></video>
-    <figcaption>fig 8: The title transitioning into place.</figcaption>
+  <figcaption>fig 8: The title transitioning into place.</figcaption>
 </figure>
 
 This follows the same patterns as the other elements. Apply an animation with our timing trick to the new snapshot, set the properties we want to transition, and watch it go. It doesn’t wait for the three detail elements to complete. It starts transitioning in the final milliseconds of the last one, with a light whisping into place to complete the composition.
@@ -259,24 +281,24 @@ The other project pages and the about page follow the same patterns. They’re l
 
 <figure>
   <video src="https://stuff.tylergaw.com/post-complex-view-transitions/work-transitions-5.mp4" controls></video>
-    <figcaption>fig 9: The Limbo project hero transition</figcaption>
+  <figcaption>fig 9: The Limbo project hero transition</figcaption>
 </figure>
 
 The speed and duration of each transition is meant to reflect to overall tone of the project. The Groundwork is notably less snappy than the others to give it a bit of an airy, “ahhhh”-choir feel.
 
 <figure>
   <video src="https://stuff.tylergaw.com/post-complex-view-transitions/work-transitions-6.mp4" controls></video>
-    <figcaption>fig 10: The Groundwork project hero transition</figcaption>
+  <figcaption>fig 10: The Groundwork project hero transition</figcaption>
 </figure>
 
 <figure>
   <video src="https://stuff.tylergaw.com/post-complex-view-transitions/work-transitions-7.mp4" controls></video>
-    <figcaption>fig 11: The Building OS X Apps with JavaScript project hero transition</figcaption>
+  <figcaption>fig 11: The Building OS X Apps with JavaScript project hero transition</figcaption>
 </figure>
 
 <figure>
   <video src="https://stuff.tylergaw.com/post-complex-view-transitions/work-transitions-8.mp4" controls></video>
-    <figcaption>fig 12: The about page hero transition</figcaption>
+  <figcaption>fig 12: The about page hero transition</figcaption>
 </figure>
 
 Worth mentioning again that this is just CSS with a touch of HTML. Also worth pointing out that very little of this is specific to CSS view transitions. 90% of this is CSS keyframes coupled with principles of good animation.

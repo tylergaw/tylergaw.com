@@ -1,8 +1,10 @@
 ---
+highlightSyntax: true
 tags: post
 layout: "layout-article.webc"
 title: "I Less Than Three IE6"
 date: "2009-07-27"
+hightlightSyntax: true
 meta:
   description:
     Web design is hard, that's why it's fun and why not everyone does it. With
@@ -20,17 +22,20 @@ IE6 has well-known issues with the box model, strange padding and margin issue, 
 <strong>2. It gives you yet another chance to get creative: </strong>
 So what if IE6 doesn't support transparent pngs. Find a way to make that image a transparent gif or a jpg. Doesn't look as crisp as the png? So what, this is where progressive enhancement steps in, this is why we have conditional comments. Set up an IE6 stylesheet and dump all of the not so desirable CSS in there. Chances are most of your users are not on IE6 anyway, and if they are this can be a friendly little jab at them for using it. I took this route when building my site. I wanted to let anyone viewing my site with The 6 know that they are missing out so I created a completely stripped down version just for IE6, plus a nice reminder of why. It still works, you can access all the same content, it's just not pretty.
 
-        <figure>
-          <img src='https://tylergaw.com/articles/assets/post_image_tgawie6_thumb.jpg' alt='tylergaw.com IE6 Screenshot'>
-          <figcaption>Users of IE6 receive a version of tylergaw.com that contains all the same content, but has a very pared-down aesthetic.</figcaption>
-        </figure>
-        <p>
-          <strong>3. It forces you to clean up sloppy code that other browsers ignore: </strong>
-          I've seen this a number of times when writing Javascript. Take a look at this bit of JS:
-        </p>
-    		    	<pre><code class="language-javascript">var someCrud = ['item01', 'item02', 'item03',];
+<figure>
+  <img src='https://tylergaw.com/articles/assets/post_image_tgawie6_thumb.jpg' alt='tylergaw.com IE6 Screenshot'>
+  <figcaption>Users of IE6 receive a version of tylergaw.com that contains all the same content, but has a very pared-down aesthetic.</figcaption>
+</figure>
+<p>
+  <strong>3. It forces you to clean up sloppy code that other browsers ignore: </strong>
+  I've seen this a number of times when writing Javascript. Take a look at this bit of JS:
+</p>
 
-alert(someCrud.length);</code></pre>
+```javascript
+var someCrud = ["item01", "item02", "item03"];
+
+alert(someCrud.length);
+```
 
 <p>
 What's the length of the array? Firefox and Safari say 3. IE6 says 4. I'm siding with The 6 on this one, the comma at the end of the array is erroneous, it should not be there. IE6 sends the message that you should clean up your code by recognizing the extra item while the more advanced browsers ignore it and let you go on your sloppy way. This is just one example, I've come across a number of similar examples over the years, I'm sure others have too.
@@ -48,7 +53,4 @@ This viewpoint is 100% from that of a developer. As a user, I agree using IE6 wo
 </p>
 <p>
 After IE6 is gone some other browser will take it's place as the whipping boy. IE7? So, instead of just joining a campaign of wishing death on an inanimate object, I say learn to take away as much knowledge as you can from a less-than-ideal situation. Like Kuato said, "<a href='http://www.youtube.com/watch?v=xO1kKemcwYk' rel='external'>Open your miiinddddd.</a>"
-</p>
-<p>
-<i>Thanks for reading</i>
 </p>

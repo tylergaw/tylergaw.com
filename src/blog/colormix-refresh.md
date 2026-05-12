@@ -27,7 +27,7 @@ With those things in mind, I got to work reimagining and refreshing the UI.
 
 <figure>
   <picture>
-    <img src="https://tylergaw.com/blog/assets/post-image-colormix-mvp-screenshot.jpg" alt="A screenshot of colormix.style" />
+  <img src="https://tylergaw.com/blog/assets/post-image-colormix-mvp-screenshot.jpg" alt="A screenshot of colormix.style" />
   </picture>
   <figcaption>fig 1: <a href="https://www.colormix.style">colormix.style</a> MVP design that was functional, but left a lot of room for improvement.</figcaption>
 </figure>
@@ -38,7 +38,7 @@ The basic utility was there, but it just wasn't what I knew it could be. As I us
 
 <figure>
   <picture>
-    <img src="https://tylergaw.com/blog/assets/post-image-colormix-refresh-after.jpg" alt="A screenshot of colormix.style showing the improved design" />
+  <img src="https://tylergaw.com/blog/assets/post-image-colormix-refresh-after.jpg" alt="A screenshot of colormix.style showing the improved design" />
   </picture>
   <figcaption>fig 2: <a href="https://www.colormix.style">colormix.style</a> Improved design</figcaption>
 </figure>

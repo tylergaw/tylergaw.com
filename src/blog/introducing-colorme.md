@@ -22,24 +22,36 @@ meta:
 <p>
   There are more detailed <a href="https://topaxi.codes/modifying-css-colors-with-the-color-function/"> articles</a> about the color function. I'll give a brief overview of it here. On its own, <code>color</code> doesn't do anything with the given base color:
 </p>
-<pre><code class="language-css">color(#ea3333) /* output is the same as input */</code></pre>
+
+```css
+color(#ea3333) /* output is the same as input */
+```
+
 <p>
   The power of the function is in adjusters. These are transformations applied to the base color. The current draft spec lists 15 available adjusters; <code>alpha</code>, <code>rgb</code>, <code>red</code>, <code>green</code>, <code>blue</code>, <code>hue</code>, <code>saturation</code>, <code>lightness</code>, <code>whiteness</code>, <code>blackness</code>, <code>tint</code>, <code>shade</code>, <code>blend</code>, <code>blenda</code>, and <code>contrast</code>.
 </p>
 <p>
   The <code>color</code> function allows you to apply one or more adjusters to the given base color:
 </p>
-<pre><code class="language-css">color(#ea3333 alpha(90%) saturation(75%) shade(20%)) /* rgba(182, 47, 47, 0.9) */</code></pre>
+
+```css
+color(#ea3333 alpha(90%) saturation(75%) shade(20%)) /* rgba(182, 47, 47, 0.9) */
+```
+
 <p>
   Many of the adjusters also have short names:
 </p>
-<pre><code class="language-css">color(#ea3333 a(90%) s(75%) shade(20%)) /* rgba(182, 47, 47, 0.9) */</code></pre>
+
+```css
+color(#ea3333 a(90%) s(75%) shade(20%)) /* rgba(182, 47, 47, 0.9) */
+```
+
 <p>
   Like Sass, using the CSS Color Function in code can be difficult visualize. Colors are easier to work with when you can see them. That's why SassMe is so darn useful. And that's why I thought we needed the same for CSS.
 </p>
 <figure>
   <a href="https://colorme.io">
-    <img src="https://tylergaw.com/articles/assets/post-image-colorme-screenshot-1.png" alt="A screenshot of colorme.io" />
+  <img src="https://tylergaw.com/articles/assets/post-image-colorme-screenshot-1.png" alt="A screenshot of colorme.io" />
   </a>
   <figcaption>
    This is <a href="https://colorme.io">ColorMe.io</a>
@@ -53,8 +65,12 @@ meta:
 <p>
   Before getting any UI in place I needed to see a first thing work. I needed to convert color function strings to rgb(a) strings. For that I used the <code>css-color-function</code> package. I started by importing the package and logging results of its use:
 </p>
-<pre><code class="language-js">import colorFn from 'css-color-function';
-console.log(colorFn.convert('color(red alpha(50%))')); // rgba(255, 0, 0, 0.5)</code></pre>
+
+```js
+import colorFn from "css-color-function";
+console.log(colorFn.convert("color(red alpha(50%))")); // rgba(255, 0, 0, 0.5)
+```
+
 <p>
   No major breakthrough, but that's how I get myself going. Just get one win no matter how small. From there it was a matter of building up functionality piece by piece.
 </p>

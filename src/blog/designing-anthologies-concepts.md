@@ -32,7 +32,7 @@ meta:
 <figure>
   <img src="https://tylergaw.com/articles/assets/post-image-anthology-grid.png" alt="The seven column grid in use for the first anthologies.co concepts. It's slightly off center to the right. The gap on the left gives room for the branding banner.">
   <figcaption>
-    The 7-column grid.
+  The 7-column grid.
   </figcaption>
 </figure>
 <p>
@@ -48,12 +48,12 @@ meta:
 <h3>1. Two-up</h3>
 <figure>
   <picture>
-    <source srcset="https://tylergaw.com/articles/assets/post-image-1-anthology-two-up.webp" type="image/webp">
-    <source srcset="https://tylergaw.com/articles/assets/post-image-1-anthology-two-up.png" type="image/png">
-    <img src="https://tylergaw.com/articles/assets/post-image-1-anthology-two-up.png" alt="A early mock-up of a single Anthology on anthologies.co">
+  <source srcset="https://tylergaw.com/articles/assets/post-image-1-anthology-two-up.webp" type="image/webp">
+  <source srcset="https://tylergaw.com/articles/assets/post-image-1-anthology-two-up.png" type="image/png">
+  <img src="https://tylergaw.com/articles/assets/post-image-1-anthology-two-up.png" alt="A early mock-up of a single Anthology on anthologies.co">
   </picture>
   <figcaption>
-    Iteration 1 “Two-up”: The first mock-up I got to a done-enough state.
+  Iteration 1 “Two-up”: The first mock-up I got to a done-enough state.
   </figcaption>
 </figure>
 <p>
@@ -71,12 +71,12 @@ meta:
 </p>
 <figure>
   <picture>
-    <source srcset="https://tylergaw.com/articles/assets/post-image-anthologies-1-sketch-layers.webp" type="image/webp">
-    <source srcset="https://tylergaw.com/articles/assets/post-image-anthologies-1-sketch-layers.png" type="image/png">
-    <img src="https://tylergaw.com/articles/assets/post-image-anthologies-1-sketch-layers.png" alt="A screenshot of the Sketch.app layers palette for these Anthologies designs">
+  <source srcset="https://tylergaw.com/articles/assets/post-image-anthologies-1-sketch-layers.webp" type="image/webp">
+  <source srcset="https://tylergaw.com/articles/assets/post-image-anthologies-1-sketch-layers.png" type="image/png">
+  <img src="https://tylergaw.com/articles/assets/post-image-anthologies-1-sketch-layers.png" alt="A screenshot of the Sketch.app layers palette for these Anthologies designs">
   </picture>
   <figcaption>
-    The layers palette of the Sketch file for Anthologies mock-ups.
+  The layers palette of the Sketch file for Anthologies mock-ups.
   </figcaption>
 </figure>
 
@@ -87,12 +87,12 @@ meta:
 <h3>2. Grid Dark</h3>
 <figure>
   <picture>
-    <source srcset="https://tylergaw.com/articles/assets/post-image-2-anthology-grid-dark.webp" type="image/webp">
-    <source srcset="https://tylergaw.com/articles/assets/post-image-2-anthology-grid-dark.png" type="image/png">
-    <img src="https://tylergaw.com/articles/assets/post-image-2-anthology-grid-dark.png" alt="A early mock-up of a single Anthology on anthologies.co">
+  <source srcset="https://tylergaw.com/articles/assets/post-image-2-anthology-grid-dark.webp" type="image/webp">
+  <source srcset="https://tylergaw.com/articles/assets/post-image-2-anthology-grid-dark.png" type="image/png">
+  <img src="https://tylergaw.com/articles/assets/post-image-2-anthology-grid-dark.png" alt="A early mock-up of a single Anthology on anthologies.co">
   </picture>
   <figcaption>
-    Iteration 2 “Grid dark”: An iteration on the first mock-up where the entries float on top of the cover image.
+  Iteration 2 “Grid dark”: An iteration on the first mock-up where the entries float on top of the cover image.
   </figcaption>
 </figure>
 
@@ -107,12 +107,12 @@ meta:
 <h3>3. Text Light</h3>
 <figure>
   <picture>
-    <source srcset="https://tylergaw.com/articles/assets/post-image-3-anthology-text-light.webp" type="image/webp">
-    <source srcset="https://tylergaw.com/articles/assets/post-image-3-anthology-text-light.png" type="image/png">
-    <img src="https://tylergaw.com/articles/assets/post-image-3-anthology-text-light.png" alt="A early mock-up of a single Anthology on anthologies.co">
+  <source srcset="https://tylergaw.com/articles/assets/post-image-3-anthology-text-light.webp" type="image/webp">
+  <source srcset="https://tylergaw.com/articles/assets/post-image-3-anthology-text-light.png" type="image/png">
+  <img src="https://tylergaw.com/articles/assets/post-image-3-anthology-text-light.png" alt="A early mock-up of a single Anthology on anthologies.co">
   </picture>
   <figcaption>
-    Iteration 3 “Text light”: A light-weight, brighter concept using mostly text and only a cover image.
+  Iteration 3 “Text light”: A light-weight, brighter concept using mostly text and only a cover image.
   </figcaption>
 </figure>
 
@@ -129,12 +129,12 @@ meta:
 <h3>4. Text Light Imgs</h3>
 <figure>
   <picture>
-    <source srcset="https://tylergaw.com/articles/assets/post-image-4-anthology-text-light-imgs.webp" type="image/webp">
-    <source srcset="https://tylergaw.com/articles/assets/post-image-4-anthology-text-light-imgs.png" type="image/png">
-    <img src="https://tylergaw.com/articles/assets/post-image-4-anthology-text-light-imgs.png" alt="A early mock-up of a single Anthology on anthologies.co">
+  <source srcset="https://tylergaw.com/articles/assets/post-image-4-anthology-text-light-imgs.webp" type="image/webp">
+  <source srcset="https://tylergaw.com/articles/assets/post-image-4-anthology-text-light-imgs.png" type="image/png">
+  <img src="https://tylergaw.com/articles/assets/post-image-4-anthology-text-light-imgs.png" alt="A early mock-up of a single Anthology on anthologies.co">
   </picture>
   <figcaption>
-    Iteration 4 “Text light imgs”: A tweak on Text light. This time including an image thumbnail with each entry.
+  Iteration 4 “Text light imgs”: A tweak on Text light. This time including an image thumbnail with each entry.
   </figcaption>
 </figure>
 <p>
@@ -150,12 +150,12 @@ meta:
 <h3>5. Text Light Two</h3>
 <figure>
   <picture>
-    <source srcset="https://tylergaw.com/articles/assets/post-image-5-anthology-text-light-two.webp" type="image/webp">
-    <source srcset="https://tylergaw.com/articles/assets/post-image-5-anthology-text-light-two.png" type="image/png">
-    <img src="https://tylergaw.com/articles/assets/post-image-5-anthology-text-light-two.png" alt="A early mock-up of a single Anthology on anthologies.co">
+  <source srcset="https://tylergaw.com/articles/assets/post-image-5-anthology-text-light-two.webp" type="image/webp">
+  <source srcset="https://tylergaw.com/articles/assets/post-image-5-anthology-text-light-two.png" type="image/png">
+  <img src="https://tylergaw.com/articles/assets/post-image-5-anthology-text-light-two.png" alt="A early mock-up of a single Anthology on anthologies.co">
   </picture>
   <figcaption>
-    Iteration 5 “Text light two”: There's a lot more going on in this one.
+  Iteration 5 “Text light two”: There's a lot more going on in this one.
   </figcaption>
 </figure>
 <p>
@@ -168,12 +168,12 @@ meta:
 <h3>6. Spartan</h3>
 <figure>
   <picture>
-    <source srcset="https://tylergaw.com/articles/assets/post-image-6-anthology-spartan.webp" type="image/webp">
-    <source srcset="https://tylergaw.com/articles/assets/post-image-6-anthology-spartan.png" type="image/png">
-    <img src="https://tylergaw.com/articles/assets/post-image-6-anthology-spartan.png" alt="A early mock-up of a single Anthology on anthologies.co">
+  <source srcset="https://tylergaw.com/articles/assets/post-image-6-anthology-spartan.webp" type="image/webp">
+  <source srcset="https://tylergaw.com/articles/assets/post-image-6-anthology-spartan.png" type="image/png">
+  <img src="https://tylergaw.com/articles/assets/post-image-6-anthology-spartan.png" alt="A early mock-up of a single Anthology on anthologies.co">
   </picture>
   <figcaption>
-    Iteration 6 “Spartan”: Just text and images-as-content
+  Iteration 6 “Spartan”: Just text and images-as-content
   </figcaption>
 </figure>
 
@@ -187,12 +187,12 @@ meta:
 <h3>7. Party</h3>
 <figure>
   <picture>
-    <source srcset="https://tylergaw.com/articles/assets/post-image-7-anthology-party-1.webp" type="image/webp">
-    <source srcset="https://tylergaw.com/articles/assets/post-image-7-anthology-party-1.png" type="image/png">
-    <img src="https://tylergaw.com/articles/assets/post-image-7-anthology-party-1.png" alt="A early mock-up of a single Anthology on anthologies.co">
+  <source srcset="https://tylergaw.com/articles/assets/post-image-7-anthology-party-1.webp" type="image/webp">
+  <source srcset="https://tylergaw.com/articles/assets/post-image-7-anthology-party-1.png" type="image/png">
+  <img src="https://tylergaw.com/articles/assets/post-image-7-anthology-party-1.png" alt="A early mock-up of a single Anthology on anthologies.co">
   </picture>
   <figcaption>
-    Iteration 7 “Party 1”: Just throwing everything at the wall to see what sticks.
+  Iteration 7 “Party 1”: Just throwing everything at the wall to see what sticks.
   </figcaption>
 </figure>
 

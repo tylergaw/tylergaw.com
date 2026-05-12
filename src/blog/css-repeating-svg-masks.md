@@ -27,9 +27,9 @@ meta:
 </p>
 <figure>
   <picture>
-    <source srcset="https://tylergaw.com/articles/assets/post-image-repeating-masks-streetcred-banner.webp" type="image/webp">
-    <source srcset="https://tylergaw.com/articles/assets/post-image-repeating-masks-streetcred-banner.png" type="image/jpeg">
-    <img src="https://tylergaw.com/articles/assets/post-image-repeating-masks-streetcred-banner.png" alt="A screenshot of a purple, blue, red, and orange banner from the StreetCred website." />
+  <source srcset="https://tylergaw.com/articles/assets/post-image-repeating-masks-streetcred-banner.webp" type="image/webp">
+  <source srcset="https://tylergaw.com/articles/assets/post-image-repeating-masks-streetcred-banner.png" type="image/jpeg">
+  <img src="https://tylergaw.com/articles/assets/post-image-repeating-masks-streetcred-banner.png" alt="A screenshot of a purple, blue, red, and orange banner from the StreetCred website." />
   </picture>
   <figcaption>fig 1: Banner squiggles from <a href="https://streetcred.co">streetcred.co</a></figcaption>
 </figure>
@@ -62,9 +62,9 @@ meta:
 
 <figure>
   <picture>
-    <source srcset="https://tylergaw.com/articles/assets/post-image-repeating-masks-creating-svg.webp" type="image/webp">
-    <source srcset="https://tylergaw.com/articles/assets/post-image-repeating-masks-creating-svg.png" type="image/png">
-    <img src="https://tylergaw.com/articles/assets/post-image-repeating-masks-creating-svg.png" alt="A screenshot in Sketch app showing the demo squiggle vector being created.">
+  <source srcset="https://tylergaw.com/articles/assets/post-image-repeating-masks-creating-svg.webp" type="image/webp">
+  <source srcset="https://tylergaw.com/articles/assets/post-image-repeating-masks-creating-svg.png" type="image/png">
+  <img src="https://tylergaw.com/articles/assets/post-image-repeating-masks-creating-svg.png" alt="A screenshot in Sketch app showing the demo squiggle vector being created.">
   </picture>
 
   <figcaption>fig 2: Creating the demo SVG in Sketch</figcaption>
@@ -91,10 +91,11 @@ meta:
   truncated the value of the <code>d</code> attribute for brevity.
 </p>
 
-<pre><code class="language-svg">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 75"&gt;
-  &lt;path id="squiggle" d="M12 19.778C12 1.318..." /&gt;
-&lt;/svg&gt;
-</code></pre>
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 75">
+  <path id="squiggle" d="M12 19.778C12 1.318..." />
+</svg>
+```
 
 <p>
   We’ll use the <code>id</code> attribute as a reference in CSS. Notice we don’t need
@@ -107,14 +108,18 @@ meta:
   The HTML is a single <code>div</code>. The CSS is three properties.
 </p>
 
-<pre><code class="language-html">&lt;div class="repeater"&gt;&lt;/div&gt;</code></pre>
+```html
+<div class="repeater"></div>
+```
 
-<pre><code class="language-css">.repeater {
+```css
+.repeater {
   background-color: red;
   /* This fixed height is only for demo, your use cases might not need it */
   height: 75px;
   mask-image: url("/path/to/repeater.svg#squiggle");
-}</code></pre>
+}
+```
 
 <p>
   As of this writing, this CSS works in Firefox, but not in Chrome, Safari,
@@ -123,14 +128,16 @@ meta:
   it in a custom property to make it reusable.
 </p>
 
-<pre><code class="language-css">.repeater {
+```css
+.repeater {
   background-color: red;
   /* This fixed height is only for demo, your use cases might not need it */
   height: 75px;
   --svg: url("/path/to/repeater.svg#squiggle");
   -webkit-mask-image: var(--svg);
   mask-image: var(--svg);
-}</code></pre>
+}
+```
 
 <p>
   With the prefixed version of <code>mask-image</code> in place, this works in all current
@@ -139,14 +146,14 @@ meta:
 
 <figure>
   <style>
-    .demo-repeater {
+  .demo-repeater {
       background-color: red;
       /* This fixed height is only for demo, your use cases might not need it */
       height: 75px;
       --svg: url("https://tylergaw-assets.s3.amazonaws.com/inline-masks/repeater.svg#squiggle");
       -webkit-mask-image: var(--svg);
       mask-image: var(--svg);
-    }
+  }
   </style>
   <div class="demo-repeater"></div>
   <figcaption>fig 3: A live demo of the technique. The CSS is inline for inspection.</figcaption>
@@ -172,15 +179,18 @@ meta:
   With a functional foundation in place, we can have fun with it. We can style the underlying <code>div</code> any
   way we want to create different effects. We can change the color.
 </p>
-<pre><code class="language-css">.repeater--orange {
+
+```css
+.repeater--orange {
   background-color: orange;
-}</code></pre>
+}
+```
 
 <figure>
   <style>
-    .demo-repeater--orange {
+  .demo-repeater--orange {
       background-color: orange;
-    }
+  }
   </style>
   <div class="demo-repeater demo-repeater--orange"></div>
   <figcaption>fig 4: A live demo of the technique showing that we can change the color with CSS.</figcaption>
@@ -189,15 +199,17 @@ meta:
   We can take that further by setting a background image.
 </p>
 
-<pre><code class="language-css">.repeater--gradient {
+```css
+.repeater--gradient {
   background: transparent linear-gradient(90deg, red, purple, blue, green);
-}</code></pre>
+}
+```
 
 <figure>
   <style>
-    .demo-repeater--gradient {
+  .demo-repeater--gradient {
       background: transparent linear-gradient(90deg, red, purple, blue, green);
-    }
+  }
   </style>
   <div class="demo-repeater demo-repeater--gradient"></div>
   <figcaption>fig 5: A live demo of the technique showing that we can use a background image</figcaption>
@@ -208,15 +220,17 @@ meta:
   of the <code>div</code> to produce something different.
 </p>
 
-<pre><code class="language-css">.repeater--sized {
+```css
+.repeater--sized {
   height: 18px;
-}</code></pre>
+}
+```
 
 <figure>
   <style>
-    .demo-repeater--sized {
+  .demo-repeater--sized {
       height: 12px;
-    }
+  }
   </style>
   <div class="demo-repeater demo-repeater--sized"></div>
   <figcaption>fig 6: A live demo of the technique showing that we can change the size</figcaption>
@@ -228,21 +242,23 @@ meta:
   of texture.
 </p>
 
-<pre><code class="language-css">.repeater--textured {
+```css
+.repeater--textured {
   --texture-lines: 10;
   --mask-size: calc(250px / var(--texture-lines));
   -webkit-mask-size: var(--mask-size);
   mask-size: var(--mask-size);
-}</code></pre>
+}
+```
 
 <figure>
   <style>
-    .demo-repeater--textured {
+  .demo-repeater--textured {
       --texture-lines: 10;
       --mask-size: calc(250px / var(--texture-lines));
       -webkit-mask-size: var(--mask-size);
       mask-size: var(--mask-size);
-    }
+  }
   </style>
   <div class="demo-repeater demo-repeater--textured"></div>
   <figcaption>fig 7: A live demo of the technique showing that we can use mask-size to produce a texture</figcaption>
@@ -261,28 +277,30 @@ meta:
   Change over time equals motion.
 </p>
 
-<pre><code class="language-css">@keyframes move {
+```css
+@keyframes move {
   to {
-    --pos: 150%;
-    -webkit-mask-position: var(--pos);
-    mask-position: var(--pos);
+  --pos: 150%;
+  -webkit-mask-position: var(--pos);
+  mask-position: var(--pos);
   }
 }
 .repeater--animated {
   animation: move 0.6s infinite linear alternate;
-}</code></pre>
+}
+```
 
 <style>
   @keyframes move {
-    to {
+  to {
       --pos: 150%;
       -webkit-mask-position: var(--pos);
       mask-position: var(--pos);
-    }
+  }
   }
 
   .demo-repeater--animated {
-    animation: move 0.6s infinite linear alternate;
+  animation: move 0.6s infinite linear alternate;
   }
 </style>
 

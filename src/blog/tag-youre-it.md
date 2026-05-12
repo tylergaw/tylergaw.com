@@ -33,7 +33,7 @@ Locally in VSCode. In years past it’s been other text editors, but always just
 
 <figure>
   <picture>
-    <img src="https://stuff.tylergaw.com/post-tag-youre-it/writing-in-vscode.jpg" alt="A screenshot of my writing setup in VSCode" />
+  <img src="https://stuff.tylergaw.com/post-tag-youre-it/writing-in-vscode.jpg" alt="A screenshot of my writing setup in VSCode" />
   </picture>
   <figcaption>fig 1: My writing setup in VSCode</figcaption>
 </figure>

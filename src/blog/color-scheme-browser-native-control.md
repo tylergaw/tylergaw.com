@@ -21,7 +21,7 @@ Best place to start is a demo. Here’s how this would work in Chrome:
 
 <figure>
   <video src="https://stuff.tylergaw.com/post-color-scheme-browser-native-control/browser-native-color-scheme-demo-chrome-1.mp4" controls></video>
-    <figcaption>fig 1: The color scheme control lives in a familiar location in the Chrome URL bar and works as you’d expect.</figcaption>
+  <figcaption>fig 1: The color scheme control lives in a familiar location in the Chrome URL bar and works as you’d expect.</figcaption>
 </figure>
 
 The UI shouldn’t be surprising. There’s a color scheme button in the URL bar. Tapping it shows a popover that contains a select. The select options are the site’s available color schemes. Choosing an option sets the color scheme for that site.
@@ -65,7 +65,10 @@ So Firefox is close, but we need per-site control.
 
 The good news here is I think we have everything we need already. Today, we use `color-scheme`, `light-dark`, and `prefers-color-scheme` to create schemes.
 
-<pre><code class="language-css">:root { color-scheme: light dark; }
+```css
+:root {
+  color-scheme: light dark;
+}
 
 body {
   color: light-dark(black, white);
@@ -73,13 +76,17 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-  body { font-size: 95%; }
+  body {
+    font-size: 95%;
+  }
 }
-</code></pre>
+```
 
 For a site to tell browsers they want to opt-in to showing the color scheme control, I propose we **require** a `color-scheme` meta tag.
 
-<pre><code class="language-html">&lt;meta name="color-scheme" content="light dark"&gt;</code></pre>
+```html
+<meta name="color-scheme" content="light dark" />
+```
 
 If a site doesn’t have the `color-scheme` meta tag, the color scheme button would not show up.
 
@@ -95,9 +102,11 @@ That might not work though. Sites should be able to detect support for the nativ
 
 This should be a simple check for support in JavaScript:
 
-<pre><code class="language-js">if (!navigator.colorScheme) {
-  // Setup and display custom color scheme control
-}</code></pre>
+```js
+if (!navigator.colorScheme) {
+  /* Setup and display custom color scheme control */
+}
+```
 
 In those cases, sites can implement a custom in-page control. Not ideal, but ensures all users are able to change the color scheme.
 
@@ -158,18 +167,23 @@ Right now, the `color-scheme` property and meta tag only support `light` and `da
 
 There’s no reason this feature can’t follow the same path. Say a site has a custom sepia scheme it wants to make available. The author declares it with the `color-scheme` meta:
 
-<pre><code class="language-html">&lt;meta name="color-scheme" content="light dark sepia"&gt;</code></pre>
+```html
+<meta name="color-scheme" content="light dark sepia" />
+```
 
 And sets it up in the CSS:
 
-<pre><code class="language-css">:root { color-scheme: light dark sepia; }
-/* scheme styles go here */</code></pre>
+```css
+:root {
+  color-scheme: light dark sepia;
+} /* scheme styles go here */
+```
 
 The sepia theme would then be available in the color scheme control:
 
 <figure>
   <video src="https://stuff.tylergaw.com/post-color-scheme-browser-native-control/browser-native-color-scheme-demo-chrome-2.mp4" controls></video>
-    <figcaption>fig 3: A possible future where sites can go beyond light and dark with custom color schemes.</figcaption>
+  <figcaption>fig 3: A possible future where sites can go beyond light and dark with custom color schemes.</figcaption>
 </figure>
 
 ## More examples
@@ -211,9 +225,7 @@ Safari is interesting. It doesn’t really do contextual buttons in the URL bar.
 </figure>
 
 <p class="offset-no-indent">
-
-This fits nicely with the trajectory and current status of `color-scheme`, `light-dark()`, and related specs. This wouldn’t have been a good idea, say, 2 years ago. We just didn’t know enough yet. But now, feels like we have a solid foundation to build on.
-
-I don’t know what the processes are for getting a feature like this in various browsers. I’m sure it’s different for them all. The first step is this, just getting it written down and in front of people. I know I’d use this many times a day every day. Now to see if anyone else would too.
-
+  This fits nicely with the trajectory and current status of `color-scheme`, `light-dark()`, and related specs. This wouldn’t have been a good idea, say, 2 years ago. We just didn’t know enough yet. But now, feels like we have a solid foundation to build on.
+  <br/>
+  I don’t know what the processes are for getting a feature like this in various browsers. I’m sure it’s different for them all. The first step is this, just getting it written down and in front of people. I know I’d use this many times a day every day. Now to see if anyone else would too.
 </p>

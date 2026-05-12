@@ -72,7 +72,7 @@ meta:
   getting to the final color. I mentioned before I need colors to meet certain
   contrast ratios. To do that I use the
   <a href="https://webaim.org/resources/contrastchecker/"
-    >WebAIM contrast checker</a
+  >WebAIM contrast checker</a
   >. I compared the green with the charcoal background. I adjusted the hue and
   lightness by tiny amounts until I got sufficient contrast.
 </p>
@@ -93,7 +93,7 @@ meta:
 <figure>
   <div class="realign-color-fig realign-color-primary-accent"></div>
   <figcaption>
-    fig 1: Primary accent color for the dark scheme, #00eb9b
+  fig 1: Primary accent color for the dark scheme, #00eb9b
   </figcaption>
 </figure>
 
@@ -121,8 +121,8 @@ meta:
 <figure>
   <div class="realign-color-fig realign-color-primary-secondary-accent"></div>
   <figcaption>
-    fig 2: Primary and secondary accent colors of the dark scheme; #00eb9b,
-    #9db4ff
+  fig 2: Primary and secondary accent colors of the dark scheme; #00eb9b,
+  #9db4ff
   </figcaption>
 </figure>
 
@@ -158,8 +158,8 @@ meta:
 <figure>
   <div class="realign-color-fig realign-color-light-scheme"></div>
   <figcaption>
-    fig 3: Text, primary, and secondary colors of the light scheme; #3f3d31,
-    #c01458, c2d838
+  fig 3: Text, primary, and secondary colors of the light scheme; #3f3d31,
+  #c01458, c2d838
   </figcaption>
 </figure>
 
@@ -181,17 +181,13 @@ meta:
 <p>
   With that in mind, I included a color scheme toggle in the footer that
   remembers your preference. Not across devices, but in browser.
-  <span class="realign-color-scheme-toggle-invite"
-    >Give it a try with this button:
-    <button class="realign-color-scheme-toggle">Switch scheme</button></span
-  >
 </p>
 <h3>Mode code</h3>
 <p>
   The code I used for this is a modified version of
   <a
-    href="https://hankchizljaw.com/wrote/create-a-user-controlled-dark-or-light-mode/"
-    >Andy Bell’s</a
+  href="https://hankchizljaw.com/wrote/create-a-user-controlled-dark-or-light-mode/"
+  >Andy Bell’s</a
   >. The logic for picking a color scheme goes like this. If you haven’t chosen
   a color scheme using the provided button, go with the system setting. If you
   have a system level dark mode set, you’ll see the dark scheme. Light mode,
@@ -226,8 +222,8 @@ meta:
   content. This makes the code a tiny bit harder to maintain, but it works fine
   for my purposes. I keep the code in
   <a
-    href="https://github.com/tylergaw/tylergaw.com/blob/346982b2da07b2369b5bd2101c50488dfa246157/partials/scheme.js.html"
-    >a partial</a
+  href="https://github.com/tylergaw/tylergaw.com/blob/346982b2da07b2369b5bd2101c50488dfa246157/partials/scheme.js.html"
+  >a partial</a
   >
   that I include in my handlebars templates. This isn’t perfect. I think the
   extra <code>scipt</code> is causing some other jitteriness on load, but it’ll
@@ -236,8 +232,8 @@ meta:
 <p>
   The second part of the code is also in
   <a
-    href="https://github.com/tylergaw/tylergaw.com/blob/346982b2da07b2369b5bd2101c50488dfa246157/partials/scripts.html#L10"
-    >a partial</a
+  href="https://github.com/tylergaw/tylergaw.com/blob/346982b2da07b2369b5bd2101c50488dfa246157/partials/scripts.html#L10"
+  >a partial</a
   >. I include this before the closing <code>body</code> tag. This code’s job is
   to make the scheme switcher button work. Because it’s in the footer, it can
   wait until the document loads. Andy’s post does a great job of explaining the
@@ -249,14 +245,14 @@ meta:
 </p>
 <blockquote>
   <p>
-    Observe changes to the user’s dark/light mode setting, probably via the
-    prefers-color-scheme media query and update the default state accordingly
+  Observe changes to the user’s dark/light mode setting, probably via the
+  prefers-color-scheme media query and update the default state accordingly
   </p>
   <cite>
-    “<a
+  “<a
       href="https://hankchizljaw.com/wrote/create-a-user-controlled-dark-or-light-mode/#heading-wrapping-up"
       >Create a user controlled dark or light mode</a
-    >”
+  >”
   </cite>
 </blockquote>
 <p>
@@ -265,8 +261,8 @@ meta:
   not the JS-driven parts, like the button.
 </p>
 
-<!-- prettier-ignore-start -->
-<pre><code class="language-javascript">const mql = window.matchMedia("(prefers-color-scheme: light)");
+```javascript
+const mql = window.matchMedia("(prefers-color-scheme: light)");
 mql.addListener((event) => {
   console.group("System color scheme change");
   const systemScheme = getCSSProp("--scheme-system");
@@ -276,18 +272,20 @@ mql.addListener((event) => {
   if (!userScheme) {
     console.info("No user color scheme chosen, using the system scheme");
   } else {
-    console.info(`User choice takes preference, using the ${userScheme} scheme`);
+    console.info(
+      `User choice takes preference, using the ${userScheme} scheme`,
+    );
   }
 
   updateSchemeBtn(userScheme || systemScheme);
   console.groupEnd();
-});</code></pre>
-<!-- prettier-ignore-end -->
+});
+```
 
 <p>
   I use a
   <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia"
-    ><code>MediaQueryList</code></a
+  ><code>MediaQueryList</code></a
   >
   event to keep an eye on <code>prefers-color-scheme</code>. When it changes,
   the callback does the same <code>localStorage</code> and custom prop lookup
@@ -303,17 +301,17 @@ mql.addListener((event) => {
 
 <figure>
   <picture>
-    <source
+  <source
       srcset="
-        https://tylergaw.com/articles/assets/post-image-realign-2020-color-scheme-toggle-static.png
+  https://tylergaw.com/articles/assets/post-image-realign-2020-color-scheme-toggle-static.png
       "
       media="(prefers-reduced-motion: reduce)">
-    <img src="https://tylergaw.com/articles/assets/post-image-realign-2020-color-scheme-toggle.gif"
+  <img src="https://tylergaw.com/articles/assets/post-image-realign-2020-color-scheme-toggle.gif"
       alt="A looping animated gif where I’m changing the Appearance setting on macOS from Light to dark while looking at this site with the developer console open to show the logging output.">
   </picture>
 
   <figcaption>
-    fig 4: Monitoring the effects of changing the appearance on macOS
+  fig 4: Monitoring the effects of changing the appearance on macOS
   </figcaption>
 </figure>
 
@@ -324,8 +322,8 @@ mql.addListener((event) => {
   <a href="https://prismjs.com/">Prism</a> is my highlighter of choice. I’ve had
   a modified
   <a
-    href="https://github.com/ericwbailey/a11y-syntax-highlighting/blob/master/dist/prism/a11y-dark.css"
-    >dark a11y theme by Eric Bailey</a
+  href="https://github.com/ericwbailey/a11y-syntax-highlighting/blob/master/dist/prism/a11y-dark.css"
+  >dark a11y theme by Eric Bailey</a
   >
   in place for a couple years. For this update, I combined the dark and light
   a11y themes so they change with the rest of the scheme. I moved all the theme
@@ -336,8 +334,8 @@ mql.addListener((event) => {
   This approach results in a bit a repetition, but gets the job done. You can
   see the full port on
   <a
-    href="https://github.com/tylergaw/tylergaw.com/blob/cffe306ca5447e2b17cbe5ac8669a8d909837ee3/src/css/modules/prism-a11y.css"
-    >GitHub in prism-a11y.css</a
+  href="https://github.com/tylergaw/tylergaw.com/blob/cffe306ca5447e2b17cbe5ac8669a8d909837ee3/src/css/modules/prism-a11y.css"
+  >GitHub in prism-a11y.css</a
   >.
 </p>
 
@@ -363,7 +361,9 @@ mql.addListener((event) => {
   prefix, but the names are all over the place. <code>toxic</code>,
   <code>boo</code>, <code>boogers</code>.
 </p>
-<pre><code class="language-css">--color-accent-toxic: #00eb9b;
+
+```css
+--color-accent-toxic: #00eb9b;
 --color-accent-wine: #c01458;
 --color-accent-boo: #9db4ff;
 --color-accent-pank: #f2c0ea;
@@ -374,7 +374,8 @@ mql.addListener((event) => {
 --color-mud: #3f3d31;
 --color-offwhite: #f8f8f8;
 --color-white: #fff;
---color-eggshell: #f6f5e4;</code></pre>
+--color-eggshell: #f6f5e4;
+```
 
 <p>
   Some of them are just what they are, but not most. It’s cheeky, but I’m

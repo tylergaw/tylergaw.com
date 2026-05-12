@@ -1,4 +1,5 @@
 ---
+highlightSyntax: true
 tags: post
 layout: "layout-article.webc"
 title: "Fun with HTML Form Validation Styles"
@@ -48,27 +49,45 @@ meta:
 <p>
   When I first started looking into if/how the error messages could be styled I quickly came across a "Rosetta Stone" in an article by Peter Gasston, <a href="http://www.broken-links.com/2011/06/16/styling-html5-form-validation-errors/">http://www.broken-links.com/2011/06/16/styling-html5-form-validation-errors</a>. In the post Peter explains the pseudo classes that webkit makes available to target the error message elements. He's done the leg work of digging through the Webkit source code to find this stuff, thanks Peter! To reiterate some of what is in Peter's article, the following are the classes that are available to hook into:
 </p>
-<pre><code class="language-css">::-webkit-validation-bubble {}
 
-::-webkit-validation-bubble-message {}
-::-webkit-validation-bubble-arrow {}
-::-webkit-validation-bubble-arrow-clipper {}</code></pre>
+```css
+::-webkit-validation-bubble {
+}
+::-webkit-validation-bubble-message {
+}
+::-webkit-validation-bubble-arrow {
+}
+::-webkit-validation-bubble-arrow-clipper {
+}
+```
 
 <p>
 Each of those target a <code>&lt;div&gt;</code> element that is inserted into the DOM when a validation error is triggered. The markup looks like this:
 </p>
-<pre><code class="language-markup">&lt;div -webkit-validation-bubble&gt;
-&lt;div -webkit-validation-bubble-arrow&gt;&lt;/div&gt;
-&lt;div -webkit-validation-bubble-arrow-clipper&gt;&lt;/div&gt;
-&lt;div -webkit-validation-bubble-message&gt;Error Message&lt;/div&gt;
-&lt;/div&gt;</code></pre>
+
+```html
+<div -webkit-validation-bubble>
+  <div -webkit-validation-bubble-arrow></div>
+  <div -webkit-validation-bubble-arrow-clipper></div>
+  <div -webkit-validation-bubble-message>Error Message</div>
+</div>
+```
+
 <p>
 There are four more pseudo classes that were added as I was writing this article. These are currently only in the nightly builds of Chrome/Webkit and seem to just allow further control of the styling.
 </p>
-<pre><code class="language-css">::-webkit-validation-bubble-icon {}
-::-webkit-validation-bubble-body {}
-::-webkit-validation-bubble-text-block {}
-::-webkit-validation-bubble-arrow-heading {}</code></pre>
+
+```css
+::-webkit-validation-bubble-icon {
+}
+::-webkit-validation-bubble-body {
+}
+::-webkit-validation-bubble-text-block {
+}
+::-webkit-validation-bubble-arrow-heading {
+}
+```
+
 <p>
 As of this writing and Chrome 13.0.782.112 these classes do not seem to have corresponding html elements. Only the <code>bubble-text-block</code> and <code>bubble-heading</code> contain default CSS rules and they are minimal and any CSS rules applied to these do not seem to affect any changes to the current validation error messages. We'll have to wait and see how these elements get put to use.
 </p>
@@ -80,13 +99,21 @@ A huge help when styling the messages is knowing the default styles that Chrome 
 <p>
 I set up three different demos using markup for a simple login form containing two fields. The first field is an email input that is required:
 </p>
-<pre><code class="language-markup">&lt;input type="email" name="email" required&gt;</pre></code>
+
+```html
+<input type="email" name="email" required />
+```
+
 <p>
 The second field is a password input that is required:
 </p>
-<pre><code class="language-markup">&lt;input type="password" name="password" required&gt;</pre></code>
+
+```html
+<input type="password" name="password" required />
+```
+
 <p>
-The rest of the markup for each demo is nearly identical, differences include; using <code>&lt;label&gt;</code> elements for the first demo and some different structural elements for each.
+The rest of the markup for each demo is nearly identical, differences include; using <code><label></code> elements for the first demo and some different structural elements for each.
 </p>
 <p>
 To really work with the message styles, I wanted each demo to have a distinct style from the others. Demo 1 has a kind of standard-looking style with error messages that are big, bright and bubbly. Demo 2 has a sleeker, higher-tech, control panel-y look with a slimmed down error icon with no text. Demo 3 has an artsy, Draplin-inspired, Futura-filled look that carries over into big-ole, text only error messages.
@@ -113,38 +140,45 @@ To really work with the message styles, I wanted each demo to have a distinct st
 <p>
 Something to keep in mind when styling the messages is that most any styles that are available in Chrome can be applied to the message bubbles, this includes animations. With demos 1 and 2 I created CSS animations to bring the messages into view. Since the message elements do not exist in the DOM until an error is triggered, the animations will not run until that time. So, in demo 1, to get that little shimmy and shake I'm using the following:
 </p>
-<pre><code class="language-css">@-webkit-keyframes bounce {
-0% {
-opacity: 0.5;
-margin-left: 85px;
-}
 
-25% {
-margin-left: -35px;
-}
+```css
+@-webkit-keyframes bounce {
+  0% {
+  opacity: 0.5;
+  margin-left: 85px;
+  }
 
-50% {
-margin-left: 50px;
-}
+  25% {
+  margin-left: -35px;
+  }
 
-75% {
-margin-left: -22px;
-}
+  50% {
+  margin-left: 50px;
+  }
 
-100% {
-margin-left: -15px;
-opacity: 0.9;
+  75% {
+  margin-left: -22px;
+  }
+
+  100% {
+  margin-left: -15px;
+  opacity: 0.9;
+  }
 }
-}</pre></code>
+```
 
 <p>
 The named animation is applied to the main message container;
 </p>
-<pre><code class="language-css">::-webkit-validation-bubble {
+
+```css
+::-webkit-validation-bubble {
 -webkit-animation-timing-function: ease;
 -webkit-animation: bounce 0.45s 1;
 ...
-}</code></pre>
+}
+```
+
 <p>
 Demo 2 uses a similar, but less complex animation to slide the serious looking icon in from the left. This demo also introduces something new; custom error message text. The message text, among many other things, can be customized through the Constraint Validation API.
 </p>
@@ -152,29 +186,30 @@ Demo 2 uses a similar, but less complex animation to slide the serious looking i
 <p>
 The Constraint API is a new one in the HTML Living Standard, it allows you to further customize form validation using Javascript. The API is large enough for a full article to explain its features and how to use it, here I'll just point out the code used to set a custom error message.
 </p>
-<pre><code class="language-javascript">var inputs = document.getElementsByTagName('input'),
-len = inputs.length,
-i = 0,
-cur = null,
-errMsg = '!';
 
-for (i; i &lt; len; i += 1) {
+```javascript
+var inputs = document.getElementsByTagName("input"),
+  len = inputs.length,
+  i = 0,
+  cur = null,
+  errMsg = "!";
 
-cur = inputs[i];
+for (i; i < len; i += 1) {
+  cur = inputs[i];
 
-if (cur.getAttribute('type') !== 'submit') {
-cur.setCustomValidity(errMsg);
+  if (cur.getAttribute("type") !== "submit") {
+  cur.setCustomValidity(errMsg);
 
-    cur.oninput = function () {
+  cur.oninput = function () {
       if (!this.value || this.validity.typeMismatch) {
-        this.setCustomValidity(errMsg);
+  this.setCustomValidity(errMsg);
       } else {
-        this.setCustomValidity('');
+  this.setCustomValidity("");
       }
-    }
-
+  };
+  }
 }
-}</code></pre>
+```
 
 <p>
 This is a fairly simple block of code, we start by looking at each <code>input</code> element on the page through a <code>for</code> loop, if the <code>input</code> is not a submit button we then use the Constraint API method <code>setCustomValidity</code> to apply the custom message of "!" that we stored in the <code>errMsg</code> variable. In my opinion that should be the end of the work needed, but there is more.
@@ -185,7 +220,4 @@ For some reason, when we set a custom error message with <code>setCustomValidity
 <h2>Going forward</h2>
 <p>
 This is definitely new, new stuff, and with all fun new things it will take some time before it can be used on a wide scale. I don't think that should be seen as a huge hinderance though. The Constraint API seems mature enough to be put into use right now, with the aide of a poly fill for browsers that don't yet support it. I haven't used it yet, but at least one exists already; <a href="http://afarkas.github.com/webshim/demos/demos/webforms.html">http://afarkas.github.com/webshim/demos/demos/webforms.html</a>. The error message bubbles are not really ready though. With only one browser supporting custom styles, and with no small amount of finagling needed to get them looking right, for now we'll need to keep creating our own error messages. I'll take it though, this is a huge step in the right direction and I can't wait for wider browser support and even more fun new things that will no doubt come with it.
-</p>
-<p>
-<i>Thanks for reading</i>
 </p>

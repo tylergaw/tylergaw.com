@@ -291,10 +291,13 @@
 }
 
 .streetcred__graphics-container {
-  background-image: url("/images/work/streetcred/streetcred-hexagon-green.svg"),
+  background-image:
+    url("/images/work/streetcred/streetcred-hexagon-green.svg"),
     url("/images/work/streetcred/streetcred-hexagon-yellow.svg");
   background-repeat: no-repeat;
-  background-position: left bottom, top right;
+  background-position:
+    left bottom,
+    top right;
   background-size: min(var(--bg-size-min, 65%), 500px);
   margin: 0 auto;
   max-width: calc(720 / 16 * 1rem);

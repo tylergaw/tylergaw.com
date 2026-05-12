@@ -15,9 +15,9 @@ That app is called [Pezzos](https://pezzos.app/). It’s a fun way to make, shar
 
 <figure>
   <picture>
-    <a href="https://pezzos.app">
+  <a href="https://pezzos.app">
       <img src="https://stuff.tylergaw.com/post-pezzos/pezzos-preview.webp" alt="Pezzos app promotional image. Left side shows the Pezzos logo in white on a bright green background. Right side displays a preview of the Pezzos interface: a list of Collages, the Collage editor showing an in-progress Collage with a giraffe on ornate frame background. Then two smal previews of the Glue Collage and Pieces sheet interfaces." />
-    </a>
+  </a>
   </picture>
 </figure>
 

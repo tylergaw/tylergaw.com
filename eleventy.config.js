@@ -63,6 +63,10 @@ export default function (conf) {
       });
   });
 
+  conf.setServerOptions({
+    domDiff: false,
+  });
+
   return {
     dir: {
       input: "src",

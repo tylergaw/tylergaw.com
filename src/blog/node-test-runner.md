@@ -15,41 +15,46 @@ Things like this just feel good. Any time you can switch from using an external 
 
 I set up a [demo repo](https://github.com/tylergaw/node-test-runner-demo) to show how I’m using it. There’s not much there, and that’s the point. I have two scripts in `package.json`:
 
-<pre><code class="language-bash">"test": "node --test",
+```bash
+"test": "node --test",
 "test:watch": "node --test --watch ."
-</code></pre>
+```
 
 In `add.js` I have a single function that requires two arguments.
 
-<pre><code class="language-javascript">export default function add(a, b) {
+```javascript
+export default function add(a, b) {
   if (!a || !b) {
-    throw Error("The add function requires 2 arguments");
+  throw Error("The add function requires 2 arguments");
   }
 
   return a + b;
-}</code></pre>
+}
+```
 
 Then in `add.test.js` I import a few native modules and write tests like normal:
 
-<pre><code class="language-javascript">import { describe, it } from "node:test";
+```javascript
+import { describe, it } from "node:test";
 import assert from "node:assert/strict";
 import add from "./add.js";
 
 describe("The add function", () => {
   it("#add throws without two arguments", () => {
-    assert.throws(() => {
+  assert.throws(() => {
       add();
-    }, Error);
+  }, Error);
 
-    assert.throws(() => {
+  assert.throws(() => {
       add(2);
-    }, Error);
+  }, Error);
   });
 
   it("#add returns the expected result", () => {
-    assert.equal(add(5, 4), 9);
+  assert.equal(add(5, 4), 9);
   });
-});</code></pre>
+});
+```
 
 I use the strict assert. Which is `===` instead of `==`. That’s not a requirement, just a preference.
 

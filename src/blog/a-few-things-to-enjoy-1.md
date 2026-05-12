@@ -21,9 +21,9 @@ What it is is a fascinating, frustrating, sad, beautiful ~200 pages that I highl
 
 <figure>
   <picture>
-    <a href="https://app.thestorygraph.com/books/dd49b326-93cc-4a8f-8533-e1192b954e39">
+  <a href="https://app.thestorygraph.com/books/dd49b326-93cc-4a8f-8533-e1192b954e39">
       <img src="https://stuff.tylergaw.com/post-things-to-enjoy/why-fish-dont-exist-cover.jpg" alt="The cover of the book 'Why Fish Don't Exist' by Lulu Miller. It's a blue cover, with the title of the book at the top, then the outline of the back half of a scaley fish. The subtitle; 'A Story of Loss, Love, and the Hidden Order of Life' is displayed on a tag sewed to the fish's tail." />
-    </a>
+  </a>
   </picture>
   <figcaption>fig 1: <a href="https://app.thestorygraph.com/books/dd49b326-93cc-4a8f-8533-e1192b954e39">Why Fish Don’t Exist by Lulu Miller</a></figcaption>
 </figure>

@@ -13,9 +13,9 @@ meta:
 
 <figure>
   <picture>
-    <a href="https://bikes.tylergaw.com">
+  <a href="https://bikes.tylergaw.com">
       <img src="https://stuff.tylergaw.com/post-fairweather-ride-2025/fairweather-ride-intro.jpg" alt="A screenshot of the hero section of the Fairweather Ride site showing the title, subtitle, and still of the hero video." />
-    </a>
+  </a>
   </picture>
   <figcaption>fig 1. <a href="https://bikes.tylergaw.com">Fairweather Ride 2025</a></figcaption>
 </figure>
@@ -45,9 +45,9 @@ Three of the four came from [Future Fonts](https://www.futurefonts.com/). It’s
 
 <figure>
   <picture>
-    <a href="https://bikes.tylergaw.com">
+  <a href="https://bikes.tylergaw.com">
       <img src="https://stuff.tylergaw.com/post-fairweather-ride-2025/fairweather-fonts.png" alt="A sample of the four fonts used on the site. Each font represented by it’s name set in the font/variant." />
-    </a>
+  </a>
   </picture>
   <figcaption>fig 2. Look at these beauties. Optic, Macabre, Method, and ADHD</figcaption>
 </figure>
@@ -58,11 +58,19 @@ Method is just a solid sans-serif. I use both the book and regular variants. It 
 
 ADHD! What an oddball. I love it. In most cases, I cycle through three of its four variants; “hyperactive”, “distracted”, and “impulsive” with an <code>@keyframes</code> animation. Either always or on hover/focus to add to the overall movement of the design.
 
-<pre><code class="language-css">@keyframes adhd {
-  0% { font-family: "adhd-hyperactive"; }
-  50% { font-family: "adhd-distracted"; }
-  100% { font-family: "adhd-impulsive"; }
-}</code></pre>
+```css
+@keyframes adhd {
+  0% {
+  font-family: "adhd-hyperactive";
+  }
+  50% {
+  font-family: "adhd-distracted";
+  }
+  100% {
+  font-family: "adhd-impulsive";
+  }
+}
+```
 
 ### ADHD Section Dividers
 
@@ -70,31 +78,35 @@ Here’s a fun detail. There are three blobby, shaky, dividers between sections.
 
 <figure>
   <video autoplay muted loop playsinline>
-    <source
+  <source
       src="https://stuff.tylergaw.com/post-fairweather-ride-2025/fairweather-section-divider.mp4"
       type="video/mp4"
-    />
+  />
   </video>
   <figcaption>fig 3. One of the section dividers isolated.</figcaption>
 </figure>
 
 These started as solid, grey lines. **How boring**. I didn’t want to use an image, or come up with some generated SVG. So, to create the semi-randomness, I’m using text. The markup for each divider is two <code>div</code>s with semi-random words and phrases related to the project.
 
-<pre><code class="language-css">&lt;div class="divider" aria-hidden="true"&gt;
-  &lt;div class="divider-content"&gt;
-    1,000 miles fairweather ride bikes bikes bikes fuck cars 1,000 miles...
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+```css
+<div class="divider" aria-hidden="true">
+  <div class="divider-content">
+  1,000 miles fairweather ride bikes bikes bikes fuck cars 1,000 miles...
+  </div>
+</div>
+```
 
 I use some base layout styles on the parent <code>div</code> to get the overall shape. Then use a combination of a transform and SVG filters to morph the text into animated blobs.
 
-<pre><code class="language-css">.divider-content {
+```css
+.divider-content {
   filter: url("#heading-blur") url("#edge-noise-animated");
   font-size: 1rem;
   font-family: "adhd-focused";
   transform: scaleX(1.25);
   white-space: nowrap;
-}</code></pre>
+}
+```
 
 ADHD focused works well here because it’s chunky. That way, as the transform and filters are mangling the text, it stays intact enough to still be visible. A thinner font would break down too much. More on the SVG filters below.
 
@@ -102,10 +114,10 @@ To illustrate what’s happening further, here’s a divider with the transform 
 
 <figure>
   <picture>
-    <img
+  <img
       src="https://stuff.tylergaw.com/post-fairweather-ride-2025/fairweather-section-divider-disabled.png"
       alt="A screenshot showing a section divider with CSS transforms and filters off to reveal it’s just text."
-    />
+  />
   </picture>
   <figcaption>fig 4. An example of a section divider without being transformed and filtered.</figcaption>
 </figure>
@@ -116,10 +128,10 @@ On its own, Macabre wasn’t doing exactly what I wanted it to for the headings.
 
 <figure>
   <video autoplay muted loop playsinline>
-    <source
+  <source
       src="https://stuff.tylergaw.com/post-fairweather-ride-2025/fairweather-heading.mp4"
       type="video/mp4"
-    />
+  />
   </video>
   <figcaption>fig 5. A section heading set in Macabre, then poked, prodded, and animated with CSS</figcaption>
 </figure>
@@ -134,10 +146,10 @@ I used After Effects to piece things together. There’s only a few “effects�
 
 <figure>
   <picture>
-    <img
+  <img
       src="https://stuff.tylergaw.com/post-fairweather-ride-2025/fairweather-ae.jpg"
       alt="A screenshot of the hero video After Effects workspace."
-    />
+  />
   </picture>
   <figcaption>fig 6. Piecing together the hero video in After Effects</figcaption>
 </figure>
@@ -148,7 +160,9 @@ I track my rides with Strava so for my ride list and stats, I use their API. It 
 
 Once I have the data as JSON, I copy and paste it into the <code>rides.json</code> file. Instead of using <code>fetch</code> to get the data, I use a JSON module import assertion in <code>site.js</code>.
 
-<pre><code class="language-js">import dataRaw from "./data/rides.json" with { type: "json" };</code></pre>
+```js
+import dataRaw from "./data/rides.json" with { type: "json" };
+```
 
 A request to get the data would work just as well here. I just reached for the import assertion first because it’s slightly less work. From there it’s nothing fancy. Some data cleanup, summing, formatting, and HTML string building. Everything happens in <code>[site.js](https://github.com/tylergaw/fairweather-ride/blob/main/static/site.js)</code>.
 
@@ -156,16 +170,18 @@ A request to get the data would work just as well here. I just reached for the i
 
 The most interesting data about each ride is where I went. Luckily, the Strava API returns a polyline for each ride. The polyline contains the coordinates for the route I took, so I wanted to show that as a map. These don’t need to be interactive—zoomable, pannable—maps. They just need to show the route. Mapbox offers just the thing for this, the [Static Images API](https://docs.mapbox.com/api/maps/static-images/). You set the <code>src</code> of an <code>img</code> element to the static API URL and include a few parameters, including an encoded polyline, and it returns an image. I knew this was a thing, but I hadn’t had a need for it until this. Pretty fun.
 
-<pre><code class="language-js">`https://api.mapbox.com/styles/v1/mapbox/${style}/static/path-${strokeWidth}+${strokeColor}-1(${encodedPolyline})/auto/${size}?attribution=false&padding=${padding}&access_token=${mapboxToken}`;</code></pre>
+```js
+`https://api.mapbox.com/styles/v1/mapbox/${style}/static/path-${strokeWidth}+${strokeColor}-1(${encodedPolyline})/auto/${size}?attribution=false&padding=${padding}&access_token=${mapboxToken}`;
+```
 
 The date and mileage aren’t part of the static map, they’re text elements styled and layered on top of the <code>img</code>.
 
 <figure>
   <picture>
-    <img
+  <img
       src="https://stuff.tylergaw.com/post-fairweather-ride-2025/fairweather-maps.jpg"
       alt="A screenshot of part of the ride maps."
-    />
+  />
   </picture>
   <figcaption>fig 7. A static map for each ride via the Mapbox API</figcaption>
 </figure>
@@ -178,29 +194,35 @@ To avoid yucky straight lines, I’m using SVG filters to rough stuff up and in 
 
 For the title, I start with standard-ish markup.
 
-<pre><code class="language-html">&lt;div class="title-effected"&gt;
-  &lt;span class="title-fair"&gt;Fairweather&lt;/span&gt;
-  &lt;span class="title-ride"&gt;Ride&lt;/span&gt;
-&lt;/div&gt;</pre></code>
+```html
+<div class="title-effected">
+  <span class="title-fair">Fairweather</span>
+  <span class="title-ride">Ride</span>
+</div>
+```
 
 The extra <code>span</code>s are in place for other styling. I apply the filters to the parent <code>div</code>.
 
-<pre><code class="language-css">.title-effected {
+```css
+.title-effected {
   filter: url("#title-blobs") url("#edge-noise-animated");
-}</pre></code>
+}
+```
 
 The filters themselves are in <code>index.html</code> within a <code>defs</code> element. This creates the ink-bleed style:
 
-<pre><code class="language-html">&lt;filter id="title-blobs"&gt;
-  &lt;feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" /&gt;
-  &lt;feColorMatrix
-    in="blur"
-    mode="matrix"
-    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 12 -5"
-    result="title-blobs"
-  /&gt;
-  &lt;feBlend in="SourceGraphic" in2="title-blobs" /&gt;
-&lt;/filter&gt;</pre></code>
+```html
+<filter id="title-blobs">
+  <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+  <feColorMatrix
+  in="blur"
+  mode="matrix"
+  values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 12 -5"
+  result="title-blobs"
+  />
+  <feBlend in="SourceGraphic" in2="title-blobs" />
+</filter>
+```
 
 When I was reading about the filters in this one, I needed to play around quite a bit. I ended up building a [collection of CodePens](https://codepen.io/collection/rBNGEK) for them if you’re interested in seeing different ways to do it.
 
@@ -208,33 +230,37 @@ With a few value tweaks and different layering of filters you can quickly build 
 
 For the squigglevision, in the title and throughout, I’m using <code>feTurbulence</code>, along with <code>animate</code> and <code>feDisplacementMap</code>. I use this same one for most of it.
 
-<pre><code class="language-html">&lt;filter id="edge-noise-animated"&gt;
-  &lt;feTurbulence
-    type="turbulence"
-    baseFrequency="0.05"
-    numOctaves="3"
-    result="turbulence"
-    seed="0"
-  &gt;
-    &lt;animate
+```html
+<filter id="edge-noise-animated">
+  <feTurbulence
+  type="turbulence"
+  baseFrequency="0.05"
+  numOctaves="3"
+  result="turbulence"
+  seed="0"
+  >
+  <animate
       attributeName="seed"
       values="0;20"
       dur="2s"
       repeatCount="indefinite"
-    /&gt;
-  &lt;/feTurbulence&gt;
-  &lt;feDisplacementMap
-    in="SourceGraphic"
-    in2="turbulence"
-    scale="3"
-    xChannelSelector="R"
-    yChannelSelector="B"
-  /&gt;
-&lt;/filter&gt;</pre></code>
+  />
+  </feTurbulence>
+  <feDisplacementMap
+  in="SourceGraphic"
+  in2="turbulence"
+  scale="3"
+  xChannelSelector="R"
+  yChannelSelector="B"
+  />
+</filter>
+```
 
 I have a few different blur filters for different text. They use the same filters, but with different values, depending on the size of the text. Larger text needs blurred more, smaller text, less. This is one detail of filters I wish was smoother. I wish I could pass attribute values to a filter via query param (or any other mechanism). Something like this:
 
-<pre><code class="language-css">filter: url("#general-blur?stdDeviation=5&type=discrete")</pre></code>
+```css
+filter: url("#general-blur?stdDeviation=5&type=discrete");
+```
 
 **The above code is not real**. As far as I know, there’s no way to do this. You just have to make a copy of each filter with different values.
 

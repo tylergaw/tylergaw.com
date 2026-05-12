@@ -62,19 +62,19 @@ meta:
 <h3>Realign 2020 Posts</h3>
 <ul>
   <li>
-    <a href="/blog/realign-2020-typography"
+  <a href="/blog/realign-2020-typography"
       >Realign 2020: Typography</a
-    >
+  >
   </li>
   <li>
-    <a href="/blog/realign-2020-logo"
+  <a href="/blog/realign-2020-logo"
       >Realign 2020: Logo</a
-    >
+  >
   </li>
   <li>
-    <a href="/blog/realign-2020-color"
+  <a href="/blog/realign-2020-color"
       >Realign 2020: Color</a
-    >
+  >
   </li>
   <li><a class="link--future"><s>Realign 2020: Content</s></a></li>
   <li><a class="link--future"><s>Realign 2020: Netlify</s></a></li>
@@ -90,9 +90,9 @@ meta:
 </p>
 
 <figure>
-  <img src="/blog/assets/post-image-realign-2020-initial-sketch.png" alt="A screenshot of a messy Sketch document showing the current status of this site’s design realign"/>
+  <img src="https://tylergaw.com/blog/assets/post-image-realign-2020-initial-sketch.png" alt="A screenshot of a messy Sketch document showing the current status of this site’s design realign"/>
   <figcaption>
-    WIP design realign
+  WIP design realign
   </figcaption>
 </figure>
 

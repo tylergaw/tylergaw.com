@@ -25,118 +25,136 @@ This is where ChatGPT is a perfect tool. It’s hoovered up all of the scattered
 
 When I started did this, I had a rough CloudFormation template that I generated with the SAM CLI and modified for the project. Here’s the first few lines of it:
 
-<pre><code class="language-yaml">AWSTemplateFormatVersion: '2010-09-09'
+```yaml
+AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
 Description: >
   bullhorn-entity-updater
 Globals:
   Function:
-    Tracing: Active
+  Tracing: Active
 Resources:
   BullhornEntityUpdaterFunction:
-    Type: AWS::Serverless::Function
-    Properties:
+  Type: AWS::Serverless::Function
+  Properties:
       Description: A Lambda function with multiple available tasks to update Bullhorn entities.
       Runtime: nodejs18.x
 
 # ...template continues, truncated for display
-</code></pre>
+```
 
 I fed the template into ChatGPT and told it that I needed help adding resources. There’s nothing sensitive in it, so I can share the [full chat log](https://chat.openai.com/share/4ce3ff0a-dece-4834-bdd4-d4a82a499c3e) that I went back to over a couple days.
 
 For the most part, it’s what you’d expect. After setting the scene, I started prompting with:
 
-<pre><code class="language-text">First, can we add 3 aws cloudwatch events:
+```text
+First, can we add 3 aws cloudwatch events:
 - Each one can invoke the BullhornEntityUpdaterFunction
 - Each one is on a cron schedule at 1am daily
 - Each one sends `{"task": "noop"}` as input
-</code></pre>
+```
 
 It responded back with a brief and overly enthusiastic explanation about what it had done and then gave me the complete YAML with the events added in.
 
-<pre><code class="language-yaml">...
-Events:  # <-- Add this Events section
+```yaml
+
+...
+Events: # <-- Add this Events section
   DailyTrigger1:
-    Type: Schedule
-    Properties:
+  Type: Schedule
+  Properties:
       Schedule: cron(0 1 * * ? *)
       Input: '{"task": "noop"}'
   DailyTrigger2:
-    Type: Schedule
-    Properties:
+  Type: Schedule
+  Properties:
       Schedule: cron(0 1 * * ? *)
       Input: '{"task": "noop"}'
   DailyTrigger3:
-    Type: Schedule
-    Properties:
+  Type: Schedule
+  Properties:
       Schedule: cron(0 1 * * ? *)
       Input: '{"task": "noop"}'
 ...
-</code></pre>
+```
 
 Good so far. From there, I could make changes to the names, cron, and input as needed. You can see from my prompt that I understand what I want. This helps me get there.
 
 Something that’s very helpful is being able to ask clarifying questions to help me gain a better understanding. For example, my next prompt:
 
-<pre><code class="language-text">If I change `DailyTrigger1` `DailyTrigger2` `DailyTrigger3` 
-will that change the name of the event in the AWS console?</code></pre>
+```text
+If I change `DailyTrigger1` `DailyTrigger2` `DailyTrigger3`
+will that change the name of the event in the AWS console?
+```
 
 ChatGPT gives a detailed answer:
 
-<pre><code class="language-text">Yes, changing the names DailyTrigger1, DailyTrigger2, 
-DailyTrigger3 in the CloudFormation template will change the 
-logical IDs of those AWS CloudWatch Event rules. However, it 
+```text
+Yes, changing the names DailyTrigger1, DailyTrigger2,
+DailyTrigger3 in the CloudFormation template will change the
+logical IDs of those AWS CloudWatch Event rules. However, it
 won't directly affect the displayed names in the AWS Console.
 
-In AWS CloudFormation, these are known as logical IDs, which 
-are used to uniquely identify a resource within a template. 
+In AWS CloudFormation, these are known as logical IDs, which
+are used to uniquely identify a resource within a template.
 
-...answer continues</code></pre>
+...answer continues
+```
 
 These are the types of questions I can’t ask static documentation and that is difficult to Google for.
 
 Another interesting exchange later was me asking for Lambda insights.
 
-<pre><code class="language-text">Can we update the function to enable lambda insights?</code></pre>
+```text
+Can we update the function to enable lambda insights?
+```
 
 Which produced a response and the following snippet
 
-<pre><code class="language-yaml">...
+```yaml
+
+...
 Layers:
-  - !Sub 'arn:aws:lambda:${AWS::Region}:580247275435:layer:LambdaInsightsExtension:14'  # Please note that the version number (14 here) may change
+  - !Sub "arn:aws:lambda:${AWS::Region}:580247275435:layer:LambdaInsightsExtension:14" # Please note that the version number (14 here) may change
 Policies:
-  - Version: '2012-10-17'
-    Statement:
+  - Version: "2012-10-17"
+  Statement:
       - Effect: Allow
-        Action:
+  Action:
           - "cloudwatch:PutMetricData"
           - "logs:CreateLogGroup"
           - "logs:CreateLogStream"
           - "logs:PutLogEvents"
-        Resource: "*"
-...</code></pre>
+  Resource: "*"
+...
+```
 
 This was an instance where I knew more about what I wanted and this wasn’t it. I knew there was a managed policy for this instead of listing the actions like this. So, I needed to edit my prompt to get ChatGPT closer. First I tried:
 
-<pre><code class="language-text">Can we update the function to enable lambda insights following 
-best practices?</code></pre>
+```text
+Can we update the function to enable lambda insights following
+best practices?
+```
 
 It came back with the same listed actions so I had to get more specific:
 
-<pre><code class="language-text">Can we update the function to enable lambda insights 
-using a managed policy?</code></pre>
+```text
+Can we update the function to enable lambda insights
+using a managed policy?
+```
 
 That’s what it needed. Along with a detailed explanation it gave back this YAML:
 
-<pre><code class="language-yaml">BullhornEntityUpdaterFunction:
+```yaml
+BullhornEntityUpdaterFunction:
   Type: AWS::Serverless::Function
   Properties:
-    ...
-    Policies:
+  ...
+  Policies:
       - arn:aws:iam::aws:policy/CloudWatchLambdaInsightsExecutionRolePolicy
-    Layers:
+  Layers:
       - !Sub 'arn:aws:lambda:${AWS::Region}:580247275435:layer:LambdaInsightsExtension:14'
-</code></pre>
+```
 
 Again, this was me having enough knowledge about what I wanted to be able to guide ChatGPT to the best outcome. Note that in that exchange I’m editing the prompt, not creating new prompts. That’s a habit I’ve picked up from Jeremy Howard’s excellent “[A Hackers' Guide to Language Models](https://youtu.be/jkrNMKz9pWU?si=w5MH0Hh9KzGG891k)”.
 

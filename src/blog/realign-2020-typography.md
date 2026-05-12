@@ -11,7 +11,7 @@ meta:
 
 <p class="entry-intro">
   This is part of my “<a href="/blog/realign-2020"
-    >Realign 2020</a
+  >Realign 2020</a
   >” series. In it, I document my process during a content and design realign of
   this site. I’ll update the site piece-by-piece as I post. The design and
   content will evolve through the series and beyond.
@@ -41,12 +41,12 @@ meta:
 <p>
   If you’re reading this on my site, these sentences are now set in
   <a href="https://www.productiontype.com/family/proto_grotesk"
-    >Production Type’s lovely Proto Grotesk</a
+  >Production Type’s lovely Proto Grotesk</a
   >. I’ve chosen the light weight for the base body copy. The regular weight
   feels too heavy for large swaths of copy.
 </p>
 <figure>
-  <img src="/blog/assets/post-image-realign-2020-typography-proto-grotesk.png" alt="A sampling of Proto Grotesk in various weights and sizes" />
+  <img src="https://tylergaw.com/blog/assets/post-image-realign-2020-typography-proto-grotesk.png" alt="A sampling of Proto Grotesk in various weights and sizes" />
 </figure>
 <p>
   I’m using the bold weight for certain headings and navigation items. I have
@@ -80,12 +80,12 @@ meta:
 
 <blockquote>
   <p>
-    …there’s no reason type can’t be both steadfast and peculiar…its posture is
-    nothing less than sturdy and forthright. Proto Grotesk is strange but
-    steady.
+  …there’s no reason type can’t be both steadfast and peculiar…its posture is
+  nothing less than sturdy and forthright. Proto Grotesk is strange but
+  steady.
   </p>
   <cite>
-    <a href="https://www.productiontype.com/family/proto_grotesk">Production Type - Proto Grotesk</a>
+  <a href="https://www.productiontype.com/family/proto_grotesk">Production Type - Proto Grotesk</a>
   </cite>
 </blockquote>
 
@@ -146,9 +146,22 @@ meta:
   <code>head</code> of my pages I preload two of the four weights I use.
 </p>
 
-<pre><code class="language-html">&lt;link rel="preload" href="/fonts/protogroteskweb-light.woff2" as="font" type="font/woff2" crossorigin&gt;
-&lt;link rel="preload" href="/fonts/protogroteskweb-bold.woff2" as="font" type="font/woff2" crossorigin&gt;
-</code></pre>
+```html
+<link
+  rel="preload"
+  href="/fonts/protogroteskweb-light.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="/fonts/protogroteskweb-bold.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+```
 
 <p>
   I don’t preload the regular and extra light weights because I don’t use them
@@ -161,12 +174,14 @@ meta:
   in my critical inline styles.
 </p>
 
-<pre><code class="language-css">/* repeated for each font weight */
+```css
+/* repeated for each font weight */
 @font-face {
   font-display: swap;
   font-family: "protogrotesk-bold";
   src: url("/fonts/protogroteskweb-bold.woff2");
-}</code></pre>
+}
+```
 
 <p>
   Using <code>swap</code> for <code>font-display</code> helps avoid a flash of
@@ -180,16 +195,21 @@ meta:
   styles, I have a property for each font weight.
 </p>
 
-<pre><code class="language-css">--font-proto-extralight: "protogrotesk-extralight", helvetica, sans-serif;
+```css
+--font-proto-extralight: "protogrotesk-extralight", helvetica, sans-serif;
 --font-proto-light: "protogrotesk-light", helvetica, sans-serif;
 --font-proto-regular: "protogrotesk-regular", helvetica, sans-serif;
---font-proto-bold: "protogrotesk-bold", helvetica, sans-serif;</code></pre>
+--font-proto-bold: "protogrotesk-bold", helvetica, sans-serif;
+```
 
 <p>
   Declaring those stacks as custom props makes it so I don’t have to repeat
   myself. It also lets me type less when using each weight:
 </p>
-<pre><code class="language-css">font-family: var(--font-proto-bold);</code></pre>
+
+```css
+font-family: var(--font-proto-bold);
+```
 
 <h2>Next</h2>
 <p>
@@ -200,7 +220,7 @@ meta:
 </p>
 <p>
   I’ll continue this series in a few days with “<a
-    href="/blog/realign-2020-logo"
-    >Realign 2020: Logo</a
+  href="/blog/realign-2020-logo"
+  >Realign 2020: Logo</a
   >.”
 </p>

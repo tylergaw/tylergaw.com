@@ -17,18 +17,20 @@ Each link is an <code>a</code> wrapped in an <code>li</code> element. I’m lazy
 
 I didn’t want the ↗ to be in the <code>a</code> itself, but after it in the containing <code>li</code>. I could have used a class on each <code>li</code> to do this, but instead I used the <code>:has</code> selector plus a starts with (<code>^</code>) attribute selector to include the ↗ character in an <code>::after</code> element.
 
-<pre><code class="language-css">.footer__links li:has([href^="https"])::after {
+```css
+.footer__links li:has([href^="https"])::after {
   content: "↗";
-}</code></pre>
+}
+```
 
 This says; “Style any li element that contains any element with an href value that starts with ‘https’.”. So <code>&lt;a href='/about'&gt;</code> doesn’t get styled, but <code>&lt;a href='https://example.org'&gt;</code> does.
 
 <figure>
   <picture>
-    <img
+  <img
       src="https://stuff.tylergaw.com/post-has-attribute-external-links/footer-links.png"
       alt="An enlarged screenshot of the footer links on tylergaw.com"
-    />
+  />
   </picture>
   <figcaption>fig 1. The external footer links now marked as such with the ↗ character.</figcaption>
 </figure>
@@ -41,10 +43,10 @@ I haven’t had many times where I’ve reached for <code>:has</code> or the sta
 
 <figure>
   <picture>
-    <img
+  <img
       src="https://stuff.tylergaw.com/post-has-attribute-external-links/css-is-good.jpg"
       alt="CSS IS GOOD"
-    />
+  />
   </picture>
   <figcaption>fig 2. Learn it. Know it. Live it.</figcaption>
 </figure>

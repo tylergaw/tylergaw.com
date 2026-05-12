@@ -33,8 +33,11 @@ meta:
   into JS applications. For example, if you want to build a GUI using standard OS X
   controls you would import Cocoa:
 </p>
-<pre><code class="language-javascript">ObjC.import("Cocoa");
-</code></pre>
+
+```javascript
+ObjC.import("Cocoa");
+```
+
 <p>
   The <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/ObjC_classic/_index.html">Foundation</a>
   framework does what its name suggests. It provides the building blocks for
@@ -62,10 +65,10 @@ meta:
   You can download the completed example from my <a href="https://github.com/tylergaw/js-osx-app-examples">example apps repo</a>.
 </p>
 <figure>
-    <img src="https://tylergaw.com/articles/assets/post-image-jsosx-example-01.jpg" alt="">
-    <figcaption>
+  <img src="https://tylergaw.com/articles/assets/post-image-jsosx-example-01.jpg" alt="">
+  <figcaption>
       A screenshot of the app we’ll build.
-    </figcation>
+  </figcation>
 </figure>
 <p>
   Making up the app is; a window, text label, text input, and button. Or by their
@@ -100,10 +103,10 @@ meta:
   this run as an application.
 </p>
 <figure>
-    <img src="https://tylergaw.com/articles/assets/post-image-jsosx-save.jpg" alt="">
-    <figcaption>
+  <img src="https://tylergaw.com/articles/assets/post-image-jsosx-save.jpg" alt="">
+  <figcaption>
       The Script Editor Save dialog with important fields highlighted
-    </figcation>
+  </figcation>
 </figure>
 <p>
   Change the File Format to “Application”. Check the “Stay open after run handler”
@@ -130,9 +133,12 @@ meta:
   Add the following two lines to your script and then run it with <code>Script > Run Application</code>
   or <code>opt + cmd + r</code>.
 </p>
-<pre><code class="language-javascript">ObjC.import("Cocoa");
+
+```javascript
+ObjC.import("Cocoa");
 $.NSLog("Hi everybody!");
-</code></pre>
+```
+
 <p>
   Not much happened. The only visible changes are in the menu bar and dock. The app
   name along with <code>File</code> and <code>Edit</code> menus are in the menu bar.
@@ -156,7 +162,7 @@ $.NSLog("Hi everybody!");
   with <code>opt + cmd + r</code>.
 </p>
 <figure>
-    <img src="https://tylergaw.com/articles/assets/post-image-jsosx-console.jpg" alt="A screenshot showing a log message in Console.app">
+  <img src="https://tylergaw.com/articles/assets/post-image-jsosx-console.jpg" alt="A screenshot showing a log message in Console.app">
 </figure>
 <p>
   Did you see it!? The message “Hi everybody!” should have logged to the console.
@@ -181,25 +187,28 @@ $.NSLog("Hi everybody!");
   Let’s make something we can see and interact with. Update your script to look
   like the following code:
 </p>
-<pre><code class="language-javascript">ObjC.import("Cocoa");
 
-var styleMask = $.NSTitledWindowMask | $.NSClosableWindowMask | $.NSMiniaturizableWindowMask;
+```javascript
+ObjC.import("Cocoa");
+
+var styleMask =
+  $.NSTitledWindowMask | $.NSClosableWindowMask | $.NSMiniaturizableWindowMask;
 var windowHeight = 85;
 var windowWidth = 600;
 var ctrlsHeight = 80;
 var minWidth = 400;
 var minHeight = 340;
 var window = $.NSWindow.alloc.initWithContentRectStyleMaskBackingDefer(
-$.NSMakeRect(0, 0, windowWidth, windowHeight),
+  $.NSMakeRect(0, 0, windowWidth, windowHeight),
   styleMask,
   $.NSBackingStoreBuffered,
-false
+  false,
 );
 
 window.center;
 window.title = "Choose and Display Image";
 window.makeKeyAndOrderFront(window);
-</code></pre>
+```
 
 <p>
   When that’s in place, run the app. <code>opt + cmd + r</code>. Now we’re
@@ -244,21 +253,32 @@ window.makeKeyAndOrderFront(window);
 <p>
   The next thing is about that super long method name:
 </p>
-<pre><code class="language-javascript">initWithContentRectStyleMaskBackingDefer</code></pre>
+
+```javascript
+initWithContentRectStyleMaskBackingDefer;
+```
+
 <p>
   Take a look at the <code>NSWindow</code> <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Classes/NSWindow_Class/Reference/Reference.html#jumpTo_105">docs</a>
   for that method and you’ll notice it looks a bit different.
 </p>
-<pre><code class="language-javascript">initWithContentRect:styleMask:backing:defer:</code></pre>
+
+```javascript
+initWithContentRect:styleMask:backing:defer:
+```
+
 <p>
   In Objective-C you would create the same window we did like this:
 </p>
-<pre><code class="language-clike">NSWindow* window [[NSWindow alloc]
+
+```clike
+NSWindow* window [[NSWindow alloc]
   initWithContentRect: NSMakeRect(0, 0, windowWidth, windowHeight)
   styleMask: styleMask,
   backing: NSBackingStoreBuffered
   defer: NO];
-</code></pre>
+```
+
 <p>
   The thing to note are the colons “:” in the original method signature. When you convert
   and Objective-C method to JS you remove the colons and capitalize the first letter
@@ -280,32 +300,41 @@ window.makeKeyAndOrderFront(window);
   and <code>NSButton</code> to make that happen. Update your script with the
   following code and then run the app.
 </p>
-<pre><code class="language-javascript">ObjC.import("Cocoa");
 
-var styleMask = $.NSTitledWindowMask | $.NSClosableWindowMask | $.NSMiniaturizableWindowMask;
+```javascript
+ObjC.import("Cocoa");
+
+var styleMask =
+  $.NSTitledWindowMask | $.NSClosableWindowMask | $.NSMiniaturizableWindowMask;
 var windowHeight = 85;
 var windowWidth = 600;
 var ctrlsHeight = 80;
 var minWidth = 400;
 var minHeight = 340;
 var window = $.NSWindow.alloc.initWithContentRectStyleMaskBackingDefer(
-$.NSMakeRect(0, 0, windowWidth, windowHeight),
+  $.NSMakeRect(0, 0, windowWidth, windowHeight),
   styleMask,
   $.NSBackingStoreBuffered,
-false
+  false,
 );
 
-var textFieldLabel = $.NSTextField.alloc.initWithFrame($.NSMakeRect(25, (windowHeight - 40), 200, 24));
+var textFieldLabel = $.NSTextField.alloc.initWithFrame(
+  $.NSMakeRect(25, windowHeight - 40, 200, 24),
+);
 textFieldLabel.stringValue = "Image: (jpg, png, or gif)";
 textFieldLabel.drawsBackground = false;
 textFieldLabel.editable = false;
 textFieldLabel.bezeled = false;
 textFieldLabel.selectable = true;
 
-var textField = $.NSTextField.alloc.initWithFrame($.NSMakeRect(25, (windowHeight - 60), 205, 24));
+var textField = $.NSTextField.alloc.initWithFrame(
+  $.NSMakeRect(25, windowHeight - 60, 205, 24),
+);
 textField.editable = false;
 
-var btn = $.NSButton.alloc.initWithFrame($.NSMakeRect(230, (windowHeight - 62), 150, 25));
+var btn = $.NSButton.alloc.initWithFrame(
+  $.NSMakeRect(230, windowHeight - 62, 150, 25),
+);
 btn.title = "Choose an Image...";
 btn.bezelStyle = $.NSRoundedBezelStyle;
 btn.buttonType = $.NSMomentaryLightButton;
@@ -317,7 +346,7 @@ window.contentView.addSubview(btn);
 window.center;
 window.title = "Choose and Display Image";
 window.makeKeyAndOrderFront(window);
-</code></pre>
+```
 
 <p>
   If things worked you’ll now have a window with controls.
@@ -388,17 +417,22 @@ window.makeKeyAndOrderFront(window);
   when you see the code. Update the button setup part of the script with the
   following properties.
 </p>
-<pre><code class="language-javascript">...
+
+```javascript
+...
 btn.target = appDelegate;
 btn.action = "btnClickHandler";
 ...
-</code></pre>
+```
+
 <p>
   <code>appDelegate</code> and <code>btnClickHandler</code> don’t exist yet. We need to
   make them. In the next addition to the script, order matters. I put
   comments in the following code to show where you should add the new stuff.
 </p>
-<pre><code class="language-javascript">ObjC.import("Cocoa");
+
+```javascript
+ObjC.import("Cocoa");
 
 // New stuff
 ObjC.registerSubclass({
@@ -420,7 +454,7 @@ var appDelegate = \$.AppDelegate.alloc.init;
 var textFieldLabel = $.NSTextField.alloc.initWithFrame($.NSMakeRect(25, (windowHeight - 40), 200, 24));
 textFieldLabel.stringValue = "Image: (jpg, png, or gif)";
 ...
-</code></pre>
+```
 
 <p>
   Run the app, click the Choose Image button, and watch Console. Do you see “Clicked!”
@@ -457,7 +491,11 @@ textFieldLabel.stringValue = "Image: (jpg, png, or gif)";
   I haven’t found official docs for what the <code>types</code> array should
   contain. Through trial and error I found it goes like this:
 </p>
-<pre><code class="language-javascript">["return type", ["arg 1 type", "arg 2 type",...]]</code></pre>
+
+```javascript
+["return type", ["arg 1 type", "arg 2 type",...]]
+```
+
 <p>
   <code>btnClickHandler</code> won’t return anything so we set the return type to <code>void</code>.
   It takes one parameter, the sender object. In this case it will be the <code>NSButton</code>
@@ -486,7 +524,9 @@ textFieldLabel.stringValue = "Image: (jpg, png, or gif)";
   We’re ready to open the panel, choose an image, and display it. Update the
   <code>btnClickHandler</code> implementation function with following code:
 </p>
-<pre><code class="language-javascript">...
+
+```javascript
+...
 implementation: function (sender) {
   var panel = $.NSOpenPanel.openPanel;
   panel.title = "Choose an Image";
@@ -500,26 +540,26 @@ if (panel.runModal == \$.NSOKButton) {
 var imagePath = panel.URLs.objectAtIndex(0).path;
 textField.stringValue = imagePath;
 
-    var img = $.NSImage.alloc.initByReferencingFile(imagePath);
-    var imgView = $.NSImageView.alloc.initWithFrame(
-    $.NSMakeRect(0, windowHeight, img.size.width, img.size.height));
+  var img = $.NSImage.alloc.initByReferencingFile(imagePath);
+  var imgView = $.NSImageView.alloc.initWithFrame(
+  $.NSMakeRect(0, windowHeight, img.size.width, img.size.height));
 
-    window.setFrameDisplay(
+  window.setFrameDisplay(
       $.NSMakeRect(
-        0, 0,
-        (img.size.width > minWidth) ? img.size.width : minWidth,
-        ((img.size.height > minHeight) ? img.size.height : minHeight) + ctrlsHeight
+  0, 0,
+  (img.size.width > minWidth) ? img.size.width : minWidth,
+  ((img.size.height > minHeight) ? img.size.height : minHeight) + ctrlsHeight
       ),
       true
-    );
+  );
 
-    imgView.setImage(img);
-    window.contentView.addSubview(imgView);
-    window.center;
+  imgView.setImage(img);
+  window.contentView.addSubview(imgView);
+  window.center;
 
 }
 }
-</code></pre>
+```
 
 <p>
   The first thing we do is create an instance of an <code>NSOpenPanel</code>. If
@@ -551,7 +591,11 @@ textField.stringValue = imagePath;
   Since it’s common to create an image from a file URL, there’s a handy method
   doing it:
 </p>
-<pre><code class="language-javascript">initByReferencingFile</code></pre>
+
+```javascript
+initByReferencingFile;
+```
+
 <p>
   We create an <code>NSImageView</code> using the same process we did for creating
   other UI elements. <code>imgView</code> handles displaying the image.
@@ -609,7 +653,4 @@ textField.stringValue = imagePath;
   different about being able to use JavaScript. It feels subversive. It feels
   like some of the DIY of the Web knocking on the door of the Desktop.
   Apple left the door unlocked, I’m inviting myself in.
-</p>
-<p>
-  <i>Thanks for reading</i>
 </p>

@@ -3,6 +3,7 @@ tags: post
 layout: "layout-article.webc"
 title: "A Small Redesign with a Little Sugar"
 date: "2011-07-09"
+highlightSyntax: true
 meta:
   description:
     Side projects can be great opportunities to flex some muscle on new
@@ -48,19 +49,21 @@ meta:
   The image above is the extent of the design accomplished with Photoshop. From that point on the rest of the design was created with good ole' CSS. Just like I have always done in Photoshop I went through quite a few style iterations; colors, type sizes, positioning, but instead of spending that time in Photoshop and only moving to the browser when it was "final" I used the medium that would be delivered to create the design. Designing in the browser, it feels good man.
 </p>
 <h2>The flexibility</h2>
-            <p>
-            	To accomplish my flexible grid, I started with a overall width of 80% on the content area. That number was somewhat arbitrary, I started with 100% and decreased the number until I felt there was a comfortable amount of room between the edge of the browser and the beginning of the content. I am setting a <code>max-width</code> of 1280px on the content area. Any wider than that and things started to get a little unwieldy; line-lengths were too long and in general things just didn't look good. At browser widths of 768px or narrower I wanted to gain back some of the margin so I used a media query to increase the width to 95%.
-            </p>
-            <pre><code class="language-scss">#content {
+<p>
+  To accomplish my flexible grid, I started with a overall width of 80% on the content area. That number was somewhat arbitrary, I started with 100% and decreased the number until I felt there was a comfortable amount of room between the edge of the browser and the beginning of the content. I am setting a <code>max-width</code> of 1280px on the content area. Any wider than that and things started to get a little unwieldy; line-lengths were too long and in general things just didn't look good. At browser widths of 768px or narrower I wanted to gain back some of the margin so I used a media query to increase the width to 95%.
+</p>
 
-margin: 0 auto;
-max-width: 1280px;
-width: 80%;
+```scss
+#content {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 80%;
 
-@media screen and (max-width: 768px) {
-width: 95%;
+  @media screen and (max-width: 768px) {
+  width: 95%;
+  }
 }
-}</code></pre>
+```
 
 <p>
 <em>Quick note on the media query. I'm using <a href="http://sass-lang.com/">Sass</a> which allows for nested styles. You'll see more of this in later code examples.</em>
@@ -68,23 +71,30 @@ width: 95%;
 <p>
 In a number of areas of the design I use a two-column layout. To determine the widths of each column I used the oh-so-helpful formula that Ethan describes in <abbr title="Responsive Web Design">RWD</abbr>: <br>
 </p>
-<pre><code class="language-clike">target &divide; context = result</code></pre>
+
+```bash
+target ÷ context = result
+```
+
 <p>
 For the columns I use the starting width of 958px as a context then determine a pixel value based off the width of each of my grid columns, 69px, to come up with widths like:
 </p>
-<pre><code class="language-scss">.method-description {
-h3 {
-float: left;
-width: 40.1878914%; /_ 385 &divide; 958 = .401878914 _/
-...
-}
 
-p {
-float: right;
-...
-width: 56.4718163%; /_ 541 &divide; 958 = .564718163 _/
+```scss
+.method-description {
+  h3 {
+  float: left;
+  width: 40.1878914%; /_ 385 ÷ 958 = .401878914 _/
+  ...
+  }
+
+  p {
+  float: right;
+  ...
+  width: 56.4718163%; /_ 541 ÷ 958 = .564718163 _/
+  }
 }
-}</code></pre>
+```
 
 <h2>More on media queries</h2>
 <p>
@@ -103,18 +113,22 @@ The die-cut .png used to create the color-shifting Jribbble logo.
 <p>
 With die-cut taken care of, let's look at scaleable. At its base size of 1149px by 663px the logo graphic is pretty large. At medium to large browser widths, this works fine, as the browser width decreases or increases the graphic starts to lose its intended effect and also starts to cause readability issues for other page elements. <code>background-size</code> to the rescue!
 </p>
-<pre><code class="language-scss">#bigAssJribbble {
-background-image: url(../images/branding-die-cut.png);
-background-repeat: no-repeat;
-background-position: 15% 100%;
--moz-background-size: 190% 140%;
--webkit-background-size: 190% 140%;
--o-background-size: 190% 140%;
-background-size: 190% 140%;
-padding-top: 45%;
-position: absolute;
-width: 100%;
-}</code></pre>
+
+```scss
+#bigAssJribbble {
+  background-image: url(../images/branding-die-cut.png);
+  background-repeat: no-repeat;
+  background-position: 15% 100%;
+  -moz-background-size: 190% 140%;
+  -webkit-background-size: 190% 140%;
+  -o-background-size: 190% 140%;
+  background-size: 190% 140%;
+  padding-top: 45%;
+  position: absolute;
+  width: 100%;
+}
+```
+
 <p>
 A couple things are going on here. It's important to note that the branding-die-cut.png image is much wider than it needs to be. The graphic is flush left and the right side extends ~1049px and is filled with our background color <code>#ececec</code>. I do this so I am able to position the background image off the left side of the browser and not leave a gap on the right side. If there was a gap that the image didn't cover, any background color would show through where I didn't want. The width of the element is set to 100% so it is always the size of the browser. The <code>background-size</code> property does exactly what it says, it scales the background image to the percentages that I used. There isn't a science to those numbers, I just tweaked them until they looked right.
 </p>
@@ -124,18 +138,21 @@ Another cool thing in that block of CSS is the <code>padding-top</code>. Since a
 <p>
 Something that's not accounted for in the above CSS is the background color, the color that should show through the die-cut image. This is where I started having a lot of fun. I set up 11 media queries at different pixel max-widths from 320px to 2360px, at each of those I set a different background color for the logo as well as a number of different elements on the page. As the browser width increases or decreases the background color changes. Another little extra I use is a CSS transition to smoothly change from one color to another on each of the chameleon-like elements. An example element with a media query colorway:
 </p>
-<pre><code class="language-scss">#bigAssJribbble {
--moz-transition: background-color 0.2s;
--webkit-transition: background-color 0.2s;
--o-transition: background-color 0.2s;
-transition: background-color 0.2s;
+
+```scss
+#bigAssJribbble {
+  -moz-transition: background-color 0.2s;
+  -webkit-transition: background-color 0.2s;
+  -o-transition: background-color 0.2s;
+  transition: background-color 0.2s;
 }
 
 @media screen and (max-width: 480px) {
-#bigAssJribbble {
-background-color: #4400ff;
+  #bigAssJribbble {
+  background-color: #4400ff;
+  }
 }
-}</code></pre>
+```
 
 <p>
 I didn't get incredibly specific with what colors I chose. I started with a base of <code>#ff0066</code> and then apply cooler colors as the width decreases and warmer as it increases.
@@ -149,7 +166,4 @@ All in all a very fun process full of experimentation and learning for the sake 
 </p>
 <p>
 Again, the completed site lives here <a href="http://lab.tylergaw.com/jribbble">http://lab.tylergaw.com/jribbble</a> and if you're interested in more of the code, fork it from its Github repo <a href="https://github.com/tylergaw/jribbble.com">https://github.com/tylergaw/jribbble.com</a>.
-</p>
-<p>
-<i>Thanks for reading</i>
 </p>

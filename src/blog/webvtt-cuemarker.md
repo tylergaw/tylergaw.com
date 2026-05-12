@@ -11,27 +11,30 @@ meta:
     little easier.
 ---
 
-        <p class="entry-intro">
-            <a href="http://dev.w3.org/html5/webvtt/">WebVTT</a> is a text format
-            that can be used to provide captions and subtitles for HTML video.
-            While working on a project that uses it I found myself needing a
-            way to find and mark precise cue in/out times.
-            <a href="https://github.com/tylergaw/webvtt-cuemarker">webvtt-cuemarker</a>
-            is a small tool I whipped up in JavaScript to do just that.
-        </p>
-        <h2>A WebVTT Primer</h2>
-        <p>
-            The format is still fairly new and not yet widely supported, so I'll give
-            a quick example of how it's used.
-        </p>
-        <pre><code class="language-clike">WEBVTT FILE
+<p>
+  <a href="http://dev.w3.org/html5/webvtt/">WebVTT</a> is a text format
+  that can be used to provide captions and subtitles for HTML video.
+  While working on a project that uses it I found myself needing a
+  way to find and mark precise cue in/out times.
+  <a href="https://github.com/tylergaw/webvtt-cuemarker">webvtt-cuemarker</a>
+  is a small tool I whipped up in JavaScript to do just that.
+</p>
+
+<h2>A WebVTT Primer</h2>
+<p>
+  The format is still fairly new and not yet widely supported, so I'll give
+  a quick example of how it's used.
+</p>
+
+```bash
+WEBVTT FILE
 
 00:00:01.265 --> 00:00:06.210
 This is text that will appear over the video at during the in/out points.
 
 00:00:05.500 --> 00:00:10.250
 You can use <b>HTML</b> within WebVTT, pretty cool.
-</code></pre>
+```
 
 <p>
 That's an example of a very simple WebVTT file with two cues. We'll
@@ -41,13 +44,15 @@ refer to it as <code>captions.vtt</code>
 The next thing to do is to let your HTML video know about the WebVTT file.
 That's done using the <code>track</code> element.
 </p>
-<pre><code class="language-markup">&lt;video controls&gt;
-&lt;source src="/path/to/video.mp4" type="video/mp4"&gt;
-&lt;source src="/path/to/video.webm" type="video/webm"&gt;
-&lt;track kind="captions" label="English captions"
-src="/path/to/captions.vtt" srclang="en" default>&lt;/track&gt;
-&lt;/video&gt;
-</code></pre>
+
+```html
+<video controls>
+  <source src="/path/to/video.mp4" type="video/mp4">
+  <source src="/path/to/video.webm" type="video/webm">
+  <track kind="captions" label="English captions" src="/path/to/captions.vtt" srclang="en" default></track>
+</video>
+```
+
 <p>
 That's all there is to it. If we played the fictional video above
 we would see the two captions appear at the times provided in <code>captions.vtt</code>.
@@ -81,11 +86,14 @@ I'll go back to the HTML in the previous example, but I'm going to
 remove the <code>track</code> element. For marking cue times you only
 need an HTML video.
 </p>
-<pre><code class="language-markup">&lt;video controls&gt;
-&lt;source src="/path/to/video.mp4" type="video/mp4"&gt;
-&lt;source src="/path/to/video.webm" type="video/webm"&gt;
-&lt;/video&gt;
-</code></pre>
+
+```html
+<video controls>
+  <source src="/path/to/video.mp4" type="video/mp4" />
+  <source src="/path/to/video.webm" type="video/webm" />
+</video>
+```
+
 <p>
 Once your HTML is in place, you'll need a bit of JavaScript.
 Cuemarker creates a variable–<code>cuemarker</code>–in the global scope.
@@ -93,8 +101,11 @@ Cuemarker creates a variable–<code>cuemarker</code>–in the global scope.
 the video element. It also takes a second, optional parameter to
 specify a seek interval and output function.
 </p>
-<pre><code class="language-javascript">cuemarker(document.querySelector('video'));
-</code></pre>
+
+```javascript
+cuemarker(document.querySelector("video"));
+```
+
 <p>
 That's a bare-bones example and may be all that you'll need. The cue
 times will be output using <code>console.log</code>.
@@ -102,7 +113,9 @@ times will be output using <code>console.log</code>.
 <p>
 Here's another example using both the available options.
 </p>
-<pre><code class="language-javascript">cuemarker(document.querySelector('video'), {
+
+```javascript
+cuemarker(document.querySelector('video'), {
 seekInterval: 0.5 //default is 0.03,
 output: function (cuetime) {
 var times = document.getElementById('cuetimes'),
@@ -111,7 +124,8 @@ li.innerHTML = cuetime;
 times.appendChild(li);
 }
 });
-</code></pre>
+```
+
 <p>
 In that example, the seek interval is less precise than the default
 and the cue times will be injected into the page as <code>li</code>
@@ -143,7 +157,4 @@ I know it won't be long before Firefox and Safari follow suit.
 Limited support for the underlying technology means that this is a
 tool you may not need today, but you might tomorrow.
 <a href="https://github.com/tylergaw/webvtt-cuemarker">Fork it!</a>
-</p>
-<p>
-<i>Thanks for reading</i>
 </p>

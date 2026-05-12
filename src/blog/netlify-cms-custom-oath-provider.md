@@ -47,11 +47,11 @@ meta:
   <p>To enable basic GitHub authentication:</p>
 
   <ol>
-    <li>Follow the authentication provider setup steps in the Netlify docs.</li>
-    <li>Add the following lines to your Netlify CMS config.yml file:</li>
+  <li>Follow the authentication provider setup steps in the Netlify docs.</li>
+  <li>Add the following lines to your Netlify CMS config.yml file:</li>
   </ol>
   <cite>
-    <a href="https://www.netlifycms.org/docs/authentication-backends/#github-backend">NetlifyCMS docs, "Authentication & Backends - GitHub Backend”</a>
+  <a href="https://www.netlifycms.org/docs/authentication-backends/#github-backend">NetlifyCMS docs, "Authentication & Backends - GitHub Backend”</a>
   </cite>
 </blockquote>
 
@@ -74,9 +74,9 @@ meta:
 <h2>The solution</h2>
 <p>
   <strong>To use a GitHub backend with NetlifyCMS, you have to have your own server
-    to handle OAuth</strong>. This is a requirement of GitHub’s authentication
-    flow. The good news about that, is that it’s a standard OAuth flow. The
-    bad news about that, is that it’s a standard OAuth flow.
+  to handle OAuth</strong>. This is a requirement of GitHub’s authentication
+  flow. The good news about that, is that it’s a standard OAuth flow. The
+  bad news about that, is that it’s a standard OAuth flow.
 </p>
 
 <h3>Prior art</h3>
@@ -128,28 +128,32 @@ meta:
 </p>
 
 <!-- prettier-ignore-start -->
-<pre><code class="language-javascript">const postMsgContent = {
+
+```javascript
+const postMsgContent = {
   token: body.access_token,
   provider: "github"
 };
 
 const script = `
-  &ltscript&gt;
-    (function() {
+  <script>
+  (function() {
       function recieveMessage(e) {
-        console.log("recieveMessage %o", e);
+  console.log("recieveMessage %o", e);
 
-        // send message to main window with the app
-        window.opener.postMessage(
+  // send message to main window with the app
+  window.opener.postMessage(
           'authorization:github:success:${JSON.stringify(postMsgContent)}',
           e.origin
-        );
+  );
       }
 
       window.addEventListener("message", recieveMessage, false);
       window.opener.postMessage("authorizing:github", "*");
   })()
-&lt;/script&gt;`;</code></pre>
+</script>`;
+```
+
 <!-- prettier-ignore-end -->
 
 <p>

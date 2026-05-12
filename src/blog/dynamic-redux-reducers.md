@@ -90,21 +90,23 @@ meta:
   I’ll start with creating the root reducer in <code>/rootReducer.js</code>.
 </p>
 
-<pre><code class="language-javascript">import { combineReducers } from "redux";
+```javascript
+import { combineReducers } from "redux";
 import layout from "./reducers/layout";
 import home from "./reducers/home";
 
 /**
  * @param {Object} - key/value of reducer functions
  */
-const createReducer = asyncReducers =>
+const createReducer = (asyncReducers) =>
   combineReducers({
-    home,
-    layout,
-    ...asyncReducers
+  home,
+  layout,
+  ...asyncReducers,
   });
 
-export default createReducer;</code></pre>
+export default createReducer;
+```
 
 <p>
   I pulled this code from Dan’s <abbr title="Stack Overflow">SO</abbr> answer.
@@ -121,7 +123,8 @@ export default createReducer;</code></pre>
   of this code is from Dan’s example.
 </p>
 
-<pre><code class="language-javascript">import { createStore } from "redux";
+```javascript
+import { createStore } from "redux";
 import createReducer from "./rootReducer";
 
 const initializeStore = () => {
@@ -129,15 +132,16 @@ const initializeStore = () => {
 
   store.asyncReducers = {};
   store.injectReducer = (key, reducer) => {
-    store.asyncReducers[key] = reducer;
-    store.replaceReducer(createReducer(store.asyncReducers));
-    return store;
+  store.asyncReducers[key] = reducer;
+  store.replaceReducer(createReducer(store.asyncReducers));
+  return store;
   };
 
   return store;
 };
 
-export default initializeStore;</code></pre>
+export default initializeStore;
+```
 
 <p>
   The first line of <code>initializeStore</code> is where we create the Redux
@@ -176,7 +180,9 @@ export default initializeStore;</code></pre>
 </p>
 
 <!-- prettier-ignore-start -->
-<pre><code class="language-javascript">import React from "react";
+
+```javascript
+import React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
 import initializeStore from "./initializeStore";
@@ -184,11 +190,13 @@ import App from "./App";
 
 const store = initializeStore();
 render(
-  &lt;Provider store={store}&gt;
-    &lt;App /&gt;
-  &lt;/Provider&gt;,
+  <Provider store={store}>
+  <App />
+  </Provider>,
   document.getElementById("root")
-);</code></pre>
+);
+```
+
 <!-- prettier-ignore-end -->
 
 <p>
@@ -209,17 +217,18 @@ render(
   in <code>/withReducer.js</code>.
 </p>
 
-<pre><code class="language-javascript">import React from "react";
+````javascript
+import React from "react";
 import { object } from "prop-types";
 
 const withReducer = (key, reducer) => WrappedComponent => {
   const Extended = (props, context) => {
-    context.store.injectReducer(key, reducer);
-    return &lt;WrappedComponent {...props} /&gt;
+  context.store.injectReducer(key, reducer);
+  return <WrappedComponent {...props} />
   };
 
   Extended.contextTypes = {
-    store: object
+  store: object
   };
 
   return Extended;
@@ -231,11 +240,13 @@ export { withReducer };</pre></code>
   And example usage in <code>routes/Records/Records.js</code>:
 </p>
 
-<pre><code class="language-javascript">import { withReducer } from "../../withReducer";
+```javascript
+import { withReducer } from "../../withReducer";
 import reducer from "./ducks";
 
 const Records = () => (...);
-export default withReducer("records", reducer)(Records);</code></pre>
+export default withReducer("records", reducer)(Records);
+````
 
 <p>
   I’ll start with usage in <code>Records.js</code>. I import the records
@@ -268,11 +279,15 @@ export default withReducer("records", reducer)(Records);</code></pre>
   I’ll jump ahead to an important part of <code>withReducer</code> that was
   new to me and might be confusing.
 </p>
-<pre><code class="language-javascript">...
+
+```javascript
+...
 Extended.contextTypes = {
   store: object
 };
-...</code></pre>
+...
+```
+
 <p>
   <code>Extended</code> is a stateless component, so it must define
   a <code>contextTypes</code> property to gain access to <code>context</code>.
@@ -280,10 +295,10 @@ Extended.contextTypes = {
 </p>
 <blockquote>
   <p>
-    Stateless functional components are also able to reference context if contextTypes is defined as a property of the function.
+  Stateless functional components are also able to reference context if contextTypes is defined as a property of the function.
   </p>
   <cite>
-    <a href="https://reactjs.org/docs/context.html#referencing-context-in-stateless-functional-components">reactjs.org/docs/context.html#referencing-context-in-stateless-functional-components</a>
+  <a href="https://reactjs.org/docs/context.html#referencing-context-in-stateless-functional-components">reactjs.org/docs/context.html#referencing-context-in-stateless-functional-components</a>
   </cite>
 </blockquote>
 
@@ -298,9 +313,12 @@ Extended.contextTypes = {
   a second parameter, <code>context</code>. That’s visible in
   the <code>Extended</code> signature:
 </p>
-<pre><code class="language-javascript">...
+
+```javascript
+...
 const Extended = (props, context) => {...}
-...</code></pre>
+...
+```
 
 <p>
   <code>Extended</code> now has access to the <code>store</code> object. That’s
@@ -320,12 +338,14 @@ const Extended = (props, context) => {...}
   <code>store.injectReducer</code>. Now, I use that to add the new reducer:
 </p>
 
-<pre><code class="language-javascript">...
+```javascript
+...
 const Extended = (props, context) => {
   context.store.injectReducer(key, reducer);
-  return &lt;WrappedComponent {...props} /&gt;;
+  return <WrappedComponent {...props} />;
 };
-...</code></pre>
+...
+```
 
 <p>
   The orginal component doesn’t change. <code>Extended</code> only returns
@@ -344,7 +364,7 @@ const Extended = (props, context) => {
 <figure>
   <img src="https://d3vv6lp55qjaqc.cloudfront.net/items/1n0J3V3G0j1X2a1M1C00/Screen%20Recording%202018-01-07%20at%2009.52%20PM.gif" alt="Animated gif showing a new reducer added in Redux devtools Chrome extension.">
   <figcaption>
-    Demo of the records reducer being added when navigating to the /records route.
+  Demo of the records reducer being added when navigating to the /records route.
   </figcation>
 </figure>
 
@@ -354,17 +374,20 @@ const Extended = (props, context) => {
 </p>
 
 <!-- prettier-ignore-start -->
-<pre><code class="language-javascript">...
+
+```javascript
+...
 const mapStateToProps = (state, props) => {
   const { match: { params: { id } } } = props;
 
   return {
-    recordId: id,
-    record: state.records[id] || {}
+  recordId: id,
+  record: state.records[id] || {}
   };
 };
 
-export default connect(mapStateToProps)(Record);</code></pre>
+export default connect(mapStateToProps)(Record);
+```
 
 <!-- prettier-ignore-end -->
 

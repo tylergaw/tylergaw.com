@@ -17,12 +17,14 @@ meta:
   Discogs is where I track my record collection. <a href="https://wax.tylergaw.com/">Wax</a> is a nice UI for it that I’ve been noodling on for years. I built a small <a href="https://github.com/tylergaw/wax-tracks">ETL</a> for it. It uses the OpenAI API to extract human and machine-readable color, texture, and pattern data out of raw—user-provided—descriptions of each record. For example: one record has a description of <code>"Clear W/ Red, Black, And Silver Splatter"</code>. The ETL produces structured data from it:
 </p>
 
-<pre><code class="language-js">{
+```js
+{
   "humanReadableColor": "Clear with Red, Black, and Silver Splatter",
   "cssReadableColors": ["red", "black", "silver"],
   "texture": "clear",
   "pattern": "splatter"
-}</code></pre>
+}
+```
 
 That’s an ideal example. Sometimes it just bombs out, but for the most part it does what I need. And I have guardrails in place on the front-end to handle bad data.
 
@@ -59,41 +61,45 @@ To know if extraction was correct requires a human eye. It’s easy for a human 
 
 The reports have a <code>comparison</code> section so I can quickly scan what GPT-4o did vs what each model did. An example from llama3.1-8b:
 
-<pre><code class="language-js">{
+```js
+{
   "id": "577250",
   "description": "Red Translucent",
   "gpt4o": {
-    "humanReadableColor": "Red Translucent",
-    "cssReadableColors": ["red"],
-    "pattern": null,
-    "texture": "translucent"
+  "humanReadableColor": "Red Translucent",
+  "cssReadableColors": ["red"],
+  "pattern": null,
+  "texture": "translucent"
   },
   "ollama": {
-    "humanReadableColor": "Translucent Red",
-    "cssReadableColors": ["transparent", "red"],
-    "pattern": "Translucent",
-    "texture": "Clear"
+  "humanReadableColor": "Translucent Red",
+  "cssReadableColors": ["transparent", "red"],
+  "pattern": "Translucent",
+  "texture": "Clear"
   }
-}</code></pre>
+}
+```
 
 It’s pretty quick to see that the local model did well. For some reason it flipped the order of “translucent” and “red”, but that’s OK. And it added both a pattern and texture value, so it did slightly better there.
 
 And here’s one from gemma2:9b that didn’t do well:
 
-<pre><code class="language-js">{
+```js
+{
   "id": "1684889",
   "description": "Grey Marbled",
   "gpt4o": {
-    "humanReadableColor": "Grey Marbled",
-    "cssReadableColors": ["grey"]
+  "humanReadableColor": "Grey Marbled",
+  "cssReadableColors": ["grey"]
   },
   "ollama": {
-    "humanReadableColor": "Grey Marbled",
-    "cssReadableColors": null,
-    "pattern": "Marbled",
-    "texture": null
+  "humanReadableColor": "Grey Marbled",
+  "cssReadableColors": null,
+  "pattern": "Marbled",
+  "texture": null
   }
-}</code></pre>
+}
+```
 
 Gemma didn’t come up with grey as a css color. It did identify the pattern, but for my purposes the colors are more important.
 
@@ -121,21 +127,23 @@ This was the best one. The quality was just as good and in some cases better tha
 
 An interesting detail is that it tended to use hex values for css colors instead of named colors like GPT-4o. Example:
 
-<pre><code class="language-js">{
+```js
+{
   "id": "1790723",
   "description": "Blue Translucent",
   "gpt4o": {
-    "humanReadableColor": "Blue Translucent",
-    "cssReadableColors": ["blue"],
-    "texture": "translucent"
+  "humanReadableColor": "Blue Translucent",
+  "cssReadableColors": ["blue"],
+  "texture": "translucent"
   },
   "ollama": {
-    "humanReadableColor": "blue translucent",
-    "cssReadableColors": ["#0000ff"],
-    "pattern": null,
-    "texture": "translucent"
+  "humanReadableColor": "blue translucent",
+  "cssReadableColors": ["#0000ff"],
+  "pattern": null,
+  "texture": "translucent"
   }
-}</code></pre>
+}
+```
 
 ### mistral:7b and gemma2:9b
 
