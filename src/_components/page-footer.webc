@@ -1,5 +1,5 @@
-<footer class="footer g-main g-padded">
-  <nav class="footer__links g-main__item">
+<footer class="g-main g-padded" webc:root="override">
+  <nav class="g-main__item">
     <ul>
       <li>
         <a href="/">Work</a>
@@ -63,7 +63,7 @@
     </ul>
   </nav>
 
-  <p class="footer__thanks g-main__item">
+  <p class="thanks g-main__item">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -82,3 +82,94 @@
     ></span>
   </p>
 </footer>
+
+<style webc:scoped>
+  :host {
+    --rows: 5;
+
+    grid-template-rows: repeat(
+      var(--rows, 24),
+      minmax(calc(78 / 16 * 1rem), max-content)
+    );
+    margin: calc(var(--g-row) * var(--margin-top-rows, 4)) auto 0 auto;
+    overflow: hidden;
+
+    a {
+      border-bottom: 1px solid color-mix(in srgb, currentColor 50%, transparent);
+      display: inline-block;
+      font-family: var(--font-accent);
+      font-size: 1rem;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &:hover,
+      &:focus {
+        border-color: currentColor;
+        color: var(--color-text);
+      }
+    }
+  }
+
+  nav li {
+    margin: 0.8rem 0;
+
+    &:has([href^="https"])::after {
+      content: "↗";
+      color: var(--color-accent-primary);
+    }
+  }
+
+  .thanks {
+    --row-start: 3;
+    align-self: center;
+    display: flex;
+    font-family: var(--font-proto-regular);
+    font-size: 1rem;
+    gap: 0.4em;
+    line-height: 1.25;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 420px) {
+    nav {
+      display: flex;
+
+      ul {
+        flex: 1 1 50%;
+        max-width: calc(280 / 16 * 1rem);
+      }
+    }
+  }
+
+  @media (min-width: 38.75em) {
+    :host {
+      --num-cols: 3;
+
+      .g-main__item {
+        --col-start: 2;
+        --col-end: span 2;
+      }
+    }
+  }
+
+  @media (min-width: 65em) {
+    :host {
+      --num-cols: 5;
+
+      .g-main__item {
+        --col-start: 3;
+        --col-end: -1;
+      }
+    }
+  }
+
+  @media (min-width: 106.25em) {
+    :host {
+      --num-cols: 9;
+
+      .g-main__item {
+        --col-start: 6;
+      }
+    }
+  }
+</style>

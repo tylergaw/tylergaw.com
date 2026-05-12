@@ -225,7 +225,5 @@ Safari is interesting. It doesn’t really do contextual buttons in the URL bar.
 </figure>
 
 <p class="offset-no-indent">
-  This fits nicely with the trajectory and current status of `color-scheme`, `light-dark()`, and related specs. This wouldn’t have been a good idea, say, 2 years ago. We just didn’t know enough yet. But now, feels like we have a solid foundation to build on.
-  <br/>
-  I don’t know what the processes are for getting a feature like this in various browsers. I’m sure it’s different for them all. The first step is this, just getting it written down and in front of people. I know I’d use this many times a day every day. Now to see if anyone else would too.
+  This fits nicely with the trajectory and current status of <code>color-scheme</code>, <code>light-dark()</code>, and related specs. This wouldn’t have been a good idea, say, 2 years ago. We just didn’t know enough yet. But now, feels like we have a solid foundation to build on. I don’t know what the processes are for getting a feature like this in various browsers. I’m sure it’s different for them all. The first step is this, just getting it written down and in front of people. I know I’d use this many times a day every day. Now to see if anyone else would too.
 </p>

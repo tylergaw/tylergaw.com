@@ -3,17 +3,62 @@
     <div class="blog-nav__contents">
       <p>
         <template webc:nokeep webc:if="getNextCollectionItem(posts, page)">
-          <b class="heading--special">Older post</b>
-          <a :href="getNextCollectionItem(posts, page).url" @text="getNextCollectionItem(posts, page).data.title"></a>
+          <span>Previous</span>
+          <a
+            :href="getNextCollectionItem(posts, page).url"
+            @text="getNextCollectionItem(posts, page).data.title"
+          ></a>
         </template>
       </p>
 
       <p>
         <template webc:nokeep webc:if="getPreviousCollectionItem(posts, page)">
-          <b class="heading--special">Newer post</b>
-          <a :href="getPreviousCollectionItem(posts, page).url" @text="getPreviousCollectionItem(posts, page).data.title"></a>
+          <span>Next</span>
+          <a
+            :href="getPreviousCollectionItem(posts, page).url"
+            @text="getPreviousCollectionItem(posts, page).data.title"
+          ></a>
         </template>
       </p>
     </div>
   </nav>
 </div>
+
+<style webc:scoped>
+  .blog-nav {
+    --col-start: 1;
+    --col-end: -1;
+  }
+
+  .blog-nav__contents {
+    border-top: 3px solid currentColor;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 0 auto;
+    max-width: var(--width-text-max);
+    padding-bottom: 10rem;
+    padding-top: 2.5rem;
+  }
+
+  .blog-nav p {
+    flex: 1 1;
+    line-height: 1.33;
+    min-width: 20ch;
+  }
+
+  .blog-nav p + p {
+    text-align: right;
+  }
+
+  .blog-nav span {
+    display: block;
+    font-family: var(--font-accent);
+    font-size: var(--font-size-14);
+    text-transform: uppercase;
+  }
+
+  .blog-nav a {
+    font-size: 1.4rem;
+  }
+</style>

@@ -292,4 +292,4 @@ pageType: work
   </li>
 </ul>
 
-<work-nav project="archive"></work-nav>
+<work-nav @project="archive"></work-nav>

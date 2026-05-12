@@ -4,8 +4,6 @@
 
 html,
 body {
-  --scheme-system: "dark";
-
   /* Accent colors */
   --color-accent-toxic: #00eb9b;
   --color-accent-wine: #c01458;
@@ -51,10 +49,6 @@ body {
   --color-white: #fff;
   --color-eggshell: #f6f5e4;
 
-  /*
-    Scheme color variables: We use these general names to switch colors
-    based on preferred color scheme
-  */
   --color-accent-primary: light-dark(
     var(--color-accent-wine),
     var(--color-accent-toxic)
@@ -65,20 +59,10 @@ body {
   );
   --color-bg: light-dark(var(--color-offwhite), var(--color-charcoal));
   --color-text: light-dark(var(--color-mud), var(--color-offwhite));
-
-  /* Crud */
-  --crud-bubble: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Cpath fill="%23000" fill-rule="evenodd" d="M32.533 3.432C12.033 10.596 1 32.789 1 46.508c0 13.718 7.54 47.877 33.467 52.73 25.926 4.85 61.048-14.262 63.743-33.996 2.695-19.733-1.652-38.632-10.834-48.82C78.194 6.234 53.033-3.732 32.533 3.432z"/%3E%3C/svg%3E');
-
-  /* FIXME: This only works in latest FF */
-  --bg-img: light-dark(
-    url(/images/noise-tile-light.svg),
-    url(/images/noise-tile-dark.svg)
-  );
 }
 
 html,
 body {
-  background: var(--color-bg) var(--bg-img) repeat;
-  background-size: 950px;
+  background: var(--color-bg);
   color: var(--color-text);
 }

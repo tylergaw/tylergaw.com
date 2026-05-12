@@ -269,4 +269,4 @@ jerseySlides:
   </div>
 </div>
 
-<work-nav project="jxa"></work-nav>
+<work-nav @project="jxa"></work-nav>

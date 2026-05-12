@@ -22,8 +22,7 @@
 }
 
 .home__work,
-.home__more,
-.footer {
+.home__more {
   grid-template-rows: repeat(
     var(--rows, 24),
     minmax(calc(78 / 16 * 1rem), max-content)

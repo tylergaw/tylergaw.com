@@ -83,7 +83,7 @@
   <body>
     <page-header></page-header>
     <main @raw="content"></main>
-    <page-footer :year="site.year"></page-footer>
+    <page-footer :@year="2026"></page-footer>
 
     <script @raw="getBundle('js', 'components')" webc:keep></script>
   </body>

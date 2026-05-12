@@ -6,15 +6,10 @@
 @import url("./modules/tokens/grid.css") layer(tokens);
 @import url("./modules/tokens/typography.css") layer(tokens);
 
-@import url("./modules/components/banner.css") layer(components);
-@import url("./modules/components/blog-nav.css") layer(components);
-@import url("./modules/components/footer.css") layer(components);
 @import url("./modules/components/hero.css") layer(components);
 @import url("./modules/components/listed-items.css") layer(components);
 @import url("./modules/components/page-intro.css") layer(components);
 @import url("./modules/components/prism-a11y.css") layer(components);
-@import url("./modules/components/scheme-toggler.css") layer(components);
-@import url("./modules/components/work-nav.css") layer(components);
 
 @import url("./modules/pages/about.css") layer(pages);
 @import url("./modules/pages/article.css") layer(pages);

@@ -21,6 +21,6 @@ pageType: blog
   </div>
 </article>
 
-<blog-nav :posts="collections.posts" :page="page"></blog-nav>
+<blog-nav :@posts="collections.posts" :@page="page"></blog-nav>
 
 <script src="/js/prism.js" async webc:keep webc:if="highlightSyntax"></script>
