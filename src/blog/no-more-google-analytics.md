@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "No More Google Analytics"
 date: "2019-02-19"
 meta:

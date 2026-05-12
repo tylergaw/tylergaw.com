@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "The Native Node Test Runner is Great"
 date: "2023-09-26"
 highlightSyntax: true

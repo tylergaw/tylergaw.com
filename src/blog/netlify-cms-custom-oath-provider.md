@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "Using a Custom OAuth Provider with NetlifyCMS"
 highlightSyntax: true
 date: "2019-08-18"

@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: Realign 2020
 date: "2020-02-27"
 meta:

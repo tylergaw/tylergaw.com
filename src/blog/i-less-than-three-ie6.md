@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "I Less Than Three IE6"
 date: "2009-07-27"
 meta:

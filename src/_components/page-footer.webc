@@ -1,0 +1,84 @@
+<footer class="footer g-main g-padded">
+  <nav class="footer__links g-main__item">
+    <ul>
+      <li>
+        <a href="/">Work</a>
+      </li>
+      <li>
+        <a href="/blog">Blog</a>
+      </li>
+      <li>
+        <a
+          href="/about"
+          aria-label="More info about me, my career, and history of this site."
+        >
+          About
+        </a>
+      </li>
+      <li>
+        <a href="/work/archive">Archive</a>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <a href="/bookshelf">Books</a>
+      </li>
+      <li>
+        <a href="/art">Art</a>
+      </li>
+      <li>
+        <a href="https://wax.tylergaw.com">Records</a>
+      </li>
+      <li>
+        <a href="https://bikes.tylergaw.com">Bikes</a>
+      </li>
+      <li hidden>
+        <a href="/resume">Resume</a>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <a
+          href="/rss.xml"
+          title="Ancient technology. A non-capitalistic transaction-less notification network used by the those living in the underworld to have websites send updates without ever visiting those websites. You could consume the web without being in the algorithmic river."
+        >
+          RSS
+        </a>
+      </li>
+      <li>
+        <a href="/llms.txt">llms.txt</a>
+      </li>
+      <li>
+        <a href="mailto:me@tylergaw.com" rel="me">Email</a>
+      </li>
+      <li>
+        <a href="https://github.com/tylergaw" rel="me">GitHub</a>
+      </li>
+      <li>
+        <a href="https://bsky.app/profile/tylergaw.com" rel="me">Bluesky</a>
+      </li>
+      <li hidden>
+        <a href="https://mastodon.social/@tylergaw" rel="me">Mastodon</a>
+      </li>
+    </ul>
+  </nav>
+
+  <p class="footer__thanks g-main__item">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 26 22"
+      width="23"
+      height="19"
+    >
+      <path
+        fill="#FF1A51"
+        d="M.7 10.2c1.1 6.2 8.3 3.1 13.9 11.4 3.6-9.8 9-5.7 10.3-11.3C26.2 4.6 21.5.3 18.4 0c-5.3-.4-6 5.7-6 5.7s-3-5.2-7-4.5c-2.8.5-5.7 3.4-4.7 9z"
+      />
+    </svg>
+
+    <span
+      @text="`Thank you for visiting a personal website in ${year}.`"
+    ></span>
+  </p>
+</footer>

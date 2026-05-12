@@ -1,0 +1,129 @@
+<!-- <div class="scheme-toggler">
+  <div role="status" class="visually-hidden scheme-toggler__status"></div>
+  <button class="scheme-toggler__btn">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <path id="sun" fill="#FFC420" fill-rule="evenodd" d="M14.5 4.8l-3-4.8-1 5.4h-.2l-3.8-1 .7 2.8-.3.2-5.3-.3L5 11v.2l-5 2.6 4.7 1-1 5.4 5.2-1.6v4.8l3.6-3.8 2.8 4.3 1.4-5.3 4.7 1-1.6-4.2 4.2-1.9-3.3-1.6L24 8h-4.2l1-4.2-3.6 2.6.5-5.3-3.2 3.7zm-.8 4.5c0-.6.2-2.2 1.5-2.3 1 0 1.5 1.1 1.6 2.1 0 1-.1 2.3-1 2.3-2 .2-2-.7-2-1.6a10.1 10.1 0 000-.5zM9.5 7.9C8 8 7.8 9.4 7.7 10v.1c0 1 .1 2.5 2.4 2.3.9 0 1-1.2 1-2.3-.1-1-.7-2.1-1.6-2zm-2.7 6c.4 1.1 2.7 4.5 6.2 4 3.9-.5 5.7-3.2 5.7-5.6 0 0-2 3.8-5.7 4-3.7.4-6.2-2.5-6.2-2.5z" clip-rule="evenodd"/>
+      <path id="moon" fill="#4B15A1" fill-rule="evenodd" d="M2.7 19.2c-2.3-2.4-4-8-1.5-12.5A14 14 0 0112.9 0c3.3.3 7.1 2.8 9.9 6.6 2.7 3.9.9 13.5-5.7 16.2-5.3 3.4-12.2-1.3-14.4-3.6zm.4-5.6c-.6-3 .7-9.6 8.9-10.1 0 0-3.7 5.5-2 9.5 1.7 4 8.5 5 8.5 5-7 5.5-14.2 1.2-15.4-4.4zm12.1-6.8L14.5 5l-.6 1.9-1.9.6 1.8.7.7 2.4.6-2.5 1.9-.6-1.8-.7zm4.3 3.2l1 2.5H23l-2.1 1.4L20 16l-.9-2.1-2.1-.4 2.1-1.4.4-2.1z" clip-rule="evenodd"/>
+    </svg>
+  </button>
+</div> -->
+
+<button>
+  <svg
+    class="icon-light"
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-label="Light scheme"
+  >
+    <path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656" />
+    <path d="M6.343 17.657l-1.414 1.414" />
+    <path d="M6.343 6.343l-1.414 -1.414" />
+    <path d="M17.657 6.343l1.414 -1.414" />
+    <path d="M17.657 17.657l1.414 1.414" />
+    <path d="M4 12h-2" />
+    <path d="M12 4v-2" />
+    <path d="M20 12h2" />
+    <path d="M12 20v2" />
+  </svg>
+
+  <svg
+    class="icon-dark"
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-label="Dark scheme"
+  >
+    <path
+      d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454l0 .008"
+    />
+  </svg>
+</button>
+
+<script webc:bucket="components">
+  /*
+    NOTE: We do an initial check/set of the scheme in layout-main.webc to avoid
+    an initial flash if the user has chosen dark scheme.
+  */
+
+  function getScheme() {
+    return localStorage.getItem(COLOR_SCHEME_STORAGE_KEY) || "light";
+  }
+
+  function applyScheme(scheme) {
+    document.documentElement.style.colorScheme = scheme;
+    document.querySelectorAll("scheme-chooser button").forEach((btn) => {
+      btn
+        .querySelector(".icon-light")
+        .classList.toggle("hidden", scheme !== "dark");
+      btn
+        .querySelector(".icon-dark")
+        .classList.toggle("hidden", scheme === "dark");
+    });
+  }
+
+  function toggleScheme(e) {
+    e.preventDefault();
+    const next = getScheme() === "light" ? "dark" : "light";
+    localStorage.setItem(COLOR_SCHEME_STORAGE_KEY, next);
+    applyScheme(next);
+  }
+
+  // Apply stored preference on load
+  applyScheme(getScheme());
+
+  document.querySelectorAll("scheme-chooser button").forEach((btn) => {
+    btn.addEventListener("click", toggleScheme);
+  });
+</script>
+
+<style webc:scoped>
+  button {
+    appearance: none;
+    background: none;
+    cursor: pointer;
+    border: 1px dotted transparent;
+    border-radius: 1rem;
+    display: grid;
+    color: var(--color-foreground);
+    font-size: var(--font-size-0_75);
+    padding: 0.35rem;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      border-color: light-dark(
+        hsl(var(--color-foreground-hsl-light) / 25%),
+        hsl(var(--color-foreground-hsl-dark) / 25%)
+      );
+
+      svg {
+        rotate: -10deg;
+      }
+    }
+
+    svg {
+      display: block;
+      grid-area: 1 / 1;
+      height: auto;
+      transition: transform 0.1s ease;
+      width: 1rem;
+    }
+
+    .hidden {
+      opacity: 0;
+    }
+  }
+</style>

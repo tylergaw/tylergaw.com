@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "Complex MPA View Transitions"
 date: "2023-10-24"
 highlightSyntax: true

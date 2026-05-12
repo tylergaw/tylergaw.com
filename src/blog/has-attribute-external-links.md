@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "Styling External Links Using :has and an Attribute Selector"
 date: "2025-11-05"
 highlightSyntax: true

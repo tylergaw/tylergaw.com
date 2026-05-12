@@ -1,0 +1,30 @@
+---
+layout: layout-main.webc
+title: Books I'm Reading and Books I've Read - Tyler Gaw
+---
+
+<div class="page-intro g-main g-padded">
+  <div class="page-intro__contents g-main__item">
+    <h1 class="heading--special">Bookshelf</h1>
+    <p class="page-intro__body">
+      Books I'm reading and books I've read. Since 2019.
+    </p>
+  </div>
+</div>
+
+<ol class="listed-items g-main g-padded">
+  <template webc:for="group of books" webc:nokeep>
+    <li class="g-main__item listed-items__heading" :id="group.year">
+      <h2 @text="group.year"></h2>
+    </li>
+
+    <li webc:for="book of group.books" class="g-main__item listed-item">
+      <span webc:if="book.current" class="book-current">Currently reading</span>
+      <time webc:if="!book.current" :datetime="book.date" @text="`${dateFormat(book.date, 'MMMM, YYYY')}${book.note ? ' ' + book.note : ''}`"></time>
+
+      <a class="listed-item__link" :href="book.url" @text="book.title"></a>
+
+      <p @text="`by ${book.author}`"></p>
+    </li>
+  </template>
+</ol>

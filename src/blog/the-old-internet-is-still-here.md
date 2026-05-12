@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: The Old Internet is Still Here
 date: "2026-03-20"
 highlightSyntax: false

@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: Browsers Should Have a Native Control for Per-Site Color Scheme
 date: "2026-03-25"
 highlightSyntax: true

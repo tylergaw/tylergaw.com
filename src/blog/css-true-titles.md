@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 highlightSyntax: true
 title: "CSS True Titles"
 date: "2014-02-25"

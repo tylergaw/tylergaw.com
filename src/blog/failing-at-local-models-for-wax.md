@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "Failing at Using a Local LLM for Vinyl Record Color Extraction"
 date: "2025-12-29"
 highlightSyntax: true

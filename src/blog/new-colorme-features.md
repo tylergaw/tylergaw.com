@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 highlightSyntax: true
 title: "New ColorMe Features"
 date: "2017-01-18"

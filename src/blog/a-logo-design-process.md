@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "A Logo Design Process"
 date: "2014-07-17"
 meta:

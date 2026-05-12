@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "Fairweather Ride 2025"
 date: "2025-11-03"
 highlightSyntax: true

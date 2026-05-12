@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "First Experiments with View Transitions for Multi-page Apps"
 date: "2023-05-26"
 highlightSyntax: true

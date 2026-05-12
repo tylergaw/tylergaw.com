@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "Get Together. Get Excited. Get to Work."
 date: "2012-09-24"
 meta:

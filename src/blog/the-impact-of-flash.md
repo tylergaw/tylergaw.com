@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "The Impact of Flash"
 date: "2017-07-29"
 meta:

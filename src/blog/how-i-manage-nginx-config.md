@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 highlightSyntax: true
 title: "How I Manage Nginx Config"
 date: "2014-07-24"

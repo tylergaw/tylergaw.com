@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "Designing Anthologies: Initial Concepts"
 date: "2018-04-21"
 meta:

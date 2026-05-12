@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 highlightSyntax: true
 title: "Papersaver"
 date: "2014-02-03"

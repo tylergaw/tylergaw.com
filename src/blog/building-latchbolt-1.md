@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "Building Latchbolt #1"
 date: "2025-12-28"
 highlightSyntax: false

@@ -14,6 +14,16 @@ export default function (conf) {
     components: "src/_components/**/*.webc",
   });
 
+  conf.addFilter("groupByYear", (posts) => {
+    const grouped = new Map();
+    for (const post of posts) {
+      const year = dayjs(post.data.date).year();
+      if (!grouped.has(year)) grouped.set(year, []);
+      grouped.get(year).push(post);
+    }
+    return [...grouped].map(([year, posts]) => ({ year, posts }));
+  });
+
   conf.addFilter("dateFormat", (dateStr, format) => {
     return dayjs(dateStr).format(format);
   });
@@ -42,32 +52,15 @@ export default function (conf) {
   conf.addPassthroughCopy("src/js");
 
   conf.addCollection("posts", (collections) => {
-    const posts = collections
+    return collections
       .getFilteredByTag("post")
       .sort((a, b) => b.date - a.date)
-      .reduce((accum, post, i) => {
+      .map((post) => {
         const date = dayjs(post.data.date);
-        const year = date.year();
-        const prevPost = accum[i - 1];
-        let addYearData = !prevPost ? true : false;
-
-        if (prevPost) {
-          const prevPostYear = dayjs(prevPost.data.date).year();
-
-          if (year !== prevPostYear) {
-            addYearData = true;
-          }
-        }
-
-        // Override/add data to post object
-        post.data.year = addYearData ? year : null;
         post.data.date = date.format("YYYY-MM-DD");
         post.data.dateHuman = date.format("MMMM D, YYYY");
-
-        return accum.concat(post);
-      }, []);
-
-    return posts;
+        return post;
+      });
   });
 
   return {

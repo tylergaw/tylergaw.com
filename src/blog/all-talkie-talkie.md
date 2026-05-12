@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "All Talkie Talkie"
 date: "2010-05-27"
 meta:

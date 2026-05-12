@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "Ch-ch-ch Changes!"
 date: "2009-07-18"
 meta:

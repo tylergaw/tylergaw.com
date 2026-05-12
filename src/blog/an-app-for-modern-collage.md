@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: An App for Modern Collage
 date: "2026-01-26"
 highlightSyntax: false

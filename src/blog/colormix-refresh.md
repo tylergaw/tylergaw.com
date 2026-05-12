@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "Refreshing Colormix"
 date: "2023-05-16"
 meta:

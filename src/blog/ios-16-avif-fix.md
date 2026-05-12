@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "Re-encode AVIF images for iOS 16"
 date: "2023-01-29"
 meta:

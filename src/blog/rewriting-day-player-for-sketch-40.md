@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 highlightSyntax: true
 title: "Rewriting Day Player for Sketch 40+"
 date: "2016-12-21"

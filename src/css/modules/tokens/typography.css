@@ -30,6 +30,7 @@ body {
   --font-proto-bold: "protogrotesk-bold", helvetica, sans-serif;
   --font-mono: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 
+  --font-size-14: calc(14 / 16 * 1rem);
   --font-size-16: 1rem;
   --font-size-18: calc(18 / 16 * 1rem);
   --font-size-20: calc(20 / 16 * 1rem);

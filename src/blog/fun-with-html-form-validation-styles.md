@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "Fun with HTML Form Validation Styles"
 date: "2011-08-23"
 meta:

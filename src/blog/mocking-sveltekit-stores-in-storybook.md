@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "Mocking SvelteKit Stores in Storybook"
 date: "2024-03-27"
 highlightSyntax: true

@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "A Few Things to Enjoy #2"
 date: "2026-01-03"
 highlightSyntax: false

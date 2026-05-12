@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "CSS: Flexible Repeating SVG Masks"
 date: "2020-03-14"
 highlightSyntax: true

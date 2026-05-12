@@ -1,0 +1,81 @@
+<!doctype html>
+<html
+  lang="en"
+  class="no-js"
+  style="color-scheme: light"
+  :data-page="pageType || page.fileSlug || 'home'"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#9A86BF" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="view-transition" content="same-origin" />
+
+    <title
+      @text="title || 'Tyler Gaw is a Designer & Engineer in New York City, USA'"
+      webc:keep
+    ></title>
+    <meta
+      property="og:title"
+      :content="title || 'Tyler Gaw is a Designer & Engineer in New York City, USA'"
+    />
+    <meta
+      name="description"
+      :content="meta?.description || 'A personal website. Since 2006'"
+    />
+    <meta
+      property="og:description"
+      :content="meta?.description || 'A personal website. Since 2006'"
+    />
+    <meta
+      property="og:image"
+      :content="`${site.url}${meta?.image || '/images/social-default.png'}`"
+    />
+    <meta property="og:url" :content="`${site.url}${page.url}`" />
+    <meta property="og:type" content="article" />
+
+    <script webc:keep>
+      document.getElementsByTagName("html")[0].classList.replace("no-js", "js");
+      // We set any selected color scheme before anything else to avoid any flash.
+      const COLOR_SCHEME_STORAGE_KEY = "user-color-scheme";
+      document.documentElement.style.colorScheme =
+        localStorage.getItem(COLOR_SCHEME_STORAGE_KEY) || "light";
+    </script>
+
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link
+      rel="alternate"
+      :href="`${site.url}/rss.xml`"
+      type="application/rss+xml"
+      title="An account of the work I do as a designer and engineer"
+    />
+    <link rel="icon" href="/images/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/images/favicon.png" type="image/png" />
+    <link
+      rel="preload"
+      href="/fonts/protogroteskweb-light.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/protogroteskweb-bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="me" href="https://mastodon.social/@tylergaw" />
+
+    <link rel="stylesheet" href="/css/tylergaw.css" webc:keep />
+    <style @raw="getBundle('css')" webc:keep></style>
+  </head>
+  <body>
+    <page-header></page-header>
+    <main @raw="content"></main>
+    <page-footer :year="site.year"></page-footer>
+
+    <script @raw="getBundle('js', 'components')" webc:keep></script>
+  </body>
+</html>

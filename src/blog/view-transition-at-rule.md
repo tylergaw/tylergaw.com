@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "CSS View Transition At-Rule"
 date: "2024-10-06"
 highlightSyntax: true

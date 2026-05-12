@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "Realign 2020: Typography"
 date: "2020-03-01"
 highlightSyntax: true

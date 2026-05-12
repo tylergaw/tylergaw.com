@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "CSS Scroll-Driven Write-on Text Effect"
 date: "2023-07-19"
 highlightSyntax: true

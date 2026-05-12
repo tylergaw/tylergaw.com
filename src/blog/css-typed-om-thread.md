@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "CSS Trig Functions, CSS Typed OM, and Pulling on Threads"
 date: "2023-09-25"
 meta:

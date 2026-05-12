@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "Something to Latch Onto"
 date: "2025-12-27"
 highlightSyntax: false

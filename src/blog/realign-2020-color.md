@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "Realign 2020: Color"
 date: "2020-05-17"
 highlightSyntax: true

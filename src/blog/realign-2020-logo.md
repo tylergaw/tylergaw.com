@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "Realign 2020: Logo"
 date: "2020-03-07"
 meta:

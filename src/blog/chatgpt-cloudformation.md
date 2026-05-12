@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "Using ChatGPT to Write CloudFormation"
 date: "2023-10-18"
 highlightSyntax: true

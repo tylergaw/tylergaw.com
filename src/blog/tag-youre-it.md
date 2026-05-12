@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "Tag, You’re It"
 date: "2025-04-06"
 highlightSyntax: false

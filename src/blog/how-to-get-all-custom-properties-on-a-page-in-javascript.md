@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "How to Get All Custom Properties on a Page in JavaScript"
 date: "2020-06-15"
 highlightSyntax: true

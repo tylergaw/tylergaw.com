@@ -1,0 +1,19 @@
+<div class="g-main g-padded">
+  <nav class="blog-nav g-main__item">
+    <div class="blog-nav__contents">
+      <p>
+        <template webc:nokeep webc:if="getNextCollectionItem(posts, page)">
+          <b class="heading--special">Older post</b>
+          <a :href="getNextCollectionItem(posts, page).url" @text="getNextCollectionItem(posts, page).data.title"></a>
+        </template>
+      </p>
+
+      <p>
+        <template webc:nokeep webc:if="getPreviousCollectionItem(posts, page)">
+          <b class="heading--special">Newer post</b>
+          <a :href="getPreviousCollectionItem(posts, page).url" @text="getPreviousCollectionItem(posts, page).data.title"></a>
+        </template>
+      </p>
+    </div>
+  </nav>
+</div>

@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "You Did What with What?"
 date: "2010-04-06"
 meta:

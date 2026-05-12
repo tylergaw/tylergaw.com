@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "A Small Redesign with a Little Sugar"
 date: "2011-07-09"
 meta:

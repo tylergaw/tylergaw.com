@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "Visualizing CSS color-mix"
 date: "2022-06-29"
 meta:
