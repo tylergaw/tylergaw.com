@@ -28,6 +28,7 @@ body {
   --font-proto-light: "protogrotesk-light", helvetica, sans-serif;
   --font-proto-regular: "protogrotesk-regular", helvetica, sans-serif;
   --font-proto-bold: "protogrotesk-bold", helvetica, sans-serif;
+  --font-accent: "Covik Sans Mono Demo", Consolas, monospace;
   --font-mono: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 
   --font-size-14: calc(14 / 16 * 1rem);

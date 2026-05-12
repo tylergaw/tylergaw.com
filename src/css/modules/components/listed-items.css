@@ -5,9 +5,9 @@
 .listed-item time,
 .book-current {
   display: block;
-  font-family: var(--font-proto-regular);
+  font-family: var(--font-accent);
   font-size: 0.9rem;
-  font-weight: 400;
+  font-weight: 600;
   margin-bottom: 0.4em;
   text-transform: uppercase;
 }

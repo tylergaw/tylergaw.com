@@ -5,11 +5,7 @@ pageType: blog
 
 <article class="h-entry">
   <header class="e-header">
-    <time
-      class="dt-published heading--special"
-      :datetime="date"
-      @text="dateHuman"
-    ></time>
+    <time class="dt-published" :datetime="date" @text="dateHuman"></time>
     <h1 class="p-name" @text="title"></h1>
     <p class="p-author h-card" aria-hidden="true">By Tyler Gaw</p>
   </header>

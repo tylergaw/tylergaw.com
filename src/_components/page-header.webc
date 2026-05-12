@@ -53,7 +53,7 @@
     display: flex;
     padding-bottom: 1.4rem;
     flex: 1;
-    font-family: "Covik Sans Mono Demo";
+    font-family: var(--font-accent);
     font-size: var(--font-size-14);
     text-transform: uppercase;
   }

@@ -12,9 +12,9 @@
 }
 
 .footer a {
-  border-bottom: 2px solid currentColor;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 50%, transparent);
   display: inline-block;
-  font-family: var(--font-proto-regular);
+  font-family: var(--font-accent);
   font-size: 1rem;
   text-decoration: none;
   text-transform: uppercase;
@@ -22,6 +22,7 @@
 
 .footer a:hover,
 .footer a:focus {
+  border-color: currentColor;
   color: var(--color-text);
 }
 
