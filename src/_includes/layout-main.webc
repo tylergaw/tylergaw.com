@@ -10,7 +10,6 @@
     <meta name="theme-color" content="#9A86BF" />
     <meta name="color-scheme" content="light dark" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="view-transition" content="same-origin" />
 
     <title
       @text="title || 'Tyler Gaw is a Designer & Engineer in New York City, USA'"
@@ -67,6 +66,16 @@
       crossorigin
     />
     <link rel="me" href="https://mastodon.social/@tylergaw" />
+
+    <style webc:keep>
+      @view-transition {
+        navigation: auto;
+      }
+      ::view-transition-old(root),
+      ::view-transition-new(root) {
+        animation-duration: 0s;
+      }
+    </style>
 
     <link rel="stylesheet" href="/css/tylergaw.css" webc:keep />
     <style @raw="getBundle('css')" webc:keep></style>
