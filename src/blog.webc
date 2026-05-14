@@ -22,7 +22,10 @@ meta:
       webc:for="group of groupByYear(collections.posts)"
       :id="`year-${group.year}`"
     >
-      <h2 @text="group.year"></h2>
+      <div class="group-heading">
+        <h2 @text="group.year"></h2>
+        <tree-rings :year="group.year" :count="group.posts.length"></tree-rings>
+      </div>
       <ol>
         <li webc:for="post of group.posts">
           <time :datetime="post.data.date" @text="post.data.dateHuman"></time>
@@ -34,23 +37,42 @@ meta:
 </div>
 
 <style webc:scoped>
+  .blog-posts {
+    row-gap: 4.25rem;
+  }
+
+  .group-heading {
+    background: linear-gradient(var(--color-bg) 70%, transparent);
+    margin-bottom: 1rem;
+    overflow: hidden;
+    display: flex;
+    column-gap: 0.5rem;
+
+    svg {
+      color: color-mix(in srgb, var(--color-accent-primary) 30%, transparent);
+      margin-top: 0.5rem;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 620px) {
+    .group-heading {
+      position: sticky;
+      top: 0;
+    }
+  }
+
   h2 {
-    background: var(--color-bg);
     font-size: var(--font-size-28);
     font-family: var(--font-proto-extralight);
     font-weight: 200;
     transform-origin: top;
-    transform: scaleY(3.5);
+    transform: scaleY(3.75);
     letter-spacing: -2px;
-    margin-bottom: 5rem;
+    margin-top: 0;
     line-height: 1;
-  }
-
-  @media (min-width: 620px) {
-    h2 {
-      position: sticky;
-      top: 0;
-    }
+    padding-bottom: 3.75rem;
   }
 
   time {
