@@ -1,4 +1,7 @@
 <footer class="g-main g-padded" webc:root="override">
+  <p class="g-main__item">
+    This is the footer where all the links and things go.
+  </p>
   <nav class="g-main__item">
     <ul>
       <li>
@@ -123,11 +126,10 @@
     --row-start: 3;
     align-self: center;
     display: flex;
-    font-family: var(--font-proto-regular);
+    /* font-family: var(--font-proto-light); */
     font-size: 1rem;
     gap: 0.4em;
     line-height: 1.25;
-    text-transform: uppercase;
   }
 
   @media (min-width: 420px) {

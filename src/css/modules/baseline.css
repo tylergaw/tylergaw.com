@@ -109,6 +109,10 @@ em {
   box-sizing: border-box;
 }
 
+:root {
+  --link-border: 1px solid color-mix(in srgb, currentColor 50%, transparent);
+}
+
 html,
 body {
   margin: 0;

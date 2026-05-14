@@ -1,7 +1,7 @@
 ---
 layout: layout-main.webc
 title: StreetCred from the foggy memory of Tyler Gaw
-pageType: work
+pageType: work-streetcred
 specs:
   [
     {
@@ -55,7 +55,9 @@ addScreens:
   ]
 ---
 
-<div class="hero--streetcred hero--before-standard hero--after-standard">
+<div
+  class="hero--streetcred hero--before-standard hero--after-standard hero--offset"
+>
   <div class="hero__contents">
     <div class="streetcred__graphic">
       <picture class="streetcred__graphic-main">

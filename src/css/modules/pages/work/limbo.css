@@ -13,7 +13,6 @@
   background: var(--color-limbo-accent) url("/images/work/limbo/limbo-dust.svg")
     repeat;
   bottom: 2rem;
-  border-radius: 6px;
   height: 30%;
   transform: skewY(1.75deg);
 }

@@ -14,9 +14,13 @@
 }
 
 .hero--before-standard::before {
-  border-radius: 6px;
   height: calc(100% - var(--offset-v));
-  top: calc(var(--gutter) * 3);
+}
+
+.hero--offset {
+  --offset: -2.25rem;
+  margin-bottom: var(--offset);
+  transform: translateY(var(--offset));
 }
 
 .hero__contents {
@@ -27,7 +31,7 @@
 @media (min-width: 38.75em) {
   .hero--before-standard::before,
   .hero--after-standard::after {
-    left: calc(var(--gutter) * 3);
-    width: calc(100% - var(--gutter) * 6);
+    left: calc(var(--gutter) * 2);
+    width: calc(100% - var(--gutter) * 4);
   }
 }

@@ -1,7 +1,7 @@
 ---
 layout: layout-main.webc
 title: The Tall Tale of Building OS X Apps with JavaScript by Tyler Gaw
-pageType: work
+pageType: work-jxa
 specs:
   [
     {

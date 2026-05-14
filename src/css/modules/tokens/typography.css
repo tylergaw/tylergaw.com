@@ -8,6 +8,7 @@
   font-display: swap;
   font-family: "protogrotesk-extralight";
   src: url("/fonts/protogroteskweb-extralight.woff2");
+  font-weight: 200;
 }
 
 @font-face {
@@ -31,11 +32,13 @@ body {
   --font-accent: "Covik Sans Mono Demo", Consolas, monospace;
   --font-mono: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 
+  --font-size-12: calc(12 / 16 * 1rem);
   --font-size-14: calc(14 / 16 * 1rem);
   --font-size-16: 1rem;
   --font-size-18: calc(18 / 16 * 1rem);
   --font-size-20: calc(20 / 16 * 1rem);
   --font-size-24: calc(24 / 16 * 1rem);
+  --font-size-28: calc(28 / 16 * 1rem);
   --font-size-30: calc(30 / 16 * 1rem);
   --font-size-34: calc(34 / 16 * 1rem);
   --font-size-36: calc(36 / 16 * 1rem);

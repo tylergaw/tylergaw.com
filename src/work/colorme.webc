@@ -1,7 +1,7 @@
 ---
 layout: layout-main.webc
 title: ColorMe. A project by Tyler Gaw
-pageType: work
+pageType: work-colorme
 specs:
   [
     { "title": "Hats worn", "desc": "Research, design, front-end" },
@@ -18,7 +18,9 @@ specs:
   ]
 ---
 
-<div class="hero--colorme hero--before-standard hero--after-standard">
+<div
+  class="hero--colorme hero--before-standard hero--after-standard hero--offset"
+>
   <div class="hero__contents">
     <h1 class="colorme__title">
       <img src="/images/work/colorme/colorme-logo.svg" alt="ColorMe" />

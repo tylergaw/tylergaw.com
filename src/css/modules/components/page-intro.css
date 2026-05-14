@@ -18,7 +18,7 @@
   padding-top: 1.4rem;
 }
 
-@media (min-width: 38.75em) {
+@media (min-width: 620px) {
   .page-intro {
     --num-cols: 3;
     --rows-top: 6;
@@ -31,7 +31,7 @@
   }
 }
 
-@media (min-width: 65em) {
+@media (min-width: 1040px) {
   .page-intro {
     --num-cols: 5;
   }
@@ -41,7 +41,7 @@
   }
 }
 
-@media (min-width: 106.25em) {
+@media (min-width: 1700px) {
   .page-intro {
     --num-cols: 9;
   }

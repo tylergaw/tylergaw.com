@@ -1,7 +1,7 @@
 ---
 layout: layout-main.webc
 title: Limbo as described by Tyler Gaw
-pageType: work
+pageType: work-limbo
 specs:
   [
     { "title": "Hats worn", "desc": "Co-founder, product, design, front-end" },
@@ -12,7 +12,9 @@ specs:
   ]
 ---
 
-<div class="hero--limbo hero--before-standard hero--after-standard">
+<div
+  class="hero--limbo hero--before-standard hero--after-standard hero--offset"
+>
   <div class="hero__contents">
     <div class="limbo__graphic">
       <img

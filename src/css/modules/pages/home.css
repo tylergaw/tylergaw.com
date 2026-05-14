@@ -769,7 +769,6 @@
   .home__work {
     --margin-top-rows: 0;
     --rows: 15;
-    transform: translateY(var(--trans-y, -2.5rem));
   }
 
   .work__title {

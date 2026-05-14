@@ -63,6 +63,8 @@ export default function (conf) {
       });
   });
 
+  conf.addWatchTarget("src/_components/");
+
   conf.setServerOptions({
     domDiff: false,
   });

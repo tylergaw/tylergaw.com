@@ -1,9 +1,6 @@
 :root {
   color-scheme: light dark;
-}
 
-html,
-body {
   /* Accent colors */
   --color-accent-toxic: #00eb9b;
   --color-accent-wine: #c01458;
@@ -45,7 +42,7 @@ body {
   /* Common colors */
   --color-charcoal: #292929;
   --color-mud: #3f3d31;
-  --color-offwhite: #f8f8f8;
+  --color-offwhite: #fcfcfc;
   --color-white: #fff;
   --color-eggshell: #f6f5e4;
 
@@ -59,6 +56,37 @@ body {
   );
   --color-bg: light-dark(var(--color-offwhite), var(--color-charcoal));
   --color-text: light-dark(var(--color-mud), var(--color-offwhite));
+}
+
+[data-page="home"] {
+  --color-accent-primary: color(display-p3 1 0 0);
+}
+
+[data-page="blog"] {
+  --color-accent-primary: color(display-p3 1 0.4 0);
+}
+
+[data-page="work-streetcred"] {
+  --color-accent-primary: var(--color-streetcred-accent);
+}
+
+[data-page="work-limbo"] {
+  --color-accent-primary: var(--color-limbo-accent);
+}
+
+[data-page="work-groundwork"] {
+  --color-accent-primary: var(--color-groundwork-accent);
+}
+
+[data-page="work-jxa"] {
+  --color-accent-primary: light-dark(
+    var(--color-jxa-accent),
+    var(--color-jxa-accent-light)
+  );
+}
+
+[data-page="work-colorme"] {
+  --color-accent-primary: var(--color-colorme-accent);
 }
 
 html,

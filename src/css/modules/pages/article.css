@@ -14,25 +14,27 @@
 }
 
 .e-header {
-  margin: 2.5rem auto 4rem auto;
+  margin: 2.5rem auto 5rem auto;
   max-width: var(--width-text-max);
   width: var(--width-content);
 }
 
 .p-name {
-  font-family: var(--font-proto-regular);
+  font-family: var(--font-proto-light);
   font-size: 9vw;
   letter-spacing: -0.035em;
   line-height: 1.1;
   margin: 0;
   text-wrap: balance;
+  font-weight: 300;
 }
 
 .dt-published {
   display: block;
   font-family: var(--font-accent);
   font-size: 1.1rem;
-  margin-bottom: 0.875em;
+  margin-bottom: 0.25em;
+  padding-left: 0.25em;
   text-transform: uppercase;
 }
 
@@ -328,7 +330,7 @@
 
 @media (min-width: 750px) {
   .e-header {
-    margin-bottom: 5rem;
+    margin-bottom: 8rem;
     margin-top: 4rem;
   }
 
