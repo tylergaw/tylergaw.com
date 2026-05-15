@@ -50,7 +50,7 @@ meta:
 
     svg {
       color: color-mix(in srgb, var(--color-accent-primary) 30%, transparent);
-      margin-top: 0.5rem;
+      margin-top: 0.25rem;
       height: 100%;
       width: 100%;
     }

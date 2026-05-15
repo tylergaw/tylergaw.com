@@ -8,7 +8,7 @@
       };
     };
 
-    const pointsToPath = (coords, closed) => {
+    const pointsToPath = (coords) => {
       const n = coords.length;
       if (n < 2) return "";
       const f = (v) => v.toFixed(2);
@@ -16,10 +16,10 @@
 
       let d = `M ${f(coords[0][0])} ${f(coords[0][1])}`;
       for (let i = 0; i < n - 1; i++) {
-        const p0 = coords[i === 0 ? (closed ? n - 1 : 0) : i - 1];
+        const p0 = coords[i === 0 ? 0 : i - 1];
         const p1 = coords[i];
         const p2 = coords[i + 1];
-        const p3 = coords[i + 2 < n ? i + 2 : closed ? (i + 2) % n : n - 1];
+        const p3 = coords[i + 2 < n ? i + 2 : n - 1];
 
         const cp1x = p1[0] + (p2[0] - p0[0]) * tension;
         const cp1y = p1[1] + (p2[1] - p0[1]) * tension;
@@ -28,69 +28,55 @@
 
         d += ` C ${f(cp1x)} ${f(cp1y)} ${f(cp2x)} ${f(cp2y)} ${f(p2[0])} ${f(p2[1])}`;
       }
-      if (closed) d += " Z";
       return d;
     };
 
     const year = parseInt(this.year) || 2024;
     const count = parseInt(this.count) || 8;
     const width = parseInt(this.width) || 250;
-    const height = parseInt(this.height) || 20;
+    const height = parseInt(this.height) || 25;
 
-    const rng = seededRandom(year);
-    const cx = width / 100;
-    const cy = height / 0.8;
-    const maxRx = width * 2;
-    const maxRy = height;
-    const numPoints = 200;
-    const numRings = count;
+    const rng = seededRandom(year * 100 + count);
+    const numPoints = 15;
+    const numLines = 3 + Math.floor(count * 0.4);
 
-    // Generate the outermost ring as a base shape
-    const basePoints = [];
-    for (let i = 0; i < numPoints; i++) {
-      const angle = (i / numPoints) * Math.PI * 2;
-      const wobble = 1 + rng() * 0.25;
-      const x = cx + Math.cos(angle) * maxRx * wobble;
-      const y = cy + Math.sin(angle) * maxRy * wobble;
-      basePoints.push([x, y]);
-    }
+    const pad = 2;
+    const numFrames = 3;
 
-    // Build rings from outside in, each one derived from the previous
-    const allRings = [basePoints];
-    for (let r = 1; r <= numRings; r++) {
-      const prev = allRings[r - 1];
-      const shrink = 3 + rng();
-      const ring = prev.map(([px, py], i) => {
-        const angle = (i / numPoints) * Math.PI * 2;
-        // Pull toward center with some drift
-        const dx = ((cx - px) / Math.hypot(cx - px, cy - py)) * shrink;
-        const dy = ((cy - py) / Math.hypot(cx - px, cy - py)) * shrink;
-        const drift = (rng() - 0.25) * 10;
-        return [px + dx + drift, py + dy + drift * 0.3];
-      });
-      allRings.push(ring);
-    }
+    const paths = [];
+    for (let i = 0; i < numLines; i++) {
+      const startY = rng() * height;
+      const endY = rng() * height * 0.1;
 
-    // Render each ring — some open, some closed
-    const paths = allRings.map((ring, i) => {
-      const strokeWidth = Math.min(0.25 + rng() * 0.35, 0.9);
-
-      // Randomly make some rings incomplete
-      let coords = ring;
-      let closed = true;
-      if (rng() > 0.6 && i > 0) {
-        const startSlice = Math.floor(rng() * numPoints * 0.3);
-        const endSlice = numPoints - Math.floor(rng() * numPoints * 0.3);
-        coords = ring.slice(startSlice, endSlice);
-        closed = false;
-      } else {
-        coords = [...ring, ring[0]];
-        closed = false;
+      // Pre-compute the fixed x and baseY for each point
+      const base = [];
+      for (let j = 0; j <= numPoints; j++) {
+        const t = j / numPoints;
+        const x = pad + t * (width - pad * 2);
+        const baseY = startY + (endY - startY) * t;
+        const spread = 1 - t * 0.8;
+        base.push({ x, baseY, spread });
       }
 
-      const d = pointsToPath(coords, closed);
-      return `<path d="${d}" fill="none" stroke="currentColor" stroke-width="${strokeWidth.toFixed(2)}" stroke-linecap="round" />`;
-    });
+      // Generate wobble variations
+      const frames = [];
+      for (let f = 0; f < numFrames; f++) {
+        const coords = base.map(({ x, baseY, spread }, j) => {
+          if (j === 0 || j === numPoints) return [x, baseY];
+          const wobble = (rng() - 0.5) * height * 0.45 * spread;
+          const y = Math.max(pad, Math.min(height - pad, baseY + wobble));
+          return [x, y];
+        });
+        frames.push(pointsToPath(coords));
+      }
+
+      const strokeWidth = (0.25 + rng() * 0.25).toFixed(2);
+      const dur = (10 + rng() * 10).toFixed(1);
+      const values = [...frames, frames[0]].join(";");
+      paths.push(
+        `<path d="${frames[0]}" fill="none" stroke="currentColor" stroke-width="${strokeWidth}" stroke-linecap="round"><animate attributeName="d" values="${values}" dur="${dur}s" repeatCount="indefinite" /></path>`,
+      );
+    }
 
     return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" aria-hidden="true">${paths.join("")}</svg>`;
   };

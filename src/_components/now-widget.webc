@@ -12,7 +12,8 @@
           </p>
         </header>
         <p>
-          <span @text="plainTextPreview(update.content)"></span>… <a href="/now" class="bordered-link">more</a>
+          <span @text="plainTextPreview(update.content)"></span>…
+          <a href="/now" class="bordered-link">more</a>
         </p>
       </div>
     </div>
@@ -21,7 +22,7 @@
 
 <style webc:scoped>
   :host {
-    color: var(--color-mud);
+    color: var(--color-charcoal);
     container: now-widget / inline-size;
     padding: 0 2rem;
     margin-top: 1rem;
@@ -29,6 +30,10 @@
 
   .inner {
     background: color(display-p3 1 1 0);
+    background: light-dark(
+      color(display-p3 1 1 0),
+      color(display-p3 0.4 0.2 1)
+    );
     padding: 1.5rem 2rem;
   }
 
