@@ -55,6 +55,7 @@
     var(--color-accent-boo)
   );
   --color-bg: light-dark(var(--color-offwhite), var(--color-charcoal));
+  --color-bg-offset: light-dark(white, #1f1f1f);
   --color-text: light-dark(var(--color-mud), var(--color-offwhite));
 }
 

@@ -133,3 +133,8 @@ body {
   padding-bottom: 2rem;
   margin-top: 0;
 }
+
+.bordered-link {
+  border-bottom: var(--link-border);
+  text-decoration: none;
+}

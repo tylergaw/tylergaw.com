@@ -24,6 +24,14 @@ export default function (conf) {
     return [...grouped].map(([year, posts]) => ({ year, posts }));
   });
 
+  conf.addFilter("plainTextPreview", (html, max = 290) => {
+    const text = html.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+    if (text.length <= max) return text;
+    const truncated = text.slice(0, max);
+    const lastSpace = truncated.lastIndexOf(" ");
+    return truncated.slice(0, lastSpace);
+  });
+
   conf.addFilter("dateFormat", (dateStr, format) => {
     return dayjs(dateStr).format(format);
   });
@@ -50,6 +58,18 @@ export default function (conf) {
   conf.addPassthroughCopy("src/images");
   conf.addPassthroughCopy("src/css");
   conf.addPassthroughCopy("src/js");
+
+  conf.addCollection("nowUpdates", (collections) => {
+    return collections
+      .getFilteredByTag("now-update")
+      .sort((a, b) => b.date - a.date)
+      .map((update) => {
+        const date = dayjs(update.data.date);
+        update.data.date = date.format("YYYY-MM-DD");
+        update.data.dateHuman = date.format("MMMM D, YYYY");
+        return update;
+      });
+  });
 
   conf.addCollection("posts", (collections) => {
     return collections

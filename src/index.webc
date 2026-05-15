@@ -5,13 +5,6 @@ meta:
 ---
 
 <home-hero></home-hero>
-<div class="temp-spacer"></div>
+<now-widget :@update="$data.collections.nowUpdates[0]"></now-widget>
 
-<style>
-  /* FIXME */
-  [data-page="home"] {
-    .temp-spacer {
-      height: 600px;
-    }
-  }
-</style>
+<div class="temp-spacer" style="height: 600px"></div>

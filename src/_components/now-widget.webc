@@ -1,0 +1,98 @@
+<div webc:root="override">
+  <div class="inner">
+    <div class="contents">
+      <div class="heading">
+        <p>Now</p>
+      </div>
+      <div class="stuff">
+        <header>
+          <p>
+            <span @text="update.data.dateHuman"></span> •
+            <a href="/now" class="all-updates-link">All updates</a>
+          </p>
+        </header>
+        <p>
+          <span @text="plainTextPreview(update.content)"></span>… <a href="/now" class="bordered-link">more</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style webc:scoped>
+  :host {
+    color: var(--color-mud);
+    container: now-widget / inline-size;
+    padding: 0 2rem;
+    margin-top: 1rem;
+  }
+
+  .inner {
+    background: color(display-p3 1 1 0);
+    padding: 1.5rem 2rem;
+  }
+
+  .heading {
+    overflow: hidden;
+    padding-bottom: 1.25rem;
+
+    p {
+      --scale-x: tan(atan2(100cqi, 3ch));
+      font-family: var(--font-proto-bold);
+      letter-spacing: -1px;
+      transform: scaleX(calc(var(--scale-x) / 1.35)) scaleY(1.75)
+        translateX(-0.1rem);
+      transform-origin: left top;
+      text-transform: uppercase;
+    }
+  }
+
+  header {
+    font-family: var(--font-accent);
+    font-weight: 500;
+    padding-bottom: 1rem;
+    text-transform: uppercase;
+
+    p {
+      align-items: center;
+      display: flex;
+      line-height: 1;
+      gap: 0.25rem;
+    }
+
+    .all-updates-link {
+      font-size: var(--font-size-12);
+    }
+  }
+
+  p {
+    line-height: 1.5;
+  }
+
+  @container now-widget (min-width: 570px) {
+    .contents {
+      display: flex;
+      column-gap: 0.75rem;
+      flex-wrap: wrap;
+      margin: 0 auto;
+      max-width: 800px;
+    }
+
+    .heading {
+      padding-bottom: 0;
+      width: 4.25ch;
+
+      p {
+        font-family: var(--font-proto-regular);
+        font-weight: 400;
+        line-height: 0.825;
+        letter-spacing: 0;
+        transform: scaleX(1.1) scaleY(8.2) translateX(0);
+      }
+    }
+
+    .stuff {
+      flex: 1;
+    }
+  }
+</style>

@@ -104,9 +104,11 @@
 
 <style webc:scoped="home-hero">
   :host {
-    padding: 0 1.75rem;
+    --offset: -2.3rem;
+    padding: 0 2rem;
     color: var(--color-accent-primary);
-    transform: translateY(-2.3rem);
+    margin-bottom: var(--offset);
+    transform: translateY(var(--offset));
   }
 
   .inner {
@@ -156,10 +158,15 @@
   .intro {
     display: flex;
     font-size: var(--font-size-28);
-    line-height: 1.75;
+    line-height: 1.8;
 
-    max-width: 1030px;
+    max-width: 1060px;
     margin-left: auto;
+    margin-top: 1rem;
+
+    background: var(--color-bg);
+    border: 1px solid currentColor;
+    padding: 1rem;
 
     p {
       padding-left: 2rem;
