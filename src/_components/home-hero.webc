@@ -145,51 +145,57 @@
 
   .contents {
     position: relative;
-    padding: 6rem 2rem 7rem 2rem;
+    padding-top: 6rem;
     z-index: 10;
   }
 
   .invocation {
     display: block;
     height: auto;
+    padding: 0 2rem;
     width: 100%;
   }
 
   .intro {
-    display: flex;
+    background: var(--color-bg);
     font-size: var(--font-size-28);
     line-height: 1.8;
-
-    max-width: 1060px;
     margin-left: auto;
-    margin-top: 1rem;
-
-    background: var(--color-bg);
-    border: 1px solid currentColor;
-    padding: 1rem;
+    max-width: var(--g-max-6);
+    position: relative;
 
     p {
-      padding-left: 2rem;
+      padding: 2.5rem 3.5rem;
     }
 
     svg {
-      flex-shrink: 0;
+      position: absolute;
 
       &:first-of-type {
-        margin-top: 2rem;
+        top: 1.75rem;
+        left: -2.5rem;
         rotate: -8deg;
+        transform: scale(0.75);
       }
 
       &:last-of-type {
-        margin-top: 2.2rem;
+        top: 2rem;
+        right: -1.5rem;
         rotate: 9deg;
         scale: 0.8;
+        transform: scale(0.75);
       }
     }
 
     strong {
-      font-family: var(--font-proto-bold);
+      background-color: var(--color-accent-primary);
+      color: var(--color-bg);
+      font-family: var(--font-dragonsteel);
+      font-size: 145%;
+      font-weight: 400;
+      line-height: 1.2;
       text-transform: uppercase;
+      padding: 0 0.25rem;
     }
   }
 

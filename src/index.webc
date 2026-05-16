@@ -7,4 +7,126 @@ meta:
 <home-hero></home-hero>
 <now-widget :@update="$data.collections.nowUpdates[0]"></now-widget>
 
-<div class="temp-spacer" style="height: 600px"></div>
+<div>
+  <div class="g-padded home-row-1">
+    <div class="one">
+      <div class="graphic">
+        <video
+          muted
+          autoplay
+          playsinline
+          loop
+          poster="/images/home/home-abstract-01.webp"
+          src="/videos/abstract-1.mp4"
+          loading="lazy"
+        ></video>
+      </div>
+      <div class="invocation">
+        <p>then distort as you please</p>
+      </div>
+    </div>
+    <div class="two">
+      <h2>Latest and Greatest</h2>
+    </div>
+  </div>
+
+  <svg width="0" height="0" aria-hidden="true" style="position: absolute">
+    <filter id="noise">
+      <feTurbulence
+        type="fractalNoise"
+        baseFrequency="0.4"
+        numOctaves="1"
+        stitchTiles="stitch"
+        seed="2"
+      >
+        <animate
+          attributeName="seed"
+          from="0"
+          to="80"
+          dur="12s"
+          repeatCount="indefinite"
+        />
+      </feTurbulence>
+      <feColorMatrix type="saturate" values="0" />
+    </filter>
+  </svg>
+</div>
+
+<style webc:scoped>
+  .home-row-1 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--g-gutter);
+    margin-top: var(--g-gutter);
+  }
+
+  .one {
+    background: blue;
+    display: grid;
+    flex: 1;
+    overflow: hidden;
+    max-width: var(--g-max-3);
+
+    .graphic {
+      background: var(--color-accent-primary);
+      position: relative;
+      grid-area: 1 / 1;
+
+      &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        filter: url(#noise);
+        mix-blend-mode: color-dodge;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    video {
+      mix-blend-mode: luminosity;
+      filter: contrast(2.75) brightness(2.25);
+      opacity: 0.4;
+      object-fit: cover;
+      object-position: center;
+      height: 100%;
+      width: 100%;
+      transform-origin: center;
+    }
+
+    .invocation {
+      align-items: flex-start;
+      display: flex;
+      grid-area: 1 / 1;
+      justify-content: flex-end;
+
+      p {
+        background: var(--color-white);
+        color: var(--color-accent-primary);
+        font-family: var(--font-accent);
+        font-size: 1rem;
+        letter-spacing: 2px;
+        padding: 0.25rem;
+        transform-origin: right bottom;
+        transform: translate(-0.25rem, -2.5rem);
+        rotate: -90deg;
+      }
+    }
+  }
+
+  .two {
+    flex: 1;
+    padding: 1rem;
+  }
+</style>
+
+<style>
+  html[style*="color-scheme: dark"] .graphic {
+    filter: brightness(0.5);
+
+    video {
+      filter: contrast(1.2) brightness(1.5) invert();
+    }
+  }
+</style>

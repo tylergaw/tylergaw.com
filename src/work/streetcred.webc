@@ -302,18 +302,6 @@ addScreens:
   </div>
 </div>
 
-<div class="g-main g-padded project project--streetcred">
-  <div class="g-main__item project__body">
-    <h3>Anything else?</h3>
-    <p>
-      Yes. God yes, there’s so much more. We packed 5 years of design and
-      engineering into 2. I have a bazillion screens, icons, sketches, map
-      styles, React Native hacks, and on and on. Like everything on this site,
-      this is a living document. More soonish.
-    </p>
-  </div>
-</div>
-
 <work-nav @project="streetcred"></work-nav>
 
 <script webc:bucket="components">

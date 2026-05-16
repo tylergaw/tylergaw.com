@@ -25,7 +25,10 @@ export default function (conf) {
   });
 
   conf.addFilter("plainTextPreview", (html, max = 290) => {
-    const text = html.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+    const text = html
+      .replace(/<[^>]+>/g, "")
+      .replace(/\s+/g, " ")
+      .trim();
     if (text.length <= max) return text;
     const truncated = text.slice(0, max);
     const lastSpace = truncated.lastIndexOf(" ");
@@ -56,6 +59,7 @@ export default function (conf) {
   conf.addPassthroughCopy("src/.well-known");
   conf.addPassthroughCopy("src/fonts");
   conf.addPassthroughCopy("src/images");
+  conf.addPassthroughCopy("src/videos");
   conf.addPassthroughCopy("src/css");
   conf.addPassthroughCopy("src/js");
 

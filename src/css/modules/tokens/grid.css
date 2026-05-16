@@ -1,10 +1,22 @@
 :root {
   --g-row: calc(10 / 16 * 1rem);
+  --g-col: calc(140 / 16 * 1rem);
   --g-gutter: calc(21 / 16 * 1rem);
+  --g-padding-h: 2rem;
+
+  --g-max-1: calc(var(--g-col) * 1);
+  --g-max-2: calc(var(--g-col) * 2 + var(--g-gutter) * 1);
+  --g-max-3: calc(var(--g-col) * 3 + var(--g-gutter) * 2);
+  --g-max-4: calc(var(--g-col) * 4 + var(--g-gutter) * 3);
+  --g-max-5: calc(var(--g-col) * 5 + var(--g-gutter) * 4);
+  --g-max-6: calc(var(--g-col) * 6 + var(--g-gutter) * 5);
+  --g-max-7: calc(var(--g-col) * 7 + var(--g-gutter) * 6);
+  --g-max-8: calc(var(--g-col) * 8 + var(--g-gutter) * 7);
+  --g-max-9: calc(var(--g-col) * 9 + var(--g-gutter) * 8);
+  --g-max-10: calc(var(--g-col) * 10 + var(--g-gutter) * 9);
 }
 
 .g-main {
-  --g-col: calc(var(--g-col-target, 156) / 16 * 1rem);
   display: grid;
   gap: var(--g-gutter);
   grid-template-columns: repeat(var(--num-cols, 1), 1fr);
@@ -15,13 +27,9 @@
   grid-row: var(--row-start, auto) / var(--row-end, auto);
 }
 
-.g-fixed-max {
-  max-width: calc(var(--g-col) * 9);
-}
-
 .g-padded {
-  padding-left: var(--g-gutter);
-  padding-right: var(--g-gutter);
+  padding-left: var(--g-padding-h);
+  padding-right: var(--g-padding-h);
 }
 
 @media (min-width: 620px) {
@@ -60,10 +68,10 @@
   }
 }
 
-@media (min-width: 1700px) {
+@media (min-width: 1660px) {
   .g-main,
   .g-standard-a {
-    --num-cols: 9;
+    --num-cols: 10;
   }
 
   .g-standard-a__item {

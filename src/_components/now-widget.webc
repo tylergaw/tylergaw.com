@@ -22,22 +22,18 @@
 
 <style webc:scoped>
   :host {
-    color: var(--color-charcoal);
     container: now-widget / inline-size;
     padding: 0 2rem;
-    margin-top: 1rem;
+    margin-top: var(--g-gutter);
   }
 
   .inner {
-    background: color(display-p3 1 1 0);
-    background: light-dark(
-      color(display-p3 1 1 0),
-      color(display-p3 0.4 0.2 1)
-    );
-    padding: 1.5rem 2rem;
+    border: 1px solid currentColor;
+    padding: 1.5rem 2rem 1.75rem 2rem;
   }
 
   .heading {
+    color: var(--color-accent-primary);
     overflow: hidden;
     padding-bottom: 1.25rem;
 

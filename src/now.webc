@@ -6,13 +6,13 @@ meta:
   image: /images/social-blog.png
 ---
 
-<div class="g-main g-padded">
+<div class="g-padded">
   <p>
     This is <a href="https://nownownow.com/about">a now page</a>, and if you
     have your own site, you should make one, too.
   </p>
 
-  <div class="g-main__item" webc:for="update of collections.nowUpdates">
+  <div webc:for="update of collections.nowUpdates">
     <article :id="`update-${update.data.date}`">
       <h2>
         <a

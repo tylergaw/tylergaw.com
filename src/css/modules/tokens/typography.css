@@ -23,14 +23,22 @@
   src: url("/fonts/protogroteskweb-regular.woff2");
 }
 
+@font-face {
+  font-family: "Dragonsteel Rough";
+  font-weight: 400;
+  src: url("/fonts/Dragonsteel-Rough.woff2") format("woff2");
+}
+
 html,
 body {
   --font-proto-extralight: "protogrotesk-extralight", helvetica, sans-serif;
   --font-proto-light: "protogrotesk-light", helvetica, sans-serif;
   --font-proto-regular: "protogrotesk-regular", helvetica, sans-serif;
   --font-proto-bold: "protogrotesk-bold", helvetica, sans-serif;
+  /* FIXME: Need to buy/use real covik */
   --font-accent: "Covik Sans Mono Demo", Consolas, monospace;
   --font-mono: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  --font-dragonsteel: "Dragonsteel Rough", helvetica, sans-serif;
 
   --font-size-12: calc(12 / 16 * 1rem);
   --font-size-14: calc(14 / 16 * 1rem);
