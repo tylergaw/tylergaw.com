@@ -1,6 +1,7 @@
 ---
 layout: layout-main.webc
-title: Books I'm Reading and Books I've Read - Tyler Gaw
+title: Books I’m Reading and Books I’ve Read - Tyler Gaw
+pageType: books
 ---
 
 <div class="page-intro g-main g-padded">
@@ -12,19 +13,174 @@ title: Books I'm Reading and Books I've Read - Tyler Gaw
   </div>
 </div>
 
-<ol class="listed-items g-main g-padded">
-  <template webc:for="group of books" webc:nokeep>
-    <li class="g-main__item listed-items__heading" :id="group.year">
-      <h2 @text="group.year"></h2>
+<div>
+  <ol>
+    <li webc:for="book of flattenBooks(books)">
+      <a :href="book.url">
+        <img
+          :src="book.img"
+          class="book-img"
+          alt=""
+          width="415"
+          height="553"
+          loading="lazy"
+        />
+        <div class="meta">
+          <div class="contents">
+            <span webc:if="book.current">Currently reading</span>
+            <time
+              webc:if="!book.current"
+              :datetime="book.date"
+              @text="`${dateFormat(book.date, 'MMMM, YYYY')}${book.note ? ' ' + book.note : ''}`"
+            ></time>
+
+            <p @text="book.title" class="title"></p>
+            <p @text="book.author" class="author"></p>
+          </div>
+        </div>
+      </a>
     </li>
+  </ol>
+</div>
 
-    <li webc:for="book of group.books" class="g-main__item listed-item">
-      <span webc:if="book.current" class="book-current">Currently reading</span>
-      <time webc:if="!book.current" :datetime="book.date" @text="`${dateFormat(book.date, 'MMMM, YYYY')}${book.note ? ' ' + book.note : ''}`"></time>
+<style webc:scoped>
+  h2 {
+    font-size: var(--font-size-14);
+    font-weight: 400;
+    margin: 0;
+  }
 
-      <a class="listed-item__link" :href="book.url" @text="book.title"></a>
+  ol {
+    --width: 100%;
+    container: books / inline-size;
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-      <p @text="`by ${book.author}`"></p>
-    </li>
-  </template>
-</ol>
+  li {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  a {
+    display: block;
+    position: relative;
+
+    &::before {
+      background: var(--color-accent-primary);
+      content: "";
+      height: 100%;
+      left: 0;
+      mix-blend-mode: color;
+      opacity: 0.8;
+      position: absolute;
+      top: 0;
+      transition: opacity 0.15s ease;
+      width: 100%;
+      z-index: 2;
+    }
+
+    &:hover,
+    &:focus-visible {
+      &::before {
+        opacity: 0;
+      }
+
+      img {
+        object-position: center -0.35rem;
+        scale: 1.025;
+      }
+
+      .meta {
+        opacity: 1;
+        transform: translateY(0);
+
+        .contents {
+          row-gap: 0;
+        }
+      }
+    }
+  }
+
+  img {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    transition: 0.15s ease;
+    width: 100%;
+  }
+
+  .meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    left: 0;
+    opacity: 0;
+    padding: 0.5rem;
+    position: absolute;
+    top: 0;
+    transform: translateY(3rem);
+    transition: 0.15s ease;
+    height: 100%;
+    width: 100%;
+
+    .contents {
+      display: flex;
+      flex-direction: column;
+      row-gap: 1rem;
+      padding: 0.75rem 1rem;
+      transition: 0.15s ease;
+    }
+
+    span,
+    time {
+      font-family: var(--font-accent);
+      font-size: var(--font-size-12);
+      text-transform: uppercase;
+    }
+
+    .title {
+      font-family: var(--font-proto-regular);
+      font-size: var(--font-size-14);
+      line-height: 1.2;
+    }
+
+    .author {
+      font-size: var(--font-size-12);
+    }
+  }
+
+  @container books (min-width: 520px) {
+    li {
+      width: 50%;
+    }
+  }
+
+  @container books (min-width: 1000px) {
+    li {
+      width: 33.33%;
+    }
+  }
+
+  @container books (min-width: 1350px) {
+    li {
+      width: 25%;
+    }
+  }
+
+  @container books (min-width: 1760px) {
+    li {
+      width: 20%;
+    }
+  }
+</style>
+
+<style>
+  html[style*="color-scheme: dark"] {
+    .book-img {
+      filter: brightness(0.75);
+    }
+  }
+</style>

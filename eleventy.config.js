@@ -24,6 +24,12 @@ export default function (conf) {
     return [...grouped].map(([year, posts]) => ({ year, posts }));
   });
 
+  conf.addFilter("flattenBooks", (groups) => {
+    return groups.flatMap((group) =>
+      group.books.map((book) => ({ ...book, year: group.year }))
+    );
+  });
+
   conf.addFilter("plainTextPreview", (html, max = 290) => {
     const text = html
       .replace(/<[^>]+>/g, "")

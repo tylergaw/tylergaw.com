@@ -26,7 +26,17 @@ meta:
       </div>
     </div>
     <div class="two">
-      <h2>Latest and Greatest</h2>
+      <h2>A few things to consider</h2>
+      <div class="contents">
+        <div class="card">The Distance</div>
+        <div class="card">Pezzos</div>
+        <div class="card">Summer</div>
+        <div class="contents-secondary">
+          <div class="card">All work</div>
+          <div class="card">Blog</div>
+          <div class="card">About</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -61,7 +71,6 @@ meta:
   }
 
   .one {
-    background: blue;
     display: grid;
     flex: 1;
     overflow: hidden;
@@ -96,28 +105,57 @@ meta:
     }
 
     .invocation {
-      align-items: flex-start;
+      align-items: flex-end;
       display: flex;
       grid-area: 1 / 1;
-      justify-content: flex-end;
+      padding: 2rem;
+      z-index: 1;
 
       p {
-        background: var(--color-white);
-        color: var(--color-accent-primary);
+        background: light-dark(var(--color-white), var(--color-accent-primary));
+        color: light-dark(var(--color-accent-primary), var(--color-white));
         font-family: var(--font-accent);
-        font-size: 1rem;
-        letter-spacing: 2px;
+        letter-spacing: 1px;
         padding: 0.25rem;
-        transform-origin: right bottom;
-        transform: translate(-0.25rem, -2.5rem);
-        rotate: -90deg;
+        writing-mode: sideways-lr;
       }
     }
   }
 
   .two {
+    display: flex;
+    flex-direction: column;
     flex: 1;
-    padding: 1rem;
+    gap: 0.5rem;
+
+    h2 {
+      font-family: var(--font-accent);
+      font-weight: 400;
+      font-size: var(--font-size-14);
+      margin: 0;
+      padding: 0;
+      text-transform: uppercase;
+    }
+
+    .contents {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      flex-wrap: wrap;
+      gap: var(--g-gutter);
+    }
+
+    .card {
+      border: 1px solid rgba(0 0 0 / 0.2);
+      padding: 1rem;
+      flex: 1;
+    }
+
+    .contents-secondary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--g-gutter);
+    }
   }
 </style>
 
@@ -126,7 +164,7 @@ meta:
     filter: brightness(0.5);
 
     video {
-      filter: contrast(1.2) brightness(1.5) invert();
+      filter: contrast(2.4) brightness(2) invert();
     }
   }
 </style>

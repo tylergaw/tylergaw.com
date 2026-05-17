@@ -71,6 +71,10 @@
   --color-accent-primary: color(display-p3 0.3 1 0);
 }
 
+[data-page="books"] {
+  --color-accent-primary: color(display-p3 0 0 1);
+}
+
 [data-page="work-streetcred"] {
   --color-accent-primary: var(--color-streetcred-accent);
 }
