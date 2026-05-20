@@ -88,6 +88,7 @@ pageType: books
       }
 
       img {
+        filter: brightness(1.25);
         object-position: center -0.35rem;
         scale: 1.025;
       }
