@@ -1,0 +1,67 @@
+<a webc:root="override" class="home-contents-card">
+  <slot></slot>
+</a>
+
+<style webc:scoped>
+  :host {
+    color: var(--color-offwhite);
+    display: grid;
+    overflow: hidden;
+  }
+
+  .title,
+  picture {
+    grid-area: 1 / 1;
+  }
+
+  .title {
+    display: block;
+    height: auto;
+    place-self: center;
+    z-index: 2;
+    max-width: 83%;
+
+    &[alt] {
+      color: var(--color-offwhite);
+      font-size: 2rem;
+    }
+  }
+
+  picture {
+    position: relative;
+
+    &::after {
+      background-color: var(--color-accent-primary);
+      mix-blend-mode: color;
+      content: "";
+      display: block;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+    }
+  }
+
+  .graphic {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    width: 100%;
+    filter: contrast(var(--card-img-contrast, 1));
+  }
+</style>
+
+<style>
+  html[style*="color-scheme: dark"] {
+    .home-contents-card .graphic {
+      filter: invert() brightness(1);
+    }
+
+    .home-contents-card picture::after {
+      filter: contrast(1.25) brightness(0.45);
+    }
+  }
+</style>

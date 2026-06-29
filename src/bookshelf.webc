@@ -1,6 +1,6 @@
 ---
 layout: layout-main.webc
-title: Books I’m Reading and Books I’ve Read - Tyler Gaw
+title: Books I’m Reading and Books I’ve Read Since 2019 - Tyler Gaw
 pageType: books
 ---
 
@@ -14,7 +14,7 @@ pageType: books
 </div>
 
 <div>
-  <ol>
+  <ol class="g-padded">
     <li webc:for="book of flattenBooks(books)">
       <a :href="book.url">
         <img
