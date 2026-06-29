@@ -68,7 +68,7 @@
 }
 
 [data-page="about"] {
-  --color-accent-primary: color(display-p3 0.3 1 0);
+  --color-accent-primary: color(display-p3 0 0 0);
 }
 
 [data-page="books"] {

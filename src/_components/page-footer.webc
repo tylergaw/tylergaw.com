@@ -73,7 +73,7 @@
         height="19"
       >
         <path
-          fill="#FF1A51"
+          fill="color(display-p3 1 0 1)"
           d="M.7 10.2c1.1 6.2 8.3 3.1 13.9 11.4 3.6-9.8 9-5.7 10.3-11.3C26.2 4.6 21.5.3 18.4 0c-5.3-.4-6 5.7-6 5.7s-3-5.2-7-4.5c-2.8.5-5.7 3.4-4.7 9z"
         />
       </svg>
@@ -93,8 +93,6 @@
 
   .inner {
     --rows: 5;
-    background-color: #1f1f1f;
-    color: var(--color-white);
     grid-template-rows: repeat(
       var(--rows, 24),
       minmax(calc(78 / 16 * 1rem), max-content)
