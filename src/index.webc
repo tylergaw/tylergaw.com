@@ -68,6 +68,7 @@ meta:
     flex: 1;
     overflow: hidden;
     max-width: var(--max-w, var(--g-max-3));
+    padding-top: 1.375rem;
 
     .graphic {
       background: var(--color-accent-primary);

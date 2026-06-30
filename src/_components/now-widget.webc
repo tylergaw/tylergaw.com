@@ -1,14 +1,11 @@
-<div webc:root="override">
+<div webc:root="override" class="g-padded">
   <div class="inner">
     <div class="contents">
-      <div class="heading">
-        <p>Now</p>
-      </div>
       <div class="stuff">
         <header>
           <p>
             <span @text="update.data.dateHuman"></span> •
-            <a href="/now" class="all-updates-link">All updates</a>
+            <a href="/now" class="all-updates-link">/now</a>
           </p>
         </header>
         <p>
@@ -23,34 +20,23 @@
 <style webc:scoped>
   :host {
     container: now-widget / inline-size;
-    padding: 0 2rem;
-    margin-top: var(--g-gutter);
+    padding-top: var(--g-gutter);
+    padding-bottom: var(--g-gutter);
   }
 
   .inner {
-    padding: 1.5rem 2rem 1.75rem 2rem;
+    background: var(--color-bg) url("/images/now.svg") repeat-x -5% center;
   }
 
-  .heading {
-    color: var(--color-accent-primary);
-    overflow: hidden;
-    padding-bottom: 1.25rem;
-
-    p {
-      --scale-x: tan(atan2(100cqi, 3ch));
-      font-family: var(--font-proto-bold);
-      letter-spacing: -1px;
-      transform: scaleX(calc(var(--scale-x) / 1.35)) scaleY(1.75)
-        translateX(-0.1rem);
-      transform-origin: left top;
-      text-transform: uppercase;
-    }
+  .contents {
+    background: var(--color-bg);
+    padding: 0 1rem;
   }
 
   header {
     font-family: var(--font-accent);
     font-weight: 500;
-    padding-bottom: 1rem;
+    padding-bottom: 0.75rem;
     text-transform: uppercase;
 
     p {
@@ -58,10 +44,6 @@
       display: flex;
       line-height: 1;
       gap: 0.25rem;
-    }
-
-    .all-updates-link {
-      font-size: var(--font-size-12);
     }
   }
 
@@ -76,19 +58,6 @@
       flex-wrap: wrap;
       margin: 0 auto;
       max-width: 800px;
-    }
-
-    .heading {
-      padding-bottom: 0;
-      width: 4.25ch;
-
-      p {
-        font-family: var(--font-proto-regular);
-        font-weight: 400;
-        line-height: 0.825;
-        letter-spacing: 0;
-        transform: scaleX(1.1) scaleY(8.2) translateX(0);
-      }
     }
 
     .stuff {

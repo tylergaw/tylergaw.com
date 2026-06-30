@@ -72,7 +72,8 @@
         navigation: auto;
       }
       ::view-transition-old(root),
-      ::view-transition-new(root) {
+      ::view-transition-new(root),
+      ::view-transition-group(root) {
         animation-duration: 0s;
       }
     </style>
