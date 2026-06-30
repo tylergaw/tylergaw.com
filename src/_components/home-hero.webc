@@ -30,19 +30,19 @@
 
     <div class="graphics">
       <div class="pane" webc:for="i of [1,2,3,4,5]">
-        <img src="/images/home/home-hero-lady.png" />
+        <img src="/images/home/home-hero-lady.png" alt="" />
       </div>
     </div>
 
     <div class="graphics">
       <div class="pane" webc:for="i of [1,2,3,4,5]">
-        <img src="/images/home/home-hero-lady.png" />
+        <img src="/images/home/home-hero-lady.png" alt="" />
       </div>
     </div>
 
     <div class="graphics">
       <div class="pane" webc:for="i of [1,2,3,4,5]">
-        <img src="/images/home/home-hero-lady.png" />
+        <img src="/images/home/home-hero-lady.png" alt="" />
       </div>
     </div>
 

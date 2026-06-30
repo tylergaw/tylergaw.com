@@ -9,7 +9,8 @@
   "scripts": {
     "build": "ELEVENTY_ENV=production eleventy",
     "start": "ELEVENTY_ENV=local eleventy --serve",
-    "prettier": "prettier --write src/"
+    "prettier": "prettier --write src/",
+    "perf": "bash scripts/perf.sh"
   },
   "author": "Tyler Gaw",
   "license": "MIT",
