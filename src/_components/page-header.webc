@@ -43,9 +43,10 @@
 <style webc:scoped="page-header">
   :host {
     color: var(--color-accent-primary);
-    display: flex;
     column-gap: 0.5rem;
-    padding: 0 2.25rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0 var(--ph, 1rem);
     position: relative;
     z-index: 100;
   }
@@ -54,15 +55,21 @@
   nav {
     align-items: center;
     display: flex;
-    padding-bottom: 2.125rem;
     flex: 1;
+    flex-direction: column;
     font-family: var(--font-accent);
     font-size: var(--font-size-14);
+    justify-content: center;
     text-transform: uppercase;
   }
 
+  .timeline {
+    text-align: center;
+  }
+
   nav {
-    justify-content: flex-end;
+    justify-content: center;
+    transform: translateY(-1.45rem);
 
     a {
       border-bottom: 1px solid currentColor;
@@ -74,17 +81,21 @@
     align-items: center;
     display: flex;
     column-gap: 1.25rem;
+    transform: translateX(1.25rem);
   }
 
   .logo {
+    display: flex;
     margin: 0;
     overflow: hidden;
-    transform: translateX(30px);
+    justify-content: center;
+    transform: translateX(var(--tx, -2px));
 
     a {
-      --offset: -18px;
+      --offset: -22px;
       display: inline-block;
       margin-bottom: var(--offset);
+      max-width: 275px;
       rotate: 7deg;
       transform: translateY(var(--offset));
     }
@@ -92,6 +103,69 @@
     svg {
       display: block;
       width: 100%;
+    }
+  }
+
+  @media (min-width: 620px) {
+    :host {
+      flex-direction: row;
+    }
+
+    .logo {
+      --tx: 0;
+      flex-basis: 35%;
+      justify-content: initial;
+
+      a {
+        --offset: -18px;
+        max-width: 95%;
+      }
+    }
+
+    .timeline {
+      align-items: flex-start;
+      justify-content: initial;
+      padding-top: 0.9rem;
+      text-align: initial;
+    }
+
+    nav {
+      align-items: flex-end;
+      padding-top: 0.5rem;
+      justify-content: initial;
+      transform: initial;
+
+      ul {
+        transform: initial;
+      }
+    }
+  }
+
+  @media (min-width: 830px) {
+    :host {
+      --ph: 2.25rem;
+    }
+
+    .timeline {
+      padding-top: 1.65rem;
+    }
+
+    nav {
+      padding-top: 1.25rem;
+    }
+
+    .logo {
+      flex-basis: initial;
+
+      a {
+        max-width: initial;
+      }
+    }
+  }
+
+  @media (min-width: 918px) {
+    .logo {
+      --tx: 30px;
     }
   }
 </style>

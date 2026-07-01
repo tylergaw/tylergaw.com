@@ -25,7 +25,6 @@
     </svg>
 
     <picture>
-      <source srcset="/images/home/home-work-rokt.avif" type="image/avif" />
       <source srcset="/images/home/home-work-rokt.webp" type="image/webp" />
       <img
         src="/images/home/home-work-rokt.jpg"
@@ -58,10 +57,6 @@
     </svg>
 
     <picture>
-      <source
-        srcset="/images/home/home-work-streetcred.avif"
-        type="image/avif"
-      />
       <source
         srcset="/images/home/home-work-streetcred.webp"
         type="image/webp"
@@ -97,7 +92,6 @@
     </svg>
 
     <picture>
-      <source srcset="/images/home/home-work-limbo.avif" type="image/avif" />
       <source srcset="/images/home/home-work-limbo.webp" type="image/webp" />
       <img
         src="/images/home/home-work-limbo.jpg"

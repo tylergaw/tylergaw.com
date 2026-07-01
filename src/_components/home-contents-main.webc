@@ -33,7 +33,6 @@
       </svg>
 
       <picture>
-        <source srcset="/images/home/home-work-pezzos.avif" type="image/avif" />
         <source srcset="/images/home/home-work-pezzos.webp" type="image/webp" />
         <img
           src="/images/home/home-work-pezzos.jpg"
@@ -96,10 +95,6 @@
 
       <picture>
         <source
-          srcset="/images/home/home-work-the-distance.avif"
-          type="image/avif"
-        />
-        <source
           srcset="/images/home/home-work-the-distance.webp"
           type="image/webp"
         />
@@ -146,7 +141,6 @@
       </svg>
 
       <picture>
-        <source srcset="/images/home/home-work-summer.avif" type="image/avif" />
         <source srcset="/images/home/home-work-summer.webp" type="image/webp" />
         <img
           src="/images/home/home-work-summer.jpg"
