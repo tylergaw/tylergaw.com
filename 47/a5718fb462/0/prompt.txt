@@ -1,0 +1,1 @@
+ok, now I'm putting those in the html directly. What's the best thing(s) to add for accessibility?
