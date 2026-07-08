@@ -1,0 +1,1 @@
+Take a look at the images in src/images/home. Note the ones that have webp AND avif. Can you tell me whether it's worth even including the avif version of those or if I should just use webp (with the jpg fallback). For all of those, I use a picture with source for format support/fallback
