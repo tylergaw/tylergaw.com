@@ -1,0 +1,5 @@
+Pull in the latest home-contents-secondary. I've now added a video within abstract-container
+
+The video is just an abstract visual, doesn't need to be fully seen.
+
+It's working well, but I'm trying to avoid one thing. When the screen width goes wide enough that the abstract element is wider than the video, the video starts to scale up. Which is fine. But I don't want the height of the video to change the height of the parent element, which in turn changes the height of the entire row.
