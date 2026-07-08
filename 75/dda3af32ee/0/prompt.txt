@@ -1,0 +1,1 @@
+Yeah, those clip paths were bogus anyway. I just removed them.
