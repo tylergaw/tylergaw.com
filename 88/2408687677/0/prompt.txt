@@ -1,0 +1,1 @@
+I have a good amount of overlap in markup and styles for the home content cards. Can you have a look and make a plan for how I can repeat less?
