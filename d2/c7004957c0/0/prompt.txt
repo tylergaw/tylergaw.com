@@ -1,0 +1,9 @@
+Need some help understanding something in flexbox.
+
+If you want to see where I'm working, looking at index.webc and home-contents-main.webc. You'll need to pull in the latest
+
+Right now I have a parent div, home-contents-row, that is display flex.
+
+Then, it has two children divs. Right now both have flex: 1. one of them has a max-width.
+
+I want home-distort-abstract-container to scale down at a faster rate than home-contents-main
