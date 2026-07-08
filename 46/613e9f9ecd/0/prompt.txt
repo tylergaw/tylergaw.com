@@ -1,0 +1,1 @@
+Question about these larger assets, images and videos. At the moment, they live with the code so they'll be served with the rest of the site on Netlify. Would I see performance gains by instead using S3 or Cloudflare for them?
