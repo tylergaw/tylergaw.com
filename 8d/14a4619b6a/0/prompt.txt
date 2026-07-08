@@ -1,0 +1,1 @@
+Nice. Now one thing I get is an extra space on the far right. It's the last column gap. Any way to avoid that?
