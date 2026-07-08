@@ -1,0 +1,6 @@
+It's interesting, most of the images it called out are avif, I don't understand why those are flagged like that
+
+- the hero lady is decorated, can you fix that one
+- Not going to fix the contrast issues
+- Can you double check that we have a meta description, I thought we had that in the layout, if not fix please
+- We'll clean up that render blocking css later (it's known/on the list)
