@@ -1,0 +1,1 @@
+OK, I want to start testing this new homepage for perf. I could just run lighthouse tests in chrome, but is there a better way to do that? Maybe a headless way or something here?
