@@ -1,0 +1,1 @@
+Wait, can you double check my whole setup there? For some reason, once the width of the .card goes really wide, the .title starts to push out of the bottom of the .card, what's happening?
