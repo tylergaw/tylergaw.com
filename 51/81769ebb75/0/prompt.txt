@@ -1,0 +1,1 @@
+Do display-p3 colors not work in svgs as external css background images?
