@@ -1,0 +1,1 @@
+I have a weird bug. This might just be the local dev server, but can you take a look. Right now when I navigate to any page from any page. The navigation is quick, but if I start scrolling immediately, I notice there is a quick stutter. Same if I try to quickly click on any link. It's like the page is "dead" for a split second.
