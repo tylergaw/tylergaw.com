@@ -1,0 +1,1 @@
+Cool can you do that for me. Can you remove those avif from the codebase (from git) and update the markup for each of those to only use webp/jpg fallback
