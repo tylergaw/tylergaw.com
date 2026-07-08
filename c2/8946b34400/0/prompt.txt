@@ -1,0 +1,1 @@
+Figure out a good setup for this for me. Something that I can just run a single script for, not some ad-hoc process every time
