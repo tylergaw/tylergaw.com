@@ -1,0 +1,1 @@
+Ok, that's great. Now, when the parent container's width is less than card * 3, is there a way to get each card to shrink down? Right now they don't so it just wraps.
