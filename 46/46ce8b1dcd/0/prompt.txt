@@ -1,0 +1,1 @@
+For setting the custom styles, will that just be a normal `class` attr plus CSS?
