@@ -1,0 +1,1 @@
+Go into src/images/home. There are three logos that are svg files. Can you remove any fill and other unneeded styles from any path or other element in each of those
