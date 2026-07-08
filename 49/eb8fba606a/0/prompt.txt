@@ -1,0 +1,1 @@
+Those report files just get dumped in the root, let's drop them in an ignored directory. Also is there an option to run the tests for desktop?
