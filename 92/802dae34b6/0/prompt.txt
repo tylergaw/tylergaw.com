@@ -1,0 +1,1 @@
+OK, I just changed the pezzos logo to embedded svg. Can you pull in the latest of what I did there and then do the same with the distance and summer logos
