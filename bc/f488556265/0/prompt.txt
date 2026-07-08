@@ -1,0 +1,1 @@
+Putting padding on the abstract-container made it so even at zero width, it still had the gutter. I used positioning on an inner element that seems to work. can you pull in the latest to have a look.
