@@ -1,0 +1,1 @@
+If I'm using picture, with multiple source elements and an img fallback. Should I style the outer picture, or the img?
