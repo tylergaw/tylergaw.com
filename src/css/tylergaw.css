@@ -1,5 +1,23 @@
 @layer baseline, tokens, components, pages;
 
+@import url("./modules/components/hero.css") layer(components);
+@import url("./modules/components/listed-items.css") layer(components);
+@import url("./modules/components/page-intro.css") layer(components);
+@import url("./modules/components/prism-a11y.css") layer(components);
+
+@import url("./modules/pages/about.css") layer(pages);
+@import url("./modules/pages/article.css") layer(pages);
+@import url("./modules/pages/home.css") layer(pages);
+@import url("./modules/pages/work/project-base.css") layer(pages);
+@import url("./modules/pages/work/limbo.css") layer(pages);
+@import url("./modules/pages/work/groundwork.css") layer(pages);
+@import url("./modules/pages/work/colorme.css") layer(pages);
+@import url("./modules/pages/work/osx-apps-with-js.css") layer(pages);
+@import url("./modules/pages/work/streetcred.css") layer(pages);
+@import url("./modules/pages/purpose.css") layer(pages);
+@import url("./modules/pages/resume.css") layer(pages);
+@import url("./modules/pages/art.css") layer(pages);
+
 @layer baseline {
   html,
   div,
@@ -422,21 +440,3 @@
     text-transform: uppercase;
   }
 }
-
-@import url("./modules/components/hero.css") layer(components);
-@import url("./modules/components/listed-items.css") layer(components);
-@import url("./modules/components/page-intro.css") layer(components);
-@import url("./modules/components/prism-a11y.css") layer(components);
-
-@import url("./modules/pages/about.css") layer(pages);
-@import url("./modules/pages/article.css") layer(pages);
-@import url("./modules/pages/home.css") layer(pages);
-@import url("./modules/pages/work/project-base.css") layer(pages);
-@import url("./modules/pages/work/limbo.css") layer(pages);
-@import url("./modules/pages/work/groundwork.css") layer(pages);
-@import url("./modules/pages/work/colorme.css") layer(pages);
-@import url("./modules/pages/work/osx-apps-with-js.css") layer(pages);
-@import url("./modules/pages/work/streetcred.css") layer(pages);
-@import url("./modules/pages/purpose.css") layer(pages);
-@import url("./modules/pages/resume.css") layer(pages);
-@import url("./modules/pages/art.css") layer(pages);
