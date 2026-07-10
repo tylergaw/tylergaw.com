@@ -1,10 +1,427 @@
 @layer baseline, tokens, components, pages;
 
-@import url("./modules/baseline.css") layer(baseline);
+@layer baseline {
+  html,
+  div,
+  span,
+  object,
+  iframe,
+  p,
+  blockquote,
+  pre,
+  a,
+  abbr,
+  acronym,
+  address,
+  cite,
+  code,
+  del,
+  dfn,
+  em,
+  img,
+  q,
+  s,
+  small,
+  strike,
+  strong,
+  sub,
+  sup,
+  var,
+  b,
+  u,
+  i,
+  center,
+  dl,
+  dt,
+  dd,
+  ol,
+  ul,
+  li,
+  fieldset,
+  form,
+  label,
+  legend,
+  table,
+  caption,
+  tbody,
+  tfoot,
+  thead,
+  tr,
+  th,
+  td,
+  article,
+  aside,
+  canvas,
+  embed,
+  figure,
+  figcaption,
+  footer,
+  header,
+  nav,
+  section,
+  time,
+  mark,
+  audio,
+  video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+  }
 
-@import url("./modules/tokens/color.css") layer(tokens);
-@import url("./modules/tokens/grid.css") layer(tokens);
-@import url("./modules/tokens/typography.css") layer(tokens);
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  section {
+    display: block;
+  }
+
+  ol,
+  ul {
+    list-style: none;
+  }
+
+  blockquote,
+  q {
+    quotes: none;
+  }
+
+  blockquote:before,
+  blockquote:after,
+  q:before,
+  q:after {
+    content: "";
+    content: none;
+  }
+
+  i,
+  em {
+    font-style: normal;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  :root {
+    --link-border: 1px solid color-mix(in srgb, currentColor 50%, transparent);
+  }
+
+  html,
+  body {
+    margin: 0;
+    border: 0;
+  }
+
+  .visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+  }
+
+  .list--normal {
+    list-style: inside;
+    padding-bottom: 2rem;
+    margin-top: 0;
+  }
+
+  .bordered-link {
+    border-bottom: var(--link-border);
+    text-decoration: none;
+  }
+}
+
+@layer tokens {
+  :root {
+    color-scheme: light dark;
+
+    /* Accent colors */
+    --color-accent-toxic: #00eb9b;
+    --color-accent-wine: #c01458;
+    --color-accent-boo: #9db4ff;
+    --color-accent-pank: #f2c0ea;
+    --color-accent-boogers: #c2d838;
+    --color-accent-mellow: #f1f68e;
+    --color-accent-orange: #e9b581;
+
+    /* Project and page colors */
+    --color-streetcred-accent: #8e42f5;
+    --color-streetcred-accent-dark: #400099;
+    --color-streetcred-accent-light: #dcc2ff;
+
+    --color-limbo-accent: #dd3535;
+    --color-limbo-accent-dark: #800000;
+    --color-limbo-accent-light: #f9c5c5;
+
+    --color-colorme-accent: #b42e8a;
+    --color-colorme-accent-dark: #8c0060;
+
+    --color-groundwork-accent: #3b6fd8;
+    --color-groundwork-accent-dark: #1a4293;
+    --color-groundwork-accent-light: #a4bff4;
+
+    --color-jxa-accent: #151414;
+    --color-jxa-accent-light: #5b5757;
+
+    --color-archive-accent: #66fa32;
+    --color-archive-accent-dark: #2d8f22;
+
+    --color-about-accent: #c91c33;
+    --color-about-accent-dark: #871222;
+    --color-about-accent-light: #f58998;
+
+    --color-blog-accent: #ff902b;
+    --color-blog-accent-dark: #b35600;
+
+    /* Common colors */
+    --color-charcoal: #292929;
+    --color-mud: #3f3d31;
+    --color-offwhite: #fcfcfc;
+    --color-white: #fff;
+    --color-eggshell: #f6f5e4;
+
+    --color-accent-primary: light-dark(
+      var(--color-accent-wine),
+      var(--color-accent-toxic)
+    );
+    --color-accent-secondary: light-dark(
+      var(--color-accent-boogers),
+      var(--color-accent-boo)
+    );
+    --color-bg: light-dark(var(--color-offwhite), var(--color-charcoal));
+    --color-bg-offset: light-dark(white, #1f1f1f);
+    --color-text: light-dark(var(--color-mud), var(--color-offwhite));
+  }
+
+  [data-page="home"] {
+    --color-accent-primary: color(display-p3 1 0 0);
+  }
+
+  [data-page="blog"] {
+    --color-accent-primary: color(display-p3 1 0.4 0);
+  }
+
+  [data-page="about"] {
+    --color-accent-primary: color(display-p3 0 0 0);
+  }
+
+  [data-page="books"] {
+    --color-accent-primary: color(display-p3 0 0 1);
+  }
+
+  [data-page="work-streetcred"] {
+    --color-accent-primary: var(--color-streetcred-accent);
+  }
+
+  [data-page="work-limbo"] {
+    --color-accent-primary: var(--color-limbo-accent);
+  }
+
+  [data-page="work-groundwork"] {
+    --color-accent-primary: var(--color-groundwork-accent);
+  }
+
+  [data-page="work-jxa"] {
+    --color-accent-primary: light-dark(
+      var(--color-jxa-accent),
+      var(--color-jxa-accent-light)
+    );
+  }
+
+  [data-page="work-colorme"] {
+    --color-accent-primary: var(--color-colorme-accent);
+  }
+
+  html,
+  body {
+    background: var(--color-bg);
+    color: var(--color-text);
+  }
+
+  :root {
+    --g-row: calc(10 / 16 * 1rem);
+    --g-col: calc(140 / 16 * 1rem);
+    --g-gutter: calc(21 / 16 * 1rem);
+    --g-padding-h: 2rem;
+
+    --g-max-1: calc(var(--g-col) * 1);
+    --g-max-2: calc(var(--g-col) * 2 + var(--g-gutter) * 1);
+    --g-max-3: calc(var(--g-col) * 3 + var(--g-gutter) * 2);
+    --g-max-4: calc(var(--g-col) * 4 + var(--g-gutter) * 3);
+    --g-max-5: calc(var(--g-col) * 5 + var(--g-gutter) * 4);
+    --g-max-6: calc(var(--g-col) * 6 + var(--g-gutter) * 5);
+    --g-max-7: calc(var(--g-col) * 7 + var(--g-gutter) * 6);
+    --g-max-8: calc(var(--g-col) * 8 + var(--g-gutter) * 7);
+    --g-max-9: calc(var(--g-col) * 9 + var(--g-gutter) * 8);
+    --g-max-10: calc(var(--g-col) * 10 + var(--g-gutter) * 9);
+  }
+
+  .g-main {
+    display: grid;
+    gap: var(--g-gutter);
+    grid-template-columns: repeat(var(--num-cols, 1), 1fr);
+  }
+
+  .g-main__item {
+    grid-column: var(--col-start, auto) / var(--col-end, auto);
+    grid-row: var(--row-start, auto) / var(--row-end, auto);
+  }
+
+  .g-padded {
+    padding-left: var(--g-padding-h);
+    padding-right: var(--g-padding-h);
+  }
+
+  @media (min-width: 620px) {
+    .g-main {
+      --num-cols: 2;
+    }
+
+    .g-standard-a {
+      --num-cols: 3;
+    }
+
+    .g-standard-a__item {
+      --col-start: 2;
+      --col-end: span 2;
+    }
+  }
+
+  @media (min-width: 1040px) {
+    .g-main,
+    .g-standard-a {
+      --num-cols: 5;
+    }
+
+    .g-standard-a__item {
+      --col-end: span 3;
+    }
+  }
+
+  @media (min-width: 1240px) {
+    .g-main {
+      --num-cols: 6;
+    }
+
+    .g-standard-a {
+      --num-cols: 5;
+    }
+  }
+
+  @media (min-width: 1660px) {
+    .g-main,
+    .g-standard-a {
+      --num-cols: 10;
+    }
+
+    .g-standard-a__item {
+      --col-start: 3;
+      --col-end: span 5;
+    }
+  }
+
+  @media (min-width: 2200px) {
+    .g-main:not(.g-standard-a) {
+      --num-cols: 11;
+    }
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: "protogrotesk-bold";
+    src: url("/fonts/protogroteskweb-bold.woff2");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: "protogrotesk-extralight";
+    src: url("/fonts/protogroteskweb-extralight.woff2");
+    font-weight: 200;
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: "protogrotesk-light";
+    src: url("/fonts/protogroteskweb-light.woff2");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: "protogrotesk-regular";
+    src: url("/fonts/protogroteskweb-regular.woff2");
+  }
+
+  @font-face {
+    font-family: "Dragonsteel Rough";
+    font-weight: 400;
+    src: url("/fonts/Dragonsteel-Rough.woff2") format("woff2");
+  }
+
+  html,
+  body {
+    --font-proto-extralight: "protogrotesk-extralight", helvetica, sans-serif;
+    --font-proto-light: "protogrotesk-light", helvetica, sans-serif;
+    --font-proto-regular: "protogrotesk-regular", helvetica, sans-serif;
+    --font-proto-bold: "protogrotesk-bold", helvetica, sans-serif;
+    /* FIXME: Need to buy/use real covik */
+    --font-accent: "Covik Sans Mono Demo", Consolas, monospace;
+    --font-mono: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    --font-dragonsteel: "Dragonsteel Rough", helvetica, sans-serif;
+
+    --font-size-12: calc(12 / 16 * 1rem);
+    --font-size-14: calc(14 / 16 * 1rem);
+    --font-size-16: 1rem;
+    --font-size-18: calc(18 / 16 * 1rem);
+    --font-size-20: calc(20 / 16 * 1rem);
+    --font-size-24: calc(24 / 16 * 1rem);
+    --font-size-28: calc(28 / 16 * 1rem);
+    --font-size-30: calc(30 / 16 * 1rem);
+    --font-size-34: calc(34 / 16 * 1rem);
+    --font-size-36: calc(36 / 16 * 1rem);
+    --font-size-44: calc(44 / 16 * 1rem);
+
+    font-family: var(--font-proto-light);
+    font-size: 100%;
+    line-height: 1;
+    vertical-align: baseline;
+  }
+
+  b,
+  strong,
+  .font--regular {
+    font-family: var(--font-proto-regular);
+    font-weight: normal;
+  }
+
+  a {
+    color: var(--color-accent-primary);
+  }
+
+  a:focus {
+    outline: 3px solid currentColor;
+  }
+
+  .heading--special {
+    font-family: var(--font-proto-regular);
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    margin: 0;
+    text-transform: uppercase;
+  }
+}
 
 @import url("./modules/components/hero.css") layer(components);
 @import url("./modules/components/listed-items.css") layer(components);

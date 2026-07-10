@@ -84,7 +84,7 @@
           This is the domain of digital hoarder. A place of half-baked,
           scribbled ideas where projects are started, collected, but rarely
           finished. This is my Internet archive of fuzzy recollections from
-          <strong>20 years of practice, effort, and execution.</strong>
+          <br /><strong>20 years of practice, effort, and execution.</strong>
         </p>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -104,8 +104,8 @@
 
 <style webc:scoped="home-hero">
   :host {
-    --offset: -2.3rem;
-    padding: 0 2rem;
+    --offset: -0.5rem;
+    padding: 0 var(--ph, 0);
     color: var(--color-accent-primary);
     margin-bottom: var(--offset);
     transform: translateY(var(--offset));
@@ -120,16 +120,16 @@
   }
 
   .hype-sticker {
+    --size: 70px;
     display: block;
-    position: relative;
-    z-index: 10;
-    height: auto;
-    rotate: -15deg;
-    width: 120px;
-    top: 0.5rem;
-    left: -0.5rem;
     filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2));
+    height: auto;
+    left: var(--l, 1.5rem);
+    position: relative;
+    rotate: -15deg;
+    top: var(--t, -0.75rem);
     transform: skew(-1deg, 1.5deg);
+    width: var(--size);
     z-index: 11;
 
     &:hover {
@@ -145,45 +145,46 @@
 
   .contents {
     position: relative;
-    padding-top: 6rem;
+    padding-top: var(--pt, 1rem);
     z-index: 10;
   }
 
   .invocation {
     display: block;
     height: auto;
-    padding: 0 2rem;
+    padding: 0 var(--ph, 1rem);
+    padding-top: var(--pt, 2rem);
+    padding-bottom: var(--pb, 0);
     width: 100%;
   }
 
   .intro {
-    background: var(--color-bg);
-    font-size: var(--font-size-28);
+    font-size: var(--font-size-20);
     line-height: 1.8;
+    margin-right: auto;
     margin-left: auto;
-    max-width: var(--g-max-6);
+    max-width: 380px;
     position: relative;
 
     p {
-      padding: 2.5rem 3.5rem;
+      padding: var(--pv, 1rem) var(--ph, 1rem);
     }
 
     svg {
+      display: none;
       position: absolute;
+      transform: scale(var(--s, 0.5));
 
       &:first-of-type {
-        top: 1.75rem;
-        left: -2.5rem;
+        left: var(--l, -3.25rem);
+        top: var(--t, 1rem);
         rotate: -8deg;
-        transform: scale(0.75);
       }
 
       &:last-of-type {
-        top: 2rem;
-        right: -1.5rem;
+        right: var(--r, -2.75rem);
+        top: var(--t, 1.5rem);
         rotate: 9deg;
-        scale: 0.8;
-        transform: scale(0.75);
       }
     }
 
@@ -191,7 +192,7 @@
       background-color: var(--color-accent-primary);
       color: var(--color-bg);
       font-family: var(--font-dragonsteel);
-      font-size: 145%;
+      font-size: var(--size, 170%);
       font-weight: 400;
       line-height: 1.2;
       text-transform: uppercase;
@@ -239,6 +240,7 @@
     }
 
     &:nth-child(1) {
+      display: none;
       flex-basis: 10%;
       height: 96%;
 
@@ -249,39 +251,188 @@
 
     &:nth-child(2) {
       flex-basis: 20%;
-      height: 97%;
-      align-self: flex-end;
-      margin-bottom: 0.5rem;
+      height: 80%;
+      margin-top: 0.4rem;
 
       img {
-        object-position: 5%;
+        object-position: 42%;
       }
     }
 
     &:nth-child(3) {
       flex-basis: 30%;
+      height: 80%;
+
+      img {
+        transform: scaleY(1.4);
+      }
     }
 
     &:nth-child(4) {
       flex-basis: 10%;
-      height: 98.5%;
-      align-self: flex-end;
-      margin-bottom: 0.75rem;
-
-      img {
-        object-position: right;
-      }
+      height: 90%;
+      margin-top: 0.35rem;
     }
 
     &:nth-child(5) {
+      align-self: flex-end;
+      display: none;
       flex-basis: 12%;
       height: 98.5%;
-      align-self: flex-end;
       margin-bottom: 0.25rem;
 
       img {
         object-position: right;
         transform: scaleY(1.2);
+      }
+    }
+  }
+
+  @media (min-width: 480px) {
+    .intro svg {
+      display: initial;
+    }
+  }
+
+  @media (min-width: 550px) {
+    :host {
+      --ph: 1rem;
+    }
+
+    .hype-sticker {
+      --size: 86px;
+      --l: -0.5rem;
+    }
+
+    .contents {
+      --pt: 2rem;
+    }
+
+    .invocation {
+      --ph: 2rem;
+    }
+
+    .intro {
+      background: var(--color-bg);
+      margin-right: initial;
+
+      svg {
+        &:last-of-type {
+          --r: -2rem;
+          --t: 0.75rem;
+        }
+      }
+    }
+
+    .pane {
+      &:nth-child(1),
+      &:nth-child(5) {
+        display: initial;
+      }
+
+      &:nth-child(2) {
+        align-self: flex-end;
+        height: 97%;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+
+        img {
+          object-position: 5%;
+        }
+      }
+
+      &:nth-child(3) {
+        height: initial;
+
+        img {
+          transform: initial;
+        }
+      }
+
+      &:nth-child(4) {
+        align-self: flex-end;
+        height: 98.5%;
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+
+        img {
+          object-position: right;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 620px) {
+    :host {
+      --offset: -1.25rem;
+    }
+
+    .hype-sticker {
+      --size: 90px;
+      --t: 0.5rem;
+    }
+
+    .contents {
+      --pt: 3.5rem;
+    }
+  }
+
+  @media (min-width: 730px) {
+    :host {
+      --offset: -2.3rem;
+      --ph: 2rem;
+    }
+
+    .contents {
+      --pt: 6rem;
+    }
+
+    .invocation {
+      --pt: 0;
+      --pb: 1.25rem;
+    }
+
+    .intro {
+      max-width: var(--g-max-4);
+      font-size: var(--font-size-24);
+
+      p {
+        --pv: 1.75rem;
+        --ph: 2.5rem;
+      }
+
+      svg {
+        --s: 0.75;
+
+        &:first-of-type {
+          --l: -2.5rem;
+          --t: 1.75rem;
+        }
+
+        &:last-of-type {
+          --t: 2rem;
+          --r: -1.5rem;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1080px) {
+    .hype-sticker {
+      --size: 120px;
+    }
+
+    .intro {
+      max-width: var(--g-max-6);
+      font-size: var(--font-size-28);
+
+      p {
+        --pv: 2.5rem;
+        --ph: 3.5rem;
+      }
+
+      strong {
+        --size: 145%;
       }
     }
   }
