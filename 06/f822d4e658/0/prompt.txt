@@ -1,0 +1,37 @@
+pull claude.md into context
+
+---
+
+Right now, the home-hero component looks good on large screens, but not on medium to small screens. Can you take a look at it, identify issues, and map out a plan for making it responsive down to phone-sized screens.
+
+---
+
+Keep in mind, you do have access to Chrome via the claude extension
+
+---
+
+are you retarded?
+
+---
+
+So you have no access to the claude chrome extension?
+
+---
+
+No, ugh, just no. Your assesment was decent, but not good. You're just guessing at sizes and shit. If you can't see the content of the site, how do you know what media queries (or container queries, which you didn't even mention) are correct?
+
+---
+
+Yes motherfucker. YOU HAVE ACCESS TO ALL OF THE CODE. You should know where it's running.
+
+---
+
+That's better, but no, do not implement anything.
+
+---
+
+In tylergaw.css, we pull in color, grid, typography as imports to the tokens @layer. Instead of that, can you move the contents of each of those into the tylergaw.com css file and then delete the no longer used css files. I'm starting to reduce the number of `@imports`. Starting easy.
+
+---
+
+lovely, let's do the same with baseline.css

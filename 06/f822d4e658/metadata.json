@@ -1,0 +1,31 @@
+{
+  "cli_version": "0.8.42",
+  "checkpoint_id": "06f822d4e658",
+  "strategy": "manual-commit",
+  "branch": "version-xx",
+  "checkpoints_count": 9,
+  "files_touched": [
+    "src/_components/home-hero.webc",
+    "src/css/modules/baseline.css",
+    "src/css/modules/tokens/color.css",
+    "src/css/modules/tokens/grid.css",
+    "src/css/modules/tokens/typography.css",
+    "src/css/tylergaw.css"
+  ],
+  "sessions": [
+    {
+      "metadata": "/06/f822d4e658/0/metadata.json",
+      "transcript": "/06/f822d4e658/0/full.jsonl",
+      "compact_transcript": "/06/f822d4e658/0/transcript.jsonl",
+      "content_hash": "/06/f822d4e658/0/content_hash.txt",
+      "prompt": "/06/f822d4e658/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 423,
+    "cache_creation_tokens": 129644,
+    "cache_read_tokens": 2041237,
+    "output_tokens": 12308,
+    "api_call_count": 50
+  }
+}
