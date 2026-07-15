@@ -127,9 +127,10 @@
   }
 
   .home-contents-card {
-    flex: 1 1 var(--g-max-3);
-    max-width: var(--max-w, var(--g-max-3));
     --card-img-contrast: 1.55;
+    flex: 1 1 var(--g-max-3);
+    min-height: 15.625rem;
+    max-width: var(--max-w, var(--g-max-3));
 
     & + .home-contents-card {
       margin-left: var(--g-gutter);

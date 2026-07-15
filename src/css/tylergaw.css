@@ -271,8 +271,8 @@
   :root {
     --g-row: calc(10 / 16 * 1rem);
     --g-col: calc(140 / 16 * 1rem);
-    --g-gutter: calc(21 / 16 * 1rem);
-    --g-padding-h: 2rem;
+    --g-gutter: 1rem;
+    --g-padding-h: 1rem;
 
     --g-max-1: calc(var(--g-col) * 1);
     --g-max-2: calc(var(--g-col) * 2 + var(--g-gutter) * 1);
@@ -314,6 +314,13 @@
     .g-standard-a__item {
       --col-start: 2;
       --col-end: span 2;
+    }
+  }
+
+  @media (min-width: 730px) {
+    :root {
+      --g-padding-h: 2rem;
+      --g-gutter: calc(21 / 16 * 1rem);
     }
   }
 

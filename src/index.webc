@@ -5,7 +5,6 @@ meta:
 ---
 
 <home-hero></home-hero>
-<!-- <now-widget :@update="$data.collections.nowUpdates[0]"></now-widget> -->
 
 <div>
   <div class="g-padded home-contents-row">
@@ -31,6 +30,10 @@ meta:
 
   <div class="g-padded home-contents-row">
     <home-contents-secondary></home-contents-secondary>
+  </div>
+
+  <div class="g-padded home-contents-row">
+    <home-contents-tertiary></home-contents-tertiary>
   </div>
 
   <svg width="0" height="0" aria-hidden="true" style="position: absolute">
@@ -67,8 +70,9 @@ meta:
     display: grid;
     flex: 1;
     overflow: hidden;
-    max-width: var(--max-w, var(--g-max-3));
-    padding-top: 1.375rem;
+
+    order: 2;
+    max-height: min(5rem, 16vw);
 
     .graphic {
       background: var(--color-accent-primary);
@@ -112,6 +116,15 @@ meta:
         padding: 0.25rem;
         writing-mode: sideways-lr;
       }
+    }
+  }
+
+  @media (min-width: 660px) {
+    .home-distort-abstract-container {
+      margin-top: 1.375rem;
+      max-width: var(--max-w, var(--g-max-3));
+      max-height: initial;
+      order: initial;
     }
   }
 
