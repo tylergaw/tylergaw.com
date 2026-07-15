@@ -1,0 +1,182 @@
+I'm back on the version-xx branch now and have pulled in latest main that has the new blog post, can you move it to the new correct location in the dir
+
+---
+
+can you make sure the frontmatter is all good for the new setup
+
+---
+
+hey fuckhead. This repo is tracked in git. When you move shit, use git commands. wtf. I already fixed it, but remember that shit for later
+
+---
+
+Help me think through something. Pull in the latest now-widget.webc. See the style for .inner. That background size. Right now the 100% is what I want, it'll verticall stretch the background image, but the width is hard coded. Is there a way with CSS only that I can make that width be a factor of the height so the image is always kind of stretched vertically?
+
+---
+
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+---
+
+"Honestly, I think the hardcoded width is problably fine." You are a computer, you do not tell me what I want
+
+---
+
+Yeah, don't remove the container on host, that's needed. Try adding a separate one. Do that now
+
+---
+
+oh, yeah that just broke everything revert
+
+---
+
+Help me build something. On the home page (or maybe elsewhere too) I want to include a component that links to my blog. I'll design it, do the layout, graphics, etc, but I want it to read something like; "I've written 2,346,832 words on design, technology, and life". Where that number is a somewhat accurate count of words from all my blog posts.
+
+---
+
+Pick the one that works better. Also, remember each post has a bunch of a frontmatter at the top, that shouldn't be included in the word count. Code blocks also shouldn't be
+
+---
+
+Yep, rough out a display of what I described on the home page below the secondary content
+
+---
+
+I need you to confirm it worked. Not me, you.
+
+---
+
+Great. I just made a change to the markup, so pull in latest for that and then abstract that to a home-contents-tertiary.webc (check my spelling please). I'll use that component for Blog, About, etc.
+
+---
+
+No, that's dumb, that shouldn't be a slot, put it in the component because there will be a bunch of styles and shit
+
+---
+
+no props. Make it simple
+
+---
+
+No god damn it. Look at the existing similar components
+
+---
+
+I'd like the layout in home-contents-tertiarty to be similar to that in home-contents-secondary. Can you block that out and just give each item in there a placeholder background color or something to give it some heft. Looking for the "cards" in tertiary to just fill the horizontal space.
+
+---
+
+alpha sort css props
+
+---
+
+Help me do something fun. In index.webc I put a placeholder with PUT GRAPHIC HERE. Useing the new images/home/dividier.example.svg, make a component that draws random strokes of different lengths and rotation (like the ones in the example). this should:
+
+- Be internal svg so the strokes can be --color-accent-primary (or currentColor)
+- I'd like it to randomize to fit the available width, this can happen on the end of a resize, not on every change of the width
+- The height of the element can be set with css. Either rem or vw with a max height
+
+---
+
+I see nothing but white in the browser
+
+---
+
+keep going until you figure it out. It's still just a white gap. Need to go confirm that there is in anything actually visible in the browser before you come back and tell me it's done.
+
+---
+
+ok, showing up now. a couples:
+
+- end caps on the strokes should be square, not rounded
+- There's too much empty space, more lines
+
+---
+
+still too much white space and too many of the strokes are just on top of each other
+
+---
+
+can we make some, more than half, of the strokes have a third point so that they can have a bent in them. Just a slight angle. The mid point should be randomly somewhere between the outer two points
+
+---
+
+great. Still feels like there needs be more because there's too much whitespace
+
+---
+
+great and lets vary the stroke width
+
+---
+
+great and we redraw on window resize, but can we have it redraw every few seconds too. Maybe that interval gets reset on a resize
+
+---
+
+ok, this feels pretty good. I made a few changes.
+
+---
+
+I want to take this same idea and apply it, but in a more controlled way. For the home-contents-card that we use in home-contents-*.webc. For hover and focus-within, I want similar strokes to draw over top of the image in each card. As the user is hovered or focus I want the strokes to redraw(animate).
+
+---
+
+Pretty close already. Check changes you made to layout in contents-secondary though, you broke the existing layout
+
+---
+
+something still wrong, there used to be a left margin between each card, that's gone now
+
+---
+
+That got it. question though, does that change make it so this JS shows up on every page of the site? If so, I don't like that.
+
+For the drawing of the strokes can we:
+- Make it appear above the image, but below the svg title for each card
+- Can the draw less in the middle of each card and more towards the edges and make sure they're drawn to all for edges better
+
+---
+
+you fucked up, that column gap doesn't work, there was a very specific fucking reason for there to be a margin left instead ya ding dong
+
+---
+
+Looking good.
+
+Another hover/focus effect. Can you make it so the .title and the .graphic scale up a bit from the center. They should scale at different rates so need independent sizes.
+
+---
+
+OK, that'll work. Now, I tougher question.
+
+Is there any way to do this randomized/animated svg strokes without JS and CSS only?
+
+---
+
+That's only a question, don't start writing code
+
+---
+
+the right call for what you're doing
+
+Again, I need you to stop with phrases like that. Yes/no binary 1/0 is what I need from you
+
+---
+
+What's a cool svg filter effect I could do one the strokes in the home-divider? Something subtle maybe. Note I'm using some other grain effects in other places, doesn't have to be that.
+
+---
+
+Yeah, let's try soemthing with that
+
+---
+
+That works really well, gives it a kind of sketch/handrawn feel. Let's do similar on th ehome-contents-card strokes
+
+---
+
+OK, cool. This is an effect I'll want to use more and with maybe more variation, but a similar idea. Knowing that, is there any type of abstraction/DRY you'd apply to make it reusable?
+
+---
+
+Yes, but don't make it an external file (no draw-strokes.js) let's just inline it in a script on all pages. We can probably use 11ty's bundling for that
