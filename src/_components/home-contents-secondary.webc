@@ -129,8 +129,8 @@
   .home-contents-card {
     --card-img-contrast: 1.55;
     flex: 1 1 var(--g-max-3);
-    min-height: 15.625rem;
     max-width: var(--max-w, var(--g-max-3));
+    min-height: 15.625rem;
 
     & + .home-contents-card {
       margin-left: var(--g-gutter);

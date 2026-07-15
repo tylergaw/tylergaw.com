@@ -33,6 +33,10 @@ meta:
   </div>
 
   <div class="g-padded home-contents-row">
+    <home-divider></home-divider>
+  </div>
+
+  <div class="g-padded home-contents-row">
     <home-contents-tertiary></home-contents-tertiary>
   </div>
 

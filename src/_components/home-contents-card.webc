@@ -1,5 +1,10 @@
 <a webc:root="override" class="home-contents-card">
   <slot></slot>
+  <svg
+    class="strokes"
+    aria-hidden="true"
+    xmlns="http://www.w3.org/2000/svg"
+  ></svg>
 </a>
 
 <style webc:scoped>
@@ -7,6 +12,7 @@
     color: var(--color-offwhite);
     display: grid;
     overflow: hidden;
+    position: relative;
   }
 
   .title,
@@ -17,9 +23,9 @@
   .title {
     display: block;
     height: auto;
-    place-self: center;
-    z-index: 2;
     max-width: 83%;
+    place-self: center;
+    z-index: 3;
 
     &[alt] {
       color: var(--color-offwhite);
@@ -27,16 +33,21 @@
     }
   }
 
+  :host(:hover) .title,
+  :host(:focus-within) .title {
+    scale: 1.05;
+  }
+
   picture {
     position: relative;
 
     &::after {
       background-color: var(--color-accent-primary);
-      mix-blend-mode: color;
       content: "";
       display: block;
       height: 100%;
       left: 0;
+      mix-blend-mode: color;
       position: absolute;
       top: 0;
       width: 100%;
@@ -44,13 +55,35 @@
     }
   }
 
+  .strokes {
+    display: block;
+    height: 100%;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+  }
+
+  :host(:hover) .strokes,
+  :host(:focus-within) .strokes {
+    opacity: 1;
+  }
+
   .graphic {
     display: block;
+    filter: contrast(var(--card-img-contrast, 1));
+    height: 100%;
     object-fit: cover;
     object-position: center;
-    height: 100%;
+    transition: scale 2s ease;
     width: 100%;
-    filter: contrast(var(--card-img-contrast, 1));
+  }
+
+  :host(:hover) .graphic,
+  :host(:focus-within) .graphic {
+    scale: 1.05;
   }
 </style>
 
@@ -65,3 +98,34 @@
     }
   }
 </style>
+
+<script webc:bucket="components">
+  document.querySelectorAll(".home-contents-card").forEach(function (card, i) {
+    const svg = card.querySelector(".strokes");
+    if (!svg) return;
+
+    let interval;
+
+    function draw() {
+      drawStrokes(svg, {
+        filterId: "card-warp-" + i,
+        yBias: "edges",
+      });
+    }
+
+    function start() {
+      draw();
+      interval = setInterval(draw, 500);
+    }
+
+    function stop() {
+      clearInterval(interval);
+      svg.innerHTML = "";
+    }
+
+    card.addEventListener("mouseenter", start);
+    card.addEventListener("mouseleave", stop);
+    card.addEventListener("focusin", start);
+    card.addEventListener("focusout", stop);
+  });
+</script>
