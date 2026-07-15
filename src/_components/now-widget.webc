@@ -25,7 +25,8 @@
   }
 
   .inner {
-    background: var(--color-bg) url("/images/now.svg") repeat-x -5% center;
+    background: var(--color-bg) url("/images/now.png") repeat-x left center;
+    background-size: 88px 96px;
   }
 
   .contents {
