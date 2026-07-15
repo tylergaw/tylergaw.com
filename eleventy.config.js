@@ -30,6 +30,20 @@ export default function (conf) {
     );
   });
 
+  conf.addFilter("totalWordCount", (posts) => {
+    return posts.reduce((total, post) => {
+      const raw = post.rawInput || "";
+      const text = raw
+        .replace(/^---[\s\S]*?---/, "")
+        .replace(/```[\s\S]*?```/g, "")
+        .replace(/<pre[\s>][\s\S]*?<\/pre>/gi, "")
+        .replace(/<[^>]+>/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+      return total + (text ? text.split(" ").length : 0);
+    }, 0).toLocaleString("en-US");
+  });
+
   conf.addFilter("plainTextPreview", (html, max = 290) => {
     const text = html
       .replace(/<[^>]+>/g, "")

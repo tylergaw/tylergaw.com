@@ -1,0 +1,32 @@
+<div webc:root="override">
+  <a href="/blog" class="card">
+    <p>
+      Since 2009, I've written ~<span
+        @text="totalWordCount($data.collections.posts)"
+      ></span>
+      words on design, technology, and life on my blog which you can read here.
+    </p>
+  </a>
+
+  <a href="/about" class="card">
+    Or maybe you'd like to know things about me?
+  </a>
+</div>
+
+<style webc:scoped="home-contents-tertiary">
+  :host {
+    display: flex;
+    flex: 1;
+    gap: var(--g-gutter);
+  }
+
+  .card {
+    align-items: center;
+    background: var(--color-accent-primary);
+    color: var(--color-bg);
+    display: flex;
+    flex: 1;
+    min-height: 200px;
+    padding: 2rem;
+  }
+</style>
