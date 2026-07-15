@@ -1,6 +1,6 @@
 ---
 tags: post
-layout: "layouts/article.njk"
+layout: "layout-article.webc"
 title: "P3 Color Bug with Repeating SVG Background Images"
 date: "2026-07-14"
 highlightSyntax: true
