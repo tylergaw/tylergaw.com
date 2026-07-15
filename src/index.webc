@@ -5,7 +5,7 @@ meta:
 ---
 
 <home-hero></home-hero>
-<now-widget :@update="$data.collections.nowUpdates[0]"></now-widget>
+<!-- <now-widget :@update="$data.collections.nowUpdates[0]"></now-widget> -->
 
 <div>
   <div class="g-padded home-contents-row">

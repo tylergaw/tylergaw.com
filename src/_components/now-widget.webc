@@ -9,8 +9,7 @@
           </p>
         </header>
         <p>
-          <span @text="plainTextPreview(update.content)"></span>…
-          <a href="/now" class="bordered-link">more</a>
+          <span @text="plainTextPreview(update.content)"></span>
         </p>
       </div>
     </div>
@@ -26,7 +25,7 @@
 
   .inner {
     background: var(--color-bg) url("/images/now.png") repeat-x left center;
-    background-size: 88px 96px;
+    background-size: 88px 100%;
   }
 
   .contents {
