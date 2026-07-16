@@ -1,0 +1,71 @@
+{
+  "cli_version": "0.8.42",
+  "checkpoint_id": "a0cdf3201489",
+  "session_id": "89959f4e-c34c-4c7a-b198-d76b9c5f74e6",
+  "strategy": "manual-commit",
+  "created_at": "2026-07-16T18:25:47.14272Z",
+  "branch": "version-xx",
+  "checkpoints_count": 2,
+  "save_step_count": 1,
+  "files_touched": [],
+  "agent": "Claude Code",
+  "model": "claude-opus-4-6",
+  "turn_id": "d8fe78081f14",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 482,
+    "cache_creation_tokens": 528116,
+    "cache_read_tokens": 24381918,
+    "output_tokens": 67295,
+    "api_call_count": 283
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "claude-skill-toolu_01EbkJoSoufS58EgwiRBvAiM",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "update-config"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "d8fe78081f14",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 1088,
+        "end": 1089,
+        "entry_ids": [
+          "c8a1c697-9489-4e98-9c84-c057d8884302"
+        ],
+        "tool_use_id": "toolu_01EbkJoSoufS58EgwiRBvAiM"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01EbkJoSoufS58EgwiRBvAiM"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: update-config",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "session_metrics": {
+    "turn_count": 39
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 59,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 59
+      }
+    }
+  ]
+}
