@@ -1,0 +1,26 @@
+{
+  "cli_version": "0.8.42",
+  "checkpoint_id": "84aba867b783",
+  "strategy": "manual-commit",
+  "branch": "version-xx",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "netlify.toml"
+  ],
+  "sessions": [
+    {
+      "metadata": "/84/aba867b783/0/metadata.json",
+      "transcript": "/84/aba867b783/0/full.jsonl",
+      "compact_transcript": "/84/aba867b783/0/transcript.jsonl",
+      "content_hash": "/84/aba867b783/0/content_hash.txt",
+      "prompt": "/84/aba867b783/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 456,
+    "cache_creation_tokens": 492956,
+    "cache_read_tokens": 22701065,
+    "output_tokens": 63064,
+    "api_call_count": 265
+  }
+}
