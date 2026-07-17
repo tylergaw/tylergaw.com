@@ -18,6 +18,15 @@
 @import url("./modules/pages/resume.css") layer(pages);
 @import url("./modules/pages/art.css") layer(pages);
 
+/* 
+FIXME: There's some dumbass bug with view transitions that is causing about
+a 1 second freeze of the entire screen on pages that don't have customized
+transitions when coming to them from a page that does. (or something like that)
+@view-transition {
+  navigation: auto;
+} 
+*/
+
 @layer baseline {
   html,
   div,

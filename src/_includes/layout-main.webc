@@ -66,18 +66,6 @@
       crossorigin
     />
     <link rel="me" href="https://mastodon.social/@tylergaw" />
-
-    <style webc:keep>
-      @view-transition {
-        navigation: auto;
-      }
-      ::view-transition-old(root),
-      ::view-transition-new(root),
-      ::view-transition-group(root) {
-        animation-duration: 0s;
-      }
-    </style>
-
     <link rel="stylesheet" href="/css/tylergaw.css" webc:keep />
     <style @raw="getBundle('css')" webc:keep></style>
   </head>
