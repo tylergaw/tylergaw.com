@@ -389,6 +389,7 @@
   }
 
   @font-face {
+    font-display: swap;
     font-family: "Dragonsteel Rough";
     font-weight: 400;
     src: url("/fonts/Dragonsteel-Rough.woff2") format("woff2");
