@@ -1,0 +1,27 @@
+{
+  "cli_version": "0.8.42",
+  "checkpoint_id": "bd76b00de98c",
+  "strategy": "manual-commit",
+  "branch": "version-xx",
+  "checkpoints_count": 4,
+  "files_touched": [
+    "src/_components/home-hero.webc",
+    "src/css/tylergaw.css"
+  ],
+  "sessions": [
+    {
+      "metadata": "/bd/76b00de98c/0/metadata.json",
+      "transcript": "/bd/76b00de98c/0/full.jsonl",
+      "compact_transcript": "/bd/76b00de98c/0/transcript.jsonl",
+      "content_hash": "/bd/76b00de98c/0/content_hash.txt",
+      "prompt": "/bd/76b00de98c/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 28,
+    "cache_creation_tokens": 26395,
+    "cache_read_tokens": 283724,
+    "output_tokens": 6161,
+    "api_call_count": 16
+  }
+}

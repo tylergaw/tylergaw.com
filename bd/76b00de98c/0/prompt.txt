@@ -1,0 +1,17 @@
+I just dropped two JSON files in perf-reports. Those are lighthouse reports for desktop and mobile from a deployed version of this branch. Can you take a look at them and give some insight into changes I could make. They're similar to what we have set up for our `scripts/perf.sh`, but deployed instead of the local version so they're more accurate (aside from the things that Netlify previews do, which you'll notice)
+
+---
+
+I
+
+---
+
+I'm not going to change the color constrast, so we'll ignore that one, what's the other(s)
+
+---
+
+Cool, yeah #3 is on the list to fix as I'm working and #4 I can do later too. Can you give me a bit more background on the why on numbers 1 and 2
+
+---
+
+Question on fetchpriority. For that image, I'm putting it in the DOM like 15 times to achieve a certain effect. Is the browser smart enough to know it's the same image?
