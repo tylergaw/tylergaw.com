@@ -1,0 +1,155 @@
+{
+  "cli_version": "0.8.42",
+  "checkpoint_id": "47d2650510a3",
+  "session_id": "9e81b4f4-6899-47a6-803a-39b587eb989c",
+  "strategy": "manual-commit",
+  "created_at": "2026-07-18T17:51:06.773602Z",
+  "branch": "version-xx",
+  "checkpoints_count": 9,
+  "save_step_count": 8,
+  "files_touched": [
+    "src/_includes/layout-main.webc",
+    "src/css/about.css",
+    "src/css/art.css",
+    "src/css/article.css",
+    "src/css/colorme.css",
+    "src/css/groundwork.css",
+    "src/css/limbo.css",
+    "src/css/modules/pages/about.css",
+    "src/css/modules/pages/art.css",
+    "src/css/modules/pages/article.css",
+    "src/css/modules/pages/home.css",
+    "src/css/modules/pages/purpose.css",
+    "src/css/modules/pages/resume.css",
+    "src/css/modules/pages/work/colorme.css",
+    "src/css/modules/pages/work/groundwork.css",
+    "src/css/modules/pages/work/limbo.css",
+    "src/css/modules/pages/work/osx-apps-with-js.css",
+    "src/css/modules/pages/work/project-base.css",
+    "src/css/modules/pages/work/streetcred.css",
+    "src/css/osx-apps-with-js.css",
+    "src/css/project-base.css",
+    "src/css/purpose.css",
+    "src/css/resume.css",
+    "src/css/streetcred.css",
+    "src/css/tylergaw.css",
+    "src/css/work-index.css",
+    "src/work/index.webc"
+  ],
+  "agent": "Claude Code",
+  "model": "",
+  "turn_id": "717e8492d38a",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 262,
+    "cache_creation_tokens": 222171,
+    "cache_read_tokens": 15224664,
+    "output_tokens": 36886,
+    "api_call_count": 180
+  },
+  "session_metrics": {
+    "turn_count": 28
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-07-18T17:51:06.713662Z",
+    "agent_lines": 3394,
+    "agent_removed": 3678,
+    "human_added": 0,
+    "human_modified": 309,
+    "human_removed": 0,
+    "total_committed": 3703,
+    "total_lines_changed": 7382,
+    "agent_percentage": 95.80059604443241,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    },
+    {
+      "checkpoint_number": 3,
+      "user_lines_added": 321,
+      "user_lines_removed": 308,
+      "agent_lines_added": 3,
+      "agent_lines_removed": 1,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/css/modules/pages/about.css": 308
+      },
+      "user_removed_per_file": {
+        "src/css/modules/pages/about.css": 308
+      }
+    },
+    {
+      "checkpoint_number": 4,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 325,
+      "agent_lines_removed": 313,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    },
+    {
+      "checkpoint_number": 5,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 343,
+      "agent_lines_removed": 319,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    },
+    {
+      "checkpoint_number": 6,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 343,
+      "agent_lines_removed": 319,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    },
+    {
+      "checkpoint_number": 7,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 343,
+      "agent_lines_removed": 319,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    },
+    {
+      "checkpoint_number": 8,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 4010,
+      "agent_lines_removed": 3986,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    },
+    {
+      "checkpoint_number": 9,
+      "user_lines_added": 14,
+      "user_lines_removed": 1,
+      "agent_lines_added": 4011,
+      "agent_lines_removed": 3986,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/page-header.webc": 1
+      },
+      "user_removed_per_file": {
+        "src/_components/page-header.webc": 1
+      }
+    }
+  ]
+}

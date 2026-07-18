@@ -1,0 +1,52 @@
+{
+  "cli_version": "0.8.42",
+  "checkpoint_id": "47d2650510a3",
+  "strategy": "manual-commit",
+  "branch": "version-xx",
+  "checkpoints_count": 9,
+  "files_touched": [
+    "src/_includes/layout-main.webc",
+    "src/css/about.css",
+    "src/css/art.css",
+    "src/css/article.css",
+    "src/css/colorme.css",
+    "src/css/groundwork.css",
+    "src/css/limbo.css",
+    "src/css/modules/pages/about.css",
+    "src/css/modules/pages/art.css",
+    "src/css/modules/pages/article.css",
+    "src/css/modules/pages/home.css",
+    "src/css/modules/pages/purpose.css",
+    "src/css/modules/pages/resume.css",
+    "src/css/modules/pages/work/colorme.css",
+    "src/css/modules/pages/work/groundwork.css",
+    "src/css/modules/pages/work/limbo.css",
+    "src/css/modules/pages/work/osx-apps-with-js.css",
+    "src/css/modules/pages/work/project-base.css",
+    "src/css/modules/pages/work/streetcred.css",
+    "src/css/osx-apps-with-js.css",
+    "src/css/project-base.css",
+    "src/css/purpose.css",
+    "src/css/resume.css",
+    "src/css/streetcred.css",
+    "src/css/tylergaw.css",
+    "src/css/work-index.css",
+    "src/work/index.webc"
+  ],
+  "sessions": [
+    {
+      "metadata": "/47/d2650510a3/0/metadata.json",
+      "transcript": "/47/d2650510a3/0/full.jsonl",
+      "compact_transcript": "/47/d2650510a3/0/transcript.jsonl",
+      "content_hash": "/47/d2650510a3/0/content_hash.txt",
+      "prompt": "/47/d2650510a3/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 262,
+    "cache_creation_tokens": 222171,
+    "cache_read_tokens": 15224664,
+    "output_tokens": 36886,
+    "api_call_count": 180
+  }
+}
