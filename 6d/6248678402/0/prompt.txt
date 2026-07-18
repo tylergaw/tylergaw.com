@@ -65,3 +65,7 @@ cool, go ahead and commit those changes
 ---
 
 Let's do some CSS cleanup. Trying to get away from `@import` in tylergaw.css. Can you just pull in the contents of all the css/modules/components EXCEPT prism-ally.css into tylergaw.css in the correct layer/order and then remove the unused files
+
+---
+
+great, commit that
