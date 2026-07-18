@@ -1,0 +1,83 @@
+OK, those are done. Now, I have a bug with view transitions. Can you track down every spot in the code that has to do with them for me. Just give me files and general lines. I need to investigate the problem
+
+---
+
+Check the work we did for the draw-strokes component and the work in tree-rings component
+
+---
+
+No god damn it, not for view transitions, just pull in those fucking components so we can do other work jesus fucking christ
+
+---
+
+In draw strokes, the strokes have sharp edges, no bezier. tree-rings (which is named poorly) still does. I want to update tree-rings to make each of the strokes in it have sharp angles and end caps. And also, instead of the smooth animation the lines have now, I want more of a jagged/jittery animation to match draw-strokes
+
+---
+
+did you not read claude.md?
+
+---
+
+Yes, now go
+
+---
+
+OK, that's cool. I'm hitting some weird 11ty cache issue I think. We have changes to tree-rings.webc, but they won't show up unless I stop/restart the dev server. Then they'll show up, until I make another change somewhere in the codebase, then the old version of tree-rings shows up. I can even delete all of the contents of tree-rings, hard refresh the page, and the old version still shows up. What gives?
+
+---
+
+> This is a known issue with the WebC plugin
+
+How do you know that? Is there an existing gh issue or something I can look at?
+
+---
+
+was again dipshit, just because you make text blue and underline it, that does not make it an actual link
+
+---
+
+FUCKING IDIOT, those are not links I can click. GIVE ME URLS!
+
+---
+
+OK, let's look at tree-rings some more. Right now, each path goes "unbroken" from left to right. Is it possible to put randomized "breaks" in the path?
+
+---
+
+Yeah, go for it. The overal idea is we're getting it slightly closer to the style of draw-srokes
+
+---
+
+ok, kinda fun. What if we add the same filter effect that we have in draw-strokes.webc?
+
+---
+
+the tree-rings, "rings", naming doesn't make sense anymore for this component. Can you go through the code, the filename, the instances and give it a more general name? Make sure it doesn't conflict with draw-strokes.webc
+
+---
+
+I like it
+
+---
+
+cool, go ahead and commit those changes
+
+---
+
+Let's do some CSS cleanup. Trying to get away from `@import` in tylergaw.css. Can you just pull in the contents of all the css/modules/components EXCEPT prism-ally.css into tylergaw.css in the correct layer/order and then remove the unused files
+
+---
+
+great, commit that
+
+---
+
+ok, next, the prims-ally.css. There's prior art here for when that's needed. It's only used on blog posts. There's a prism.js file too and we have frontmatter prop highlightSyntax that determines if that js should be included. We should also do that with the css. can you have a look at the current setup and suggest an approach
+
+---
+
+Yeah, that looks good. Let's do that and clean up anything unneeded
+
+---
+
+Let's flatten that. Just put the prism css file in the root css dir next to tylergaw.css

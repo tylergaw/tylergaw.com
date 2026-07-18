@@ -1,0 +1,29 @@
+{
+  "cli_version": "0.8.42",
+  "checkpoint_id": "fc9fdbcdfaae",
+  "strategy": "manual-commit",
+  "branch": "version-xx",
+  "checkpoints_count": 4,
+  "files_touched": [
+    "src/_includes/layout-article.webc",
+    "src/css/modules/components/prism-a11y.css",
+    "src/css/prism-a11y.css",
+    "src/css/tylergaw.css"
+  ],
+  "sessions": [
+    {
+      "metadata": "/fc/9fdbcdfaae/0/metadata.json",
+      "transcript": "/fc/9fdbcdfaae/0/full.jsonl",
+      "compact_transcript": "/fc/9fdbcdfaae/0/transcript.jsonl",
+      "content_hash": "/fc/9fdbcdfaae/0/content_hash.txt",
+      "prompt": "/fc/9fdbcdfaae/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 152,
+    "cache_creation_tokens": 158315,
+    "cache_read_tokens": 4390110,
+    "output_tokens": 20911,
+    "api_call_count": 88
+  }
+}
