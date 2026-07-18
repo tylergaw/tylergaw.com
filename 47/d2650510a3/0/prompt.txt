@@ -121,3 +121,7 @@ A bit of cleanup. Let's just flatten the css directory. No more modules/pages di
 ---
 
 ok, one more change. The current home.css is not actually for the home page anymore. It's in a bit of an in-between state. What's it's for is the work index at `/work`. Can you rename that css file and make sure that work index page is set up correctly. We'll most likely merge that with the current Archive page later, but we'll come back to it
+
+---
+
+Lovely. Let's commit all this and push it to the remote
