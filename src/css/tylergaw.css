@@ -1,7 +1,5 @@
 @layer baseline, tokens, components, pages;
 
-
-
 /* 
 FIXME: There's some dumbass bug with view transitions that is causing about
 a 1 second freeze of the entire screen on pages that don't have customized

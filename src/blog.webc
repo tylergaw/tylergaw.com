@@ -6,7 +6,7 @@ meta:
   image: /images/social-blog.png
 ---
 
-<div>Write to please just one person.</div>
+<!-- <div>Write to please just one person.</div> -->
 
 <div>
   <div class="g-main g-padded g-standard-a blog-posts">
@@ -17,7 +17,10 @@ meta:
     >
       <div class="group-heading">
         <h2 @text="group.year"></h2>
-        <scratch-lines :year="group.year" :count="group.posts.length"></scratch-lines>
+        <scratch-lines
+          :year="group.year"
+          :count="group.posts.length"
+        ></scratch-lines>
       </div>
       <ol>
         <li webc:for="post of group.posts">
@@ -36,15 +39,20 @@ meta:
 
   .group-heading {
     background: linear-gradient(var(--color-bg) 70%, transparent);
+    column-gap: 0.5rem;
+    container-type: inline-size;
+    display: flex;
     margin-bottom: 1rem;
     overflow: hidden;
-    display: flex;
-    column-gap: 0.5rem;
 
     svg {
-      color: color-mix(in srgb, var(--color-accent-primary) 40%, transparent);
+      --w: tan(atan2(100cqi, 1px));
+      --scale: calc(1100 / var(--w));
+      color: color-mix(in srgb, var(--color-accent-primary) 50%, transparent);
       margin-top: 0.25rem;
       height: 100%;
+      transform-origin: top left;
+      transform: scaleY(var(--scale));
       width: 100%;
     }
   }
@@ -57,15 +65,16 @@ meta:
   }
 
   h2 {
+    --s: 3.75;
     font-size: var(--font-size-28);
     font-family: var(--font-proto-extralight);
     font-weight: 200;
     transform-origin: top;
-    transform: scaleY(3.75);
+    transform: scaleY(var(--s));
     letter-spacing: -2px;
-    margin-top: 0;
+    margin: 0;
     line-height: 1;
-    padding-bottom: 3.75rem;
+    padding-bottom: calc(var(--s) * 1.2rem);
   }
 
   time {

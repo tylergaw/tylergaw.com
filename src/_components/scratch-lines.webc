@@ -68,7 +68,7 @@
         frames.push(pointsToPath(coords, breaks));
       }
 
-      const strokeWidth = (0.3 + rng() * 0.6).toFixed(2);
+      const strokeWidth = (0.3 + rng() * 0.5).toFixed(2);
       const dur = (2 + rng() * 3).toFixed(1);
       const values = [...frames, frames[0]].join(";");
       paths.push(
