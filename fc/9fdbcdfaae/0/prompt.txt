@@ -81,3 +81,7 @@ Yeah, that looks good. Let's do that and clean up anything unneeded
 ---
 
 Let's flatten that. Just put the prism css file in the root css dir next to tylergaw.css
+
+---
+
+Great, commit that
