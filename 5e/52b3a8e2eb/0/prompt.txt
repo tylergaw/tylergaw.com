@@ -57,3 +57,7 @@ the tree-rings, "rings", naming doesn't make sense anymore for this component. C
 ---
 
 I like it
+
+---
+
+cool, go ahead and commit those changes
