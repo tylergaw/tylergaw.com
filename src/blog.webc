@@ -17,7 +17,7 @@ meta:
     >
       <div class="group-heading">
         <h2 @text="group.year"></h2>
-        <tree-rings :year="group.year" :count="group.posts.length"></tree-rings>
+        <scratch-lines :year="group.year" :count="group.posts.length"></scratch-lines>
       </div>
       <ol>
         <li webc:for="post of group.posts">
