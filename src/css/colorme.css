@@ -1,3 +1,4 @@
+@layer pages {
 .hero--colorme {
   color: var(--color-offwhite);
   position: relative;
@@ -79,4 +80,5 @@
     padding-top: min(13vw, 16rem);
     width: 65%;
   }
+}
 }

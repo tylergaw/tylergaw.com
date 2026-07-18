@@ -1,3 +1,4 @@
+@layer pages {
 .hero--streetcred {
   color: var(--color-white);
   position: relative;
@@ -815,4 +816,5 @@
   .streetcred__add {
     --bg-pos-h: right 1400px;
   }
+}
 }

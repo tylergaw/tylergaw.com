@@ -67,6 +67,18 @@
     />
     <link rel="me" href="https://mastodon.social/@tylergaw" />
     <link rel="stylesheet" href="/css/tylergaw.css" webc:keep />
+    <link rel="stylesheet" href="/css/about.css" webc:keep webc:if="(pageType || page.fileSlug) === 'about'" />
+    <link rel="stylesheet" href="/css/article.css" webc:keep webc:if="pageType === 'blog'" />
+    <link rel="stylesheet" href="/css/work-index.css" webc:keep webc:if="pageType === 'work-index'" />
+    <link rel="stylesheet" href="/css/purpose.css" webc:keep webc:if="(pageType || page.fileSlug) === 'purpose'" />
+    <link rel="stylesheet" href="/css/resume.css" webc:keep webc:if="(pageType || page.fileSlug) === 'resume'" />
+    <link rel="stylesheet" href="/css/art.css" webc:keep webc:if="(pageType || page.fileSlug) === 'art'" />
+    <link rel="stylesheet" href="/css/project-base.css" webc:keep webc:if="pageType?.startsWith('work') || (pageType || page.fileSlug) === 'about'" />
+    <link rel="stylesheet" href="/css/streetcred.css" webc:keep webc:if="pageType === 'work-streetcred'" />
+    <link rel="stylesheet" href="/css/limbo.css" webc:keep webc:if="pageType === 'work-limbo'" />
+    <link rel="stylesheet" href="/css/groundwork.css" webc:keep webc:if="pageType === 'work-groundwork'" />
+    <link rel="stylesheet" href="/css/colorme.css" webc:keep webc:if="pageType === 'work-colorme'" />
+    <link rel="stylesheet" href="/css/osx-apps-with-js.css" webc:keep webc:if="pageType === 'work-jxa'" />
     <style @raw="getBundle('css')" webc:keep></style>
   </head>
   <body>

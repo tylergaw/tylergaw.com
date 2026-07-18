@@ -1,6 +1,7 @@
 ---
 layout: layout-main.webc
 title: Work by Tyler Gaw
+pageType: work-index
 ---
 
 <ul class="g-main g-padded home__work">

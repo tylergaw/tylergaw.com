@@ -1,3 +1,4 @@
+@layer pages {
 .resume-intro__contents,
 .resume__experience,
 .resume__aside {
@@ -115,4 +116,5 @@
   .resume__aside {
     --col-start: 4;
   }
+}
 }

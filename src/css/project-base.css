@@ -1,3 +1,4 @@
+@layer pages {
 .project {
   padding-bottom: calc(var(--g-row) * 10);
 }
@@ -292,4 +293,5 @@ span.project__link {
   .project__body {
     --col-end: -4;
   }
+}
 }

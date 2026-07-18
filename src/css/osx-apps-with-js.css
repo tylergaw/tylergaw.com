@@ -1,3 +1,4 @@
+@layer pages {
 .hero--jxa {
   color: white;
   position: relative;
@@ -170,4 +171,5 @@
     animation-name: jxaGraphicLarge;
     animation-duration: 0.7s;
   }
+}
 }

@@ -20,7 +20,7 @@
   <nav>
     <ul>
       <li>
-        <a href="/" class="nav-work">Work</a>
+        <a href="/work" class="nav-work">Work</a>
       </li>
       <li>
         <a href="/blog" class="nav-blog">Blog</a>

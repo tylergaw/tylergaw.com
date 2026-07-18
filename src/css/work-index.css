@@ -1,3 +1,4 @@
+@layer pages {
 .home__intro,
 .home__work,
 .home__more {
@@ -1290,4 +1291,5 @@
   .p-jxa__graphic {
     transition-duration: 0s;
   }
+}
 }
