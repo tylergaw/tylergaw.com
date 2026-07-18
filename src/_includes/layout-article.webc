@@ -22,4 +22,5 @@ pageType: blog
 
 <blog-nav :@posts="collections.posts" :@page="page"></blog-nav>
 
+<link rel="stylesheet" href="/css/prism-a11y.css" webc:keep webc:if="highlightSyntax">
 <script src="/js/prism.js" async webc:keep webc:if="highlightSyntax"></script>
