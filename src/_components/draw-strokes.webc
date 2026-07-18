@@ -31,9 +31,10 @@
 
       let startY;
       if (opts.yBias === "edges") {
-        startY = Math.random() < 0.5
-          ? Math.random() * Math.random() * h * 0.4
-          : h - Math.random() * Math.random() * h * 0.4;
+        startY =
+          Math.random() < 0.5
+            ? Math.random() * Math.random() * h * 0.4
+            : h - Math.random() * Math.random() * h * 0.4;
       } else {
         const midY = h / 2;
         startY = midY + (Math.random() - 0.5) * h * 0.4;
@@ -46,7 +47,10 @@
       const my = startY + dy * t + (Math.random() - 0.5) * 12;
       const d = `M${x} ${startY}L${mx} ${my}L${endX} ${endY}`;
 
-      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      const path = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "path",
+      );
       path.setAttribute("d", d);
       path.setAttribute("stroke", "currentColor");
       path.setAttribute("stroke-width", 2 + Math.random() * 4);

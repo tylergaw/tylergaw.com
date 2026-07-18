@@ -6,12 +6,7 @@ meta:
   image: /images/social-blog.png
 ---
 
-<div class="page-intro g-main g-padded">
-  <div class="page-intro__contents g-main__item">
-    <h1 class="heading--special">Blog</h1>
-    <p class="page-intro__body">Write to please just one person.</p>
-  </div>
-</div>
+<div>Write to please just one person.</div>
 
 <div>
   <div class="g-main g-padded g-standard-a blog-posts">
@@ -47,7 +42,7 @@ meta:
     column-gap: 0.5rem;
 
     svg {
-      color: color-mix(in srgb, var(--color-accent-primary) 30%, transparent);
+      color: color-mix(in srgb, var(--color-accent-primary) 40%, transparent);
       margin-top: 0.25rem;
       height: 100%;
       width: 100%;

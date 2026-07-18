@@ -8,25 +8,15 @@
       };
     };
 
-    const pointsToPath = (coords) => {
+    const pointsToPath = (coords, breaks) => {
       const n = coords.length;
       if (n < 2) return "";
       const f = (v) => v.toFixed(2);
-      const tension = 0.3;
 
       let d = `M ${f(coords[0][0])} ${f(coords[0][1])}`;
-      for (let i = 0; i < n - 1; i++) {
-        const p0 = coords[i === 0 ? 0 : i - 1];
-        const p1 = coords[i];
-        const p2 = coords[i + 1];
-        const p3 = coords[i + 2 < n ? i + 2 : n - 1];
-
-        const cp1x = p1[0] + (p2[0] - p0[0]) * tension;
-        const cp1y = p1[1] + (p2[1] - p0[1]) * tension;
-        const cp2x = p2[0] - (p3[0] - p1[0]) * tension;
-        const cp2y = p2[1] - (p3[1] - p1[1]) * tension;
-
-        d += ` C ${f(cp1x)} ${f(cp1y)} ${f(cp2x)} ${f(cp2y)} ${f(p2[0])} ${f(p2[1])}`;
+      for (let i = 1; i < n; i++) {
+        const cmd = breaks.has(i) ? "M" : "L";
+        d += ` ${cmd} ${f(coords[i][0])} ${f(coords[i][1])}`;
       }
       return d;
     };
@@ -41,7 +31,7 @@
     const numLines = 3 + Math.floor(count * 0.4);
 
     const pad = 2;
-    const numFrames = 3;
+    const numFrames = 8;
 
     const paths = [];
     for (let i = 0; i < numLines; i++) {
@@ -58,6 +48,14 @@
         base.push({ x, baseY, spread });
       }
 
+      // Pick random break points for this line
+      const numBreaks = 1 + Math.floor(rng() * 3);
+      const breaks = new Set();
+      while (breaks.size < numBreaks) {
+        const idx = 2 + Math.floor(rng() * (numPoints - 3));
+        breaks.add(idx);
+      }
+
       // Generate wobble variations
       const frames = [];
       for (let f = 0; f < numFrames; f++) {
@@ -67,17 +65,21 @@
           const y = Math.max(pad, Math.min(height - pad, baseY + wobble));
           return [x, y];
         });
-        frames.push(pointsToPath(coords));
+        frames.push(pointsToPath(coords, breaks));
       }
 
-      const strokeWidth = (0.25 + rng() * 0.25).toFixed(2);
-      const dur = (10 + rng() * 10).toFixed(1);
+      const strokeWidth = (0.3 + rng() * 0.6).toFixed(2);
+      const dur = (2 + rng() * 3).toFixed(1);
       const values = [...frames, frames[0]].join(";");
       paths.push(
-        `<path d="${frames[0]}" fill="none" stroke="currentColor" stroke-width="${strokeWidth}" stroke-linecap="round"><animate attributeName="d" values="${values}" dur="${dur}s" repeatCount="indefinite" /></path>`,
+        `<path d="${frames[0]}" fill="none" stroke="currentColor" stroke-width="${strokeWidth}" stroke-linecap="butt"><animate attributeName="d" values="${values}" dur="${dur}s" calcMode="discrete" repeatCount="indefinite" /></path>`,
       );
     }
 
-    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" aria-hidden="true">${paths.join("")}</svg>`;
+    const filterId = `rings-warp-${year}`;
+    const seed = Math.floor(rng() * 100);
+    const defs = `<defs><filter id="${filterId}"><feTurbulence type="turbulence" baseFrequency="0.04" numOctaves="2" result="turbulence" seed="${seed}" /><feDisplacementMap in="SourceGraphic" in2="turbulence" scale="3" xChannelSelector="R" yChannelSelector="G" /></filter></defs>`;
+
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" aria-hidden="true">${defs}<g filter="url(#${filterId})">${paths.join("")}</g></svg>`;
   };
 </script>

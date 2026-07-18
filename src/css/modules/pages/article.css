@@ -228,7 +228,7 @@
 }
 
 .e-content blockquote {
-  border-left: 0.4em solid var(--color-accent-secondary);
+  border-left: 0.4em solid var(--color-accent-primary);
   font-size: 0.9em;
   margin-top: 1.5em;
   margin-bottom: 2em;
@@ -265,7 +265,7 @@
 .entry-intro + p:not(.no-drop-cap):first-letter,
 .entry-intro + h2 + p:not(.no-drop-cap):first-letter,
 .drop-capped:first-letter {
-  color: var(--color-accent-secondary);
+  color: var(--color-accent-primary);
   float: left;
   font-family: var(--font-proto-bold);
   font-size: 555%;
