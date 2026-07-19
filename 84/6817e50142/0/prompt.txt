@@ -1,0 +1,45 @@
+Pull in and remember claude.md, then pull in about-site-versions that we'll do some work on
+
+---
+
+I've broken something in my changes. The li are supposed to be 87% flex with a max width, but I think the decorative SVG divider (or the entire header) is preventing that. Can you see what needs to change to allow it to shrink down again
+
+---
+
+OK, pull in the latest again. I have .line set to flex and overflow, but the svg within are still breaking out when the li scales down. What am I missing?
+
+---
+
+Couple things. DO NOT MAKE CHANGES UNLESS I APPROVE
+
+what you changed does not fix the problem and is just wrong.
+
+I DO NOT want the width of the svg to change. I want the width of the svg to stay the same and the parent div width to shrink
+
+---
+
+ok, yes make those changes
+
+---
+
+OK, cool. Trying out something different. Instead of the svg size not changing at all can we have it so just the width of the svg changes, but the height stays the same? I want it to skew.
+
+---
+
+Yes, go for it
+
+---
+
+I'm using scroll-snap-type to snap each li into place. Is there a way to know, in css, what the "current" item is?
+
+---
+
+I think scroll state queries are more available now, you have some dated info. Pull this article in and help me try out a very simple setup https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries
+
+---
+
+Yeah, add that and then, just change the color of the .point for the current item
+
+---
+
+well that's pretty cool. What another interesting things can we do with these?
