@@ -223,7 +223,10 @@ transitions when coming to them from a page that does. (or something like that)
   }
 
   [data-page="about"] {
-    --color-accent-primary: color(display-p3 0 0 0);
+    --color-accent-primary: light-dark(
+      color(display-p3 0 0 0),
+      color(display-p3 1 1 1)
+    );
   }
 
   [data-page="books"] {

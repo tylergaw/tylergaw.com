@@ -1,0 +1,146 @@
+<script webc:setup>
+  const versions = [
+    { range: "2020–2026", num: 6 },
+    { range: "2018–2020", num: 6 },
+    { range: "2014–2018", num: 5 },
+    { range: "2011–2014", num: 4 },
+    { range: "2009–2011", num: 3 },
+    { range: "2007–2009", num: 2 },
+    { range: "2006–2007", num: 1 },
+  ];
+</script>
+
+<ol id="versions">
+  <li webc:for="version of versions">
+    <figure>
+      <a :href="`https://v${version.num}.tylergaw.com`">
+        <figcaption>
+          <b @text="`Version ${version.num}`"></b>
+          <span @text="version.range" webc:nokeep></span>
+        </figcaption>
+        <picture>
+          <source
+            :srcset="`/images/tylergaw-v${version.num}.webp`"
+            type="image/webp"
+          />
+          <img
+            :src="`/images/tylergaw-v${version.num}.jpg`"
+            :alt="`A screenshot of version ${version.num} of tylergaw.com`"
+            loading="lazy"
+            width="1389"
+            height="1050"
+          />
+        </picture>
+      </a>
+    </figure>
+  </li>
+</ol>
+
+<style webc:scoped>
+  :host {
+    display: block;
+  }
+
+  ol {
+    display: flex;
+    gap: var(--g-gutter);
+    overflow-x: auto;
+    padding-inline: var(--g-padding-h);
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--g-padding-h);
+  }
+
+  @media (min-width: 1040px) {
+    ol {
+      --num-cols: 5;
+      --g-offset-start: calc(
+        var(--g-padding-h) + var(--skip-cols, 1) *
+          (
+            (
+                100vw - 2 * var(--g-padding-h) - (var(--num-cols) - 1) *
+                  var(--g-gutter)
+              ) /
+              var(--num-cols) + var(--g-gutter)
+          )
+      );
+      padding-inline-start: var(--g-offset-start);
+      scroll-padding-inline-start: var(--g-offset-start);
+    }
+  }
+
+  @media (min-width: 1240px) {
+    ol {
+      --num-cols: 6;
+    }
+  }
+
+  @media (min-width: 1660px) {
+    ol {
+      --num-cols: 10;
+    }
+  }
+
+  @media (min-width: 2200px) {
+    ol {
+      --num-cols: 11;
+      --skip-cols: 2;
+    }
+  }
+
+  li {
+    flex: 0 0 87%;
+    max-width: var(--g-max-4);
+    scroll-snap-align: start;
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-within {
+      --border-color: var(--color-accent-primary);
+      outline: none;
+    }
+  }
+
+  figcaption {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+
+    b {
+      color: var(--color-text);
+      display: block;
+      font-family: var(--font-proto-regular);
+      font-size: 90%;
+      font-weight: normal;
+      margin-bottom: 0.4em;
+      text-transform: uppercase;
+    }
+  }
+
+  picture {
+    display: block;
+    position: relative;
+
+    /* FIXME: LEAVE FOR NOW &::after {
+      border-radius: 6px;
+      box-shadow: inset 0 0 0 4px var(--border-color);
+      content: "";
+      display: block;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      transition: 0.1s ease;
+      width: 100%;
+      z-index: 2;
+    } */
+
+    img {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
+  }
+</style>

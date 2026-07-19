@@ -73,7 +73,7 @@
     <link rel="stylesheet" href="/css/purpose.css" webc:keep webc:if="(pageType || page.fileSlug) === 'purpose'" />
     <link rel="stylesheet" href="/css/resume.css" webc:keep webc:if="(pageType || page.fileSlug) === 'resume'" />
     <link rel="stylesheet" href="/css/art.css" webc:keep webc:if="(pageType || page.fileSlug) === 'art'" />
-    <link rel="stylesheet" href="/css/project-base.css" webc:keep webc:if="pageType?.startsWith('work') || (pageType || page.fileSlug) === 'about'" />
+    <link rel="stylesheet" href="/css/project-base.css" webc:keep webc:if="pageType?.startsWith('work')" />
     <link rel="stylesheet" href="/css/streetcred.css" webc:keep webc:if="pageType === 'work-streetcred'" />
     <link rel="stylesheet" href="/css/limbo.css" webc:keep webc:if="pageType === 'work-limbo'" />
     <link rel="stylesheet" href="/css/groundwork.css" webc:keep webc:if="pageType === 'work-groundwork'" />

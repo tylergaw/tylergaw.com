@@ -3,49 +3,11 @@ layout: layout-main.webc
 title: About Tyler Gaw and this Site
 meta:
   image: /images/social-about.png
-photos:
-  [
-    {
-      key: "skateboarding",
-      alt: "A Polaroid photo of my skateboard laying on a rug in my apartment",
-    },
-    {
-      key: "records",
-      alt: "A Polaroid photo of my record collection in the 9 travel cases I store them",
-    },
-    {
-      key: "nyc",
-      alt: "A Polaroid photo the lower Manhattan skyline looking Southeast on East Broadway in Chinatown",
-    },
-  ]
-versions:
-  [
-    { range: "2018–2020", num: 6 },
-    { range: "2014–2018", num: 5 },
-    { range: "2011–2014", num: 4 },
-    { range: "2009–2011", num: 3 },
-    { range: "2007–2009", num: 2 },
-    { range: "2006–2007", num: 1 },
-  ]
 ---
 
-<div class="hero--about hero--before-standard">
-  <div class="hero__contents about__hero-contents">
-    <div class="about__portrait">
-      <img
-        src="/images/tyler-gaw-portrait-2020.svg"
-        alt="An illustration portrait of Tyler"
-        width="1246"
-        height="1106"
-      />
-    </div>
-
-    <h1 class="about__title">
-      <span class="about-still">Still</span>
-      <span class="about-trying">trying.</span>
-    </h1>
-  </div>
-</div>
+<!-- FIXME<div class="hero--about hero--before-standard">
+  <div class="hero__contents about__hero-contents"></div>
+</div> -->
 
 <div class="g-main g-padded about__bio">
   <div class="g-main__item bio__intro">
@@ -99,20 +61,19 @@ versions:
     <ul>
       <li>
         <p>
-          <strong id="skateboarding" class="highlight--about"
-            >Skateboarding</strong
-          >. I got my first board in 1997 for my 12th birthday. In 24 years the
-          longest I've ever gone without it was 7 months. That was due to knee
-          surgery after a torn ACL and meniscus. Your first assumption about how
-          I did that will be correct. Skateboarding altered my trajectory in
-          life. I would be a completely different person without it.
+          <strong id="skateboarding">Skateboarding</strong>. I got my first
+          board in 1997 for my 12th birthday. In 24 years the longest I've ever
+          gone without it was 7 months. That was due to knee surgery after a
+          torn ACL and meniscus. Your first assumption about how I did that will
+          be correct. Skateboarding altered my trajectory in life. I would be a
+          completely different person without it.
         </p>
       </li>
       <li>
         <p>
-          <strong id="records" class="highlight--about">Vinyl records</strong>.
-          I adore music of all types. Having them in a physical form is good for
-          my soul. <a href="https://wax.tylergaw.com">My collection</a>
+          <strong id="records">Vinyl records</strong>. I adore music of all
+          types. Having them in a physical form is good for my soul.
+          <a href="https://wax.tylergaw.com">My collection</a>
           grows at a comical pace. Spending an hour digging through bins in a
           record store is one of my favorite ways to clear my head. And then
           spend too much money.
@@ -120,44 +81,18 @@ versions:
       </li>
       <li>
         <p>
-          <strong id="nyc" class="highlight--about">New York City</strong>. This
-          is my Home. I’m a part of it and it’s a part of me. I moved here in
-          2008. I’ve lived in 8 different apartments in Manhattan and Brooklyn.
-          I’ve been here through multiple hurricanes, an earthquake, blizzards,
-          breakups, tickets, an arrest, court dates, jury duty (twice), bar
-          fights, terrorist attacks, and most recently, the deafening quiet,
-          eerie stillness, reefer trucks full of bodies on 2nd AVE, and the
-          brain altering trauma of a global pandemic. I love this city and it
-          allows me to exist here. That’s the most anyone can ask of it.
+          <strong id="nyc">New York City</strong>. This is my Home. I’m a part
+          of it and it’s a part of me. I moved here in 2008. I’ve lived in 8
+          different apartments in Manhattan and Brooklyn. I’ve been here through
+          multiple hurricanes, an earthquake, blizzards, breakups, tickets, an
+          arrest, court dates, jury duty (twice), bar fights, terrorist attacks,
+          and most recently, the deafening quiet, eerie stillness, reefer trucks
+          full of bodies on 2nd AVE, and the brain altering trauma of a global
+          pandemic. I love this city and it allows me to exist here. That’s the
+          most anyone can ask of it.
         </p>
       </li>
     </ul>
-  </div>
-
-  <div class="g-main__item project__graphics project__graphics--tight">
-    <figure class="project__figure">
-      <div class="figure-grid figure-grid--3 about__polaroids">
-        <picture webc:for="photo of photos">
-          <source
-            :srcset="`/images/about/about-${photo.key}.avif`"
-            type="image/avif"
-          />
-          <source
-            :srcset="`/images/about/about-${photo.key}.webp`"
-            type="image/webp"
-          />
-
-          <img
-            class="about__photo"
-            :src="`/images/about/about-${photo.key}.jpg`"
-            width="1500"
-            height="1789"
-            :alt="{{ photo.alt }}"
-            loading="lazy"
-          />
-        </picture>
-      </div>
-    </figure>
   </div>
 </div>
 
@@ -187,15 +122,13 @@ versions:
       <li><a href="https://www.11ty.dev/">Eleventy</a></li>
       <li><a href="https://www.netlify.com/">Netlify</a></li>
       <li>CSS: The kind that comes in the browser</li>
-      <li>
-        JavaScript: The regular kind that comes in the browser and very little
-        of it
-      </li>
+      <li>JavaScript: The kind that comes in the browser</li>
       <li>
         Set in
         <a href="https://www.productiontype.com/family/proto_grotesk"
           >Proto Grotesk</a
         >
+        with <a href="https://ohnotype.co/fonts/covik">Covik Sans Mono</a>
       </li>
     </ul>
 
@@ -205,39 +138,6 @@ versions:
       <a href="https://github.com/tylergaw/tylergaw.com">on GitHub</a>.
     </p>
   </div>
-
-  <ol class="g-main__item site__versions" id="versions">
-    <li class="version" webc:for="version of versions">
-      <figure>
-        <a
-          class="version__link"
-          :href="`https://v${version.num}.tylergaw.com`"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <figcaption class="version__title">
-            <b @text="`Version ${version.num}`"></b>
-            <span @text="version.range" webc:nokeep></span>
-          </figcaption>
-          <picture class="version__img">
-            <source
-              :srcset="`/images/tylergaw-v${version.num}.webp`"
-              type="image/webp"
-            />
-            <source
-              :srcset="`/images/tylergaw-v${version.num}.jpg`"
-              type="image/jpeg"
-            />
-            <img
-              :src="`/images/tylergaw-v${version.num}.jpg`"
-              :alt="`A screenshot of version ${version.num} of tylergaw.com`"
-              loading="lazy"
-              width="1389"
-              height="1050"
-            />
-          </picture>
-        </a>
-      </figure>
-    </li>
-  </ol>
 </div>
+
+<about-site-versions></about-site-versions>
