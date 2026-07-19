@@ -52,6 +52,11 @@
       </div>
     </header>
     <a :href="`https://v${version.num}.tylergaw.com`">
+      <svg
+        class="strokes"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+      ></svg>
       <picture>
         <source
           :srcset="`/images/about/2026/versions/v${version.num}.webp`"
@@ -129,14 +134,39 @@
   }
 
   a {
+    color: var(--color-white);
     display: block;
+    position: relative;
     text-decoration: none;
 
     &:hover,
-    &:focus-within {
+    &:focus-visible {
       --border-color: var(--color-accent-primary);
       outline: none;
     }
+  }
+
+  .strokes {
+    display: block;
+    inset: 0;
+    inset-inline: calc(var(--g-gutter) * 0.5);
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: 2;
+  }
+
+  li:first-child .strokes {
+    inset-inline-start: 0;
+  }
+
+  li:last-child .strokes {
+    inset-inline-end: 0;
+  }
+
+  a:hover .strokes,
+  a:focus-visible .strokes {
+    opacity: 1;
   }
 
   .meta {
@@ -215,6 +245,7 @@
     img {
       display: block;
       height: auto;
+      transition: scale 2s ease;
       width: 100%;
     }
   }
@@ -223,6 +254,10 @@
   a:focus-visible {
     picture {
       filter: saturate(100%);
+    }
+
+    img {
+      scale: 1.02;
     }
   }
 
@@ -237,3 +272,10 @@
     }
   }
 </style>
+
+<script webc:bucket="components">
+  initDrawStrokes("#versions a", {
+    filterId: "version-warp",
+    yBias: "edges",
+  });
+</script>

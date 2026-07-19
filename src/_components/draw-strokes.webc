@@ -1,4 +1,33 @@
 <script webc:bucket="components">
+  function initDrawStrokes(selector, opts) {
+    document.querySelectorAll(selector).forEach(function (el, i) {
+      var svg = el.querySelector(".strokes");
+      if (!svg) return;
+
+      var interval;
+      var filterId = (opts.filterId || "strokes-warp") + "-" + i;
+
+      function draw() {
+        drawStrokes(svg, Object.assign({}, opts, { filterId: filterId }));
+      }
+
+      function start() {
+        draw();
+        interval = setInterval(draw, 500);
+      }
+
+      function stop() {
+        clearInterval(interval);
+        svg.innerHTML = "";
+      }
+
+      el.addEventListener("mouseenter", start);
+      el.addEventListener("mouseleave", stop);
+      el.addEventListener("focusin", start);
+      el.addEventListener("focusout", stop);
+    });
+  }
+
   function drawStrokes(svg, opts) {
     opts = opts || {};
     const container = svg.parentElement;
@@ -33,11 +62,10 @@
       if (opts.yBias === "edges") {
         startY =
           Math.random() < 0.5
-            ? Math.random() * Math.random() * h * 0.4
-            : h - Math.random() * Math.random() * h * 0.4;
+            ? Math.random() * Math.random() * h * 0.5
+            : h - Math.random() * Math.random() * h * 0.5;
       } else {
-        const midY = h / 2;
-        startY = midY + (Math.random() - 0.5) * h * 0.4;
+        startY = margin + Math.random() * (h - margin * 2);
       }
 
       const endX = x + dx;

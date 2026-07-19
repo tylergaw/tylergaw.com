@@ -198,7 +198,7 @@ transitions when coming to them from a page that does. (or something like that)
     --color-charcoal: #292929;
     --color-mud: #3f3d31;
     --color-offwhite: #fcfcfc;
-    --color-white: #fff;
+    --color-white: color(display-p3 1 1 1);
     --color-eggshell: #f6f5e4;
 
     --color-accent-primary: light-dark(

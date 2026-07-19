@@ -100,32 +100,8 @@
 </style>
 
 <script webc:bucket="components">
-  document.querySelectorAll(".home-contents-card").forEach(function (card, i) {
-    const svg = card.querySelector(".strokes");
-    if (!svg) return;
-
-    let interval;
-
-    function draw() {
-      drawStrokes(svg, {
-        filterId: "card-warp-" + i,
-        yBias: "edges",
-      });
-    }
-
-    function start() {
-      draw();
-      interval = setInterval(draw, 500);
-    }
-
-    function stop() {
-      clearInterval(interval);
-      svg.innerHTML = "";
-    }
-
-    card.addEventListener("mouseenter", start);
-    card.addEventListener("mouseleave", stop);
-    card.addEventListener("focusin", start);
-    card.addEventListener("focusout", stop);
+  initDrawStrokes(".home-contents-card", {
+    filterId: "card-warp",
+    yBias: "edges",
   });
 </script>
