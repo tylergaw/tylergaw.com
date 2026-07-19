@@ -1,0 +1,30 @@
+{
+  "cli_version": "0.8.42",
+  "checkpoint_id": "e0c6a028ec4c",
+  "strategy": "manual-commit",
+  "branch": "version-xx",
+  "checkpoints_count": 9,
+  "files_touched": [
+    "src/_components/about-site-versions.webc",
+    "src/_components/draw-strokes.webc",
+    "src/_components/home-contents-card.webc",
+    "src/about.webc",
+    "src/css/tylergaw.css"
+  ],
+  "sessions": [
+    {
+      "metadata": "/e0/c6a028ec4c/0/metadata.json",
+      "transcript": "/e0/c6a028ec4c/0/full.jsonl",
+      "compact_transcript": "/e0/c6a028ec4c/0/transcript.jsonl",
+      "content_hash": "/e0/c6a028ec4c/0/content_hash.txt",
+      "prompt": "/e0/c6a028ec4c/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 49,
+    "cache_creation_tokens": 16887,
+    "cache_read_tokens": 1162294,
+    "output_tokens": 6074,
+    "api_call_count": 29
+  }
+}

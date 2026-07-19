@@ -1,0 +1,145 @@
+{
+  "cli_version": "0.8.42",
+  "checkpoint_id": "e0c6a028ec4c",
+  "session_id": "b65c7764-a219-4eab-bc2e-918222753b37",
+  "strategy": "manual-commit",
+  "created_at": "2026-07-19T19:25:10.437359Z",
+  "branch": "version-xx",
+  "checkpoints_count": 9,
+  "save_step_count": 8,
+  "files_touched": [
+    "src/_components/about-site-versions.webc",
+    "src/_components/draw-strokes.webc",
+    "src/_components/home-contents-card.webc",
+    "src/about.webc",
+    "src/css/tylergaw.css"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-opus-4-6",
+  "turn_id": "8d3b0b0522af",
+  "checkpoint_transcript_start": 125,
+  "transcript_lines_at_start": 125,
+  "compact_transcript_start": 41,
+  "token_usage": {
+    "input_tokens": 49,
+    "cache_creation_tokens": 16887,
+    "cache_read_tokens": 1162294,
+    "output_tokens": 6074,
+    "api_call_count": 29
+  },
+  "session_metrics": {
+    "turn_count": 20
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-07-19T19:25:10.410639Z",
+    "agent_lines": 60,
+    "agent_removed": 29,
+    "human_added": 5,
+    "human_modified": 11,
+    "human_removed": 0,
+    "total_committed": 75,
+    "total_lines_changed": 105,
+    "agent_percentage": 84.76190476190476,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    },
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 50,
+      "agent_lines_removed": 1,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    },
+    {
+      "checkpoint_number": 3,
+      "user_lines_added": 20,
+      "user_lines_removed": 2,
+      "agent_lines_added": 57,
+      "agent_lines_removed": 1,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 6,
+        "src/css/tylergaw.css": 1
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 1,
+        "src/css/tylergaw.css": 1
+      }
+    },
+    {
+      "checkpoint_number": 4,
+      "user_lines_added": 14,
+      "user_lines_removed": 1,
+      "agent_lines_added": 71,
+      "agent_lines_removed": 29,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 1
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 1
+      }
+    },
+    {
+      "checkpoint_number": 5,
+      "user_lines_added": 13,
+      "user_lines_removed": 1,
+      "agent_lines_added": 72,
+      "agent_lines_removed": 31,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 1
+      }
+    },
+    {
+      "checkpoint_number": 6,
+      "user_lines_added": 14,
+      "user_lines_removed": 0,
+      "agent_lines_added": 73,
+      "agent_lines_removed": 33,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 1
+      }
+    },
+    {
+      "checkpoint_number": 7,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 74,
+      "agent_lines_removed": 33,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    },
+    {
+      "checkpoint_number": 8,
+      "user_lines_added": 19,
+      "user_lines_removed": 6,
+      "agent_lines_added": 74,
+      "agent_lines_removed": 33,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/about.webc": 6
+      },
+      "user_removed_per_file": {
+        "src/about.webc": 6
+      }
+    }
+  ]
+}

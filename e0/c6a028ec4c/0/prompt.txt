@@ -1,0 +1,33 @@
+Check something out for me. In home-contents-card, on hover and focus we display a drawStrokes that animates. Can you take a look at what work would be involved for us to do that same thing for each `a` in about-site-versions?
+
+---
+
+Yeah, do that. And be sure to use focus-visible, not just focus. Works better.
+
+---
+
+Very cool. One issue. I have some padding on the picture element. That isn't being applied to the svg, but it should. The svg should only use the visible area, like the image
+
+---
+
+Working great. Seems like a lot of repeated JS in the forEach function between this and the home card. Any good way to abstract and reuse in both places?
+
+---
+
+Lovely. in drawStrokes we have the edges yBias. When that's not on, the strokes tend cluster in the middle. Can we change that so without the edges yBias the strokes are draw all over the canvas
+
+---
+
+Perfect. And the edges yBias. I notice it avoids the center which is good, but it also avoid the left/right edges. Possible to make it so it just ignores the center, but still draws on those edges?
+
+---
+
+Works great. And what's up with the filterId "version-warp". I see that passed in, but that's not defined anywhere
+
+---
+
+Oh, ok
+
+---
+
+the home card each image scales up a little bit very slowly on hover/focus-visible. Can we copy that over to the site version images
