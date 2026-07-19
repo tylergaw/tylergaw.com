@@ -26,22 +26,24 @@ export default function (conf) {
 
   conf.addFilter("flattenBooks", (groups) => {
     return groups.flatMap((group) =>
-      group.books.map((book) => ({ ...book, year: group.year }))
+      group.books.map((book) => ({ ...book, year: group.year })),
     );
   });
 
   conf.addFilter("totalWordCount", (posts) => {
-    return posts.reduce((total, post) => {
-      const raw = post.rawInput || "";
-      const text = raw
-        .replace(/^---[\s\S]*?---/, "")
-        .replace(/```[\s\S]*?```/g, "")
-        .replace(/<pre[\s>][\s\S]*?<\/pre>/gi, "")
-        .replace(/<[^>]+>/g, "")
-        .replace(/\s+/g, " ")
-        .trim();
-      return total + (text ? text.split(" ").length : 0);
-    }, 0).toLocaleString("en-US");
+    return posts
+      .reduce((total, post) => {
+        const raw = post.rawInput || "";
+        const text = raw
+          .replace(/^---[\s\S]*?---/, "")
+          .replace(/```[\s\S]*?```/g, "")
+          .replace(/<pre[\s>][\s\S]*?<\/pre>/gi, "")
+          .replace(/<[^>]+>/g, "")
+          .replace(/\s+/g, " ")
+          .trim();
+        return total + (text ? text.split(" ").length : 0);
+      }, 0)
+      .toLocaleString("en-US");
   });
 
   conf.addFilter("plainTextPreview", (html, max = 290) => {
@@ -108,6 +110,17 @@ export default function (conf) {
   });
 
   conf.addWatchTarget("src/_components/");
+
+  let internalConfig;
+  conf.on("eleventy.config", (config) => {
+    internalConfig = config;
+  });
+
+  conf.on("eleventy.beforeWatch", (changedFiles) => {
+    if (changedFiles.some((f) => f.endsWith(".webc"))) {
+      internalConfig.config.useTemplateCache = false;
+    }
+  });
 
   conf.setServerOptions({
     domDiff: false,
