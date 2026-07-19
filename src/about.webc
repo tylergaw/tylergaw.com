@@ -116,7 +116,7 @@ meta:
       of design work. A blog. A place to experiement. Above all else, this site
       is a reflection of me.
     </p>
-    <p>For this current iteration I’m using;</p>
+    <p>For the current iteration I’m using:</p>
 
     <ul class="list--normal">
       <li><a href="https://www.11ty.dev/">Eleventy</a></li>
@@ -134,7 +134,7 @@ meta:
 
     <h3 class="heading--special" id="versions">Version history</h3>
     <p>
-      The source for all versions is available
+      Source for all versions
       <a href="https://github.com/tylergaw/tylergaw.com">on GitHub</a>.
     </p>
   </div>

@@ -1,6 +1,6 @@
 <script webc:setup>
   const versions = [
-    { range: "2020–2026", num: 6 },
+    { range: "2020–2026", num: 7 },
     { range: "2018–2020", num: 6 },
     { range: "2014–2018", num: 5 },
     { range: "2011–2014", num: 4 },
@@ -12,27 +12,60 @@
 
 <ol id="versions">
   <li webc:for="version of versions">
-    <figure>
-      <a :href="`https://v${version.num}.tylergaw.com`">
-        <figcaption>
-          <b @text="`Version ${version.num}`"></b>
-          <span @text="version.range" webc:nokeep></span>
-        </figcaption>
-        <picture>
-          <source
-            :srcset="`/images/tylergaw-v${version.num}.webp`"
-            type="image/webp"
-          />
-          <img
-            :src="`/images/tylergaw-v${version.num}.jpg`"
-            :alt="`A screenshot of version ${version.num} of tylergaw.com`"
-            loading="lazy"
-            width="1389"
-            height="1050"
-          />
-        </picture>
-      </a>
-    </figure>
+    <header class="meta">
+      <div class="meta-detail">
+        <div class="line line-left">
+          <svg
+            height="7"
+            viewBox="0 0 312 7"
+            fill="none"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M311.034 3.48254C310.148 3.63905 306.801 4.35756 296.386 5.42305C288.895 6.18948 276.792 6.04867 258.845 5.81394C240.898 5.57922 217.441 4.90576 203.886 4.33652C187.367 3.64285 177.447 2.76971 165.874 2.51276C161.208 2.40916 159.001 2.1242 137.329 1.81665C115.657 1.5091 74.5901 1.12731 50.6909 1C14.2507 1.12588 9.55098 1.1843 5.88817 1.37932C4.08093 1.45815 2.37824 1.49609 0.0339507 1.41662"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+          </svg>
+        </div>
+        <div class="point"></div>
+        <div class="line line-right">
+          <svg
+            height="7"
+            viewBox="0 0 311 7"
+            fill="none"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.174561 3.48254C1.05768 3.63905 4.39384 4.35756 14.7751 5.42305C22.2425 6.18948 34.3067 6.04867 52.1956 5.81394C70.0846 5.57922 93.4665 4.90576 106.978 4.33652C123.444 3.64285 133.332 2.76971 144.868 2.51276C149.519 2.40916 151.719 2.1242 173.321 1.81665C194.923 1.5091 235.858 1.12731 259.68 1C296.004 1.12588 300.688 1.1843 304.339 1.37932C306.141 1.45815 307.838 1.49609 310.175 1.41662"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+          </svg>
+        </div>
+      </div>
+      <div class="contents">
+        <b @text="`v${version.num}`"></b>
+        <span @text="version.range"></span>
+      </div>
+    </header>
+    <a :href="`https://v${version.num}.tylergaw.com`">
+      <picture>
+        <source
+          :srcset="`/images/about/2026/versions/v${version.num}.webp`"
+          type="image/webp"
+        />
+        <img
+          :src="`/images/about/2026/versions/v${version.num}.jpg`"
+          :alt="`A screenshot of version ${version.num} of tylergaw.com`"
+          loading="lazy"
+          width="650"
+          height="1100"
+        />
+      </picture>
+    </a>
   </li>
 </ol>
 
@@ -43,7 +76,6 @@
 
   ol {
     display: flex;
-    gap: var(--g-gutter);
     overflow-x: auto;
     padding-inline: var(--g-padding-h);
     padding-bottom: 1rem;
@@ -89,7 +121,9 @@
   }
 
   li {
+    container-type: scroll-state;
     flex: 0 0 87%;
+    min-width: 0;
     max-width: var(--g-max-4);
     scroll-snap-align: start;
   }
@@ -105,42 +139,101 @@
     }
   }
 
-  figcaption {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+  .meta {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 
-    b {
-      color: var(--color-text);
-      display: block;
-      font-family: var(--font-proto-regular);
-      font-size: 90%;
-      font-weight: normal;
-      margin-bottom: 0.4em;
-      text-transform: uppercase;
+    .contents {
+      display: flex;
+      flex-direction: column;
+      padding: 0.5rem 0;
+
+      b {
+        font-family: var(--font-proto-bold);
+        text-transform: uppercase;
+      }
+
+      span {
+        font-family: var(--font-accent);
+        font-size: var(--font-size-14);
+      }
     }
+  }
+
+  .meta-detail {
+    align-items: center;
+    display: flex;
+    column-gap: 4px;
+    overflow: hidden;
+    width: 100%;
+
+    .point {
+      --size: 1rem;
+      border: 3px solid currentColor;
+      border-radius: 1rem;
+      flex: 0 0 1rem;
+      height: var(--size);
+      scale: 0.8;
+      transform: 0.2s ease;
+      width: var(--size);
+    }
+
+    .line {
+      flex: 1;
+
+      svg {
+        display: block;
+        width: 101%;
+      }
+    }
+  }
+
+  li:first-child .meta-detail .line-left,
+  li:last-child .meta-detail .line-right {
+    opacity: 0;
+  }
+
+  li:first-child picture {
+    padding-inline-start: 0;
+  }
+
+  li:last-child picture {
+    padding-inline-end: 0;
   }
 
   picture {
     display: block;
+    filter: saturate(0) contrast(1.25);
+    overflow: hidden;
     position: relative;
-
-    /* FIXME: LEAVE FOR NOW &::after {
-      border-radius: 6px;
-      box-shadow: inset 0 0 0 4px var(--border-color);
-      content: "";
-      display: block;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      transition: 0.1s ease;
-      width: 100%;
-      z-index: 2;
-    } */
+    max-height: 88dvh;
+    padding-inline: calc(var(--g-gutter) * 0.5);
 
     img {
       display: block;
       height: auto;
       width: 100%;
+    }
+  }
+
+  a:hover,
+  a:focus-visible {
+    picture {
+      filter: saturate(100%);
+    }
+  }
+
+  @container scroll-state(snapped: x) {
+    .meta-detail .point {
+      background-color: currentColor;
+      scale: 1;
+    }
+
+    picture {
+      filter: saturate(100%);
     }
   }
 </style>
