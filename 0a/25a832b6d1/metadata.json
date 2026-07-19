@@ -1,0 +1,39 @@
+{
+  "cli_version": "0.8.42",
+  "checkpoint_id": "0a25a832b6d1",
+  "strategy": "manual-commit",
+  "branch": "version-xx",
+  "checkpoints_count": 39,
+  "files_touched": [
+    "src/_components/about-site-versions.webc",
+    "src/_includes/layout-main.webc",
+    "src/about.webc",
+    "src/css/about.css",
+    "src/css/tylergaw.css",
+    "src/images/about/about-nyc.avif",
+    "src/images/about/about-nyc.jpg",
+    "src/images/about/about-nyc.webp",
+    "src/images/about/about-records.avif",
+    "src/images/about/about-records.jpg",
+    "src/images/about/about-records.webp",
+    "src/images/about/about-skateboarding.avif",
+    "src/images/about/about-skateboarding.jpg",
+    "src/images/about/about-skateboarding.webp"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0a/25a832b6d1/0/metadata.json",
+      "transcript": "/0a/25a832b6d1/0/full.jsonl",
+      "compact_transcript": "/0a/25a832b6d1/0/transcript.jsonl",
+      "content_hash": "/0a/25a832b6d1/0/content_hash.txt",
+      "prompt": "/0a/25a832b6d1/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 461,
+    "cache_creation_tokens": 710740,
+    "cache_read_tokens": 24316057,
+    "output_tokens": 71725,
+    "api_call_count": 291
+  }
+}

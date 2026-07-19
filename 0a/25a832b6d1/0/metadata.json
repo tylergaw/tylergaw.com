@@ -1,0 +1,548 @@
+{
+  "cli_version": "0.8.42",
+  "checkpoint_id": "0a25a832b6d1",
+  "session_id": "9e81b4f4-6899-47a6-803a-39b587eb989c",
+  "strategy": "manual-commit",
+  "created_at": "2026-07-19T02:15:23.608387Z",
+  "branch": "version-xx",
+  "checkpoints_count": 39,
+  "save_step_count": 38,
+  "files_touched": [
+    "src/_components/about-site-versions.webc",
+    "src/_includes/layout-main.webc",
+    "src/about.webc",
+    "src/css/about.css",
+    "src/css/tylergaw.css",
+    "src/images/about/about-nyc.avif",
+    "src/images/about/about-nyc.jpg",
+    "src/images/about/about-nyc.webp",
+    "src/images/about/about-records.avif",
+    "src/images/about/about-records.jpg",
+    "src/images/about/about-records.webp",
+    "src/images/about/about-skateboarding.avif",
+    "src/images/about/about-skateboarding.jpg",
+    "src/images/about/about-skateboarding.webp"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-opus-4-6",
+  "turn_id": "e7f4082cce75",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 461,
+    "cache_creation_tokens": 710740,
+    "cache_read_tokens": 24316057,
+    "output_tokens": 71725,
+    "api_call_count": 291
+  },
+  "session_metrics": {
+    "turn_count": 67
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-07-19T02:15:23.511441Z",
+    "agent_lines": 0,
+    "agent_removed": 34,
+    "human_added": 209,
+    "human_modified": 323,
+    "human_removed": 0,
+    "total_committed": 209,
+    "total_lines_changed": 566,
+    "agent_percentage": 6.007067137809187,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 27,
+      "user_lines_removed": 9,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/blog.webc": 14
+      },
+      "user_removed_per_file": {
+        "src/blog.webc": 7,
+        "src/css/tylergaw.css": 2
+      }
+    },
+    {
+      "checkpoint_number": 3,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 14,
+      "agent_lines_removed": 9,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    },
+    {
+      "checkpoint_number": 4,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 14,
+      "agent_lines_removed": 9,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    },
+    {
+      "checkpoint_number": 5,
+      "user_lines_added": 16,
+      "user_lines_removed": 2,
+      "agent_lines_added": 14,
+      "agent_lines_removed": 9,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/blog.webc": 3
+      },
+      "user_removed_per_file": {
+        "src/blog.webc": 2
+      }
+    },
+    {
+      "checkpoint_number": 6,
+      "user_lines_added": 15,
+      "user_lines_removed": 2,
+      "agent_lines_added": 16,
+      "agent_lines_removed": 11,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/scratch-lines.webc": 1,
+        "src/blog.webc": 1
+      },
+      "user_removed_per_file": {
+        "src/_components/scratch-lines.webc": 1,
+        "src/blog.webc": 1
+      }
+    },
+    {
+      "checkpoint_number": 7,
+      "user_lines_added": 19,
+      "user_lines_removed": 6,
+      "agent_lines_added": 16,
+      "agent_lines_removed": 11,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/blog.webc": 6
+      },
+      "user_removed_per_file": {
+        "src/blog.webc": 6
+      }
+    },
+    {
+      "checkpoint_number": 8,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 13,
+      "agent_lines_removed": 8,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    },
+    {
+      "checkpoint_number": 9,
+      "user_lines_added": 16,
+      "user_lines_removed": 4,
+      "agent_lines_added": 16,
+      "agent_lines_removed": 8,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/blog.webc": 3
+      },
+      "user_removed_per_file": {
+        "src/blog.webc": 4
+      }
+    },
+    {
+      "checkpoint_number": 10,
+      "user_lines_added": 13,
+      "user_lines_removed": 36,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      },
+      "user_removed_per_file": {
+        "src/about.webc": 9,
+        "src/css/about.css": 27
+      }
+    },
+    {
+      "checkpoint_number": 11,
+      "user_lines_added": 14,
+      "user_lines_removed": 0,
+      "agent_lines_added": 2,
+      "agent_lines_removed": 122,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/about.webc": 1
+      }
+    },
+    {
+      "checkpoint_number": 12,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 3,
+      "agent_lines_removed": 122,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    },
+    {
+      "checkpoint_number": 13,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 147,
+      "agent_lines_removed": 247,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    },
+    {
+      "checkpoint_number": 14,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 147,
+      "agent_lines_removed": 247,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    },
+    {
+      "checkpoint_number": 15,
+      "user_lines_added": 22,
+      "user_lines_removed": 9,
+      "agent_lines_added": 146,
+      "agent_lines_removed": 247,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 9
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 9
+      }
+    },
+    {
+      "checkpoint_number": 16,
+      "user_lines_added": 22,
+      "user_lines_removed": 9,
+      "agent_lines_added": 146,
+      "agent_lines_removed": 247,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 9
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 9
+      }
+    },
+    {
+      "checkpoint_number": 17,
+      "user_lines_added": 23,
+      "user_lines_removed": 18,
+      "agent_lines_added": 146,
+      "agent_lines_removed": 247,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 10
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 18
+      }
+    },
+    {
+      "checkpoint_number": 18,
+      "user_lines_added": 23,
+      "user_lines_removed": 18,
+      "agent_lines_added": 146,
+      "agent_lines_removed": 247,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 10
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 18
+      }
+    },
+    {
+      "checkpoint_number": 19,
+      "user_lines_added": 20,
+      "user_lines_removed": 7,
+      "agent_lines_added": 129,
+      "agent_lines_removed": 248,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 7
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 7
+      }
+    },
+    {
+      "checkpoint_number": 20,
+      "user_lines_added": 20,
+      "user_lines_removed": 7,
+      "agent_lines_added": 129,
+      "agent_lines_removed": 248,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 7
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 7
+      }
+    },
+    {
+      "checkpoint_number": 21,
+      "user_lines_added": 20,
+      "user_lines_removed": 7,
+      "agent_lines_added": 129,
+      "agent_lines_removed": 248,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 7
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 7
+      }
+    },
+    {
+      "checkpoint_number": 22,
+      "user_lines_added": 20,
+      "user_lines_removed": 7,
+      "agent_lines_added": 129,
+      "agent_lines_removed": 248,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 7
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 7
+      }
+    },
+    {
+      "checkpoint_number": 23,
+      "user_lines_added": 20,
+      "user_lines_removed": 7,
+      "agent_lines_added": 129,
+      "agent_lines_removed": 248,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 7
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 7
+      }
+    },
+    {
+      "checkpoint_number": 24,
+      "user_lines_added": 40,
+      "user_lines_removed": 35,
+      "agent_lines_added": 139,
+      "agent_lines_removed": 248,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "eleventy.config.js": 15,
+        "src/_components/about-site-versions.webc": 12
+      },
+      "user_removed_per_file": {
+        "eleventy.config.js": 12,
+        "src/_components/about-site-versions.webc": 23
+      }
+    },
+    {
+      "checkpoint_number": 25,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 140,
+      "agent_lines_removed": 260,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    },
+    {
+      "checkpoint_number": 26,
+      "user_lines_added": 23,
+      "user_lines_removed": 9,
+      "agent_lines_added": 140,
+      "agent_lines_removed": 260,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 10
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 9
+      }
+    },
+    {
+      "checkpoint_number": 27,
+      "user_lines_added": 24,
+      "user_lines_removed": 9,
+      "agent_lines_added": 140,
+      "agent_lines_removed": 260,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 11
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 9
+      }
+    },
+    {
+      "checkpoint_number": 28,
+      "user_lines_added": 29,
+      "user_lines_removed": 9,
+      "agent_lines_added": 140,
+      "agent_lines_removed": 260,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 16
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 9
+      }
+    },
+    {
+      "checkpoint_number": 29,
+      "user_lines_added": 29,
+      "user_lines_removed": 10,
+      "agent_lines_added": 140,
+      "agent_lines_removed": 260,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 16
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 10
+      }
+    },
+    {
+      "checkpoint_number": 30,
+      "user_lines_added": 31,
+      "user_lines_removed": 10,
+      "agent_lines_added": 140,
+      "agent_lines_removed": 260,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 18
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 10
+      }
+    },
+    {
+      "checkpoint_number": 31,
+      "user_lines_added": 31,
+      "user_lines_removed": 10,
+      "agent_lines_added": 140,
+      "agent_lines_removed": 260,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 18
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 10
+      }
+    },
+    {
+      "checkpoint_number": 32,
+      "user_lines_added": 35,
+      "user_lines_removed": 10,
+      "agent_lines_added": 140,
+      "agent_lines_removed": 260,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 22
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 10
+      }
+    },
+    {
+      "checkpoint_number": 33,
+      "user_lines_added": 36,
+      "user_lines_removed": 10,
+      "agent_lines_added": 140,
+      "agent_lines_removed": 260,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 23
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 10
+      }
+    },
+    {
+      "checkpoint_number": 34,
+      "user_lines_added": 64,
+      "user_lines_removed": 18,
+      "agent_lines_added": 140,
+      "agent_lines_removed": 260,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 44,
+        "src/css/about.css": 7
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 10,
+        "src/css/about.css": 8
+      }
+    },
+    {
+      "checkpoint_number": 35,
+      "user_lines_added": 60,
+      "user_lines_removed": 10,
+      "agent_lines_added": 147,
+      "agent_lines_removed": 268,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 47
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 10
+      }
+    },
+    {
+      "checkpoint_number": 36,
+      "user_lines_added": 60,
+      "user_lines_removed": 10,
+      "agent_lines_added": 122,
+      "agent_lines_removed": 256,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 47
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 10
+      }
+    },
+    {
+      "checkpoint_number": 37,
+      "user_lines_added": 60,
+      "user_lines_removed": 10,
+      "agent_lines_added": 122,
+      "agent_lines_removed": 256,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 47
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 10
+      }
+    },
+    {
+      "checkpoint_number": 38,
+      "user_lines_added": 60,
+      "user_lines_removed": 10,
+      "agent_lines_added": 122,
+      "agent_lines_removed": 256,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-site-versions.webc": 47
+      },
+      "user_removed_per_file": {
+        "src/_components/about-site-versions.webc": 10
+      }
+    }
+  ]
+}

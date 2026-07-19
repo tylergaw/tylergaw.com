@@ -1,0 +1,300 @@
+OK, those are done. Now, I have a bug with view transitions. Can you track down every spot in the code that has to do with them for me. Just give me files and general lines. I need to investigate the problem
+
+---
+
+Check the work we did for the draw-strokes component and the work in tree-rings component
+
+---
+
+No god damn it, not for view transitions, just pull in those fucking components so we can do other work jesus fucking christ
+
+---
+
+In draw strokes, the strokes have sharp edges, no bezier. tree-rings (which is named poorly) still does. I want to update tree-rings to make each of the strokes in it have sharp angles and end caps. And also, instead of the smooth animation the lines have now, I want more of a jagged/jittery animation to match draw-strokes
+
+---
+
+did you not read claude.md?
+
+---
+
+Yes, now go
+
+---
+
+OK, that's cool. I'm hitting some weird 11ty cache issue I think. We have changes to tree-rings.webc, but they won't show up unless I stop/restart the dev server. Then they'll show up, until I make another change somewhere in the codebase, then the old version of tree-rings shows up. I can even delete all of the contents of tree-rings, hard refresh the page, and the old version still shows up. What gives?
+
+---
+
+> This is a known issue with the WebC plugin
+
+How do you know that? Is there an existing gh issue or something I can look at?
+
+---
+
+was again dipshit, just because you make text blue and underline it, that does not make it an actual link
+
+---
+
+FUCKING IDIOT, those are not links I can click. GIVE ME URLS!
+
+---
+
+OK, let's look at tree-rings some more. Right now, each path goes "unbroken" from left to right. Is it possible to put randomized "breaks" in the path?
+
+---
+
+Yeah, go for it. The overal idea is we're getting it slightly closer to the style of draw-srokes
+
+---
+
+ok, kinda fun. What if we add the same filter effect that we have in draw-strokes.webc?
+
+---
+
+the tree-rings, "rings", naming doesn't make sense anymore for this component. Can you go through the code, the filename, the instances and give it a more general name? Make sure it doesn't conflict with draw-strokes.webc
+
+---
+
+I like it
+
+---
+
+cool, go ahead and commit those changes
+
+---
+
+Let's do some CSS cleanup. Trying to get away from `@import` in tylergaw.css. Can you just pull in the contents of all the css/modules/components EXCEPT prism-ally.css into tylergaw.css in the correct layer/order and then remove the unused files
+
+---
+
+great, commit that
+
+---
+
+ok, next, the prims-ally.css. There's prior art here for when that's needed. It's only used on blog posts. There's a prism.js file too and we have frontmatter prop highlightSyntax that determines if that js should be included. We should also do that with the css. can you have a look at the current setup and suggest an approach
+
+---
+
+Yeah, that looks good. Let's do that and clean up anything unneeded
+
+---
+
+Let's flatten that. Just put the prism css file in the root css dir next to tylergaw.css
+
+---
+
+Great, commit that
+
+---
+
+Ok, let's look at the modules/pages css files. The css in those are for those specific pages, so ideally it isn't loaded on every page of the site. Come up with a strategey for that
+
+---
+
+Yeah, opttion 1 sounds good. do it just for the about page right now and we'll test that to see if it works well
+
+---
+
+ok, that works well. Let's do all the non-work pages now
+
+---
+
+great, that's working well. project-base is only needed on work pages, and it probably needs to come before each work page css file. But let's go ahead and do the work ones too
+
+---
+
+ok, seems to be working well. Seeing a bit of broken layout/style on the about page though. can you check to see what might be causing that
+
+---
+
+ohhhh, ok. I'll keep that in mind to fix later
+
+---
+
+you're good, nothing to do
+
+---
+
+A bit of cleanup. Let's just flatten the css directory. No more modules/pages dirs, just all the files in the root css directory
+
+---
+
+ok, one more change. The current home.css is not actually for the home page anymore. It's in a bit of an in-between state. What's it's for is the work index at `/work`. Can you rename that css file and make sure that work index page is set up correctly. We'll most likely merge that with the current Archive page later, but we'll come back to it
+
+---
+
+Lovely. Let's commit all this and push it to the remote
+
+---
+
+ok, in perf-reports there are two new (desktop/mobile) lighthouse reports. Have a look at those and see if there's anything immediate we can/should do
+
+---
+
+In the file I'm working in blog.webc, I'm trying to figure out why the .group-heading svg element is not taking up 100% of the height of the parent. It's set to 100%, but that's not happening
+
+---
+
+that's incorrect. You can check the DOM. the svg is a direct child, there is no scratch-lines in the DOM
+
+---
+
+It's weird, because in devtools, the computed height is 102px, which accounts for that scaleY on the h2
+
+---
+
+shrinking isn't the problem though. align-self: stretch didn't get it because that's already the default here
+
+---
+
+hrm, interesting. Removing the height from the svg element gets it. The height: 100% in the CSS seems to be the issue. That 100% is not the computed height of group-heading, but the intrinsic size (without the scaleY on the h2)
+
+---
+
+ok, trying something with it. Pull in the latest blog.webc and see what I'm doing with the scaleY transform on the svg. I need that to be like an inverse of with width of the element. So, the wider the svg (or the parent group-heading) is, the less scaleY we apply. How might I do that?
+
+---
+
+Give opt 1 a try
+
+---
+
+OK, cool. I tweaked that numerator and it seems to work pretty well. neat
+
+---
+
+Working on the About page now. Pull in the latest about.webc and about.css then:
+
+- remove the about__title and children from the markup and all related styles from about.css
+
+---
+
+OK, a bit more cleanup. In about.web I display past versions of the site in the site__versions ol. The data is in the frontmatter. The styles are in about.css (unless shared, global classes)
+
+Let's pull that out into a component:
+- about-site-versions
+- abstract the styles specific to it from about.css
+- move the data into the component
+- anything else that seems best to do
+
+---
+
+Yeah, go for it
+
+---
+
+The styles are all fucked. also, scope the styles to the component
+
+---
+
+On that last point, since this is a component, really no BEM stuff is needed. can you rewrite the classes to remove any of that (just in this component) feel free to use css nesting sparingly, if it makes sense
+
+---
+
+Question, in this component (and other places) I'm still using the noopener noreferrer rel workaround to avoid an old browser issue. Is that still an issue in 2026?
+
+---
+
+For noopener can you give me a url for documentation of that
+
+---
+
+Cool, help me change up the layout of the versions. Right now they're a grid that gets more columns as the screen gets wider. Instead of that. I want them to be a horizontal slider that extends past the edges of the page. It'll just be a normal horizontal scroll.
+
+---
+
+it's ok to break it out of the g-padded container in about.web too if needed. But yes, that sounds good
+
+---
+
+ok, this stupid motherfucking webc cache issue is making me lose my mind. can you pull back up the URLS (the full URLs) of the issues you found earlier. One of them had a workaround to kill the cache
+
+---
+
+Yes, buildawesome is the new org that owns 11ty
+
+---
+
+Is there some way to just turn the cache off altogether?
+
+---
+
+What about the comment here https://github.com/11ty/eleventy-plugin-webc/issues/72#issuecomment-3771213615
+
+---
+
+Yes plz
+
+---
+
+Working great. Back on the site versions horizontal scroller.
+
+I've stripped the styles down to build them back up.
+
+I'm trying to get the li to be 100% width of the parent up to a certain screen width, but having trouble. Lil help?
+
+---
+
+That's ok this time, but remember not to just make changes without confirming
+
+---
+
+pull in latest code and check my scroll-snap-type set up. It's not snapping anymore
+
+---
+
+Ah I see. Got it. Is there any way for that snap to "skip" the first item. right now when you load the page, the first item is flush to the left instead of padded
+
+---
+
+Pull in latest about-site-versions and have a look at something. There's a FIXME on line 56/57. I want to be able to pad the start using my grid system. I don't want to manually do the math, I want like `padding-inline-start: var(--g-2)` or similar. I *might* already have everything for this in the grid system in tylergaw.css, but can you check
+
+---
+
+Wait, do I want padding-inline-start or scroll-padding-inline?
+
+---
+
+hrm, this is tough. My g-main grid template columns are flexible, so this start padding needs to be too to match it, but not sure how to get that
+
+---
+
+fuckk, that's hairy, we can kind of fudge the num-cols here because we know what the surrounding grid is
+
+---
+
+Given this:
+
+--target-cols: 4;
+      --p-start: calc(
+        var(--g-padding-h) +
+          (100vw - 2 * var(--g-padding-h) - 4 * var(--g-gutter)) / 5 +
+          var(--g-gutter)
+      );
+
+Can you replace the correct places in the formula with the --target-cols var, that way I can just update that in the mqs
+
+---
+
+wat, do this have a look at the current file and then what happens with g-main in tylergaw.css to help
+
+---
+
+Help me out at the 2200px breakpoint. I'm trying to match what happens in about.css where things shift to --col-start: 3
+
+---
+
+Got it, all done
+
+---
+
+I no longer what the polaroids on the about page, can you go through and remove all the html,css, images, etc for them. Please use proper gt rm if you move or delete things
+
+---
+
+Yes, check for that too
+
+---
+
+Looks good, go for it
