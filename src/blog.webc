@@ -32,12 +32,24 @@ meta:
   </div>
 </div>
 
+<style></style>
+
 <style webc:scoped>
   .blog-posts {
     row-gap: 4.25rem;
   }
 
+  @property --cqi-as-len {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0px;
+  }
+
   .group-heading {
+    --cqi-as-len: 100cqi;
+    --int-width: calc(10000 * tan(atan2(var(--cqi-as-len), 10000px)));
+    --scale: calc(1700 / var(--int-width));
+
     background: linear-gradient(var(--color-bg) 70%, transparent);
     column-gap: 0.5rem;
     container-type: inline-size;
@@ -46,13 +58,11 @@ meta:
     overflow: hidden;
 
     svg {
-      --w: tan(atan2(100cqi, 1px));
-      --scale: calc(1100 / var(--w));
       color: color-mix(in srgb, var(--color-accent-primary) 50%, transparent);
       margin-top: 0.25rem;
       height: 100%;
       transform-origin: top left;
-      transform: scaleY(var(--scale));
+      transform: scaleY(min(3, var(--scale)));
       width: 100%;
     }
   }

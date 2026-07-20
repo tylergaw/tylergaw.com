@@ -72,7 +72,7 @@
       const dur = (2 + rng() * 3).toFixed(1);
       const values = [...frames, frames[0]].join(";");
       paths.push(
-        `<path d="${frames[0]}" fill="none" stroke="currentColor" stroke-width="${strokeWidth}" stroke-linecap="butt"><animate attributeName="d" values="${values}" dur="${dur}s" calcMode="discrete" repeatCount="indefinite" /></path>`,
+        `<path d="${frames[0]}" fill="none" stroke="currentColor" stroke-width="${strokeWidth}"><animate attributeName="d" values="${values}" dur="${dur}s" calcMode="discrete" repeatCount="indefinite" /></path>`,
       );
     }
 
