@@ -1,0 +1,37 @@
+Right now in page-header.webc, the main nav links just have a border-bottom of 1px currentColor and no real hover/focus-visibile state. Help me do something fun. What if on hover, the bottom border "break" up and jitters similar to the chunky animation we have in scratch-lines and sorted like draw-strokes
+
+---
+
+It'd be cooler if JS wasn't required for it, just CSS
+
+---
+
+Yeah, go for it. Let's see it
+
+---
+
+hrmmm, nah, that's not it. Roll that back.
+
+---
+
+It was just a straight line with gaps in it. Just looked bad. Didn't look a single thing the other examples I mentioned
+
+---
+
+Why just to JS? Why not just use a similar svg filter effect?
+
+---
+
+Yeah and this is just a svg line and there's only 3 links. We could have custom svg lines for each one and just fiddle with them by hand. This doesn't need to scale very much.
+
+---
+
+Yeah, now we're talking. Now animated that effect with the similar choppiness that we do in scratch-lines and draw-strokes
+
+---
+
+can we make the animation slightly faster and have the Y-axis variation of the line go higher/lower. Trying to make it stand out a bit more
+
+---
+
+Lovely

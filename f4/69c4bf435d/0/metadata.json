@@ -1,0 +1,93 @@
+{
+  "cli_version": "0.8.42",
+  "checkpoint_id": "f469c4bf435d",
+  "session_id": "24927212-dfe7-4467-b6f6-53a8bd9fd37d",
+  "strategy": "manual-commit",
+  "created_at": "2026-07-21T14:31:03.151524Z",
+  "branch": "version-xx",
+  "checkpoints_count": 10,
+  "save_step_count": 5,
+  "files_touched": [
+    "src/_components/page-header.webc"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-opus-4-6",
+  "turn_id": "01e345d75e99",
+  "checkpoint_transcript_start": 108,
+  "transcript_lines_at_start": 108,
+  "compact_transcript_start": 41,
+  "token_usage": {
+    "input_tokens": 1384,
+    "cache_creation_tokens": 26501,
+    "cache_read_tokens": 958029,
+    "output_tokens": 12046,
+    "api_call_count": 25
+  },
+  "session_metrics": {
+    "turn_count": 22
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-07-21T14:31:03.125439Z",
+    "agent_lines": 61,
+    "agent_removed": 3,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 61,
+    "total_lines_changed": 64,
+    "agent_percentage": 100,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    },
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    },
+    {
+      "checkpoint_number": 3,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 49,
+      "agent_lines_removed": 3,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    },
+    {
+      "checkpoint_number": 4,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 61,
+      "agent_lines_removed": 3,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    },
+    {
+      "checkpoint_number": 5,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 61,
+      "agent_lines_removed": 3,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    }
+  ]
+}
