@@ -1,35 +1,4 @@
 @layer pages {
-  .hero--about {
-    color: var(--color-offwhite);
-    position: relative;
-  }
-
-  .hero--about::before {
-    background: var(--color-about-accent) url("/images/about-dust.svg") repeat;
-    height: var(--height, 70%);
-  }
-
-  .hero--about a {
-    color: var(--color-about-accent-dark);
-  }
-
-  .hero--about .banner__nav a:hover,
-  .hero--about .banner__nav a:focus,
-  .hero--about .nav-about {
-    color: var(--color-about-accent-light);
-  }
-
-  .hero--about .banner__logo::after {
-    background-color: var(--color-about-accent-light);
-  }
-
-  .about__hero-contents {
-    margin: 0 auto;
-    max-width: calc(2500 / 16 * 1rem);
-    overflow: hidden;
-    position: relative;
-  }
-
   .about__bio {
     font-size: 1.6em;
     line-height: 1.6;
@@ -79,16 +48,6 @@
   }
 
   @media (min-width: 620px) {
-    .hero--about::before {
-      --height: 65%;
-    }
-
-    .about__hero-contents {
-      --trans-y: -5%;
-      margin-bottom: var(--trans-y);
-      transform: translateY(var(--trans-y));
-    }
-
     .about-section__intro {
       --col-end: span 2;
     }
@@ -138,22 +97,7 @@
     }
   }
 
-  @media (min-width: 1440px) {
-    .hero--about::before {
-      --height: 60%;
-    }
-
-    .about__hero-contents {
-      --trans-y: -10%;
-      margin-bottom: -4rem;
-    }
-  }
-
   @media (min-width: 1700px) {
-    .about__hero-contents {
-      max-width: 1835px;
-    }
-
     .bio__intro,
     .bio__outro {
       --col-end: span 6;

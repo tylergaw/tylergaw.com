@@ -5,9 +5,7 @@ meta:
   image: /images/social-about.png
 ---
 
-<!-- FIXME<div class="hero--about hero--before-standard">
-  <div class="hero__contents about__hero-contents"></div>
-</div> -->
+<about-hero></about-hero>
 
 <div class="g-main g-padded about__bio">
   <div class="g-main__item bio__intro">
