@@ -17,21 +17,59 @@
     </a>
   </div>
 
+  <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true">
+    <defs>
+      <filter id="nav-warp">
+        <feTurbulence type="turbulence" baseFrequency="0.06" numOctaves="3" seed="4" result="turbulence" />
+        <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="4" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
+
   <nav>
     <ul>
       <li>
-        <a href="/work" class="nav-work">Work</a>
+        <a href="/work" class="nav-work">
+          Work
+          <svg class="nav-stroke" viewBox="0 0 40 10" aria-hidden="true" preserveAspectRatio="none">
+            <path d="M0 5 L6 2 L14 7 L22 1.5 L30 6.5 L40 3" fill="none" stroke="currentColor" stroke-width="1.2">
+              <animate attributeName="d" calcMode="discrete" repeatCount="indefinite" dur="0.5s" values="M0 5 L6 2 L14 7 L22 1.5 L30 6.5 L40 3;M0 2 L8 7 L15 1 L21 8 L32 2.5 L40 6;M0 7 L5 3 L13 6 L23 1 L29 8 L40 2;M0 3 L7 6.5 L16 1.5 L20 7.5 L31 3 L40 7" />
+            </path>
+            <path d="M2 6 L10 8.5 L18 3 L28 9 L38 4" fill="none" stroke="currentColor" stroke-width="0.8">
+              <animate attributeName="d" calcMode="discrete" repeatCount="indefinite" dur="0.7s" values="M2 6 L10 8.5 L18 3 L28 9 L38 4;M1 8 L12 4 L20 7 L26 2.5 L36 8.5;M3 4 L9 7.5 L19 9 L27 3.5 L39 7;M0 7.5 L11 9 L17 4 L29 8 L40 3.5" />
+            </path>
+          </svg>
+        </a>
       </li>
       <li>
-        <a href="/blog" class="nav-blog">Blog</a>
+        <a href="/blog" class="nav-blog">
+          Blog
+          <svg class="nav-stroke" viewBox="0 0 40 10" aria-hidden="true" preserveAspectRatio="none">
+            <path d="M0 4 L8 7.5 L16 1 L24 6.5 L34 2 L40 5" fill="none" stroke="currentColor" stroke-width="1">
+              <animate attributeName="d" calcMode="discrete" repeatCount="indefinite" dur="0.55s" values="M0 4 L8 7.5 L16 1 L24 6.5 L34 2 L40 5;M0 6.5 L7 1.5 L17 7 L23 2 L33 8 L40 3;M0 2 L9 6 L15 3 L25 8 L35 1.5 L40 7;M0 7 L6 3 L18 6.5 L22 1.5 L32 5 L40 2" />
+            </path>
+            <path d="M1 7 L12 4 L20 8.5 L32 3 L40 7.5" fill="none" stroke="currentColor" stroke-width="0.7">
+              <animate attributeName="d" calcMode="discrete" repeatCount="indefinite" dur="0.75s" values="M1 7 L12 4 L20 8.5 L32 3 L40 7.5;M2 3.5 L10 8.5 L22 4.5 L30 9 L38 4;M0 9 L14 5 L19 3 L31 7.5 L40 9;M3 5 L11 7.5 L21 9 L33 4.5 L39 3.5" />
+            </path>
+          </svg>
+        </a>
       </li>
       <li>
         <a
           href="/about"
           class="nav-about"
           aria-label="More info about me, my career, and history of this site."
-          >About</a
         >
+          About
+          <svg class="nav-stroke" viewBox="0 0 40 10" aria-hidden="true" preserveAspectRatio="none">
+            <path d="M0 6 L10 1.5 L18 7.5 L26 2 L36 8 L40 4" fill="none" stroke="currentColor" stroke-width="1.1">
+              <animate attributeName="d" calcMode="discrete" repeatCount="indefinite" dur="0.45s" values="M0 6 L10 1.5 L18 7.5 L26 2 L36 8 L40 4;M0 2 L9 7 L17 1 L27 8 L35 2.5 L40 6.5;M0 8 L11 4 L19 1.5 L25 7 L37 3 L40 8;M0 4 L8 2 L16 8 L28 1.5 L34 6.5 L40 2.5" />
+            </path>
+            <path d="M3 8.5 L14 4 L22 7.5 L30 3 L40 8" fill="none" stroke="currentColor" stroke-width="0.6">
+              <animate attributeName="d" calcMode="discrete" repeatCount="indefinite" dur="0.65s" values="M3 8.5 L14 4 L22 7.5 L30 3 L40 8;M1 4.5 L12 8 L24 3.5 L32 9 L38 5;M4 7 L15 9 L21 4 L29 7.5 L40 9;M2 3.5 L13 7 L23 9 L31 5 L39 3" />
+            </path>
+          </svg>
+        </a>
       </li>
       <li>
         <scheme-chooser></scheme-chooser>
@@ -73,7 +111,27 @@
 
     a {
       border-bottom: 1px solid currentColor;
+      position: relative;
       text-decoration: none;
+    }
+
+    .nav-stroke {
+      display: none;
+      height: 6px;
+      left: 0;
+      position: absolute;
+      bottom: -2px;
+      width: 100%;
+    }
+
+    a:hover,
+    a:focus-visible {
+      border-bottom-color: transparent;
+
+      .nav-stroke {
+        display: block;
+        filter: url(#nav-warp);
+      }
     }
   }
 
