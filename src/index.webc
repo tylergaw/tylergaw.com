@@ -40,7 +40,12 @@ meta:
     <home-contents-tertiary></home-contents-tertiary>
   </div>
 
-  <svg width="0" height="0" aria-hidden="true" style="position: absolute">
+  <svg
+    width="0"
+    height="0"
+    aria-hidden="true"
+    style="display: none; position: absolute"
+  >
     <filter id="noise">
       <feTurbulence
         type="fractalNoise"

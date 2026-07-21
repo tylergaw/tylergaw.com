@@ -67,21 +67,109 @@
     />
     <link rel="me" href="https://mastodon.social/@tylergaw" />
     <link rel="stylesheet" href="/css/tylergaw.css" webc:keep />
-    <link rel="stylesheet" href="/css/about.css" webc:keep webc:if="(pageType || page.fileSlug) === 'about'" />
-    <link rel="stylesheet" href="/css/article.css" webc:keep webc:if="pageType === 'blog'" />
-    <link rel="stylesheet" href="/css/work-index.css" webc:keep webc:if="pageType === 'work-index'" />
-    <link rel="stylesheet" href="/css/purpose.css" webc:keep webc:if="(pageType || page.fileSlug) === 'purpose'" />
-    <link rel="stylesheet" href="/css/resume.css" webc:keep webc:if="(pageType || page.fileSlug) === 'resume'" />
-    <link rel="stylesheet" href="/css/art.css" webc:keep webc:if="(pageType || page.fileSlug) === 'art'" />
-    <link rel="stylesheet" href="/css/project-base.css" webc:keep webc:if="pageType?.startsWith('work')" />
-    <link rel="stylesheet" href="/css/streetcred.css" webc:keep webc:if="pageType === 'work-streetcred'" />
-    <link rel="stylesheet" href="/css/limbo.css" webc:keep webc:if="pageType === 'work-limbo'" />
-    <link rel="stylesheet" href="/css/groundwork.css" webc:keep webc:if="pageType === 'work-groundwork'" />
-    <link rel="stylesheet" href="/css/colorme.css" webc:keep webc:if="pageType === 'work-colorme'" />
-    <link rel="stylesheet" href="/css/osx-apps-with-js.css" webc:keep webc:if="pageType === 'work-jxa'" />
+    <link
+      rel="stylesheet"
+      href="/css/about.css"
+      webc:keep
+      webc:if="(pageType || page.fileSlug) === 'about'"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/article.css"
+      webc:keep
+      webc:if="pageType === 'blog'"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/work-index.css"
+      webc:keep
+      webc:if="pageType === 'work-index'"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/purpose.css"
+      webc:keep
+      webc:if="(pageType || page.fileSlug) === 'purpose'"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/resume.css"
+      webc:keep
+      webc:if="(pageType || page.fileSlug) === 'resume'"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/art.css"
+      webc:keep
+      webc:if="(pageType || page.fileSlug) === 'art'"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/project-base.css"
+      webc:keep
+      webc:if="pageType?.startsWith('work')"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/streetcred.css"
+      webc:keep
+      webc:if="pageType === 'work-streetcred'"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/limbo.css"
+      webc:keep
+      webc:if="pageType === 'work-limbo'"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/groundwork.css"
+      webc:keep
+      webc:if="pageType === 'work-groundwork'"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/colorme.css"
+      webc:keep
+      webc:if="pageType === 'work-colorme'"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/osx-apps-with-js.css"
+      webc:keep
+      webc:if="pageType === 'work-jxa'"
+    />
     <style @raw="getBundle('css')" webc:keep></style>
   </head>
   <body>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="0"
+      height="0"
+      aria-hidden="true"
+      hidden
+      style="display: none"
+    >
+      <defs>
+        <filter id="nav-item-warp">
+          <feTurbulence
+            type="turbulence"
+            baseFrequency="0.06"
+            numOctaves="3"
+            seed="4"
+            result="turbulence"
+          />
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="turbulence"
+            scale="4"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+      </defs>
+    </svg>
+
     <page-header></page-header>
     <draw-strokes></draw-strokes>
     <main @raw="content"></main>

@@ -1,40 +1,40 @@
 <footer webc:root="override">
   <div class="g-main g-padded inner">
-    <nav class="g-main__item">
+    <nav class="g-main__item nav-global">
       <ul>
         <li>
-          <a href="/">Work</a>
+          <a href="/">Work<nav-item-stroke seed="1"></nav-item-stroke></a>
         </li>
         <li>
-          <a href="/blog">Blog</a>
+          <a href="/blog">Blog<nav-item-stroke seed="10"></nav-item-stroke></a>
         </li>
         <li>
           <a
             href="/about"
             aria-label="More info about me, my career, and history of this site."
           >
-            About
+            About<nav-item-stroke seed="11"></nav-item-stroke>
           </a>
         </li>
         <li>
-          <a href="/work/archive">Archive</a>
+          <a href="/work/archive">Archive<nav-item-stroke seed="12"></nav-item-stroke></a>
         </li>
       </ul>
       <ul>
         <li>
-          <a href="/bookshelf">Books</a>
+          <a href="/bookshelf">Books<nav-item-stroke seed="13"></nav-item-stroke></a>
         </li>
         <li>
-          <a href="/art">Art</a>
+          <a href="/art">Art<nav-item-stroke seed="14"></nav-item-stroke></a>
         </li>
         <li>
-          <a href="https://wax.tylergaw.com">Records</a>
+          <a href="https://wax.tylergaw.com">Records<nav-item-stroke seed="15"></nav-item-stroke></a>
         </li>
         <li>
-          <a href="https://bikes.tylergaw.com">Bikes</a>
+          <a href="https://bikes.tylergaw.com">Bikes<nav-item-stroke seed="16"></nav-item-stroke></a>
         </li>
         <li hidden>
-          <a href="/resume">Resume</a>
+          <a href="/resume">Resume<nav-item-stroke seed="17"></nav-item-stroke></a>
         </li>
       </ul>
       <ul>
@@ -43,20 +43,20 @@
             href="/rss.xml"
             title="Ancient technology. A non-capitalistic transaction-less notification network used by the those living in the underworld to have websites send updates without ever visiting those websites. You could consume the web without being in the algorithmic river."
           >
-            RSS
+            RSS<nav-item-stroke seed="18"></nav-item-stroke>
           </a>
         </li>
         <li>
-          <a href="mailto:me@tylergaw.com" rel="me">Email</a>
+          <a href="mailto:me@tylergaw.com" rel="me">Email<nav-item-stroke seed="19"></nav-item-stroke></a>
         </li>
         <li>
-          <a href="https://github.com/tylergaw" rel="me">GitHub</a>
+          <a href="https://github.com/tylergaw" rel="me">GitHub<nav-item-stroke seed="20"></nav-item-stroke></a>
         </li>
         <li>
-          <a href="https://bsky.app/profile/tylergaw.com" rel="me">Bluesky</a>
+          <a href="https://bsky.app/profile/tylergaw.com" rel="me">Bluesky<nav-item-stroke seed="21"></nav-item-stroke></a>
         </li>
         <li hidden>
-          <a href="https://mastodon.social/@tylergaw" rel="me">Mastodon</a>
+          <a href="https://mastodon.social/@tylergaw" rel="me">Mastodon<nav-item-stroke seed="22"></nav-item-stroke></a>
         </li>
       </ul>
     </nav>
@@ -96,29 +96,16 @@
     );
     overflow: hidden;
     padding-top: 4rem;
-
-    a {
-      border-bottom: 1px solid color-mix(in srgb, currentColor 50%, transparent);
-      display: inline-block;
-      font-family: var(--font-accent);
-      font-size: 1rem;
-      text-decoration: none;
-      text-transform: uppercase;
-
-      &:hover,
-      &:focus {
-        border-color: currentColor;
-        color: var(--color-text);
-      }
-    }
   }
 
-  nav li {
-    margin: 0.8rem 0;
+  nav {
+    li {
+      margin: 1rem 0;
 
-    &:has([href^="https"])::after {
-      content: "↗";
-      color: var(--color-accent-primary);
+      &:has([href^="https"])::after {
+        content: "↗";
+        color: var(--color-accent-primary);
+      }
     }
   }
 

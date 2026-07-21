@@ -444,6 +444,39 @@ transitions when coming to them from a page that does. (or something like that)
 }
 
 @layer components {
+  .nav-global {
+    font-family: var(--font-accent);
+    font-size: var(--font-size-14);
+    text-transform: uppercase;
+
+    a {
+      border-bottom: 1px solid currentColor;
+      position: relative;
+      text-decoration: none;
+
+      &:hover,
+      &:focus-visible {
+        border-bottom-color: transparent;
+      }
+    }
+  }
+
+  .nav-item-stroke {
+    bottom: -2px;
+    display: block;
+    filter: url(#nav-item-warp);
+    height: 6px;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  a:hover > .nav-item-stroke,
+  a:focus-visible > .nav-item-stroke {
+    opacity: 1;
+  }
+
   .hero--before-standard::before,
   .hero--after-standard::after {
     content: "";
