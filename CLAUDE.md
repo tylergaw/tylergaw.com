@@ -11,7 +11,6 @@
 ### Code
 
 - CSS properties should be alphabetized
-- Run prettier on each file after updating it. DO NOT use npx for this, there is a prettier package.json script use that to make sure you use the local version and any config
 - DO NOT run builds after making changes. Only run builds if told to
 
 ## Writing Blog Posts

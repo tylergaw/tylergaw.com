@@ -146,7 +146,7 @@
     justify-self: flex-end;
     grid-area: 1 / 1;
     filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.5));
-    margin-right: 0.5rem;
+    margin-right: var(--mr, 0.5rem);
     top: var(--t, 0.25rem);
   }
 
@@ -259,6 +259,11 @@
     :host {
       --offset: -2.5rem;
       --ph: 2rem;
+    }
+
+    .hype-sticker {
+      --mr: 1.25rem;
+      --t: 2.25rem;
     }
 
     .about-hero-img:nth-child(3) {
