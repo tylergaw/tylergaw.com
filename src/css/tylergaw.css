@@ -472,6 +472,27 @@ transitions when coming to them from a page that does. (or something like that)
     width: 100%;
   }
 
+  .hype-sticker {
+    --size: 70px;
+    display: block;
+    height: auto;
+    position: relative;
+    rotate: -15deg;
+    transform: skew(-1deg, 1.5deg);
+    width: var(--size);
+    z-index: 11;
+
+    &:hover {
+      animation: shimmy 0.1s linear alternate 6;
+    }
+  }
+
+  @keyframes shimmy {
+    100% {
+      rotate: -10deg;
+    }
+  }
+
   a:hover > .nav-item-stroke,
   a:focus-visible > .nav-item-stroke {
     opacity: 1;

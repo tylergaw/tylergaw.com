@@ -138,27 +138,9 @@
   }
 
   .hype-sticker {
-    --size: 70px;
-    display: block;
     filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2));
-    height: auto;
     left: var(--l, 1.5rem);
-    position: relative;
-    rotate: -15deg;
     top: var(--t, -0.75rem);
-    transform: skew(-1deg, 1.5deg);
-    width: var(--size);
-    z-index: 11;
-
-    &:hover {
-      animation: shimmy 0.1s linear alternate 6;
-    }
-  }
-
-  @keyframes shimmy {
-    100% {
-      rotate: -10deg;
-    }
   }
 
   .contents {
