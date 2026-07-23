@@ -144,11 +144,8 @@
   <body>
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="0"
-      height="0"
+      class="visually-hidden"
       aria-hidden="true"
-      hidden
-      style="display: none"
     >
       <defs>
         <filter id="nav-item-warp">
