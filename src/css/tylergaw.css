@@ -429,7 +429,8 @@ transitions when coming to them from a page that does. (or something like that)
     color: var(--color-accent-primary);
   }
 
-  a:focus {
+  a:focus-visible,
+  button:focus-visible {
     outline: 3px solid currentColor;
   }
 

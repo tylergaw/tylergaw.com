@@ -1,16 +1,48 @@
-<!-- <div class="scheme-toggler">
-  <div role="status" class="visually-hidden scheme-toggler__status"></div>
-  <button class="scheme-toggler__btn">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-      <path id="sun" fill="#FFC420" fill-rule="evenodd" d="M14.5 4.8l-3-4.8-1 5.4h-.2l-3.8-1 .7 2.8-.3.2-5.3-.3L5 11v.2l-5 2.6 4.7 1-1 5.4 5.2-1.6v4.8l3.6-3.8 2.8 4.3 1.4-5.3 4.7 1-1.6-4.2 4.2-1.9-3.3-1.6L24 8h-4.2l1-4.2-3.6 2.6.5-5.3-3.2 3.7zm-.8 4.5c0-.6.2-2.2 1.5-2.3 1 0 1.5 1.1 1.6 2.1 0 1-.1 2.3-1 2.3-2 .2-2-.7-2-1.6a10.1 10.1 0 000-.5zM9.5 7.9C8 8 7.8 9.4 7.7 10v.1c0 1 .1 2.5 2.4 2.3.9 0 1-1.2 1-2.3-.1-1-.7-2.1-1.6-2zm-2.7 6c.4 1.1 2.7 4.5 6.2 4 3.9-.5 5.7-3.2 5.7-5.6 0 0-2 3.8-5.7 4-3.7.4-6.2-2.5-6.2-2.5z" clip-rule="evenodd"/>
-      <path id="moon" fill="#4B15A1" fill-rule="evenodd" d="M2.7 19.2c-2.3-2.4-4-8-1.5-12.5A14 14 0 0112.9 0c3.3.3 7.1 2.8 9.9 6.6 2.7 3.9.9 13.5-5.7 16.2-5.3 3.4-12.2-1.3-14.4-3.6zm.4-5.6c-.6-3 .7-9.6 8.9-10.1 0 0-3.7 5.5-2 9.5 1.7 4 8.5 5 8.5 5-7 5.5-14.2 1.2-15.4-4.4zm12.1-6.8L14.5 5l-.6 1.9-1.9.6 1.8.7.7 2.4.6-2.5 1.9-.6-1.8-.7zm4.3 3.2l1 2.5H23l-2.1 1.4L20 16l-.9-2.1-2.1-.4 2.1-1.4.4-2.1z" clip-rule="evenodd"/>
-    </svg>
-  </button>
-</div> -->
-
 <button>
   <svg
-    class="icon-light"
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="-1 -1 24 24"
+  >
+    <defs>
+      <filter id="button-stroke-warp">
+        <feTurbulence
+          type="turbulence"
+          baseFrequency="0.06"
+          numOctaves="3"
+          seed="2"
+          result="turbulence"
+        >
+          <animate
+            attributeName="seed"
+            values="2;8;3;10;5;12;7;2"
+            dur="0.6s"
+            calcMode="discrete"
+            repeatCount="indefinite"
+          />
+        </feTurbulence>
+        <feDisplacementMap
+          in="SourceGraphic"
+          in2="turbulence"
+          scale="4"
+          xChannelSelector="R"
+          yChannelSelector="G"
+        />
+      </filter>
+    </defs>
+    <circle
+      cx="11"
+      cy="11"
+      r="11"
+      stroke="currentColor"
+      stroke-width="1.2"
+      fill="none"
+      class="button-stroke"
+    />
+  </svg>
+  <svg
+    class="icon icon-light"
     xmlns="http://www.w3.org/2000/svg"
     width="24"
     height="24"
@@ -34,7 +66,7 @@
   </svg>
 
   <svg
-    class="icon-dark"
+    class="icon icon-dark"
     xmlns="http://www.w3.org/2000/svg"
     width="24"
     height="24"
@@ -91,16 +123,20 @@
 
 <style webc:scoped>
   button {
+    --size: 1.5rem;
+    align-items: center;
     appearance: none;
     background: none;
-    cursor: pointer;
-    border: 1px dotted transparent;
-    border-radius: 1rem;
-    display: grid;
+    border: none;
     color: var(--color-foreground);
+    cursor: pointer;
+    display: grid;
     font-size: var(--font-size-0_75);
-    padding: 0.35rem;
+    height: var(--size);
+    padding: 0;
+    justify-content: center;
     text-decoration: none;
+    width: var(--size);
 
     &:hover,
     &:focus-visible {
@@ -109,17 +145,24 @@
         hsl(var(--color-foreground-hsl-dark) / 25%)
       );
 
-      svg {
-        rotate: -10deg;
+      .button-stroke {
+        opacity: 1;
       }
     }
 
     svg {
-      display: block;
       grid-area: 1 / 1;
-      height: auto;
-      transition: transform 0.1s ease;
+    }
+
+    .icon {
+      margin: 0 auto;
+      height: 1rem;
       width: 1rem;
+    }
+
+    .button-stroke {
+      opacity: 0;
+      filter: url(#button-stroke-warp);
     }
 
     .hidden {
