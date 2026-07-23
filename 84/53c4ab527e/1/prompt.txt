@@ -1,0 +1,122 @@
+read claude.md, remember it
+
+---
+
+pull that in again, I just added/changed a few things
+
+---
+
+OK, check this out. In page-header, last time, we added a nav-stroke below each item. On hover/focus it does a cool animation. Take a look at how we did that. I'm thinking about abstracting that setup to a web component that we can use in page-header and in page-footer
+
+---
+
+OK, a few things:
+- I'm thinking nav-item component that houses everything. Can pass href, label, and maybe rest props to the a
+- Ideally the component would handle making sure each path is random/varied, that could be JS if needed. Maybe we have hard coded-values, the if JS works it randomizes?
+
+---
+
+- yeah, that's what I was thinking, something like that
+- probably the 0.06
+
+If there's any JS/CSS for this, I'd like it to be as self contained as possible. This *could* be a real web component, not just WebC
+
+---
+
+hurry up please
+
+---
+
+OK, yeah build that and try it with just the page-header about item for now
+
+---
+
+you seem stuck?
+
+---
+
+fuck are you doing?
+
+---
+
+Holy shit, this is fucking bad. Like real bad. Absolutely not
+
+---
+
+roll this all back. fucking trash all of it.
+
+---
+
+Do this, I just made a few changes to page-header to get nav-stroke in a shape that I want. Looking at the svg and the associated css, are there any clear parts that could be abstracted so we wouldn't need to repeat so many things to make these also work in page-footer
+
+---
+
+1. This could go in layout-main since it's needed everywhere. Might change the id though to make it a bit more unique. This svg could end up being a home for global svg defs (I might have some others)
+2. Could just go in tylergaw.css
+3. It's not using JS. No JS
+
+---
+
+nav-item-warp, put it right after the opening <body>
+
+So wait, there will be no abstracted svg markup?
+
+---
+
+ok, yeah that sounds good. Go for it. Be sure to pull in the latest page-header and page-footer, I've made changes.
+
+---
+
+finish, you were stuck again
+
+---
+
+WHY ARE YOU GETTING STUCK ON EVERY SINGLE REQUEST?
+
+---
+
+OK, now why can't we have a webc component, nav-stroke that abstracts more of the svg? It would just produce the svg element with the common attributes, and we could then pass it attrs d, dur, values and those we'd apply to the svg?
+
+---
+
+Yes
+
+---
+
+Question, are you running a build every time you make changes, is that why you're getting stuck?
+
+---
+
+DO NOT FUCKING RUN BUILD
+
+---
+
+OK, question. The values for d and values. Those are all random. What does it look like to programattically generate those?
+
+---
+
+Yes, let's do that. Keep it simple. Don't lose your fucking mind again.
+
+---
+
+and the seed, tell me about that attribute. What can it be?
+
+---
+
+can we rename it from nav-stroke to nav-item-stroke, the file, class, everything
+
+---
+
+ok, can you pull in latest page-footer. I added the first one, but can you add nav-item-stroke to each of the nav a elements. All with different seeds
+
+---
+
+I want you to actually do thing instead of not doing the thing. go
+
+---
+
+FINISH U COW
+
+---
+
+WHAT THE FUCK IS TAKING SO LONG WHAT IS HAPPENING!!!!!!??????
