@@ -1,0 +1,31 @@
+read in claude.md and follow it
+
+---
+
+There are a bunch of unstaged changes to blog posts, /blog/**/*.md files. I didn't make any of those, can you check a couple to see what changes were made
+
+---
+
+Oh fuck, do not want
+
+---
+
+New thing.
+
+In Safari only, v26, the nav-item-stroke is not showing up. I can see it in the markup, it's rendering. I see computed styles that seem right, but it's not visible. Even if I remove the `opacity: 0` prop from the at rest state. Can you have a look to see what might be happening
+
+---
+
+oh, yeah remove the offending code and you can use the existing visually-hidden class (defined in tylergaw.css line 134)
+
+---
+
+check claude.md again, we're not doing prettier anymore on edit
+
+---
+
+Pull in the changes I've made in scheme-chooser. I want to have a hover effect that similar to what we're doing with nav-item-stroke, except I want it to happen on the svg cirlce, .button-stroke. I stubbed it out with the nav-item-warp filter, but can you make it actually animate. Feel free to create a filter/anything else directly in scheme-chooser since it's an outlier.
+
+---
+
+lovely

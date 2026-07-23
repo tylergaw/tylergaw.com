@@ -1,0 +1,181 @@
+{
+  "cli_version": "0.8.42",
+  "checkpoint_id": "8453c4ab527e",
+  "session_id": "ad5379fa-45b2-4933-87e2-faf3cc12113b",
+  "strategy": "manual-commit",
+  "created_at": "2026-07-23T01:33:10.312622Z",
+  "branch": "version-xx",
+  "checkpoints_count": 8,
+  "save_step_count": 7,
+  "files_touched": [
+    "src/_components/scheme-chooser.webc",
+    "src/css/tylergaw.css"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-opus-4-6",
+  "turn_id": "359499ea882e",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 51,
+    "cache_creation_tokens": 47835,
+    "cache_read_tokens": 637651,
+    "output_tokens": 4686,
+    "api_call_count": 29
+  },
+  "session_metrics": {
+    "turn_count": 8
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-07-23T01:33:10.301412Z",
+    "agent_lines": 0,
+    "agent_removed": 0,
+    "human_added": 18,
+    "human_modified": 24,
+    "human_removed": 0,
+    "total_committed": 42,
+    "total_lines_changed": 42,
+    "agent_percentage": 0,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 2132,
+      "user_lines_removed": 2071,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/about-hero.webc": 6,
+        "src/blog.webc": 46,
+        "src/blog/2011/a-small-redesign-with-a-little-sugar.md": 2,
+        "src/blog/2011/fun-with-html-form-validation-styles.md": 12,
+        "src/blog/2012/reacting-to-media-queries-in-javascript.md": 18,
+        "src/blog/2014/media-seek-from-url.md": 21,
+        "src/blog/2016/sass-to-postcss.md": 6,
+        "src/blog/2017/building-my-first-pwa.md": 14,
+        "src/blog/2018/dynamic-redux-reducers.md": 6,
+        "src/blog/2018/jribbble-three-and-oauth.md": 52,
+        "src/blog/2020/css-repeating-svg-masks.md": 3,
+        "src/blog/2020/how-to-get-all-custom-properties-on-a-page-in-javascript.md": 24,
+        "src/blog/2023/chatgpt-cloudformation.md": 2,
+        "src/blog/2023/complex-mpa-view-transitions.md": 18,
+        "src/blog/2023/node-test-runner.md": 6,
+        "src/blog/2023/view-transitions-first-experiments-mpa.md": 2,
+        "src/blog/2025/fairweather-ride-2025.md": 19,
+        "src/blog/2026/display-p3-background-repeat-bug.md": 1,
+        "src/css/art.css": 47,
+        "src/css/article.css": 306,
+        "src/css/colorme.css": 70,
+        "src/css/groundwork.css": 155,
+        "src/css/limbo.css": 130,
+        "src/css/osx-apps-with-js.css": 137,
+        "src/css/project-base.css": 239,
+        "src/css/purpose.css": 31,
+        "src/css/resume.css": 96,
+        "src/css/streetcred.css": 650
+      },
+      "user_removed_per_file": {
+        "src/_components/about-hero.webc": 1,
+        "src/blog.webc": 5,
+        "src/blog/2011/a-small-redesign-with-a-little-sugar.md": 2,
+        "src/blog/2011/fun-with-html-form-validation-styles.md": 12,
+        "src/blog/2012/reacting-to-media-queries-in-javascript.md": 18,
+        "src/blog/2014/media-seek-from-url.md": 21,
+        "src/blog/2016/sass-to-postcss.md": 6,
+        "src/blog/2017/building-my-first-pwa.md": 14,
+        "src/blog/2018/dynamic-redux-reducers.md": 6,
+        "src/blog/2018/jribbble-three-and-oauth.md": 52,
+        "src/blog/2020/css-repeating-svg-masks.md": 3,
+        "src/blog/2020/how-to-get-all-custom-properties-on-a-page-in-javascript.md": 24,
+        "src/blog/2023/chatgpt-cloudformation.md": 2,
+        "src/blog/2023/complex-mpa-view-transitions.md": 18,
+        "src/blog/2023/node-test-runner.md": 6,
+        "src/blog/2023/view-transitions-first-experiments-mpa.md": 2,
+        "src/blog/2025/fairweather-ride-2025.md": 19,
+        "src/blog/2026/display-p3-background-repeat-bug.md": 1,
+        "src/css/art.css": 47,
+        "src/css/article.css": 301,
+        "src/css/colorme.css": 70,
+        "src/css/groundwork.css": 155,
+        "src/css/limbo.css": 130,
+        "src/css/osx-apps-with-js.css": 137,
+        "src/css/project-base.css": 239,
+        "src/css/purpose.css": 31,
+        "src/css/resume.css": 96,
+        "src/css/streetcred.css": 650,
+        "src/css/work-index.css": 3
+      }
+    },
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 2119,
+      "agent_lines_removed": 2071,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    },
+    {
+      "checkpoint_number": 3,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 2119,
+      "agent_lines_removed": 2071,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    },
+    {
+      "checkpoint_number": 4,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    },
+    {
+      "checkpoint_number": 5,
+      "user_lines_added": 13,
+      "user_lines_removed": 0,
+      "agent_lines_added": 1,
+      "agent_lines_removed": 4,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13
+      }
+    },
+    {
+      "checkpoint_number": 6,
+      "user_lines_added": 51,
+      "user_lines_removed": 21,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/scheme-chooser.webc": 38
+      },
+      "user_removed_per_file": {
+        "src/_components/scheme-chooser.webc": 21
+      }
+    },
+    {
+      "checkpoint_number": 7,
+      "user_lines_added": 17,
+      "user_lines_removed": 3,
+      "agent_lines_added": 64,
+      "agent_lines_removed": 21,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 13,
+        "src/_components/scheme-chooser.webc": 2,
+        "src/css/tylergaw.css": 2
+      },
+      "user_removed_per_file": {
+        "src/_components/scheme-chooser.webc": 2,
+        "src/css/tylergaw.css": 1
+      }
+    }
+  ]
+}
