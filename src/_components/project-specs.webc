@@ -1,0 +1,8 @@
+<div class="project__specs">
+  <ul>
+    <li webc:for="spec of specs">
+      <h3 class="spec__title font--regular" @text="spec.title"></h3>
+      <p class="spec__desc" @html="spec.desc"></p>
+    </li>
+  </ul>
+</div>

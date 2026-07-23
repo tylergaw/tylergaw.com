@@ -1,0 +1,262 @@
+<div class="g-main g-padded" webc:root="override">
+  <div class="g-main__item work-nav">
+    <h2 class="heading--special">Select work</h2>
+    <ul>
+      <li>
+        <a
+          href="/work/streetcred"
+          :class="`nav-streetcred${project === 'streetcred' ? ' nav--current' : ''}`"
+        >
+          <img
+            src="/images/work/streetcred/streetcred-logo-mini.svg"
+            alt="StreetCred"
+            loading="lazy"
+          />
+        </a>
+      </li>
+      <li>
+        <a
+          href="/work/limbo"
+          :class="`nav-limbo${project === 'limbo' ? ' nav--current' : ''}`"
+        >
+          <img
+            src="/images/work/limbo/limbo-logo.svg"
+            alt="Limbo"
+            loading="lazy"
+          />
+        </a>
+      </li>
+      <li>
+        <a
+          href="/work/colorme"
+          :class="`nav-colorme${project === 'colorme' ? ' nav--current' : ''}`"
+        >
+          <img
+            src="/images/work/colorme/colorme-logo.svg"
+            alt="ColorMe"
+            loading="lazy"
+          />
+        </a>
+      </li>
+      <li>
+        <a
+          href="/work/thegroundwork"
+          :class="`nav-thegroundwork${project === 'thegroundwork' ? ' nav--current' : ''}`"
+        >
+          <img
+            src="/images/work/thegroundwork/gw-logo.svg"
+            alt="The Groundwork"
+            loading="lazy"
+          />
+        </a>
+      </li>
+      <li>
+        <a
+          href="/work/osx-apps-with-js"
+          :class="`nav-jxa${project === 'jxa' ? ' nav--current' : ''}`"
+        >
+          <img
+            src="/images/work/jxa/building-osx-apps-with-javascript-logo-mini.svg"
+            alt="Building OS X Apps with JavaScript"
+            loading="lazy"
+          />
+        </a>
+      </li>
+      <li>
+        <a
+          href="/work/archive"
+          :class="`nav-archive${project === 'archive' ? ' nav--current' : ''}`"
+          ><div>Archive</div></a
+        >
+      </li>
+    </ul>
+  </div>
+</div>
+
+<style webc:scoped>
+  .work-nav {
+    padding-top: calc(var(--g-row) * 8);
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--g-row);
+    max-width: calc(1760 / 16 * 1rem);
+    padding-top: calc(var(--g-row) * 2);
+    padding-bottom: calc(var(--g-row) * 10);
+  }
+
+  li {
+    display: flex;
+    width: 100%;
+  }
+
+  a {
+    align-items: center;
+    border-radius: 6px;
+    box-shadow: inset 0 0 0 6px var(--border-color);
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: center;
+    padding: var(--padding, 3rem 1.4rem);
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+
+    &.nav--current {
+      box-shadow: inset 0 0 0 6px var(--color-accent-primary);
+      cursor: default;
+    }
+
+    &.nav--current::after {
+      bottom: 15%;
+      content: "• You are here";
+      display: block;
+      position: absolute;
+      width: 100%;
+    }
+
+    &:hover,
+    &:focus-visible {
+      outline: none;
+    }
+
+    &:active img,
+    &:active div {
+      transform: scale3d(0.94, 0.94, 0.94);
+    }
+  }
+
+  img {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    max-width: calc(280 / 16 * 1rem);
+    width: 80%;
+  }
+
+  .nav-streetcred {
+    background: var(--color-streetcred-accent) url("/images/about-dust.svg")
+      repeat;
+    color: var(--color-offwhite);
+
+    &:hover,
+    &:focus-visible {
+      --border-color: var(--color-streetcred-accent-dark);
+    }
+  }
+
+  .nav-limbo {
+    background: var(--color-limbo-accent)
+      url("/images/work/limbo/limbo-dust.svg") repeat;
+    color: var(--color-eggshell);
+
+    &:hover,
+    &:focus-visible {
+      --border-color: var(--color-limbo-accent-dark);
+    }
+
+    img {
+      width: 72%;
+    }
+  }
+
+  .nav-colorme {
+    background: var(--color-colorme-accent)
+      url("/images/work/colorme/colorme-dust.svg") repeat;
+    color: var(--color-offwhite);
+
+    &:hover,
+    &:focus-visible {
+      --border-color: var(--color-colorme-accent-dark);
+    }
+
+    img {
+      width: 80%;
+    }
+  }
+
+  .nav-thegroundwork {
+    background: var(--color-groundwork-accent)
+      url("/images/work/thegroundwork/gw-dust.svg") repeat;
+    color: white;
+
+    &:hover,
+    &:focus-visible {
+      --border-color: var(--color-groundwork-accent-dark);
+    }
+  }
+
+  .nav-jxa {
+    background: var(--color-jxa-accent) url("/images/work/jxa/jxa-dust.svg")
+      repeat;
+    color: white;
+
+    &:hover,
+    &:focus-visible {
+      --border-color: var(--color-jxa-accent-light);
+    }
+  }
+
+  .nav-archive {
+    background: var(--color-archive-accent)
+      url("/images/work/archive/archive-dust.svg") repeat;
+    color: var(--color-charcoal);
+
+    div {
+      font-family: var(--font-proto-bold);
+      font-size: var(--font-size-30);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    &:hover,
+    &:focus-visible {
+      --border-color: var(--color-archive-accent-dark);
+    }
+  }
+
+  @media (min-width: 38.75em) {
+    :host {
+      padding-left: calc(var(--g-gutter) * 2.25);
+      padding-right: calc(var(--g-gutter) * 2.25);
+    }
+
+    .work-nav {
+      --col-start: 1;
+      --col-end: -1;
+    }
+
+    li {
+      width: calc(50% - var(--g-row) / 2);
+    }
+
+    a {
+      --padding: min(12vw, 5rem) 1.4rem;
+    }
+  }
+
+  @media (min-width: 72.5em) {
+    li {
+      width: calc(33% - var(--g-row) / 2);
+    }
+
+    a {
+      --padding: min(12vw, 8rem) 1.4rem;
+    }
+  }
+
+  @media (min-width: 77.5em) {
+    .work-nav {
+      --col-start: 2;
+    }
+  }
+
+  @media (min-width: 137.5em) {
+    .work-nav {
+      --col-start: 3;
+    }
+  }
+</style>

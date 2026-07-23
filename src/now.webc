@@ -1,0 +1,26 @@
+---
+layout: layout-main.webc
+title: What Tyler Gaw is up to now
+pageType: now
+meta:
+  image: /images/social-blog.png
+---
+
+<div class="g-padded">
+  <p>
+    This is <a href="https://nownownow.com/about">a now page</a>, and if you
+    have your own site, you should make one, too.
+  </p>
+
+  <div webc:for="update of collections.nowUpdates">
+    <article :id="`update-${update.data.date}`">
+      <h2>
+        <a
+          :href="`#update-${update.data.date}`"
+          @text="update.data.dateHuman"
+        ></a>
+      </h2>
+      <template @raw="update.content" webc:nokeep></template>
+    </article>
+  </div>
+</div>

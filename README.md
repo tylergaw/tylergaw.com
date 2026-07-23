@@ -9,19 +9,19 @@ This is static site built with Eleventy.
 Install node dependencies:
 
 ```
-yarn
+pnpm
 ```
 
 Run and initial build then start the development server and watchers.
 
 ```
-yarn start
+pnpm start
 ```
 
 For one-off production-ready builds:
 
 ```
-yarn build
+pnpm build
 ```
 
 ## Deploying

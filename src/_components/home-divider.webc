@@ -1,0 +1,50 @@
+<div webc:root="override">
+  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg"></svg>
+</div>
+
+<style webc:scoped="home-divider">
+  :host {
+    color: var(--color-accent-primary);
+    display: block;
+    height: 2rem;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  svg {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+</style>
+
+<script webc:bucket="components">
+  (function () {
+    const el = document.querySelector(".home-divider");
+    if (!el) return;
+    const svg = el.querySelector("svg");
+
+    function draw() {
+      drawStrokes(svg, {
+        filterId: "divider-warp",
+        margin: 10,
+        startSpread: 20,
+      });
+    }
+
+    let resizeTimer;
+    const intervalDuration = 1000;
+    let interval = setInterval(draw, intervalDuration);
+
+    window.addEventListener("resize", function () {
+      clearTimeout(resizeTimer);
+      clearInterval(interval);
+      resizeTimer = setTimeout(function () {
+        draw();
+        interval = setInterval(draw, intervalDuration);
+      }, 150);
+    });
+
+    draw();
+  })();
+</script>

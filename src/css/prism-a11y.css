@@ -1,0 +1,187 @@
+/**
+ * a11y-dark theme for JavaScript, CSS, and HTML
+ * Based on the okaidia theme: https://github.com/PrismJS/prism/blob/gh-pages/themes/prism-okaidia.css
+ * @author ericwbailey
+ * @repo https://github.com/ericwbailey/a11y-syntax-highlighting
+ */
+
+/**
+  Some modifications made for tylergaw.com
+ */
+
+[data-page="blog"] {
+  --color-atrule: light-dark(#aa5d00, #ffd700);
+  --color-background: light-dark(#fefefe, #2b2b2b);
+  --color-base: light-dark(#545454, #f8f8f2);
+  --color-boolean: light-dark(#008000, #00e0e0);
+  --color-border: light-dark(#f3f3f3, #383838);
+  --color-comment: light-dark(#696969, #d4d0ab);
+  --color-keyword: light-dark(#d91e18, #00e0e0);
+  --color-muted: light-dark(#818181, #b6b6b6);
+  --color-operator: light-dark(#008000, #00e0e0);
+  --color-property: light-dark(#007faa, #ffa07a);
+  --color-punctuation: light-dark(#545454, #fefefe);
+  --color-regex: light-dark(#d91e18, #ffd700);
+  --color-selector: light-dark(#aa5d00, #abe338);
+}
+
+code[class*="language-"],
+pre[class*="language-"],
+.e-content p code,
+.e-content li code {
+  color: var(--color-base);
+  background: none;
+  font-family: var(--font-mono);
+  hyphens: none;
+  line-height: 1.5;
+  tab-size: 4;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px var(--color-border);
+  padding: 1em;
+  margin-bottom: 1em;
+  overflow: auto;
+}
+
+.e-content p + pre[class*="language-"] {
+  margin-top: 1.6rem;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: var(--color-background);
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"],
+.e-content p code {
+  padding: 0.1em;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--color-comment);
+}
+
+.token.punctuation {
+  color: var(--color-punctuation);
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: var(--color-property);
+}
+
+.token.boolean,
+.token.number {
+  color: var(--color-boolean);
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: var(--color-selector);
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: var(--color-operator);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function {
+  color: var(--color-atrule);
+}
+
+.token.keyword {
+  color: var(--color-keyword);
+}
+
+.token.regex,
+.token.important {
+  color: var(--color-regex);
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.code-muted,
+.code-muted span {
+  color: var(--color-muted) !important;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    color: windowText;
+    background: window;
+  }
+
+  :not(pre) > code[class*="language-"],
+  pre[class*="language-"] {
+    background: window;
+  }
+
+  .token.important {
+    background: highlight;
+    color: window;
+    font-weight: normal;
+  }
+
+  .token.atrule,
+  .token.attr-value,
+  .token.function,
+  .token.keyword,
+  .token.operator,
+  .token.selector {
+    font-weight: bold;
+  }
+
+  .token.attr-value,
+  .token.comment,
+  .token.doctype,
+  .token.function,
+  .token.keyword,
+  .token.operator,
+  .token.property,
+  .token.string {
+    color: highlight;
+  }
+
+  .token.attr-value,
+  .token.url {
+    font-weight: normal;
+  }
+}

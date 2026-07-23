@@ -1,0 +1,85 @@
+<script webc:type="render" webc:is="template">
+  module.exports = function () {
+    const seededRandom = (seed) => {
+      let s = seed | 0;
+      return () => {
+        s = (s * 1103515245 + 12345) & 0x7fffffff;
+        return s / 0x7fffffff;
+      };
+    };
+
+    const pointsToPath = (coords, breaks) => {
+      const n = coords.length;
+      if (n < 2) return "";
+      const f = (v) => v.toFixed(2);
+
+      let d = `M ${f(coords[0][0])} ${f(coords[0][1])}`;
+      for (let i = 1; i < n; i++) {
+        const cmd = breaks.has(i) ? "M" : "L";
+        d += ` ${cmd} ${f(coords[i][0])} ${f(coords[i][1])}`;
+      }
+      return d;
+    };
+
+    const year = parseInt(this.year) || 2024;
+    const count = parseInt(this.count) || 8;
+    const width = parseInt(this.width) || 250;
+    const height = parseInt(this.height) || 25;
+
+    const rng = seededRandom(year * 100 + count);
+    const numPoints = 15;
+    const numLines = 3 + Math.floor(count * 0.4);
+
+    const pad = 2;
+    const numFrames = 8;
+
+    const paths = [];
+    for (let i = 0; i < numLines; i++) {
+      const startY = rng() * height;
+      const endY = rng() * height * 0.1;
+
+      // Pre-compute the fixed x and baseY for each point
+      const base = [];
+      for (let j = 0; j <= numPoints; j++) {
+        const t = j / numPoints;
+        const x = pad + t * (width - pad * 2);
+        const baseY = startY + (endY - startY) * t;
+        const spread = 1 - t * 0.8;
+        base.push({ x, baseY, spread });
+      }
+
+      // Pick random break points for this line
+      const numBreaks = 1 + Math.floor(rng() * 3);
+      const breaks = new Set();
+      while (breaks.size < numBreaks) {
+        const idx = 2 + Math.floor(rng() * (numPoints - 3));
+        breaks.add(idx);
+      }
+
+      // Generate wobble variations
+      const frames = [];
+      for (let f = 0; f < numFrames; f++) {
+        const coords = base.map(({ x, baseY, spread }, j) => {
+          if (j === 0 || j === numPoints) return [x, baseY];
+          const wobble = (rng() - 0.5) * height * 0.45 * spread;
+          const y = Math.max(pad, Math.min(height - pad, baseY + wobble));
+          return [x, y];
+        });
+        frames.push(pointsToPath(coords, breaks));
+      }
+
+      const strokeWidth = (0.3 + rng() * 0.5).toFixed(2);
+      const dur = (2 + rng() * 3).toFixed(1);
+      const values = [...frames, frames[0]].join(";");
+      paths.push(
+        `<path d="${frames[0]}" fill="none" stroke="currentColor" stroke-width="${strokeWidth}"><animate attributeName="d" values="${values}" dur="${dur}s" calcMode="discrete" repeatCount="indefinite" /></path>`,
+      );
+    }
+
+    const filterId = `scratch-warp-${year}`;
+    const seed = Math.floor(rng() * 100);
+    const defs = `<defs><filter id="${filterId}"><feTurbulence type="turbulence" baseFrequency="0.04" numOctaves="2" result="turbulence" seed="${seed}" /><feDisplacementMap in="SourceGraphic" in2="turbulence" scale="3" xChannelSelector="R" yChannelSelector="G" /></filter></defs>`;
+
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" aria-hidden="true">${defs}<g filter="url(#${filterId})">${paths.join("")}</g></svg>`;
+  };
+</script>

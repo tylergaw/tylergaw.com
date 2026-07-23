@@ -1,0 +1,157 @@
+---
+layout: layout-main.webc
+meta:
+  image: /images/social-home-02-2021.png
+---
+
+<home-hero></home-hero>
+
+<div>
+  <div class="g-padded home-contents-row">
+    <div class="home-distort-abstract-container">
+      <div class="graphic">
+        <video
+          muted
+          autoplay
+          playsinline
+          loop
+          poster="/images/home/home-abstract-01.webp"
+          src="/videos/abstract-1.mp4"
+          loading="lazy"
+        ></video>
+      </div>
+      <div class="invocation">
+        <p>then distort as you please</p>
+      </div>
+    </div>
+
+    <home-contents-main></home-contents-main>
+  </div>
+
+  <div class="g-padded home-contents-row">
+    <home-contents-secondary></home-contents-secondary>
+  </div>
+
+  <div class="g-padded home-contents-row">
+    <home-divider></home-divider>
+  </div>
+
+  <div class="g-padded home-contents-row">
+    <home-contents-tertiary></home-contents-tertiary>
+  </div>
+
+  <svg
+    width="0"
+    height="0"
+    aria-hidden="true"
+    style="display: none; position: absolute"
+  >
+    <filter id="noise">
+      <feTurbulence
+        type="fractalNoise"
+        baseFrequency="0.4"
+        numOctaves="1"
+        stitchTiles="stitch"
+        seed="2"
+      >
+        <animate
+          attributeName="seed"
+          from="0"
+          to="80"
+          dur="12s"
+          repeatCount="indefinite"
+        />
+      </feTurbulence>
+      <feColorMatrix type="saturate" values="0" />
+    </filter>
+  </svg>
+</div>
+
+<style webc:scoped>
+  .home-contents-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--g-gutter);
+    margin-top: var(--g-gutter);
+  }
+
+  .home-distort-abstract-container {
+    display: grid;
+    flex: 1;
+    overflow: hidden;
+
+    order: 2;
+    max-height: min(5rem, 16vw);
+
+    .graphic {
+      background: var(--color-accent-primary);
+      position: relative;
+      grid-area: 1 / 1;
+
+      &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        filter: url(#noise);
+        mix-blend-mode: color-dodge;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      video {
+        mix-blend-mode: luminosity;
+        filter: contrast(2.75) brightness(2.25);
+        opacity: 0.4;
+        object-fit: cover;
+        object-position: center;
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .invocation {
+      align-items: flex-end;
+      display: flex;
+      grid-area: 1 / 1;
+      padding: 2rem;
+      z-index: 1;
+
+      p {
+        background: light-dark(var(--color-white), var(--color-accent-primary));
+        color: light-dark(var(--color-accent-primary), var(--color-white));
+        font-family: var(--font-accent);
+        letter-spacing: 1px;
+        padding: 0.25rem;
+        writing-mode: sideways-lr;
+      }
+    }
+  }
+
+  @media (min-width: 660px) {
+    .home-distort-abstract-container {
+      margin-top: 1.375rem;
+      max-width: var(--max-w, var(--g-max-3));
+      max-height: initial;
+      order: initial;
+    }
+  }
+
+  @media (min-width: 1860px) {
+    .home-distort-abstract-container {
+      --max-w: var(--g-max-4);
+    }
+  }
+</style>
+
+<style>
+  html[style*="color-scheme: dark"] {
+    .home-distort-abstract-container .graphic {
+      filter: brightness(0.5);
+
+      video {
+        filter: contrast(2.4) brightness(2) invert();
+      }
+    }
+  }
+</style>

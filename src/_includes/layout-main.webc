@@ -1,0 +1,177 @@
+<!doctype html>
+<html
+  lang="en"
+  class="no-js"
+  style="color-scheme: light"
+  :data-page="pageType || page.fileSlug || 'home'"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#9A86BF" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title
+      @text="title || 'Tyler Gaw is a Designer & Engineer in New York City, USA'"
+      webc:keep
+    ></title>
+    <meta
+      property="og:title"
+      :content="title || 'Tyler Gaw is a Designer & Engineer in New York City, USA'"
+    />
+    <meta
+      name="description"
+      :content="meta?.description || 'A personal website. Since 2006'"
+    />
+    <meta
+      property="og:description"
+      :content="meta?.description || 'A personal website. Since 2006'"
+    />
+    <meta
+      property="og:image"
+      :content="`${site.url}${meta?.image || '/images/social-default.png'}`"
+    />
+    <meta property="og:url" :content="`${site.url}${page.url}`" />
+    <meta property="og:type" content="article" />
+
+    <script webc:keep>
+      document.getElementsByTagName("html")[0].classList.replace("no-js", "js");
+      // We set any selected color scheme before anything else to avoid any flash.
+      const COLOR_SCHEME_STORAGE_KEY = "user-color-scheme";
+      document.documentElement.style.colorScheme =
+        localStorage.getItem(COLOR_SCHEME_STORAGE_KEY) || "light";
+    </script>
+
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link
+      rel="alternate"
+      :href="`${site.url}/rss.xml`"
+      type="application/rss+xml"
+      title="An account of the work I do as a designer and engineer"
+    />
+    <link rel="icon" href="/images/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/images/favicon.png" type="image/png" />
+    <link
+      rel="preload"
+      href="/fonts/protogroteskweb-light.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/protogroteskweb-bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="me" href="https://mastodon.social/@tylergaw" />
+    <link rel="stylesheet" href="/css/tylergaw.css" webc:keep />
+    <link
+      rel="stylesheet"
+      href="/css/about.css"
+      webc:keep
+      webc:if="(pageType || page.fileSlug) === 'about'"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/article.css"
+      webc:keep
+      webc:if="pageType === 'blog'"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/work-index.css"
+      webc:keep
+      webc:if="pageType === 'work-index'"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/purpose.css"
+      webc:keep
+      webc:if="(pageType || page.fileSlug) === 'purpose'"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/resume.css"
+      webc:keep
+      webc:if="(pageType || page.fileSlug) === 'resume'"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/art.css"
+      webc:keep
+      webc:if="(pageType || page.fileSlug) === 'art'"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/project-base.css"
+      webc:keep
+      webc:if="pageType?.startsWith('work')"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/streetcred.css"
+      webc:keep
+      webc:if="pageType === 'work-streetcred'"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/limbo.css"
+      webc:keep
+      webc:if="pageType === 'work-limbo'"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/groundwork.css"
+      webc:keep
+      webc:if="pageType === 'work-groundwork'"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/colorme.css"
+      webc:keep
+      webc:if="pageType === 'work-colorme'"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/osx-apps-with-js.css"
+      webc:keep
+      webc:if="pageType === 'work-jxa'"
+    />
+    <style @raw="getBundle('css')" webc:keep></style>
+  </head>
+  <body>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="visually-hidden"
+      aria-hidden="true"
+    >
+      <defs>
+        <filter id="nav-item-warp">
+          <feTurbulence
+            type="turbulence"
+            baseFrequency="0.06"
+            numOctaves="3"
+            seed="4"
+            result="turbulence"
+          />
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="turbulence"
+            scale="4"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+      </defs>
+    </svg>
+
+    <page-header></page-header>
+    <draw-strokes></draw-strokes>
+    <main @raw="content"></main>
+    <page-footer :@year="2026"></page-footer>
+
+    <script @raw="getBundle('js', 'components')" webc:keep></script>
+  </body>
+</html>

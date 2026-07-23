@@ -1,0 +1,67 @@
+<div webc:root="override" class="g-padded">
+  <div class="inner">
+    <div class="contents">
+      <div class="stuff">
+        <header>
+          <p>
+            <span @text="update.data.dateHuman"></span> •
+            <a href="/now" class="all-updates-link">/now</a>
+          </p>
+        </header>
+        <p>
+          <span @text="plainTextPreview(update.content)"></span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style webc:scoped>
+  :host {
+    container: now-widget / inline-size;
+    padding-top: var(--g-gutter);
+    padding-bottom: var(--g-gutter);
+  }
+
+  .inner {
+    background: var(--color-bg) url("/images/now.png") repeat-x left center;
+    background-size: 88px 100%;
+  }
+
+  .contents {
+    background: var(--color-bg);
+    padding: 0 1rem;
+  }
+
+  header {
+    font-family: var(--font-accent);
+    font-weight: 500;
+    padding-bottom: 0.75rem;
+    text-transform: uppercase;
+
+    p {
+      align-items: center;
+      display: flex;
+      line-height: 1;
+      gap: 0.25rem;
+    }
+  }
+
+  p {
+    line-height: 1.5;
+  }
+
+  @container now-widget (min-width: 570px) {
+    .contents {
+      display: flex;
+      column-gap: 0.75rem;
+      flex-wrap: wrap;
+      margin: 0 auto;
+      max-width: 800px;
+    }
+
+    .stuff {
+      flex: 1;
+    }
+  }
+</style>
