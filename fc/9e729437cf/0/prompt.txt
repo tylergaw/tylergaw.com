@@ -1,0 +1,25 @@
+Starting a new session here that I want to try to use the iOS app for remote control. Just testing.
+
+---
+
+We have some existing lighthouse tests, but right now they just run on the home page. Uh, can you tweak it so we can run it on any page and then run it on the books page and give me that report?
+
+---
+
+Interesting! So for a package.json script to take args, it just works? I thought you had to do the dumb "--" thing?
+
+---
+
+wat, you just wrote so many words and produced no meaning. Be more terse god dammit
+
+---
+
+WHY? The -- was not a fucking thing. you just wrote code to write code. DON"T DO THAT
+
+---
+
+And again, don't just start writing code. Tell me what you're planning to write and confirm I want you too when I ask questions and give you commands to run tasks
+
+---
+
+Yes, don't add shit that's not needed
