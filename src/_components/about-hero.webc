@@ -129,12 +129,12 @@
   .invocation {
     align-self: flex-end;
     grid-area: 1 / 1;
-    padding-left: 2rem;
+    padding-left: var(--pl, 1rem);
     z-index: 2;
 
     svg {
       height: auto;
-      transform: translateY(var(--ty, 1.75rem));
+      transform: translateY(var(--ty, -0.75rem));
       width: 87%;
     }
   }
@@ -227,6 +227,10 @@
     .about-hero-img:nth-child(5) {
       --offset-y: 1.2rem;
     }
+
+    .invocation svg {
+      --ty: 0;
+    }
   }
 
   @media (min-width: 620px) {
@@ -244,11 +248,31 @@
     .about-hero-img:nth-child(3) {
       --fmin: 350px;
     }
+
+    .invocation {
+      --pl: 2rem;
+
+      svg {
+        --ty: 1rem;
+      }
+    }
   }
 
   @media (min-width: 990px) {
     .about-hero-img:nth-child(3) {
       --fmin: 500px;
+    }
+
+    .invocation svg {
+      --ty: 1.75rem;
+    }
+  }
+</style>
+
+<style>
+  html[style*="color-scheme: dark"] {
+    .about-hero-img img {
+      filter: brightness(0.7) contrast(1.1);
     }
   }
 </style>
