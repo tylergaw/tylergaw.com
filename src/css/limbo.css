@@ -125,7 +125,7 @@
     }
   }
 
-  @media (min-width: 740px) {
+  @media (min-width: 730px) {
     .limbo__title {
       --pos-bottom: 10%;
       text-align: left;
@@ -143,7 +143,7 @@
     }
   }
 
-  @media (min-width: 73.125em) {
+  @media (min-width: 1170px) {
     .hero--limbo::after {
       bottom: 2.75rem;
     }

@@ -1,6 +1,5 @@
 @layer pages {
   .hero--colorme {
-    color: var(--color-offwhite);
     position: relative;
   }
 
@@ -8,8 +7,8 @@
     background: var(--color-colorme-accent)
       url("/images/work/colorme/colorme-dust.svg") repeat;
     clip-path: polygon(0 0, 100% 0.3rem, 100% 98.5%, 0 100%);
-    height: calc(95% - var(--offset-v));
-    top: calc(var(--gutter) * 3.3);
+    height: 95%;
+    top: 0.5rem;
     width: calc(99% - var(--gutter) * 2);
   }
 
@@ -24,33 +23,19 @@
       0 100%,
       3rem var(--path-point, 62%)
     );
-    height: calc(100% - var(--offset-v));
+    height: 100%;
     left: initial;
     right: var(--gutter);
-    top: calc(var(--gutter) * 3);
+    top: 0;
     transform: rotate(1deg);
     width: calc(var(--width-target, 62%) - var(--gutter) * 2);
-  }
-
-  .hero--colorme a {
-    color: #5c003f;
-  }
-
-  .hero--colorme .banner__logo::after {
-    background-color: #eaaed7;
-  }
-
-  .hero--colorme .banner__nav a:hover,
-  .hero--colorme .banner__nav a:focus,
-  .hero--colorme .nav-work {
-    color: #5c003f;
   }
 
   .colorme__title {
     margin: 0 auto;
     max-width: calc(550 / 16 * 1rem);
-    padding-bottom: 6rem;
-    padding-top: 2rem;
+    padding-bottom: 4.5rem;
+    padding-top: 4.5rem;
     width: 70%;
   }
 
@@ -64,7 +49,7 @@
     --color-link: var(--color-colorme-accent);
   }
 
-  @media (min-width: 38.75em) {
+  @media (min-width: 620px) {
     .hero--colorme::before {
       width: calc(99% - var(--gutter) * 6);
     }

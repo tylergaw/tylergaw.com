@@ -9,8 +9,8 @@ specs:
       "title": "Code used",
       "desc": "React, ServiceWorker, Web manifest, bad bash scripting",
     },
-    { "title": "Continuum", "desc": "The Web" },
-    { "title": "Timeframe", "desc": "2017-Present(ish)" },
+    { "title": "Platform", "desc": "The Web" },
+    { "title": "Timeframe", "desc": "2017-2019" },
     {
       "title": "Repo",
       "desc": "<a href='https://github.com/tylergaw/colorme' target='_blank' rel='noopener noreferrer'>tylergaw/colorme</a>",

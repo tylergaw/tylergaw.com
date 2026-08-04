@@ -187,13 +187,6 @@ transitions when coming to them from a page that does. (or something like that)
     --color-archive-accent: #66fa32;
     --color-archive-accent-dark: #2d8f22;
 
-    --color-about-accent: #c91c33;
-    --color-about-accent-dark: #871222;
-    --color-about-accent-light: #f58998;
-
-    --color-blog-accent: #ff902b;
-    --color-blog-accent-dark: #b35600;
-
     /* Common colors */
     --color-charcoal: #292929;
     --color-mud: #3f3d31;
@@ -254,6 +247,10 @@ transitions when coming to them from a page that does. (or something like that)
 
   [data-page="work-colorme"] {
     --color-accent-primary: var(--color-colorme-accent);
+  }
+
+  [data-page="work-pezzos"] {
+    --color-accent-primary: #02e77c;
   }
 
   html,
@@ -519,7 +516,7 @@ transitions when coming to them from a page that does. (or something like that)
   }
 
   .hero--offset {
-    --offset: -2.25rem;
+    --offset: -0.5rem;
     margin-bottom: var(--offset);
     transform: translateY(var(--offset));
   }
@@ -529,11 +526,21 @@ transitions when coming to them from a page that does. (or something like that)
     z-index: 1;
   }
 
-  @media (min-width: 38.75em) {
+  @media (min-width: 620px) {
     .hero--before-standard::before,
     .hero--after-standard::after {
       left: calc(var(--gutter) * 2);
       width: calc(100% - var(--gutter) * 4);
+    }
+
+    .hero--offset {
+      --offset: -1.25rem;
+    }
+  }
+
+  @media (min-width: 730px) {
+    .hero--offset {
+      --offset: -2.3rem;
     }
   }
 

@@ -60,7 +60,7 @@ jerseySlides:
   ]
 ---
 
-<div class="hero--jxa hero--before-standard">
+<div class="hero--jxa hero--before-standard hero--offset">
   <div class="hero__contents">
     <picture>
       <source srcset="/images/work/jxa/jxa-chip-mini.avif" type="image/avif" />
