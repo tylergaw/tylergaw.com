@@ -3,3 +3,7 @@ OK, do you have CLAUDE.md in context?
 ---
 
 OK, coming back here. Take a look at my current unstaged changes to get an idea of what I'm up to. I have some specific changes I need, but get context first.
+
+---
+
+Cool can you stage and commit the work in #1 first.
