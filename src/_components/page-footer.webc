@@ -22,16 +22,11 @@
       </ul>
       <ul>
         <li>
-          <a href="/bookshelf"
-            >Books<nav-item-stroke seed="13"></nav-item-stroke
-          ></a>
-        </li>
-        <li>
           <a href="/art">Art<nav-item-stroke seed="14"></nav-item-stroke></a>
         </li>
         <li>
-          <a href="https://wax.tylergaw.com"
-            >Records<nav-item-stroke seed="15"></nav-item-stroke
+          <a href="/bookshelf"
+            >Books<nav-item-stroke seed="13"></nav-item-stroke
           ></a>
         </li>
         <li>
@@ -39,6 +34,13 @@
             >Bikes<nav-item-stroke seed="16"></nav-item-stroke
           ></a>
         </li>
+
+        <li>
+          <a href="https://wax.tylergaw.com"
+            >Records<nav-item-stroke seed="15"></nav-item-stroke
+          ></a>
+        </li>
+
         <li hidden>
           <a href="/resume"
             >Resume<nav-item-stroke seed="17"></nav-item-stroke
