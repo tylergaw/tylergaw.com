@@ -1,0 +1,13 @@
+We're doing some work on my site update today, just pull in claude.md and latest commits for context.
+
+---
+
+Detect this project's dev servers, write them to .claude/launch.json, then call preview_start.
+
+---
+
+Question not about my site, but about how Claude works. I'm typing this on the Claude Code macOS desktop app. I want to send messages to this session from my iPhone via the Claude app their. But it doesn't see this as a session. How do I fix that?
+
+---
+
+This session still up and going? Can you give some details about context that you have?
