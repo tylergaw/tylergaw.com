@@ -37,16 +37,12 @@
     padding-bottom: 4.5rem;
     padding-top: 4.5rem;
     width: 70%;
-  }
 
-  .colorme__title img {
-    display: block;
-    height: auto;
-    width: 100%;
-  }
-
-  .project--colorme {
-    --color-link: var(--color-colorme-accent);
+    img {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
   }
 
   @media (min-width: 620px) {

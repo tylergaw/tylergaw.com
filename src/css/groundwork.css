@@ -5,7 +5,7 @@
   }
 
   .hero--groundwork::before {
-    background: var(--color-groundwork-accent)
+    background: var(--color-accent-primary)
       url("/images/work/thegroundwork/gw-dust.svg") repeat;
     clip-path: polygon(
       0 0,
@@ -76,20 +76,6 @@
     height: 70%;
   }
 
-  .hero--groundwork a {
-    color: var(--color-groundwork-accent-dark);
-  }
-
-  .hero--groundwork .banner__logo::after {
-    background-color: var(--color-groundwork-accent-light);
-  }
-
-  .hero--groundwork .banner__nav a:hover,
-  .hero--groundwork .banner__nav a:focus,
-  .hero--groundwork .nav-work {
-    color: var(--color-groundwork-accent-light);
-  }
-
   .groundwork__title {
     margin: 0 auto;
     max-width: calc(750 / 16 * 1rem);
@@ -98,12 +84,12 @@
     position: relative;
     width: 72%;
     view-transition-name: gw-title;
-  }
 
-  .groundwork__title img {
-    display: block;
-    height: auto;
-    width: 100%;
+    img {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
   }
 
   .groundwork__mark {
@@ -113,10 +99,6 @@
     margin: 0 auto 0.75rem auto;
     max-width: calc(var(--width-max, 130) / 16 * 1rem);
     view-transition-name: gw-mark;
-  }
-
-  .project--groundwork {
-    --color-link: var(--color-groundwork-accent);
   }
 
   ::view-transition-old(gw-title),
@@ -160,7 +142,7 @@
     }
   }
 
-  @media (min-width: 38.75em) {
+  @media (min-width: 620px) {
     .groundwork__title {
       padding-top: min(5vw, 4rem);
       padding-bottom: min(19vw, 17rem);
@@ -173,7 +155,7 @@
     }
   }
 
-  @media (min-width: 106.25em) {
+  @media (min-width: 1700px) {
     .groundwork__mark {
       --width-max: 220;
     }

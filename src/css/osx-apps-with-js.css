@@ -7,41 +7,66 @@
   .hero--jxa::before {
     background: var(--color-jxa-accent) url("/images/work/jxa/jxa-dust.svg")
       repeat;
-    height: calc(var(--height-target, 85%) - var(--offset-v));
+    height: 100%;
   }
 
   .hero--jxa .hero__contents {
-    padding-top: 1rem;
-  }
-
-  .jxa__graphic,
-  .jxa__title {
+    padding: var(--pt, 0.5rem) 0 var(--pb, 0.5rem) 0;
     margin: 0 auto;
-    max-width: 38.75rem;
-    width: 96%;
+    max-width: var(--g-max-3);
+    width: 98%;
   }
 
   .jxa__graphic {
     display: block;
     height: auto;
+    margin-bottom: -4rem;
     transform-origin: bottom center;
     view-transition-name: jxa-graphic;
-  }
-
-  .jxa__title {
-    --offset: -5rem;
-    margin-bottom: calc(var(--offset) + 0.5rem);
-    transform: translateY(var(--offset));
-    view-transition-name: jxa-title;
-  }
-
-  .jxa__title img {
-    height: auto;
     width: 100%;
   }
 
-  .project--jxa {
-    --color-link: var(--color-jxa-accent-light);
+  .jxa__title {
+    margin: 0;
+    view-transition-name: jxa-title;
+
+    img {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 680px) {
+    .hero--jxa::before {
+      height: 95%;
+    }
+
+    .hero--jxa .hero__contents {
+      --pb: 0;
+      display: grid;
+      max-width: initial;
+
+      picture {
+        grid-area: 1 / 1;
+      }
+    }
+
+    .jxa__graphic {
+      margin-bottom: 0;
+      width: 60%;
+    }
+
+    .jxa__title {
+      display: flex;
+      grid-area: 1 / 1;
+
+      img {
+        align-self: flex-end;
+        margin-left: auto;
+        width: 60%;
+      }
+    }
   }
 
   ::view-transition-old(jxa-title),
@@ -112,33 +137,8 @@
   }
 
   @media (min-width: 1040px) {
-    .hero--jxa::before {
-      --height-target: 100%;
-    }
-
     .hero--jxa .hero__contents {
-      transform: translateY(-4rem);
-      margin: 0 auto;
       max-width: calc(1070 / 16 * 1rem);
-      width: 98%;
-    }
-
-    .jxa__graphic {
-      max-width: 44rem;
-      position: absolute;
-      transform: translateY(-2.5rem) translateX(-3rem);
-      width: auto;
-    }
-
-    .jxa__title {
-      --offset: 0;
-      margin: 0 0 0 auto;
-      transform: translateY(7rem);
-      width: auto;
-    }
-
-    .project--jxa .project__intro__main {
-      --padding-top-rows: 12;
     }
 
     ::view-transition-new(jxa-title) {
@@ -149,6 +149,12 @@
     ::view-transition-new(jxa-graphic) {
       animation-name: jxaGraphicLarge;
       animation-duration: 0.7s;
+    }
+  }
+
+  @media (min-width: 1240px) {
+    .hero--jxa .hero__contents {
+      transform: translateX(-4rem);
     }
   }
 }

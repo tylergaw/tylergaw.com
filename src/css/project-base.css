@@ -3,10 +3,6 @@
     padding-bottom: calc(var(--g-row) * 10);
   }
 
-  .project a {
-    color: var(--color-link, var(--color-accent-primary));
-  }
-
   .project__link {
     display: inline-block;
     text-decoration: none;

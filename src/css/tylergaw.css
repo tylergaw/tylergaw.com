@@ -182,7 +182,7 @@ transitions when coming to them from a page that does. (or something like that)
     --color-groundwork-accent-light: #a4bff4;
 
     --color-jxa-accent: #151414;
-    --color-jxa-accent-light: #5b5757;
+    --color-jxa-accent-dark: color-mix(in srgb, #151414 45%, white);
 
     --color-archive-accent: #66fa32;
     --color-archive-accent-dark: #2d8f22;
@@ -241,7 +241,7 @@ transitions when coming to them from a page that does. (or something like that)
   [data-page="work-jxa"] {
     --color-accent-primary: light-dark(
       var(--color-jxa-accent),
-      var(--color-jxa-accent-light)
+      var(--color-jxa-accent-dark)
     );
   }
 
