@@ -498,16 +498,12 @@ transitions when coming to them from a page that does. (or something like that)
 
   .hero--before-standard::before,
   .hero--after-standard::after {
-    content: "";
-    display: block;
-    position: absolute;
-  }
-
-  .hero--before-standard::before,
-  .hero--after-standard::after {
     --gutter: 1rem;
     --offset-v: calc(var(--gutter) * 3);
+    content: "";
+    display: block;
     left: var(--gutter);
+    position: absolute;
     width: calc(100% - var(--gutter) * 2);
   }
 
@@ -540,7 +536,7 @@ transitions when coming to them from a page that does. (or something like that)
 
   @media (min-width: 730px) {
     .hero--offset {
-      --offset: -2.3rem;
+      --offset: -2.5rem;
     }
   }
 
