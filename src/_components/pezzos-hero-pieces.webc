@@ -1,0 +1,107 @@
+<script webc:setup>
+  const imgBase = "https://stuff.tylergaw.com/projects/pezzos/pieces-grid";
+  const pieces = Array.from({ length: 56 }, (_, i) =>
+    String(i + 1).padStart(3, "0"),
+  );
+</script>
+
+<div class="pieces" aria-hidden="true">
+  <img
+    webc:for="piece of pieces"
+    :src="`${imgBase}/${piece}.webp`"
+    alt=""
+    width="116"
+    height="116"
+    decoding="async"
+  />
+</div>
+
+<style webc:scoped>
+  :host {
+    --piece-size: 116px;
+    --col-gap: 50px;
+    --row-gap: 56px;
+    display: block;
+  }
+
+  .pieces {
+    --radius: 420;
+    column-gap: var(--col-gap);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--piece-size), 1fr));
+    position: relative;
+    row-gap: var(--row-gap);
+  }
+
+  img {
+    --d: hypot(var(--x) - var(--mx), var(--y) - var(--my));
+    --t: clamp(0, 1 - var(--d) / var(--radius), 1);
+    --s: 0.15;
+    --r: -6deg;
+    display: block;
+    height: auto;
+    position: relative;
+    rotate: calc(var(--t) * var(--r));
+    scale: calc(1 + var(--t) * var(--s));
+    transition:
+      rotate 0.15s ease-out,
+      scale 0.15s ease-out;
+    width: 100%;
+    z-index: calc(var(--t) * 10);
+  }
+
+  img:nth-child(even) {
+    --s: 0.3;
+    --r: 4deg;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    img {
+      rotate: none;
+      scale: none;
+    }
+  }
+</style>
+
+<script webc:bucket="components">
+  (function () {
+    var host = document.querySelector("pezzos-hero-pieces");
+    if (!host) return;
+
+    var grid = host.querySelector(".pieces");
+    if (!grid) return;
+
+    // The host wraps the grid tightly, so go one up for a roomier hit area.
+    var field = host.parentElement || host;
+    var pieces = grid.querySelectorAll("img");
+    var frame;
+
+    function measure() {
+      pieces.forEach(function (el) {
+        el.style.setProperty("--x", el.offsetLeft + el.offsetWidth / 2);
+        el.style.setProperty("--y", el.offsetTop + el.offsetHeight / 2);
+      });
+    }
+
+    function track(event) {
+      if (frame) return;
+      frame = requestAnimationFrame(function () {
+        frame = null;
+        // Always relative to the grid, since --x/--y are offsets within it.
+        var bounds = grid.getBoundingClientRect();
+        field.style.setProperty("--mx", event.clientX - bounds.left);
+        field.style.setProperty("--my", event.clientY - bounds.top);
+      });
+    }
+
+    function reset() {
+      field.style.setProperty("--mx", -9999);
+      field.style.setProperty("--my", -9999);
+    }
+
+    measure();
+    new ResizeObserver(measure).observe(grid);
+    field.addEventListener("pointermove", track);
+    field.addEventListener("pointerleave", reset);
+  })();
+</script>

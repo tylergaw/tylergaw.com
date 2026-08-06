@@ -3,3 +3,5 @@ layout: layout-main.webc
 title: Pezzos, pieced together by Tyler Gaw
 pageType: work-pezzos
 ---
+
+<pezzos-hero></pezzos-hero>
