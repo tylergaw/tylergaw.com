@@ -1,0 +1,34 @@
+{
+  "cli_version": "0.8.42",
+  "checkpoint_id": "6304576b1d93",
+  "strategy": "manual-commit",
+  "branch": "version-xx",
+  "checkpoints_count": 77,
+  "files_touched": [
+    "src/_components/pezzos-hero.webc",
+    "src/_components/rokt-hero.webc",
+    "src/_components/summer-hero.webc",
+    "src/_components/the-distance-hero.webc",
+    "src/_components/work-nav.webc",
+    "src/css/tylergaw.css",
+    "src/work/rokt.webc",
+    "src/work/summer.webc",
+    "src/work/the-distance.webc"
+  ],
+  "sessions": [
+    {
+      "metadata": "/63/04576b1d93/0/metadata.json",
+      "transcript": "/63/04576b1d93/0/full.jsonl",
+      "compact_transcript": "/63/04576b1d93/0/transcript.jsonl",
+      "content_hash": "/63/04576b1d93/0/content_hash.txt",
+      "prompt": "/63/04576b1d93/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 668,
+    "cache_creation_tokens": 2527244,
+    "cache_read_tokens": 82799129,
+    "output_tokens": 201785,
+    "api_call_count": 354
+  }
+}
