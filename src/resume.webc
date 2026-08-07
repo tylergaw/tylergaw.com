@@ -5,18 +5,18 @@ jobs:
   [
     {
       "title": "Founder",
-      "org": "<a href='https://latchbolt.tech' target='_blank' rel='noopener noreferrer'>Latchbolt</a>",
+      "org": "<a href='https://latchbolt.tech' target='_blank'>Latchbolt</a>",
       "timeline": "August 2025 - Present",
     },
     {
       "title": "Founding Engineer",
-      "org": "<a href='https://summer.io' target='_blank' rel='noopener noreferrer'>Summer</a>",
+      "org": "<a href='https://summer.io' target='_blank'>Summer</a>",
       "timeline": "November 2023 - July 2025",
       "details": ["Building something"],
     },
     {
       "title": "Director of Engineering",
-      "org": "<a href='https://rokt.com' target='_blank' rel='noopener noreferrer'>Rokt</a>",
+      "org": "<a href='https://rokt.com' target='_blank'>Rokt</a>",
       "timeline": "February 2021 – April 2023",
       "details":
         [
@@ -73,7 +73,7 @@ jobs:
     },
     {
       "title": "Designer & Engineer",
-      "org": "<a href='https://longform.org' target='_blank' rel='noopener noreferrer'>Longform (freelance)</a>",
+      "org": "<a href='https://longform.org' target='_blank'>Longform (freelance)</a>",
       "timeline": "March 2014 – September 2014",
       "details":
         [

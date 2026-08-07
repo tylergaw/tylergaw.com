@@ -4,8 +4,7 @@
   }
 
   .hero--colorme::before {
-    background: var(--color-colorme-accent)
-      url("/images/work/colorme/colorme-dust.svg") repeat;
+    background-color: var(--color-colorme-accent);
     clip-path: polygon(0 0, 100% 0.3rem, 100% 98.5%, 0 100%);
     height: 95%;
     top: 0.5rem;
@@ -13,8 +12,7 @@
   }
 
   .hero--colorme::after {
-    background: var(--color-colorme-accent-dark)
-      url("/images/work/colorme/colorme-dust.svg") repeat;
+    background-color: var(--color-colorme-accent-dark);
     border-radius: 6px;
     clip-path: polygon(
       0 0,

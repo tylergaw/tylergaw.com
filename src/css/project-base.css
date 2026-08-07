@@ -4,29 +4,20 @@
   }
 
   .project__link {
+    font-family: var(--font-accent);
     display: inline-block;
+    margin-bottom: 1rem;
+    padding-bottom: 0.25rem;
     text-decoration: none;
     text-transform: uppercase;
-  }
 
-  a.project__link::after {
-    background-color: currentColor;
-    border-radius: 2px;
-    content: "";
-    display: block;
-    height: 2px;
-    margin-top: 0.2rem;
-    opacity: 0.4;
-    width: 100%;
-  }
+    &:is(a) {
+      border-bottom: 1px solid currentColor;
+    }
 
-  a.project__link:hover::after,
-  a.project__link:focus::after {
-    opacity: 1;
-  }
-
-  span.project__link {
-    opacity: 0.7;
+    &:is(span) {
+      opacity: 0.7;
+    }
   }
 
   .project__intro__main {
@@ -35,10 +26,13 @@
   }
 
   .project__intro__opening {
-    font-size: var(--font-size-44);
-    line-height: 1.15;
-    margin-bottom: 0;
-    margin-top: calc(10 / 16 * 1rem);
+    font-family: var(--font-proto-light);
+    font-size: var(--font-size-46);
+    font-weight: 300;
+    letter-spacing: -0.035em;
+    line-height: 1;
+    margin: 0;
+    text-wrap: balance;
   }
 
   .project__intro__body {
@@ -53,40 +47,11 @@
     margin-top: calc(var(--g-row) * 6);
   }
 
-  .project__specs {
-    max-width: calc(1040 / 16 * 1rem);
-    padding-top: calc(var(--g-row) * 6);
-  }
-
-  .project__specs ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .project__specs li {
-    width: 100%;
-  }
-
-  .spec__title {
-    font-size: var(--font-size-16);
-    margin-bottom: 0;
-  }
-
-  .spec__desc {
-    font-size: var(--font-size-18);
-    line-height: 1.33;
-    margin-top: calc(8 / 16 * 1rem);
-    max-width: 20ch;
-  }
-
   .project__body--initial {
     padding-top: calc(var(--g-row) * 6);
   }
 
-  .project__body p,
-  .project__body ul,
-  .project__body ol {
+  .project__body :where(p, ul, ol) {
     font-size: var(--font-size-20);
   }
 
@@ -232,10 +197,6 @@
       --col-end: -1;
     }
 
-    .project__specs li {
-      width: calc(33% - 1rem);
-    }
-
     .figure--browser {
       --toolbar-height: 40;
       --stoplight-size: auto;
@@ -279,7 +240,7 @@
     }
   }
 
-  @media (min-width: 137.5em) {
+  @media (min-width: 2200px) {
     .project__intro,
     .project__body,
     .project__graphics {

@@ -275,6 +275,7 @@ transitions when coming to them from a page that does. (or something like that)
     --g-max-8: calc(var(--g-col) * 8 + var(--g-gutter) * 7);
     --g-max-9: calc(var(--g-col) * 9 + var(--g-gutter) * 8);
     --g-max-10: calc(var(--g-col) * 10 + var(--g-gutter) * 9);
+    --g-max-11: calc(var(--g-col) * 11 + var(--g-gutter) * 10);
   }
 
   .g-main {
@@ -408,6 +409,7 @@ transitions when coming to them from a page that does. (or something like that)
     --font-size-34: calc(34 / 16 * 1rem);
     --font-size-36: calc(36 / 16 * 1rem);
     --font-size-44: calc(44 / 16 * 1rem);
+    --font-size-46: calc(46 / 16 * 1rem);
 
     font-family: var(--font-proto-light);
     font-size: 100%;
@@ -416,8 +418,7 @@ transitions when coming to them from a page that does. (or something like that)
   }
 
   b,
-  strong,
-  .font--regular {
+  strong {
     font-family: var(--font-proto-regular);
     font-weight: normal;
   }

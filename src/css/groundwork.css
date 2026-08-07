@@ -5,8 +5,7 @@
   }
 
   .hero--groundwork::before {
-    background: var(--color-accent-primary)
-      url("/images/work/thegroundwork/gw-dust.svg") repeat;
+    background-color: var(--color-accent-primary);
     clip-path: polygon(
       0 0,
       100% 0,

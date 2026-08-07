@@ -5,8 +5,7 @@
   }
 
   .hero--jxa::before {
-    background: var(--color-jxa-accent) url("/images/work/jxa/jxa-dust.svg")
-      repeat;
+    background-color: var(--color-jxa-accent);
     height: 100%;
   }
 

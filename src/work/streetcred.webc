@@ -9,14 +9,14 @@ specs:
       "desc": "Product, mobile, design, front-end, linchpin",
     },
     {
-      "title": "Code used",
+      "title": "Tech",
       "desc": "React, React Native, TypeScript, HTML, CSS, Mapbox GLJS",
     },
     { "title": "Platforms", "desc": "iOS, Android, The Web" },
-    { "title": "Timeframe", "desc": "2018-2020" },
+    { "title": "Timeframe", "desc": "2018–2020" },
     {
       "title": "Status",
-      "desc": "<a href='https://techcrunch.com/2021/01/11/snap-acquires-streetcred/' target='_blank' rel='noopener noreferrer'>Acquired by Snap in 2020</a>",
+      "desc": "<a href='https://techcrunch.com/2021/01/11/snap-acquires-streetcred/' target='_blank'>Acquired by Snap in 2020</a>",
     },
   ]
 introScreens:
@@ -146,14 +146,13 @@ addScreens:
     <div class="project__intro__main">
       <a
         href="https://techcrunch.com/2021/01/11/snap-acquires-streetcred"
-        class="project__link font--regular"
+        class="project__link"
         target="_blank"
-        rel="noopener noreferrer"
       >
-        acquired
+        Acquired
       </a>
-      <h2 class="project__intro__opening font--regular">
-        Can we map every place in the world?
+      <h2 class="project__intro__opening">
+        Can We Map Every Place in the World?
       </h2>
       <p class="project__intro__body">
         What’s a place? What isn’t? Let’s ask that another way. Who cares?
@@ -180,7 +179,7 @@ addScreens:
       </div>
     </div>
 
-    <project-specs :specs="specs"></project-specs>
+    <project-specs :@specs="specs"></project-specs>
   </div>
 
   <div class="g-main__item streetcred__intro-graphics">

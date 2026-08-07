@@ -8,10 +8,10 @@ specs:
       "title": "Hats worn",
       "desc": "Leadership, product, writing, design, front-end",
     },
-    { "title": "Code used", "desc": "HTML, CSS, JavaScript, React, Python" },
-    { "title": "Continuum", "desc": "The Web" },
-    { "title": "Timeframe", "desc": "2014-2017" },
-    { "title": "Status", "desc": "Disbanded in 2018 and missed dearly." },
+    { "title": "Tech", "desc": "HTML, CSS, JavaScript, React, Python" },
+    { "title": "Platform", "desc": "The Web" },
+    { "title": "Timeframe", "desc": "2014–2017" },
+    { "title": "Status", "desc": "Disbanded in 2018 and missed dearly" },
   ]
 paymentblockImgs:
   [
@@ -47,10 +47,8 @@ paymentblockImgs:
 <div class="g-main g-padded project project--groundwork">
   <div class="g-main__item project__intro">
     <div class="project__intro__main">
-      <span class="project__link font--regular"> URL lost to time* </span>
-      <h2 class="project__intro__opening font--regular">
-        Can we help elect the President?
-      </h2>
+      <span class="project__link">URL lost to time<sup>*</sup></span>
+      <h2 class="project__intro__opening">Can We Help Elect the President?</h2>
       <p class="project__intro__body">
         We had one goal; help make Hillary Clinton the 45<sup>th</sup> President
         of the United States of America. You know how that ended. What you might
@@ -67,7 +65,7 @@ paymentblockImgs:
       </p>
     </div>
 
-    <project-specs :specs="specs"></project-specs>
+    <project-specs :@specs="specs"></project-specs>
   </div>
 
   <div class="g-main__item project__body project__body--initial">
@@ -238,7 +236,6 @@ paymentblockImgs:
         <a
           href="https://qz.com/520652/groundwork-eric-schmidt-startup-working-for-hillary-clinton-campaign/"
           target="_blank"
-          rel="noopener noreferrer"
         >
           The stealthy, Eric Schmidt-backed startup that’s working to put
           Hillary Clinton in the White House
@@ -248,7 +245,6 @@ paymentblockImgs:
         <a
           href="https://twitter.com/benjaminws/status/825069468258807808"
           target="_blank"
-          rel="noopener noreferrer"
         >
           We made racists mad
         </a>

@@ -5,10 +5,10 @@ pageType: work-limbo
 specs:
   [
     { "title": "Hats worn", "desc": "Co-founder, product, design, front-end" },
-    { "title": "Code used", "desc": "HTML, CSS, JavaScript, Python/Django" },
+    { "title": "Tech", "desc": "HTML, CSS, JavaScript, Python/Django" },
     { "title": "Platform", "desc": "The Web" },
-    { "title": "Timeframe", "desc": "2017-2019" },
-    { "title": "Status", "desc": "We shut down in 2019" },
+    { "title": "Timeframe", "desc": "2017–2019" },
+    { "title": "Status", "desc": "Shuttered in 2019" },
   ]
 ---
 
@@ -34,17 +34,10 @@ specs:
 <div class="g-main g-padded project project--limbo">
   <div class="g-main__item project__intro">
     <div class="project__intro__main">
-      <a
-        href="https://www.limbo.io"
-        class="project__link font--regular"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a href="https://www.limbo.io" class="project__link" target="_blank">
         limbo.io
       </a>
-      <h2 class="project__intro__opening font--regular">
-        Can we make hiring more humane?
-      </h2>
+      <h2 class="project__intro__opening">Can We Make Hiring More Humane?</h2>
       <p class="project__intro__body">
         Limbo was an anonymous job platform. We made it to make tech recruiting
         more humane. Chris came to me with the idea and an early prototype and
@@ -58,7 +51,7 @@ specs:
       </p>
     </div>
 
-    <project-specs :specs="specs"></project-specs>
+    <project-specs :@specs="specs"></project-specs>
   </div>
 
   <div class="g-main__item project__graphics">

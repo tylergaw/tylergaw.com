@@ -6,8 +6,7 @@
 
   .hero--limbo::before,
   .hero--limbo::after {
-    background: var(--color-accent-primary)
-      url("/images/work/limbo/limbo-dust.svg") repeat;
+    background-color: var(--color-accent-primary);
   }
 
   .hero--limbo::before {

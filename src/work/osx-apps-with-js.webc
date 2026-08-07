@@ -8,12 +8,12 @@ specs:
       "title": "Hats worn",
       "desc": "Research, development, design, writing, speaking",
     },
-    { "title": "Code used", "desc": "JavaScript, Objective-C, Cocoa" },
+    { "title": "Tech", "desc": "JavaScript, Objective-C, Cocoa" },
     { "title": "Platform", "desc": "Mac OS X" },
-    { "title": "Timeframe", "desc": "2014, 2015" },
+    { "title": "Timeframe", "desc": "2014–2015" },
     {
       "title": "Repo",
-      "desc": "<a href='https://github.com/tylergaw/js-osx-app-examples' target='_blank' rel='noopener noreferrer'>tylergaw/js-osx-app-examples</a>",
+      "desc": "<a href='https://github.com/tylergaw/js-osx-app-examples' target='_blank'>tylergaw/js-osx-app-examples</a>",
     },
   ]
 midwestSlides:
@@ -88,15 +88,10 @@ jerseySlides:
 <div class="g-main g-padded project project--jxa">
   <div class="g-main__item project__intro">
     <div class="project__intro__main">
-      <a
-        href="/blog/building-osx-apps-with-js/"
-        class="project__link font--regular"
-      >
+      <a href="/blog/building-osx-apps-with-js/" class="project__link">
         The Blog Post
       </a>
-      <h2 class="project__intro__opening font--regular">
-        Could this be a new way to build?
-      </h2>
+      <h2 class="project__intro__opening">Could This Be a New Way to Build?</h2>
       <p class="project__intro__body">
         This is what happens when I get excited about something. At WWDC in
         2014, Apple announced that JavaScript would be supported as a native
@@ -106,7 +101,7 @@ jerseySlides:
       </p>
     </div>
 
-    <project-specs :specs="specs"></project-specs>
+    <project-specs :@specs="specs"></project-specs>
   </div>
 
   <div class="g-main__item project__body project__body--initial">
@@ -142,10 +137,7 @@ jerseySlides:
       rejected over the years, but this one made it in. As I was developing this
       talk, I started a small UI library project. I never did anything with it
       after the talk, but I called it
-      <a
-        href="https://github.com/tylergaw/starstuff"
-        target="_black"
-        rel="noopener noreferrer"
+      <a href="https://github.com/tylergaw/starstuff" target="_blank"
         >Starstuff</a
       >
       and it’s still available on GitHub. Maybe I’ll have a reason to revive it
@@ -153,13 +145,9 @@ jerseySlides:
     </p>
     <p>
       There’s a video of the talk on
-      <a
-        href="https://www.youtube.com/watch?v=UcU2VqRs6DA"
-        target="_black"
-        rel="noopener noreferrer"
+      <a href="https://www.youtube.com/watch?v=UcU2VqRs6DA" target="_blank"
         >YouTube</a
-      >. I’ve been told it’s good, but still can’t bring myself to hear my own
-      voice so I’ve never seen it.
+      >.
     </p>
   </div>
 
@@ -189,8 +177,7 @@ jerseySlides:
         deck is available on
         <a
           href="https://speakerdeck.com/tylergaw/building-os-x-apps-with-javascript-1"
-          target="_black"
-          rel="noopener noreferrer"
+          target="_blank"
           >Speaker Deck</a
         >.
       </figcaption>
@@ -202,8 +189,7 @@ jerseySlides:
       In the early days of Jenn’s
       <a
         href="https://twitter.com/jerseyscriptusa/status/532337129050099712"
-        target="_black"
-        rel="noopener noreferrer"
+        target="_blank"
         >EXTREMELY CHILL social gathering</a
       >, she invited folks to give short talks. I used this as a wonderful
       excuse to make Springsteen-themed slides. Something I hope to get to do
@@ -237,8 +223,7 @@ jerseySlides:
         deck is available on
         <a
           href="https://speakerdeck.com/tylergaw/building-os-x-apps-with-javascript"
-          target="_black"
-          rel="noopener noreferrer"
+          target="_blank"
           >Speaker Deck</a
         >.
       </figcaption>

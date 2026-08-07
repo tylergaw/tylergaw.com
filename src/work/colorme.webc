@@ -6,14 +6,14 @@ specs:
   [
     { "title": "Hats worn", "desc": "Research, design, front-end" },
     {
-      "title": "Code used",
+      "title": "Tech",
       "desc": "React, ServiceWorker, Web manifest, bad bash scripting",
     },
     { "title": "Platform", "desc": "The Web" },
-    { "title": "Timeframe", "desc": "2017-2019" },
+    { "title": "Timeframe", "desc": "2017–2019" },
     {
       "title": "Repo",
-      "desc": "<a href='https://github.com/tylergaw/colorme' target='_blank' rel='noopener noreferrer'>tylergaw/colorme</a>",
+      "desc": "<a href='https://github.com/tylergaw/colorme' target='_blank'>tylergaw/colorme</a>",
     },
   ]
 ---
@@ -31,17 +31,10 @@ specs:
 <div class="g-main g-padded project project--colorme">
   <div class="g-main__item project__intro">
     <div class="project__intro__main">
-      <a
-        href="https://colorme.io"
-        class="project__link font--regular"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a href="https://colorme.io" class="project__link" target="_blank">
         colorme.io
       </a>
-      <h2 class="project__intro__opening font--regular">
-        Can we really do this with CSS?
-      </h2>
+      <h2 class="project__intro__opening">Can We Really Do This With CSS?</h2>
       <p class="project__intro__body">
         ColorMe was originally a tool to visualize a previous version of CSS
         color manipulation functions. Today, it’s just a fun little color
@@ -55,7 +48,7 @@ specs:
       </p>
     </div>
 
-    <project-specs :specs="specs"></project-specs>
+    <project-specs :@specs="specs"></project-specs>
   </div>
 
   <div class="g-main__item project__graphics">
@@ -123,17 +116,12 @@ specs:
         <a
           href="https://css-tricks.com/colorme-css-color-level-4"
           target="_blank"
-          rel="noopener noreferrer"
         >
           Got a nod from CSS Tricks
         </a>
       </li>
       <li>
-        <a
-          href="https://sidebar.io/date/2017-01-10"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://sidebar.io/date/2017-01-10" target="_blank">
           Sidebar.io January 9, 2017
         </a>
       </li>
@@ -141,7 +129,6 @@ specs:
         <a
           href="https://tympanus.net/codrops/collective/collective-278"
           target="_blank"
-          rel="noopener noreferrer"
         >
           Codrops #278 January 7, 2017
         </a>
@@ -150,7 +137,6 @@ specs:
         <a
           href=" https://news.ycombinator.com/item?id=13331968"
           target="_blank"
-          rel="noopener noreferrer"
         >
           Hacker News front paged 🤔
         </a>
