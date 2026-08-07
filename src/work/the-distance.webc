@@ -2,4 +2,41 @@
 layout: layout-main.webc
 title: The Distance as told by Tyler Gaw
 pageType: work-thedistance
+specs:
+  [
+    { "title": "Hats worn", "desc": "Product, design, front-end, back-end" },
+    {
+      "title": "Tech",
+      "desc": "Python, Postgres, Eleventy/WebC, AT Protocol, Render",
+    },
+    { "title": "Platform", "desc": "The Web" },
+    { "title": "Timeframe", "desc": "2025–Present" },
+    {
+      "title": "Repo",
+      "desc": "<a href='https://github.com/latchbolt/thedistance.app' target='_blank'>latchbolt/thedistance.app</a>",
+    },
+  ]
 ---
+
+<the-distance-hero></the-distance-hero>
+
+<div class="g-main g-padded project project--thedistance">
+  <div class="g-main__item project__intro">
+    <div class="project__intro__main">
+      <a href="https://thedistance.app" class="project__link" target="_blank">
+        thedistance.app
+      </a>
+      <h2 class="project__intro__opening">Who Owns Your Miles?</h2>
+      <p class="project__intro__body">
+        Ride data has a way of getting stuck. Log a few thousand miles in one
+        app and that’s where they stay. The Distance puts activities on the
+        Atmosphere instead, the same open network as Bluesky. Same maps and
+        stats. Eventually. Your data goes where you go.
+      </p>
+    </div>
+
+    <project-specs :@specs="specs"></project-specs>
+  </div>
+</div>
+
+<work-nav @project="thedistance"></work-nav>

@@ -1,0 +1,51 @@
+<div class="hero hero--before-standard hero--offset">
+  <div class="contents hero__contents">
+    <div class="logo">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 295 83"
+        role="img"
+        aria-labelledby="title-rokt-hero"
+      >
+        <title id="title-rokt-hero">Rokt</title>
+        <path
+        d="M43.994 26.517c0-6.905-3.424-10.53-11.63-10.53H21.866v21.176h10.484c8.223 0 11.643-3.51 11.643-10.646m22.911.231c0 8.49-4.237 14.38-12.188 18.926L72.27 80.776H47.695L33.667 51.671h-11.8v29.097H0V1.492h35.784c21.425 0 31.121 10.307 31.121 25.256M229.576 1.676l-8.541 16.762h27.924V80.94h22V18.438H295V1.676zM210.419 1.59h11.966l-47.077 38.607V26.763z"
+        />
+        <path d="M210.296 1.59h12.501l-18.154 35.403-19.804 8.99z" />
+        <path
+        d="m184.798 45.982 19.804-8.99 21.579 43.712h-24.677zM175.713 1.652h-21.888v79.152h21.888z"
+        />
+        <path
+        fill-rule="evenodd"
+        d="M109.769 0c-11.288 0-20.406 3.717-27.23 11.1-6.825 7.384-10.257 17.324-10.257 30.118v.227q0 19.201 10.256 30.237c6.845 7.359 15.955 10.984 27.231 10.984s20.399-3.625 27.124-10.984q10.257-11.043 10.257-30.237v-.227c0-12.802-3.421-22.75-10.257-30.118C130.168 3.737 121.054 0 109.769 0m-.107 16.105c-4.604 0-8.326 2.334-11.115 6.938-2.79 4.605-4.188 10.824-4.188 18.823v.14q0 12.005 4.188 18.902c2.793 4.6 6.511 6.863 11.115 6.863s8.326-2.263 11.07-6.863 4.188-10.903 4.188-18.902v-.14c0-8-1.395-14.218-4.188-18.823-2.794-4.604-6.445-6.921-11.07-6.921z"
+        clip-rule="evenodd"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+
+<style webc:scoped>
+  .hero::before {
+    background-color: var(--color-accent-primary);
+  }
+
+  .contents {
+    color: var(--color-offwhite);
+    display: flex;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+  }
+
+  .logo {
+    max-width: var(--g-max-5);
+    width: 100%;
+
+    svg {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
+  }
+</style>

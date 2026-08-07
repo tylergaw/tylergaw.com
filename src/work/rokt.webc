@@ -2,4 +2,33 @@
 layout: layout-main.webc
 title: Rokt from the foggy memory of Tyler Gaw
 pageType: work-rokt
+specs:
+  [
+    { "title": "Hats worn", "desc": "Leadership, engineering management, design management, hiring" },
+    { "title": "Tech", "desc": "FIXME: tech" },
+    { "title": "Platform", "desc": "The Web" },
+    { "title": "Timeframe", "desc": "2021–2023" },
+    { "title": "Status", "desc": "FIXME: status" },
+  ]
 ---
+
+<rokt-hero></rokt-hero>
+
+<div class="g-main g-padded project project--rokt">
+  <div class="g-main__item project__intro">
+    <div class="project__intro__main">
+      <a href="https://rokt.com" class="project__link" target="_blank">
+        rokt.com
+      </a>
+      <h2 class="project__intro__opening">FIXME: A Question About Rokt?</h2>
+      <p class="project__intro__body">
+        FIXME: Intro copy goes here. Aim for 40–55 words to match the other
+        project pages.
+      </p>
+    </div>
+
+    <project-specs :@specs="specs"></project-specs>
+  </div>
+</div>
+
+<work-nav @project="rokt"></work-nav>

@@ -253,6 +253,18 @@ transitions when coming to them from a page that does. (or something like that)
     --color-accent-primary: #02e77c;
   }
 
+  [data-page="work-thedistance"] {
+    --color-accent-primary: #ffe866;
+  }
+
+  [data-page="work-summer"] {
+    --color-accent-primary: #ff00b8;
+  }
+
+  [data-page="work-rokt"] {
+    --color-accent-primary: #ad0068;
+  }
+
   html,
   body {
     background: var(--color-bg);
