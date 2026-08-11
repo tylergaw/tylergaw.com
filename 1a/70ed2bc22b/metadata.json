@@ -1,0 +1,42 @@
+{
+  "cli_version": "0.8.42",
+  "checkpoint_id": "1a70ed2bc22b",
+  "strategy": "manual-commit",
+  "branch": "version-xx",
+  "checkpoints_count": 33,
+  "files_touched": [
+    "src/_components/home-contents-card.webc",
+    "src/_components/home-contents-main.webc",
+    "src/_components/home-contents-secondary.webc",
+    "src/_components/home-contents-tertiary.webc",
+    "src/images/home/home-work-limbo.jpg",
+    "src/images/home/home-work-limbo.webp",
+    "src/images/home/home-work-pezzos.jpg",
+    "src/images/home/home-work-pezzos.webp",
+    "src/images/home/home-work-rokt.jpg",
+    "src/images/home/home-work-rokt.webp",
+    "src/images/home/home-work-streetcred.jpg",
+    "src/images/home/home-work-streetcred.webp",
+    "src/images/home/home-work-summer.jpg",
+    "src/images/home/home-work-summer.webp",
+    "src/images/home/home-work-the-distance.jpg",
+    "src/images/home/home-work-the-distance.webp",
+    "src/index.webc"
+  ],
+  "sessions": [
+    {
+      "metadata": "/1a/70ed2bc22b/0/metadata.json",
+      "transcript": "/1a/70ed2bc22b/0/full.jsonl",
+      "compact_transcript": "/1a/70ed2bc22b/0/transcript.jsonl",
+      "content_hash": "/1a/70ed2bc22b/0/content_hash.txt",
+      "prompt": "/1a/70ed2bc22b/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 1050,
+    "cache_creation_tokens": 6056758,
+    "cache_read_tokens": 162115877,
+    "output_tokens": 293414,
+    "api_call_count": 553
+  }
+}

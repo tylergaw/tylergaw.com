@@ -1,0 +1,503 @@
+OK, do you have CLAUDE.md in context?
+
+---
+
+OK, coming back here. Take a look at my current unstaged changes to get an idea of what I'm up to. I have some specific changes I need, but get context first.
+
+---
+
+Cool can you stage and commit the work in #1 first.
+
+---
+
+OK, next up. In tylergaw.css. If you see any `em` values in media queries, can you convert those to `px` (using base 16) and if I have any repeated `min-width` mq blocks, combine those and be sure to maintain order from smallest to largest min-width
+
+---
+
+hrmm, actually, nevermind then. Don't make any changes.
+
+---
+
+for hex value `151414` can you give me the code for color-mix with white, just at any percent so I can tweak it
+
+---
+
+New thing I need help with. I've created a component pezzos-hero-pieces.web. In it is a comment with a few details that you should follow. 
+
+The component will be a grid of images that we'll eventually animate. Need you to create the markup and styles. Follow patterns we have set in other components like about-hero, home-hero.
+
+The markup can be generated from data in the component (frontmatter) if that's the best way to do things. Have a look. Ask clarifying questions as needed.
+
+---
+
+great. Can you explain `decoding="async"`?
+
+---
+
+Great. I dropped it in pezzos.webc and working as expected
+
+---
+
+yeah, reorder
+
+---
+
+here's a question. Right now there are 56 piece `img`. There may be more. When I get done setting up the layout for this, when the page loads, there's a very good chance some of those 56 are not visible at all, but they'll likely be "above" the fold so to speak. Are browsers smart enough to not load them?
+
+---
+
+nah, fuck it. We'll the build the rest and then optimize later. We could probably do something where we wait for the page to render, then load only the cells (images) we need based on what's visible. But, later.
+
+---
+
+I just added an image in pezzos.webc. For perf, are there any other attributes I should add or anything else to help in that department?
+
+---
+
+I use that domain quite a bit throughout the site for images, videos, etc, so yeah I suppose we should add that
+
+---
+
+I added it. Question in general. Right now, the majority of images, I just store those in the repo. Blog posts use the S3 bucket, and I'm starting to more stuff in there. Perf-wise, is it helpful to use the S3 bucket for more, or is it the same?
+
+---
+
+OK, you just responded with a book, don't do that. Give me the bullet points and suggestions.
+
+---
+
+ok, this all seems like it's just work for the sake of work. moving on
+
+---
+
+Can you do a bit of an inventory for me. I have some common classes that I use across work pages. They're `hero` classes like `hero--before-standard`, `hero--offset`and a few others. Can you give me a report here on what those all are, where they're used and a general idea of how the styles work.
+
+---
+
+You mean the ::before and ::after rule right?
+
+---
+
+Cool, yeah can you combine
+
+---
+
+Take a look at pezzos-hero.webc. on lines 31 and 37, I'm setting some specific flex shorthand values. I'm trying to achieve a certain grow/shrink for the elements. Is that I have there doing anything?
+
+---
+
+OK, different question. The `.logo` div has an `img` child. When logo shrinks down (which I've made changes to let happen) I want the `img` to shrink too and I want the max width of the img to be the width set on the image. I have something I'm trying, but it's not working. Looking for the least css possible
+
+---
+
+Yeah, do that
+
+---
+
+swing and a miss. The `img` does not shrink down at all. Are you trying to use the force?
+
+---
+
+OK, we're doing a lot of pixel work, maintenence type things. Let's do something fun. In pezzos-hero-pieces. Let's make each item have a cool hover effect. Using CSS only, set up some kind of fun effect.
+
+---
+
+OK, go ahead and put that code in and I'll tweak from there. I'm def deleting the green shadow, so you can go ahead and remove that
+
+---
+
+OK, cool. What about this. The effect is fine, but what if instead of it being just a hover on each, we used the position of the mouse, plus a circle around where the mouse is to like increase the pieces that are being "hit" by the invisible circle. Where the size/rotation would increase the closer to the center (the mouse x,y)
+
+This could use JS as needed, but would be interesting to see how little JS we could get away with, and instead rely on CSS via custom props. Even if we're writing those into the html.
+
+---
+
+I would think this would replace the current hover. Let's try A first, even though we might not stick with it, I'm curious to see a fun use for CSS math functions
+
+---
+
+Would it hose everything if we put the pointer events on the grid's parent instead of the grid itself?
+
+---
+
+Yeah, the gain you mentioned is exactly what I'm trying to accomplish. parentElement is perfect, better than a hard coded class
+
+---
+
+This selector `var grid = document.querySelector(".pieces");` is maybe a little broad. We're within a custom element named `pezzos-hero-pieces` (I think). That's in the DOM at least, but prob not registered with JS
+
+---
+
+Go for it
+
+---
+
+Right now, the rotate is always the same direction, counter-clockwise. How much of a pain in the dick would it be for that to sometimes be negative,sometimes position. It's 100% ok if it's based on the position of the piece.
+
+---
+
+Cool, I'm gonna go with the css approach. It's all so subtle, that it works great.
+
+---
+
+I already added it
+
+---
+
+Cool, I moved the scale multiplier and the rotate to vars, to avoid repeating the full props
+
+---
+
+explain that 0,0,1 to me a bit more, I think I get it, but looking for clarity
+
+---
+
+Do we use `@property` just so we can set the `transition`?
+
+---
+
+OK, did some cleanup, other style tweaks. Another thing. Right now, the only way we see the effect is if the user is moving their mouse. What if there's an ambient fake mouse movement if they aren't currently moving their mouse. Just a point that represents the mousepos that is slowly moving around on bezier paths through the full area
+
+---
+
+Yeah, B sounds like the way to go. Go for it
+
+---
+
+Ah, trying this out, just isn't working. Can we roll back to where it's only mouse movement that does it
+
+---
+
+We have the project-specs.webc component. Right now, it's styled with global classes in tylergaw.css. Can you pull all those out and put them into a scoped style block in the component. Go ahead and lose the BEM naming too.
+
+---
+
+Right now, the webc:for="spec of specs" shows up in the DOM as like [object Object], there's a way to remove that, can you make that change
+
+---
+
+Got some work to do on work-nav.webc. I have some existing changes, so pull those in.
+
+Right now, for each item in the nav, there is an `img` that links to an external svg. EXCEPT for the building os x apps with js so don't worry about that one. Also, don't worry about Pezzos because I'm still prepping that one. For all the others,
+
+* Instead of an img, use embedded svg
+* Use the svg that's in the external svg file
+
+---
+
+I made a few changes so pull in my latest. For each nav-*, remove the "dust" background. They should just have a solid background color
+
+---
+
+I just copy/pasta the Pezzos svg from the home-contents-main component. The logo itself is almost square, so it requires a bit of work with the width/height viewBox, that you'll see. It's still not quite right to match the others because they're rectangular. Can you help tweak the sizes there to make it work better
+
+---
+
+I disagree. Right now, the CSS is wrong. When this wraps to multiple rows, at the moment the rows ate of different height because the Pezzos row blocks are higher. They should all be the same height. Not a fixed height though.
+
+---
+
+In work-nav line 171 I'm using a new syntax for typing values to `attr`. It's valid, works in most browsers, but the linter hasn't caught up yet so It's barfing errors in vscode. How can I quiet that down?
+
+---
+
+Ah, nah I don't want to lose those. I'll just deal with it in this file.
+
+---
+
+Yeah, I just pulled that rule out into a separate a. That makes it so there's a single error.
+
+---
+
+Check it out. See the style rule on 173. I did the first one, pezzos, can you go through and remove the background color rule for each of the items in css and instead move those to data-bg attr
+
+---
+
+why are you saying so many worddssss?
+
+---
+
+Think I'm over the "dust" in the project heros. There are a few still. Can you go through and find any of the project page heros that use a dust bg and remove it.
+
+---
+
+can you go through all the `project__intro__opening` elements and 1) remove the font--regular class if it's there, and make sure the text is consistently title cased
+
+---
+
+I bet it doesn't even do anything there
+
+---
+
+kill it
+
+---
+
+🔪
+
+---
+
+can you pull me up a couple examples for how to use the still new color-constrast css function (or whatever the name is).
+
+---
+
+any way to put a line break in `content`?
+
+---
+
+Is there like a target or bullseye unicode char
+
+---
+
+ok, i did a ton of changes and cleanup in work-nav.webc, can you just take a look to make sure I didn't leave anything commented or leave stuff in that's no longer used.
+
+---
+
+clean up 2 and 3 for me. I did 1 and 4 and the supports guard
+
+---
+
+Let's do another fun thing on work-nav. Check in home-contents-card.webc. we have a cool hover/focus-visible style that displays the svg from initDrawStrokes. Let's do the same on each work-nav a
+
+---
+
+again, you're saying so many words, I'm not sure what you want me to focus on
+
+---
+
+OK, one issue is the Pezzos one. The strokes does not take up the full width/height, it's very small
+
+---
+
+Perfect
+
+---
+
+OK, maybe you can help me with some content suggestions. On every project (that has content). Can you go through the specs for each and see if anything sticks out as bad, or missing, or could use consistency. It's ok for the specs to have different sections, but should be somewhat similar.
+
+---
+
+1. Definitely on both, and I'll leave it to you if Role should be plural if there are multiple there
+2. Yeah, I like that. Without the "everything", that sounds ick
+3. I think that's ok, it's meant as a bit of a catch-all
+4. Yeah, range better there
+5. Let's do dashes
+6. How about "Shuttered in 2019" instead across all that make sense
+
+
++1 on the also. Gopher it
+
+---
+
+Let's change "Code used" to "Tech". I might put things like Render, Netlify, Vercel, AWS, etc in there
+
+---
+
+Can you go through ever product page and if you see a link with target="_blank", remove the `rel="noopener noreferrer"` if it's there.
+
+---
+
+Yes
+
+---
+
+OK, yeah remove from resume, but don't worry about the blog post
+
+---
+
+OK, do this. Take a look at all the content on this page https://pezzos.app/
+
+Then, matching my tone, can you write a into for the pezzos project page. It's the content in `project__intro__body`. There's a FIXME there and that one is Limbos. It should be about the same length. Have a look at the other project's too.
+
+The general idea behind Pezzos is that I do IRL collages. I wanted to build something for a niche audience. And I wanted to build a app for making something instead of doom scrolling. Not all that needs to be represented, but that's the overall idea.
+
+---
+
+Not bad, not bad.
+
+---
+
+Writing challenge. In most of my writing, I try to avoid starting with "I". Just for the first sentence in a paragraph. For others, it's fine. See if you can rewrite that one to avoid it.
+
+---
+
+I made a couple edits. that "...on purpose" sentence just wasn't working. It feels a tad short now though. Mind trying to work in another sentence somewhere to flesh it out.
+
+---
+
+OK, maybe help me with a larger swath of work. For projects; The Distance, Summer, and Rokt I want to:
+
+* Get them set up in the work nav like the others
+* Get the foundation of their pages in place
+
+
+A few things:
+
+* The edits I just made to tylergaw.com set the accent color for each page, that will come in handy elsewhere
+* For the work nav svg, use what's on home like we did with Pezzos
+* For each page, just do a basic setup of a *-hero.webc. It doesn't need much, just a places holder like "header". Each should be at least `hero hero--before-standard hero--offset`
+* Just follow pezzos-hero, but don't make up too much stuff/styles
+* Set up the `.project` intro, project-specs, and work-nav for each page. Just use placeholder content or your best guess for now
+
+---
+
+The Distance is https://github.com/latchbolt/thedistance.app
+
+and at https://thedistance.app
+
+---
+
+yeah
+
+---
+
+Help me track something down. Looking for notable author quotes that discuss writing about oneself, or maybe just biography in general. Thinking about like; Twain, Vonnegut, Le Guin, etc.
+
+---
+
+ok, that's helpful. Some context, I likely won't copy this virbetum, but will shape into into my own sentence
+
+---
+
+don't prompt me
+
+---
+
+An unreliable narrator direction is kind of fun too
+
+---
+
+I'm on purpose message with the structure of it, but have a look at what I just wrote in home-contents-tertiary.webc. That's just meant as a snippet for the button on the home page, I'll likely continue the theme to start the About page content (which exists now, but I want to rework it)
+
+---
+
+I copied the aria-label from the page header/footer.
+
+Is there another word besides "themself". Trying to avoid gendering it.
+
+---
+
+OK, home-contents-tertiary.webc. I have a design for the blog and about cards. Here's a screenshot of the full area. Note the vertical pink lines are the column grid, not part of the visuals.
+
+---
+
+home-abstract-01.webp is not related. In the mockup, the middle square, just use a red fill for now, we'll come back with the real asset later.
+
+One thing on the repeating images on each. We need to be able to change which part of the image is shown, the opacity, and filters. That's how we'll make the effect from a single image.
+
+The blend-mode should be `luminosity`
+
+Apostrphe is fixed.
+
+Another note on the middle square. As the screen narrows, it should shrink down to 0 width before the blog/about cards start to shrink.
+
+Whip me up this design in html/css.
+
+---
+
+Pretty cool already. Help me with responsive. Start small-screen first. So, by default the cards are stacked, the filler probably not there. Then about like 620px prob we get two column. Should be based off how much the content (the text) is squished.
+
+---
+
+curious, why did you choose to do a BEM style `card--blog` modifier on these?
+
+---
+
+Yeah, drop it it and use the attr only if we need special styling
+
+---
+
+whoa whoa, limit that to this file only. We're only working on this right now
+
+---
+
+do it
+
+---
+
+and what's the point of aliasing color-accent-primary to --tint here?
+
+---
+
+Yeah, do that. And take another look through the file. Don't do speculative stuff like that. See what else you can trim.
+
+---
+
+Is there a need for the `label` class. Could we just target the `p` instead?
+
+---
+
+Yeah, project-specs has it because it's a different thing. Duh
+
+---
+
+I made a few detail changes. One main change I'd like is for each pane to be a different width, right now they're all the same. 1st should be widest, then 2nd, then 3rd. the widths should be flexible
+
+---
+
+lovely
+
+---
+
+The `totalWordCount` output right now is to a `span`, which we don't need and is causing some style issues. Is there a way to just have it output the text within the parent span
+
+---
+
+Cool. Can we do the cool initDrawStrokes hover/focus-within effect on these too like the main and secondary cards
+
+---
+
+very good
+
+---
+
+On lines 159-165 we set either right or left padding on the p. Isn't there like a "leading edge" padding property we could use instead of the right or left padding. It's newer
+
+---
+
+Ah ok. In that case, no need to use logical properties. But since the value is the same on both, we should abstract that to a variable instead of repeating it twice
+
+---
+
+On the the `.filler` once we hit 900px, right now we're setting the flex-basis to an arbitrary 20rem. Can that instead use our grid system? I want it to go up to a max width of 2 cols.
+
+---
+
+Cool, new thing. Kinda open ended. I use Figma for producing graphics for this site. What are my options to connect Claude to Figma? Looking for ways to automate saving out images, compressing/sizing them, etc.
+
+---
+
+Yeah, I do believe you're missing a huge thing though. Compressing images changes the quality. You are a computer program, so unfortunately, you don't have eyes and can't see if an image is compressed poorly.
+
+---
+
+@"/Users/tylergaw/Desktop/pezzos-hero-pieces/"
+just fyi, the pezzos hero pieces. We have a quick tool that another session built
+
+---
+
+Ah, yeah, probably not worth the set up.
+
+---
+
+For some images, I'm using a webp and providing a jpg fallback. Is that even necessary anymore?
+
+---
+
+That's interesting. But the weight, that's not weight to the client/user, that's just weight in the rep
+
+---
+
+`color(display-p3 1 0 0)` How do I do alpha with this?
+
+---
+
+Having trouble with something in home-contents-secondary. The `&::after` gives our noise filter. It's working, but it's showing on the left side of the parent container where it shouldn't be. I *think* it has something to do with the `inset`, but I can't quite figure it out. Have a look.
+
+---
+
+ohhh, i see. ok, can you go ahead and change it and just tell me where the other uses are so I can have a look
+
+---
+
+cool, nah we're good. Working well.
