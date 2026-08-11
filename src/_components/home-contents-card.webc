@@ -9,6 +9,7 @@
 
 <style webc:scoped>
   :host {
+    background-color: var(--color-accent-primary);
     color: var(--color-offwhite);
     display: grid;
     overflow: hidden;
@@ -39,20 +40,8 @@
   }
 
   picture {
+    mix-blend-mode: luminosity;
     position: relative;
-
-    &::after {
-      background-color: var(--color-accent-primary);
-      content: "";
-      display: block;
-      height: 100%;
-      left: 0;
-      mix-blend-mode: color;
-      position: absolute;
-      top: 0;
-      width: 100%;
-      z-index: 1;
-    }
   }
 
   .strokes {
@@ -73,7 +62,6 @@
 
   .graphic {
     display: block;
-    filter: contrast(var(--card-img-contrast, 1));
     height: 100%;
     object-fit: cover;
     object-position: center;
@@ -89,12 +77,9 @@
 
 <style>
   html[style*="color-scheme: dark"] {
-    .home-contents-card .graphic {
-      filter: invert() brightness(1);
-    }
-
-    .home-contents-card picture::after {
-      filter: contrast(1.25) brightness(0.45);
+    .home-contents-card picture {
+      filter: contrast(0.75);
+      mix-blend-mode: darken;
     }
   }
 </style>

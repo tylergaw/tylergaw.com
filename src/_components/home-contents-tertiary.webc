@@ -1,15 +1,47 @@
 <div webc:root="override">
   <a href="/blog" class="card">
+    <div class="panes">
+      <div class="pane" webc:for="i of [1, 2, 3]">
+        <img src="/images/home/blog-writer.webp" alt="" loading="lazy" />
+      </div>
+    </div>
     <p>
-      Since 2009, I've written ~<span
-        @text="totalWordCount($data.collections.posts)"
-      ></span>
-      words on design, technology, and life on my blog which you can read here.
+      <span
+        >On the <mark>blog</mark>, I’ve written
+        <template
+          @text="totalWordCount($data.collections.posts)"
+          webc:nokeep
+        ></template>
+        words on design, technology, and life</span
+      >
     </p>
+    <svg
+      class="strokes"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+    ></svg>
   </a>
 
-  <a href="/about" class="card">
-    Or maybe you'd like to know things about me?
+  <div class="filler"></div>
+
+  <a
+    href="/about"
+    class="card"
+    aria-label="More info about me, my career, and history of this site…"
+  >
+    <div class="panes">
+      <div class="pane" webc:for="i of [1, 2, 3]">
+        <img src="/images/home/about-skelly.webp" alt="" loading="lazy" />
+      </div>
+    </div>
+    <p>
+      <span>but no man ever told the truth <mark>about</mark> himself</span>
+    </p>
+    <svg
+      class="strokes"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+    ></svg>
   </a>
 </div>
 
@@ -17,16 +49,207 @@
   :host {
     display: flex;
     flex: 1;
+    flex-direction: column;
     gap: var(--g-gutter);
   }
 
+  .filler {
+    display: none;
+  }
+
   .card {
-    align-items: center;
-    background: var(--color-accent-primary);
-    color: var(--color-bg);
     display: flex;
-    flex: 1;
-    min-height: 200px;
-    padding: 2rem;
+    min-height: var(--min-h, 120px);
+    overflow: hidden;
+    padding: 1rem;
+    position: relative;
+    text-decoration: none;
+  }
+
+  .card[href="/about"] {
+    align-items: flex-end;
+    justify-content: flex-end;
+    text-align: right;
+  }
+
+  .panes {
+    background-color: var(--color-accent-primary);
+    display: flex;
+    inset: 0;
+    position: absolute;
+  }
+
+  .pane {
+    /* Basis 0, so --pane-grow alone sets each pane's share of the width. */
+    flex: var(--pane-grow, 1) 1 0;
+    overflow: hidden;
+
+    img {
+      display: block;
+      height: 100%;
+      mix-blend-mode: luminosity;
+      object-fit: cover;
+      object-position: var(--pane-pos, center);
+      opacity: var(--pane-opacity, 1);
+      transform-origin: center;
+      transition: scale 1.75s ease;
+      width: 100%;
+    }
+  }
+
+  /* Per-copy knobs. One source image, a different slice and weight in each. */
+  .pane:nth-child(1) {
+    --pane-grow: 4;
+    --pane-pos: 30% center;
+  }
+
+  .pane:nth-child(2) {
+    --pane-grow: 3;
+    --pane-opacity: 0.5;
+    --pane-pos: 85% center;
+  }
+
+  .pane:nth-child(3) {
+    --pane-grow: 2;
+    --pane-opacity: 0.25;
+    --pane-pos: 75% center;
+  }
+
+  p {
+    --line-pad: 0.25em;
+    --line-reserve: calc(var(--line-pad) * 2);
+    font-size: var(--font-size-18);
+    line-height: 1.5;
+    margin: 0;
+    max-width: 20ch;
+    position: relative;
+    z-index: 2;
+
+    mark {
+      background-color: inherit;
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    span {
+      -webkit-box-decoration-break: clone;
+      background-color: light-dark(
+        var(--color-white),
+        var(--color-accent-primary)
+      );
+      box-decoration-break: clone;
+      color: light-dark(var(--color-accent-primary), var(--color-white));
+      padding: 0.1rem var(--line-pad);
+    }
+  }
+
+  .strokes {
+    color: #fff;
+    display: block;
+    height: 100%;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .card:hover,
+  .card:focus-within {
+    .pane img {
+      scale: 1.075;
+    }
+
+    .strokes {
+      opacity: 1;
+    }
+  }
+
+  /*
+    Line breaking doesn't reserve room for the padding `clone` adds to every
+    wrapped line, so lines can spill and get clipped. Hold that width back on
+    the side the text isn't aligned to, which keeps the aligned edge put.
+  */
+  .card[href="/blog"] p {
+    padding-right: var(--line-reserve);
+  }
+
+  .card[href="/about"] p {
+    max-width: 13ch;
+    padding-left: var(--line-reserve);
+  }
+
+  @media (min-width: 500px) {
+    .card {
+      --min-h: 160px;
+    }
+  }
+
+  @media (min-width: 620px) {
+    :host {
+      flex-direction: row;
+    }
+
+    .card {
+      --min-h: 280px;
+      /* Real basis, not 0, so the shrink pass runs and .filler can absorb it. */
+      flex: 1 1 24rem;
+      min-width: 0;
+    }
+
+    p {
+      font-size: var(--font-size-24);
+    }
+
+    .card[href="/blog"] p {
+      margin-left: auto;
+    }
+  }
+
+  /* Only once there's room for it to have real width, or it'd add a stray gap. */
+  @media (min-width: 900px) {
+    .filler {
+      background-color: var(--color-accent-primary);
+      display: block;
+      flex: 0 1000 var(--g-max-2);
+      min-width: 0;
+    }
+  }
+
+  @media (min-width: 1800px) {
+    .card {
+      --min-h: 350px;
+    }
+
+    p {
+      font-size: var(--font-size-30);
+    }
   }
 </style>
+
+<style>
+  html[style*="color-scheme: dark"] {
+    .home-contents-tertiary .pane {
+      &:nth-child(2) {
+        --pane-opacity: 0.75;
+      }
+
+      &:nth-child(3) {
+        --pane-opacity: 0.5;
+      }
+
+      img {
+        filter: contrast(0.75);
+        mix-blend-mode: darken;
+      }
+    }
+  }
+</style>
+
+<script webc:bucket="components">
+  initDrawStrokes(".card", {
+    filterId: "tertiary-warp",
+    yBias: "edges",
+  });
+</script>

@@ -46,7 +46,7 @@ meta:
     aria-hidden="true"
     style="display: none; position: absolute"
   >
-    <filter id="noise">
+    <filter id="noise" x="0" y="0" width="100%" height="100%">
       <feTurbulence
         type="fractalNoise"
         baseFrequency="0.4"
@@ -78,10 +78,9 @@ meta:
   .home-distort-abstract-container {
     display: grid;
     flex: 1;
-    overflow: hidden;
-
-    order: 2;
     max-height: min(5rem, 16vw);
+    overflow: hidden;
+    order: 2;
 
     .graphic {
       background: var(--color-accent-primary);
@@ -120,9 +119,7 @@ meta:
       p {
         background: light-dark(var(--color-white), var(--color-accent-primary));
         color: light-dark(var(--color-accent-primary), var(--color-white));
-        font-family: var(--font-accent);
-        letter-spacing: 1px;
-        padding: 0.25rem;
+        padding: 0.5rem 0.25rem;
         writing-mode: sideways-lr;
       }
     }
@@ -146,12 +143,10 @@ meta:
 
 <style>
   html[style*="color-scheme: dark"] {
-    .home-distort-abstract-container .graphic {
-      filter: brightness(0.5);
-
-      video {
-        filter: contrast(2.4) brightness(2) invert();
-      }
+    .home-distort-abstract-container .graphic video {
+      filter: contrast(1.5) brightness(0.75);
+      mix-blend-mode: darken;
+      opacity: 1;
     }
   }
 </style>
