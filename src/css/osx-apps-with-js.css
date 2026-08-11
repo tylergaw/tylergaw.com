@@ -1,0 +1,159 @@
+@layer pages {
+  .hero--jxa {
+    color: white;
+    position: relative;
+  }
+
+  .hero--jxa::before {
+    background-color: var(--color-jxa-accent);
+    height: 100%;
+  }
+
+  .hero--jxa .hero__contents {
+    padding: var(--pt, 0.5rem) 0 var(--pb, 0.5rem) 0;
+    margin: 0 auto;
+    max-width: var(--g-max-3);
+    width: 98%;
+  }
+
+  .jxa__graphic {
+    display: block;
+    height: auto;
+    margin-bottom: -4rem;
+    transform-origin: bottom center;
+    view-transition-name: jxa-graphic;
+    width: 100%;
+  }
+
+  .jxa__title {
+    margin: 0;
+    view-transition-name: jxa-title;
+
+    img {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 680px) {
+    .hero--jxa::before {
+      height: 95%;
+    }
+
+    .hero--jxa .hero__contents {
+      --pb: 0;
+      display: grid;
+      max-width: initial;
+
+      picture {
+        grid-area: 1 / 1;
+      }
+    }
+
+    .jxa__graphic {
+      margin-bottom: 0;
+      width: 60%;
+    }
+
+    .jxa__title {
+      display: flex;
+      grid-area: 1 / 1;
+
+      img {
+        align-self: flex-end;
+        margin-left: auto;
+        width: 60%;
+      }
+    }
+  }
+
+  ::view-transition-old(jxa-title),
+  ::view-transition-old(jxa-graphic) {
+    display: none;
+  }
+
+  @keyframes jxaTitleSmall {
+    0%,
+    50% {
+      opacity: 0;
+      transform: translateY(35%);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes jxaTitleLarge {
+    0%,
+    40% {
+      opacity: 0;
+      transform: translateX(35%) translateY(-20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes jxaGraphicSmall {
+    0%,
+    50% {
+      opacity: 0;
+      transform: translateY(55%) scale(0.7);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes jxaGraphicLarge {
+    0%,
+    40% {
+      opacity: 0;
+      transform: translateX(-20%) translateY(20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    ::view-transition-new(jxa-title) {
+      animation: jxaTitleSmall 0.9s ease;
+    }
+
+    ::view-transition-new(jxa-graphic) {
+      animation: jxaGraphicSmall 1.1s ease;
+    }
+  }
+
+  @media (min-width: 1040px) {
+    .hero--jxa .hero__contents {
+      max-width: calc(1070 / 16 * 1rem);
+    }
+
+    ::view-transition-new(jxa-title) {
+      animation-name: jxaTitleLarge;
+      animation-duration: 0.5s;
+    }
+
+    ::view-transition-new(jxa-graphic) {
+      animation-name: jxaGraphicLarge;
+      animation-duration: 0.7s;
+    }
+  }
+
+  @media (min-width: 1240px) {
+    .hero--jxa .hero__contents {
+      transform: translateX(-4rem);
+    }
+  }
+}

@@ -1,0 +1,172 @@
+<button>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="-1 -1 24 24"
+  >
+    <defs>
+      <filter id="button-stroke-warp">
+        <feTurbulence
+          type="turbulence"
+          baseFrequency="0.06"
+          numOctaves="3"
+          seed="2"
+          result="turbulence"
+        >
+          <animate
+            attributeName="seed"
+            values="2;8;3;10;5;12;7;2"
+            dur="0.6s"
+            calcMode="discrete"
+            repeatCount="indefinite"
+          />
+        </feTurbulence>
+        <feDisplacementMap
+          in="SourceGraphic"
+          in2="turbulence"
+          scale="4"
+          xChannelSelector="R"
+          yChannelSelector="G"
+        />
+      </filter>
+    </defs>
+    <circle
+      cx="11"
+      cy="11"
+      r="11"
+      stroke="currentColor"
+      stroke-width="1.2"
+      fill="none"
+      class="button-stroke"
+    />
+  </svg>
+  <svg
+    class="icon icon-light"
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-label="Light scheme"
+  >
+    <path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656" />
+    <path d="M6.343 17.657l-1.414 1.414" />
+    <path d="M6.343 6.343l-1.414 -1.414" />
+    <path d="M17.657 6.343l1.414 -1.414" />
+    <path d="M17.657 17.657l1.414 1.414" />
+    <path d="M4 12h-2" />
+    <path d="M12 4v-2" />
+    <path d="M20 12h2" />
+    <path d="M12 20v2" />
+  </svg>
+
+  <svg
+    class="icon icon-dark"
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-label="Dark scheme"
+  >
+    <path
+      d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454l0 .008"
+    />
+  </svg>
+</button>
+
+<script webc:bucket="components">
+  /*
+    NOTE: We do an initial check/set of the scheme in layout-main.webc to avoid
+    an initial flash if the user has chosen dark scheme.
+  */
+
+  function getScheme() {
+    return localStorage.getItem(COLOR_SCHEME_STORAGE_KEY) || "light";
+  }
+
+  function applyScheme(scheme) {
+    document.documentElement.style.colorScheme = scheme;
+    document.querySelectorAll("scheme-chooser button").forEach((btn) => {
+      btn
+        .querySelector(".icon-light")
+        .classList.toggle("hidden", scheme !== "dark");
+      btn
+        .querySelector(".icon-dark")
+        .classList.toggle("hidden", scheme === "dark");
+    });
+  }
+
+  function toggleScheme(e) {
+    e.preventDefault();
+    const next = getScheme() === "light" ? "dark" : "light";
+    localStorage.setItem(COLOR_SCHEME_STORAGE_KEY, next);
+    applyScheme(next);
+  }
+
+  // Apply stored preference on load
+  applyScheme(getScheme());
+
+  document.querySelectorAll("scheme-chooser button").forEach((btn) => {
+    btn.addEventListener("click", toggleScheme);
+  });
+</script>
+
+<style webc:scoped>
+  button {
+    --size: 1.5rem;
+    align-items: center;
+    appearance: none;
+    background: none;
+    border: none;
+    color: var(--color-foreground);
+    cursor: pointer;
+    display: grid;
+    font-size: var(--font-size-0_75);
+    height: var(--size);
+    padding: 0;
+    justify-content: center;
+    text-decoration: none;
+    width: var(--size);
+
+    &:hover,
+    &:focus-visible {
+      border-color: light-dark(
+        hsl(var(--color-foreground-hsl-light) / 25%),
+        hsl(var(--color-foreground-hsl-dark) / 25%)
+      );
+
+      .button-stroke {
+        opacity: 1;
+      }
+    }
+
+    svg {
+      grid-area: 1 / 1;
+    }
+
+    .icon {
+      margin: 0 auto;
+      height: 1rem;
+      width: 1rem;
+    }
+
+    .button-stroke {
+      opacity: 0;
+      filter: url(#button-stroke-warp);
+    }
+
+    .hidden {
+      opacity: 0;
+    }
+  }
+</style>

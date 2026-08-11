@@ -2,11 +2,16 @@
 
 ## General Approach
 
-- **Don't just start writing code**: Always understand the requirements first
+- **Don't just start writing code**: Always understand the requirements and confirm first
 - **Ask follow-up questions**: Make sure you fully understand what's needed before proceeding
 - **Get confirmation before writing large amounts of code**: Check the approach before implementing
 - **Don't make assumptions**: If something is unclear, ask rather than guessing
 - **Don't prompt me**: When you complete a task, don't ask; "if I want to next?"
+
+### Code
+
+- CSS properties should be alphabetized
+- DO NOT run builds after making changes. Only run builds if told to
 
 ## Writing Blog Posts
 

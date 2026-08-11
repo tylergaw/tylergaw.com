@@ -5,5 +5,8 @@ package-lock.json
 
 tylergaw.code-workspace
 
+# Lighthouse reports
+perf-reports/
+
 # Local Netlify folder
 .netlify

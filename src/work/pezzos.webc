@@ -1,0 +1,38 @@
+---
+layout: layout-main.webc
+title: Pezzos, pieced together by Tyler Gaw
+pageType: work-pezzos
+specs:
+  [
+    { "title": "Hats worn", "desc": "Product, design, iOS, back-end" },
+    { "title": "Tech", "desc": "Swift, SwiftUI, Python, Postgres" },
+    { "title": "Platform", "desc": "iOS" },
+    { "title": "Timeframe", "desc": "2025–Present" },
+    {
+      "title": "Get it",
+      "desc": "<a href='https://apple.co/4rV3zbz' target='_blank'>On the App Store</a>",
+    },
+  ]
+---
+
+<pezzos-hero></pezzos-hero>
+
+<div class="g-main g-padded project project--pezzos">
+  <div class="g-main__item project__intro">
+    <div class="project__intro__main">
+      <a href="https://pezzos.app" class="project__link" target="_blank">
+        pezzos.app
+      </a>
+      <h2 class="project__intro__opening">What Can I Make for Myself?</h2>
+      <p class="project__intro__body">
+        Collage is a hobby of mine. The IRL kind, with paper and glue. Pezzos is
+        that, but on a phone. There are plenty of apps for doomscrolling. This
+        one’s for making.
+      </p>
+    </div>
+
+    <project-specs :@specs="specs"></project-specs>
+  </div>
+</div>
+
+<work-nav @project="pezzos"></work-nav>

@@ -1,0 +1,26 @@
+---
+layout: layout-main.webc
+pageType: blog
+---
+
+<article class="h-entry">
+  <header class="e-header">
+    <time class="dt-published" :datetime="date" @text="dateHuman"></time>
+    <h1 class="p-name" @text="title"></h1>
+    <p class="p-author h-card" aria-hidden="true">By Tyler Gaw</p>
+  </header>
+  <div class="e-content">
+    <template @raw="content" webc:nokeep></template>
+
+    <p class="e-reply">
+      If you have thoughts or questions about this post, find me on
+      <a href="https://bsky.app/profile/tylergaw.com">Bluesky</a> or email
+      <a href="mailto:me@tylergaw.com">me@tylergaw.com</a>.
+    </p>
+  </div>
+</article>
+
+<blog-nav :@posts="collections.posts" :@page="page"></blog-nav>
+
+<link rel="stylesheet" href="/css/prism-a11y.css" webc:keep webc:if="highlightSyntax">
+<script src="/js/prism.js" async webc:keep webc:if="highlightSyntax"></script>

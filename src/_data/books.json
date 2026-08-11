@@ -1,197 +1,260 @@
 [
   {
     "year": 2026,
-    "current": true,
-    "title": "The Left Hand of Darkness",
-    "url": "https://app.thestorygraph.com/books/1a4fdf6a-07c3-42c9-bd90-412fbe5913c8",
-    "author": "Ursula K. Le Guin"
-  },
-  {
-    "current": true,
-    "title": "The Warmth of Other Suns: The Epic Story of America's Great Migration",
-    "url": "https://app.thestorygraph.com/books/314a978c-5efa-41d9-9cb8-a5140967ca2b",
-    "author": "Isabel Wilkerson"
+    "books": [
+      {
+        "current": true,
+        "title": "The Left Hand of Darkness",
+        "url": "https://app.thestorygraph.com/books/1a4fdf6a-07c3-42c9-bd90-412fbe5913c8",
+        "author": "Ursula K. Le Guin",
+        "img": "https://stuff.tylergaw.com/books/left-hand-of-darkness.webp"
+      },
+      {
+        "current": true,
+        "title": "The Warmth of Other Suns: The Epic Story of America's Great Migration",
+        "url": "https://app.thestorygraph.com/books/314a978c-5efa-41d9-9cb8-a5140967ca2b",
+        "author": "Isabel Wilkerson",
+        "img": "https://stuff.tylergaw.com/books/other-suns.webp"
+      }
+    ]
   },
   {
     "year": 2025,
-    "date": "2025-12",
-    "title": "The Handmaid’s Tale",
-    "url": "https://app.thestorygraph.com/books/e30b24d8-2191-4085-a4d3-2088f87522bd",
-    "author": "Margaret Atwood"
+    "books": [
+      {
+        "date": "2025-12",
+        "title": "The Handmaid's Tale",
+        "url": "https://app.thestorygraph.com/books/e30b24d8-2191-4085-a4d3-2088f87522bd",
+        "author": "Margaret Atwood",
+        "img": "https://stuff.tylergaw.com/books/handmainds.webp"
+      },
+      {
+        "date": "2025-10",
+        "title": "Why Fish Don't Exist: A Story of Loss, Love, and the Hidden Order of Life",
+        "url": "https://app.thestorygraph.com/books/dd49b326-93cc-4a8f-8533-e1192b954e39",
+        "author": "Lulu Miller",
+        "img": "https://stuff.tylergaw.com/books/why-fish-dont-exist.webp"
+      },
+      {
+        "date": "2025-07",
+        "title": "James",
+        "url": "https://app.thestorygraph.com/books/cd626fd8-11de-458a-a71a-4b1c64c86ff1",
+        "author": "Percival Everett",
+        "img": "https://stuff.tylergaw.com/books/james.webp"
+      },
+      {
+        "date": "2025-06",
+        "title": "Grand Canyon: A History of a Natural Wonder and National Park",
+        "url": "https://app.thestorygraph.com/books/7c1f25cb-adbd-408c-9ebf-b63e1642e7f5",
+        "author": "Don Lago",
+        "img": "https://stuff.tylergaw.com/books/grand-canyon.webp"
+      },
+      {
+        "date": "2025-03",
+        "title": "I Never Did Like Politics: How Fiorello La Guardia Became America's Mayor, and Why He Still Matters",
+        "url": "https://app.thestorygraph.com/books/04f80e2c-11fe-416d-909e-2272b09e8c35",
+        "author": "Terry Golway",
+        "img": "https://stuff.tylergaw.com/books/never-did-like-politics.webp"
+      }
+    ]
   },
   {
-    "date": "2025-10",
-    "title": "Why Fish Don’t Exist: A Story of Loss, Love, and the Hidden Order of Life",
-    "url": "https://app.thestorygraph.com/books/dd49b326-93cc-4a8f-8533-e1192b954e39",
-    "author": "Lulu Miller"
+    "year": 2024,
+    "books": [
+      {
+        "date": "2024-12",
+        "title": "The Message",
+        "url": "https://app.thestorygraph.com/books/b19ee781-9f81-4750-8098-016809801d07",
+        "author": "Ta-Nehisi Coates",
+        "img": "https://stuff.tylergaw.com/books/the-message.webp"
+      },
+      {
+        "date": "2024-11",
+        "title": "Seeing Is Forgetting the Name of the Thing One Sees: Expanded Edition",
+        "url": "https://app.thestorygraph.com/books/4529054c-d30b-40a0-ace3-ca9da5b62292",
+        "author": "Lawrence Weschler",
+        "img": "https://stuff.tylergaw.com/books/seeing-is-forgetting.webp"
+      },
+      {
+        "date": "2024-08",
+        "title": "Five Years After",
+        "url": "https://app.thestorygraph.com/books/9be50e54-a286-46a3-ba64-ede63648b2b9",
+        "author": "William R. Forstchen",
+        "img": "https://stuff.tylergaw.com/books/five-years-after.webp"
+      },
+      {
+        "date": "2024-02",
+        "title": "New Dark Age: Technology and the End of the Future",
+        "url": "https://app.thestorygraph.com/books/66e286e6-a093-4c28-b7a7-4bb1bc992868",
+        "author": "James Bridle",
+        "img": "https://stuff.tylergaw.com/books/new-dark-age.webp"
+      }
+    ]
   },
   {
-    "date": "2025-07",
-    "title": "James",
-    "url": "https://app.thestorygraph.com/books/cd626fd8-11de-458a-a71a-4b1c64c86ff1",
-    "author": "Percival Everett"
-  },
-  {
-    "date": "2025-06",
-    "title": "Grand Canyon: A History of a Natural Wonder and National Park",
-    "url": "https://app.thestorygraph.com/books/7c1f25cb-adbd-408c-9ebf-b63e1642e7f5",
-    "author": "Don Lago"
-  },
-  {
-    "date": "2025-03",
-    "title": "I Never Did Like Politics: How Fiorello La Guardia Became America's Mayor, and Why He Still Matters",
-    "url": "https://app.thestorygraph.com/books/04f80e2c-11fe-416d-909e-2272b09e8c35",
-    "author": "Terry Golway"
-  },
-  {
-    "year": "2024",
-    "date": "2024-12",
-    "title": "The Message",
-    "url": "https://app.thestorygraph.com/books/b19ee781-9f81-4750-8098-016809801d07",
-    "author": "Ta-Nehisi Coates"
-  },
-  {
-    "date": "2024-11",
-    "title": "Seeing Is Forgetting the Name of the Thing One Sees: Expanded Edition",
-    "url": "https://app.thestorygraph.com/books/4529054c-d30b-40a0-ace3-ca9da5b62292",
-    "author": "Lawrence Weschler"
-  },
-  {
-    "date": "2024-08",
-    "title": "Five Years After",
-    "url": "https://app.thestorygraph.com/books/9be50e54-a286-46a3-ba64-ede63648b2b9",
-    "author": "William R. Forstchen"
-  },
-  {
-    "date": "2024-02",
-    "title": "New Dark Age: Technology and the End of the Future",
-    "url": "https://app.thestorygraph.com/books/66e286e6-a093-4c28-b7a7-4bb1bc992868",
-    "author": "James Bridle"
-  },
-  {
-    "date": "2023-07",
     "year": 2023,
-    "title": "The Most Fun Thing: Dispatches from a Skateboard Life",
-    "url": "https://app.thestorygraph.com/books/65812f25-75bd-45e6-9854-ed86dbd9829b",
-    "author": "Kyle Beachy"
+    "books": [
+      {
+        "date": "2023-07",
+        "title": "The Most Fun Thing: Dispatches from a Skateboard Life",
+        "url": "https://app.thestorygraph.com/books/65812f25-75bd-45e6-9854-ed86dbd9829b",
+        "author": "Kyle Beachy",
+        "img": "https://stuff.tylergaw.com/books/most-fun-thing.webp"
+      },
+      {
+        "date": "2023-06",
+        "title": "Exhalation",
+        "url": "https://app.thestorygraph.com/books/fd4f1230-6a84-41a2-9308-a4615aca366d",
+        "author": "Ted Chiang",
+        "img": "https://stuff.tylergaw.com/books/exhalation.webp"
+      },
+      {
+        "date": "2023-04",
+        "note": "(Second read)",
+        "title": "Slaughterhouse Five",
+        "url": "https://app.thestorygraph.com/books/3e3723cd-aa86-4836-b49d-cd117c54fe46",
+        "author": "Kurt Vonnegut Jr.",
+        "img": "https://stuff.tylergaw.com/books/slaughterhouse.webp"
+      }
+    ]
   },
   {
-    "date": "2023-06",
-    "title": "Exhalation",
-    "url": "https://app.thestorygraph.com/books/fd4f1230-6a84-41a2-9308-a4615aca366d",
-    "author": "Ted Chiang"
-  },
-  {
-    "date": "2023-04",
-    "note": "(Second read)",
-    "title": "Slaughterhouse Five",
-    "url": "https://app.thestorygraph.com/books/3e3723cd-aa86-4836-b49d-cd117c54fe46",
-    "author": "Kurt Vonnegut Jr."
-  },
-  {
-    "date": "2022-12",
     "year": 2022,
-    "title": "Lush Life",
-    "url": "https://app.thestorygraph.com/books/28836a29-0815-4a3d-b4db-7d4823857d38",
-    "author": "Richard Price"
+    "books": [
+      {
+        "date": "2022-12",
+        "title": "Lush Life",
+        "url": "https://app.thestorygraph.com/books/28836a29-0815-4a3d-b4db-7d4823857d38",
+        "author": "Richard Price",
+        "img": "https://stuff.tylergaw.com/books/lush-life.webp"
+      },
+      {
+        "date": "2022-03",
+        "title": "A Country of Ghosts",
+        "url": "https://app.thestorygraph.com/books/aa485e4b-2a2d-4547-9451-52d4e77e23c5",
+        "author": "Margaret Killjoy",
+        "img": "https://stuff.tylergaw.com/books/country-of-ghosts.webp"
+      }
+    ]
   },
   {
-    "date": "2022-03",
-    "title": "A Country of Ghosts",
-    "url": "https://app.thestorygraph.com/books/aa485e4b-2a2d-4547-9451-52d4e77e23c5",
-    "author": "Margaret Killjoy"
-  },
-  {
-    "date": "2021-11",
     "year": 2021,
-    "title": "The Final Day",
-    "url": "https://app.thestorygraph.com/books/ba5b3116-6f3f-4076-b542-3a79bbd9383e",
-    "author": "William R. Forstchen"
+    "books": [
+      {
+        "date": "2021-11",
+        "title": "The Final Day",
+        "url": "https://app.thestorygraph.com/books/ba5b3116-6f3f-4076-b542-3a79bbd9383e",
+        "author": "William R. Forstchen",
+        "img": "https://stuff.tylergaw.com/books/the-final-day.webp"
+      },
+      {
+        "date": "2021-10",
+        "title": "One Year After",
+        "url": "https://app.thestorygraph.com/books/d3c2ceb1-e58b-4889-b224-299c1c10f73e",
+        "author": "William R. Forstchen",
+        "img": "https://stuff.tylergaw.com/books/one-year-after.webp"
+      },
+      {
+        "date": "2021-08",
+        "title": "One Second After",
+        "url": "https://app.thestorygraph.com/books/a4328bbd-5400-4bb6-8954-27472b022fa1",
+        "author": "William R. Forstchen",
+        "img": "https://stuff.tylergaw.com/books/one-second-after.webp"
+      },
+      {
+        "date": "2021-05",
+        "title": "Resilient Management",
+        "url": "https://app.thestorygraph.com/books/02cafeb9-a754-42cb-bf0d-0c3a3393290f",
+        "author": "Lara Hogan",
+        "img": "https://stuff.tylergaw.com/books/resilient-mgmt.webp"
+      },
+      {
+        "date": "2021-02",
+        "title": "The Plaza: The Secret Life of America's Most Famous Hotel",
+        "url": "https://app.thestorygraph.com/books/53ef7478-8b67-4c22-b6b4-2fae5428ab92",
+        "author": "Julie Satow",
+        "img": "https://stuff.tylergaw.com/books/plaza.webp"
+      }
+    ]
   },
   {
-    "date": "2021-10",
-    "title": "One Year After",
-    "url": "https://app.thestorygraph.com/books/d3c2ceb1-e58b-4889-b224-299c1c10f73e",
-    "author": "William R. Forstchen"
-  },
-  {
-    "date": "2021-08",
-    "title": "One Second After",
-    "url": "https://app.thestorygraph.com/books/a4328bbd-5400-4bb6-8954-27472b022fa1",
-    "author": "William R. Forstchen"
-  },
-  {
-    "date": "2021-05",
-    "title": "Resilient Management",
-    "url": "https://app.thestorygraph.com/books/02cafeb9-a754-42cb-bf0d-0c3a3393290f",
-    "author": "Lara Hogan"
-  },
-  {
-    "date": "2021-02",
-    "title": "The Plaza: The Secret Life of America's Most Famous Hotel",
-    "url": "https://app.thestorygraph.com/books/53ef7478-8b67-4c22-b6b4-2fae5428ab92",
-    "author": "Julie Satow"
-  },
-  {
-    "date": "2020-12",
     "year": 2020,
-    "title": "We Were Eight Years in Power: An American Tragedy",
-    "url": "https://app.thestorygraph.com/books/840b1ecd-58e3-4001-9f12-ee9279477b4b",
-    "author": "Ta-Nehisi Coates"
+    "books": [
+      {
+        "date": "2020-12",
+        "title": "We Were Eight Years in Power: An American Tragedy",
+        "url": "https://app.thestorygraph.com/books/840b1ecd-58e3-4001-9f12-ee9279477b4b",
+        "author": "Ta-Nehisi Coates",
+        "img": "https://stuff.tylergaw.com/books/eight-years-in-power.webp"
+      },
+      {
+        "date": "2020-07",
+        "title": "The Memory Police",
+        "url": "https://app.thestorygraph.com/books/a6d471b1-d6a3-4cf0-85b5-65d788954a57",
+        "author": "Yōko Ogawa",
+        "img": "https://stuff.tylergaw.com/books/memory-police.webp"
+      },
+      {
+        "date": "2020-03",
+        "title": "Networks of New York",
+        "url": "https://app.thestorygraph.com/books/372a92a4-a6cf-4821-8bef-55aeb52271a3",
+        "author": "Ingrid Burrington",
+        "img": "https://stuff.tylergaw.com/books/missing.webp"
+      },
+      {
+        "date": "2020-01",
+        "title": "Super Pumped",
+        "url": "https://app.thestorygraph.com/books/942415b0-eafc-4f98-a75e-869303c421d1",
+        "author": "Mike Isaac",
+        "img": "https://stuff.tylergaw.com/books/super-pumped.webp"
+      }
+    ]
   },
   {
-    "date": "2020-07",
-    "title": "The Memory Police",
-    "url": "https://app.thestorygraph.com/books/a6d471b1-d6a3-4cf0-85b5-65d788954a57",
-    "author": "Yōko Ogawa"
-  },
-  {
-    "date": "2020-03",
-    "title": "Networks of New York",
-    "url": "https://app.thestorygraph.com/books/372a92a4-a6cf-4821-8bef-55aeb52271a3",
-    "author": "Ingrid Burrington"
-  },
-  {
-    "date": "2020-01",
-    "title": "Super Pumped",
-    "url": "https://app.thestorygraph.com/books/942415b0-eafc-4f98-a75e-869303c421d1",
-    "author": "Mike Isaac"
-  },
-  {
-    "date": "2019-09",
     "year": 2019,
-    "title": "Hunger",
-    "url": "https://app.thestorygraph.com/books/e94b51ba-188d-4f69-aab0-135c1e4830f9",
-    "author": "Knut Hamsun"
-  },
-  {
-    "date": "2019-07",
-    "title": "The Uninhabitable Earth: Life After Warming",
-    "url": "https://app.thestorygraph.com/books/cbbe2dd2-2df5-476e-8b47-36190e3bca44",
-    "author": "David Wallace-Wells"
-  },
-  {
-    "date": "2019-05",
-    "title": "Play It As It Lays",
-    "url": "https://app.thestorygraph.com/books/c76e0fef-9fdd-4d6c-bfdb-495e4646fee5",
-    "author": "Joan Didion"
-  },
-  {
-    "date": "2019-04",
-    "title": "Bad Blood",
-    "url": "https://app.thestorygraph.com/books/45628a2e-8b46-4b09-a395-984ee27a1638",
-    "author": "John Carreyrou"
-  },
-  {
-    "date": "2019-04",
-    "title": "The Year of Magical Thinking",
-    "url": "https://app.thestorygraph.com/books/41e98516-d52e-42b0-8dd9-ee93be8534dc",
-    "author": "Joan Didion"
-  },
-  {
-    "date": "2019-02",
-    "title": "Lake Success",
-    "url": "https://app.thestorygraph.com/books/c74eaff2-bfae-40b5-94fb-3e8b09d1993d",
-    "author": "Gary Shteyngart"
+    "books": [
+      {
+        "date": "2019-09",
+        "title": "Hunger",
+        "url": "https://app.thestorygraph.com/books/e94b51ba-188d-4f69-aab0-135c1e4830f9",
+        "author": "Knut Hamsun",
+        "img": "https://stuff.tylergaw.com/books/hunger.webp"
+      },
+      {
+        "date": "2019-07",
+        "title": "The Uninhabitable Earth: Life After Warming",
+        "url": "https://app.thestorygraph.com/books/cbbe2dd2-2df5-476e-8b47-36190e3bca44",
+        "author": "David Wallace-Wells",
+        "img": "https://stuff.tylergaw.com/books/uninhabitable-earth.webp"
+      },
+      {
+        "date": "2019-05",
+        "title": "Play It As It Lays",
+        "url": "https://app.thestorygraph.com/books/c76e0fef-9fdd-4d6c-bfdb-495e4646fee5",
+        "author": "Joan Didion",
+        "img": "https://stuff.tylergaw.com/books/as-it-lays.webp"
+      },
+      {
+        "date": "2019-04",
+        "title": "Bad Blood",
+        "url": "https://app.thestorygraph.com/books/45628a2e-8b46-4b09-a395-984ee27a1638",
+        "author": "John Carreyrou",
+        "img": "https://stuff.tylergaw.com/books/bad-blood.webp"
+      },
+      {
+        "date": "2019-04",
+        "title": "The Year of Magical Thinking",
+        "url": "https://app.thestorygraph.com/books/41e98516-d52e-42b0-8dd9-ee93be8534dc",
+        "author": "Joan Didion",
+        "img": "https://stuff.tylergaw.com/books/magical-thinking.webp"
+      },
+      {
+        "date": "2019-02",
+        "title": "Lake Success",
+        "url": "https://app.thestorygraph.com/books/c74eaff2-bfae-40b5-94fb-3e8b09d1993d",
+        "author": "Gary Shteyngart",
+        "img": "https://stuff.tylergaw.com/books/lake-success.webp"
+      }
+    ]
   }
 ]

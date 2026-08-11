@@ -1,0 +1,135 @@
+<div class="hero hero--before-standard hero--offset">
+  <div class="contents hero__contents">
+    <div class="logo">
+      <img
+        src="https://stuff.tylergaw.com/projects/pezzos/pezzos-logo-icon-lockup.webp"
+        width="226"
+        height="113"
+        fetchpriority="high"
+        alt="The Pezzos app icon, a white squircle with a green circle, triangle, and square on it, to the left of the Pezzos wordmark."
+      />
+    </div>
+    <div class="graphics">
+      <pezzos-hero-pieces></pezzos-hero-pieces>
+    </div>
+  </div>
+</div>
+
+<style webc:scoped>
+  .hero::before {
+    background-color: var(--color-accent-primary);
+    height: var(--h, 100%);
+    top: var(--t, 1rem);
+  }
+
+  .contents {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.25rem;
+  }
+
+  .logo {
+    align-items: center;
+    display: flex;
+    flex: 1 1 100%;
+    justify-content: center;
+    min-width: 0;
+    order: 1;
+    padding: 1rem;
+
+    img {
+      height: auto;
+      max-width: 160px;
+    }
+  }
+
+  .graphics {
+    flex: 1 1 100%;
+    overflow: hidden;
+    max-height: var(--max-h, 50dvh);
+    padding-left: var(--pl, 0.5rem);
+    padding-right: var(--pr, 0.5rem);
+    padding-top: var(--pt, 0.75rem);
+  }
+
+  pezzos-hero-pieces {
+    --piece-size: 50px;
+    --col-gap: 40px;
+    --row-gap: 40px;
+  }
+
+  @media (min-width: 480px) {
+    pezzos-hero-pieces {
+      --piece-size: 80px;
+      --col-gap: 48px;
+      --row-gap: 48px;
+    }
+  }
+
+  @media (min-width: 620px) {
+    .hero::before {
+      --h: calc(100% - 2rem);
+      --t: 0.25rem;
+      transform: skew(0, 0.75deg);
+    }
+
+    .contents {
+      flex-direction: row;
+      row-gap: initial;
+    }
+
+    .logo {
+      flex-basis: 50%;
+      max-width: var(--g-max-3);
+      order: initial;
+    }
+
+    .graphics {
+      flex-basis: 70%;
+      --max-h: 68dvh;
+      --pt: 0.5rem;
+      --pr: 0.75rem;
+    }
+
+    pezzos-hero-pieces {
+      --row-gap: 56px;
+    }
+  }
+
+  @media (min-width: 840px) {
+    .logo {
+      flex-basis: 30%;
+    }
+
+    .graphics {
+      --max-h: 88dvh;
+    }
+
+    pezzos-hero-pieces {
+      --col-gap: 50px;
+    }
+  }
+
+  @media (min-width: 1040px) {
+    pezzos-hero-pieces {
+      --piece-size: 116px;
+    }
+  }
+
+  @media (min-width: 1140px) {
+    .logo img {
+      max-width: 100%;
+    }
+  }
+
+  @media (min-width: 1790px) {
+    .logo {
+      flex-basis: 40%;
+      max-width: var(--g-max-5);
+    }
+
+    .graphics {
+      flex-basis: 60%;
+    }
+  }
+</style>
