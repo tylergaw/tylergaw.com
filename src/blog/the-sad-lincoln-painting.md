@@ -2,7 +2,7 @@
 tags: post
 layout: "layouts/article.njk"
 title: The Sad Lincoln Painting
-date: "2026-08-12"
+date: "2026-08-21"
 meta:
   description: One where I write about a painting of honest Abe.
   image: /blog/assets/post-image-sad-lincoln-painting.jpg
